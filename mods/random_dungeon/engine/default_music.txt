@@ -1,0 +1,4 @@
+# Music that plays during major menus (Title, Config, Load Game, character creation, etc)
+# Anguish by Kevin MacLeod (incompetech.com), CC BY 3.0 -- see README credits.
+
+music=music/anguish.ogg

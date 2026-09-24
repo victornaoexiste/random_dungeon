@@ -1,0 +1,75 @@
+/*
+Copyright © 2011-2012 Clint Bellanger
+Copyright © 2014 Henrik Andersson
+Copyright © 2012-2015 Justin Jacobs
+
+This file is part of FLARE.
+
+FLARE is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+FLARE is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+FLARE.  If not, see http://www.gnu.org/licenses/
+*/
+
+#ifndef GAMESTATETITLE_H
+#define GAMESTATETITLE_H
+
+#include "GameState.h"
+#include "Widget.h"
+
+class WidgetButton;
+class WidgetLabel;
+class MenuConfirm;
+
+class GameStateTitle : public GameState {
+private:
+	enum {
+		PROMPT_SELECT_MODS_OK = 0,
+		PROMPT_SELECT_MODS_CANCEL = 1,
+	};
+	enum {
+		PROMPT_SELECT_MOUSEMOVE_NO = 0,
+		PROMPT_SELECT_MOUSEMOVE_YES = 1,
+	};
+
+	void refreshWidgets();
+
+	Sprite *logo;
+	WidgetButton *button_play;
+	WidgetButton *button_exit;
+	WidgetButton *button_cfg;
+	WidgetButton *button_credits;
+	WidgetButton *button_multiplayer;
+	WidgetLabel *label_version;
+	MenuConfirm *menu_language;
+	MenuConfirm *menu_movement_type;
+	MenuConfirm *prompt_select_mods; // Nag dialogue when core mod is not selected
+
+	TabList tablist;
+
+	Point pos_logo;
+	int align_logo;
+
+	unsigned int language_id;
+	std::vector<std::string> language_ISO;
+
+public:
+	GameStateTitle();
+	~GameStateTitle();
+	void logic();
+	void render();
+
+	// switch
+	bool exit_game;
+	bool load_game;
+
+};
+
+#endif
+

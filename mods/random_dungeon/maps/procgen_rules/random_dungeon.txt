@@ -1,0 +1,15 @@
+INCLUDE maps/procgen_rules/iron_labyrinth.txt
+
+[settings]
+doors_max=1
+door_spacing_min=1
+main_path_length_min=3
+main_path_length_max=6
+main_path_attempts_max=1000
+branch_length_min=1
+branch_length_max=2
+branches_per_door_level_max=1
+
+[chunks]
+filename=maps/iron_labyrinth/f1/start.txt
+filename=maps/iron_labyrinth/f1/end.txt

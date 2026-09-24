@@ -1,0 +1,3 @@
+# Override do misc.txt do default/fantasycore, só pra renomear o jogo.
+
+window_title=Random Dungeon

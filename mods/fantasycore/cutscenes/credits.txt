@@ -1,0 +1,3 @@
+INCLUDE cutscenes/credits_fantasycore.txt
+INCLUDE cutscenes/credits_engine.txt
+

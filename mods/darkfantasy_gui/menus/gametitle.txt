@@ -1,0 +1,6 @@
+# Menu principal: logo + 3 botoes centralizados. So o que o jogo tem.
+logo=images/menus/df_logo.png,0,-250,center
+
+play_pos=0,-20,center
+multiplayer_pos=0,54,center
+config_pos=0,128,center

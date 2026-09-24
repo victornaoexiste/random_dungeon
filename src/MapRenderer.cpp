@@ -1,0 +1,1783 @@
+/*
+Copyright © 2011-2012 Clint Bellanger
+Copyright © 2012 Stefan Beller
+Copyright © 2013-2014 Henrik Andersson
+Copyright © 2013 Kurt Rinnert
+Copyright © 2012-2016 Justin Jacobs
+
+This file is part of FLARE.
+
+FLARE is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+FLARE is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+FLARE.  If not, see http://www.gnu.org/licenses/
+*/
+
+#include "Avatar.h"
+#include "Camera.h"
+#include "CampaignManager.h"
+#include "CombatText.h"
+#include "CommonIncludes.h"
+#include "CursorManager.h"
+#include "EnemyGroupManager.h"
+#include "Entity.h"
+#include "EntityBehavior.h"
+#include "EntityManager.h"
+#include "EngineSettings.h"
+#include "EventManager.h"
+#include "FogOfWar.h"
+#include "FontEngine.h"
+#include "Hazard.h"
+#include "HazardManager.h"
+#include "InputState.h"
+#include "MapRenderer.h"
+#include "MenuDevConsole.h"
+#include "MenuManager.h"
+#include "MessageEngine.h"
+#include "NPC.h"
+#include "NPCManager.h"
+#include "PowerManager.h"
+#include "RenderDevice.h"
+#include "Settings.h"
+#include "SharedGameResources.h"
+#include "SharedResources.h"
+#include "SoundManager.h"
+#include "StatBlock.h"
+#include "TooltipManager.h"
+#include "Utils.h"
+#include "UtilsFileSystem.h"
+#include "UtilsMath.h"
+#include "WidgetTooltip.h"
+
+#include <stdint.h>
+#include <limits>
+#include <math.h>
+
+MapRenderer::MapRenderer()
+	: Map()
+	, tip(new WidgetTooltip())
+	, tip_pos()
+	, show_tooltip(false)
+	, drawn_hero(false)
+	, cam()
+	, map_change(false)
+	, teleportation(false)
+	, teleport_destination()
+	, teleport_destination_id(0)
+	, respawn_point()
+	, cutscene(false)
+	, cutscene_file("")
+	, stash(false)
+	, stash_pos()
+	, enemies_cleared(false)
+	, save_game(false)
+	, npc_id(-1)
+	, show_book("")
+	, index_objectlayer(0)
+	, is_spawn_map(false)
+{
+}
+
+void MapRenderer::clearObjects() {
+	Map::clearEntities();
+	loot.clear();
+}
+
+bool MapRenderer::enemyGroupPlaceEnemy(float x, float y, const Map_Group &g) {
+	if (collider.isValidPosition(x, y, MapCollision::MOVE_NORMAL, MapCollision::COLLIDE_TYPE_NONE)) {
+		Enemy_Level enemy_lev = enemyg->getRandomEnemy(g.category, g.levelmin, g.levelmax);
+		if (!enemy_lev.type.empty()) {
+			Map_Enemy group_member = Map_Enemy(enemy_lev.type, FPoint(x, y));
+
+			group_member.direction = (g.direction == -1 ? rand() % 8 : g.direction);
+			group_member.wander_radius = g.wander_radius;
+			group_member.requirements = g.requirements;
+			group_member.invincible_requirements = g.invincible_requirements;
+
+			if (g.area.x == 1 && g.area.y == 1) {
+				// this is a single enemy
+				for (size_t i = 0; i < g.waypoints.size(); ++i) {
+					group_member.waypoints.push(g.waypoints[i]);
+				}
+			}
+
+			group_member.spawn_level = g.spawn_level;
+
+			enemies.push(group_member);
+		}
+		return true;
+	}
+	return false;
+}
+
+void MapRenderer::pushEnemyGroup(Map_Group &g) {
+	// activate at all?
+	if (!Math::percentChanceF(g.chance)) {
+		return;
+	}
+
+	// The algorithm tries to place the enemies at random locations.
+	// However if a location is not possible (unwalkable or there is already an entity),
+	// then try again.
+	// This could result in an infinite loop if there were more enemies than
+	// actual places, so have an upper bound of tries.
+
+	// random number of enemies
+	int enemies_to_spawn = Math::randBetween(g.numbermin, g.numbermax);
+
+	// pick an upper bound, which is definitely larger than threetimes the enemy number to spawn.
+	int allowed_misses = 5 * g.numbermax;
+
+	while (enemies_to_spawn > 0 && allowed_misses > 0) {
+
+		float x = (g.area.x == 0) ? (static_cast<float>(g.pos.x) + 0.5f) : (static_cast<float>(g.pos.x + (rand() % g.area.x))) + 0.5f;
+		float y = (g.area.y == 0) ? (static_cast<float>(g.pos.y) + 0.5f) : (static_cast<float>(g.pos.y + (rand() % g.area.y))) + 0.5f;
+
+		if (enemyGroupPlaceEnemy(x, y, g))
+			enemies_to_spawn--;
+		else
+			allowed_misses--;
+	}
+	if (enemies_to_spawn > 0) {
+		// now that the fast method of spawning enemies doesn't work, but we
+		// still have enemies to place, do not place them randomly, but at the
+		// first free spot
+		for (int x = g.pos.x; x < g.pos.x + g.area.x && enemies_to_spawn > 0; x++) {
+			for (int y = g.pos.y; y < g.pos.y + g.area.y && enemies_to_spawn > 0; y++) {
+				float xpos = static_cast<float>(x) + 0.5f;
+				float ypos = static_cast<float>(y) + 0.5f;
+				if (enemyGroupPlaceEnemy(xpos, ypos, g))
+					enemies_to_spawn--;
+			}
+		}
+
+	}
+	if (enemies_to_spawn > 0) {
+		Utils::logError("MapRenderer: Could not spawn all enemies in group at %s (x=%d,y=%d,w=%d,h=%d), %d missing (min=%d max=%d)",
+				filename.c_str(), g.pos.x, g.pos.y, g.area.x, g.area.y, enemies_to_spawn, g.numbermin, g.numbermax);
+	}
+}
+
+/**
+ * No guarantee that maps will use all layers
+ * Clear all tile layers (e.g. when loading a map)
+ */
+void MapRenderer::clearLayers() {
+	Map::clearLayers();
+	index_objectlayer = 0;
+}
+
+int MapRenderer::load(const std::string& fname) {
+	// unload sounds
+	snd->reset();
+	while (!sids.empty()) {
+		snd->unload(sids.back());
+		sids.pop_back();
+	}
+
+	// clear enemy spawn queue
+	while (!powers->map_enemies.empty()) {
+		powers->map_enemies.pop();
+	}
+
+	// clear combat text
+	comb->clear();
+
+	show_tooltip = false;
+	is_spawn_map = (fname == "maps/spawn.txt");
+
+	Map::load(fname);
+
+	loadMusic();
+
+	for (unsigned i = 0; i < layers.size(); ++i) {
+		if (layernames[i] == "collision") {
+			short width = static_cast<short>(layers[i].size());
+			if (width == 0) {
+				Utils::logError("MapRenderer: Map width is 0. Can't set collision layer.");
+				break;
+			}
+			short height = static_cast<short>(layers[i][0].size());
+			collider.setMap(layers[i], width, height);
+			removeLayer(i);
+		}
+	}
+	for (unsigned i = 0; i < layers.size(); ++i)
+		if (layernames[i] == "object")
+			index_objectlayer = i;
+	if (fogofwar) {
+		for (unsigned short i = 0; i < layers.size(); ++i) {
+			if (layernames[i] == "fow_dark")
+				fow->dark_layer_id = i;
+			if (layernames[i] == "fow_fog")
+				fow->fog_layer_id = i;
+		}
+	}
+
+	for (size_t i = 0; i < enemy_groups.size(); ++i) {
+		pushEnemyGroup(enemy_groups[i]);
+	}
+
+	tset.load(this->tileset);
+
+	std::vector<unsigned> corrupted;
+	for (unsigned i = 0; i < layers.size(); ++i) {
+		for (unsigned x = 0; x < layers[i].size(); ++x) {
+			for (unsigned y = 0; y < layers[i][x].size(); ++y) {
+				const unsigned tile_id = layers[i][x][y];
+				TileSet* tile_set = &tset;
+
+				if (fogofwar == FogOfWar::TYPE_OVERLAY) {
+					if (i == fow->dark_layer_id) tile_set = &fow->tset_dark;
+					if (i == fow->fog_layer_id) tile_set = &fow->tset_fog;
+			    }
+			    if (fogofwar)
+					if (i == fow->dark_layer_id || i == fow->fog_layer_id)
+						continue;
+
+				if (tile_id > 0 && (tile_id >= tile_set->tiles.size() || tile_set->tiles[tile_id].tile == NULL)) {
+					if (std::find(corrupted.begin(), corrupted.end(), tile_id) == corrupted.end()) {
+						corrupted.push_back(tile_id);
+					}
+					layers[i][x][y] = 0;
+				}
+			}
+		}
+	}
+
+	if (!corrupted.empty()) {
+		Utils::logError("MapRenderer: Tileset or Map corrupted. A tile has a larger id than the tileset allows or is undefined.");
+		while (!corrupted.empty()) {
+			Utils::logError("MapRenderer: Removing offending tile id %d.", corrupted.back());
+			corrupted.pop_back();
+		}
+	}
+
+	setMapParallax(parallax_filename);
+
+	render_device->setBackgroundColor(background_color);
+
+	drawn_tiles = Map_Layer(w, std::vector<unsigned short>(h, 0));
+
+	return 0;
+}
+
+void MapRenderer::loadMusic() {
+	if (!settings->audio) return;
+
+	if (settings->music_volume > 0) {
+		// load and play music
+		snd->loadMusic(music_filename);
+	}
+	else {
+		snd->stopMusic();
+	}
+}
+
+void MapRenderer::logic(bool paused) {
+	if (fogofwar) {
+		fow->logic();
+	}
+
+	// handle tile set logic e.g. animations
+	tset.logic();
+	if (fogofwar == FogOfWar::TYPE_OVERLAY) {
+		fow->tset_dark.logic();
+		fow->tset_fog.logic();
+	}
+
+	// TODO there's a bit too much "logic" here for a class that's supposed to be dedicated to rendering
+	// some of these timers should be moved out at some point
+	if (paused)
+		return;
+
+	// handle statblock logic for map powers
+	for (unsigned i=0; i<statblocks.size(); ++i) {
+		for (size_t j=0; j<statblocks[i].powers_ai.size(); ++j) {
+			statblocks[i].powers_ai[j].cooldown.tick();
+		}
+	}
+
+	// handle event cooldowns
+	std::vector<Event>::iterator it;
+	for (it = events.begin(); it < events.end(); ++it) {
+		if (!it->delay.isEnd())
+			it->delay.tick();
+		else
+			it->cooldown.tick();
+	}
+
+	// handle delayed events
+	for (it = delayed_events.end(); it != delayed_events.begin(); ) {
+		--it;
+
+		it->delay.tick();
+
+		if (it->delay.isEnd()) {
+			eventm->executeDelayedEvent(*it);
+			it = delayed_events.erase(it);
+		}
+	}
+
+	cam.logic();
+}
+
+bool priocompare(const Renderable &r1, const Renderable &r2) {
+	return r1.prio < r2.prio;
+}
+
+/**
+ * Sort in the same order as the tiles are drawn
+ * Depends upon the map implementation
+ */
+void calculatePriosIso(std::vector<Renderable> &r) {
+	for (std::vector<Renderable>::iterator it = r.begin(); it != r.end(); ++it) {
+		const unsigned tilex = static_cast<unsigned>(floorf(it->map_pos.x));
+		const unsigned tiley = static_cast<unsigned>(floorf(it->map_pos.y));
+		const int commax = static_cast<int>((it->map_pos.x - static_cast<float>(tilex)) * (1<<10));
+		const int commay = static_cast<int>((it->map_pos.y - static_cast<float>(tiley)) * (1<<10));
+		it->prio += (static_cast<uint64_t>(tilex + tiley) << 37) + (static_cast<uint64_t>(tilex) << 20) + (static_cast<uint64_t>(commax + commay) << 8);
+	}
+}
+
+void calculatePriosOrtho(std::vector<Renderable> &r) {
+	for (std::vector<Renderable>::iterator it = r.begin(); it != r.end(); ++it) {
+		const unsigned tilex = static_cast<unsigned>(floorf(it->map_pos.x));
+		const unsigned tiley = static_cast<unsigned>(floorf(it->map_pos.y));
+		const int commay = static_cast<int>(it->map_pos.y * (1<<10));
+		it->prio += (static_cast<uint64_t>(tiley) << 37) + (static_cast<uint64_t>(tilex) << 20) + (static_cast<uint64_t>(commay) << 8);
+	}
+}
+
+void MapRenderer::render(std::vector<Renderable> &r, std::vector<Renderable> &r_dead) {
+	drawn_hero = false;
+
+	map_parallax.render(cam.shake, "");
+
+	hero_bounds = Rect();
+	for (size_t i = 0; i < r.size(); ++i) {
+		if (r[i].type == Renderable::TYPE_HERO) {
+			Point p = Utils::mapToScreen(r[i].map_pos.x, r[i].map_pos.y, cam.shake.x, cam.shake.y);
+			p.x -= r[i].offset.x;
+			p.y -= r[i].offset.y;
+			Rect r_clip = r[i].src;
+
+			if (p.x < hero_bounds.x || hero_bounds.w == 0) {
+				hero_bounds.x = p.x;
+			}
+			if (p.x + r_clip.w > hero_bounds.x + hero_bounds.w || hero_bounds.w == 0) {
+				hero_bounds.w = p.x + r_clip.w - hero_bounds.x;
+			}
+			if (p.y < hero_bounds.y || hero_bounds.h == 0) {
+				hero_bounds.y = p.y;
+			}
+			if (p.y + r_clip.h > hero_bounds.y + hero_bounds.w || hero_bounds.h == 0) {
+				hero_bounds.h = p.y + r_clip.h - hero_bounds.y;
+			}
+		}
+	}
+
+	if (eset->tileset.orientation == eset->tileset.TILESET_ORTHOGONAL) {
+		calculatePriosOrtho(r);
+		calculatePriosOrtho(r_dead);
+		std::sort(r.begin(), r.end(), priocompare);
+		std::sort(r_dead.begin(), r_dead.end(), priocompare);
+		renderOrtho(r, r_dead);
+	}
+	else {
+		calculatePriosIso(r);
+		calculatePriosIso(r_dead);
+		std::sort(r.begin(), r.end(), priocompare);
+		std::sort(r_dead.begin(), r_dead.end(), priocompare);
+		renderIso(r, r_dead);
+	}
+}
+
+void MapRenderer::drawRenderable(std::vector<Renderable>::iterator r_cursor) {
+	if (r_cursor->image != NULL) {
+		Rect dest;
+		Point p = Utils::mapToScreen(r_cursor->map_pos.x, r_cursor->map_pos.y, cam.shake.x, cam.shake.y);
+		dest.x = p.x - r_cursor->offset.x;
+		dest.y = p.y - r_cursor->offset.y;
+		render_device->render(*r_cursor, dest);
+
+		if (r_cursor->type == Renderable::TYPE_HERO) {
+			drawn_hero = true;
+		}
+	}
+}
+
+void MapRenderer::renderIsoLayer(const Map_Layer& layerdata, const TileSet& tile_set) {
+	int_fast16_t i; // first index of the map array
+	int_fast16_t j; // second index of the map array
+	Point dest;
+	const Point upperleft(Utils::screenToMap(0, 0, cam.shake.x, cam.shake.y));
+	const int_fast16_t max_tiles_width =   static_cast<int_fast16_t>((settings->view_w / eset->tileset.tile_w) + 2*tset.max_size_x);
+	const int_fast16_t max_tiles_height = static_cast<int_fast16_t>((2 * settings->view_h / eset->tileset.tile_h) + 2*(tset.max_size_y+1));
+
+	j = static_cast<int_fast16_t>(upperleft.y - tset.max_size_y/2 + tset.max_size_x);
+	i = static_cast<int_fast16_t>(upperleft.x - tset.max_size_y/2 - tset.max_size_x);
+
+	for (uint_fast16_t y = max_tiles_height ; y; --y) {
+		int_fast16_t tiles_width = 0;
+
+		// make sure the isometric corners are not rendered:
+		// corner north west, upper left  (i < 0)
+		if (i < -1) {
+			j = static_cast<int_fast16_t>(j + i + 1);
+			tiles_width = static_cast<int_fast16_t>(tiles_width - (i + 1));
+			i = -1;
+		}
+		// corner north east, upper right (j > mapheight)
+		const int_fast16_t d = static_cast<int_fast16_t>(j - h);
+		if (d >= 0) {
+			j = static_cast<int_fast16_t>(j - d);
+			tiles_width = static_cast<int_fast16_t>(tiles_width + d);
+			i = static_cast<int_fast16_t>(i + d);
+		}
+
+		// lower right (south east) corner is covered by (j+i-w+1)
+		// lower left (south west) corner is caught by having 0 in there, so j>0
+		const int_fast16_t j_end = std::max(static_cast<int_fast16_t>(j+i-w+1),	std::max(static_cast<int_fast16_t>(j - max_tiles_width), static_cast<int_fast16_t>(0)));
+
+		Point p = Utils::mapToScreen(float(i), float(j), cam.shake.x, cam.shake.y);
+		p = centerTile(p);
+
+		// draw one horizontal line
+		while (j > j_end) {
+			--j;
+			++i;
+			++tiles_width;
+			p.x += eset->tileset.tile_w;
+
+			if (const uint_fast16_t current_tile = layerdata[i][j]) {
+				const Tile_Def &tile = tile_set.tiles[current_tile];
+				if (tile.tile) {
+					dest.x = p.x - tile.offset.x;
+					dest.y = p.y - tile.offset.y;
+
+					//skip rendering tiles that are underneath fow hidden tiles
+					if (fogofwar == FogOfWar::TYPE_OVERLAY) {
+						if (&layerdata != &layers[fow->dark_layer_id]) {
+							if (layers[fow->dark_layer_id][i][j] == FogOfWar::TILE_HIDDEN) {
+
+								//check tile's corners
+								Point t_l(Utils::screenToMap(dest.x, dest.y, cam.shake.x, cam.shake.y));
+								Point t_r(Utils::screenToMap(dest.x + tile.tile->getClip().w, dest.y, cam.shake.x, cam.shake.y));
+								Point b_l(Utils::screenToMap(dest.x, dest.y + tile.tile->getClip().h, cam.shake.x, cam.shake.y));
+								Point b_r(Utils::screenToMap(dest.x + tile.tile->getClip().w, dest.y + tile.tile->getClip().h, cam.shake.x, cam.shake.y));
+
+								//limit to map bounds
+								if (t_l.x < 0) t_l.x = 0;
+								if (t_l.x >= w) t_l.x = w-1;
+								if (t_l.y < 0) t_l.y = 0;
+								if (t_l.y >= h) t_l.y = h-1;
+
+								if (t_r.x < 0) t_r.x = 0;
+								if (t_r.x >= w) t_r.x = w-1;
+								if (t_r.y < 0) t_r.y = 0;
+								if (t_r.y >= h) t_r.y = h-1;
+
+								if (b_l.x < 0) b_l.x = 0;
+								if (b_l.x >= w) b_l.x = w-1;
+								if (b_l.y < 0) b_l.y = 0;
+								if (b_l.y >= h) b_l.y = h-1;
+
+								if (b_r.x < 0) b_r.x = 0;
+								if (b_r.x >= w) b_r.x = w-1;
+								if (b_r.y < 0) b_r.y = 0;
+								if (b_r.y >= h) b_r.y = h-1;
+
+								if (layers[fow->dark_layer_id][t_l.x][t_l.y] == FogOfWar::TILE_HIDDEN) {
+									if (layers[fow->dark_layer_id][t_r.x][t_r.y] == FogOfWar::TILE_HIDDEN) {
+										if (layers[fow->dark_layer_id][b_l.x][b_l.y] == FogOfWar::TILE_HIDDEN) {
+											if (layers[fow->dark_layer_id][b_r.x][b_r.y] == FogOfWar::TILE_HIDDEN) {
+												continue;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+					// no need to set w and h in dest, as it is ignored
+					// by SDL_BlitSurface
+					tile.tile->setDestFromPoint(dest);
+					if (fogofwar == FogOfWar::TYPE_TINT) {
+						tile.tile->color_mod = fow->getTileColorMod(i, j);
+					}
+						tile.tile->alpha_mod = 255;
+						if (settings->fade_walls && eset->misc.fade_wall_alpha < 255 && checkTileOverlappingHero(i, j, layerdata)) {
+							fadeOverlapTile(tile, i, j, layerdata);
+						}
+					render_device->render(tile.tile);
+				}
+			}
+		}
+		j = static_cast<int_fast16_t>(j + tiles_width);
+		i = static_cast<int_fast16_t>(i - tiles_width);
+		// Go one line deeper, the starting position goes zig-zag
+		if (y % 2)
+			i++;
+		else
+			j++;
+	}
+}
+
+void MapRenderer::renderIsoBackObjects(std::vector<Renderable> &r) {
+	std::vector<Renderable>::iterator it;
+	for (it = r.begin(); it != r.end(); ++it)
+		drawRenderable(it);
+}
+
+void MapRenderer::renderIsoFrontObjects(std::vector<Renderable> &r) {
+	Point dest;
+
+	const Point upperleft(Utils::screenToMap(0, 0, cam.shake.x, cam.shake.y));
+	const int_fast16_t max_tiles_width = static_cast<int_fast16_t>((settings->view_w / eset->tileset.tile_w) + 2 * tset.max_size_x);
+	const int_fast16_t max_tiles_height = static_cast<int_fast16_t>(((settings->view_h / eset->tileset.tile_h) + 2 * tset.max_size_y)*2);
+
+	std::vector<Renderable>::iterator r_cursor = r.begin();
+	std::vector<Renderable>::iterator r_end = r.end();
+
+	// object layer
+	int_fast16_t j = static_cast<int_fast16_t>(upperleft.y - tset.max_size_y + tset.max_size_x);
+	int_fast16_t i = static_cast<int_fast16_t>(upperleft.x - tset.max_size_y - tset.max_size_x);
+
+	while (r_cursor != r_end && (static_cast<int>(r_cursor->map_pos.x) + static_cast<int>(r_cursor->map_pos.y) < i + j || static_cast<int>(r_cursor->map_pos.x) < i)) // implicit floor
+		++r_cursor;
+
+	if (index_objectlayer >= layers.size())
+		return;
+
+	// these queues should always be empty at this point, so this probably isn't even needed.
+	while (!render_behind_SW.empty()) {
+		render_behind_SW.pop();
+	}
+	while (!render_behind_NE.empty()) {
+		render_behind_NE.pop();
+	}
+	while (!render_behind_none.empty()) {
+		render_behind_none.pop();
+	}
+
+	for (size_t dtw = 0; dtw < w; ++dtw) {
+		for (size_t dth = 0; dth < h; ++dth) {
+			drawn_tiles[dtw][dth] = 0;
+		}
+	}
+
+	for (uint_fast16_t y = max_tiles_height ; y; --y) {
+		int_fast16_t tiles_width = 0;
+
+		// make sure the isometric corners are not rendered:
+		if (i < -1) {
+			j = static_cast<int_fast16_t>(j + i + 1);
+			tiles_width = static_cast<int_fast16_t>(tiles_width - (i + 1));
+			i = -1;
+		}
+		const int_fast16_t d = static_cast<int_fast16_t>(j - h);
+		if (d >= 0) {
+			j = static_cast<int_fast16_t>(j - d);
+			tiles_width = static_cast<int_fast16_t>(tiles_width + d);
+			i = static_cast<int_fast16_t>(i + d);
+		}
+		const int_fast16_t j_end = std::max(static_cast<int_fast16_t>(j+i-w+1), std::max(static_cast<int_fast16_t>(j - max_tiles_width), static_cast<int_fast16_t>(0)));
+
+		// draw one horizontal line
+		Point p = Utils::mapToScreen(float(i), float(j), cam.shake.x, cam.shake.y);
+		p = centerTile(p);
+		const Map_Layer &current_layer = layers[index_objectlayer];
+		while (j > j_end) {
+			--j;
+			++i;
+			++tiles_width;
+			p.x += eset->tileset.tile_w;
+
+			bool draw_tile = true;
+
+			std::vector<Renderable>::iterator r_pre_cursor = r_cursor;
+			while (r_pre_cursor != r_end) {
+				int r_cursor_x = static_cast<int>(r_pre_cursor->map_pos.x);
+				int r_cursor_y = static_cast<int>(r_pre_cursor->map_pos.y);
+
+				if ((r_cursor_x-1 == i && r_cursor_y+1 == j) || (r_cursor_x+1 == i && r_cursor_y-1 == j)) {
+					draw_tile = false;
+					break;
+				}
+				else if (r_cursor_x+1 > i || r_cursor_y+1 > j) {
+					break;
+				}
+				++r_pre_cursor;
+			}
+
+			if (draw_tile && !drawn_tiles[i][j]) {
+				if (const uint_fast16_t current_tile = current_layer[i][j]) {
+					const Tile_Def &tile = tset.tiles[current_tile];
+					if (tile.tile) {
+						dest.x = p.x - tile.offset.x;
+						dest.y = p.y - tile.offset.y;
+						tile.tile->setDestFromPoint(dest);
+
+						//skip rendering tiles that are underneath fow hidden tiles
+						if (fogofwar == FogOfWar::TYPE_OVERLAY) {
+							if (&current_layer != &layers[fow->dark_layer_id]) {
+								if (layers[fow->dark_layer_id][i][j] == FogOfWar::TILE_HIDDEN) {
+
+									//check tile's corners
+									Point t_l(Utils::screenToMap(dest.x, dest.y, cam.shake.x, cam.shake.y));
+									Point t_r(Utils::screenToMap(dest.x + tile.tile->getClip().w, dest.y, cam.shake.x, cam.shake.y));
+									Point b_l(Utils::screenToMap(dest.x, dest.y + tile.tile->getClip().h, cam.shake.x, cam.shake.y));
+									Point b_r(Utils::screenToMap(dest.x + tile.tile->getClip().w, dest.y + tile.tile->getClip().h, cam.shake.x, cam.shake.y));
+
+									//limit to map bounds
+									if (t_l.x < 0) t_l.x = 0;
+									if (t_l.x >= w) t_l.x = w-1;
+									if (t_l.y < 0) t_l.y = 0;
+									if (t_l.y >= h) t_l.y = h-1;
+
+									if (t_r.x < 0) t_r.x = 0;
+									if (t_r.x >= w) t_r.x = w-1;
+									if (t_r.y < 0) t_r.y = 0;
+									if (t_r.y >= h) t_r.y = h-1;
+
+									if (b_l.x < 0) b_l.x = 0;
+									if (b_l.x >= w) b_l.x = w-1;
+									if (b_l.y < 0) b_l.y = 0;
+									if (b_l.y >= h) b_l.y = h-1;
+
+									if (b_r.x < 0) b_r.x = 0;
+									if (b_r.x >= w) b_r.x = w-1;
+									if (b_r.y < 0) b_r.y = 0;
+									if (b_r.y >= h) b_r.y = h-1;
+
+									if (layers[fow->dark_layer_id][t_l.x][t_l.y] == FogOfWar::TILE_HIDDEN) {
+										if (layers[fow->dark_layer_id][t_r.x][t_r.y] == FogOfWar::TILE_HIDDEN) {
+											if (layers[fow->dark_layer_id][b_l.x][b_l.y] == FogOfWar::TILE_HIDDEN) {
+												if (layers[fow->dark_layer_id][b_r.x][b_r.y] == FogOfWar::TILE_HIDDEN) {
+													continue;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+						if (fogofwar == FogOfWar::TYPE_TINT) {
+							tile.tile->color_mod = fow->getTileColorMod(i, j);
+						}
+						tile.tile->alpha_mod = 255;
+						if (settings->fade_walls && eset->misc.fade_wall_alpha < 255 && checkTileOverlappingHero(i, j, current_layer)) {
+							fadeOverlapTile(tile, i, j, current_layer);
+						}
+						render_device->render(tile.tile);
+						drawn_tiles[i][j] = 1;
+					}
+				}
+			}
+
+			if (r_cursor == r_end)
+				continue;
+
+			// some renderable entities go in this layer
+
+			// calculate south/south-west tile bounds
+			Rect tile_SW_bounds, tile_S_bounds;
+			Point tile_SW_center, tile_S_center;
+			getTileBounds(static_cast<int_fast16_t>(i-2), static_cast<int_fast16_t>(j+2), current_layer, tile_SW_bounds, tile_SW_center);
+			getTileBounds(static_cast<int_fast16_t>(i-1), static_cast<int_fast16_t>(j+2), current_layer, tile_S_bounds, tile_S_center);
+
+			// calculate east/north-east tile bounds
+			Rect tile_NE_bounds, tile_E_bounds;
+			Point tile_NE_center, tile_E_center;
+			getTileBounds(i, j, current_layer, tile_NE_bounds, tile_NE_center);
+			getTileBounds(i, static_cast<int_fast16_t>(j+1), current_layer, tile_E_bounds, tile_E_center);
+
+			bool draw_SW_tile = false;
+
+			while (r_cursor != r_end) {
+				// implicit floor by int cast
+				int r_cursor_x = static_cast<int>(r_cursor->map_pos.x);
+				int r_cursor_y = static_cast<int>(r_cursor->map_pos.y);
+
+				if (r_cursor_x+1 == i && r_cursor_y-1 == j) {
+					draw_SW_tile = true;
+
+					// r_cursor left/right side
+					Point r_cursor_left = Utils::mapToScreen(r_cursor->map_pos.x, r_cursor->map_pos.y, cam.shake.x, cam.shake.y);
+					r_cursor_left.y -= r_cursor->offset.y;
+					Point r_cursor_right = r_cursor_left;
+					r_cursor_left.x -= r_cursor->offset.x;
+					r_cursor_right.x += r_cursor->src.w - r_cursor->offset.x;
+
+					bool is_behind_SW = false;
+					bool is_behind_NE = false;
+
+					// HACK: the code here that determines if a Renderable is going to be behind the SW or NE tile does not account for entities that are made up of multiple Renderables
+					// this primarily affects the player, who is made up of several pieces of equipment. So we use the hero_bounds rect here to make sure our test encompasses the entire sprite
+					// HOWEVER, non-player characters also support multiple layers, so this "fix" is incomplete
+					if (r_cursor->type == Renderable::TYPE_HERO) {
+						r_cursor_left.x = hero_bounds.x;
+						r_cursor_left.y = hero_bounds.y + hero_bounds.h;
+
+						r_cursor_right.x = hero_bounds.x + hero_bounds.w;
+						r_cursor_right.y = hero_bounds.y + hero_bounds.h;
+					}
+
+					// check left of r_cursor
+					if (Utils::isWithinRect(tile_S_bounds, r_cursor_right) && Utils::isWithinRect(tile_SW_bounds, r_cursor_left)) {
+						is_behind_SW = true;
+					}
+
+					// check right of r_cursor
+					if (Utils::isWithinRect(tile_E_bounds, r_cursor_left) && Utils::isWithinRect(tile_NE_bounds, r_cursor_right)) {
+						is_behind_NE = true;
+					}
+
+					if (is_behind_SW)
+						render_behind_SW.push(r_cursor);
+					else if (is_behind_NE)
+						render_behind_NE.push(r_cursor);
+					else
+						render_behind_none.push(r_cursor);
+
+					++r_cursor;
+				}
+				else {
+					break;
+				}
+			}
+
+			while (!render_behind_SW.empty()) {
+				drawRenderable(render_behind_SW.front());
+				render_behind_SW.pop();
+			}
+
+			// draw the south-west tile
+			if (draw_SW_tile && i-2 >= 0 && j+2 < h && !drawn_tiles[i-2][j+2]) {
+				if (const uint_fast16_t current_tile = current_layer[i-2][j+2]) {
+					const Tile_Def &tile = tset.tiles[current_tile];
+					if (tile.tile) {
+						dest.x = tile_SW_center.x - tile.offset.x;
+						dest.y = tile_SW_center.y - tile.offset.y;
+						tile.tile->setDestFromPoint(dest);
+						if (fogofwar == FogOfWar::TYPE_TINT) {
+							tile.tile->color_mod = fow->getTileColorMod(i, j);
+						}
+						tile.tile->alpha_mod = 255;
+						if (settings->fade_walls && eset->misc.fade_wall_alpha < 255 && checkTileOverlappingHero(i-2, j+2, current_layer)) {
+							fadeOverlapTile(tile, i-2, j+2, current_layer);
+						}
+						render_device->render(tile.tile);
+						drawn_tiles[i-2][j+2] = 1;
+					}
+				}
+			}
+
+			while (!render_behind_NE.empty()) {
+				drawRenderable(render_behind_NE.front());
+				render_behind_NE.pop();
+			}
+
+			// draw the north-east tile
+			if (!draw_tile && i < w && j < h && !drawn_tiles[i][j]) {
+				if (const uint_fast16_t current_tile = current_layer[i][j]) {
+					const Tile_Def &tile = tset.tiles[current_tile];
+					if (tile.tile) {
+						dest.x = tile_NE_center.x - tile.offset.x;
+						dest.y = tile_NE_center.y - tile.offset.y;
+						tile.tile->setDestFromPoint(dest);
+						if (fogofwar == FogOfWar::TYPE_TINT) {
+							tile.tile->color_mod = fow->getTileColorMod(i, j);
+						}
+						tile.tile->alpha_mod = 255;
+						if (settings->fade_walls && eset->misc.fade_wall_alpha < 255 && checkTileOverlappingHero(i, j, current_layer)) {
+							fadeOverlapTile(tile, i, j, current_layer);
+						}
+						render_device->render(tile.tile);
+						drawn_tiles[i][j] = 1;
+					}
+				}
+			}
+
+			while (!render_behind_none.empty()) {
+				drawRenderable(render_behind_none.front());
+				render_behind_none.pop();
+			}
+		}
+		j = static_cast<int_fast16_t>(j + tiles_width);
+		i = static_cast<int_fast16_t>(i - tiles_width);
+		if (y % 2)
+			i++;
+		else
+			j++;
+
+		while (r_cursor != r_end && (static_cast<int>(r_cursor->map_pos.x) + static_cast<int>(r_cursor->map_pos.y) < i + j || static_cast<int>(r_cursor->map_pos.x) <= i)) // implicit floor by int cast
+			++r_cursor;
+	}
+}
+
+void MapRenderer::renderIso(std::vector<Renderable> &r, std::vector<Renderable> &r_dead) {
+	size_t index = 0;
+
+	while (index < index_objectlayer) {
+		renderIsoLayer(layers[index], tset);
+		map_parallax.render(cam.shake, layernames[index]);
+		index++;
+	}
+
+	renderIsoBackObjects(r_dead);
+	renderIsoFrontObjects(r);
+	map_parallax.render(cam.shake, layernames[index]);
+
+	index++;
+	while (index < layers.size()) {
+		if (fogofwar == FogOfWar::TYPE_OVERLAY) {
+			if (layernames[index] == "fow_dark") {
+				renderIsoLayer(layers[index],fow->tset_dark);
+			}
+			else if (layernames[index] == "fow_fog") {
+				renderIsoLayer(layers[index],fow->tset_fog);
+			}
+			else {
+				renderIsoLayer(layers[index], tset);
+			}
+		}
+		else if (layernames[index] != "fow_dark" && layernames[index] != "fow_fog") {
+			renderIsoLayer(layers[index], tset);
+		}
+		map_parallax.render(cam.shake, layernames[index]);
+		index++;
+	}
+
+	checkTooltip();
+
+	drawDevHUD();
+	drawDevCursor();
+}
+
+void MapRenderer::renderOrthoLayer(const Map_Layer& layerdata, const TileSet& tile_set) {
+
+	Point dest;
+	const Point upperleft(Utils::screenToMap(0, 0, cam.shake.x, cam.shake.y));
+
+	short int startj = static_cast<short int>(std::max(0, upperleft.y));
+	short int starti = static_cast<short int>(std::max(0, upperleft.x));
+	const short max_tiles_width =  std::min(w, static_cast<short unsigned int>(starti + (settings->view_w / eset->tileset.tile_w) + 2 * tset.max_size_x));
+	const short max_tiles_height = std::min(h, static_cast<short unsigned int>(startj + (settings->view_h / eset->tileset.tile_h) + 2 * tset.max_size_y));
+
+	short int i;
+	short int j;
+
+	for (j = startj; j < max_tiles_height; j++) {
+		Point p = Utils::mapToScreen(starti, j, cam.shake.x, cam.shake.y);
+		p = centerTile(p);
+		for (i = starti; i < max_tiles_width; i++) {
+
+			if (const unsigned short current_tile = layerdata[i][j]) {
+				const Tile_Def &tile = tile_set.tiles[current_tile];
+				if (tile.tile) {
+					dest.x = p.x - tile.offset.x;
+					dest.y = p.y - tile.offset.y;
+
+					bool skip_tile_render = false;
+
+					//skip rendering tiles that are underneath fow hidden tiles
+					if (fogofwar == FogOfWar::TYPE_OVERLAY) {
+						if (&layerdata != &layers[fow->dark_layer_id]) {
+							if (layers[fow->dark_layer_id][i][j] == FogOfWar::TILE_HIDDEN) {
+
+								//check tile's corners
+								Point t_l(Utils::screenToMap(dest.x, dest.y, cam.shake.x, cam.shake.y));
+								Point t_r(Utils::screenToMap(dest.x + tile.tile->getClip().w, dest.y, cam.shake.x, cam.shake.y));
+								Point b_l(Utils::screenToMap(dest.x, dest.y + tile.tile->getClip().h, cam.shake.x, cam.shake.y));
+								Point b_r(Utils::screenToMap(dest.x + tile.tile->getClip().w, dest.y + tile.tile->getClip().h, cam.shake.x, cam.shake.y));
+
+								//limit to map bounds
+								if (t_l.x < 0) t_l.x = 0;
+								if (t_l.x >= w) t_l.x = w-1;
+								if (t_l.y < 0) t_l.y = 0;
+								if (t_l.y >= h) t_l.y = h-1;
+
+								if (t_r.x < 0) t_r.x = 0;
+								if (t_r.x >= w) t_r.x = w-1;
+								if (t_r.y < 0) t_r.y = 0;
+								if (t_r.y >= h) t_r.y = h-1;
+
+								if (b_l.x < 0) b_l.x = 0;
+								if (b_l.x >= w) b_l.x = w-1;
+								if (b_l.y < 0) b_l.y = 0;
+								if (b_l.y >= h) b_l.y = h-1;
+
+								if (b_r.x < 0) b_r.x = 0;
+								if (b_r.x >= w) b_r.x = w-1;
+								if (b_r.y < 0) b_r.y = 0;
+								if (b_r.y >= h) b_r.y = h-1;
+
+								if (layers[fow->dark_layer_id][t_l.x][t_l.y] == FogOfWar::TILE_HIDDEN) {
+									if (layers[fow->dark_layer_id][t_r.x][t_r.y] == FogOfWar::TILE_HIDDEN) {
+										if (layers[fow->dark_layer_id][b_l.x][b_l.y] == FogOfWar::TILE_HIDDEN) {
+											if (layers[fow->dark_layer_id][b_r.x][b_r.y] == FogOfWar::TILE_HIDDEN) {
+												skip_tile_render = true;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+					tile.tile->setDestFromPoint(dest);
+					if (!skip_tile_render) {
+						if (fogofwar == FogOfWar::TYPE_TINT) {
+							tile.tile->color_mod = fow->getTileColorMod(i, j);
+						}
+						tile.tile->alpha_mod = 255;
+						if (settings->fade_walls && eset->misc.fade_wall_alpha < 255 && checkTileOverlappingHero(i, j, layerdata)) {
+							fadeOverlapTile(tile, i, j, layerdata);
+						}
+						render_device->render(tile.tile);
+					}
+				}
+			}
+			p.x += eset->tileset.tile_w;
+		}
+	}
+}
+
+void MapRenderer::renderOrthoBackObjects(std::vector<Renderable> &r) {
+	// some renderables are drawn above the background and below the objects
+	std::vector<Renderable>::iterator it;
+	for (it = r.begin(); it != r.end(); ++it)
+		drawRenderable(it);
+}
+
+void MapRenderer::renderOrthoFrontObjects(std::vector<Renderable> &r) {
+
+	short int i;
+	short int j;
+	Point dest;
+	std::vector<Renderable>::iterator r_cursor = r.begin();
+	std::vector<Renderable>::iterator r_end = r.end();
+
+	const Point upperleft(Utils::screenToMap(0, 0, cam.shake.x, cam.shake.y));
+
+	short int startj = static_cast<short int>(std::max(0, upperleft.y));
+	short int starti = static_cast<short int>(std::max(0, upperleft.x));
+	const short max_tiles_width  = std::min(w, static_cast<short unsigned int>(starti + (settings->view_w / eset->tileset.tile_w) + 2 * tset.max_size_x));
+	const short max_tiles_height = std::min(h, static_cast<short unsigned int>(startj + (settings->view_h / eset->tileset.tile_h) + 2 * tset.max_size_y));
+
+	while (r_cursor != r_end && static_cast<int>(r_cursor->map_pos.y) < startj)
+		++r_cursor;
+
+	if (index_objectlayer >= layers.size())
+		return;
+
+	for (j = startj; j < max_tiles_height; j++) {
+		Point p = Utils::mapToScreen(starti, j, cam.shake.x, cam.shake.y);
+		p = centerTile(p);
+		for (i = starti; i<max_tiles_width; i++) {
+
+			if (const unsigned short current_tile = layers[index_objectlayer][i][j]) {
+				const Tile_Def &tile = tset.tiles[current_tile];
+				if (tile.tile) {
+					dest.x = p.x - tile.offset.x;
+					dest.y = p.y - tile.offset.y;
+					tile.tile->setDestFromPoint(dest);
+
+					bool skip_tile_render = false;
+
+					//skip rendering tiles that are underneath fow hidden tiles
+					if (fogofwar == FogOfWar::TYPE_OVERLAY) {
+						if (&layers[index_objectlayer] != &layers[fow->dark_layer_id]) {
+							if (layers[fow->dark_layer_id][i][j] == FogOfWar::TILE_HIDDEN) {
+
+								//check tile's corners
+								Point t_l(Utils::screenToMap(dest.x, dest.y, cam.shake.x, cam.shake.y));
+								Point t_r(Utils::screenToMap(dest.x + tile.tile->getClip().w, dest.y, cam.shake.x, cam.shake.y));
+								Point b_l(Utils::screenToMap(dest.x, dest.y + tile.tile->getClip().h, cam.shake.x, cam.shake.y));
+								Point b_r(Utils::screenToMap(dest.x + tile.tile->getClip().w, dest.y + tile.tile->getClip().h, cam.shake.x, cam.shake.y));
+
+								//limit to map bounds
+								if (t_l.x < 0) t_l.x = 0;
+								if (t_l.x >= w) t_l.x = w-1;
+								if (t_l.y < 0) t_l.y = 0;
+								if (t_l.y >= h) t_l.y = h-1;
+
+								if (t_r.x < 0) t_r.x = 0;
+								if (t_r.x >= w) t_r.x = w-1;
+								if (t_r.y < 0) t_r.y = 0;
+								if (t_r.y >= h) t_r.y = h-1;
+
+								if (b_l.x < 0) b_l.x = 0;
+								if (b_l.x >= w) b_l.x = w-1;
+								if (b_l.y < 0) b_l.y = 0;
+								if (b_l.y >= h) b_l.y = h-1;
+
+								if (b_r.x < 0) b_r.x = 0;
+								if (b_r.x >= w) b_r.x = w-1;
+								if (b_r.y < 0) b_r.y = 0;
+								if (b_r.y >= h) b_r.y = h-1;
+
+								if (layers[fow->dark_layer_id][t_l.x][t_l.y] == FogOfWar::TILE_HIDDEN) {
+									if (layers[fow->dark_layer_id][t_r.x][t_r.y] == FogOfWar::TILE_HIDDEN) {
+										if (layers[fow->dark_layer_id][b_l.x][b_l.y] == FogOfWar::TILE_HIDDEN) {
+											if (layers[fow->dark_layer_id][b_r.x][b_r.y] == FogOfWar::TILE_HIDDEN) {
+												skip_tile_render = true;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+					if (!skip_tile_render) {
+						if (fogofwar == FogOfWar::TYPE_TINT) {
+							tile.tile->color_mod = fow->getTileColorMod(i, j);
+						}
+						tile.tile->alpha_mod = 255;
+						if (settings->fade_walls && eset->misc.fade_wall_alpha < 255 && checkTileOverlappingHero(i, j, layers[index_objectlayer])) {
+							fadeOverlapTile(tile, i, j, layers[index_objectlayer]);
+						}
+						render_device->render(tile.tile);
+					}
+				}
+			}
+			p.x += eset->tileset.tile_w;
+
+			while (r_cursor != r_end && static_cast<int>(r_cursor->map_pos.y) == j && static_cast<int>(r_cursor->map_pos.x) < i) // implicit floor
+				++r_cursor;
+
+			// some renderable entities go in this layer
+			while (r_cursor != r_end && static_cast<int>(r_cursor->map_pos.y) == j && static_cast<int>(r_cursor->map_pos.x) == i) // implicit floor
+				drawRenderable(r_cursor++);
+		}
+		while (r_cursor != r_end && static_cast<int>(r_cursor->map_pos.y) <= j) // implicit floor
+			++r_cursor;
+	}
+}
+
+void MapRenderer::renderOrtho(std::vector<Renderable> &r, std::vector<Renderable> &r_dead) {
+	unsigned index = 0;
+	while (index < index_objectlayer) {
+		renderOrthoLayer(layers[index], tset);
+		map_parallax.render(cam.shake, layernames[index]);
+		index++;
+	}
+
+	renderOrthoBackObjects(r_dead);
+	renderOrthoFrontObjects(r);
+	map_parallax.render(cam.shake, layernames[index]);
+
+	index++;
+	while (index < layers.size()) {
+		if (fogofwar == FogOfWar::TYPE_OVERLAY) {
+			if (layernames[index] == "fow_dark") {
+				renderOrthoLayer(layers[index],fow->tset_dark);
+			}
+			else if (layernames[index] == "fow_fog") {
+				renderOrthoLayer(layers[index],fow->tset_fog);
+			}
+			else {
+				renderOrthoLayer(layers[index], tset);
+			}
+		}
+		else if (layernames[index] != "fow_dark" && layernames[index] != "fow_fog") {
+			renderOrthoLayer(layers[index], tset);
+		}
+		map_parallax.render(cam.shake, layernames[index]);
+		index++;
+	}
+
+	checkTooltip();
+
+	drawDevHUD();
+	drawDevCursor();
+}
+
+void MapRenderer::executeOnLoadEvents() {
+	// if set from the command-line, execute a given script if this is our first map load
+	if (!settings->load_script.empty() && filename != "maps/spawn.txt") {
+		Event evnt;
+		EventComponent ec;
+
+		ec.type = EventComponent::SCRIPT;
+		ec.s = settings->load_script;
+		settings->load_script.clear();
+
+		evnt.components.push_back(ec);
+		eventm->executeEvent(evnt);
+
+		return;
+	}
+
+	std::vector<Event>::iterator it;
+
+	// loop in reverse because we may erase elements
+	for (it = events.end(); it != events.begin(); ) {
+		--it;
+
+		// skip inactive events
+		if (!eventm->isActive(*it)) continue;
+
+		if ((*it).activate_type == Event::ACTIVATE_ON_LOAD) {
+			if (eventm->executeEvent(*it))
+				it = events.erase(it);
+		}
+	}
+
+	// Also check static events, as they should execute alongside on_load events
+	// Yet, this should be done *after* the on_load events to not break old behavior.
+	// That's why we don't just check static events in the above loop
+	for (it = events.end(); it != events.begin(); ) {
+		--it;
+
+		// skip inactive events
+		if (!eventm->isActive(*it)) continue;
+
+		if ((*it).activate_type == Event::ACTIVATE_STATIC) {
+			if (eventm->executeEvent(*it))
+				it = events.erase(it);
+		}
+	}
+}
+
+void MapRenderer::executeOnMapExitEvents() {
+	std::vector<Event>::iterator it;
+
+	// We're leaving the map, so the events of this map are removed anyway in
+	// the next frame (Reminder: We're about to load a new map ;),
+	// so we will ignore the events keep_after_trigger value and do not delete
+	// any event in this loop
+	for (it = events.begin(); it != events.end(); ++it) {
+
+		// skip inactive events
+		if (!eventm->isActive(*it)) continue;
+
+		if ((*it).activate_type == Event::ACTIVATE_ON_MAPEXIT)
+			eventm->executeEvent(*it); // ignore repeat value
+	}
+}
+
+void MapRenderer::checkEvents(const FPoint& loc) {
+	Point maploc;
+	maploc.x = int(loc.x);
+	maploc.y = int(loc.y);
+	std::vector<Event>::iterator it;
+
+	// loop in reverse because we may erase elements
+	for (it = events.end(); it != events.begin(); ) {
+		--it;
+
+		// skip inactive events
+		if (!eventm->isActive(*it)) continue;
+
+		// static events are run every frame without interaction from the player
+		if ((*it).activate_type == Event::ACTIVATE_STATIC) {
+			if (eventm->executeEvent(*it))
+				it = events.erase(it);
+			continue;
+		}
+
+		if ((*it).activate_type == Event::ACTIVATE_ON_CLEAR) {
+			if (enemies_cleared && eventm->executeEvent(*it))
+				it = events.erase(it);
+			continue;
+		}
+
+		bool inside = maploc.x >= (*it).location.x &&
+					  maploc.y >= (*it).location.y &&
+					  maploc.x <= (*it).location.x + (*it).location.w-1 &&
+					  maploc.y <= (*it).location.y + (*it).location.h-1;
+
+		if ((*it).activate_type == Event::ACTIVATE_ON_LEAVE) {
+			if (inside) {
+				if (!(*it).getComponent(EventComponent::WAS_INSIDE_EVENT_AREA)) {
+					(*it).components.push_back(EventComponent());
+					(*it).components.back().type = EventComponent::WAS_INSIDE_EVENT_AREA;
+				}
+			}
+			else {
+				if ((*it).getComponent(EventComponent::WAS_INSIDE_EVENT_AREA)) {
+					(*it).deleteAllComponents(EventComponent::WAS_INSIDE_EVENT_AREA);
+					if (eventm->executeEvent(*it))
+						it = events.erase(it);
+				}
+			}
+		}
+		else if ((*it).activate_type == Event::ACTIVATE_ON_TRIGGER) {
+			if (inside)
+				if (eventm->executeEvent(*it))
+					it = events.erase(it);
+		}
+	}
+}
+
+/**
+ * Some events have a hotspot (rectangle screen area) where the user can click
+ * to trigger the event.
+ *
+ * The hero must be within range (eset->misc.interact_range) to activate an event.
+ *
+ * This function checks valid mouse clicks against all clickable events, and
+ * executes
+ */
+void MapRenderer::checkHotspots() {
+	if (!inpt->usingMouse()) return;
+
+	show_tooltip = false;
+
+	Point mouse_pos = inpt->mouse;
+	// we may have targeted a once distant event while using mouse-move
+	// if so, we want to automatically interact with it without requiring any mouse clicks
+	bool mouse_move_target = pc->mm_target_object == Avatar::MM_TARGET_EVENT && pc->isNearMMtarget();
+	if (mouse_move_target && (pc->stats.cur_state == StatBlock::ENTITY_STANCE || pc->stats.cur_state == StatBlock::ENTITY_MOVE)) {
+		pc->stats.cur_state = StatBlock::ENTITY_STANCE;
+		mouse_pos = Utils::mapToScreen(pc->mm_target_object_pos.x, pc->mm_target_object_pos.y, cam.shake.x, cam.shake.y);
+	}
+	else if (pc->mm_target_object == Avatar::MM_TARGET_EVENT && pc->stats.cur_state == StatBlock::ENTITY_STANCE) {
+		pc->stats.cur_state = StatBlock::ENTITY_MOVE;
+	}
+
+	int interact_key = (settings->mouse_move && settings->mouse_move_swap) ? Input::MAIN2 : Input::MAIN1;
+
+	// work backwards through events because events can be erased in the loop.
+	// this prevents the iterator from becoming invalid.
+	std::vector<Event>::iterator it;
+	for (it = events.end(); it != events.begin(); ) {
+		--it;
+
+		// skip inactive events
+		if (!eventm->isActive(*it)) continue;
+
+		// skip events without hotspots
+		if (it->hotspot.h == 0) continue;
+
+		// skip events on cooldown
+		if (!it->cooldown.isEnd() || !it->delay.isEnd()) continue;
+
+		EventComponent* npc = (*it).getComponent(EventComponent::NPC_HOTSPOT);
+
+		for (int x=it->hotspot.x; x < it->hotspot.x + it->hotspot.w; ++x) {
+			for (int y=it->hotspot.y; y < it->hotspot.y + it->hotspot.h; ++y) {
+				bool matched = false;
+				bool is_npc = false;
+
+				if (npc) {
+					is_npc = true;
+
+					Point p = Utils::mapToScreen(float(npc->data[0].Int), float(npc->data[1].Int), cam.shake.x, cam.shake.y);
+					p = centerTile(p);
+
+					Rect dest;
+					if (npc->id < npcs->npcs.size()) {
+						dest = npcs->npcs[npc->id]->getRenderBounds(mapr->cam.pos);
+					}
+
+					if (Utils::isWithinRect(dest, mouse_pos)) {
+						matched = true;
+						tip_pos.x = dest.x + dest.w/2;
+						tip_pos.y = p.y - eset->tooltips.margin_npc;
+					}
+				}
+				else {
+					for (unsigned index = 0; index <= index_objectlayer; ++index) {
+						Point p = Utils::mapToScreen(float(x), float(y), cam.shake.x, cam.shake.y);
+						p = centerTile(p);
+
+						if (const short current_tile = layers[index][x][y]) {
+							// first check if mouse pointer is in rectangle of that tile:
+							const Tile_Def &tile = tset.tiles[current_tile];
+							if (tile.tile) {
+								Rect dest;
+								dest.x = p.x - tile.offset.x;
+								dest.y = p.y - tile.offset.y;
+								dest.w = tile.tile->getClip().w;
+								dest.h = tile.tile->getClip().h;
+
+								if (Utils::isWithinRect(dest, mouse_pos)) {
+									matched = true;
+									tip_pos = Utils::mapToScreen(it->center.x, it->center.y, cam.shake.x, cam.shake.y);
+									tip_pos.y -= eset->tileset.tile_h;
+								}
+							}
+						}
+					}
+				}
+
+				if (matched) {
+					// new tooltip?
+					createTooltip(it->getComponent(EventComponent::TOOLTIP));
+
+					if (((it->reachable_from.w == 0 && it->reachable_from.h == 0) || Utils::isWithinRect(it->reachable_from, Point(cam.pos)))
+							&& Utils::calcDist(pc->stats.pos, it->center) < eset->misc.interact_range) {
+						if (!mouse_move_target) {
+							// only check events if the player is clicking
+							// and allowed to click
+							if (is_npc) {
+								curs->setCursor(CursorManager::CURSOR_TALK);
+							}
+							else {
+								curs->setCursor(CursorManager::CURSOR_INTERACT);
+							}
+							if (!inpt->pressing[interact_key]) return;
+							else if (inpt->lock[interact_key]) return;
+							else if (interact_key == Input::MAIN1 && pc->using_main1) return;
+							else if (interact_key == Input::MAIN2 && pc->using_main2) return;
+
+							inpt->lock[interact_key] = true;
+						}
+						else {
+							pc->mm_target_object = Avatar::MM_TARGET_NONE;
+						}
+
+						if (eventm->executeEvent(*it))
+							it = events.erase(it);
+					}
+					else if (settings->mouse_move) {
+						if (is_npc) {
+							curs->setCursor(CursorManager::CURSOR_TALK);
+						}
+						else {
+							curs->setCursor(CursorManager::CURSOR_INTERACT);
+						}
+
+						if (inpt->pressing[interact_key] && !inpt->lock[interact_key]) {
+							// event is out of range, but we're clicking on it. For mouse-move, we'll set this as the desired target
+							inpt->lock[interact_key] = true;
+
+							if (!mapr->collider.isValidPosition(it->center.x, it->center.y, pc->stats.movement_type, MapCollision::COLLIDE_TYPE_HERO)) {
+								FPoint nearby_target = mapr->collider.getRandomNeighbor(Point(it->center), 1, pc->stats.movement_type, MapCollision::COLLIDE_TYPE_HERO);
+								pc->setDesiredMMTarget(nearby_target);
+							}
+							else {
+								pc->setDesiredMMTarget(it->center);
+							}
+
+							pc->mm_target_object = Avatar::MM_TARGET_EVENT;
+							pc->mm_target_object_pos = it->center;
+						}
+					}
+					return;
+				}
+				else show_tooltip = false;
+			}
+		}
+	}
+}
+
+void MapRenderer::checkNearestEvent() {
+	if (!inpt->usingMouse()) show_tooltip = false;
+
+	std::vector<Event>::iterator it;
+	std::vector<Event>::iterator nearest = events.end();
+	float best_distance = std::numeric_limits<float>::max();
+
+	// loop in reverse because we may erase elements
+	for (it = events.end(); it != events.begin(); ) {
+		--it;
+
+		// skip inactive events
+		if (!eventm->isActive(*it)) continue;
+
+		// skip events without hotspots
+		if (it->hotspot.h == 0) continue;
+
+		// skip events on cooldown
+		if (!it->cooldown.isEnd() || !it->delay.isEnd()) continue;
+
+		float distance = Utils::calcDist(pc->stats.pos, it->center);
+		if (((it->reachable_from.w == 0 && it->reachable_from.h == 0) || Utils::isWithinRect(it->reachable_from, Point(cam.pos)))
+				&& distance < eset->misc.interact_range && distance < best_distance) {
+			best_distance = distance;
+			nearest = it;
+		}
+
+	}
+
+	if (nearest != events.end()) {
+		if (!inpt->usingMouse() || inpt->usingTouchscreen()) {
+			// new tooltip?
+			createTooltip(nearest->getComponent(EventComponent::TOOLTIP));
+			tip_pos = Utils::mapToScreen(nearest->center.x, nearest->center.y, cam.shake.x, cam.shake.y);
+			if (nearest->getComponent(EventComponent::NPC_HOTSPOT)) {
+				tip_pos.y -= eset->tooltips.margin_npc;
+			}
+			else {
+				tip_pos.y -= eset->tileset.tile_h;
+			}
+		}
+
+		if (inpt->pressing[Input::ACCEPT] && !inpt->lock[Input::ACCEPT]) {
+			inpt->lock[Input::ACCEPT] = true;
+
+			if(eventm->executeEvent(*nearest))
+				events.erase(nearest);
+		}
+	}
+}
+
+void MapRenderer::checkTooltip() {
+	if (show_tooltip && settings->show_hud && !(settings->dev_mode && menu->devconsole->visible))
+		tip->render(tip_buf, tip_pos, TooltipData::STYLE_TOPLABEL);
+}
+
+void MapRenderer::createTooltip(EventComponent *ec) {
+	if (ec && !ec->s.empty() && tooltipm->context != TooltipManager::CONTEXT_MENU) {
+		show_tooltip = true;
+		if (!tip_buf.compareFirstLine(ec->s)) {
+			tip_buf.clear();
+			tip_buf.addText(ec->s);
+		}
+		tooltipm->context = TooltipManager::CONTEXT_MAP;
+	}
+	else if (tooltipm->context != TooltipManager::CONTEXT_MENU) {
+		tooltipm->context = TooltipManager::CONTEXT_NONE;
+	}
+}
+
+/**
+ * Activate a power that is attached to an event
+ */
+void MapRenderer::activatePower(PowerID power_index, unsigned statblock_index, const FPoint &target) {
+	if (!powers->isValid(power_index)) {
+		Utils::logError("MapRenderer: Power index %d is not valid.", power_index);
+		return;
+	}
+
+	if (statblock_index < statblocks.size()) {
+		// check power cooldown before activating
+		if (statblocks[statblock_index].powers_ai[0].cooldown.isEnd()) {
+			statblocks[statblock_index].powers_ai[0].cooldown.setDuration(powers->powers[power_index]->cooldown);
+			powers->activate(power_index, &statblocks[statblock_index], statblocks[statblock_index].pos, target);
+		}
+	}
+	else {
+		Utils::logError("MapRenderer: StatBlock index is out of bounds.");
+	}
+}
+
+bool MapRenderer::isValidTile(const unsigned &tile) {
+	if (tile == 0)
+		return true;
+
+	if (tile >= tset.tiles.size())
+		return false;
+
+	return tset.tiles[tile].tile != NULL;
+}
+
+Point MapRenderer::centerTile(const Point& p) {
+	Point r = p;
+
+	if (eset->tileset.orientation == eset->tileset.TILESET_ORTHOGONAL) {
+		r.x += eset->tileset.tile_w_half;
+		r.y += eset->tileset.tile_h_half;
+	}
+	else //eset->tileset.TILESET_ISOMETRIC
+		r.y += eset->tileset.tile_h_half;
+	return r;
+}
+
+void MapRenderer::getTileBounds(const int_fast16_t x, const int_fast16_t y, const Map_Layer& layerdata, Rect& bounds, Point& center) {
+	if (x >= 0 && x < w && y >= 0 && y < h) {
+		if (const uint_fast16_t tile_index = layerdata[x][y]) {
+			const Tile_Def &tile = tset.tiles[tile_index];
+			if (!tile.tile)
+				return;
+			center = centerTile(Utils::mapToScreen(float(x), float(y), cam.shake.x, cam.shake.y));
+			bounds.x = center.x - tile.offset.x;
+			bounds.y = center.y - tile.offset.y;
+			bounds.w = tile.tile->getClip().w;
+			bounds.h = tile.tile->getClip().h;
+		}
+	}
+}
+
+void MapRenderer::drawDevCursor() {
+	// Developer mode only: draw colored cursor around tile under mouse pointer
+	if (!(settings->dev_mode && menu->devconsole->visible))
+		return;
+
+	Color dev_cursor_color = Color(255,255,0,255);
+	FPoint target = Utils::screenToMap(inpt->mouse.x,  inpt->mouse.y, cam.shake.x, cam.shake.y);
+
+	if (!collider.isOutsideMap(floorf(target.x), floorf(target.y))) {
+		if (eset->tileset.orientation == eset->tileset.TILESET_ORTHOGONAL) {
+			Point p_topleft = Utils::mapToScreen(floorf(target.x), floorf(target.y), cam.shake.x, cam.shake.y);
+			Point p_bottomright(p_topleft.x + eset->tileset.tile_w, p_topleft.y + eset->tileset.tile_h);
+
+			render_device->drawRectangle(p_topleft, p_bottomright, dev_cursor_color);
+		}
+		else {
+			Point p_left = Utils::mapToScreen(floorf(target.x), floorf(target.y+1), cam.shake.x, cam.shake.y);
+			Point p_top(p_left.x + eset->tileset.tile_w_half, p_left.y - eset->tileset.tile_h_half);
+			Point p_right(p_left.x + eset->tileset.tile_w, p_left.y);
+			Point p_bottom(p_left.x + eset->tileset.tile_w_half, p_left.y + eset->tileset.tile_h_half);
+
+			render_device->drawLine(p_left.x, p_left.y, p_top.x, p_top.y, dev_cursor_color);
+			render_device->drawLine(p_top.x, p_top.y, p_right.x, p_right.y, dev_cursor_color);
+			render_device->drawLine(p_right.x, p_right.y, p_bottom.x, p_bottom.y, dev_cursor_color);
+			render_device->drawLine(p_bottom.x, p_bottom.y, p_left.x, p_left.y, dev_cursor_color);
+		}
+
+		// draw distance line
+		if (menu->devconsole->distance_timer.isEnd()) {
+			Point p0 = Utils::mapToScreen(menu->devconsole->target.x, menu->devconsole->target.y, cam.shake.x, cam.shake.y);
+			Point p1 = Utils::mapToScreen(pc->stats.pos.x, pc->stats.pos.y, cam.shake.x, cam.shake.y);
+			render_device->drawLine(p0.x, p0.y, p1.x, p1.y, dev_cursor_color);
+		}
+	}
+}
+
+void MapRenderer::drawDevHUD() {
+	if (!(settings->dev_mode && settings->dev_hud))
+		return;
+
+	Color color_hazard(255,0,0,255);
+	Color color_entity(0,255,0,255);
+	Color color_cam(255,255,0,255);
+	Color color_path(0,255,255,255);
+	Color color_path_pursue(0,127,127,255);
+	int cross_size = eset->tileset.tile_h_half / 4;
+
+	// ellipses are distorted for isometric tilesets
+	int distort = eset->tileset.orientation == eset->tileset.TILESET_ORTHOGONAL ? 1 : 2;
+
+	// camera
+	{
+		Point p0 = Utils::mapToScreen(cam.pos.x, cam.pos.y, cam.shake.x, cam.shake.y);
+		render_device->drawLine(p0.x - cross_size, p0.y, p0.x + cross_size, p0.y, color_cam);
+		render_device->drawLine(p0.x, p0.y - cross_size, p0.x, p0.y + cross_size, color_cam);
+	}
+
+	// player
+	{
+		Point p0 = Utils::mapToScreen(pc->stats.pos.x, pc->stats.pos.y, cam.shake.x, cam.shake.y);
+		render_device->drawLine(p0.x - cross_size, p0.y, p0.x + cross_size, p0.y, color_entity);
+		render_device->drawLine(p0.x, p0.y - cross_size, p0.x, p0.y + cross_size, color_entity);
+
+		std::vector<FPoint>& path = pc->getPath();
+
+		if (path.empty()) {
+			FPoint& mm_target = pc->getMMTarget();
+			if (!(mm_target.x == -1 && mm_target.y == -1)) {
+				Point p1 = Utils::mapToScreen(mm_target.x, mm_target.y, cam.shake.x, cam.shake.y);
+				render_device->drawLine(p0.x, p0.y, p1.x, p1.y, color_path_pursue);
+			}
+		}
+		else {
+			Point p1, p2;
+			for (size_t j = 0; j < path.size()-1; ++j) {
+				p1 = Utils::mapToScreen(path[j].x, path[j].y, cam.shake.x, cam.shake.y);
+				p2 = Utils::mapToScreen(path[j+1].x, path[j+1].y, cam.shake.x, cam.shake.y);
+				render_device->drawLine(p1.x, p1.y, p2.x, p2.y, color_path);
+			}
+			p1 = Utils::mapToScreen(path.back().x, path.back().y, cam.shake.x, cam.shake.y);
+			render_device->drawLine(p0.x, p0.y, p1.x, p1.y, color_path);
+		}
+	}
+
+	// enemies
+	for (size_t i = 0; i < entitym->entities.size(); ++i) {
+		Point p0 = Utils::mapToScreen(entitym->entities[i]->stats.pos.x, entitym->entities[i]->stats.pos.y, cam.shake.x, cam.shake.y);
+		render_device->drawLine(p0.x - cross_size, p0.y, p0.x + cross_size, p0.y, color_entity);
+		render_device->drawLine(p0.x, p0.y - cross_size, p0.x, p0.y + cross_size, color_entity);
+
+		if (entitym->entities[i]->stats.corpse)
+			continue;
+
+		std::vector<FPoint>& path = entitym->entities[i]->behavior->getPath();
+
+		if (path.empty()) {
+			FPoint& pursue_pos = entitym->entities[i]->behavior->getPursuePos();
+			if (!(pursue_pos.x == -1 && pursue_pos.y == -1)) {
+				Point p1 = Utils::mapToScreen(pursue_pos.x, pursue_pos.y, cam.shake.x, cam.shake.y);
+				render_device->drawLine(p0.x, p0.y, p1.x, p1.y, color_path_pursue);
+			}
+		}
+		else {
+			Point p1, p2;
+			for (size_t j = 0; j < path.size()-1; ++j) {
+				p1 = Utils::mapToScreen(path[j].x, path[j].y, cam.shake.x, cam.shake.y);
+				p2 = Utils::mapToScreen(path[j+1].x, path[j+1].y, cam.shake.x, cam.shake.y);
+				render_device->drawLine(p1.x, p1.y, p2.x, p2.y, color_path);
+			}
+			p1 = Utils::mapToScreen(path.back().x, path.back().y, cam.shake.x, cam.shake.y);
+			render_device->drawLine(p0.x, p0.y, p1.x, p1.y, color_path);
+		}
+	}
+
+	// hazards
+	for (size_t i = 0; i < hazards->h.size(); ++i) {
+		if (hazards->h[i]->delay_frames != 0)
+			continue;
+
+		Point p0 = Utils::mapToScreen(hazards->h[i]->pos.x, hazards->h[i]->pos.y, cam.shake.x, cam.shake.y);
+		Point p1 = Utils::mapToScreen(hazards->h[i]->pos.x + hazards->h[i]->power->radius, hazards->h[i]->pos.y, cam.shake.x, cam.shake.y);
+		int radius = p1.x - p0.x;
+		render_device->drawLine(p0.x - cross_size, p0.y, p0.x + cross_size, p0.y, color_hazard);
+		render_device->drawLine(p0.x, p0.y - cross_size, p0.x, p0.y + cross_size, color_hazard);
+
+		render_device->drawEllipse(p0.x - radius, p0.y - radius/distort, p0.x + radius, p0.y + radius/distort, color_hazard, 15);
+	}
+}
+
+void MapRenderer::setMapParallax(const std::string& mp_filename) {
+	map_parallax.load(mp_filename);
+	map_parallax.setMapCenter(w/2, h/2);
+}
+
+bool MapRenderer::checkTileOverlappingHero(const int_fast16_t x, const int_fast16_t y, const Map_Layer& layerdata) {
+	if (!drawn_hero)
+		return false;
+
+	Rect tile_bounds;
+	Point tile_center;
+	getTileBounds(x, y, layerdata, tile_bounds, tile_center);
+
+	// const int tall_threshold = eset->tileset.orientation == eset->tileset.TILESET_ISOMETRIC ? eset->tileset.tile_h * 2 : eset->tileset.tile_h;
+	// if (tile_bounds.h <= tall_threshold) {
+	// 	return false;
+	// }
+
+	if (Utils::isWithinRect(tile_bounds, Point(hero_bounds.x, hero_bounds.y)))
+		return true;
+
+	if (Utils::isWithinRect(tile_bounds, Point(hero_bounds.x + hero_bounds.w, hero_bounds.y)))
+		return true;
+
+	if (Utils::isWithinRect(tile_bounds, Point(hero_bounds.x, hero_bounds.y + hero_bounds.h)))
+		return true;
+
+	if (Utils::isWithinRect(tile_bounds, Point(hero_bounds.x + hero_bounds.w, hero_bounds.y + hero_bounds.h)))
+		return true;
+
+	if (Utils::isWithinRect(hero_bounds, Point(tile_bounds.x, tile_bounds.y)))
+		return true;
+
+	if (Utils::isWithinRect(hero_bounds, Point(tile_bounds.x + tile_bounds.w, tile_bounds.y)))
+		return true;
+
+	if (Utils::isWithinRect(hero_bounds, Point(tile_bounds.x, tile_bounds.y + tile_bounds.h)))
+		return true;
+
+	if (Utils::isWithinRect(hero_bounds, Point(tile_bounds.x + tile_bounds.w, tile_bounds.y + tile_bounds.h)))
+		return true;
+
+	if (Utils::isWithinRect(tile_bounds, Point(hero_bounds.x + hero_bounds.w/2, hero_bounds.y + hero_bounds.h/2)))
+		return true;
+
+	if (Utils::isWithinRect(hero_bounds, Point(tile_bounds.x + tile_bounds.w/2, tile_bounds.y + tile_bounds.h/2)))
+		return true;
+
+	return false;
+}
+
+void MapRenderer::fadeOverlapTile(const Tile_Def& tile, const int_fast16_t x, const int_fast16_t y, const Map_Layer& layerdata) {
+	Rect tile_bounds;
+	Point tile_center;
+	getTileBounds(x, y, layerdata, tile_bounds, tile_center);
+	float tile_dist = Utils::calcDist(FPoint(hero_bounds.x + hero_bounds.w / 2, hero_bounds.y + hero_bounds.h / 2), FPoint(tile_bounds.x + tile_bounds.w/2, tile_bounds.y + tile_bounds.h / 2)) / static_cast<float>(tile.tile->getClip().h);
+	tile.tile->alpha_mod = static_cast<uint8_t>(std::min(255, std::max(static_cast<int>(eset->misc.fade_wall_alpha), static_cast<int>(255.f * tile_dist))));
+}
+
+void MapRenderer::drawProcgenChunkMap(Image* canvas) {
+	if (!canvas || procgen_chunks.empty())
+		return;
+
+	// 1/4 size slice of a chunk
+	int q = PROCGEN_CHUNK_SIZE / 4;
+
+	Color color_grid = font->getColor(FontEngine::COLOR_WIDGET_DISABLED);
+	Color color_normal = font->getColor(FontEngine::COLOR_WIDGET_NORMAL);
+	Color color_start = Color(88,153,31);
+	Color color_end = Color(204,61,61);
+	Color color_door = Color(230,115,23);
+	Color color_key = Color(46,118,153);
+
+	// draw grid
+	canvas->drawLine(0, 0, static_cast<int>(procgen_chunks[0].size()) * PROCGEN_CHUNK_SIZE, 0, color_grid);
+	canvas->drawLine(0, 0, 0, static_cast<int>(procgen_chunks.size()) * PROCGEN_CHUNK_SIZE, color_grid);
+	for (size_t i = 0; i < procgen_chunks.size(); ++i) {
+		int y = static_cast<int>(i * PROCGEN_CHUNK_SIZE);
+		canvas->drawLine(0, y+PROCGEN_CHUNK_SIZE, static_cast<int>(procgen_chunks[i].size()) * PROCGEN_CHUNK_SIZE, y+PROCGEN_CHUNK_SIZE, color_grid);
+
+		for (size_t j = 0; j < procgen_chunks[i].size(); ++j) {
+			int x = static_cast<int>(j * PROCGEN_CHUNK_SIZE);
+			canvas->drawLine(x+PROCGEN_CHUNK_SIZE, 0, x+PROCGEN_CHUNK_SIZE, static_cast<int>(procgen_chunks.size()) * PROCGEN_CHUNK_SIZE, color_grid);
+		}
+	}
+
+	for (size_t i = 0; i < procgen_chunks.size(); ++i) {
+		int y = static_cast<int>(i * PROCGEN_CHUNK_SIZE);
+
+		for (size_t j = 0; j < procgen_chunks[i].size(); ++j) {
+			Chunk* chunk = &procgen_chunks[i][j];
+			if (chunk->type == Chunk::TYPE_EMPTY)
+				continue;
+
+			int x = static_cast<int>(j * PROCGEN_CHUNK_SIZE);
+
+			Color color = color_normal;
+			if (chunk->type == Chunk::TYPE_START)
+				color = color_start;
+			else if (chunk->type == Chunk::TYPE_END)
+				color = color_end;
+			else if (chunk->type == Chunk::TYPE_DOOR_WEST_EAST || chunk->type == Chunk::TYPE_DOOR_NORTH_SOUTH)
+				color = color_door;
+			else if (chunk->type == Chunk::TYPE_KEY)
+				color = color_key;
+
+			canvas->drawFilledRect(x + q, y + q, q*2, q*2, color);
+			if (chunk->links[Chunk::LINK_NORTH]) {
+				canvas->drawFilledRect(x + q, y, q*2, q, color);
+			}
+			if (chunk->links[Chunk::LINK_SOUTH]) {
+				canvas->drawFilledRect(x + q, y + (q*3), q*2, q, color);
+			}
+			if (chunk->links[Chunk::LINK_WEST]) {
+				canvas->drawFilledRect(x, y + q, q, q*2, color);
+			}
+			if (chunk->links[Chunk::LINK_EAST]) {
+				canvas->drawFilledRect(x + (q*3), y + q, q, q*2, color);
+			}
+		}
+	}
+
+	int legend_x = (static_cast<int>(procgen_chunks[0].size()) * PROCGEN_CHUNK_SIZE) + PROCGEN_CHUNK_SIZE;
+	int line_h = font->getLineHeight();
+
+	font->renderShadowed(msg->get("Map Legend"), legend_x, 0, FontEngine::JUSTIFY_LEFT, canvas, 0, color_normal);
+	font->renderShadowed(msg->get("Start"), legend_x, line_h, FontEngine::JUSTIFY_LEFT, canvas, 0, color_start);
+	font->renderShadowed(msg->get("End"), legend_x, line_h*2, FontEngine::JUSTIFY_LEFT, canvas, 0, color_end);
+	font->renderShadowed(msg->get("Door"), legend_x, line_h*3, FontEngine::JUSTIFY_LEFT, canvas, 0, color_door);
+	font->renderShadowed(msg->get("Key"), legend_x, line_h*4, FontEngine::JUSTIFY_LEFT, canvas, 0, color_key);
+}
+
+MapRenderer::~MapRenderer() {
+	Utils::logInfo("Cleaning up: MapRenderer");
+
+	tip_buf.clear();
+	clearLayers();
+	clearEvents();
+	clearObjects();
+	delete tip;
+
+	/* unload sounds */
+	snd->reset();
+	while (!sids.empty()) {
+		snd->unload(sids.back());
+		sids.pop_back();
+	}
+}
+

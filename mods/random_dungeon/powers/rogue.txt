@@ -1,0 +1,26 @@
+# Rogue's basic attack. Unlike the Scout/Ranger it replaces, this is a real,
+# directly-castable melee power (no meta_power/replace_power indirection --
+# that's what was silently breaking the ranged attack). Modeled on the
+# Warrior's Blood Strike (powers/base/warrior/blood_strike.txt), just melee
+# with no weapon-type requirement, so it works with the starting Dagger
+# (items/categories/level_1.txt id=8) or any melee weapon.
+#
+# Blood Strike had no soundfx and no post_effect -- silent, weightless hits
+# (the enemy's own pain grunt is the only audio, and only fires on their
+# side; the swing itself is silent). Added soundfx (swing whoosh, fires on
+# cast). A knockback post_effect was tried and removed: too strong.
+
+[power]
+id=5000
+name=Dagger Strike
+description=A quick stab with your dagger.
+icon=5
+type=fixed
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+soundfx=soundfx/melee_attack.ogg

@@ -1,0 +1,4 @@
+INCLUDE powers/base/ranger/rapid_fire.txt
+requires_mp=11
+modifier_damage=multiply,80,0
+

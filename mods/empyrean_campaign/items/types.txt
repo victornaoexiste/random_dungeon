@@ -1,0 +1,30 @@
+APPEND
+
+[type]
+id=relic
+name=Ancient Relic
+
+[type]
+id=crafting
+name=Crafting Resource
+auto_pickup=true
+
+[type]
+id=crafting_tool
+name=Crafting Tool
+
+[type]
+id=consumable
+auto_pickup=true
+
+[type]
+id=potion
+auto_pickup=true
+
+[type]
+id=scroll
+auto_pickup=true
+
+[settings]
+sort_order=main,off,head,chest,hands,legs,feet,artifact,ring,potion,scroll,consumable,crafting,crafting_tool,gem,book,key
+

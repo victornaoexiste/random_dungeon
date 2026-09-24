@@ -1,0 +1,46 @@
+# Settings for the Inventory menu
+# Redesenhado do zero para icon_size=64 (o motor espaca os slots exatamente por icon_size, sem margem)
+# the first two values are x,y positions
+# some items have two more values, width and height
+
+pos=0,0,600,690
+align=right
+soundfx_open=soundfx/inventory/inventory_page.ogg
+soundfx_close=soundfx/inventory/inventory_book.ogg
+
+close=572,4,24,24
+help=4,4,24,24
+
+set_previous=8,120,images/menus/buttons/up.png
+set_next=8,220,images/menus/buttons/down.png
+label_equipment_set=8,170,left,top
+
+# grade paperdoll: colunas em x=40,104,168 (64px entre elas), linhas em y=40,104,168,232
+equipment_slot=104,40,head,1
+equipment_slot=40,104,hands,1
+equipment_slot=104,104,chest,1
+equipment_slot=168,104,artifact,1
+equipment_slot=40,168,ring,1
+equipment_slot=104,168,legs,1
+equipment_slot=168,168,ring,1
+equipment_slot=40,232,main,1
+equipment_slot=104,232,feet,1
+equipment_slot=168,232,off,1
+
+equipment_slot=104,40,head,2
+equipment_slot=40,104,hands,2
+equipment_slot=104,104,chest,2
+equipment_slot=168,104,artifact,2
+equipment_slot=40,168,ring,2
+equipment_slot=104,168,legs,2
+equipment_slot=168,168,ring,2
+equipment_slot=40,232,main,2
+equipment_slot=104,232,feet,2
+equipment_slot=168,232,off,2
+
+carried_area=40,320
+carried_cols=8
+carried_rows=5
+
+label_title=300,8,center,top
+currency=560,650,right,center

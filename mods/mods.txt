@@ -1,0 +1,6 @@
+# Mods lower on the list will overwrite data in the entries higher on the list
+
+fantasycore
+empyrean_campaign
+random_dungeon
+darkfantasy_gui

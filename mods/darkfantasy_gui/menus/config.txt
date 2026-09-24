@@ -1,0 +1,21 @@
+# Configuration menu (Random Dungeon): OK / Cancel / Defaults on one row, no Mods tab.
+# Coordinates should be integer, representing absolute position on 640x480 screen
+# First two values are for label position (x,y) and two last for control (x,y)
+# Buttons don't have separate labels
+
+button_ok=0,400,center
+button_defaults=-408,400,center
+button_cancel=408,400,center
+
+frame_offset=5,5
+tab_offset=4,0
+background_offset=0,48
+listbox_scrollbar_offset=0
+
+# scrollpane values are positions x, y and sizes width, height
+# scrollpane=0,4,600,320
+scrollpane=0,0,1632,740
+scrollpane_padding=80,56
+# scrollpane_bg_color=26,26,26,127
+#scrollpane_separator_color=63,63,63
+scrollpane_separator_color=100,92,82

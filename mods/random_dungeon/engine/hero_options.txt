@@ -1,0 +1,23 @@
+# Full override of fantasycore/engine/hero_options.txt (mods can't merge this file).
+# Only the portraits picked in playtest are kept; indices are unchanged from
+# fantasycore so existing saves still map to the same portrait.
+# Dropped: male07-20 (opts 6-19), female04-09 (opts 23-28).
+
+# option=index,base,head,portrait,name
+
+option=0,male,head_short,images/portraits/male01.png,Delrek
+option=1,male,head_short,images/portraits/male02.png,Anthem
+option=2,male,head_short,images/portraits/male03.png,Kuroko
+option=3,male,head_short,images/portraits/male04.png,Silus
+option=4,male,head_short,images/portraits/male05.png,Wardell
+option=5,male,head_short,images/portraits/male06.png,Meck
+
+option=20,female,head_long,images/portraits/female01.png,Elise
+option=21,female,head_long,images/portraits/female02.png,River
+option=22,female,head_long,images/portraits/female03.png,Nital
+option=29,female,head_long,images/portraits/female10.png,Calyss
+option=30,female,head_long,images/portraits/female11.png,Zeldyn
+option=31,female,head_long,images/portraits/female12.png,Malia
+option=32,female_dark,head_long,images/portraits/female13.png,Ayah
+option=33,female,head_long,images/portraits/female14.png,Gywn
+option=34,female,head_long,images/portraits/female15.png,Sonia

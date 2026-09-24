@@ -1,0 +1,324 @@
+# Copyright (C) 2011 Clint Bellanger
+# This file is distributed under the same license as the FLARE package.
+# 
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translators:
+# Benson <Benson.Dr@Gmail.com>, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 08:46+\n"
+"PO-Revision-Date: 2018-03-28 19:34+0000\n"
+"Last-Translator: Benson <Benson.Dr@Gmail.com>, 2024\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/flareorg/teams/84925/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../items/types.txt:5
+msgid "Main Hand"
+msgstr "右手"
+
+#: ../items/types.txt:9
+msgid "Off Hand"
+msgstr "左手"
+
+#: ../items/types.txt:13
+msgid "Head"
+msgstr "頭部"
+
+#: ../items/types.txt:17
+msgid "Torso"
+msgstr "軀幹"
+
+#: ../items/types.txt:21
+msgid "Hands"
+msgstr "手部"
+
+#: ../items/types.txt:25
+msgid "Legs"
+msgstr "腿部"
+
+#: ../items/types.txt:29
+msgid "Feet"
+msgstr "足部"
+
+#: ../items/types.txt:33
+msgid "Artifact"
+msgstr "飾物"
+
+#: ../items/types.txt:37
+msgid "Ring"
+msgstr "戒指"
+
+#: ../items/types.txt:43
+msgid "Consumable"
+msgstr "一次性物品"
+
+#: ../items/types.txt:47
+msgid "Gem"
+msgstr "寶石"
+
+#: ../items/types.txt:51
+msgid "Key"
+msgstr "鑰匙"
+
+#: ../items/types.txt:55
+msgid "Book"
+msgstr "書"
+
+#: ../items/types.txt:59
+msgid "Potion"
+msgstr ""
+
+#: ../items/types.txt:64
+msgid "Scroll"
+msgstr ""
+
+#: ../items/qualities.txt:3
+msgid "Low"
+msgstr "低"
+
+#: ../items/qualities.txt:9
+msgid "Normal"
+msgstr "一般"
+
+#: ../items/qualities.txt:15
+msgid "High"
+msgstr "高"
+
+#: ../items/qualities.txt:21
+msgid "Epic"
+msgstr "史詩"
+
+#: ../items/qualities.txt:27
+msgid "Rare"
+msgstr "稀有"
+
+#: ../items/qualities.txt:33
+msgid "Unique"
+msgstr "獨特"
+
+#: ../items/qualities.txt:39
+msgid "One-time Use"
+msgstr "一次性"
+
+#: ../items/qualities.txt:45
+msgid "Currency"
+msgstr "貨幣"
+
+#: ../engine/loot.txt:14
+msgid "Gold"
+msgstr "金幣"
+
+#: ../engine/hero_options.txt:7
+msgid "Delrek"
+msgstr "德瑞克"
+
+#: ../engine/hero_options.txt:8
+msgid "Anthem"
+msgstr "聖歌"
+
+#: ../engine/hero_options.txt:9
+msgid "Kuroko"
+msgstr "柯羅科"
+
+#: ../engine/hero_options.txt:10
+msgid "Silus"
+msgstr "西勒斯"
+
+#: ../engine/hero_options.txt:11
+msgid "Wardell"
+msgstr "典獄官"
+
+#: ../engine/hero_options.txt:12
+msgid "Meck"
+msgstr "梅克"
+
+#: ../engine/hero_options.txt:13
+msgid "Jereth"
+msgstr "傑雷斯"
+
+#: ../engine/hero_options.txt:14
+msgid "Ecnerwal"
+msgstr "艾克內瓦爾"
+
+#: ../engine/hero_options.txt:15
+msgid "Chane"
+msgstr "查內"
+
+#: ../engine/hero_options.txt:16
+msgid "Esteban"
+msgstr "艾斯特班"
+
+#: ../engine/hero_options.txt:17
+msgid "Kelen"
+msgstr "凱倫"
+
+#: ../engine/hero_options.txt:18
+msgid "Jochanan"
+msgstr "尤莰楠"
+
+#: ../engine/hero_options.txt:19
+msgid "Ichijo"
+msgstr "夷祈喬"
+
+#: ../engine/hero_options.txt:20
+msgid "Torwald"
+msgstr "突岩"
+
+#: ../engine/hero_options.txt:21
+msgid "Rudyard"
+msgstr "拉德亞"
+
+#: ../engine/hero_options.txt:22
+msgid "Gryphon"
+msgstr "獅鷲"
+
+#: ../engine/hero_options.txt:23
+msgid "Percival"
+msgstr "珀西瓦"
+
+#: ../engine/hero_options.txt:24
+msgid "Eldmoor"
+msgstr "艾德摩爾"
+
+#: ../engine/hero_options.txt:25
+msgid "Lott"
+msgstr "洛特"
+
+#: ../engine/hero_options.txt:26
+msgid "Respute"
+msgstr "問候"
+
+#: ../engine/hero_options.txt:28
+msgid "Elise"
+msgstr "愛麗絲"
+
+#: ../engine/hero_options.txt:29
+msgid "River"
+msgstr "河道"
+
+#: ../engine/hero_options.txt:30
+msgid "Nital"
+msgstr "妮塔"
+
+#: ../engine/hero_options.txt:31
+msgid "Karyli"
+msgstr "卡里利"
+
+#: ../engine/hero_options.txt:32
+msgid "Venka"
+msgstr "范卡"
+
+#: ../engine/hero_options.txt:33
+msgid "Mikal"
+msgstr "米可"
+
+#: ../engine/hero_options.txt:34
+msgid "Hira"
+msgstr "希拉"
+
+#: ../engine/hero_options.txt:35
+msgid "Blynn"
+msgstr "布林"
+
+#: ../engine/hero_options.txt:36
+msgid "Ashdara"
+msgstr "阿什達拉"
+
+#: ../engine/hero_options.txt:37
+msgid "Calyss"
+msgstr "卡利斯"
+
+#: ../engine/hero_options.txt:38
+msgid "Zeldyn"
+msgstr "查爾登"
+
+#: ../engine/hero_options.txt:39
+msgid "Malia"
+msgstr "瑪麗亞"
+
+#: ../engine/hero_options.txt:40
+msgid "Ayah"
+msgstr "艾亞"
+
+#: ../engine/hero_options.txt:41
+msgid "Gywn"
+msgstr "蓋恩"
+
+#: ../engine/hero_options.txt:42
+msgid "Sonia"
+msgstr "索妮亞"
+
+#: ../engine/equip_flags.txt:5
+msgid "melee weapon"
+msgstr "近戰武器"
+
+#: ../engine/equip_flags.txt:9
+msgid "ranged weapon"
+msgstr "遠射武器"
+
+#: ../engine/equip_flags.txt:13
+msgid "mental weapon"
+msgstr "魔法武器"
+
+#: ../engine/equip_flags.txt:17
+msgid "shield"
+msgstr "盾牌"
+
+#: ../engine/equip_flags.txt:21
+msgid "slingshot"
+msgstr "彈弓"
+
+#: ../engine/equip_flags.txt:25
+msgid "bow"
+msgstr "弓"
+
+#: ../soundfx/subtitles.txt:11
+msgid "Take a look around."
+msgstr "到附近看看."
+
+#: ../soundfx/subtitles.txt:15
+msgid "Looking to buy something?"
+msgstr "看看想要買點什麼?"
+
+#: ../soundfx/subtitles.txt:19
+msgid "How can I help you?"
+msgstr "請問您需要什麼?"
+
+#: ../soundfx/subtitles.txt:23
+msgid "Let's trade."
+msgstr "我們做個交易吧."
+
+#: ../cutscenes/credits_fantasycore.txt:5
+msgid "Flare Game Credits - fantasycore"
+msgstr "榮耀火炬(Flare) 遊戲歸功於 - 夢幻核心遊戲引擎(fantasycore)"
+
+#: ../cutscenes/credits_fantasycore.txt:8
+msgid "Lead Visual Artists"
+msgstr "首席視訊效果處理"
+
+#: ../cutscenes/credits_fantasycore.txt:14
+msgid "Visual Artists"
+msgstr "視訊效果處理"
+
+#: ../cutscenes/credits_fantasycore.txt:23
+msgid "Composers"
+msgstr "作曲"
+
+#: ../cutscenes/credits_fantasycore.txt:29
+msgid "Foley Artists"
+msgstr "音效處理"
+
+#: ../cutscenes/credits_fantasycore.txt:36
+msgid "Voice Actors"
+msgstr "配音"
+
+#: ../cutscenes/credits_fantasycore.txt:42
+msgid "Translators"
+msgstr "翻譯"

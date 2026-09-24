@@ -1,0 +1,2382 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Justin Jacobs <jajdorkster@gmail.com>, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 12:01-0400\n"
+"PO-Revision-Date: 2018-03-28 19:16+0000\n"
+"Last-Translator: Justin Jacobs <jajdorkster@gmail.com>, 2024\n"
+"Language-Team: Vietnamese (https://app.transifex.com/flareorg/teams/84925/vi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../../../src/Avatar.cpp:496
+msgid "Your health is low!"
+msgstr "Sinh Lực Của Bạn Đang Thấp!"
+
+#: ../../../src/Avatar.cpp:526
+#, c-format
+msgid "Congratulations, you have reached level %d!"
+msgstr "Chúc Mừng, Bạn Đã Đạt Cấp %d!"
+
+#: ../../../src/Avatar.cpp:528
+msgid "You may increase one or more attributes through the Character Menu."
+msgstr "Bạn Có Thể Tăng Thuộc Tính Trong Bảng Nhân Vật."
+
+#: ../../../src/Avatar.cpp:532
+msgid "You may unlock one or more abilities through the Powers Menu."
+msgstr "Bạn Có Thể Mở Khóa Kĩ Năng Trong Bảng Sức Mạnh."
+
+#: ../../../src/Avatar.cpp:877
+msgid "You are defeated."
+msgstr "Bạn Bị Đánh Bại."
+
+#: ../../../src/Avatar.cpp:1062
+msgid "Transformation expired. You have been moved back to a safe place."
+msgstr "Sự Biến Đổi Kết Thúc. Bạn Đã Được Chuyển Về Vị Trí An Toàn."
+
+#: ../../../src/CampaignManager.cpp:155
+#, c-format
+msgid "%d %s removed."
+msgstr "%d %s Đã Bị Lấy Đi."
+
+#: ../../../src/CampaignManager.cpp:174
+#, c-format
+msgid "%s x%d removed."
+msgstr "%s x%d Đã Bị Lấy Đi."
+
+#: ../../../src/CampaignManager.cpp:176
+#, c-format
+msgid "%s removed."
+msgstr "%s Đã Bị Lấy Đi."
+
+#: ../../../src/CampaignManager.cpp:190
+#, c-format
+msgid "You receive %d %s."
+msgstr "Bạn Nhận Được %d %s."
+
+#: ../../../src/CampaignManager.cpp:194
+#, c-format
+msgid "You receive %s x%d."
+msgstr "Bạn Nhận Được %s x%d."
+
+#: ../../../src/CampaignManager.cpp:196
+#, c-format
+msgid "You receive %s."
+msgstr "Bạn Nhận Được %s."
+
+#: ../../../src/CampaignManager.cpp:221
+#, c-format
+msgid "You receive %d XP."
+msgstr "Bạn Nhận Được %d Kinh Nghiệm."
+
+#: ../../../src/CampaignManager.cpp:231
+msgid "HP restored."
+msgstr "Sinh Lực Đã Phục Hồi."
+
+#: ../../../src/CampaignManager.cpp:235
+msgid "MP restored."
+msgstr "Nội Lực Đã Phục Hồi."
+
+#: ../../../src/CampaignManager.cpp:240
+msgid "HP and MP restored."
+msgstr "Sinh Lực Và Nội Lực Đã Phục Hồi."
+
+#: ../../../src/CampaignManager.cpp:244
+msgid "Negative effects removed."
+msgstr "Các Lời Nguyền Đã Bị Vô Hiệu."
+
+#: ../../../src/CampaignManager.cpp:250
+msgid "HP and MP restored, negative effects removed"
+msgstr "Sinh Lực Và Nội Lực Đã Phục Hồi, Các Lời Nguyền Đã Bị Vô Hiệu"
+
+#: ../../../src/DeviceList.cpp:56
+msgid ""
+"SDL software renderer\n"
+"\n"
+"Often slower, but less likely to have issues."
+msgstr ""
+"Kết Xuất Đồ Hoạ SDL Bằng Phần Mềm\n"
+"Thường Chậm Hơn, Nhưng Ít Khi Có Vấn Đề Hơn."
+
+#: ../../../src/DeviceList.cpp:59
+msgid ""
+"SDL hardware renderer\n"
+"\n"
+"The default renderer that is often faster than the SDL software renderer."
+msgstr ""
+"Kết Xuất Đồ Hoạ SDL Bằng Phần Cứng\n"
+"Bộ Kết Xuất Mặc Định, Thường Nhanh Hơn Bằng Phần Mềm."
+
+#: ../../../src/EffectManager.cpp:503 ../../../src/EffectManager.cpp:507
+#: ../../../src/EffectManager.cpp:511 ../../../src/EffectManager.cpp:515
+#: ../../../src/EffectManager.cpp:519 ../../../src/Entity.cpp:557
+#: ../../../src/Entity.cpp:571 ../../../src/Entity.cpp:586
+#: ../../../src/Entity.cpp:604
+msgid "Resist"
+msgstr "Kháng"
+
+#: ../../../src/EngineSettings.cpp:708
+msgid "Adventurer"
+msgstr "Thám Hiểm"
+
+#: ../../../src/EngineSettings.cpp:881 ../../../src/Stats.cpp:81
+#, c-format
+msgid "%s (Min.)"
+msgstr ""
+
+#: ../../../src/EngineSettings.cpp:884 ../../../src/Stats.cpp:88
+#, c-format
+msgid "%s (Max.)"
+msgstr ""
+
+#: ../../../src/EngineSettings.cpp:887
+#, c-format
+msgid "Resist Damage (%s)"
+msgstr ""
+
+#: ../../../src/Entity.cpp:520
+msgid "miss"
+msgstr "Trượt"
+
+#: ../../../src/Entity.cpp:563 ../../../src/PowerManager.cpp:1581
+#: ../../../src/StatBlock.cpp:1162 ../../../src/StatBlock.cpp:1169
+#, c-format
+msgid "+%s HP"
+msgstr "+%s ♥️"
+
+#: ../../../src/Entity.cpp:577 ../../../src/StatBlock.cpp:1176
+#: ../../../src/StatBlock.cpp:1183
+#, c-format
+msgid "+%s MP"
+msgstr "+%s ♦"
+
+#: ../../../src/EventManager.cpp:1013
+msgid "Unknown destination"
+msgstr "Điểm Đến Chưa Xác Định"
+
+#: ../../../src/GameState.cpp:39 ../../../src/GameState.cpp:60
+msgid "Loading..."
+msgstr "Đang Tải..."
+
+#: ../../../src/GameStateLoad.cpp:97
+msgid "Delete this save?"
+msgstr "Xoá Bản Lưu Này?"
+
+#: ../../../src/GameStateLoad.cpp:98 ../../../src/GameStateTitle.cpp:195
+#: ../../../src/MenuConfig.cpp:263
+msgid "No"
+msgstr "Không"
+
+#: ../../../src/GameStateLoad.cpp:99 ../../../src/GameStateTitle.cpp:196
+#: ../../../src/MenuConfig.cpp:264
+msgid "Yes"
+msgstr "Có"
+
+#: ../../../src/GameStateLoad.cpp:102
+msgid "Exit to Title"
+msgstr "Thoát Ra"
+
+#: ../../../src/GameStateLoad.cpp:105
+msgid "New Game"
+msgstr "Trò Chơi Mới"
+
+#: ../../../src/GameStateLoad.cpp:109 ../../../src/GameStateLoad.cpp:856
+msgid "Choose a Slot"
+msgstr "Chọn Một Ô"
+
+#: ../../../src/GameStateLoad.cpp:113
+msgid "Delete Save"
+msgstr "Xoá Bản Lưu"
+
+#: ../../../src/GameStateLoad.cpp:245 ../../../src/MenuStash.cpp:81
+#: ../../../src/MenuStash.cpp:170
+msgid "Stash"
+msgstr "Kho Đồ"
+
+#: ../../../src/GameStateLoad.cpp:288 ../../../src/MenuStash.cpp:181
+#: ../../../src/MenuStash.cpp:195
+msgid "Private"
+msgstr "Riêng Tư"
+
+#: ../../../src/GameStateLoad.cpp:829 ../../../src/GameStateLoad.cpp:850
+msgid "Enable a story mod to continue"
+msgstr "Chọn Một Trò Chơi Cốt Truyện Để Tiếp Tục"
+
+#: ../../../src/GameStateLoad.cpp:845
+msgid "Load Game"
+msgstr "Mở Bản Lưu"
+
+#: ../../../src/GameStateLoad.cpp:967
+msgid "Entering game world..."
+msgstr "Đang Tiến Vào Thế Giới Trò Chơi..."
+
+#: ../../../src/GameStateLoad.cpp:970
+msgid "Loading saved game..."
+msgstr "Đang Mở Bản Lưu..."
+
+#: ../../../src/GameStateLoad.cpp:1003
+msgid "Invalid save"
+msgstr "Bản Lưu Không Hợp Lệ"
+
+#: ../../../src/GameStateLoad.cpp:1027 ../../../src/ItemManager.cpp:1385
+#: ../../../src/MenuPowers.cpp:956 ../../../src/MenuPowers.cpp:1337
+#: ../../../src/MenuPowers.cpp:1817
+#, c-format
+msgid "Level %d"
+msgstr "Cấp %d"
+
+#: ../../../src/GameStateLoad.cpp:1069
+msgid "#"
+msgstr ""
+
+#: ../../../src/GameStateNew.cpp:71 ../../../src/GameStateTitle.cpp:140
+#: ../../../src/MenuConfig.cpp:275 ../../../src/SDLInputState.cpp:914
+msgid "Cancel"
+msgstr "Hủy Bỏ"
+
+#: ../../../src/GameStateNew.cpp:74
+msgid "Create"
+msgstr "Tạo"
+
+#: ../../../src/GameStateNew.cpp:82
+msgid "Randomize"
+msgstr "Ngẫu Nhiên"
+
+#: ../../../src/GameStateNew.cpp:100
+msgid "Choose a Portrait"
+msgstr "Chọn Chân Dung"
+
+#: ../../../src/GameStateNew.cpp:104
+msgid "Choose a Name"
+msgstr "Chọn Tên"
+
+#: ../../../src/GameStateNew.cpp:108
+msgid "Permadeath?"
+msgstr "Chết Vĩnh Viễn?"
+
+#: ../../../src/GameStateNew.cpp:112
+msgid "Choose a Class"
+msgstr "Chọn Một Giai Cấp"
+
+#: ../../../src/GameStateTitle.cpp:113
+msgid "Play Game"
+msgstr "Vào Chơi"
+
+#: ../../../src/GameStateTitle.cpp:116 ../../../src/MenuMiniMap.cpp:159
+msgid "Configuration"
+msgstr "Thiết Lập"
+
+#: ../../../src/GameStateTitle.cpp:119
+msgid "Credits"
+msgstr "Đóng Góp"
+
+#: ../../../src/GameStateTitle.cpp:122
+msgid "Exit Game"
+msgstr "Thoát Ra"
+
+#: ../../../src/GameStateTitle.cpp:138
+msgid "Enable a core mod to continue"
+msgstr "Chọn Một Trò Chơi Lõi Để Tiếp Tục"
+
+#: ../../../src/GameStateTitle.cpp:139 ../../../src/MenuConfig.cpp:443
+msgid "Mods"
+msgstr "Trò Chơi"
+
+#: ../../../src/GameStateTitle.cpp:156 ../../../src/MenuConfig.cpp:486
+msgid "Language"
+msgstr "Ngôn Ngữ"
+
+#: ../../../src/GameStateTitle.cpp:194
+msgid "Use mouse to move player?"
+msgstr ""
+
+#: ../../../src/GameSwitcher.cpp:263
+#, c-format
+msgid "%s FPS"
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:982
+msgid "Unknown Item"
+msgstr "Vật Chưa Xác Định"
+
+#: ../../../src/ItemManager.cpp:1274 ../../../src/MenuPowers.cpp:1118
+#, c-format
+msgid "%s%% Speed"
+msgstr "%s%% Tốc Độ"
+
+#: ../../../src/ItemManager.cpp:1278 ../../../src/MenuPowers.cpp:1121
+#, c-format
+msgid "%s%% Attack Speed"
+msgstr "%s%% Tốc Độ Tấn Công"
+
+#: ../../../src/ItemManager.cpp:1315
+#, c-format
+msgid "Requires %s"
+msgstr "Cần %s"
+
+#: ../../../src/ItemManager.cpp:1373
+msgid "Quest Item"
+msgstr "Đồ Nhiệm Vụ"
+
+#: ../../../src/ItemManager.cpp:1398
+#, c-format
+msgid "Prevents use of slot: %s"
+msgstr ""
+
+#: ../../../src/ItemManager.cpp:1406
+#, c-format
+msgid "Quality: %s"
+msgstr "Chất Lượng: %s"
+
+#: ../../../src/ItemManager.cpp:1422 ../../../src/MenuCharacter.cpp:415
+#: ../../../src/Stats.cpp:81 ../../../src/Stats.cpp:88
+msgid "Absorb"
+msgstr "Hấp Thụ"
+
+#: ../../../src/ItemManager.cpp:1473 ../../../src/MenuPowers.cpp:1324
+#: ../../../src/MenuPowers.cpp:1327
+#, c-format
+msgid "Requires Level %d"
+msgstr "Cần Cấp %d"
+
+#: ../../../src/ItemManager.cpp:1485 ../../../src/MenuPowers.cpp:1316
+#: ../../../src/MenuPowers.cpp:1318
+#, c-format
+msgid "Requires %s %d"
+msgstr "Cần %s %d"
+
+#: ../../../src/ItemManager.cpp:1496
+#, c-format
+msgid "Requires Class: %s"
+msgstr "Cần Thuộc Giai Cấp: %s"
+
+#: ../../../src/ItemManager.cpp:1517 ../../../src/ItemManager.cpp:1529
+#, c-format
+msgid "Buy Price: %d %s"
+msgstr "Giá Mua: %d %s"
+
+#: ../../../src/ItemManager.cpp:1519 ../../../src/ItemManager.cpp:1531
+#, c-format
+msgid "Buy Price: %d %s each"
+msgstr "Giá Mua Mỗi Món: %d %s"
+
+#: ../../../src/ItemManager.cpp:1539
+#, c-format
+msgid "Sell Price: %d %s"
+msgstr "Giá Bán: %d %s"
+
+#: ../../../src/ItemManager.cpp:1541
+#, c-format
+msgid "Sell Price: %d %s each"
+msgstr "Giá Bán Mỗi Món: %d %s"
+
+#: ../../../src/ItemManager.cpp:1552
+msgid "Set:"
+msgstr "Bộ Đồ:"
+
+#: ../../../src/ItemManager.cpp:1584 ../../../src/MenuPowers.cpp:1376
+msgid "Tap icon again for more options"
+msgstr "(Nhấn Tiếp Để Mở Tùy Chọn)"
+
+#: ../../../src/ItemManager.cpp:1616
+#, c-format
+msgid "Press [%s] to read"
+msgstr "Nhấn [%s] Để Đọc"
+
+#: ../../../src/ItemManager.cpp:1619 ../../../src/MenuPowers.cpp:1406
+#, c-format
+msgid "Press [%s] to use"
+msgstr "Nhấn [%s] Để Sử Dụng"
+
+#: ../../../src/ItemManager.cpp:1623 ../../../src/MenuPowers.cpp:1410
+#, c-format
+msgid "Press [%s] for more options"
+msgstr "Nhấn [%s] Để Mở Tùy Chọn"
+
+#: ../../../src/ItemStorage.cpp:483
+msgid "Sort by: Type"
+msgstr ""
+
+#: ../../../src/ItemStorage.cpp:485
+msgid "Sort by: Quality"
+msgstr ""
+
+#: ../../../src/ItemStorage.cpp:487
+msgid "Sort by: Level"
+msgstr ""
+
+#: ../../../src/ItemStorage.cpp:489
+msgid "Sort by: Sell Price"
+msgstr ""
+
+#: ../../../src/LootManager.cpp:107 ../../../src/LootManager.cpp:109
+#: ../../../src/LootManager.cpp:111 ../../../src/MenuConfig.cpp:492
+msgid "Loot tooltip visibility"
+msgstr "Mức Độ Hiện Tên Lợi Phẩm"
+
+#: ../../../src/LootManager.cpp:107 ../../../src/MenuConfig.cpp:356
+#: ../../../src/MenuConfig.cpp:361
+msgid "Hidden"
+msgstr "Ẩn Giấu"
+
+#: ../../../src/LootManager.cpp:109 ../../../src/MenuConfig.cpp:354
+#: ../../../src/MenuConfig.cpp:411
+msgid "Default"
+msgstr "Mặc Định"
+
+#: ../../../src/LootManager.cpp:111
+msgid "Show All"
+msgstr "Toàn Bộ"
+
+#: ../../../src/MapRenderer.cpp:1766
+msgid "Map Legend"
+msgstr ""
+
+#: ../../../src/MapRenderer.cpp:1767
+msgid "Start"
+msgstr ""
+
+#: ../../../src/MapRenderer.cpp:1768 ../../../src/SDLInputState.cpp:676
+#: ../../../src/SDLInputState.cpp:706
+msgid "End"
+msgstr ""
+
+#: ../../../src/MapRenderer.cpp:1769
+msgid "Door"
+msgstr ""
+
+#: ../../../src/MapRenderer.cpp:1770
+msgid "Key"
+msgstr ""
+
+#: ../../../src/MenuActionBar.cpp:92 ../../../src/MenuCharacter.cpp:54
+#: ../../../src/SDLInputState.cpp:930
+msgid "Character"
+msgstr "Nhân Vật"
+
+#: ../../../src/MenuActionBar.cpp:93 ../../../src/MenuInventory.cpp:180
+#: ../../../src/MenuVendor.cpp:58 ../../../src/SDLInputState.cpp:931
+msgid "Inventory"
+msgstr "Hành Trang"
+
+#: ../../../src/MenuActionBar.cpp:94 ../../../src/MenuPowers.cpp:160
+#: ../../../src/SDLInputState.cpp:932
+msgid "Powers"
+msgstr "Sức Mạnh"
+
+#: ../../../src/MenuActionBar.cpp:95 ../../../src/MenuLog.cpp:72
+#: ../../../src/SDLInputState.cpp:933
+msgid "Log"
+msgstr "Nhật Kí"
+
+#: ../../../src/MenuActionBar.cpp:251 ../../../src/MenuActionBar.cpp:258
+#: ../../../src/MenuActionBar.cpp:261 ../../../src/MenuActionBar.cpp:267
+#, c-format
+msgid "Hotkey: %s"
+msgstr "Phím Tắt: %s"
+
+#: ../../../src/MenuActionBar.cpp:668
+msgid "Not enough MP."
+msgstr "Không Đủ Nội Lực."
+
+#: ../../../src/MenuActiveEffects.cpp:230
+msgid "Remaining:"
+msgstr "Còn Lại:"
+
+#: ../../../src/MenuCharacter.cpp:73 ../../../src/MenuCharacter.cpp:78
+msgid "Name"
+msgstr "Tên"
+
+#: ../../../src/MenuCharacter.cpp:74 ../../../src/MenuCharacter.cpp:79
+msgid "Level"
+msgstr "Cấp"
+
+#: ../../../src/MenuCharacter.cpp:314
+#, c-format
+msgid "Available stat points: %d"
+msgstr "Điểm Chỉ Số Có Sẵn: %d"
+
+#: ../../../src/MenuCharacter.cpp:326
+msgid "Core Stats"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:360
+msgid "Offensive Stats"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:375
+#, c-format
+msgid "Elemental Damage (%s)"
+msgstr "Sát Thương Nguyên Tố %s"
+
+#: ../../../src/MenuCharacter.cpp:409
+msgid "Defensive Stats"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:458
+msgid "Miscellaneous Stats"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:478
+msgid "Movement Speed"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:485
+msgid "Attack Speed"
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:496 ../../../src/MenuStatBar.cpp:179
+#, c-format
+msgid "XP: %lu"
+msgstr "KN: %lu"
+
+#: ../../../src/MenuCharacter.cpp:498
+#, c-format
+msgid "Next: %lu"
+msgstr "Tiếp: %lu"
+
+#: ../../../src/MenuCharacter.cpp:526 ../../../src/MenuCharacter.cpp:541
+#: ../../../src/MenuCharacter.cpp:549 ../../../src/MenuCharacter.cpp:560
+#: ../../../src/MenuCharacter.cpp:574 ../../../src/MenuCharacter.cpp:586
+msgid "Related stats:"
+msgstr "Thuộc Tính Liên Quan:"
+
+#: ../../../src/MenuCharacter.cpp:611 ../../../src/MenuCharacter.cpp:615
+#, c-format
+msgid "Each level grants %s."
+msgstr "Mỗi Cấp Tăng %s."
+
+#: ../../../src/MenuCharacter.cpp:627 ../../../src/MenuCharacter.cpp:634
+#, c-format
+msgid "Each point of %s grants %s."
+msgstr "Mỗi Điểm Của %s Tăng %s."
+
+#: ../../../src/MenuCharacter.cpp:719
+msgid "Reduces damage taken from attacks of this damage type."
+msgstr ""
+
+#: ../../../src/MenuCharacter.cpp:771
+#, c-format
+msgid ""
+"Upgrade Stat: %s\n"
+"Uses 1 Stat Point"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:258 ../../../src/MenuConfig.cpp:1476
+msgid "Assign:"
+msgstr "Gán Với:"
+
+#: ../../../src/MenuConfig.cpp:259
+msgid "New"
+msgstr "Mới"
+
+#: ../../../src/MenuConfig.cpp:260 ../../../src/MenuManager.cpp:1895
+msgid "Clear"
+msgstr "Xoá"
+
+#: ../../../src/MenuConfig.cpp:262
+msgid "Reset ALL settings?"
+msgstr "Thiết Lập Lại Tất Cả?"
+
+#: ../../../src/MenuConfig.cpp:273 ../../../src/MenuNumPicker.cpp:49
+msgid "OK"
+msgstr "Đồng Ý"
+
+#: ../../../src/MenuConfig.cpp:274
+msgid "Defaults"
+msgstr "Mặc Định"
+
+#: ../../../src/MenuConfig.cpp:277 ../../../src/MenuGameOver.cpp:73
+msgid "Continue"
+msgstr "Tiếp Tục"
+
+#: ../../../src/MenuConfig.cpp:279
+msgid "Save Game"
+msgstr "Lưu Trò Chơi"
+
+#: ../../../src/MenuConfig.cpp:333
+msgid "<unknown>"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:336
+msgid "All Mods"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:337
+msgid "All Core Mods"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:354
+msgid ""
+"Show all loot tooltips, except for those that would be obscured by the "
+"player or an enemy. Temporarily show all loot tooltips with 'Alt'."
+msgstr ""
+"Hiện Tất Cả Tên Lợi Phẩm, Ngoại Trừ Những Thứ Bị Che Khuất Bởi Người Chơi "
+"Hoặc Kẻ Thù. Tạm Thời Hiện Tất Cả Tên Lợi Phẩm Với 'Alt'."
+
+#: ../../../src/MenuConfig.cpp:355
+msgid "Show all"
+msgstr "Tất Cả"
+
+#: ../../../src/MenuConfig.cpp:355
+msgid ""
+"Always show loot tooltips. Temporarily hide all loot tooltips with 'Alt'."
+msgstr ""
+"Luôn Hiện Tất Cả Tên Lợi Phẩm. Tạm Thời Ẩn Tất Cả Tên Lợi Phẩm Với 'Alt'."
+
+#: ../../../src/MenuConfig.cpp:356
+msgid ""
+"Always hide loot tooltips, except for when a piece of loot is hovered with "
+"the mouse cursor. Temporarily show all loot tooltips with 'Alt'."
+msgstr ""
+"Luôn Ẩn Tất Cả Tên Lợi Phẩm, Ngoại Trừ Những Thứ Bị Che Khuất Bởi Con Trỏ "
+"Chuột. Tạm Thời Hiện Tất Cả Tên Lợi Phẩm Với 'Alt'."
+
+#: ../../../src/MenuConfig.cpp:359
+msgid "Visible"
+msgstr "Xuất Hiện"
+
+#: ../../../src/MenuConfig.cpp:360
+msgid "Visible (2x zoom)"
+msgstr "2x Phóng To"
+
+#: ../../../src/MenuConfig.cpp:364
+msgid ""
+"Controls the type of warning to be activated when the player is below the "
+"low health threshold."
+msgstr ""
+"Thiết Lập Loại Cảnh Báo Sẽ Kích Hoạt Khi Người Chơi Ở Dưới Ngưỡng Sinh Lực "
+"Thấp."
+
+#: ../../../src/MenuConfig.cpp:365
+msgid "- Display a message"
+msgstr "- Hiện Một Tin Vắn"
+
+#: ../../../src/MenuConfig.cpp:366
+msgid "- Play a sound"
+msgstr "- Phát Một Âm Thanh"
+
+#: ../../../src/MenuConfig.cpp:367
+msgid "- Change the cursor"
+msgstr "- Thay Đổi Con Trỏ"
+
+#: ../../../src/MenuConfig.cpp:369 ../../../src/MenuConfig.cpp:387
+msgid "Disabled"
+msgstr "Vô Hiệu"
+
+#: ../../../src/MenuConfig.cpp:370
+msgid "All"
+msgstr "Tất Cả"
+
+#: ../../../src/MenuConfig.cpp:371
+msgid "Message & Cursor"
+msgstr "Tin Vắn & Con Trỏ"
+
+#: ../../../src/MenuConfig.cpp:372
+msgid "Message & Sound"
+msgstr "Tin Vắn & Âm Thanh"
+
+#: ../../../src/MenuConfig.cpp:373
+msgid "Sound & Cursor"
+msgstr "Âm Thanh & Con Trỏ"
+
+#: ../../../src/MenuConfig.cpp:374
+msgid "Message"
+msgstr "Tin Vắn"
+
+#: ../../../src/MenuConfig.cpp:375
+msgid "Cursor"
+msgstr "Con Trỏ"
+
+#: ../../../src/MenuConfig.cpp:376
+msgid "Sound"
+msgstr "Âm Thanh"
+
+#: ../../../src/MenuConfig.cpp:382
+msgid ""
+"When the player's health drops below the given threshold, the low health "
+"notifications are triggered if one or more of them is enabled."
+msgstr ""
+"Khi Sinh Lực Của Người Chơi Giảm Xuống Dưới Ngưỡng Nhất Định, Thông Báo Sinh"
+" Lực Thấp Được Kích Hoạt Nếu Một Hoặc Nhiều Thông Báo Được Bật."
+
+#: ../../../src/MenuConfig.cpp:386
+msgid ""
+"When enabled, eligible loot will be picked up automatically when nearby."
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:388
+msgid "Enabled"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:389
+msgid "Only currency"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:406
+msgid "The maximum frame rate that the game will be allowed to run at."
+msgstr "Tốc Độ Khung Hình Cực Đại Mà Trò Chơi Được Phép Chạy."
+
+#: ../../../src/MenuConfig.cpp:410
+msgid ""
+"The render size refers to the height in pixels of the surface used to draw "
+"the game. Mods define the allowed render sizes, but this option allows "
+"overriding the maximum size."
+msgstr ""
+"Kích Thước Kết Xuất Đề Cập Đến Chiều Cao Tính Bằng Điểm Ảnh Của Bề Mặt Được "
+"Sử Dụng Để Dựng Trò Chơi. Các Trò Chơi Xác Định Kích Thước Kết Xuất Được "
+"Phép, Nhưng Tùy Chọn Này Cho Phép Ghi Đè Kích Thước Cực Đại."
+
+#: ../../../src/MenuConfig.cpp:436 ../../../src/MenuConfig.cpp:1957
+#: ../../../src/MenuGameOver.cpp:77 ../../../src/MenuGameOver.cpp:121
+msgid "Exit"
+msgstr "Cổng Thoát"
+
+#: ../../../src/MenuConfig.cpp:437
+msgid "Video"
+msgstr "Đồ Hoạ"
+
+#: ../../../src/MenuConfig.cpp:438
+msgid "Audio"
+msgstr "Âm Thanh"
+
+#: ../../../src/MenuConfig.cpp:439
+msgid "Game"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:440
+msgid "Interface"
+msgstr "Giao Diện"
+
+#: ../../../src/MenuConfig.cpp:441
+msgid "Input"
+msgstr "Đầu Vào"
+
+#: ../../../src/MenuConfig.cpp:442
+msgid "Keybindings"
+msgstr "Tổ Hợp Phím"
+
+#: ../../../src/MenuConfig.cpp:456
+msgid "Paused"
+msgstr "Đang Tạm Dừng..."
+
+#: ../../../src/MenuConfig.cpp:459
+msgid "Time Played"
+msgstr "Thời Gian Đã Chơi"
+
+#: ../../../src/MenuConfig.cpp:465
+msgid "Renderer"
+msgstr "Thiết Bị Kết Xuất Đồ Hoạ"
+
+#: ../../../src/MenuConfig.cpp:466
+msgid "Full Screen Mode"
+msgstr "Toàn Màn Hình"
+
+#: ../../../src/MenuConfig.cpp:467
+msgid "Hardware surfaces"
+msgstr "Kết Xuất Bề Mặt Bằng Phần Cứng"
+
+#: ../../../src/MenuConfig.cpp:468
+msgid "V-Sync"
+msgstr "Đồng Bộ Dọc"
+
+#: ../../../src/MenuConfig.cpp:469
+msgid "Texture Filtering"
+msgstr "Lọc Kết Cấu Bề Mặt"
+
+#: ../../../src/MenuConfig.cpp:470
+msgid "DPI scaling"
+msgstr "Thu Phóng Điểm Ảnh Mỗi Inch"
+
+#: ../../../src/MenuConfig.cpp:471
+msgid "Parallax Layers"
+msgstr "Lớp Thị Sai"
+
+#: ../../../src/MenuConfig.cpp:472
+msgid "Maximum Render Size"
+msgstr "Kích Thước Hiển Thị Cực Đại"
+
+#: ../../../src/MenuConfig.cpp:473
+msgid "Frame Limit"
+msgstr "Giới Hạn Khung Hình"
+
+#: ../../../src/MenuConfig.cpp:474
+msgid "Threaded Image Loading"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:475
+msgid "Show player behind walls"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:477
+msgid "Sound Volume"
+msgstr "Âm Lượng"
+
+#: ../../../src/MenuConfig.cpp:478
+msgid "Music Volume"
+msgstr "Nhạc Nền"
+
+#: ../../../src/MenuConfig.cpp:479
+msgid "Mute audio when window loses focus"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:481
+msgid "Automatically equip items"
+msgstr "Tự Động Trang Bị Đồ"
+
+#: ../../../src/MenuConfig.cpp:482
+msgid "Automatically pick up loot"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:483
+msgid "Low health notification"
+msgstr "Thông Báo Sinh Lực Thấp"
+
+#: ../../../src/MenuConfig.cpp:484
+msgid "Low health threshold"
+msgstr "Ngưỡng Sinh Lực Thấp"
+
+#: ../../../src/MenuConfig.cpp:487
+msgid "Show FPS"
+msgstr "Hiển Thị Khung Hình Mỗi Giây"
+
+#: ../../../src/MenuConfig.cpp:488
+msgid "Use system mouse cursor"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:489
+msgid "Colorblind Mode"
+msgstr "Chế Độ Cho Người Mù Màu"
+
+#: ../../../src/MenuConfig.cpp:490
+msgid "Developer Mode"
+msgstr "Chế Độ Cho Người Phát Triển"
+
+#: ../../../src/MenuConfig.cpp:491
+msgid "Subtitles"
+msgstr "Phụ Đề"
+
+#: ../../../src/MenuConfig.cpp:493
+msgid "Mini-map mode"
+msgstr "Chế Độ Bản Đồ Thu Nhỏ"
+
+#: ../../../src/MenuConfig.cpp:494
+msgid "Always show stat bar labels"
+msgstr "Hiện Chỉ Số Thanh Thuộc Tính"
+
+#: ../../../src/MenuConfig.cpp:495
+msgid "Allow stat bar auto-hiding"
+msgstr "Cho Phép Ẩn Thanh Thuộc Tính"
+
+#: ../../../src/MenuConfig.cpp:496
+msgid "Show combat text"
+msgstr "Hiển Thị Nội Dung Chiến Trận"
+
+#: ../../../src/MenuConfig.cpp:497
+msgid "Show item comparison tooltips"
+msgstr "Hiển Thị So Sánh Vật Phẩm"
+
+#: ../../../src/MenuConfig.cpp:498
+msgid "Pause game when window loses focus"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:501
+msgid "Joystick"
+msgstr "Cần Điều Khiển"
+
+#: ../../../src/MenuConfig.cpp:502
+msgid "Move hero using mouse"
+msgstr "Di Chuyển Nhân Vật Bằng Chuột"
+
+#: ../../../src/MenuConfig.cpp:503
+msgid "Mouse aim"
+msgstr "Ngắm Bằng Chuột"
+
+#: ../../../src/MenuConfig.cpp:504
+msgid "Do not use mouse"
+msgstr "Không Sử Dụng Chuột"
+
+#: ../../../src/MenuConfig.cpp:505
+msgid "Swap mouse movement button"
+msgstr "Hoán Đổi Nút Di Chuyển Chuột"
+
+#: ../../../src/MenuConfig.cpp:506
+msgid "Attack with mouse movement"
+msgstr "Tấn Công Bằng Cách Di Chuyển Chuột"
+
+#: ../../../src/MenuConfig.cpp:507
+msgid "Joystick Deadzone"
+msgstr "Khoảng Chết Của Cần Điều Khiển"
+
+#: ../../../src/MenuConfig.cpp:508
+msgid "Joystick Rumble"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:509
+msgid "Touch Controls"
+msgstr "Điều Khiển Cảm Ứng"
+
+#: ../../../src/MenuConfig.cpp:510
+msgid "Touch Gamepad Scaling"
+msgstr "Thu Phóng Điều Khiển Cảm Ứng"
+
+#: ../../../src/MenuConfig.cpp:635
+msgid ""
+"Will try to store surfaces in video memory versus system memory. The effect "
+"this has on performance depends on the renderer."
+msgstr ""
+"Lưu Dữ Liệu Bề Mặt Vào Bộ Nhớ Đồ Hoạ Thay Cho Bộ Nhớ Tạm. Hiệu Quả Của Tuỳ "
+"Chọn Này Phụ Thuộc Vào Thiết Bị Kết Xuất."
+
+#: ../../../src/MenuConfig.cpp:636
+msgid ""
+"Prevents screen tearing. Disable if you experience \"stuttering\" in "
+"windowed mode or input lag."
+msgstr ""
+"Giúp Tránh Rách Hình. Tắt Nếu Bạn Thấy Sự Trể Khi Điều Khiển Hoặc Chế Độ "
+"Cửa Sổ Bị “Lắp”."
+
+#: ../../../src/MenuConfig.cpp:637
+msgid ""
+"When enabled, this uses the screen DPI in addition to the window dimensions "
+"to scale the rendering resolution. Otherwise, only the window dimensions are"
+" used."
+msgstr ""
+"Khi Bật, Sử Dụng Thêm Số Điểm Ảnh Trên Mỗi Inch Màn Hình Cùng Kích Thước Cửa"
+" Sổ Để Phóng Đồ Hoạ. Nếu Không, Chỉ Sử Dụng Kích Thước Cửa Sổ."
+
+#: ../../../src/MenuConfig.cpp:638
+msgid ""
+"This enables parallax (non-tile) layers. Disabling this setting can improve "
+"performance in some cases."
+msgstr ""
+"Điều Này Cho Phép Các Lớp Thị Sai (Không Xếp Chồng). Tắt Cài Đặt Này Có Thể "
+"Cải Thiện Hiệu Suất Trong Một Số Trường Hợp."
+
+#: ../../../src/MenuConfig.cpp:639
+msgid ""
+"Use multiple CPU threads when loading some images. Try disabling this option"
+" if you experience instability during loading."
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:640
+msgid ""
+"Lowers the opacity of wall tiles that are covering the player. Disabling "
+"this option may improve performace in some circumstances."
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:641
+msgid ""
+"Provides additional text for information that is primarily conveyed through "
+"color."
+msgstr ""
+"Cung Cấp Văn Bản Bổ Sung Cho Thông Tin Chủ Yếu Được Truyền Tải Qua Màu Sắc."
+
+#: ../../../src/MenuConfig.cpp:642
+msgid ""
+"Some mods will automatically hide the stat bars when they are inactive. "
+"Disabling this option will keep them displayed at all times."
+msgstr ""
+"Một Số Sửa Đổi Trò Chơi Sẽ Tự Động Ẩn Thanh Chỉ Số Khi Không Hoạt Động. Việc"
+" Tắt Tùy Chọn Này Sẽ Giúp Chúng Luôn Hiển Thị."
+
+#: ../../../src/MenuConfig.cpp:643
+msgid ""
+"When enabled, empty equipment slots will be filled with applicable items "
+"when they are obtained."
+msgstr ""
+"Khi Được Bật, Các Ô Trang Bị Trống Sẽ Được Lấp Đầy Bằng Các Vật Phẩm Phù Hợp"
+" Khi Chúng Được Lấy."
+
+#: ../../../src/MenuConfig.cpp:644
+msgid ""
+"When enabled, tooltips for equipped items of the same type are shown next to"
+" standard item tooltips."
+msgstr ""
+"Khi Được Bật, Thuộc Tính Các Vật Phẩm Được Trang Bị Cùng Loại Sẽ Được Hiển "
+"Thị Bên Cạnh Thuộc Tính Vật Phẩm Tiêu Chuẩn."
+
+#: ../../../src/MenuConfig.cpp:645
+msgid ""
+"This allows the game to be controlled entirely with the keyboard (or "
+"joystick)."
+msgstr ""
+"Điều Này Cho Phép Trò Chơi Được Điều Khiển Hoàn Toàn Bằng Bàn Phím (Hoặc Cần"
+" Điều Khiển)."
+
+#: ../../../src/MenuConfig.cpp:646
+msgid ""
+"When 'Move hero using mouse' is enabled, this setting controls if 'Main1' or"
+" 'Main2' is used to move the hero. If enabled, 'Main2' will move the hero "
+"instead of 'Main1'."
+msgstr ""
+"Khi 'Di Chuyển Anh Hùng Bằng Chuột' Được Bật, Cài Đặt Này Sẽ Kiểm Soát Xem "
+"'Chủ Đạo 1' Hay 'Chủ Đạo 2' Được Sử Dụng Để Di Chuyển Anh Hùng. Nếu Được "
+"Bật, 'Chủ Đạo 2' Sẽ Di Chuyển Anh Hùng Thay Vì 'Chủ Đạo 1'."
+
+#: ../../../src/MenuConfig.cpp:647
+msgid ""
+"When 'Move hero using mouse' is enabled, this setting controls if the Power "
+"assigned to the movement button can be used by targeting an enemy. If this "
+"setting is disabled, it is required to use 'Shift' to access the Power "
+"assigned to the movement button."
+msgstr ""
+"Khi 'Di Chuyển Anh Hùng Bằng Chuột' Được Bật, Cài Đặt Này Sẽ Kiểm Soát Xem "
+"Sức Mạnh Được Gán Cho Nút Di Chuyển Có Thể Được Sử Dụng Bằng Cách Nhắm Mục "
+"Tiêu Vào Kẻ Thù Hay Không. Nếu Cài Đặt Này Bị Tắt, Cần Phải Sử Dụng 'Shift' "
+"Để Truy Cập Sức Mạnh Được Gán Cho Nút Di Chuyển."
+
+#: ../../../src/MenuConfig.cpp:648
+msgid ""
+"The player's attacks will be aimed in the direction of the mouse cursor when"
+" this is enabled."
+msgstr ""
+"Các Đòn Tấn Công Của Người Chơi Sẽ Nhắm Vào Hướng Con Trỏ Chuột Khi Tính "
+"Năng Này Được Bật."
+
+#: ../../../src/MenuConfig.cpp:649
+msgid ""
+"When enabled, a virtual gamepad will be added in-game. Other interactions, "
+"such as drag-and-drop behavior, are also altered to better suit touch input."
+msgstr ""
+"Khi Được Bật, Tay Cầm Chơi Game Cảm Ứng Ảo Sẽ Được Thêm Vào Trong Trò Chơi. "
+"Các Tương Tác Khác, Chẳng Hạn Như Hành Vi Kéo-Và-Thả, Cũng Được Thay Đổi Để "
+"Phù Hợp Hơn Với Thao Tác Nhập Bằng Cảm Ứng."
+
+#: ../../../src/MenuConfig.cpp:782
+msgid "Active Mods"
+msgstr "Trò Chơi Đang Bật"
+
+#: ../../../src/MenuConfig.cpp:791
+msgid "Available Mods"
+msgstr "Trò Chơi Còn Lại"
+
+#: ../../../src/MenuConfig.cpp:810
+msgid "<< Disable"
+msgstr "<< Tắt"
+
+#: ../../../src/MenuConfig.cpp:816
+msgid "Enable >>"
+msgstr "Bật >>"
+
+#: ../../../src/MenuConfig.cpp:1063
+msgid "Bindings for:"
+msgstr "Ràng Buộc Cho:"
+
+#: ../../../src/MenuConfig.cpp:1795
+msgid "Core mod"
+msgstr ""
+
+#: ../../../src/MenuConfig.cpp:1808
+msgid "Version:"
+msgstr "Phiên Bản:"
+
+#: ../../../src/MenuConfig.cpp:1813
+msgid "Game:"
+msgstr "Trò Chơi Gốc:"
+
+#: ../../../src/MenuConfig.cpp:1818
+msgid "Engine version:"
+msgstr "Phiên Bản Cơ Khí:"
+
+#: ../../../src/MenuConfig.cpp:1826
+msgid "Requires mods:"
+msgstr "Cần Trò Chơi:"
+
+#: ../../../src/MenuConfig.cpp:1875
+msgid "Can not remove this binding."
+msgstr "Không Thể Loại Bỏ Ràng Buộc Này."
+
+#: ../../../src/MenuConfig.cpp:1940 ../../../src/SDLInputState.cpp:772
+#: ../../../src/SDLInputState.cpp:797
+msgid "(none)"
+msgstr "(Không)"
+
+#: ../../../src/MenuConfig.cpp:1957 ../../../src/MenuGameOver.cpp:75
+msgid "Save & Exit"
+msgstr "Lưư & Thoát"
+
+#: ../../../src/MenuDevConsole.cpp:202
+#, c-format
+msgid "Use '%s' to inspect with the cursor."
+msgstr "Dùng [%s] Để Điều Tra Bằng Con Trỏ."
+
+#: ../../../src/MenuDevConsole.cpp:207
+msgid "Arguments with spaces should be enclosed with double quotes. Example:"
+msgstr "Tham Số Chứa Khoảng Trắng Nên Được Đặt Trong Ngoặc Kép. Ví Dụ:"
+
+#: ../../../src/MenuDevConsole.cpp:208
+msgid "Type 'help' to get a list of commands."
+msgstr "Gõ 'help' Để In Danh Sách Các Lệnh."
+
+#: ../../../src/MenuDevConsole.cpp:211
+msgid "Developer Console"
+msgstr "Bảng Điều Khiển Cho Nhà Phát Triển"
+
+#: ../../../src/MenuDevConsole.cpp:282 ../../../src/MenuDevConsole.cpp:286
+msgid "px"
+msgstr "Điểm Ảnh"
+
+#: ../../../src/MenuDevConsole.cpp:297
+msgid "Distance"
+msgstr "Khoảng Cách"
+
+#: ../../../src/MenuDevConsole.cpp:312 ../../../src/MenuDevConsole.cpp:360
+#: ../../../src/MenuDevConsole.cpp:374
+msgid "Entity"
+msgstr "Thực Thể"
+
+#: ../../../src/MenuDevConsole.cpp:334 ../../../src/MenuDevConsole.cpp:341
+msgid "none"
+msgstr "Trống"
+
+#: ../../../src/MenuDevConsole.cpp:335 ../../../src/MenuDevConsole.cpp:337
+msgid "wall"
+msgstr "Tường"
+
+#: ../../../src/MenuDevConsole.cpp:336 ../../../src/MenuDevConsole.cpp:338
+msgid "short wall / pit"
+msgstr "Tường Thấp / Hố"
+
+#: ../../../src/MenuDevConsole.cpp:339
+msgid "entity"
+msgstr "Thực Thể"
+
+#: ../../../src/MenuDevConsole.cpp:340
+msgid "entity, ally"
+msgstr "Thực Thể, Liên Kết"
+
+#: ../../../src/MenuDevConsole.cpp:347
+msgid "Tile"
+msgstr "Ô"
+
+#: ../../../src/MenuDevConsole.cpp:449
+msgid "Shortcut saved."
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:476
+msgid "For procedural maps, prints a color-coded map."
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:477
+msgid "adds a power to the action bar"
+msgstr "Thêm Một Sức Mạnh Vào Thanh Hành Động"
+
+#: ../../../src/MenuDevConsole.cpp:478
+msgid "turns on/off the display of the FPS counter"
+msgstr "Bật/Tắt Hiển Thị Bộ Đếm Khung Hình Mỗi Giây"
+
+#: ../../../src/MenuDevConsole.cpp:479
+msgid "turns on/off all of the HUD elements"
+msgstr "Bật/Tắt Tất Cả Các Màn Hình Thông Số"
+
+#: ../../../src/MenuDevConsole.cpp:480
+msgid "turns on/off the developer hud"
+msgstr "Bật/Tắt Màn Hình Thông Số Của Nhà Phát Triển"
+
+#: ../../../src/MenuDevConsole.cpp:481
+msgid ""
+"Prints a list of powers that match a search term. No search term will list "
+"all items"
+msgstr ""
+"In Các Sức Mạnh Khớp Với Từ Khoá Tìm Kiếm. Nếu Không Cung Cấp Từ Khoá, Liệt "
+"Kê Tất Cả."
+
+#: ../../../src/MenuDevConsole.cpp:482
+msgid "Prints out all the map filenames located in the \"maps/\" directory."
+msgstr "In Tất Cả Các Tệp Bản Đồ Trong Thư Mục “maps/”."
+
+#: ../../../src/MenuDevConsole.cpp:483
+msgid ""
+"Prints out the active campaign statuses that match a search term. No search "
+"term will list all active statuses"
+msgstr ""
+"In Tất Cả Các Trạng Thái Chiến Dịch Hiện Hành Khớp Từ Khoá Tìm Kiếm. Nếu "
+"Không Cung Cấp Từ Khoá, Liệt Kê Tất Cả."
+
+#: ../../../src/MenuDevConsole.cpp:484
+msgid ""
+"Prints a list of items that match a search term. No search term will list "
+"all items"
+msgstr ""
+"In Các Đồ Vật Khớp Với Từ Khoá Tìm Kiếm. Nếu Không Cung Cấp Từ Khoá, Liệt Kê"
+" Tất Cả."
+
+#: ../../../src/MenuDevConsole.cpp:485
+msgid "Assign a console command to a shortcut key."
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:486 ../../../src/MenuDevConsole.cpp:487
+msgid ""
+"parses a series of event components and executes them as a single event"
+msgstr ""
+"Nhận Một Chuỗi Các Bộ Phận Sự Kiện Và Thực Hiện Chúng Như Một Sự Kiện Duy "
+"Nhất"
+
+#: ../../../src/MenuDevConsole.cpp:488
+msgid "clears the command history"
+msgstr "Xoá Lịch Sử Lệnh"
+
+#: ../../../src/MenuDevConsole.cpp:489
+msgid "displays this text"
+msgstr "Hiển Thị Văn Bản Này"
+
+#: ../../../src/MenuDevConsole.cpp:496
+msgid "Toggled the developer hud"
+msgstr "Đã Bật/Tắt Màn Hình Thông Số Của Nhà Phát Triển"
+
+#: ../../../src/MenuDevConsole.cpp:500
+msgid "Toggled the hud"
+msgstr "Đã Bật/Tắt Màn Hình Thông Số"
+
+#: ../../../src/MenuDevConsole.cpp:504
+msgid "Toggled the FPS counter"
+msgstr "Chuyển Đổi Bộ Đếm Khung Hình Mỗi Giây"
+
+#: ../../../src/MenuDevConsole.cpp:654
+msgid "ERROR: Incorrect number of arguments"
+msgstr "LỖI: Số Tham Số Không Đúng"
+
+#: ../../../src/MenuDevConsole.cpp:656 ../../../src/MenuDevConsole.cpp:669
+#: ../../../src/MenuDevConsole.cpp:715
+msgid "HINT:"
+msgstr "GỢI Ý:"
+
+#: ../../../src/MenuDevConsole.cpp:656
+msgid "<id>"
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:664
+#, c-format
+msgid "3 | <%s> | %s"
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:665
+#, c-format
+msgid "2 | <%s> | %s"
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:666
+#, c-format
+msgid "1 | <%s> | %s"
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:667
+msgid "Current shortcuts:"
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:676
+#, c-format
+msgid "Enter the command you wish to save to slot %d."
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:680
+msgid "ERROR: Not a valid shortcut slot."
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:686
+msgid ""
+"Procedural chunk maps are only available for generated maps. This map is "
+"either not a procedural map, or the chunk data is corrupt."
+msgstr ""
+
+#: ../../../src/MenuDevConsole.cpp:703
+#, c-format
+msgid "ERROR: '%s' is not a valid event key"
+msgstr "LỖI: '%s' Không Phải Là Một Key Sự Kiện Hợp Lệ"
+
+#: ../../../src/MenuDevConsole.cpp:713
+msgid "ERROR: Too few arguments"
+msgstr "LỖI: Quá Ít Tham Số"
+
+#: ../../../src/MenuDevConsole.cpp:715
+msgid "<key>=<val> <key>=<val> ..."
+msgstr "<key>=<giá trị> <key>=<giá trị> ..."
+
+#: ../../../src/MenuDevConsole.cpp:720
+msgid "ERROR: Unknown command"
+msgstr "LỖI: Lệnh Không Xác Định"
+
+#: ../../../src/MenuDevConsole.cpp:722
+msgid "HINT: Type help"
+msgstr "GỢI Ý: Gõ 'help'"
+
+#: ../../../src/MenuEnemy.cpp:167
+#, c-format
+msgid "%s level %d"
+msgstr "%s Cấp %d"
+
+#: ../../../src/MenuEnemy.cpp:191
+msgid "Dead"
+msgstr "Đã Chết"
+
+#: ../../../src/MenuEnemy.cpp:193
+msgid "Destroyed"
+msgstr "Đã Hủy"
+
+#: ../../../src/MenuGameOver.cpp:70
+msgid "Game Over"
+msgstr "Trò Chơi Kết Thúc"
+
+#: ../../../src/MenuInventory.cpp:317
+#, c-format
+msgid "Lost %s%% of %s."
+msgstr "Mất %s%% Của %s."
+
+#: ../../../src/MenuInventory.cpp:324
+#, c-format
+msgid "Lost %s%% of total XP."
+msgstr "Mất %s%% Tổng Kinh Nghiệm."
+
+#: ../../../src/MenuInventory.cpp:329
+#, c-format
+msgid "Lost %s%% of current level XP."
+msgstr "Mất %s%% Kinh Nghiệm Cấp Hiện Tại."
+
+#: ../../../src/MenuInventory.cpp:355
+#, c-format
+msgid "Lost %s."
+msgstr "Mất %s."
+
+#: ../../../src/MenuInventory.cpp:453 ../../../src/MenuStash.cpp:308
+#, c-format
+msgid "%d %s"
+msgstr ""
+
+#: ../../../src/MenuInventory.cpp:502
+msgid "Pick up item(s):"
+msgstr "Nhặt Vật:"
+
+#: ../../../src/MenuInventory.cpp:503
+msgid "Use or equip item:"
+msgstr "Sử Dụng Hoặc Trang Bị Đồ:"
+
+#: ../../../src/MenuInventory.cpp:504
+#, c-format
+msgid "%s modifiers"
+msgstr "Các Phím Chức Năng Kết Hợp Với %s:"
+
+#: ../../../src/MenuInventory.cpp:505
+msgid "Select a quantity of item:"
+msgstr "Chọn Số Lượng Đồ:"
+
+#: ../../../src/MenuInventory.cpp:508
+msgid "Stash item stack:"
+msgstr "Cất Chồng Đồ:"
+
+#: ../../../src/MenuInventory.cpp:510
+msgid "Sell item stack:"
+msgstr "Bán Chồng Đồ:"
+
+#: ../../../src/MenuInventory.cpp:788
+msgid "You don't have enough of the required item."
+msgstr "Bạn Không Đủ Số Đồ Vật Cần."
+
+#: ../../../src/MenuInventory.cpp:800
+msgid "You can't use this item right now."
+msgstr "Bạn Không Thể Dùng Vật Này Bây Giờ."
+
+#: ../../../src/MenuInventory.cpp:825
+msgid "This item can only be used from the action bar."
+msgstr "Vật Này Chỉ Có Thể Được Dùng Ở Thanh Hành Động."
+
+#: ../../../src/MenuInventory.cpp:946
+msgid "Inventory is full."
+msgstr "Hành Trang Đã Đầy."
+
+#: ../../../src/MenuInventory.cpp:1074
+#, c-format
+msgid "Not enough %s."
+msgstr "Không Đủ %s."
+
+#: ../../../src/MenuInventory.cpp:1094 ../../../src/MenuInventory.cpp:1101
+msgid "This item can not be sold."
+msgstr "Không Thể Bán Vật Này."
+
+#: ../../../src/MenuInventory.cpp:1399
+#, c-format
+msgid "Equipped set %d."
+msgstr "Bộ Đã Trang Bị %d."
+
+#: ../../../src/MenuLog.cpp:90
+msgid "Quests"
+msgstr "Nhiệm Vụ"
+
+#: ../../../src/MenuLog.cpp:91
+msgid "Notes"
+msgstr "Ghi Chú"
+
+#: ../../../src/MenuManager.cpp:179
+msgid "Choose an action:"
+msgstr "Chọn Một Hành Động:"
+
+#: ../../../src/MenuManager.cpp:539 ../../../src/MenuManager.cpp:1220
+msgid "This item can not be dropped."
+msgstr "Không Thể Vứt Vật Này."
+
+#: ../../../src/MenuManager.cpp:1824 ../../../src/MenuManager.cpp:1841
+msgid "Equipped"
+msgstr "Đã Trang Bị"
+
+#: ../../../src/MenuManager.cpp:1888 ../../../src/MenuManager.cpp:1939
+msgid "Use"
+msgstr "Sử Dụng"
+
+#: ../../../src/MenuManager.cpp:1892 ../../../src/MenuManager.cpp:1935
+#: ../../../src/MenuManager.cpp:1973
+msgid "Move"
+msgstr "Di Chuyển"
+
+#: ../../../src/MenuManager.cpp:1908 ../../../src/MenuManager.cpp:1943
+msgid "Equip"
+msgstr "Trang Bị"
+
+#: ../../../src/MenuManager.cpp:1912
+msgid "Upgrade"
+msgstr "Nâng Cấp"
+
+#: ../../../src/MenuManager.cpp:1927 ../../../src/MenuManager.cpp:1958
+msgid "Sell"
+msgstr "Bán"
+
+#: ../../../src/MenuManager.cpp:1931 ../../../src/MenuManager.cpp:1976
+msgid "Transfer"
+msgstr "Chuyển Đổi"
+
+#: ../../../src/MenuManager.cpp:1949
+msgid "Add to bar"
+msgstr ""
+
+#: ../../../src/MenuManager.cpp:1954
+msgid "Drop"
+msgstr "Vứt Bỏ"
+
+#: ../../../src/MenuManager.cpp:1990
+msgid "Buy"
+msgstr "Mua"
+
+#: ../../../src/MenuNumPicker.cpp:59
+msgid "Enter amount:"
+msgstr "Nhập Số Lượng:"
+
+#: ../../../src/MenuPowers.cpp:968
+msgid "Passive"
+msgstr "Thụ Động"
+
+#: ../../../src/MenuPowers.cpp:975
+#, c-format
+msgid "Costs %s MP"
+msgstr "Tốn %s Điểm Nội Lực"
+
+#: ../../../src/MenuPowers.cpp:979
+#, c-format
+msgid "Costs %s HP"
+msgstr "Tốn %s Điểm Sinh Lực"
+
+#: ../../../src/MenuPowers.cpp:989
+msgid "Cooldown:"
+msgstr "Hồi Chiêu:"
+
+#: ../../../src/MenuPowers.cpp:1097 ../../../src/MenuPowers.cpp:1100
+msgid "Damage per second"
+msgstr "Sát Thương Mỗi Giây"
+
+#: ../../../src/MenuPowers.cpp:1103 ../../../src/MenuPowers.cpp:1106
+msgid "HP per second"
+msgstr "Điểm Sinh Lực Mỗi Giây"
+
+#: ../../../src/MenuPowers.cpp:1109 ../../../src/MenuPowers.cpp:1112
+msgid "MP per second"
+msgstr "Điểm Nội Lực Mỗi Giây"
+
+#: ../../../src/MenuPowers.cpp:1116
+msgid "Immobilize"
+msgstr "Làm Bất Động"
+
+#: ../../../src/MenuPowers.cpp:1124
+msgid "Resist All Negative Effects"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:1128
+msgid "Stun"
+msgstr "Làm Bất Động"
+
+#: ../../../src/MenuPowers.cpp:1131
+msgid "Automatic revive on death"
+msgstr "Tự Động Hồi Sinh"
+
+#: ../../../src/MenuPowers.cpp:1134
+msgid "Convert"
+msgstr "Biến Đổi"
+
+#: ../../../src/MenuPowers.cpp:1137
+msgid "Fear"
+msgstr "Sợ Hãi"
+
+#: ../../../src/MenuPowers.cpp:1140
+msgid "Lifespan"
+msgstr "Vòng Đời"
+
+#: ../../../src/MenuPowers.cpp:1164
+msgid "Magical Shield"
+msgstr "Kết Giới"
+
+#: ../../../src/MenuPowers.cpp:1193
+msgid "Healing"
+msgstr "Hồi Sức"
+
+#: ../../../src/MenuPowers.cpp:1196
+msgid "Knockback"
+msgstr "Đẩy Lại"
+
+#: ../../../src/MenuPowers.cpp:1220
+#, c-format
+msgid "%s%% chance"
+msgstr "%s%% Cơ Hội"
+
+#: ../../../src/MenuPowers.cpp:1244
+msgid "Base Accuracy"
+msgstr "Độ Chính Xác Gốc"
+
+#: ../../../src/MenuPowers.cpp:1264
+msgid "Base Critical Chance"
+msgstr "Cơ Hội Bạo Kích Gốc"
+
+#: ../../../src/MenuPowers.cpp:1272
+msgid "Ignores Absorption"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:1277
+msgid "Ignores Avoidance"
+msgstr "Bỏ Qua Khả Năng Tránh Đòn"
+
+#: ../../../src/MenuPowers.cpp:1282
+#, c-format
+msgid "%s%% Chance to crit slowed targets"
+msgstr "%s%% Cơ Hội Bạo Kích Với Mục Tiêu Bị Làm Chậm"
+
+#: ../../../src/MenuPowers.cpp:1287
+#, c-format
+msgid "Damage dealt as: %s"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:1299
+#, c-format
+msgid "Spawn limit: %d"
+msgstr ""
+
+#: ../../../src/MenuPowers.cpp:1306
+#, c-format
+msgid "Requires a %s"
+msgstr "Cần %s"
+
+#: ../../../src/MenuPowers.cpp:1344 ../../../src/MenuPowers.cpp:1347
+#, c-format
+msgid "Requires Power: %s"
+msgstr "Cần %s"
+
+#: ../../../src/MenuPowers.cpp:1356
+msgid "Click to Unlock (uses 1 Skill Point)"
+msgstr "Nhấn Để Mở Khoá (Dùng 1 Điểm Kĩ Năng)"
+
+#: ../../../src/MenuPowers.cpp:1360 ../../../src/MenuPowers.cpp:1362
+msgid "Requires 1 Skill Point"
+msgstr "Cần 1 Điểm Kĩ Năng"
+
+#: ../../../src/MenuPowers.cpp:1605
+#, c-format
+msgid "Available skill points: %d"
+msgstr "Điểm Kĩ Năng Có Sẵn: %d"
+
+#: ../../../src/MenuPowers.cpp:1637
+msgid "Next Level:"
+msgstr "Cấp Tiếp:"
+
+#: ../../../src/MenuPowers.cpp:1648
+#, c-format
+msgid ""
+"Upgrade to: %s (Level %d)\n"
+"Uses 1 Skill Point"
+msgstr ""
+
+#: ../../../src/MenuStash.cpp:182
+msgid "Shared"
+msgstr "Chia Sẻ"
+
+#: ../../../src/MenuStash.cpp:380
+msgid "This item can not be stored in the stash."
+msgstr "Vật Phẩm Này Không Thể Lưu Trữ Trong Kho Đồ."
+
+#: ../../../src/MenuStash.cpp:385
+msgid "This item can not be stored in the private stash."
+msgstr "Vật Phẩm Này Không Thể Lưu Trữ Trong Kho Đồ Riêng Tư."
+
+#: ../../../src/MenuStash.cpp:390
+msgid "This item can not be stored in the shared stash."
+msgstr "Vật Phẩm Này Không Thể Lưu Trữ Trong Kho Đồ Chia Sẻ."
+
+#: ../../../src/MenuStash.cpp:400
+msgid "Stash is full."
+msgstr "Kho Đồ Đã Đầy."
+
+#: ../../../src/MenuStash.cpp:458
+#, c-format
+msgid "Can not store item in stash: %s"
+msgstr "Không Thể Lưu Trữ Vật Phẩm Trong Kho Đồ: %s"
+
+#: ../../../src/MenuStatBar.cpp:182
+#, c-format
+msgid "XP: %lu/%lu"
+msgstr "KN: %lu/%lu"
+
+#: ../../../src/MenuTalker.cpp:475
+#, c-format
+msgid "<dialog node %d>"
+msgstr ""
+
+#: ../../../src/MenuTalker.cpp:483
+msgid "Trade"
+msgstr "TRAO ĐỔI"
+
+#: ../../../src/MenuVendor.cpp:59
+msgid "Buyback"
+msgstr "Mua Lại"
+
+#: ../../../src/MenuVendor.cpp:288
+msgid "Vendor"
+msgstr "Thương Nhân"
+
+#: ../../../src/PowerManager.cpp:1565
+#, c-format
+msgid "+%s Shield"
+msgstr "+%s Khiên"
+
+#: ../../../src/PowerManager.cpp:1862
+msgid "You are already transformed, untransform first."
+msgstr "Bạn Đã Biến Đổi Rồi, Phải Biến Về Trạng Thái Ban Đầu Trước Tiên."
+
+#: ../../../src/PowerManager.cpp:1874
+msgid "Could not untransform at this position."
+msgstr "Không Thể Biến Về Trạng Thái Ban Đầu Ở Vị Trí Này."
+
+#: ../../../src/QuestLog.cpp:215
+msgid "Completed Quests"
+msgstr "Nhiệm Vụ Đã Hoàn Thành"
+
+#: ../../../src/SaveLoad.cpp:272 ../../../src/SaveLoad.cpp:273
+msgid "Game saved."
+msgstr "Đã Lưu Trò Chơi."
+
+#: ../../../src/SDLInputState.cpp:98
+#, c-format
+msgid "Can not bind: %s"
+msgstr "Không Thể Ràng Buộc: %s"
+
+#: ../../../src/SDLInputState.cpp:107
+#, c-format
+msgid "'%s' is no longer bound to:"
+msgstr "[%s] Không Còn Được Gán Với:"
+
+#: ../../../src/SDLInputState.cpp:672
+msgid "BkSp"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:673
+msgid "Caps"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:674
+msgid "Del"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:675 ../../../src/SDLInputState.cpp:705
+#: ../../../src/SDLInputState.cpp:917
+msgid "Down"
+msgstr "Xuống"
+
+#: ../../../src/SDLInputState.cpp:677
+msgid "Esc"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:678 ../../../src/SDLInputState.cpp:708
+msgid "Home"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:679
+msgid "Ins"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:680
+msgid "LAlt"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:681
+msgid "LCtrl"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:682 ../../../src/SDLInputState.cpp:712
+#: ../../../src/SDLInputState.cpp:918
+msgid "Left"
+msgstr "Trái"
+
+#: ../../../src/SDLInputState.cpp:683
+msgid "LShft"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:684
+msgid "Num"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:685
+msgid "PgDn"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:686
+msgid "PgUp"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:687 ../../../src/SDLInputState.cpp:717
+msgid "Pause"
+msgstr "Tạm Dừng"
+
+#: ../../../src/SDLInputState.cpp:688
+msgid "Print"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:689
+msgid "RAlt"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:690
+msgid "RCtrl"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:691
+msgid "Ret"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:692 ../../../src/SDLInputState.cpp:722
+#: ../../../src/SDLInputState.cpp:919
+msgid "Right"
+msgstr "Phải"
+
+#: ../../../src/SDLInputState.cpp:693
+msgid "RShft"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:694
+msgid "SLock"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:695
+msgid "Spc"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:696 ../../../src/SDLInputState.cpp:726
+msgid "Tab"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:697 ../../../src/SDLInputState.cpp:727
+#: ../../../src/SDLInputState.cpp:916
+msgid "Up"
+msgstr "Lên"
+
+#: ../../../src/SDLInputState.cpp:702
+msgid "Backspace"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:703
+msgid "CapsLock"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:704 ../../../src/SDLInputState.cpp:957
+msgid "Delete"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:707
+msgid "Escape"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:709
+msgid "Insert"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:710
+msgid "Left Alt"
+msgstr "Alt Trái"
+
+#: ../../../src/SDLInputState.cpp:711
+msgid "Left Ctrl"
+msgstr "Ctrl Trái"
+
+#: ../../../src/SDLInputState.cpp:713
+msgid "Left Shift"
+msgstr "Shift Trái"
+
+#: ../../../src/SDLInputState.cpp:714
+msgid "NumLock"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:715
+msgid "PageDown"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:716
+msgid "PageUp"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:718
+msgid "PrintScreen"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:719
+msgid "Right Alt"
+msgstr "Alt Phải"
+
+#: ../../../src/SDLInputState.cpp:720
+msgid "Right Ctrl"
+msgstr "Ctrl Phải"
+
+#: ../../../src/SDLInputState.cpp:721
+msgid "Return"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:723
+msgid "Right Shift"
+msgstr "Shift Phải"
+
+#: ../../../src/SDLInputState.cpp:724
+msgid "ScrollLock"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:725
+msgid "Space"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:737
+#, c-format
+msgid "M%d"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:743
+#, c-format
+msgid "Mouse %d"
+msgstr "Chuột %d"
+
+#: ../../../src/SDLInputState.cpp:752 ../../../src/SDLInputState.cpp:761
+msgid "(unknown)"
+msgstr "(Không Xác Định)"
+
+#: ../../../src/SDLInputState.cpp:817
+msgid "Touch control D-Pad"
+msgstr "Bàn Điều Khiển Di Chuyển Cảm Ứng"
+
+#: ../../../src/SDLInputState.cpp:843
+msgid "Touch control buttons"
+msgstr "Bộ Nút Điều Khiển Cảm Ứng"
+
+#: ../../../src/SDLInputState.cpp:915
+msgid "Accept"
+msgstr "Đồng Ý"
+
+#: ../../../src/SDLInputState.cpp:920
+msgid "Bar1"
+msgstr "Thanh 1"
+
+#: ../../../src/SDLInputState.cpp:921
+msgid "Bar2"
+msgstr "Thanh 2"
+
+#: ../../../src/SDLInputState.cpp:922
+msgid "Bar3"
+msgstr "Thanh 3"
+
+#: ../../../src/SDLInputState.cpp:923
+msgid "Bar4"
+msgstr "Thanh 4"
+
+#: ../../../src/SDLInputState.cpp:924
+msgid "Bar5"
+msgstr "Thanh 5"
+
+#: ../../../src/SDLInputState.cpp:925
+msgid "Bar6"
+msgstr "Thanh 6"
+
+#: ../../../src/SDLInputState.cpp:926
+msgid "Bar7"
+msgstr "Thanh 7"
+
+#: ../../../src/SDLInputState.cpp:927
+msgid "Bar8"
+msgstr "Thanh 8"
+
+#: ../../../src/SDLInputState.cpp:928
+msgid "Bar9"
+msgstr "Thanh 9"
+
+#: ../../../src/SDLInputState.cpp:929
+msgid "Bar0"
+msgstr "Thanh 0"
+
+#: ../../../src/SDLInputState.cpp:934
+msgid "Main1"
+msgstr "Chủ Đạo 1"
+
+#: ../../../src/SDLInputState.cpp:935
+msgid "Main2"
+msgstr "Chủ Đạo 2"
+
+#: ../../../src/SDLInputState.cpp:936
+msgid "Next Equip Set"
+msgstr "Bộ Trang Bị Tiếp Theo"
+
+#: ../../../src/SDLInputState.cpp:937
+msgid "Previous Equip Set"
+msgstr "Bộ Trang Bị Trước Đó"
+
+#: ../../../src/SDLInputState.cpp:938
+msgid "Mini-map Mode"
+msgstr "Chế Độ Bản Đồ Thu Nhỏ"
+
+#: ../../../src/SDLInputState.cpp:939
+msgid "Loot Tooltip Mode"
+msgstr "Chế Độ Hiện Tên Lợi Phẩm"
+
+#: ../../../src/SDLInputState.cpp:940
+msgid "Action Bar Edit"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:941
+msgid "Menu: Next Page"
+msgstr "Danh Mục: Trang Tiếp Theo"
+
+#: ../../../src/SDLInputState.cpp:942
+msgid "Menu: Previous Page"
+msgstr "Danh Mục: Trang Trước Đó"
+
+#: ../../../src/SDLInputState.cpp:943
+msgid "Menu: Activate"
+msgstr "Danh Mục: Kích Hoạt"
+
+#: ../../../src/SDLInputState.cpp:944
+msgid "Pause Game"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:945
+msgid "Cycle Menus"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:946
+msgid "Aim Up"
+msgstr "Nhắm Trên"
+
+#: ../../../src/SDLInputState.cpp:947
+msgid "Aim Down"
+msgstr "Nhắm Dưới"
+
+#: ../../../src/SDLInputState.cpp:948
+msgid "Aim Left"
+msgstr "Nhắm Trái"
+
+#: ../../../src/SDLInputState.cpp:949
+msgid "Aim Right"
+msgstr "Nhắm Phải"
+
+#: ../../../src/SDLInputState.cpp:950
+msgid "Developer Menu"
+msgstr "Danh Mục Của Nhà Phát Triển"
+
+#: ../../../src/SDLInputState.cpp:951
+msgid "Developer Command 1"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:952
+msgid "Developer Command 2"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:953
+msgid "Developer Command 3"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:954
+msgid "Ctrl"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:955
+msgid "Shift"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:956
+msgid "Alt"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:959
+msgid "Left Mouse"
+msgstr "Chuột Trái"
+
+#: ../../../src/SDLInputState.cpp:960
+msgid "Middle Mouse"
+msgstr "Chuột Giữa"
+
+#: ../../../src/SDLInputState.cpp:961
+msgid "Right Mouse"
+msgstr "Chuột Phải"
+
+#: ../../../src/SDLInputState.cpp:962
+msgid "Wheel Up"
+msgstr "Lăn Lên"
+
+#: ../../../src/SDLInputState.cpp:963
+msgid "Wheel Down"
+msgstr "Lăn Xuống"
+
+#: ../../../src/SDLInputState.cpp:964
+msgid "Mouse X1"
+msgstr "Phím X1 Chuột"
+
+#: ../../../src/SDLInputState.cpp:965
+msgid "Mouse X2"
+msgstr "Phím X2 Chuột"
+
+#: ../../../src/SDLInputState.cpp:967
+msgid "X360: A"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:968
+msgid "X360: B"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:969
+msgid "X360: X"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:970
+msgid "X360: Y"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:971
+msgid "X360: Back"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:972
+msgid "X360: Guide"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:973
+msgid "X360: Start"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:974
+msgid "X360: L3"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:975
+msgid "X360: R3"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:976
+msgid "X360: L1"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:977
+msgid "X360: R1"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:978
+msgid "X360: D-Up"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:979
+msgid "X360: D-Down"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:980
+msgid "X360: D-Left"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:981
+msgid "X360: D-Right"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:983
+msgid "X360: Left X+"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:984
+msgid "X360: Left X-"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:985
+msgid "X360: Left Y+"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:986
+msgid "X360: Left Y-"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:987
+msgid "X360: Right X+"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:988
+msgid "X360: Right X-"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:989
+msgid "X360: Right Y+"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:990
+msgid "X360: Right Y-"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:991
+msgid "X360: L2"
+msgstr ""
+
+#: ../../../src/SDLInputState.cpp:992
+msgid "X360: R2"
+msgstr ""
+
+#: ../../../src/Stats.cpp:39
+msgid "Max HP"
+msgstr "Sinh Lực Cực Đại"
+
+#: ../../../src/Stats.cpp:40
+msgid "Total amount of HP."
+msgstr "Tổng Điểm Sinh Lực."
+
+#: ../../../src/Stats.cpp:46
+msgid "HP Regen"
+msgstr "Phục Hồi Sinh Lực"
+
+#: ../../../src/Stats.cpp:47
+msgid "Ticks of HP regen per minute."
+msgstr "Số Điểm Sinh Lực Hồi Mỗi Phút."
+
+#: ../../../src/Stats.cpp:53
+msgid "Max MP"
+msgstr "Nội Lực Cực Đại"
+
+#: ../../../src/Stats.cpp:54
+msgid "Total amount of MP."
+msgstr "Tổng Điểm Nội Lực."
+
+#: ../../../src/Stats.cpp:60
+msgid "MP Regen"
+msgstr "Phục Hồi Nội Lực"
+
+#: ../../../src/Stats.cpp:61
+msgid "Ticks of MP regen per minute."
+msgstr "Số Điểm Nội Lực Hồi Mỗi Phút."
+
+#: ../../../src/Stats.cpp:67
+msgid "Accuracy"
+msgstr "Chính Xác"
+
+#: ../../../src/Stats.cpp:68
+msgid ""
+"Accuracy rating. The enemy's Avoidance rating is subtracted from this value "
+"to calculate your likeliness to land a direct hit."
+msgstr ""
+"Khả Năng Đánh Trúng Bằng Độ Chính Xác Trừ Đi Khả Năng Tránh Của Kẻ Thù."
+
+#: ../../../src/Stats.cpp:74
+msgid "Avoidance"
+msgstr "Tránh Né"
+
+#: ../../../src/Stats.cpp:75
+msgid ""
+"Avoidance rating. This value is subtracted from the enemy's Accuracy rating "
+"to calculate their likeliness to land a direct hit."
+msgstr ""
+"Khả Năng Bị Đánh Trúng Bằng Độ Chính Xác Của Kẻ Thù Trừ Đi Khả Năng Tránh."
+
+#: ../../../src/Stats.cpp:82 ../../../src/Stats.cpp:89
+msgid "Reduces the amount of damage taken."
+msgstr "Giảm Sát Thương Phải Chịu."
+
+#: ../../../src/Stats.cpp:95
+msgid "Critical Hit Chance"
+msgstr "Bạo Kích"
+
+#: ../../../src/Stats.cpp:96
+msgid "Chance for an attack to do extra damage."
+msgstr "Cơ Hội Thêm Sát Thương Cho Đòn Tấn Công."
+
+#: ../../../src/Stats.cpp:102
+msgid "Bonus XP"
+msgstr "Thưởng Kinh Nghiệm"
+
+#: ../../../src/Stats.cpp:103
+msgid "Increases the XP gained per kill."
+msgstr "Tăng Điểm Kinh Nghiệm Nhận Được Mỗi Lượt Giết."
+
+#: ../../../src/Stats.cpp:109
+#, c-format
+msgid "Bonus %s"
+msgstr "Số Lượng Hiện Kim"
+
+#: ../../../src/Stats.cpp:110
+#, c-format
+msgid "Increases the %s found per drop."
+msgstr "Tăng Số Lượng %s Rơi Ra Từ Kẻ Thù."
+
+#: ../../../src/Stats.cpp:116
+msgid "Item Find Chance"
+msgstr "Chất Lượng Hiện Vật"
+
+#: ../../../src/Stats.cpp:117
+msgid "Increases the chance that an enemy will drop an item."
+msgstr "Tăng Chất Lượng Vật Phẩm Rơi Ra Từ Kẻ Thù."
+
+#: ../../../src/Stats.cpp:123
+msgid "Stealth"
+msgstr "Lén Lút"
+
+#: ../../../src/Stats.cpp:124
+msgid "Increases your ability to move undetected."
+msgstr "Tăng Khả Năng Di Chuyển Mà Không Bị Phát Hiện."
+
+#: ../../../src/Stats.cpp:130
+msgid "Poise"
+msgstr "Thăng Bằng"
+
+#: ../../../src/Stats.cpp:131
+msgid "Reduces your chance of stumbling when hit."
+msgstr "Giảm Ảnh Hưởng Vấp Ngã Khi Bị Đánh."
+
+#: ../../../src/Stats.cpp:137
+msgid "Missile Reflect Chance"
+msgstr "Phản Đạn"
+
+#: ../../../src/Stats.cpp:138
+msgid "Increases your chance of reflecting missiles back at enemies."
+msgstr "Phản Xạ Một Phần Sát Thương Tên Lửa Ngược Lại Kẻ Địch Xa Chiến."
+
+#: ../../../src/Stats.cpp:144
+msgid "Damage Reflection"
+msgstr "Phản Lực"
+
+#: ../../../src/Stats.cpp:145
+msgid "Deals a percentage of damage taken back to the attacker."
+msgstr "Phản Xạ Một Phần Sát Thương Ngược Lại Kẻ Địch Cận Chiến."
+
+#: ../../../src/Stats.cpp:151
+msgid "HP Steal"
+msgstr "Hấp Thụ Sinh Lực"
+
+#: ../../../src/Stats.cpp:152
+msgid "Percentage of HP stolen per hit."
+msgstr "Phần Trăm Sinh Lực Lấy Được Mỗi Lượt Đánh."
+
+#: ../../../src/Stats.cpp:158
+msgid "MP Steal"
+msgstr "Hấp Thụ Nội Lực"
+
+#: ../../../src/Stats.cpp:159
+msgid "Percentage of MP stolen per hit."
+msgstr "Phần Trăm Nội Lực Lấy Được Mỗi Lượt Đánh."
+
+#: ../../../src/Stats.cpp:165
+msgid "Resist Damage-Over-Time"
+msgstr ""
+
+#: ../../../src/Stats.cpp:166
+msgid "Percentage chance that damage-over-time effects will be negated."
+msgstr "Vô Hiệu Hóa Một Phần Các Ảnh Hưởng Sát Thương Theo Thời Gian."
+
+#: ../../../src/Stats.cpp:172
+msgid "Resist Slow"
+msgstr ""
+
+#: ../../../src/Stats.cpp:173
+msgid "Percentage chance that slow effects will be negated."
+msgstr "Vô Hiệu Hóa Một Phần Các Ảnh Hưởng Làm Chậm."
+
+#: ../../../src/Stats.cpp:179
+msgid "Resist Stun"
+msgstr ""
+
+#: ../../../src/Stats.cpp:180
+msgid "Percentage chance that stun effects will be negated."
+msgstr "Vô Hiệu Hóa Một Phần Các Ảnh Hưởng Làm Choáng."
+
+#: ../../../src/Stats.cpp:186
+msgid "Resist Knockback"
+msgstr ""
+
+#: ../../../src/Stats.cpp:187
+msgid "Percentage chance that knockback effects will be negated."
+msgstr "Vô Hiệu Hóa Một Phần Các Ảnh Hưởng Đẩy Lùi."
+
+#: ../../../src/Stats.cpp:193
+msgid "Resist Stat Debuffs"
+msgstr ""
+
+#: ../../../src/Stats.cpp:194
+msgid "Percentage chance that stat debuff effects will be negated."
+msgstr "Vô Hiệu Hóa Một Phần Các Ảnh Hưởng Giảm Chỉ Số."
+
+#: ../../../src/Stats.cpp:200
+msgid "Resist Damage Reflection"
+msgstr ""
+
+#: ../../../src/Stats.cpp:201
+msgid "Percentage chance that damage reflection will be negated."
+msgstr "Vô Hiệu Hóa Một Phần Các Ảnh Hưởng Phản Sát Thương."
+
+#: ../../../src/Stats.cpp:207
+msgid "Resist HP Steal"
+msgstr ""
+
+#: ../../../src/Stats.cpp:208
+msgid "Percentage chance that HP steal will be negated."
+msgstr "Vô Hiệu Hóa Một Phần Các Ảnh Hưởng Hút Sinh Lực."
+
+#: ../../../src/Stats.cpp:214
+msgid "Resist MP Steal"
+msgstr ""
+
+#: ../../../src/Stats.cpp:215
+msgid "Percentage chance that MP steal will be negated."
+msgstr "Vô Hiệu Hóa Một Phần Các Ảnh Hưởng Hút Nội Lực."
+
+#: ../../../src/Utils.cpp:375
+msgid "k"
+msgstr ""
+
+#: ../../../src/Utils.cpp:668
+#, c-format
+msgid "%s second"
+msgstr "%s Giây"
+
+#: ../../../src/Utils.cpp:671
+#, c-format
+msgid "%s seconds"
+msgstr "%s Giây"
+
+#: ../../../src/Version.cpp:139
+msgid "or newer"
+msgstr "Hoặc Mới Hơn"
+
+#: ../../../src/Version.cpp:142
+msgid "or older"
+msgstr "Hoặc Cũ Hơn"
+
+#: ../../../src/WidgetLog.cpp:108
+msgid "ERROR: Text output too large"
+msgstr ""

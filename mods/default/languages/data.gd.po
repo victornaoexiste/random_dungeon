@@ -1,0 +1,101 @@
+# Copyright (C) 2011 Clint Bellanger
+# This file is distributed under the same license as the FLARE package.
+# 
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translators:
+# Justin Jacobs <jajdorkster@gmail.com>, 2018
+# GunChleoc, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 08:42+\n"
+"PO-Revision-Date: 2018-03-28 19:16+0000\n"
+"Last-Translator: GunChleoc, 2021\n"
+"Language-Team: Gaelic, Scottish (https://app.transifex.com/flareorg/teams/84925/gd/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gd\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : (n > 2 && n < 20) ? 2 : 3;\n"
+
+#: ../engine/primary_stats.txt:3
+msgid "Physical"
+msgstr "Bodhaig"
+
+#: ../engine/primary_stats.txt:7
+msgid "Mental"
+msgstr "Inntinn"
+
+#: ../engine/primary_stats.txt:11
+msgid "Offense"
+msgstr "Ionnsaigh"
+
+#: ../engine/primary_stats.txt:15
+msgid "Defense"
+msgstr "Dìon"
+
+#: ../engine/damage_types.txt:3
+msgid "Melee Damage"
+msgstr "Dochann dlùth"
+
+#: ../engine/damage_types.txt:4
+msgid "Increases the damage done with swords and other melee weapons."
+msgstr "Meudaichidh seo an dochann a nì claidheamhan is airm dhlùtha eile."
+
+#: ../engine/damage_types.txt:10
+msgid "Ranged Damage"
+msgstr "Dochann astair"
+
+#: ../engine/damage_types.txt:11
+msgid "Increases the damage done with bows and other ranged weapons."
+msgstr "Meudaichidh seo an dochann a nì boghachan is airm astair eile."
+
+#: ../engine/damage_types.txt:17
+msgid "Mental Damage"
+msgstr "Dochann inntinne"
+
+#: ../engine/damage_types.txt:18
+msgid "Increases the damage done with staves and other mental weapons."
+msgstr "Meudaichidh seo an dochann a nì bataichean is airm inntinne eile."
+
+#: ../cutscenes/credits_engine.txt:7
+msgid "Flare Engine Credits"
+msgstr "Urram airson an einnsein Flare"
+
+#: ../cutscenes/credits_engine.txt:10
+msgid "Lead Programmers"
+msgstr "Prìomh luchd-prògramachaidh"
+
+#: ../cutscenes/credits_engine.txt:20
+msgid "Programmers"
+msgstr "Luchd-prògramachaidh"
+
+#: ../cutscenes/credits_engine.txt:51
+msgid "Default Art"
+msgstr "Obair-ealain bhunaiteach"
+
+#: ../cutscenes/credits_engine.txt:56
+msgid "Translators"
+msgstr "Eadar-theangadairean"
+
+#: ../cutscenes/credits_engine.txt:142
+msgid "Distributors"
+msgstr "Luchd-sgaoilidh"
+
+#: ../cutscenes/credits_engine.txt:151
+msgid "Special Thanks"
+msgstr "Taing shònraichte"
+
+#: ../cutscenes/credits_engine.txt:155
+msgid "For giving constant feedback and testing:"
+msgstr "Airson torr bheachdan is deuchainneachaidh:"
+
+#: ../cutscenes/credits_engine.txt:157
+msgid "The community at OpenGameArt"
+msgstr "Coimhearsnachd OpenGameArt"
+
+#: ../cutscenes/credits_engine.txt:161
+msgid "For Tiled and the Flare map exporter:"
+msgstr "Airson Tiled agus inneal às-phortaidh mhapaichean Flare:"

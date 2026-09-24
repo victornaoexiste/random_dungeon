@@ -1,0 +1,100 @@
+# Copyright (C) 2011 Clint Bellanger
+# This file is distributed under the same license as the FLARE package.
+# 
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translators:
+# MiroslavR <miroslavr256@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 08:42+\n"
+"PO-Revision-Date: 2018-03-28 19:16+0000\n"
+"Last-Translator: MiroslavR <miroslavr256@gmail.com>, 2019\n"
+"Language-Team: Slovak (https://app.transifex.com/flareorg/teams/84925/sk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+#: ../engine/primary_stats.txt:3
+msgid "Physical"
+msgstr "Fyzické"
+
+#: ../engine/primary_stats.txt:7
+msgid "Mental"
+msgstr "Mentálne"
+
+#: ../engine/primary_stats.txt:11
+msgid "Offense"
+msgstr "Útok"
+
+#: ../engine/primary_stats.txt:15
+msgid "Defense"
+msgstr "Obrana"
+
+#: ../engine/damage_types.txt:3
+msgid "Melee Damage"
+msgstr "Zranenie nablízko"
+
+#: ../engine/damage_types.txt:4
+msgid "Increases the damage done with swords and other melee weapons."
+msgstr "Zvyšuje zranenie spôsobené mečmi a inými zbraňami nablízko."
+
+#: ../engine/damage_types.txt:10
+msgid "Ranged Damage"
+msgstr "Zranenie na diaľku"
+
+#: ../engine/damage_types.txt:11
+msgid "Increases the damage done with bows and other ranged weapons."
+msgstr "Zvyšuje zranenie spôsobené lukmi a inými zbraňami na diaľku."
+
+#: ../engine/damage_types.txt:17
+msgid "Mental Damage"
+msgstr "Mentálne zranenie"
+
+#: ../engine/damage_types.txt:18
+msgid "Increases the damage done with staves and other mental weapons."
+msgstr "Zvyšuje zranenie spôsobené palicami a inými mentálnymi zbraňami."
+
+#: ../cutscenes/credits_engine.txt:7
+msgid "Flare Engine Credits"
+msgstr "Autori Flare Engine"
+
+#: ../cutscenes/credits_engine.txt:10
+msgid "Lead Programmers"
+msgstr "Hlavní programátori"
+
+#: ../cutscenes/credits_engine.txt:20
+msgid "Programmers"
+msgstr "Programátori"
+
+#: ../cutscenes/credits_engine.txt:51
+msgid "Default Art"
+msgstr "Predvolená grafika"
+
+#: ../cutscenes/credits_engine.txt:56
+msgid "Translators"
+msgstr "Prekladatelia"
+
+#: ../cutscenes/credits_engine.txt:142
+msgid "Distributors"
+msgstr "Distribútori"
+
+#: ../cutscenes/credits_engine.txt:151
+msgid "Special Thanks"
+msgstr "Špeciálne poďakovanie"
+
+#: ../cutscenes/credits_engine.txt:155
+msgid "For giving constant feedback and testing:"
+msgstr "Za pravidelné poskytovanie spätnej väzby a testovanie:"
+
+#: ../cutscenes/credits_engine.txt:157
+msgid "The community at OpenGameArt"
+msgstr "Komunita OpenGameArt"
+
+#: ../cutscenes/credits_engine.txt:161
+msgid "For Tiled and the Flare map exporter:"
+msgstr "Za nástroj Tiled a exportér máp Flare:"

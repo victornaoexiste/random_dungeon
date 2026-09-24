@@ -1,0 +1,24 @@
+name=Ember Shot
+description=Fire a spray of burning embers at close range. Effective against armored enemies. Inflicts a burn that makes enemies weaker to fire damage.
+type=missile
+icon=18
+new_state=shoot
+face=true
+requires_flags=ranged
+base_damage=ranged
+aim_assist=true
+count=10
+trait_armor_penetration=true
+angle_variance=15
+speed_variance=0.15
+animation=animations/powers/ember.txt
+use_hazard=true
+lifespan=266ms
+radius=0.75
+speed=24
+directional=true
+soundfx=soundfx/powers/shoot.ogg
+post_power=158
+trait_elemental=fire
+post_effect=fire_weakness,-75,5s
+

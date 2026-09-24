@@ -1,0 +1,15 @@
+# carregado automaticamente ao iniciar um novo jogo.
+# TEMPORARIO (teste de rede): encaminha pra sala de teste fixa 16x16 em vez da
+# masmorra procedural, pra servidor/clientes caírem sempre no mesmo mapa
+# conhecido. Pra voltar pro fluxo normal, troque intermap de volta pra
+# maps/dungeon.txt.
+[header]
+width=1
+height=1
+hero_pos=0,0
+
+[event]
+type=event
+location=0,0,1,1
+activate=on_load
+intermap=maps/net_test_room.txt

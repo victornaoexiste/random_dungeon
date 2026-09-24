@@ -1,0 +1,60 @@
+.\" -*- nroff -*-
+
+.TH FLARE 6 "November 2014"
+
+.SH NAME
+flare \- action role-playing engine
+
+.SH SYNOPSIS
+.B flare
+.RB [ options ]
+
+.SH DESCRIPTION
+.B FLARE
+(short for Free Libre Action Roleplaying Engine) is a single-player, 2D-isometric
+action role-playing engine. It uses simple file formats (INI-style config files)
+for most of the game data, allowing anyone to easily modify game contents.
+
+.SH OPTIONS
+.IP "\fB\-\-help\fP"
+Prints a description of command line flags.
+.IP "\fB\-\-version\fP"
+Prints the release version.
+.IP "\fB\-\-data-path=\fIpath\fP"
+Specifies an exact path to look for mod data.
+.IP "\fB\-\-save-data-path\fP"
+Saves the path specified with --data-path to the user's config.
+.IP "\fB\-\-clear-data-path\fP"
+Removes the saved data-path from the user's config.
+.IP "\fB\-\-ignore-data-path\fP"
+Temporarily ignores any saved data-path in the user's config.
+.IP "\fB\-\-debug-event\fP"
+Prints verbose hardware input information.
+.IP "\fB\-\-renderer=\fIrenderer\fP"
+Specifies the rendering backend to use. The default is 'sdl_hardware'. Also available is 'sdl', which is a software-based renderer.
+.IP "\fB\-\-no-audio\fP"
+Disables sound effects and music.
+.IP "\fB\-\-mods=\fImod,...\fP"
+Starts the game with only these mods enabled.
+.IP "\fB\-\-load-slot=\fIslot\fP"
+Loads a save slot by numerical index.
+.IP "\fB\-\-load-script=\fIscript\fP"
+Execute's a script upon loading a saved game. The script path is mod-relative.
+
+.SH FILES
+.TP
+The engine settings and key bindings are stored in
+.LP
+\fB$XDG_CONFIG_HOME\fR/flare/
+.LP
+\fB$HOME\fR/.config/flare/
+
+.TP
+The game data is stored in
+.LP
+\fB$XDG_DATA_HOME\fR/flare/
+.LP
+\fB$HOME\fR/.local/share/flare/
+
+.SH AVAILABILITY
+For more information about the FLARE engine, visit https://flarerpg.org

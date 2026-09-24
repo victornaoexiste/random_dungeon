@@ -1,0 +1,6049 @@
+# Copyright (C) 2011 Clint Bellanger
+# This file is distributed under the same license as the FLARE package.
+# 
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translators:
+# Fatih Polat, 2026
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-03 13:59+\n"
+"PO-Revision-Date: 2018-03-28 19:35+0000\n"
+"Last-Translator: Fatih Polat, 2026\n"
+"Language-Team: Turkish (https://app.transifex.com/flareorg/teams/84925/tr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../items/items.txt:8
+msgid "Gold"
+msgstr "Altın"
+
+#: ../items/items.txt:61
+msgid "DEV Boots"
+msgstr "DEV Çizmeleri"
+
+#: ../items/items.txt:66
+msgid "Use: Teleport to target position."
+msgstr "Kullan: Hedef konuma ışınlan"
+
+#: ../items/items.txt:70
+msgid "DEV Invisibility Boots"
+msgstr "DEV Görünmezlik Çizmeleri"
+
+#: ../items/items.txt:75
+msgid "Use: Turn Invisible"
+msgstr "Kullan: Görünmez ol"
+
+#: ../items/items.txt:79
+msgid "DEV Tome"
+msgstr "DEV Kitabı"
+
+#: ../items/items.txt:84
+msgid "Use: Open DEV Tome"
+msgstr "Kullan: DEV Kitabı'nı aç"
+
+#: ../items/types.txt:5
+msgid "Ancient Relic"
+msgstr "Kadim Yadigâr"
+
+#: ../items/types.txt:9
+msgid "Crafting Resource"
+msgstr "Üretim Malzemesi"
+
+#: ../items/types.txt:14
+msgid "Crafting Tool"
+msgstr "Üretim Aracı"
+
+#: ../items/sets.txt:3
+msgid "St. Maria Garb"
+msgstr "Azize Maria Giysisi"
+
+#: ../items/sets.txt:14
+msgid "Temple Guard's Outfit"
+msgstr "Tapınak Muhafızı Teçhizatı"
+
+#: ../items/sets.txt:25
+msgid "Wizard's Apparatus"
+msgstr "Büyücü Teçhizatı"
+
+#: ../items/sets.txt:36
+msgid "Underworld Armament"
+msgstr "Yeraltı Dünyası Teçhizatı"
+
+#: ../items/qualities.txt:5
+msgid "Normal"
+msgstr "Normal"
+
+#: ../items/qualities.txt:17
+msgid "Mastite"
+msgstr "Mastite"
+
+#: ../powers/effects.txt:5
+msgid "Shield"
+msgstr "Kalkan"
+
+#: ../powers/effects.txt:13
+msgid "Bleeding"
+msgstr "Kanama"
+
+#: ../powers/effects.txt:21
+msgid "Slow"
+msgstr "Yavaşlatma"
+
+#: ../powers/effects.txt:38
+msgid "Stun"
+msgstr "Sersemletme"
+
+#: ../powers/effects.txt:45
+msgid "Immunity"
+msgstr "Dayanıklılık"
+
+#: ../powers/effects.txt:61
+msgid "Haste"
+msgstr "Hızlanma"
+
+#: ../powers/effects.txt:111
+msgid "Weakness to Fire"
+msgstr "Ateşe karşı zayıflık"
+
+#: ../powers/effects.txt:120
+msgid "Weakness to Ice"
+msgstr "Buza karşı zayıflık"
+
+#: ../powers/effects.txt:136
+msgid "Sacrifice"
+msgstr "Fedakarlık"
+
+#: ../powers/effects.txt:161
+msgid "Reflect"
+msgstr "Yansıt"
+
+#: ../powers/effects.txt:172
+msgid "Stamina Potion"
+msgstr "Dayanıklılık İksiri"
+
+#: ../powers/effects.txt:178
+msgid "Treasure Potion"
+msgstr "Hazine İksiri"
+
+#: ../powers/effects.txt:184
+msgid "Elemental Potion"
+msgstr "Element İksiri"
+
+#: ../powers/effects.txt:190
+msgid "Fireball Scroll"
+msgstr "Ateş Topu Parşömeni"
+
+#: ../powers/effects.txt:196
+msgid "Ice Bolt Scroll"
+msgstr "Buz Oku Parşömeni"
+
+#: ../powers/effects.txt:202
+msgid "Vampirsim"
+msgstr "Vampirizm"
+
+#: ../powers/effects.txt:208
+msgid "Poison"
+msgstr "Zehir"
+
+#: ../powers/effects.txt:216
+msgid "Resist Damage (Fire)"
+msgstr "Ateş Hasarına Direnç"
+
+#: ../powers/effects.txt:223
+msgid "Resist Damage (Ice)"
+msgstr "Buz Hasarına Direnç"
+
+#: ../powers/effects.txt:230
+msgid "Resist Damage (Lightning)"
+msgstr "Yıldırım Hasarına Direnç"
+
+#: ../powers/effects.txt:237
+msgid "Resist Damage (Dark)"
+msgstr "Karanlık Hasarına Direnç"
+
+#: ../powers/effects.txt:244
+msgid "Summoned Skeleton"
+msgstr "Çağırılmış İskelet"
+
+#: ../powers/effects.txt:253
+msgid "MP Regen"
+msgstr "MP Regen"
+
+#: ../powers/powers.txt:61
+msgid "Teleport"
+msgstr "Işınlan"
+
+#: ../powers/powers.txt:78
+msgid "Turn Invisible"
+msgstr "Görünmez ol"
+
+#: ../powers/powers.txt:90
+msgid "Remove Invisibility"
+msgstr "Görünmezliği Kaldır"
+
+#: ../engine/classes.txt:6
+msgid "Brute"
+msgstr "Cengâver"
+
+#: ../engine/classes.txt:7
+msgid ""
+"Brutes rely on physical strength and melee weapons to strike down foes. "
+"Primary attribute: Physical"
+msgstr ""
+"Savaşçılar, düşmanlarını alt etmek için fiziksel güçlerine ve yakın dövüş "
+"silahlarına güvenir. Birincil nitelik: Fiziksel"
+
+#: ../engine/classes.txt:18
+msgid "Scout"
+msgstr "İzci"
+
+#: ../engine/classes.txt:19
+msgid ""
+"Scouts specialize in range weaponry and combat accuracy. Primary attribute: "
+"Offense"
+msgstr ""
+"İzciler, menzilli silahlarda ve isabetli saldırılarda uzmanlaşır. Birincil "
+"nitelik: Saldırı"
+
+#: ../engine/classes.txt:30
+msgid "Adept"
+msgstr "Mistik"
+
+#: ../engine/classes.txt:31
+msgid ""
+"Adepts have natural abilities in casting magical spells. Primary attribute: "
+"Mental"
+msgstr ""
+"Mistikler, büyü yapma konusunda doğuştan yeteneklidir. Birincil nitelik: "
+"Zihinsel"
+
+#: ../engine/titles.txt:3
+msgid "Grand Master"
+msgstr "Büyük üstat"
+
+#: ../engine/titles.txt:7
+msgid "Master"
+msgstr "Üstat"
+
+#: ../engine/titles.txt:13
+msgid "Warlord"
+msgstr "Savaş Lordu"
+
+#: ../engine/titles.txt:18
+msgid "Archwizard"
+msgstr "Başbüyücü"
+
+#: ../engine/titles.txt:23
+msgid "Sniper"
+msgstr "Keskin Nişancı"
+
+#: ../engine/titles.txt:28
+msgid "Templar"
+msgstr "Tapınak Şövalyesi"
+
+#: ../engine/titles.txt:34
+msgid "Assassin"
+msgstr "Suikastçı"
+
+#: ../engine/titles.txt:39
+msgid "Lord"
+msgstr "Lord"
+
+#: ../engine/titles.txt:44
+msgid "Tempest"
+msgstr "Fırtına"
+
+#: ../engine/titles.txt:49
+msgid "High Priest"
+msgstr "Başrahip"
+
+#: ../engine/titles.txt:54
+msgid "Battle Archmage"
+msgstr "Savaş Başbüyücüsü"
+
+#: ../engine/titles.txt:59
+msgid "High Warden"
+msgstr "Başmuhafız"
+
+#: ../engine/titles.txt:63
+msgid "Adventurer"
+msgstr "Maceracı"
+
+#: ../engine/titles.txt:69
+msgid "Warrior"
+msgstr "Savaşçı"
+
+#: ../engine/titles.txt:74
+msgid "Ranger"
+msgstr "Korucu"
+
+#: ../engine/titles.txt:79
+msgid "Wizard"
+msgstr "Büyücü"
+
+#: ../engine/titles.txt:84
+msgid "Paladin"
+msgstr "Paladin"
+
+#: ../engine/titles.txt:90
+msgid "Rogue"
+msgstr "Haydut"
+
+#: ../engine/titles.txt:95
+msgid "Knight"
+msgstr "Şovalye"
+
+#: ../engine/titles.txt:100
+msgid "Striker"
+msgstr "Akıncı"
+
+#: ../engine/titles.txt:105
+msgid "Cleric"
+msgstr "Ruhban"
+
+#: ../engine/titles.txt:110
+msgid "Battle Mage"
+msgstr "Savaş Büyücüsü"
+
+#: ../engine/titles.txt:115
+msgid "Warden"
+msgstr "Muhafız"
+
+#: ../engine/titles.txt:119
+msgid "Wanderer"
+msgstr "Gezgin"
+
+#: ../engine/titles.txt:125
+msgid "Fighter"
+msgstr "Dövüşçü"
+
+#: ../engine/titles.txt:130
+msgid "Recon"
+msgstr "Gözcü"
+
+#: ../engine/titles.txt:135
+msgid "Sorcerer"
+msgstr "Efsuncu"
+
+#: ../engine/titles.txt:140
+msgid "Keeper"
+msgstr "Koruyucu"
+
+#: ../engine/titles.txt:146
+msgid "Knave"
+msgstr "Düzenbaz"
+
+#: ../engine/titles.txt:151
+msgid "Squire"
+msgstr "Şövalye Yamağı"
+
+#: ../engine/titles.txt:156
+msgid "Slinger"
+msgstr "Sapancı"
+
+#: ../engine/titles.txt:161
+msgid "Shepherd"
+msgstr "Çoban"
+
+#: ../engine/titles.txt:166
+msgid "Sparkblade"
+msgstr "Kıvılcım Kılıcı"
+
+#: ../engine/titles.txt:171
+msgid "Watch"
+msgstr "Nöbetçi"
+
+#: ../engine/titles.txt:177
+msgid "Exiled"
+msgstr "Sürgün"
+
+#: ../engine/equip_flags.txt:5
+msgid "throwing axe"
+msgstr "fırlatma Baltası"
+
+#: ../engine/damage_types.txt:5
+msgid "Scroll Damage"
+msgstr "Parşömen Hasarı"
+
+#: ../engine/damage_types.txt:16
+msgid "Fire Damage"
+msgstr "Ateş Hasarı"
+
+#: ../engine/damage_types.txt:17
+msgid "Fire"
+msgstr "Ateş"
+
+#: ../engine/damage_types.txt:18
+msgid "Adds elemental fire damage to non-elemental attacks."
+msgstr "Elementsiz saldırılara ateş elementi hasarı ekler."
+
+#: ../engine/damage_types.txt:25
+msgid "Ice Damage"
+msgstr "Buz Hasarı"
+
+#: ../engine/damage_types.txt:26
+msgid "Ice"
+msgstr "Buz"
+
+#: ../engine/damage_types.txt:27
+msgid "Adds elemental ice damage to non-elemental attacks."
+msgstr "Elementsiz saldırılara buz elementi hasarı ekler."
+
+#: ../engine/damage_types.txt:34
+msgid "Lightning Damage"
+msgstr "Yıldırım Hasarı"
+
+#: ../engine/damage_types.txt:35
+msgid "Lightning"
+msgstr "Yıldırım"
+
+#: ../engine/damage_types.txt:36
+msgid "Adds elemental lightning damage to non-elemental attacks."
+msgstr "Elementsiz saldırılara Yıldırım Hasarı elementi hasarı ekler."
+
+#: ../engine/damage_types.txt:43
+msgid "Dark Damage"
+msgstr "Karanlık Hasarı"
+
+#: ../engine/damage_types.txt:44
+msgid "Dark"
+msgstr "Karanlık"
+
+#: ../engine/damage_types.txt:45
+msgid "Adds elemental dark damage to non-elemental attacks."
+msgstr "Elementsiz saldırılara Karanlık Hasarı elementi hasarı ekler."
+
+#: ../enemies/base/ardwen.txt:3
+msgid "Ardwen"
+msgstr "Ardwen"
+
+#: ../enemies/catacomb_boulder_1.txt:6
+msgid "Boulder"
+msgstr "Kaya"
+
+#: ../enemies/goblin_minecart.txt:4
+msgid "Goblin"
+msgstr "Goblin"
+
+#: ../enemies/il_antlion.txt:3
+msgid "Labyrinth Antlion"
+msgstr "Labirent Karınca Aslanı"
+
+#: ../enemies/il_antlion_fire.txt:3
+msgid "Labyrinth Fire Antlion"
+msgstr "Labirent Ateş Karınca Aslanı"
+
+#: ../enemies/il_antlion_hatchling.txt:3
+msgid "Labyrinth Antlion Hatchling"
+msgstr "Labirent Karınca Aslanı Yavrusu"
+
+#: ../enemies/il_antlion_ice.txt:3
+msgid "Labyrinth Ice Antlion"
+msgstr "Labirent Buz Karınca Aslanı"
+
+#: ../enemies/il_boss_razu.txt:4
+msgid "Razu"
+msgstr "Razu"
+
+#: ../enemies/il_goblin.txt:3
+msgid "Labyrinth Goblin"
+msgstr "Labirent Goblini"
+
+#: ../enemies/il_goblin_runner.txt:3
+msgid "Labyrinth Goblin Runner"
+msgstr "Labirent Goblin Koşucusu"
+
+#: ../enemies/il_hobgoblin.txt:3
+msgid "Labyrinth Hobgoblin"
+msgstr "Labirent Hobgoblini"
+
+#: ../enemies/il_hobgoblin_archer.txt:3
+msgid "Labyrinth Hobgoblin Archer"
+msgstr "Labirent Hobgoblin Okçusu"
+
+#: ../enemies/il_skeleton_archer.txt:3
+msgid "Labyrinth Skeleton Archer"
+msgstr "Labirent İskelet Okçusu"
+
+#: ../enemies/il_skeleton_knight.txt:3
+msgid "Labyrinth Skeleton Knight"
+msgstr "Labirent İskelet Şövalyesi"
+
+#: ../enemies/il_skeleton_mage_fire.txt:3
+msgid "Labyrinth Skeleton Fire Mage"
+msgstr "Labirent İskelet Ateş Büyücüsü"
+
+#: ../enemies/il_skeleton_mage_ice.txt:3
+msgid "Labyrinth Skeleton Ice Mage"
+msgstr "Labirent İskelet Buz Büyücüsü"
+
+#: ../enemies/il_wyvern.txt:3
+msgid "Labyrinth Wyvern"
+msgstr "Labirent Wyvern'i"
+
+#: ../enemies/il_wyvern_fire.txt:3
+msgid "Labyrinth Fire Wyvern"
+msgstr "Labirent Ateş Wyvern'i"
+
+#: ../enemies/il_wyvern_ice.txt:3
+msgid "Labyrinth Ice Wyvern"
+msgstr "Labirent Buz Wyvern'i"
+
+#: ../enemies/il_zombie.txt:3
+msgid "Labyrinth Zombie"
+msgstr "Labirent Zombisi"
+
+#: ../enemies/il_zombie_frozen.txt:4
+msgid "Labyrinth Frozen Zombie"
+msgstr "Labirent Donmuş Zombisi"
+
+#: ../enemies/lvl10_minotaur.txt:3
+msgid "Minotaur"
+msgstr "Minotor"
+
+#: ../enemies/lvl10_minotaur_necromancer.txt:3
+msgid "Minotaur Necromancer"
+msgstr "Minotor Nekromant"
+
+#: ../enemies/lvl10_mog.txt:3
+msgid "Mog"
+msgstr "Mog"
+
+#: ../enemies/lvl10_skeleton_minion.txt:3
+msgid "Skeleton Minion"
+msgstr "İskelet Hizmetkâr"
+
+#: ../enemies/lvl10_skeleton_sharpshooter.txt:3
+msgid "Skeleton Sharpshooter"
+msgstr "İskelet Keskin Nişancıs"
+
+#: ../enemies/lvl10_xonun.txt:3
+msgid "Xonun"
+msgstr "Xonun"
+
+#: ../enemies/lvl10_zombie_leecher.txt:3
+msgid "Leecher Zombie"
+msgstr "Sülük Zombi"
+
+#: ../enemies/lvl11_antlion_venom.txt:3
+msgid "Venom Antlion"
+msgstr "Zehirli Karınca Aslanı"
+
+#: ../enemies/lvl11_buchi.txt:3
+msgid "Buchi"
+msgstr "Buchi"
+
+#: ../enemies/lvl11_sentry_fire.txt:3
+msgid "Fire Sentry"
+msgstr "Ateş Nöbetçisi"
+
+#: ../enemies/lvl11_sentry_ice.txt:3
+msgid "Ice Sentry"
+msgstr "Buz Nöbetçisi"
+
+#: ../enemies/lvl11_skeleton_blaze.txt:3
+msgid "Blaze Skeleton"
+msgstr "Alev İskeleti"
+
+#: ../enemies/lvl11_skeleton_frost.txt:3
+msgid "Frost Skeleton"
+msgstr "Ayaz İskeleti"
+
+#: ../enemies/lvl11_skeleton_protector.txt:3
+msgid "Skeleton Protector"
+msgstr "İskelet Koruyucusu"
+
+#: ../enemies/lvl12_cyl.txt:3
+msgid "Cyl"
+msgstr "Cyl"
+
+#: ../enemies/lvl12_metzger.txt:3
+msgid "Metzger"
+msgstr "Metzger"
+
+#: ../enemies/lvl12_nishi.txt:3
+msgid "Nishi"
+msgstr "Nishi"
+
+#: ../enemies/lvl13_antlion_fossilized.txt:3
+msgid "Fossilized Antlion"
+msgstr "Fosilleşmiş Karınca Aslanı"
+
+#: ../enemies/lvl13_antlion_larva.txt:3
+msgid "Antlion Larva"
+msgstr "Karınca Aslanı Larvası"
+
+#: ../enemies/lvl13_goblin_thief.txt:3
+msgid "Goblin Thief"
+msgstr "Goblin Hırsızı"
+
+#: ../enemies/lvl13_skeleton_shadowstep.txt:3
+msgid "Shadowstep Skeleton"
+msgstr "Gölgeadım İskeleti"
+
+#: ../enemies/lvl13_zombie_miner.txt:13
+msgid "Zombie Miner"
+msgstr "Madenci Zombi"
+
+#: ../enemies/lvl13_zombie_vomit.txt:3
+msgid "Vomit Zombie"
+msgstr "Kusan Zombi"
+
+#: ../enemies/lvl14_antlion_firethorn.txt:3
+msgid "Firethorn Antlion"
+msgstr "Ateşdikenli Karınca Aslanı"
+
+#: ../enemies/lvl14_goblin_sonic.txt:3
+msgid "Sonic Goblin"
+msgstr "Sonik Goblin"
+
+#: ../enemies/lvl14_skeleton_shocker.txt:3
+msgid "Shocker Skeleton"
+msgstr "Şok İskeleti"
+
+#: ../enemies/lvl15_antlion_shivering.txt:3
+msgid "Shivering Antlion"
+msgstr "Titreyen Karınca Aslanı"
+
+#: ../enemies/lvl15_arzoz.txt:3
+msgid "Arzoz"
+msgstr "Arzoz"
+
+#: ../enemies/lvl15_hobgoblin.txt:3
+msgid "Hobgoblin"
+msgstr "Hobgoblin"
+
+#: ../enemies/lvl15_hobgoblin_archer.txt:3
+msgid "Hobgoblin Archer"
+msgstr "Hobgoblin Okçusu"
+
+#: ../enemies/lvl15_kayl.txt:3
+msgid "Kayl"
+msgstr "Kayl"
+
+#: ../enemies/lvl15_lorund.txt:3
+msgid "Lorund"
+msgstr "Lorund"
+
+#: ../enemies/lvl15_nerin.txt:3
+msgid "Nerin"
+msgstr "Nerin"
+
+#: ../enemies/lvl15_skeleton_guardian.txt:3
+msgid "Skeleton Guardian"
+msgstr "İskelet Muhafızı"
+
+#: ../enemies/lvl15_vohn.txt:4
+msgid "Vohn"
+msgstr "Vohn"
+
+#: ../enemies/lvl15_wyvern_ancient.txt:3
+msgid "Ancient Wyvern"
+msgstr "Kadim Wyvern"
+
+#: ../enemies/lvl16_forgotten_grave.txt:4
+msgid "Forgotten Grave"
+msgstr "Unutulmuş Mezar"
+
+#: ../enemies/lvl16_lezaith.txt:4
+msgid "Lezaith"
+msgstr "Lezaith"
+
+#: ../enemies/lvl16_ogel.txt:3
+msgid "Ogel"
+msgstr "Ogel"
+
+#: ../enemies/lvl16_rakk.txt:3
+msgid "Rakk"
+msgstr "Rakk"
+
+#: ../enemies/lvl1_goblin_runner.txt:3
+msgid "Goblin Runner"
+msgstr "Goblin Koşucusu"
+
+#: ../enemies/lvl1_goblin_scamp.txt:3
+msgid "Goblin Scamp"
+msgstr "Yaramaz Goblin"
+
+#: ../enemies/lvl1_skeleton_cracked.txt:3
+msgid "Cracked Skeleton"
+msgstr "Çatlamış İskelet"
+
+#: ../enemies/lvl1_zombie_raised.txt:3
+msgid "Cursed Zombie"
+msgstr "Lanetli Zombi"
+
+#: ../enemies/lvl1_zombie_rotting.txt:3
+msgid "Rotting Zombie"
+msgstr "Çürüyen Zombi"
+
+#: ../enemies/lvl2_goblin_charger.txt:3
+msgid "Goblin Charger"
+msgstr "Hücumcu Goblin"
+
+#: ../enemies/lvl2_goblin_chief.txt:3
+msgid "Goblin Chief"
+msgstr "Goblin Reisi"
+
+#: ../enemies/lvl2_goblin_spearman.txt:3
+msgid "Goblin Spearman"
+msgstr "Goblin Mızrakçısı"
+
+#: ../enemies/lvl2_krolan.txt:3
+msgid "Krolan"
+msgstr "Krolan"
+
+#: ../enemies/lvl2_skeleton.txt:3
+msgid "Skeleton"
+msgstr "İskelet"
+
+#: ../enemies/lvl2_skeleton_archer.txt:3
+msgid "Skeleton Archer"
+msgstr "İskelet Okçusu"
+
+#: ../enemies/lvl2_zombie.txt:3
+msgid "Zombie"
+msgstr "Zombi"
+
+#: ../enemies/lvl3_cursed_grave.txt:3
+msgid "Cursed Grave"
+msgstr "Lanetli Mezar"
+
+#: ../enemies/lvl3_skeleton_fire_mage.txt:3
+msgid "Skeleton Fire Mage"
+msgstr "İskelet Ateş Büyücüsü"
+
+#: ../enemies/lvl3_skeleton_ice_mage.txt:3
+msgid "Skeleton Ice Mage"
+msgstr "İskelet Buz Büyücüsü"
+
+#: ../enemies/lvl3_skeleton_knight.txt:3
+msgid "Skeleton Knight"
+msgstr "İskelet Şövalyesi"
+
+#: ../enemies/lvl3_skeleton_sniper.txt:3
+msgid "Skeleton Sniper"
+msgstr "İskelet Keskin Nişancısı"
+
+#: ../enemies/lvl3_zombie_bloodthirsty.txt:3
+msgid "Bloodthirsty Zombie"
+msgstr "Kana Susamış Zombi"
+
+#: ../enemies/lvl3_zombie_brute.txt:3
+msgid "Zombie Brute"
+msgstr "Cengâver Zombi"
+
+#: ../enemies/lvl3_zombie_iceclaw.txt:3
+msgid "Iceclaw Zombie"
+msgstr "Buz Pençeli Zombi"
+
+#: ../enemies/lvl4_cid.txt:3
+msgid "Cid"
+msgstr "Cid"
+
+#: ../enemies/lvl4_geno.txt:3
+msgid "Geno"
+msgstr "Geno"
+
+#: ../enemies/lvl4_seagate.txt:3
+msgid "Seagate"
+msgstr "Seagate"
+
+#: ../enemies/lvl4_seagate_tombstone.txt:3
+msgid "Seagate's Tombstone"
+msgstr "Seagate'in Mezar Taşı"
+
+#: ../enemies/lvl5_antlion.txt:3
+msgid "Antlion"
+msgstr "Karınca Aslanı"
+
+#: ../enemies/lvl5_antlion_freezer.txt:3
+msgid "Antlion Freezer"
+msgstr "Dondurucu Karınca Aslanı"
+
+#: ../enemies/lvl5_frozen_corpse.txt:3
+msgid "Frozen Corpse"
+msgstr "Donmuş Ceset"
+
+#: ../enemies/lvl5_goblin_hurler.txt:3
+msgid "Goblin Hurler"
+msgstr "Goblin Fırlatıcısı"
+
+#: ../enemies/lvl5_goblin_vanguard.txt:3
+msgid "Goblin Vanguard"
+msgstr "Goblin Öncüsü"
+
+#: ../enemies/lvl5_skeleton_frostsword.txt:3
+msgid "Skeleton Frostsword"
+msgstr "Ayaz Kılıçlı İskelet"
+
+#: ../enemies/lvl6_antlion_burster.txt:3
+msgid "Antlion Burster"
+msgstr "Patlayıcı Karınca Aslanı"
+
+#: ../enemies/lvl6_antlion_frostbite.txt:3
+msgid "Frostbite Antlion"
+msgstr "Ayaz Isıran Karınca Aslanı"
+
+#: ../enemies/lvl6_antlion_hatchling.txt:3
+msgid "Antlion Hatchling"
+msgstr "Karınca Aslanı Yavrusu"
+
+#: ../enemies/lvl6_antlion_slasher.txt:3
+msgid "Antlion Slasher"
+msgstr "Kesici Karınca Aslanı"
+
+#: ../enemies/lvl6_antlion_spitter.txt:3
+msgid "Antlion Spitter"
+msgstr "Tüküren Karınca Aslanı"
+
+#: ../enemies/lvl6_gruzza.txt:3
+msgid "Gruzza"
+msgstr "Gruzza"
+
+#: ../enemies/lvl6_prioss.txt:3
+msgid "Prioss"
+msgstr "Prioss"
+
+#: ../enemies/lvl6_skeleton_assassin.txt:3
+msgid "Skeleton Assassin"
+msgstr "İskelet Suikastçısı"
+
+#: ../enemies/lvl6_skeleton_frost_mage.txt:3
+msgid "Skeleton Frost Mage"
+msgstr "İskelet Ayaz Büyücüsü"
+
+#: ../enemies/lvl7_antlion_queen.txt:3
+msgid "Antlion Queen"
+msgstr "Karınca Aslanı Kraliçesi"
+
+#: ../enemies/lvl7_skeleton_basher.txt:3
+msgid "Skeleton Basher"
+msgstr "Ezici İskelet"
+
+#: ../enemies/lvl7_vampiric_zombie.txt:3
+msgid "Vampiric Zombie"
+msgstr "Vampirik Zombi"
+
+#: ../enemies/lvl7_wyvern.txt:3
+msgid "Wyvern"
+msgstr "Wyvern"
+
+#: ../enemies/lvl7_wyvern_fire.txt:3
+msgid "Fire Wyvern"
+msgstr "Ateş Wyvern'i"
+
+#: ../enemies/lvl7_wyvern_ice.txt:3
+msgid "Ice Wyvern"
+msgstr "Buz Wyvern'i"
+
+#: ../enemies/lvl8_kylana.txt:3
+msgid "Kylana"
+msgstr "Kylana"
+
+#: ../enemies/lvl8_mez.txt:4
+msgid "Mez"
+msgstr "Mez"
+
+#: ../enemies/lvl8_zola.txt:3
+msgid "Zola"
+msgstr "Zola"
+
+#: ../enemies/lvl9_antlion_sprayer.txt:3
+msgid "Antlion Sprayer"
+msgstr "Püskürtücü Karınca Aslanı"
+
+#: ../enemies/lvl9_goblin_hunter.txt:3
+msgid "Goblin Hunter"
+msgstr "Goblin Avcısı"
+
+#: ../enemies/lvl9_goblin_shaker.txt:3
+msgid "Goblin Shaker"
+msgstr "Sarsıcı Goblin"
+
+#: ../enemies/lvl9_goblin_sprinter.txt:3
+msgid "Goblin Sprinter"
+msgstr "Süratçi Goblin"
+
+#: ../enemies/lvl9_wyvern_tundra.txt:3
+msgid "Tundra Wyvern"
+msgstr "Tundra Wyvern'i"
+
+#: ../enemies/summon_skeleton.txt:3
+msgid "Your Summoned Skeleton"
+msgstr "Çağırdığın İskelet"
+
+#: ../enemies/summon_zombie.txt:3
+msgid "Your Summoned Zombie"
+msgstr "Çağırdığın Zombi"
+
+#: ../maps/abandoned_mines.txt:11
+msgid "Abandoned Mines"
+msgstr "Terk Edilmiş Madenler"
+
+#: ../maps/abandoned_mines.txt:338
+msgid "Blackmire Mines"
+msgstr "Kara Bataklık Madenleri"
+
+#: ../maps/abandoned_mines.txt:455
+msgid "Treasure Chest"
+msgstr "Hazine Sandığı"
+
+#: ../maps/abandoned_mines.txt:467
+msgid "Crate"
+msgstr "Kasa"
+
+#: ../maps/abandoned_mines.txt:491
+msgid "Barrel"
+msgstr "Fıçı"
+
+#: ../maps/abandoned_mines.txt:524
+msgid "The Breach"
+msgstr "Gedik"
+
+#: ../maps/abandoned_mines.txt:533
+msgid "Grot Lagoon"
+msgstr "Mağara Lagünü"
+
+#: ../maps/antlion_nest.txt:11
+msgid "Antlion Nest"
+msgstr "Karınca Aslanı Yuvası"
+
+#: ../maps/antlion_nest.txt:391
+msgid "Temple of Mez: Basement"
+msgstr "Mez Tapınağı: Bodrum"
+
+#: ../maps/arrival.txt:11
+msgid "Arrival"
+msgstr "Varış"
+
+#: ../maps/arrival.txt:171
+msgid "River Trail"
+msgstr "Nehir Patikası"
+
+#: ../maps/black_oak_city.txt:11
+msgid "Black Oak City"
+msgstr "Kara Meşe Şehri"
+
+#: ../maps/black_oak_city.txt:342
+msgid "Black Oak Farm"
+msgstr "Kara Meşe Çiftliği"
+
+#: ../maps/black_oak_city.txt:354
+msgid "Supplies"
+msgstr "Erzak"
+
+#: ../maps/black_oak_city.txt:602
+msgid "Wizard's Tower: Entrance Hall"
+msgstr "Büyücü Kulesi: Giriş Salonu"
+
+#: ../maps/black_oak_farm.txt:342
+msgid "Southern Ridge"
+msgstr "Güney Sırtı"
+
+#: ../maps/black_oak_farm.txt:523
+msgid "Dilapidated Sewers"
+msgstr "Harap Lağımlar"
+
+#: ../maps/black_oak_farm.txt:547
+msgid "Lumber"
+msgstr "Kereste"
+
+#: ../maps/blackmire_mines.txt:277
+msgid "Blackmire Mines waypoint discovered."
+msgstr "Kara Bataklık Madenleri yol noktası keşfedildi."
+
+#: ../maps/blackmire_mines.txt:291
+msgid "Hyperspace"
+msgstr "Hiperuzay"
+
+#: ../maps/blackmire_mines.txt:480
+msgid "Lake Kuuma"
+msgstr "Kuuma Gölü"
+
+#: ../maps/book_of_the_dead.txt:11
+msgid "Book of the Dead"
+msgstr "Ölüler Kitabı"
+
+#: ../maps/book_of_the_dead.txt:192
+msgid "Perdition Harbor"
+msgstr "Azap Limanı"
+
+#: ../maps/book_of_the_dead.txt:202
+msgid "Salted Field"
+msgstr "Tuzlanmış Tarla"
+
+#: ../maps/book_of_the_dead.txt:295
+msgid "Quest added."
+msgstr "Görev eklendi."
+
+#: ../maps/book_of_the_dead.txt:348
+msgid ""
+"You sign your name in the Book of the Dead. The Black Quill vanishes and the"
+" inkwell is dry. You hope this worked."
+msgstr ""
+"Ölüler Kitabı'na adını yazarsın. Kara Tüy Kalem kaybolur, hokka da "
+"kurumuştur. Bunun işe yaradığını umarsın."
+
+#: ../maps/dilapidated_sewers.txt:311
+msgid "Dilapidated Sewers waypoint discovered."
+msgstr "Harap Lağımlar yol noktası keşfedildi."
+
+#: ../maps/dilapidated_sewers.txt:576
+msgid "Fort Nasu"
+msgstr "Nasu Kalesi"
+
+#: ../maps/family_crypt.txt:11
+msgid "Family Crypt"
+msgstr "Aile Mahzeni"
+
+#: ../maps/family_crypt.txt:257
+msgid "Switch"
+msgstr "Düzenek"
+
+#: ../maps/family_crypt.txt:269
+msgid "Ardwen's Coffin"
+msgstr "Ardwen'in Tabutu"
+
+#: ../maps/family_crypt.txt:356
+msgid "Ardwen (1308-1364), founder of Lochport"
+msgstr "Lochport'un kurucusu Ardwen (1308-1364)"
+
+#: ../maps/family_crypt.txt:359
+msgid "In Memoriam"
+msgstr "Anısına"
+
+#: ../maps/family_crypt.txt:369
+msgid "Lochport Cemetery"
+msgstr "Lochport Mezarlığı"
+
+#: ../maps/fort_amir.txt:11
+msgid "Fort Amir"
+msgstr "Amir Kalesi"
+
+#: ../maps/fort_amir.txt:376
+msgid ""
+"Opening the book reveals that it has been hollowed out. A gem is concealed "
+"inside."
+msgstr ""
+"Kitabı açınca içinin oyulmuş olduğu anlaşılır. İçine bir mücevher "
+"gizlenmiştir."
+
+#: ../maps/fort_amir.txt:380
+msgid "Book"
+msgstr "Kitap"
+
+#: ../maps/fort_amir.txt:405
+msgid ""
+"The statue is missing an eye. The sapphire fits securely in the statue's eye"
+" socket."
+msgstr "Heykelin bir gözü eksik. Safir, heykelin göz yuvasına tam oturur."
+
+#: ../maps/fort_amir.txt:411
+msgid "Statue"
+msgstr "Heykel"
+
+#: ../maps/fort_amir.txt:433
+msgid "The statue is missing an eye."
+msgstr "Heykelin bir gözü eksik."
+
+#: ../maps/fort_amir.txt:465
+msgid "The bookcase slides back and reveals a hidden path."
+msgstr "Kitaplık geriye kayarak gizli bir geçidi açığa çıkarır."
+
+#: ../maps/fort_nasu.txt:1025
+msgid "Book Stand"
+msgstr "Kitap Sehpası"
+
+#: ../maps/fort_nasu.txt:1064
+msgid "Altar"
+msgstr "Sunak"
+
+#: ../maps/fort_nasu.txt:1072
+msgid ""
+"As you enter the throne room, you see an Altar with a wooden figurine placed"
+" upon it."
+msgstr ""
+"Taht odasına girdiğinde üzerinde ahşap bir heykelcik bulunan bir sunak "
+"görürsün."
+
+#: ../maps/fort_nasu.txt:1102
+msgid "Strange Book"
+msgstr "Tuhaf Kitap"
+
+#: ../maps/goblin_camp.txt:11
+msgid "Goblin Camp"
+msgstr "Goblin Kampı"
+
+#: ../maps/goblin_camp.txt:221
+msgid "Stonewood"
+msgstr "Taşorman"
+
+#: ../maps/goblin_camp.txt:400
+msgid "Merrimead Swamp"
+msgstr "Merrimead Bataklığı"
+
+#: ../maps/goblin_camp.txt:409
+msgid "Goblin Cave"
+msgstr "Goblin Mağarası"
+
+#: ../maps/goblin_camp.txt:421
+msgid "Gravestone"
+msgstr "Mezar Taşı"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
+msgid "Halls of Infinity"
+msgstr "Sonsuzluk Salonları"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
+msgid "Mine Cart"
+msgstr "Maden Vagonu"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
+msgid "Stalagmite Pillar"
+msgstr "Dikit Sütunu"
+
+#: ../maps/halls_of_infinity.txt:223
+msgid "Underworld Stronghold: Barracks"
+msgstr "Yeraltı Dünyası Hisarı: Kışla"
+
+#: ../maps/halls_of_infinity.txt:267
+msgid "The plaque reads: \"1\"."
+msgstr "Yazıtta \"1\" yazıyor."
+
+#: ../maps/halls_of_infinity.txt:269
+msgid "Plaque"
+msgstr "Yazıt"
+
+#: ../maps/halls_of_infinity.txt:278
+msgid "The plaque reads: \"2\"."
+msgstr "Yazıtta \"2\" yazıyor."
+
+#: ../maps/halls_of_infinity.txt:289
+msgid "The plaque reads: \"3\"."
+msgstr "Yazıtta \"3\" yazıyor."
+
+#: ../maps/halls_of_infinity.txt:300
+msgid "The plaque reads: \"4\"."
+msgstr "Yazıtta “4\" yazıyor."
+
+#: ../maps/halls_of_infinity.txt:311
+msgid "The altar is empty."
+msgstr "Sunak boş."
+
+#: ../maps/halls_of_infinity.txt:324
+msgid "You place the figure on the altar."
+msgstr "Heykelciği sunağın üzerine yerleştirirsin."
+
+#: ../maps/hyperspace.txt:196
+msgid "St. Maria: Catacombs"
+msgstr "Azize Maria: Yeraltı Mezarları"
+
+#: ../maps/hyperspace.txt:218
+msgid "Stormrock Pass"
+msgstr "Fırtınakaya Geçidi"
+
+#: ../maps/hyperspace.txt:229
+msgid "Temple of Mez: Main Hall"
+msgstr "Mez Tapınağı: Ana Salon"
+
+#: ../maps/hyperspace.txt:240
+msgid "Nazia Underground"
+msgstr "Nazia Yeraltı Bölgesi"
+
+#: ../maps/hyperspace.txt:262
+msgid "Wizard's Tower: Research Chambers"
+msgstr "Büyücü Kulesi: Araştırma Odaları"
+
+#: ../maps/hyperspace.txt:273
+msgid "Underworld Catacombs"
+msgstr "Yeraltı Dünyası Mezarları"
+
+#: ../maps/hyperspace.txt:388
+msgid "Cutscenes"
+msgstr "Ara Sahneler"
+
+#: ../maps/iron_labyrinth/room16.txt:188
+msgid "Lectern"
+msgstr "Kürsü"
+
+#: ../maps/iron_labyrinth/room6.txt:160
+msgid "Urn"
+msgstr "Kül Kabı"
+
+#: ../maps/iron_labyrinth/treasure_room.txt:156
+msgid "This door needs a key to be opened."
+msgstr "Bu kapıyı açmak için bir anahtar gerekiyor."
+
+#: ../maps/iron_labyrinth/treasure_room.txt:159
+msgid "Locked Door"
+msgstr "Kilitli Kapı"
+
+#: ../maps/iron_labyrinth/room11.txt:210
+msgid "Crypt"
+msgstr "Mahzen"
+
+#: ../maps/iron_labyrinth/warp_room.txt:200
+msgid "Unknown Destination"
+msgstr "Bilinmeyen Hedef"
+
+#: ../maps/iron_labyrinth/f1/start.txt:157
+msgid "Perdition Harbor Cave"
+msgstr "Azap Limanı Mağarası"
+
+#: ../maps/iron_labyrinth/f1/end.txt:158
+msgid "Iron Labyrinth: Level 2"
+msgstr "Demir Labirent: 2. Kat"
+
+#: ../maps/iron_labyrinth/f3/end.txt:157
+msgid "Iron Labyrinth: Chasm"
+msgstr "Demir Labirent: Uçurum"
+
+#: ../maps/iron_labyrinth/f2/start.txt:158
+msgid "Iron Labyrinth: Level 1"
+msgstr "Demir Labirent: 1. Kat"
+
+#: ../maps/iron_labyrinth/f2/end.txt:158
+msgid "Iron Labyrinth: Level 3"
+msgstr "Demir Labirent: 3. Kat"
+
+#: ../maps/iron_labyrinth_chasm.txt:453
+msgid "The switch is held in place by an impossible force."
+msgstr "Karşı konulamaz bir güç düzeneği yerinde tutuyor."
+
+#: ../maps/lake_kuuma.txt:852
+msgid "Boat"
+msgstr "Tekne"
+
+#: ../maps/lochport.txt:12
+msgid "Lochport"
+msgstr "Lochport"
+
+#: ../maps/lochport.txt:360
+msgid "St. Maria: Mausoleum"
+msgstr "Azize Maria: Anıt Mezar"
+
+#: ../maps/lochport_cemetery.txt:310
+msgid "Lochport Cemetery waypoint discovered."
+msgstr "Lochport Mezarlığı yol noktası keşfedildi."
+
+#: ../maps/mog_caverns.txt:11
+msgid "Mog Caverns"
+msgstr "Mog Mağaraları"
+
+#: ../maps/mog_caverns.txt:292
+msgid "You found another note. Keep following the trail."
+msgstr "Bir not daha buldun. İzi takip etmeye devam et."
+
+#: ../maps/mog_caverns.txt:302
+msgid "Waterlogged Support Beam"
+msgstr "Su Çekmiş Destek Kirişi"
+
+#: ../maps/mog_caverns.txt:319
+msgid "Moldy Rock"
+msgstr "Küflü Kaya"
+
+#: ../maps/mog_caverns.txt:336
+msgid "Pile of Bones"
+msgstr "Kemik Yığını"
+
+#: ../maps/mog_caverns.txt:353
+msgid "Blocked Mine Cart"
+msgstr "Yolu Kapanmış Maden Vagoneti"
+
+#: ../maps/nazia_highlands.txt:11
+msgid "Nazia Highlands"
+msgstr "Nazia Yaylaları"
+
+#: ../maps/nazia_highlands.txt:383
+msgid "Nazia Mines"
+msgstr "Nazia Madenleri"
+
+#: ../maps/nazia_mines.txt:240
+msgid "Empty Mine Cart"
+msgstr "Boş Maden Vagoneti"
+
+#: ../maps/nazia_mines.txt:291
+msgid "By itself, this mine cart can't break open the door."
+msgstr "Bu maden vagoneti tek başına kapıyı kırıp açamaz."
+
+#: ../maps/nazia_mines.txt:428
+msgid "You found a door, but it appears to be barricaded from the inside."
+msgstr ""
+"Bir kapı buldun ancak kapıya içeriden barikat kurulmuş gibi görünüyor."
+
+#: ../maps/nazia_underground.txt:260
+msgid "The switch won't budge."
+msgstr "Düzenek yerinden oynamıyor."
+
+#: ../maps/nazia_underground.txt:379
+msgid "Nazia Underground waypoint discovered."
+msgstr "Nazia Yeraltı Bölgesi yol noktası keşfedildi."
+
+#: ../maps/oasis.txt:12
+msgid "Oasis"
+msgstr "Vaha"
+
+#: ../maps/oasis.txt:519
+msgid "Underworld Mines"
+msgstr "Yeraltı Dünyası Madenleri"
+
+#: ../maps/perdition_harbor.txt:171
+msgid "Stash"
+msgstr "Zula"
+
+#: ../maps/perdition_harbor.txt:269
+msgid "Perdition Harbor waypoint discovered."
+msgstr "Azap Limanı yol noktası keşfedildi."
+
+#: ../maps/perdition_harbor_cave.txt:148
+msgid "Iron Labyrinth"
+msgstr "Demir Labirent"
+
+#: ../maps/perdition_harbor_cave.txt:195
+msgid "Excavation Journal"
+msgstr "Kazı Günlüğü"
+
+#: ../maps/perdition_mines.txt:11
+msgid "Perdition Mines"
+msgstr "Azap Madenleri"
+
+#: ../maps/perdition_mines.txt:162
+msgid "Krolan's Chest"
+msgstr "Krolan'ın Sandığı"
+
+#: ../maps/st_maria_2.txt:271
+msgid "St. Maria: Catacombs waypoint discovered."
+msgstr "Azize Maria Yeraltı Mezarlığı yol noktası keşfedildi."
+
+#: ../maps/st_maria_2.txt:471
+msgid "St. Maria: Crypt"
+msgstr "Azize Maria: Mahzen"
+
+#: ../maps/st_maria_3.txt:411
+msgid "The plaque reads: Grave of the Saints"
+msgstr "Yazıtta şöyle yazıyor: Azizlerin Mezarı"
+
+#: ../maps/st_maria_3.txt:420
+msgid "You remove the gravebloom flower from the Altar."
+msgstr "Mezarçiçeğini sunaktan alırsın."
+
+#: ../maps/st_maria_3.txt:441
+msgid "There is a gravebloom flower on the altar, but it is frozen in place."
+msgstr "Sunakta bir mezarçiçeği var ancak çiçek bulunduğu yere donmuş."
+
+#: ../maps/st_maria_3.txt:455
+msgid "The gravebloom flower laid upon the altar has thawed."
+msgstr "Sunağa yerleştirilen mezarçiçeğinin buzu çözüldü."
+
+#: ../maps/stonewood.txt:514
+msgid "Stonewood waypoint discovered."
+msgstr "Taşorman yol noktası keşfedildi."
+
+#: ../maps/stormrock_pass.txt:895
+msgid "Stormrock Pass waypoint discovered."
+msgstr "Fırtınakaya Geçidi yol noktası keşfedildi."
+
+#: ../maps/stormrock_pass.txt:1053
+msgid "Stormrock Ruins"
+msgstr "Fırtınakaya Harabeleri"
+
+#: ../maps/temple_of_mez_2.txt:351
+msgid "Temple of Mez: Main Hall waypoint discovered."
+msgstr "Mez Tapınağı: Ana Salon yol noktası keşfedildi."
+
+#: ../maps/temple_of_mez_2.txt:536
+msgid "The plaque reads: Red Altar"
+msgstr "Yazıtta şöyle yazıyor: Kızıl Sunak"
+
+#: ../maps/temple_of_mez_2.txt:547
+msgid "Temple of Mez: Entrance"
+msgstr "Mez Tapınağı: Giriş"
+
+#: ../maps/temple_of_mez_2.txt:555
+msgid ""
+"You cut into your arm with the Knife of Sacrifices. The pain is "
+"excruciating. Shaking, you manage to collect some of your blood in a small "
+"vial. The knife quickly raises in temperature until it disintegrates. Your "
+"wound then begins to close itself, leaving no trace at all besides a warm "
+"feeling throughout your body."
+msgstr ""
+"Kurban Bıçağı ile kolunu kesersin. Acı dayanılmazdır. Titreyerek kanının bir"
+" kısmını küçük bir şişede toplamayı başarırsın. Bıçak hızla ısınır ve "
+"sonunda parçalanarak yok olur. Ardından yaran kendiliğinden kapanmaya "
+"başlar; bedenine yayılan sıcaklık hissi dışında hiçbir iz kalmaz."
+
+#: ../maps/temple_of_mez_2.txt:564
+msgid "Red Altar"
+msgstr "Kızıl Sunak"
+
+#: ../maps/temple_of_mez_2.txt:573
+msgid "Nothing happens."
+msgstr "Hiçbir şey olmuyor."
+
+#: ../maps/the_pit.txt:12
+msgid "The Pit"
+msgstr "Çukur"
+
+#: ../maps/torture_chambers.txt:12
+msgid "Torture Chambers"
+msgstr "İşkence Odaları"
+
+#: ../maps/torture_chambers.txt:343
+msgid "Underworld"
+msgstr "Yeraltı Dünyası"
+
+#: ../maps/torture_chambers.txt:1237
+msgid "You disabled the barriers in the Torture Chambers."
+msgstr "İşkence Odaları'ndaki bariyerleri devre dışı bıraktın."
+
+#: ../maps/torture_chambers.txt:1276
+msgid "Bookstand"
+msgstr "Kitap Sehpası"
+
+#: ../maps/torture_chambers.txt:1285
+msgid "You have returned the warden's notes. The traps are now disabled."
+msgstr "Muhafızın notlarını geri verdin. Tuzaklar artık devre dışı."
+
+#: ../maps/torture_chambers.txt:1306
+msgid "You successfully made it through the warden's traps."
+msgstr "Muhafızın tuzaklarını başarıyla geçtin."
+
+#: ../maps/underworld_catacombs.txt:513
+msgid "Underworld Catacombs waypoint discovered."
+msgstr "Yeraltı Dünyası Mezarları yol noktası keşfedildi."
+
+#: ../maps/underworld_mines.txt:545
+msgid "Underworld Stronghold: Foyer"
+msgstr "Yeraltı Dünyası Hisarı: Giriş Holü"
+
+#: ../maps/underworld_stronghold_2.txt:341
+msgid "Underworld Stronghold: Barracks waypoint discovered."
+msgstr "Yeraltı Dünyası Hisarı: Kışla yol noktası keşfedildi."
+
+#: ../maps/wizards_tower_2.txt:364
+msgid "Wizard's Tower: Research Chambers waypoint discovered."
+msgstr "Büyücü Kulesi: Araştırma Odaları yol noktası keşfedildi."
+
+#: ../maps/wizards_tower_2.txt:505
+msgid "Wizard's Tower: Laboratory"
+msgstr "Büyücü Kulesi: Laboratuvar"
+
+#: ../maps/wizards_tower_2.txt:513
+msgid "The plaque reads: Underworld Gate"
+msgstr "Yazıtta şöyle yazıyor: Yeraltı Dünyası Kapısı"
+
+#: ../quests/0000_empyrean.txt:1
+msgid "Return to Empyrean"
+msgstr "Empyrean'a Dön"
+
+#: ../quests/0000_empyrean.txt:7
+msgid ""
+"You found a chamber on the east side of Perdition Harbor that contains the "
+"Book of the Dead."
+msgstr ""
+"Azap Limanı'nın doğu tarafında Ölüler Kitabı'nın bulunduğu bir oda buldun."
+
+#: ../quests/0000_empyrean.txt:12
+msgid ""
+"The Book of the Dead states redemption is possible for those who sign their "
+"name in gravebloom ink. Florin in Perdition Harbor can tell you more."
+msgstr ""
+"Ölüler Kitabı, adını mezarçiçeği mürekkebiyle yazanların kurtuluşa "
+"erebileceğini söylüyor. Azap Limanı'ndaki Florin sana daha bilgi verebilir."
+
+#: ../quests/0000_empyrean.txt:17
+msgid ""
+"Before leaving St. Maria's Crypt, it would be wise to look for anything "
+"useful."
+msgstr ""
+"Azize Maria Mahzeni'nden ayrılmadan önce işe yarayabilecek bir şeyler araman"
+" iyi olur."
+
+#: ../quests/0000_empyrean.txt:22
+msgid "Ask Florin about the Gravebloom flower."
+msgstr "Florin'e mezarçiçeği hakkında soru sor."
+
+#: ../quests/0000_empyrean.txt:28
+msgid ""
+"You've found a gravebloom flower. It is a primary component in the creation "
+"of gravebloom ink."
+msgstr ""
+"Bir mezarçiçeği buldun. Bu çiçek, mezarçiçeği mürekkebinin yapımındaki temel"
+" malzemelerden biridir."
+
+#: ../quests/0000_empyrean.txt:33
+msgid ""
+"A strange black feather fell off of Mez. You should take it before leaving "
+"the Temple of Mez."
+msgstr ""
+"Mez'in üzerinden tuhaf, siyah bir tüy düştü. Mez Tapınağı'ndan ayrılmadan "
+"önce onu almalısın."
+
+#: ../quests/0000_empyrean.txt:38
+msgid "Ask Florin about the Black Quill."
+msgstr "Florin'e Kara Tüy Kalem hakkında soru sor."
+
+#: ../quests/0000_empyrean.txt:44
+msgid ""
+"The Black Quill you found is the only thing capable of holding gravebloom "
+"ink. It will be the only way to write in the Book of the Dead."
+msgstr ""
+"Bulduğun Kara Tüy Kalem, mezarçiçeği mürekkebini taşıyabilen tek şeydir. "
+"Ölüler Kitabı'na yazmanın tek yolu bu olacak."
+
+#: ../quests/0000_empyrean.txt:49
+msgid ""
+"Before leaving the Wizard's Tower, you should take the knife that Metzger "
+"dropped."
+msgstr ""
+"Büyücü Kulesi'nden ayrılmadan önce Metzger'in düşürdüğü bıçağı almalısın."
+
+#: ../quests/0000_empyrean.txt:54
+msgid "Ask Florin about the Knife of Sacrifices."
+msgstr "Florin'e Kurban Bıçağı hakkında soru sor."
+
+#: ../quests/0000_empyrean.txt:60
+msgid ""
+"Gravebloom ink requires a sample of your blood to be drawn with the Knife of"
+" Sacrifices. This must take place at the Red Altar in the Temple of Mez."
+msgstr ""
+"Mezarçiçeği mürekkebini hazırlamak için Kurban Bıçağı ile kanının akıtılması"
+" gerekiyor. Bu işlem Mez Tapınağı'ndaki Kızıl Sunak'ta gerçekleştirilmeli."
+
+#: ../quests/0000_empyrean.txt:66
+msgid ""
+"Having completed the ritual at the Red Altar, return to Florin to proceed "
+"with creating the gravebloom ink."
+msgstr ""
+"Kızıl Sunak'taki ayini tamamladığına göre mezarçiçeği mürekkebinin "
+"hazırlanmasına devam etmek için Florin'e dön."
+
+#: ../quests/0000_empyrean.txt:71
+msgid ""
+"The time has come. Write your name in the Book of the Dead and gain entry to"
+" the Underworld."
+msgstr ""
+"Vakit geldi. Ölüler Kitabı'na adını yaz ve Yeraltı Dünyası'na girme hakkı "
+"kazan."
+
+#: ../quests/0000_empyrean.txt:76
+msgid ""
+"Make your way to the Underworld. A portal to the Underworld was located in "
+"the Wizard's Tower. Once you are there, search for a way to return to "
+"Empyrean."
+msgstr ""
+"Yeraltı Dünyası'na git. Oraya açılan bir geçit Büyücü Kulesi'nde "
+"bulunuyordu. Yeraltı Dünyası'na vardığında Empyrean'a dönmenin bir yolunu "
+"ara."
+
+#: ../quests/0000_empyrean.txt:81
+msgid ""
+"You've found a stronghold in the Underworld. If there is a way back to "
+"Empyrean, it is through here."
+msgstr ""
+"Yeraltı Dünyası'nda bir hisar buldun. Empyrean'a dönmenin bir yolu varsa bu "
+"hisardan geçiyordur."
+
+#: ../quests/0000_empyrean.txt:86
+msgid "Face what awaits you in The Pit."
+msgstr "Çukur'da seni bekleyen şeyle yüzleş."
+
+#: ../quests/0010_krolan.txt:1
+msgid "Krolan's Missing"
+msgstr "Krolan Kayıp"
+
+#: ../quests/0010_krolan.txt:7
+msgid "Travel to the Perdition Mines and look for Krolan."
+msgstr "Azap Madenleri'ne git ve Krolan'ı ara."
+
+#: ../quests/0010_krolan.txt:12
+msgid "Use Krolan's key to search his chest."
+msgstr "Krolan'ın anahtarıyla sandığını ara."
+
+#: ../quests/0010_krolan.txt:17
+msgid "Return to Udana and inform her of Krolan's death."
+msgstr "Udana'ya dön ve Krolan'ın öldüğünü bildir"
+
+#: ../quests/0011_alchemy.txt:1
+msgid "Alchemy"
+msgstr "Simya"
+
+#: ../quests/0011_alchemy.txt:7
+msgid ""
+"Florin requested a sample of 3 ingredients: Aloe Vera, Mana Crystals, and "
+"Mushrooms."
+msgstr ""
+"Florin 3 malzemeden birer örnek istedi: Aloe Vera, Mana Kristalleri ve "
+"Mantarlar."
+
+#: ../quests/0011_alchemy.txt:13
+msgid "You've found some Aloe Vera."
+msgstr "Bir miktar Aloe Vera buldun."
+
+#: ../quests/0011_alchemy.txt:19
+msgid "You've found a Mana Crystal."
+msgstr "Bir Mana Kristali buldun."
+
+#: ../quests/0011_alchemy.txt:25
+msgid "You've found some Mushrooms."
+msgstr "Birkaç Mantar buldun."
+
+#: ../quests/0011_alchemy.txt:31
+msgid "You've found all 3 ingredients. Return them to Florin."
+msgstr "3 malzemenin hepsini buldun. Onları Florin'e götür."
+
+#: ../quests/0020_journal.txt:1
+msgid "The Merchant's Journal"
+msgstr "Tüccarın Günlüğü"
+
+#: ../quests/0020_journal.txt:8
+msgid "Find Abasi's journal. It is likely being carried by a nearby goblin."
+msgstr ""
+"Abasi'nin günlüğünü bul. Muhtemelen günlüğü yakındaki bir goblin taşıyor."
+
+#: ../quests/0020_journal.txt:14
+msgid ""
+"Find Abasi's journal. He said that it was last seen near the Goblin Cave."
+msgstr ""
+"Abasi'nin günlüğünü bul. Günlüğünü en son Goblin Mağarası yakınında "
+"gördüğünü söyledi."
+
+#: ../quests/0020_journal.txt:19
+msgid "Return the journal to Abasi."
+msgstr "Günlüğü Abasi'ye geri götür"
+
+#: ../quests/0030_ardwen.txt:1
+msgid "Trapped in the Crypt"
+msgstr "Mahzende Mahsur"
+
+#: ../quests/0030_ardwen.txt:6
+msgid "Investigate the Family Crypt."
+msgstr "Aile Mahzeni'ni araştır."
+
+#: ../quests/0030_ardwen.txt:10
+msgid ""
+"You found a strange ring. It might have a use beyond its mundane magical "
+"properties."
+msgstr ""
+"Tuhaf bir yüzük buldun. Sıradan büyü özelliklerinin ötesinde bir işe "
+"yarayabilir."
+
+#: ../quests/0030_ardwen.txt:14
+msgid ""
+"You found another strange ring. Maybe this one will have a different effect."
+msgstr "Tuhaf bir yüzük daha buldun. Belki bunun etkisi farklıdır."
+
+#: ../quests/0030_ardwen.txt:19
+msgid "Defeat Ardwen."
+msgstr "Ardwen'i yen."
+
+#: ../quests/0040_fort_amir.txt:1
+msgid "The One-Eyed Guardians"
+msgstr "Tek Gözlü Muhafızlar"
+
+#: ../quests/0040_fort_amir.txt:7
+msgid "Investigate the statues in the Fort Amir throne room."
+msgstr "Amir Kalesi'nin taht odasındaki heykelleri araştır."
+
+#: ../quests/0040_fort_amir.txt:12
+msgid "You found a strange sapphire inside one of Fort Amir's books."
+msgstr "Amir Kalesi'ndeki kitaplardan birinin içinde tuhaf bir safir buldun."
+
+#: ../quests/0040_fort_amir.txt:17
+msgid "Gruzza dropped a strange sapphire."
+msgstr "Gruzza tuhaf bir safir düşürdü."
+
+#: ../quests/0040_fort_amir.txt:22
+msgid ""
+"The bookcase in the Fort Amir throne room opened up, revealing a secret "
+"passage."
+msgstr ""
+"Amir Kalesi'nin taht odasındaki kitaplık açılarak gizli bir geçidi ortaya "
+"çıkardı."
+
+#: ../quests/0050_ort.txt:1
+msgid "Brother?"
+msgstr "Kardeşim?"
+
+#: ../quests/0050_ort.txt:7
+msgid ""
+"Ort gave you a ruby. It seemed like he wanted it delivered to someone he "
+"would call \"brother\"."
+msgstr ""
+"Ort sana bir yakut verdi. Yakutu “kardeşim”dediği kişiye ulaştırmanı istiyor"
+" gibiydi."
+
+#: ../quests/0060_stormrock.txt:1
+msgid "Locked Out"
+msgstr "Kapıda Kaldın"
+
+#: ../quests/0060_stormrock.txt:7
+msgid ""
+"The door to the Stormrock Ruins is locked. There must be a way to unlock it."
+msgstr ""
+"Fırtınakaya Harabeleri'nin kapısı kilitli. Kilidi açmanın bir yolu olmalı."
+
+#: ../quests/0060_stormrock.txt:12
+msgid ""
+"Aldwulf wants you to get the key to unlock the Stormrock Ruins. It should be"
+" hidden somewhere in the camp south of Stonewood."
+msgstr ""
+"Aldwulf, Fırtınakaya Harabeleri'nin kilidini açacak anahtarı bulmanı "
+"istiyor. Anahtar, Taşorman'ın güneyindeki kampta bir yere saklanmış olmalı."
+
+#: ../quests/0060_stormrock.txt:17
+msgid ""
+"You found the key to the Stormrock Ruins. You should return there and speak "
+"to Aldwulf."
+msgstr ""
+"Fırtınakaya Harabeleri'nin anahtarını buldun. Oraya dönüp Aldwulf'la "
+"konuşmalısın."
+
+#: ../quests/0070_nazia_mines.txt:1
+msgid "The Buried Fortress"
+msgstr "Gömülü Hisar"
+
+#: ../quests/0070_nazia_mines.txt:7
+msgid ""
+"The excavation of the mines has revealed man-made structures. Perhaps this "
+"is more than just a cave."
+msgstr ""
+"Madenlerdeki kazı, insan yapımı yapıları ortaya çıkardı. Belki burası "
+"sıradan bir mağaradan fazlasıdır."
+
+#: ../quests/0070_nazia_mines.txt:17
+msgid ""
+"You found a satchel of Blast Powder. Maybe an alchemist like Florin would "
+"know how to make this into something more effective?"
+msgstr ""
+"Bir kese Patlayıcı Toz buldun. Belki Florin gibi bir simyacı bunu daha "
+"etkili bir şeye dönüştürmenin yolunu biliyordur."
+
+#: ../quests/0070_nazia_mines.txt:22
+msgid ""
+"Mixing the Blast Powder with some shavings of a Mana Crystal has created "
+"Dynamite. This could be useful."
+msgstr ""
+"Patlayıcı Tozu biraz Mana Kristali talaşıyla karıştırarak Dinamit elde "
+"ettin. Bu işe yarayabilir."
+
+#: ../quests/0070_nazia_mines.txt:27
+msgid ""
+"You successfully destroyed the previously barricaded door and can further "
+"explore the Nazia Mines."
+msgstr ""
+"Barikatla kapatılmış kapıyı başarıyla yıktın. Artık Nazia Madenleri'nde "
+"ilerlemeye devam edebilirsin."
+
+#: ../quests/0080_mog.txt:1
+msgid "The Lost Soul of the Mog Caverns"
+msgstr "Mog Mağaraları'nın Kayıp Ruhu"
+
+#: ../quests/0080_mog.txt:7
+msgid ""
+"You found a mysterious note in the Mog Caverns. Maybe its directions will "
+"lead to treasure?"
+msgstr ""
+"Mog Mağaraları'nda gizemli bir not buldun. Belki nottaki tarif seni bir "
+"hazineye götürür."
+
+#: ../quests/0080_mog.txt:17
+msgid "A secret passage has been unveiled."
+msgstr "Gizli bir geçit açığa çıktı."
+
+#: ../quests/0090_nasu.txt:1
+msgid "An Unusual Name..."
+msgstr "Sıra Dışı Bir İsim..."
+
+#: ../quests/0090_nasu.txt:7
+msgid "Discover a way to open the entrance door in Fort Nasu."
+msgstr "Nasu Kalesi'ndeki giriş kapısını açmanın bir yolunu bul."
+
+#: ../quests/0090_nasu.txt:12
+msgid "Discover a way to open the library door in Fort Nasu."
+msgstr "Nasu Kalesi'ndeki kütüphane kapısını açmanın bir yolunu bul."
+
+#: ../quests/0090_nasu.txt:17
+msgid "Discover a way to open the pit room door in Fort Nasu."
+msgstr "Nasu Kalesi'ndeki çukur odası'nın kapısını açmanın bir yolunu bul."
+
+#: ../quests/0090_nasu.txt:22
+msgid "Discover a way to open the final door in Fort Nasu."
+msgstr "Nasu Kalesi'ndeki son kapıyı açmanın bir yolunu bul."
+
+#: ../quests/0090_nasu.txt:27
+msgid "Defeat Buchi."
+msgstr "Buchi'yi yen."
+
+#: ../quests/0100_torture.txt:1
+msgid "Warden's Notes"
+msgstr "Gardiyanın Notları"
+
+#: ../quests/0100_torture.txt:7
+msgid "Find a way to get to the treasure in the Torture Chambers."
+msgstr "İşkence Odaları'ndaki hazineye ulaşmanın bir yolunu bul."
+
+#: ../quests/0100_torture.txt:12
+msgid "You found some notes belonging to the prison warden."
+msgstr "Hapishane gardiyanına ait bazı notlar buldun."
+
+#: ../quests/0110_martigan.txt:1
+msgid "Fallen Comrades"
+msgstr "Düşmüş Yoldaşlar"
+
+#: ../quests/0110_martigan.txt:7
+msgid ""
+"Martigan has asked you to destroy the undead corpses of his former "
+"companions. He has also asked that you return with proof that you have done "
+"so."
+msgstr ""
+"Martigan, yaşayan ölülere dönüşen eski silah arkadaşlarının bedenlerini yok "
+"etmeni istedi. Ayrıca bunu yaptığına dair bir kanıtla geri dönmeni istedi."
+
+#: ../quests/0110_martigan.txt:12
+msgid "You have slain Lorund and recovered his sword."
+msgstr "Lorund'u öldürdün ve kılıcını aldın."
+
+#: ../quests/0110_martigan.txt:17
+msgid "You have slain Nerin and recovered her bow."
+msgstr "Nerin'i öldürdün ve yayını aldın."
+
+#: ../quests/0110_martigan.txt:22
+msgid "You have slain Kayl and recovered her staff."
+msgstr "Kayl'ı öldürdün ve asasını aldın."
+
+#: ../npcs/aldwulf.txt:1
+msgid "Aldwulf, Treasure Hunter"
+msgstr "Aldwulf, Hazine Avcısı"
+
+#: ../npcs/aldwulf.txt:10
+msgid "Talk"
+msgstr "Konuş"
+
+#: ../npcs/aldwulf.txt:12
+msgid ""
+"Greetings wanderer. I did not expect to meet anyone in a place like this."
+msgstr "Selam, gezgin. Böyle bir yerde biriyle karşılaşmayı beklemiyordum."
+
+#: ../npcs/aldwulf.txt:13
+msgid ""
+"I'm in a bit of a predicament. I wanted to come here in search of treasure, "
+"but my partner disagreed with my intentions."
+msgstr ""
+"Biraz zor durumdayım. Buraya hazine aramaya gelmek istedim ancak ortağım "
+"planımı onaylamadı."
+
+#: ../npcs/aldwulf.txt:14
+msgid ""
+"In an effort to stop me, he stole the key we found that supposedly opened "
+"the door up ahead."
+msgstr ""
+"Beni durdurmak için bulduğumuz ve ilerideki kapıyı açtığını düşündüğümüz "
+"anahtarı çaldı."
+
+#: ../npcs/aldwulf.txt:15
+msgid ""
+"Regardless, I took my chances and left our camp south of Stonewood, hoping I"
+" could break through without the key. As you might be able to tell, that "
+"hasn't worked out in my favor."
+msgstr ""
+"Yine de şansımı denedim ve anahtarsız içeri girebileceğimi umarak "
+"Taşorman'ın güneyindeki kampımızdan ayrıldım. Gördüğün üzere bu girişim pek "
+"de iyi sonuçlanmadı."
+
+#: ../npcs/aldwulf.txt:16
+msgid ""
+"If you come across my partner in your travels, do what you must to get that "
+"key from him and bring it to me. Do that, and I'll split whatever we find in"
+" these ruins with you."
+msgstr ""
+"Yolculuğun sırasında ortağıma rastlarsan ne gerekiyorsa yap, anahtarı ondan "
+"alıp bana getir. Bunu yaparsan bu harabelerde bulduğumuz her şeyi seninle "
+"bölüşürüm."
+
+#: ../npcs/aldwulf.txt:23
+msgid ""
+"Have you gotten the key yet? My partner likely has it hidden somewhere in "
+"the camp south of Stonewood."
+msgstr ""
+"Anahtarı buldun mu? Ortağım muhtemelen onu Taşorman'ın güneyindeki kampta "
+"bir yere sakladı."
+
+#: ../npcs/ardwens_coffin.txt:12
+msgid ""
+"A finger-sized post is protruding from the lid of the coffin. It looks as "
+"though something is missing."
+msgstr ""
+"Tabutun kapağından parmak büyüklüğünde bir çıkıntı var. Burada bir şey eksik"
+" gibi görünüyor."
+
+#: ../npcs/ardwens_coffin.txt:17
+msgid "Place the Gold Family Ring on the coffin"
+msgstr "Altın Aile Yüzüğünü tabutun üzerine yerleştir"
+
+#: ../npcs/ardwens_coffin.txt:22
+msgid "The ring dissolved into nothing!"
+msgstr "Yüzük eriyip yok oldu!"
+
+#: ../npcs/ardwens_coffin.txt:30
+msgid "Place the Silver Family Ring on the coffin"
+msgstr "Gümüş Aile Yüzüğünü tabutun üzerine yerleştir"
+
+#: ../npcs/ardwens_coffin.txt:42
+msgid "Cancel"
+msgstr "İptal"
+
+#: ../npcs/bakat.txt:1
+msgid "Bakat, Goblin Packrat"
+msgstr "Bakat, İstifçi Goblin"
+
+#: ../npcs/bakat.txt:20
+msgid "Goblin's Ruby"
+msgstr "Goblinin Yakutu"
+
+#: ../npcs/bakat.txt:24
+msgid "..."
+msgstr "..."
+
+#: ../npcs/bakat.txt:31
+msgid "(You show Bakat the ruby you received from Ort.)"
+msgstr "(Ort'tan aldığın yakutu Bakat'a gösterirsin.)"
+
+#: ../npcs/bakat.txt:32
+msgid "(Bakat snatches the jewel from your grasp.)"
+msgstr "(Bakat mücevheri avucundan kapar.)"
+
+#: ../npcs/bakat.txt:33
+msgid "(He holds the ruby up into the light and examines it closely.)"
+msgstr "(Yakutu ışığa tutup dikkatle inceler.)"
+
+#: ../npcs/bakat.txt:34
+msgid ""
+"(Looking satisfied, he reaches into his bag and hands you a wooden bear "
+"figurine.)"
+msgstr ""
+"(Memnun görünerek çantasına uzanır ve sana ahşap bir ayı heykelciği verir.)"
+
+#: ../npcs/base/infinity_obelisk.txt:1
+msgid "Infinity Obelisk"
+msgstr "Sonsuzluk Dikilitaşı"
+
+#: ../npcs/base/infinity_obelisk.txt:8
+msgid "(You touch the obelisk, but nothing happens.)"
+msgstr "(Dikilitaşa dokunursun ancak hiçbir şey olmaz.)"
+
+#: ../npcs/base/infinity_obelisk.txt:11
+msgid "Continue through the Halls of Infinity"
+msgstr "Sonsuzluk Salonları boyunca ilerle"
+
+#: ../npcs/base/infinity_obelisk.txt:18
+msgid "Return to Underworld Stronghold"
+msgstr "Yeraltı Dünyası Hisarı'na dön"
+
+#: ../npcs/base/abasi/common.txt:1
+msgid "Abasi, Traveling Merchant"
+msgstr "Abasi, Gezgin Tüccar"
+
+#: ../npcs/base/abasi/quest_common.txt:2
+msgid "Journal"
+msgstr "Günlük"
+
+#: ../npcs/base/abasi/quest_common.txt:5
+msgid "Any luck finding my journal?"
+msgstr "Günlüğümü bulabildin mi?"
+
+#: ../npcs/base/abasi/quest_common.txt:6
+msgid "Not yet."
+msgstr "Henüz değil."
+
+#: ../npcs/base/abasi/quest_common.txt:13
+msgid "Here is your journal."
+msgstr "İşte günlüğün."
+
+#: ../npcs/base/abasi/quest_common.txt:14
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "Harika! Onu sonsuza dek kaybettiğimi düşünmeye başlamıştım."
+
+#: ../npcs/base/abasi/quest_common.txt:15
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr "Sana borçluyum. Zahmetinin karşılığı olarak bunu kabul et lütfen."
+
+#: ../npcs/base/abasi/quest_common.txt:27
+msgid "Show no mercy for those thieving goblins."
+msgstr "O hırsız goblinlere merhamet etme."
+
+#: ../npcs/base/abasi/quest_intro1.txt:5
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr "Bu yollarda dikkatli ol. O goblinler tam bir baş belası."
+
+#: ../npcs/base/abasi/quest_intro1.txt:6
+msgid "Thanks for the warning."
+msgstr "Uyarı için teşekkürler."
+
+#: ../npcs/base/abasi/quest_intro1.txt:7
+msgid "It's the least I can do."
+msgstr "En azından bunu yapabiliyorum."
+
+#: ../npcs/base/abasi/quest_intro1.txt:8
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
+msgstr ""
+"Bu sabah uyandığımda günlüğümün kaybolduğunu fark ettim. O pis yeşil "
+"yaratıklardan birinin günlüğümü çaldığına şüphem yok."
+
+#: ../npcs/base/abasi/quest_intro1.txt:9
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr "Yolculuğun sırasında günlüğüme rastlarsan lütfen onu bana geri getir."
+
+#: ../npcs/base/abasi/quest_intro2.txt:5
+msgid "Greetings, wanderer."
+msgstr "Selam, gezgin."
+
+#: ../npcs/base/abasi/quest_intro2.txt:6
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
+msgstr ""
+"Görünüşüne bakılırsa uzun yolculuklara yabancı değilsin. Bu yüzden kayıp "
+"günlüğüm için gözünü dört açmanı rica ediyorum."
+
+#: ../npcs/base/abasi/quest_intro2.txt:7
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+"Goblin Mağarası yakınında kamp kurduğum gecenin ardından kaybolduğunu fark "
+"ettim. Bir süre aradım ama sonunda yola devam etmenin en iyisi olduğuna "
+"karar verdim."
+
+#: ../npcs/base/dev_tome/respec.txt:2
+msgid "Respec"
+msgstr "Yeniden Yapılandırma"
+
+#: ../npcs/base/dev_tome/respec.txt:12
+msgid "Reset power points"
+msgstr "Yetenek Puanlarını Sıfırla"
+
+#: ../npcs/base/dev_tome/respec.txt:18
+msgid "Reset stat points"
+msgstr "Nitelik Puanlarını Sıfırla"
+
+#: ../npcs/base/dev_tome/respec.txt:24
+msgid "Reset level"
+msgstr "Seviyeyi Sıfırla"
+
+#: ../npcs/base/dev_tome/respec.txt:51
+msgid "Level 1"
+msgstr "Seviye 1"
+
+#: ../npcs/base/dev_tome/respec.txt:57
+msgid "Level 2"
+msgstr "Seviye 2"
+
+#: ../npcs/base/dev_tome/respec.txt:64
+msgid "Level 3"
+msgstr "Seviye 3"
+
+#: ../npcs/base/dev_tome/respec.txt:71
+msgid "Level 4"
+msgstr "Seviye 4"
+
+#: ../npcs/base/dev_tome/respec.txt:85
+msgid "Level 5"
+msgstr "Seviye 5"
+
+#: ../npcs/base/dev_tome/respec.txt:92
+msgid "Level 6"
+msgstr "Seviye 6"
+
+#: ../npcs/base/dev_tome/respec.txt:99
+msgid "Level 7"
+msgstr "Seviye 7"
+
+#: ../npcs/base/dev_tome/respec.txt:106
+msgid "Level 8"
+msgstr "Seviye 8"
+
+#: ../npcs/base/dev_tome/respec.txt:113
+msgid "Level 9"
+msgstr "Seviye 9"
+
+#: ../npcs/base/dev_tome/respec.txt:120
+msgid "Level 10"
+msgstr "Seviye 10"
+
+#: ../npcs/base/dev_tome/respec.txt:127
+msgid "Level 11"
+msgstr "Seviye 11"
+
+#: ../npcs/base/dev_tome/respec.txt:134
+msgid "Level 12"
+msgstr "Seviye 12"
+
+#: ../npcs/base/dev_tome/respec.txt:141
+msgid "Level 13"
+msgstr "Seviye 13"
+
+#: ../npcs/base/dev_tome/respec.txt:148
+msgid "Level 14"
+msgstr "Seviye 14"
+
+#: ../npcs/base/dev_tome/respec.txt:155
+msgid "Level 15"
+msgstr "Seviye 15"
+
+#: ../npcs/base/dev_tome/respec.txt:162
+msgid "Level 16"
+msgstr "Seviye 16"
+
+#: ../npcs/base/dev_tome/respec.txt:169
+msgid "Level 17"
+msgstr "Seviye 17"
+
+#: ../npcs/base/dev_tome/respec.txt:176
+msgid "Level 18"
+msgstr "Seviye 18"
+
+#: ../npcs/base/dev_tome/respec.txt:183
+msgid "Level 19"
+msgstr "Seviye 19"
+
+#: ../npcs/base/dev_tome/respec.txt:190
+msgid "Level 20"
+msgstr "Seviye 20"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:2
+msgid "Reset quests"
+msgstr "Görevleri Sıfırla"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:22
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Görevi sıfırla: “Empyrean'a Dön”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:28
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "Görevi sıfırla: “Krolan Kayıp”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:34
+msgid "Reset quest: \"Alchemy\""
+msgstr "Görevi sıfırla: “Simya”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:40
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "Görevi sıfırla: “Tüccarın Günlüğü”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:46
+msgid "Reset quest: \"Trapped in the Crypt\""
+msgstr "Görevi sıfırla: “Mahzende Mahsur”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:52
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "Görevi sıfırla: “Tek Gözlü Muhafızlar”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:58
+msgid "Reset quest: \"Brother?\""
+msgstr "Görevi sıfırla: “Kardeş?”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:64
+msgid "Reset quest: \"Locked Out\""
+msgstr "Görevi sıfırla: “Kapıda Kaldın”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:70
+msgid "Reset quest: \"The Buried Fortress\""
+msgstr "Görevi sıfırla: “Gömülü Hisar”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:76
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Görevi sıfırla: “Mog Mağaraları'nın Kayıp Ruhu”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:82
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr "Görevi sıfırla: “Sıra Dışı Bir İsim...”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:88
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "Görevi sıfırla: “Gardiyanın Notları”"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:94
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "Görevi sıfırla: “Düşmüş Yoldaşlar”"
+
+#: ../npcs/base/dev_tome/items.txt:2
+msgid "Give items"
+msgstr "Eşya Ver"
+
+#: ../npcs/base/dev_tome/items.txt:20
+msgid "Potions"
+msgstr "İksirler"
+
+#: ../npcs/base/dev_tome/items.txt:33
+msgid "Health Potion"
+msgstr "Can İksiri"
+
+#: ../npcs/base/dev_tome/items.txt:39
+msgid "Mana Potion"
+msgstr "Mana İksiri"
+
+#: ../npcs/base/dev_tome/items.txt:51
+msgid "Restoration Potion"
+msgstr "Yenilenme İksiri"
+
+#: ../npcs/base/dev_tome/items.txt:69
+msgid "Scrolls"
+msgstr "Parşömenler"
+
+#: ../npcs/base/dev_tome/items.txt:84
+msgid "Summon Zombie Scroll"
+msgstr "Zombi Çağırma Parşömeni"
+
+#: ../npcs/base/dev_tome/items.txt:90
+msgid "Perdition Scroll"
+msgstr "Azap Parşömeni"
+
+#: ../npcs/base/dev_tome/items.txt:96
+msgid "Shield Scroll"
+msgstr "Kalkan Parşömeni"
+
+#: ../npcs/base/dev_tome/items.txt:114
+msgid "Haste Scroll"
+msgstr "Hızlanma Parşömeni"
+
+#: ../npcs/base/dev_tome/items.txt:120
+msgid "Immunity Scroll"
+msgstr "Bağışıklık Parşömeni"
+
+#: ../npcs/base/dev_tome/items.txt:126
+msgid "Reflection Scroll"
+msgstr "Yansıtma Parşömeni"
+
+#: ../npcs/base/dev_tome/items.txt:132
+msgid "Underworld Set (with rings)"
+msgstr "Yeraltı Dünyası Seti (yüzüklerle birlikte)"
+
+#: ../npcs/base/dev_tome/teleport.txt:18
+msgid "Introduction"
+msgstr "Giriş"
+
+#: ../npcs/base/dev_tome/teleport.txt:30
+msgid "Region 1: Salted Field -> St. Maria"
+msgstr "Bölge 1: Tuzlanmış Tarla → Azize Maria"
+
+#: ../npcs/base/dev_tome/teleport.txt:49
+msgid "Region 2: Lake Kuuma -> Temple of Mez"
+msgstr "Bölge 2: Kuuma Gölü → Mez Tapınağı"
+
+#: ../npcs/base/dev_tome/teleport.txt:68
+msgid "Region 3: Nazia Highlands -> Wizard's Tower"
+msgstr "Bölge 3: Nazia Yaylaları → Büyücü Kulesi"
+
+#: ../npcs/base/dev_tome/teleport.txt:87
+msgid "Region 4: Underworld"
+msgstr "Bölge 4: Yeraltı Dünyası"
+
+#: ../npcs/base/dev_tome/teleport.txt:432
+msgid "Halls of Infinity: 1"
+msgstr "Sonsuzluk Salonları: 1"
+
+#: ../npcs/base/dev_tome/teleport.txt:438
+msgid "Halls of Infinity: 2"
+msgstr "Sonsuzluk Salonları: 2"
+
+#: ../npcs/base/dev_tome/teleport.txt:444
+msgid "Halls of Infinity: 3"
+msgstr "Sonsuzluk Salonları: 3"
+
+#: ../npcs/base/dev_tome/teleport.txt:450
+msgid "Halls of Infinity: 4"
+msgstr "Sonsuzluk Salonları: 4"
+
+#: ../npcs/base/dev_tome/teleport.txt:456
+msgid "Halls of Infinity: 5"
+msgstr "Sonsuzluk Salonları: 5"
+
+#: ../npcs/base/dev_tome/teleport.txt:462
+msgid "Halls of Infinity: 6"
+msgstr "Sonsuzluk Salonları: 6"
+
+#: ../npcs/base/dev_tome/teleport.txt:468
+msgid "Halls of Infinity: 7"
+msgstr "Sonsuzluk Salonları: 7"
+
+#: ../npcs/base/dev_tome/teleport.txt:474
+msgid "Halls of Infinity: 8"
+msgstr "Sonsuzluk Salonları: 8"
+
+#: ../npcs/base/dev_tome/teleport.txt:480
+msgid "Halls of Infinity: 9"
+msgstr "Sonsuzluk Salonları: 9"
+
+#: ../npcs/base/dev_tome/teleport.txt:486
+msgid "Halls of Infinity: 10"
+msgstr "Sonsuzluk Salonları: 10"
+
+#: ../npcs/dev_tome.txt:23
+msgid "Player"
+msgstr "Oyuncu"
+
+#: ../npcs/dev_tome.txt:34
+msgid "Campaign"
+msgstr "Sefer"
+
+#: ../npcs/dev_tome.txt:50
+msgid "Restore HP/MP/status"
+msgstr "HP’yi/MP’ yi yenile"
+
+#: ../npcs/dev_tome.txt:57
+msgid "Save game at current position"
+msgstr "Oyunu mevcut konumda kaydet"
+
+#: ../npcs/dev_tome.txt:64
+msgid "Waypoints"
+msgstr "Yol Noktaları"
+
+#: ../npcs/dev_tome.txt:74
+msgid "Reset Iron Labyrinth"
+msgstr "Demir Labirent'i sıfırla"
+
+#: ../npcs/dev_tome.txt:81
+msgid "Lock all Hyperspace waypoints"
+msgstr "Tüm Hiperuzay yol noktalarını kilitle"
+
+#: ../npcs/dev_tome.txt:87
+msgid "Unlock all Hyperspace waypoints"
+msgstr "Tüm Hiperuzay yol noktalarının kilidini aç"
+
+#: ../npcs/florin.txt:1
+msgid "Florin, Apothecary"
+msgstr "Florin, İksirci"
+
+#: ../npcs/florin.txt:27
+msgid "What can you tell me about the Book of the Dead?"
+msgstr "Ölüler Kitabı hakkında bana ne anlatabilirsin?"
+
+#: ../npcs/florin.txt:28
+msgid ""
+"The Book of the Dead tells of redemption for those who sign their name in "
+"gravebloom ink. Your sins will be washed away, and you will be able to "
+"return to wherever you were banished from."
+msgstr ""
+"Ölüler Kitabı, adını mezarçiçeği mürekkebiyle yazanların kurtuluşa ereceğini"
+" anlatır. Günahların bağışlanır ve sürgün edildiğin yere geri dönebilirsin."
+
+#: ../npcs/florin.txt:29
+msgid "So, where can I find gravebloom ink?"
+msgstr "Peki mezarçiçeği mürekkebini nerede bulabilirim?"
+
+#: ../npcs/florin.txt:30
+msgid ""
+"Gravebloom ink is not something you find. You must make it yourself. Besides"
+" the Gravebloom flower, you will need to sacrifice your own blood with a "
+"special blade."
+msgstr ""
+"Mezarçiçeği mürekkebi bulabileceğin bir şey değil. Onu kendin yapmalısın. "
+"Mezarçiçeğinin yanı sıra özel bir bıçakla kendi kanını akıtman gerekecek."
+
+#: ../npcs/florin.txt:31
+msgid ""
+"Even if you can create some gravebloom ink, you won't be able to write with "
+"just anything. The ink won't stick to a normal quill. You will need to find "
+"something capable of holding the gravebloom ink."
+msgstr ""
+"Mezarçiçeği mürekkebini yapmayı başarsan bile herhangi bir şeyle yazamazsın."
+" Bu mürekkep sıradan bir tüy kaleme tutunmaz. Mezarçiçeği mürekkebini "
+"taşıyabilecek bir aracı bulmalısın."
+
+#: ../npcs/florin.txt:32
+msgid ""
+"If you can perform the ritual to make gravebloom ink and find a suitable "
+"writing utensil, redemption may be yours."
+msgstr ""
+"Mezarçiçeği mürekkebini yapmak için gereken ayini gerçekleştirip uygun bir "
+"aracı bulabilirsen kurtuluş senin olabilir."
+
+#: ../npcs/florin.txt:35
+msgid "Gravebloom"
+msgstr "Mezarçiçeği"
+
+#: ../npcs/florin.txt:39
+msgid ""
+"Ah yes, that is most certainly a gravebloom flower. It is the primary "
+"component in the creation of gravebloom ink."
+msgstr ""
+"Evet, bu kesinlikle bir mezarçiçeği. Mezarçiçeği mürekkebinin yapımındaki "
+"ana malzemedir."
+
+#: ../npcs/florin.txt:42
+msgid "Black Quill"
+msgstr "Kara Tüy Kalem"
+
+#: ../npcs/florin.txt:45
+msgid "Do you think this quill is capable of holding gravebloom ink?"
+msgstr "Sence bu tüy kalem mezarçiçeği mürekkebini tutabilir mi?"
+
+#: ../npcs/florin.txt:46
+msgid "It's certainly no normal quill. I've never seen anything like it."
+msgstr ""
+"Kesinlikle sıradan bir tüy kalem değil. Daha önce buna benzer hiçbir şey "
+"görmedim."
+
+#: ../npcs/florin.txt:48
+msgid ""
+"If anything is capable of writing with gravebloom ink, it is that quill."
+msgstr ""
+"Mezarçiçeği mürekkebiyle yazabilecek bir şey varsa o da bu tüy kalemdir."
+
+#: ../npcs/florin.txt:51
+msgid "Knife of Sacrifices"
+msgstr "Kurban Bıçağı"
+
+#: ../npcs/florin.txt:54
+msgid "Do you know anything about this knife?"
+msgstr "Bu bıçak hakkında bir şey biliyor musun?"
+
+#: ../npcs/florin.txt:56
+msgid ""
+"The Knife of Sacrifices. This must be the blade you will need to draw your "
+"blood for the gravebloom ink. From what I've read, this must be done at the "
+"\"Red Altar\"."
+msgstr ""
+"Kurban Bıçağı... Mezarçiçeği mürekkebi için kanını akıtırken kullanacağın "
+"bıçak bu olmalı. Okuduklarıma göre bunu Kızıl Sunak'ta yapmalısın."
+
+#: ../npcs/florin.txt:57
+msgid "I recall such an altar from the Temple of Mez."
+msgstr "Mez Tapınağı'nda böyle bir sunak olduğunu hatırlıyorum."
+
+#: ../npcs/florin.txt:58
+msgid ""
+"I don't know why this blade in particular is required to make the ink. Once "
+"it pierces your skin, there is no telling what effect it will have on you. "
+"Please keep this in mind."
+msgstr ""
+"Mürekkebi yapmak için neden özellikle bu bıçağın gerektiğini bilmiyorum. "
+"Bıçak tenini kestiğinde üzerinde nasıl bir etki bırakacağını kestirmek "
+"mümkün değil. Lütfen bunu aklından çıkarma."
+
+#: ../npcs/florin.txt:61
+msgid "Vial of Blood"
+msgstr "Kan Şişesi"
+
+#: ../npcs/florin.txt:66
+msgid "I completed the ritual at the Red Altar. What now?"
+msgstr "Kızıl Sunak'taki ayini tamamladım. Şimdi ne olacak?"
+
+#: ../npcs/florin.txt:67
+msgid ""
+"I can create a small amount of gravebloom ink for you, but I require a "
+"Gravebloom flower accomplish this. Return to me with both the flower and the"
+" blood."
+msgstr ""
+"Senin için az miktarda mezarçiçeği mürekkebi hazırlayabilirim ama bunun için"
+" bir mezarçiçeğine ihtiyacım var. Hem çiçeği hem de kanı alıp bana dön."
+
+#: ../npcs/florin.txt:75
+msgid ""
+"We are ready to create a small amount of gravebloom ink. Allow me to perform"
+" the mixing."
+msgstr ""
+"Az miktarda mezarçiçeği mürekkebi hazırlamaya hazırız. Malzemeleri "
+"karıştırmama izin ver."
+
+#: ../npcs/florin.txt:76
+msgid ""
+"The correct ratio of Gravebloom to blood is important. Too much Gravebloom "
+"will cause the ink to eat through the paper. Too little Gravebloom and the "
+"ink won't adhere to the quill."
+msgstr ""
+"Mezarçiçeği ile kanın doğru oranda karıştırılması önemlidir. Mezarçiçeği "
+"fazla olursa mürekkep kâğıdı aşındırıp deler; az olursa tüy kaleme tutunmaz."
+
+#: ../npcs/florin.txt:77
+msgid ""
+"(Florin carefully mixes the two elements into a small inkwell, alternating "
+"the additions of Gravebloom and blood.)"
+msgstr ""
+"(Florin, mezarçiçeği ile kanı dönüşümlü olarak küçük bir hokkaya ekleyip iki"
+" malzemeyi dikkatlice karıştırır.)"
+
+#: ../npcs/florin.txt:82
+msgid ""
+"Finished! I don't want my work to go to waste, so move now to the Book of "
+"the Dead chamber."
+msgstr ""
+"Bitti! Emeğimin boşa gitmesini istemiyorum, bu yüzden vakit kaybetmeden "
+"Ölüler Kitabı'nın bulunduğu odaya git."
+
+#: ../npcs/florin.txt:88
+msgid "The ritual is complete. The Underworld is open to you."
+msgstr "Ayin tamamlandı. Yeraltı Dünyası'nın yolu sana açıldı."
+
+#: ../npcs/florin.txt:89
+msgid ""
+"There was a portal to the Underworld in the Wizard's Tower. I shall return "
+"there."
+msgstr ""
+"Yeraltı Dünyası'na açılan bir geçit Büyücü Kulesi'ndeydi. Oraya döneceğim."
+
+#: ../npcs/florin.txt:94
+msgid ""
+"If you plan on venturing further, you'll need to learn how to use the "
+"resources that you come across."
+msgstr ""
+"Eğer daha da ilerlemeyi düşünüyorsan karşına çıkan kaynakları nasıl "
+"kullanacağını öğrenmen gerekecek."
+
+#: ../npcs/florin.txt:95
+msgid ""
+"I can show you how to mix potions, but I don't have any ingredients on hand."
+msgstr "Sana iksir hazırlamayı gösterebilirim ancak yanımda hiç malzeme yok."
+
+#: ../npcs/florin.txt:96
+msgid ""
+"Can I ask you to procure some elements for me? I require one each of the "
+"following: Aloe Vera, Mana Crystal, and Mushrooms."
+msgstr ""
+"Benim için birkaç malzeme temin eder misin? Şunların her birinden bir tane "
+"gerekiyor: Aloe Vera, Mana Kristali ve Mantar."
+
+#: ../npcs/florin.txt:97
+msgid "I can do that."
+msgstr "Bunu yapabilirim."
+
+#: ../npcs/florin.txt:99
+msgid ""
+"Then return to me with these items, and I will make it worth your time."
+msgstr "Öyleyse bu malzemelerle bana dön. Zahmetinin karşılığını veririm."
+
+#: ../npcs/florin.txt:107
+msgid "Have you gotten those ingredients yet?"
+msgstr "Malzemeleri buldun mu?"
+
+#: ../npcs/florin.txt:112
+msgid "Yes"
+msgstr "Evet"
+
+#: ../npcs/florin.txt:119
+msgid "Here are the ingredients you asked for."
+msgstr "İstediğin malzemeleri getirdim."
+
+#: ../npcs/florin.txt:120
+msgid ""
+"Thank you. I was able to find some Aloe Vera on my own, so you can keep what"
+" you found."
+msgstr ""
+"Teşekkürler. Kendim biraz Aloe Vera burabildim, bu yüzden bulduğun Aloe Vera"
+" sende kalabilir."
+
+#: ../npcs/florin.txt:121
+msgid ""
+"Also, take these empty bottles along with this mortar and pestle. You can "
+"use the mortar and pestle with that Aloe Vera you found to make a fine "
+"healing potion."
+msgstr ""
+"Ayrıca bu boş şişelerle birlikte havanı ve tokmağı da al. Bulduğun Aloe "
+"Vera'yı havanda ezerek etkili bir can iksiri hazırlayabilirsin."
+
+#: ../npcs/florin.txt:122
+msgid ""
+"If you ever lose that mortar and pestle, you can always speak to me if you "
+"want some potions made."
+msgstr ""
+"Havanla tokmağı kaybedersen iksir hazırlatmak istediğinde her zaman benimle "
+"konuşabilirsin."
+
+#: ../npcs/florin.txt:127
+msgid "No"
+msgstr "Hayır"
+
+#: ../npcs/florin.txt:137
+msgid "Blast Powder"
+msgstr "Patlayıcı Toz"
+
+#: ../npcs/florin.txt:139
+msgid ""
+"Blast powder? With a little bit of Mana Crystal, you can make quite the "
+"explosion with that stuff."
+msgstr ""
+"Patlayıcı Toz mu? Biraz Mana Kristali kullanarak bununla epey büyük bir "
+"patlama yaratabilirsin."
+
+#: ../npcs/florin.txt:140
+msgid "The process is fairly volatile, so allow me to do the mixing."
+msgstr ""
+"Bu işlemde patlama riski oldukça yüksek, o yüzden karıştırma işini bana "
+"bırak."
+
+#: ../npcs/florin.txt:147
+msgid "There. Now be careful with that."
+msgstr "İşte oldu. Şimdi onu kullanırken dikkatli ol."
+
+#: ../npcs/glowing_obelisk_1.txt:1
+msgid "Glowing Obelisk"
+msgstr "Işıldayan Dikilitaş"
+
+#: ../npcs/il_loren.txt:1
+msgid "Loren, Undead Trader"
+msgstr "Loren, Hortlak Tüccar"
+
+#: ../npcs/iron_labyrinth_teleporter.txt:1
+msgid "Strange Obelisk"
+msgstr "Tuhaf Dikilitaş"
+
+#: ../npcs/iron_labyrinth_teleporter.txt:21
+msgid "Choose a destination."
+msgstr "Bir varış noktası seç."
+
+#: ../npcs/martigan.txt:1
+msgid "Martigan"
+msgstr "Martigan"
+
+#: ../npcs/martigan.txt:19
+msgid ""
+"You there! I need your help. I'm the last of my group, and want nothing more"
+" than to leave this place."
+msgstr ""
+"Hey, sen! Yardımına ihtiyacım var. Grubumdan geriye kalan son kişiyim ve "
+"sadece buradan ayrılmak istiyorum."
+
+#: ../npcs/martigan.txt:20
+msgid ""
+"Yet I have one remaining task. I wish to visit the graves of my three fallen"
+" partners one last time."
+msgstr ""
+"Fakat tamamlamam gereken son bir görev var. Hayatını kaybeden üç yoldaşımın "
+"mezarlarını son kez ziyaret etmek istiyorum."
+
+#: ../npcs/martigan.txt:21
+msgid ""
+"To my disadvantage, their bodies have been taken by the soil here. They "
+"tried to attack me when I got near."
+msgstr ""
+"Ne yazık ki buranın toprağı bedenlerini ele geçirmiş. Yanlarına "
+"yaklaştığımda bana saldırmaya çalıştılar."
+
+#: ../npcs/martigan.txt:22
+msgid ""
+"If you can prove to me that they are free from their cursed form, I will be "
+"in your debt."
+msgstr ""
+"Lanetli bedenlerinden kurtulduklarını bana kanıtlayabilirsen sana "
+"borçlanırım."
+
+#: ../npcs/martigan.txt:23
+msgid "I can't assist you myself, but I can offer some of my wares."
+msgstr "Sana bizzat yardım edemem ama mallarımdan bazılarını sunabilirim."
+
+#: ../npcs/martigan.txt:29
+msgid "Zombies"
+msgstr "Zombiler"
+
+#: ../npcs/martigan.txt:39
+msgid ""
+"Indeed, these items belonged to my companions. I want you to take this as a "
+"reward."
+msgstr ""
+"Evet, bu eşyalar yoldaşlarıma aitti. Bunu ödül olarak almanı istiyorum."
+
+#: ../npcs/ort.txt:1
+msgid "Ort, Goblin Packrat"
+msgstr "Ort, İstifçi Goblin"
+
+#: ../npcs/ort.txt:29
+msgid "... Bro-ther... g-give..."
+msgstr "… Kar-de-şi-me… v-ver…"
+
+#: ../npcs/ort.txt:30
+msgid "(Ort grabs your hand and places a red gem in it.)"
+msgstr "(Ort elini kavrar ve avucuna kırmızı bir mücevher bırakır.)"
+
+#: ../npcs/tutorial.txt:1
+msgid "Skeleton with note"
+msgstr "Üzerinde Not Bulunan İskelet"
+
+#: ../npcs/tutorial.txt:9
+msgid "Tutorial"
+msgstr "Eğitim"
+
+#: ../npcs/tutorial.txt:11
+msgid ""
+"Welcome to the lands of the exiled. Allow me to go over a few things. Click "
+"on the arrow to continue."
+msgstr ""
+"Sürgünlerin topraklarına hoş geldin. Birkaç şeyi açıklamama izin ver. Devam "
+"etmek için oka tıkla."
+
+#: ../npcs/tutorial.txt:12
+msgid ""
+"Your health, mana, and experience points are displayed in the top left of "
+"the screen."
+msgstr ""
+"Canın, manan ve deneyim puanların ekranın sol üst köşesinde gösterilir."
+
+#: ../npcs/tutorial.txt:13
+msgid "In the top right is a map of your current location."
+msgstr "Ekranın sağ üst köşesinde bulunduğun bölgenin haritası yer alır."
+
+#: ../npcs/tutorial.txt:14
+msgid ""
+"On the bottom of the screen is your action bar. Here, you have quick access "
+"to your most used abilities."
+msgstr ""
+"Ekranın alt kısmında eylem çubuğun bulunur. En sık kullandığın yeteneklere "
+"buradan hızlıca erişebilirsin."
+
+#: ../npcs/tutorial.txt:15
+msgid ""
+"In addition, you can access the Character, Inventory, Powers, and Log menus "
+"from the action bar."
+msgstr ""
+"Ayrıca Karakter, Envanter, Yetenekler ve Günlük menülerine eylem çubuğundan "
+"erişebilirsin."
+
+#: ../npcs/tutorial.txt:16
+msgid ""
+"${INPUT_MOVEMENT} will allow you to move around. ${INPUT_ATTACK} will use "
+"your primary attack."
+msgstr ""
+"${INPUT_MOVEMENT} çevrede hareket etmeni sağlar. ${INPUT_ATTACK} ise temel "
+"saldırını kullanır."
+
+#: ../npcs/tutorial.txt:17
+msgid "Good luck!"
+msgstr "İyi şanslar!"
+
+#: ../npcs/udana.txt:1
+msgid "Udana, Metalworker"
+msgstr "Udana, Kuyumcu"
+
+#: ../npcs/udana.txt:30
+msgid ""
+"Greetings stranger. It's not often that we have people come here from the "
+"west."
+msgstr "Selam, yabancı. Batıdan buralara pek gelen olmaz."
+
+#: ../npcs/udana.txt:31
+msgid ""
+"I see that you're carrying a weapon. Would you be interested in helping us?"
+msgstr "Silahlı olduğunu görüyorum. Bize yardım etmek ister misin?"
+
+#: ../npcs/udana.txt:32
+msgid "Go on."
+msgstr "Anlat bakalım."
+
+#: ../npcs/udana.txt:33
+msgid ""
+"One of our encampment's residents, Krolan, works in the nearby mines. He "
+"supplies me with various gems that I craft into jewelery."
+msgstr ""
+"Kampımızda yaşayan Krolan, yakındaki madenlerde çalışıyor. Mücevher yapmakta"
+" kullandığım çeşitli değerli taşları bana o getiriyor."
+
+#: ../npcs/udana.txt:34
+msgid ""
+"Krolan has not returned in some time, and I am starting to think the worst."
+msgstr "Krolan bir süredir dönmedi. Onun için endişelenmeye başladım"
+
+#: ../npcs/udana.txt:35
+msgid ""
+"Could you please travel to the mines and look for Krolan? I will find some "
+"way to reward you for your trouble."
+msgstr ""
+"Lütfen madenlere gidip Krolan'ı arar mısın? Zahmetinin karşılığını bir "
+"şekilde veririm."
+
+#: ../npcs/udana.txt:44
+msgid ""
+"Please hurry to find Krolan. The Perdition Mines are located near the Salted"
+" Field."
+msgstr ""
+"Lütfen Krolan'ı bulmak için acele et. Azap Madenleri, Tuzlanmış Tarla'nın "
+"yakınında."
+
+#: ../npcs/udana.txt:60
+msgid "I have found Krolan, but he was no longer of this world."
+msgstr "Krolan'ı buldum ama ne yazık ki hayatını kaybetmişti"
+
+#: ../npcs/udana.txt:61
+msgid ""
+"This is terrible news. Our camp is already small, so this is a devastating "
+"loss."
+msgstr ""
+"Bu korkunç bir haber. Kampımız zaten küçücük; bizim için yıkıcı bir kayıp."
+
+#: ../npcs/udana.txt:62
+msgid ""
+"If it's any solace, I have his key and this emerald. Mementos to remember "
+"him by."
+msgstr ""
+"Bir tesellisi olacaksa anahtarı ve bu zümrüt bende. Onu hatırlamak için "
+"birer hatıra."
+
+#: ../npcs/udana.txt:63
+msgid ""
+"The key is enough of a memento. For your invaluable help, I can at least "
+"make you a ring with this emerald."
+msgstr ""
+"Anahtarı hatıra olarak saklamam yeterli. Paha biçilmez yardımın karşılığında"
+" en azından bu zümrütle sana bir yüzük yapabilirim."
+
+#: ../npcs/udana.txt:77
+msgid "Can you tell me about the nearby cave?"
+msgstr "Yakındaki mağara hakkında bana bilgi verebilir misin?"
+
+#: ../npcs/udana.txt:78
+msgid "It was a mining operation. Krolan was a part of the crew."
+msgstr "Orası bir maden ocağıydı. Krolan da ekibin bir parçasıydı"
+
+#: ../npcs/udana.txt:79
+msgid ""
+"Not long into their dig, they encountered ruins. Ruins unlike any of the "
+"structures in this region."
+msgstr ""
+"Kazıya başladıktan kısa süre sonra harabelerle karşılaştılar. Bu harabeler, "
+"bölgedeki hiçbir yapıya benzemiyordu."
+
+#: ../npcs/udana.txt:80
+msgid ""
+"Amongst these ruins, the crew found an incredible glowing mineral: Mastite."
+msgstr ""
+"Ekip, bu harabelerin arasında inanılmaz biçimde ışıldayan bir mineral buldu:"
+" Mastite."
+
+#: ../npcs/udana.txt:81
+msgid ""
+"When the Empyrean caught wind of this discovery, they promptly took control "
+"of the operation."
+msgstr ""
+"Empyrean bu keşiften haberdar olur olmaz madencilik faaliyetinin kontrolünü "
+"ele geçirdi."
+
+#: ../npcs/udana.txt:82
+msgid "So why is it blocked off now? Did the Empyrean strip it clean?"
+msgstr ""
+"Peki şimdi neden girişe kapalı? Empyrean buradaki her şeyi çıkarıp tüketti "
+"mi?"
+
+#: ../npcs/udana.txt:83
+msgid ""
+"The further the excavation team dug, the more apparent it became that "
+"something was unusual about the ruins. North would become south, west would "
+"become east. They were losing workers."
+msgstr ""
+"Kazı ekibi derine indikçe harabelerde bir tuhaflık olduğu daha da "
+"belirginleşti. Kuzey güneye, batı ise doğuya dönüşüyordu. İşçilerini "
+"kaybetmeye başladılar."
+
+#: ../npcs/udana.txt:84
+msgid ""
+"The Empyrean shut down the operation. Instead, they made an effort to mine "
+"other nearby areas in hope of finding a more stable source of Mastite. "
+"You've already seen the futile end to that story."
+msgstr ""
+"Empyrean buradaki faaliyeti durdurdu. Bunun yerine daha istikrarlı bir "
+"Mastite kaynağı bulma umuduyla yakınlardaki diğer bölgelerde madencilik "
+"yapmaya yöneldiler. Bu girişimin nasıl hüsranla sonuçlandığını zaten gördün."
+
+#: ../npcs/udana.txt:85
+msgid ""
+"If the Empyrean gave up on the ruins, there may still be some value in "
+"exploring it. Is there any way I can get inside?"
+msgstr ""
+"Empyrean harabelerden vazgeçtiyse burayı keşfetmenin hâlâ bir değeri "
+"olabilir. İçeri girmemin bir yolu var mı?"
+
+#: ../npcs/udana.txt:86
+msgid ""
+"It's risky, but you proven that you're able to handle yourself. And maybe if"
+" we can gain our own supply of Mastite, we'll have some leverage against the"
+" Empyrean."
+msgstr ""
+"Riskli ama başının çaresine bakabildiğini kanıtladın. Belki kendi Mastite "
+"kaynağımızı elde edebilirsek Empyrean'a karşı elimiz güçlenir."
+
+#: ../npcs/udana.txt:87
+msgid ""
+"Here. I made a copy of the key you'll need after one of the Empyrean guards "
+"dropped it. Please be careful. I'm not sure I'm ready to be exposed to any "
+"more death."
+msgstr ""
+"Al. Empyrean muhafızlarından biri anahtarı düşürdüğünde, ihtiyacın olacak bu"
+" anahtarın bir kopyasını çıkarmıştıım. Lütfen dikkatli ol. Daha fazla ölümle"
+" yüzleşmeye hazır olduğumu sanmıyorum."
+
+#: ../npcs/udana.txt:104
+msgid "Thank you again for your help."
+msgstr "Yardımın için tekrar teşekkür ederim."
+
+#: ../npcs/yora.txt:1
+msgid "Yora, Enchanter"
+msgstr "Yora, Tılsımcı"
+
+#: ../cutscenes/backstory.txt:7
+msgid ""
+"Empyrean, the city in the sky. It is a majestic fortress and the last "
+"bastion of humankind."
+msgstr ""
+"Gökyüzündeki şehir Empyrean... Görkemli bir hisar ve insanlığın son kalesi."
+
+#: ../cutscenes/backstory.txt:9
+msgid ""
+"At the height of the kingdom's power the city was a beacon of peace and law."
+msgstr ""
+"Krallığın gücünün doruğunda olduğu dönemde şehir, barışın ve hukukun "
+"simgesiydi."
+
+#: ../cutscenes/backstory.txt:11
+msgid ""
+"When darkness invaded the world in the last age people abandoned the "
+"surface. Empyrean was their only refuge."
+msgstr ""
+"Önceki çağda karanlık dünyayı istila ettiğinde insanlar yeryüzünü terk etti."
+" Empyrean onların tek sığınağıydı."
+
+#: ../cutscenes/backstory.txt:13
+msgid ""
+"Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and "
+"political infighting have consumed the city."
+msgstr ""
+"Şimdi İnsanlık Çağı sona eriyor. Empyrean çöküyor. Şehri kıtlık ve siyasi "
+"çekişmeler yiyip bitirdi."
+
+#: ../cutscenes/backstory.txt:16
+msgid ""
+"Some, in desperation, flee to the surface hoping to survive without the "
+"protection of the city."
+msgstr ""
+"Bazıları çaresizlik içinde, şehrin koruması olmadan hayatta kalma umuduyla "
+"yeryüzüne kaçar."
+
+#: ../cutscenes/backstory.txt:18
+msgid ""
+"But no one returns from the surface. Most die or go missing. A few hide and "
+"survive, for a while."
+msgstr ""
+"Ama yeryüzünden kimse geri dönmez. Çoğu ölür ya da kaybolur. Birkaçı "
+"saklanıp bir süre hayatta kalır."
+
+#: ../cutscenes/backstory.txt:20
+msgid ""
+"Surface dwellers cling to hope. Hope that they'll return to Empyrean some "
+"day. Hope that a hero will fight back against the darkness."
+msgstr ""
+"Yeryüzünde yaşayanlar umuda tutunur. Bir gün Empyrean'a dönebilmeyi; Bir "
+"kahramanın karanlığa karşı koyacağı umut ediyorum."
+
+#: ../cutscenes/backstory.txt:22
+msgid ""
+"There is always hope. But not for everyone: not for you. Not for the Exiled."
+msgstr ""
+"Her zaman umut vardır. Ama herkes için değil: Senin için değil. Sürgünler "
+"için değil."
+
+#: ../cutscenes/credits_empyrean.txt:5
+msgid "Flare Game Credits - empyrean_campaign"
+msgstr "Flare Oyun Jeneriği - empyrean_campaign"
+
+#: ../cutscenes/credits_empyrean.txt:8
+msgid "Lead Content Designers"
+msgstr "Baş İçerik Tasarımcıları"
+
+#: ../cutscenes/credits_empyrean.txt:14
+msgid "Visual Artists"
+msgstr "Görsel Sanatçılar"
+
+#: ../cutscenes/credits_empyrean.txt:25
+msgid "Foley Artists"
+msgstr "Foley Sanatçıları"
+
+#: ../cutscenes/credits_empyrean.txt:31
+msgid "Translators"
+msgstr "Çevirmenler"
+
+#: ../cutscenes/ending.txt:7
+msgid ""
+"At long last, your journey across the surface and into the Underworld has "
+"come to an end."
+msgstr ""
+"Nihayet, yeryüzünde başlayıp Yeraltı Dünyası'na uzanan yolculuğun sona erdi."
+
+#: ../cutscenes/ending.txt:9
+msgid "Upon entering The Pit, a glowing obelisk shined in the distance."
+msgstr "Çukur'a girdiğinde uzakta ışıldayan bir dikilitaş belirdi."
+
+#: ../cutscenes/ending.txt:11
+msgid ""
+"Guarding the obelisk was Lezaith, a formidable opponent, yet no match for "
+"Exiled who faced her."
+msgstr ""
+"Dikilitaşı, zorlu bir rakip olan Lezaith koruyordu; ancak karşısına çıkan "
+"Sürgün'le boy ölçüşemedi"
+
+#: ../cutscenes/ending.txt:13
+msgid "With Lezaith's defeat, the path to the obelisk was clear."
+msgstr "Lezaith yenilince dikilitaşa giden yol açıldı."
+
+#: ../cutscenes/ending.txt:16
+msgid ""
+"Not a moment after Lezaith crumbles into a pile of bones, a bolt of "
+"lightning strikes the obelisk."
+msgstr ""
+"Lezaith bir kemik yığınına dönüşür dönüşmez dikilitaşa bir yıldırım düştü."
+
+#: ../cutscenes/ending.txt:18
+msgid ""
+"Did Lezaith cast a spell on the obelisk with her dying breath? Had Empyrean "
+"finally collapsed?"
+msgstr ""
+"Lezaith son nefesinde dikilitaşa bir büyü mü yaptı? Yoksa Empyrean sonunda "
+"çökmüş müydü?"
+
+#: ../cutscenes/ending.txt:21
+msgid ""
+"Maybe it's true what they say. No one returns from the surface. Most die or "
+"go missing. A few hide and survive, for a while."
+msgstr ""
+"Belki de söylenenler doğrudur. Yeryüzünden kimse geri dönmez. Çoğu ölür ya "
+"da kaybolur. Birkaçı saklanıp bir süre hayatta kalır."
+
+#: ../cutscenes/ending.txt:23
+msgid "Even the Exiled."
+msgstr "Sürgün bile."
+
+#: ../cutscenes/ending.txt:29
+msgid "And a very special thanks to..."
+msgstr "Ve çok özel bir teşekkür de..."
+
+#: ../cutscenes/ending.txt:30
+msgid "You!"
+msgstr "Sana!"
+
+#: ../cutscenes/ending.txt:34
+msgid "The End"
+msgstr "Son"
+
+#: ../books/book_of_the_dead.txt:13
+msgid ""
+"Those whose names are written here in gravebloom ink are admitted passage to"
+" the trail of redemption."
+msgstr ""
+"Adları buraya mezarçiçeği mürekkebiyle yazılanlar, kurtuluş yoluna kabul "
+"edilir."
+
+#: ../books/book_of_the_dead.txt:26
+msgid "${AVATAR_NAME}"
+msgstr "${AVATAR_NAME}"
+
+#: ../books/crafting_alchemy.txt:26
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: ../books/crafting_alchemy.txt:33
+msgid "Craft"
+msgstr "Üret"
+
+#: ../books/crafting_alchemy.txt:52
+msgid "Empty Bottle"
+msgstr "Boş Şişe"
+
+#: ../books/crafting_alchemy.txt:69
+msgid "Aloe Vera"
+msgstr "Aloe Vera"
+
+#: ../books/crafting_alchemy.txt:86
+msgid "Mana Crystal"
+msgstr "Mana Kristali"
+
+#: ../books/crafting_alchemy.txt:103
+msgid "Mushrooms"
+msgstr "Mantarlar"
+
+#: ../books/crafting_alchemy.txt:291
+msgid "Dynamite"
+msgstr "Dinamit"
+
+#: ../books/crafting_alchemy.txt:304
+msgid "Super Health Potion"
+msgstr "Süper Can İksiri"
+
+#: ../books/crafting_alchemy.txt:317
+msgid "Ultra Health Potion"
+msgstr "Ultra Can İksiri"
+
+#: ../books/crafting_alchemy.txt:330
+msgid "Super Mana Potion"
+msgstr "Süper Mana İksiri"
+
+#: ../books/crafting_alchemy.txt:343
+msgid "Ultra Mana Potion"
+msgstr "Ultra Mana İksiri"
+
+#: ../books/cutscene_list.txt:17
+msgid "Select a previously viewed cutscene to watch it again."
+msgstr "Daha önce izlediğin ara sahnelerden birini yeniden izlemek için seç."
+
+#: ../books/cutscene_list.txt:26
+msgid "Ending"
+msgstr "Final"
+
+#: ../books/il_notes_1.txt:13
+msgid "1462/3/10"
+msgstr "1462/3/10"
+
+#: ../books/il_notes_1.txt:19
+msgid ""
+"The dig near Perdition Harbor is starting to show promise. We found ruins. "
+"Unlike anything else in the area. We'll get a good amount of gold from the "
+"relics here. A welcome change for the guys that transferred from the "
+"Empyrean's operation in the complex under Lochport."
+msgstr ""
+"Azap Limanı yakınlarındaki kazı umut vadetmeye başladı. Harabeler bulduk; "
+"bölgedeki hiçbir şeye benzemiyorlar. Buradaki kalıntılardan epey altın elde "
+"edeceğiz. Lochport'un altındaki komplekste yürütülen Empyrean operasyonundan"
+" buraya nakledilen adamlar için sevindirici bir değişiklik."
+
+#: ../books/il_notes_1.txt:25
+msgid "[Missing page]"
+msgstr "[Eksik sayfa]"
+
+#: ../books/il_notes_1.txt:32
+msgid ""
+"They told me about the other expeditions, a tower in Black Oak City and a "
+"temple in the Stormrock region. Both just as fruitless."
+msgstr ""
+"Bana diğer keşif seferlerinden söz ettiler: Kara Meşe Şehri'ndeki bir kule "
+"ve Fırtınakaya bölgesindeki bir tapınak. İkisi de aynı şekilde sonuçsuz "
+"kalmış."
+
+#: ../books/il_notes_2.txt:13
+msgid "1462/3/15"
+msgstr "1462/3/15"
+
+#: ../books/il_notes_2.txt:19
+msgid ""
+"Today, we found a peculiar yellow-green mineral. Almost blinding to look at."
+" Perhaps someone from the Empyrean Chamber knows what it is..."
+msgstr ""
+"Bugün tuhaf, sarı-yeşil bir mineral bulduk. Neredeyse göz kamaştırıyor. "
+"Belki Empyrean Meclisi'nden biri bunun ne olduğunu biliyordur..."
+
+#: ../books/il_notes_2.txt:32
+msgid "1462/3/16"
+msgstr "1462/3/16"
+
+#: ../books/il_notes_2.txt:38
+msgid ""
+"The messenger to the Chamber called the mineral \"Mastite\". It was made "
+"clear that any we find must be brought to the surface. No questions. This "
+"stuff is obviously something special. They better make it worth our while."
+msgstr ""
+"Meclise giden ulak, mineralin adının “Mastite” olduğunu söyledi. Bulduğumuz "
+"her şeyi yeryüzüne çıkarmamız gerektiği açıkça bildirildi. Soru sormak yok. "
+"Belli ki bu madde özel bir şey. Umarım zahmetimizin karşılığını iyi "
+"verirler."
+
+#: ../books/il_notes_3.txt:13
+msgid "1462/3/23"
+msgstr "1462/3/23"
+
+#: ../books/il_notes_3.txt:19
+msgid ""
+"There's more to this whole Mastite thing than we're being told. Yesterday, "
+"one of the crew was about to grab a chunk he had found. In the blink of an "
+"eye, some sort of energy ball flew out of it and blasted the poor guy back "
+"about 100 paces."
+msgstr ""
+"Bu Mastite meselesinde bize anlatılandan fazlası var. Dün ekipten biri "
+"bulduğu bir parçayı almak üzereydi. Göz açıp kapayıncaya kadar parçanın "
+"içinden bir tür enerji küresi fırladı ve zavallı adamı yaklaşık 100 metre "
+"geriye savurdu."
+
+#: ../books/il_notes_3.txt:38
+msgid ""
+"What does the Chamber's healer do? Gives him a measly potion! Why are we "
+"waiting until the damage is done? We need defensive mages! But somehow, "
+"that's out of the question for the Empyrean..."
+msgstr ""
+"Meclisin şifacısı ne yapıyor? Ona basit bir iksir verip gönderiyor! Neden "
+"insanların yaralanmasını bekliyoruz? Savunma büyücülerine ihtiyacımız var! "
+"Ama nedense bu Empyrean’ın umrunda bile değil..."
+
+#: ../books/il_notes_4.txt:13
+msgid "1462/3/25"
+msgstr "1462/3/25"
+
+#: ../books/il_notes_4.txt:19
+msgid ""
+"I've calmed down enough to write a coherent letter to the Chamber requesting"
+" the resources we need. Now we just have to wait. In the meantime, we'll "
+"continue exploring as carefully as possible."
+msgstr ""
+"İhtiyacımız olan kaynakları talep eden düzgün bir mektubu Meclise yazacak "
+"kadar sakinleştim. Şimdi yalnızca beklememiz gerekiyor. Bu sırada "
+"olabildiğince dikkatli bir şekilde keşfe devam edeceğiz."
+
+#: ../books/il_notes_4.txt:32
+msgid "1462/4/27"
+msgstr "1462/4/27"
+
+#: ../books/il_notes_4.txt:38
+msgid ""
+"The Chamber finally gave their response. They did send a few mages, but not "
+"nearly enough. There's a promise of a larger gold share when the excavation "
+"is complete. Somehow, I don't think Empyrean politics will allow such a "
+"thing to manifest."
+msgstr ""
+"Meclisten sonunda yanıt geldi. Birkaç büyücü gönderdiler ama kesinlikle "
+"yeterli değil. Kazı tamamlandığında altından daha büyük bir pay vaat "
+"ediyorlar. Ama nedense Empyrean siyasetinin bu vaadin gerçekleşmesine izin "
+"vereceğini sanmıyorum."
+
+#: ../books/il_notes_5.txt:13
+msgid "1462/6/3"
+msgstr "1462/6/3"
+
+#: ../books/il_notes_5.txt:19
+msgid ""
+"These ruins are larger than we had imagined. There must be other connections"
+" to the surface. Krolan found a portal today, but no one dared to enter."
+msgstr ""
+"Bu harabeler hayal ettiğimizden daha büyük. Yeryüzüne açılan başka geçitler "
+"olmalı. Krolan bugün bir geçit buldu ama kimse içeri girmeye cesaret "
+"edemedi."
+
+#: ../books/il_notes_5.txt:38
+msgid ""
+"We asked the mages to try analyzing it. Unfortunately, they reported not "
+"being able to see through to the other side."
+msgstr ""
+"Büyücülerden geçidi incelemelerini istedik. Ne yazık ki diğer tarafı "
+"göremediklerini bildirdiler."
+
+#: ../books/il_notes_6.txt:13
+msgid "1462/8/12"
+msgstr "1462/8/12"
+
+#: ../books/il_notes_6.txt:19
+msgid ""
+"It's finally over! We reached a massive chamber inhabited by a giant "
+"antlion! The mages were able to hold it back while we grabbed everything "
+"that wasn't nailed down. Thought we were trapped when we had to barricade "
+"the gate. Thank the heavens that the portal brought us back here."
+msgstr ""
+"Sonunda bitti! Dev bir karınca aslanının yaşadığı muazzam bir odaya ulaştık!"
+" Büyücüler yaratığı uzak tutarken biz de taşıyabildiğimiz ne varsa topladık."
+" Kapıya barikat kurmak zorunda kaldığımızda mahsur kaldığımızı sandık. "
+"Nyeseki eçidin bizi buraya geri getirmesine şükürler olsun."
+
+#: ../books/il_notes_6.txt:38
+msgid ""
+"A few of the guys were still working on the floor above and didn't follow us"
+" into the chamber. We'll head back down and rendezvous with them tomorrow."
+msgstr ""
+"Adamlardan birkaçı hâlâ üst katta çalışıyordu ve bizi odaya kadar takip "
+"edemediler. Yarın yeniden aşağı inip onlarla buluşacağız."
+
+#: ../books/il_notes_7.txt:13
+msgid "1462/8/13"
+msgstr "1462/8/13"
+
+#: ../books/il_notes_7.txt:19
+msgid ""
+"When we returned today, the layout of the first floor did not match our "
+"maps. Thankfully, an Empyrean mage made it back with us. I asked them to try"
+" sensing for human life on the lower levels. Zero results thus far, but I "
+"still have hope."
+msgstr ""
+"Bugün geri döndüğümüzde ilk katın düzeninin haritalarımızla uyuşmadığını "
+"gördük. Neyse ki Empyrean büyücülerinden biri bizimle geri dönebildi. Ondan "
+"alt katlarda insan yaşamına dair bir iz aramasını istedim. Şimdiye kadar "
+"hiçbir sonuç alamadık ama hâlâ umudumu koruyorum."
+
+#: ../books/il_notes_7.txt:38
+msgid ""
+"The Chamber sees the situation differently. Orders came in for operations to"
+" be moved to other nearby sites. Krolan obeyed. Said he didn't want end up "
+"dead like \"those guys\". As if our guys are dead! When I find them, we're "
+"going to snag the rest of that Mastite for ourselves!"
+msgstr ""
+"Meclis durumu farklı görüyor. Faaliyetlerin yakınlardaki diğer bölgelere "
+"taşınması emredildi. Krolan emre uydu. “O adamlar” gibi ölmek istemediğini "
+"söyledi. Sanki bizimkiler ölmüş gibi! Onları bulduğumda geriye kalan "
+"Mastite'ın hepsini kendimize alacağız!"
+
+#: ../books/merchants_journal.txt:13
+msgid "1472/9/27"
+msgstr "1472/9/27"
+
+#: ../books/merchants_journal.txt:18
+msgid "-1  Dagger"
+msgstr "-1 Hançer"
+
+#: ../books/merchants_journal.txt:23
+msgid "100"
+msgstr "100"
+
+#: ../books/merchants_journal.txt:28
+msgid "+1  Cloth Shirt"
+msgstr "+1 Bez Gömlek"
+
+#: ../books/merchants_journal.txt:33
+msgid "-18"
+msgstr "-18"
+
+#: ../books/merchants_journal.txt:38
+msgid "+1  Gold Ring"
+msgstr "+1 Altın Yüzük"
+
+#: ../books/merchants_journal.txt:43
+msgid "-50"
+msgstr "-50"
+
+#: ../books/merchants_journal.txt:49
+msgid "1472/9/28"
+msgstr "1472/9/28"
+
+#: ../books/merchants_journal.txt:54
+msgid "-2  Health Potion"
+msgstr "-2 Can İksiri"
+
+#: ../books/merchants_journal.txt:59
+msgid "120"
+msgstr "120"
+
+#: ../books/merchants_journal.txt:64
+msgid "+1  Dagger"
+msgstr "+1 Hançer"
+
+#: ../books/merchants_journal.txt:69
+msgid "-25"
+msgstr "-25"
+
+#: ../books/mog_1.txt:12
+msgid "On the waterlogged support beam"
+msgstr "Su çekmiş destek kirişinin üzerinde"
+
+#: ../books/mog_2.txt:12
+msgid "Beneath a rock on the moldy peninsula"
+msgstr "Küflü yarımadadaki bir kayanın altında"
+
+#: ../books/mog_3.txt:12
+msgid "In the pile of bones near the three submerged pillars"
+msgstr "Suya batmış üç sütunun yakınındaki kemik yığınının içinde"
+
+#: ../books/mog_4.txt:12
+msgid "Inside the blocked off mine cart"
+msgstr "Önü kapatılmış maden vagonetinin içinde"
+
+#: ../books/mog_5.txt:12
+msgid "Press the switch on the top of the middle boulder"
+msgstr "Ortadaki kayanın üzerindeki düğmeye bas"
+
+#: ../books/wardens_notes.txt:13
+msgid "1468/7/9"
+msgstr "1468/7/9"
+
+#: ../books/wardens_notes.txt:18
+msgid ""
+"Another subject asked to take the test. I can't remember the last time "
+"anyone made it through, but they always want to try. I gave them the same "
+"advice as with all the subjects:"
+msgstr ""
+"Başka bir denek sınava girmek istedi. En son ne zaman birinin sınavı "
+"geçebildiğini hatırlamıyorum ama yine de hep denemek istiyorlar. Ona da tüm "
+"deneklere verdiğim tavsiyenin aynısını verdim:"
+
+#: ../books/wardens_notes.txt:24
+msgid "East at the first symbol."
+msgstr "İlk simgede doğuya git."
+
+#: ../books/wardens_notes.txt:29
+msgid "South at the next."
+msgstr "Bir sonraki simgede güneye git."
+
+#: ../books/wardens_notes.txt:34
+msgid "West two times, then carry on from there."
+msgstr "İki kez batıya git, ardından yoluna devam et."
+
+#: ../books/wardens_notes_2.txt:13
+msgid ""
+"The other subjects had been very eager, so I invited a few to watch today's "
+"challenger."
+msgstr ""
+"Diğer denekler çok hevesliydi, bu yüzden birkaçını bugünkü yarışmacıyı "
+"izlemeye çağırdım."
+
+#: ../books/wardens_notes_2.txt:18
+msgid ""
+"The entertainment didn't last long. The subject immediately went south."
+msgstr "Eğlence uzun sürmedi. Denek daha ilk anda güneye gitti."
+
+#: ../books/wardens_notes_2.txt:24
+msgid "1468/7/10"
+msgstr "1468/7/10"
+
+#: ../books/wardens_notes_2.txt:29
+msgid "No subjects asked to take the test today."
+msgstr "Bugün sınava girmek isteyen hiçbir denek çıkmadı."
+
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Savaş Lordu Bez Gömleği"
+
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Keskin Nişancı Bez Gömleği"
+
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Başbüyücü Bez Gömleği"
+
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Savaş Lordu Kumaş Pantolonu"
+
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Keskin Nişancı Kumaş Pantolonu"
+
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Başbüyücü Kumaş Pantolonu"
+
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Savaş Lordu Kumaş Sandaleti"
+
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Keskin Nişancı Kumaş Sandaleti"
+
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Başbüyücü Kumaş Sandaleti"
+
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Savaş Lordu Kumaş Eldiveni"
+
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Keskin Nişancı Kumaş Eldiveni"
+
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Başbüyücü Kumaş Eldiveni"
+
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "Üstat Deri Kemeri"
+
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "Üstat Kolyesi"
+
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "Üstat Büyü Kitabı"
+
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Savaş Lordu Hançeri"
+
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "Keskin Nişancı Sapanı"
+
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Başbüyücü Değneği"
+
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Tapınak Şövalyesi Ahşap Kalkanı"
+
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Üstat Ateş Yüzüğü"
+
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Üstat Buz Yüzüğü"
+
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Üstat Yıldırım Yüzüğü"
+
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Üstat Karanlık Yüzüğü"
+
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "Üstat Deneyim Yüzüğü"
+
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "Üstat Servet Yüzüğü"
+
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "Üstat Hazine Yüzüğü"
+
+#: ../items/categories/level_5.txt:5
+msgid "Leather Hood"
+msgstr "Deri Başlık"
+
+#: ../items/categories/level_5.txt:14
+msgid "Leather Tunic"
+msgstr "Deri Tunik"
+
+#: ../items/categories/level_5.txt:23
+msgid "Leather Pants"
+msgstr "Deri Pantolon"
+
+#: ../items/categories/level_5.txt:32
+msgid "Leather Boots"
+msgstr "Deri Çizmeler"
+
+#: ../items/categories/level_5.txt:41
+msgid "Leather Gloves"
+msgstr "Deri Eldivenler"
+
+#: ../items/categories/level_5.txt:50
+msgid "Wool Hood"
+msgstr "Yün Başlık"
+
+#: ../items/categories/level_5.txt:59
+msgid "Wool Vest"
+msgstr "Yün Yelek"
+
+#: ../items/categories/level_5.txt:68
+msgid "Wool Skirt"
+msgstr "Yün Etek"
+
+#: ../items/categories/level_5.txt:77
+msgid "Wool Boots"
+msgstr "Yün Çizmeler"
+
+#: ../items/categories/level_5.txt:86
+msgid "Wool Sleeves"
+msgstr "Yün Kolluklar"
+
+#: ../items/categories/level_5.txt:95
+msgid "Shortsword"
+msgstr "Kısa Kılıç"
+
+#: ../items/categories/level_5.txt:104
+msgid "Shortbow"
+msgstr "Kısa Yay"
+
+#: ../items/categories/level_5.txt:113
+msgid "Rod"
+msgstr "Çubuk"
+
+#: ../items/categories/level_5.txt:122
+msgid "Iron Buckler"
+msgstr "Küçük Demir Kalkan"
+
+#: ../items/categories/level_13.txt:5
+msgid "Plate Helmet"
+msgstr "Plaka Miğfer"
+
+#: ../items/categories/level_13.txt:14
+msgid "Plate Cuirass"
+msgstr "Plaka Göğüslük"
+
+#: ../items/categories/level_13.txt:23
+msgid "Plate Greaves"
+msgstr "Plaka Baldırlıklar"
+
+#: ../items/categories/level_13.txt:32
+msgid "Plate Boots"
+msgstr "Plaka Çizmeler"
+
+#: ../items/categories/level_13.txt:41
+msgid "Plate Gauntlets"
+msgstr "Plaka Eldivenler"
+
+#: ../items/categories/level_13.txt:50
+msgid "Velvet Hood"
+msgstr "Kadife Başlık"
+
+#: ../items/categories/level_13.txt:59
+msgid "Velvet Vest"
+msgstr "Kadife Yelek"
+
+#: ../items/categories/level_13.txt:68
+msgid "Velvet Skirt"
+msgstr "Kadife Etek"
+
+#: ../items/categories/level_13.txt:77
+msgid "Velvet Boots"
+msgstr "Kadife Çizmeler"
+
+#: ../items/categories/level_13.txt:86
+msgid "Velvet Sleeves"
+msgstr "Kadife Kolluklar"
+
+#: ../items/categories/level_13.txt:95
+msgid "Greatsword"
+msgstr "Büyük Kılıç"
+
+#: ../items/categories/level_13.txt:104
+msgid "Greatbow"
+msgstr "Büyük Yay"
+
+#: ../items/categories/level_13.txt:113
+msgid "Greatstaff"
+msgstr "Büyük Asa"
+
+#: ../items/categories/level_13.txt:122
+msgid "Tower Shield"
+msgstr "Kule Kalkanı"
+
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Kumaş Gömlek"
+
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Kumaş Pantolon"
+
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Kumaş Sandaletler"
+
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Kumaş Eldivenler"
+
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Hançer"
+
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Sapan"
+
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Değnek"
+
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Küçük Ahşap Kalkan"
+
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Savaş Lordu Deri Başlığı"
+
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Keskin Nişancı Deri Başlığı"
+
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "Başbüyücü Yün Başlığı"
+
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Savaş Lordu Deri Tuniği"
+
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Keskin Nişancı Deri Tuniği"
+
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "Başbüyücü Yün Yeleği"
+
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Savaş Lordu Deri Pantolonu"
+
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Keskin Nişancı Deri Pantolonu"
+
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "Başbüyücü Yün Eteği"
+
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Savaş Lordu Deri Çizmeleri"
+
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Keskin Nişancı Deri Çizmeleri"
+
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "Başbüyücü Yün Çizmeleri"
+
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Savaş Lordu Deri Eldivenleri"
+
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Keskin Nişancı Deri Eldivenleri"
+
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "Başbüyücü Yün Kollukları"
+
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
+msgstr "Üstat Dövüşçü Deri Kemeri"
+
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "Üstat Gözcü Kolyesi"
+
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "Üstat Efsuncu Büyü Kitabı"
+
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Savaş Lordu Kısa Kılıcı"
+
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Keskin Nişancı Kısa Yayı"
+
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "Başbüyücü Çubuğu"
+
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Tapınak Şövalyesi Küçük Demir Kalkanı"
+
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "Üstat Yanma Yüzüğü"
+
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr "Üstat Ayaz Yüzüğü"
+
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "Üstat Elektrik Yüzüğü"
+
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "Üstat Gölge Yüzüğü"
+
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "Üstat Bilgi Yüzüğü"
+
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "Üstat Refah Yüzüğü"
+
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "Üstat Ganimet Yüzüğü"
+
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Kullan: Senin için savaşacak bir zombi çağır"
+
+#: ../items/categories/scrolls.txt:19
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Kullan: Azap Limanı'na ışınlan"
+
+#: ../items/categories/scrolls.txt:30
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Kullan: Hasarı emen büyülü bir kalkan oluştur"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr "Kullan: Bir ateş topu fırlat"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr "Kullan: Bir buz oku fırlat"
+
+#: ../items/categories/scrolls.txt:63
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Kullan: Kısa süreliğine daha hızlı hareket et"
+
+#: ../items/categories/scrolls.txt:74
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr ""
+"Kullan: Olumsuz etkileri kaldır ve kısa süreliğine bu etkilere karşı "
+"bağışıklık kazan"
+
+#: ../items/categories/scrolls.txt:85
+msgid ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr ""
+"Kullan: Kısa süreliğine atışları ve hasarı yansıtan büyülü bir kalkan "
+"oluştur"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr "İkinci Şans Kitabı"
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr "Kullan: Tüm nitelik ve yetenek puanlarını sıfırla"
+
+#: ../items/categories/level_2.txt:5
+msgid "Fighting Cloth Shirt"
+msgstr "Dövüşçü Kumaş Gömleği"
+
+#: ../items/categories/level_2.txt:15
+msgid "Recon Cloth Shirt"
+msgstr "Gözcü Kumaş Gömleği"
+
+#: ../items/categories/level_2.txt:25
+msgid "Sorcerer Cloth Shirt"
+msgstr "Efsuncu Kumaş Gömleği"
+
+#: ../items/categories/level_2.txt:35
+msgid "Fighting Cloth Pants"
+msgstr "Dövüşçü Kumaş Pantolonu"
+
+#: ../items/categories/level_2.txt:45
+msgid "Recon Cloth Pants"
+msgstr "Gözcü Kumaş Pantolonu"
+
+#: ../items/categories/level_2.txt:55
+msgid "Sorcerer Cloth Pants"
+msgstr "Efsuncu Kumaş Pantolonu"
+
+#: ../items/categories/level_2.txt:64
+msgid "Fighting Cloth Sandals"
+msgstr "Dövüşçü Kumaş Sandaleti"
+
+#: ../items/categories/level_2.txt:74
+msgid "Recon Cloth Sandals"
+msgstr "Gözcü Kumaş Sandaleti"
+
+#: ../items/categories/level_2.txt:83
+msgid "Sorcerer Cloth Sandals"
+msgstr "Efsuncu Kumaş Sandaleti"
+
+#: ../items/categories/level_2.txt:92
+msgid "Fighting Cloth Gloves"
+msgstr "Dövüşçü Kumaş Eldivenleri"
+
+#: ../items/categories/level_2.txt:102
+msgid "Recon Cloth Gloves"
+msgstr "Gözcü Kumaş Eldivenleri"
+
+#: ../items/categories/level_2.txt:111
+msgid "Sorcerer Cloth Gloves"
+msgstr "Efsuncu Kumaş Eldivenleri"
+
+#: ../items/categories/level_2.txt:120
+msgid "Wandering Leather Belt"
+msgstr "Gezgin Deri Kemeri"
+
+#: ../items/categories/level_2.txt:129
+msgid "Wandering Pendant"
+msgstr "Gezgin Kolyesi"
+
+#: ../items/categories/level_2.txt:138
+msgid "Wandering Spellbook"
+msgstr "Gezgin Büyü Kitabı"
+
+#: ../items/categories/level_2.txt:147
+msgid "Fighting Dagger"
+msgstr "Dövüşçü Hançeri"
+
+#: ../items/categories/level_2.txt:159
+msgid "Recon Slingshot"
+msgstr "Gözcü Sapanı"
+
+#: ../items/categories/level_2.txt:171
+msgid "Sorcerer Wand"
+msgstr "Efsuncu Değneği"
+
+#: ../items/categories/level_2.txt:183
+msgid "Keeper Wood Buckler"
+msgstr "Koruyucu Küçük Ahşap Kalkanı"
+
+#: ../items/categories/level_2.txt:193
+msgid "Wandering Fire Ring"
+msgstr "Gezgin Ateş Yüzüğü"
+
+#: ../items/categories/level_2.txt:202
+msgid "Wandering Ice Ring"
+msgstr "Gezgin Buz Yüzüğü"
+
+#: ../items/categories/level_2.txt:211
+msgid "Wandering Lightning Ring"
+msgstr "Gezgin Yıldırım Yüzüğü"
+
+#: ../items/categories/level_2.txt:220
+msgid "Wandering Dark Ring"
+msgstr "Gezgin Karanlık Yüzüğü"
+
+#: ../items/categories/level_2.txt:229
+msgid "Wandering Experience Ring"
+msgstr "Gezgin Deneyim Yüzüğü"
+
+#: ../items/categories/level_2.txt:238
+msgid "Wandering Wealth Ring"
+msgstr "Gezgin Servet Yüzüğü"
+
+#: ../items/categories/level_2.txt:247
+msgid "Wandering Treasure Ring"
+msgstr "Gezgin Hazine Yüzüğü"
+
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Savaşçı Plaka Miğferi"
+
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Korucu Plaka Miğferi"
+
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "Büyücü Kadife Başlığı"
+
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "Savaşçı Plaka Göğüslüğü"
+
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "Korucu Plaka Göğüslüğü"
+
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "Büyücü Kadife Yeleği"
+
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Savaşçı Plaka Baldırlıkları"
+
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Korucu Plaka Baldırlıkları"
+
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "Büyücü Kadife Eteği"
+
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Savaşçı Plaka Çizmeleri"
+
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Korucu Plaka Çizmeleri"
+
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "Büyücü Kadife Çizmeleri"
+
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Savaşçı Plaka Eldivenleri"
+
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Korucu Plaka Eldivenleri"
+
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "Büyücü Kadife Kollukları"
+
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Maceracı Savaş Lordu Deri Kemeri"
+
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr "Maceracı Keskin Nişancı Kolyesi"
+
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr "Maceracı Başbüyücü Büyü Kitabı"
+
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Savaşçı Büyük Kılıcı"
+
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Korucu Büyük Yayı"
+
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Büyücü Büyük Asası"
+
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Paladin Kule Kalkanı"
+
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "Maceracı Cehennem Ateşi Yüzüğü"
+
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "Maceracı Buzul Yüzüğü"
+
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "Maceracı Volt Yüzüğü"
+
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "Maceracı Hiçlik Yüzüğü"
+
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "Maceracı Bilgin Yüzüğü"
+
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "Maceracı Zenginlik Yüzüğü"
+
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "Maceracı Yadigâr Yüzüğü"
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr "Savaşçı Deri Başlığı"
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr "Korucu Deri Başlığı"
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr "Büyücü Yün Başlığı"
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr "Savaşçı Deri Tuniği"
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr "Korucu Deri Tuniği"
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr "Büyücü Yün Yeleği"
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr "Savaşçı Deri Pantolonu"
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr "Korucu Deri Pantolonu"
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr "Büyücü Yün Eteği"
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr "Savaşçı Deri Çizmeleri"
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr "Korucu Deri Çizmeleri"
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr "Büyücü Yün Çizmeleri"
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr "Savaşçı Deri Eldivenleri"
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr "Korucu Deri Eldivenleri"
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr "Büyücü Yün Kollukları"
+
+#: ../items/categories/level_7.txt:185
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Maceracı Dövüşçü Deri Kemeri"
+
+#: ../items/categories/level_7.txt:196
+msgid "Adventurer Recon Pendant"
+msgstr "Maceracı Gözcü Kolyesi"
+
+#: ../items/categories/level_7.txt:207
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Maceracı Efsuncu Büyü Kitabı"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr "Savaşçı Kısa Kılıcı"
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr "Korucu Kısa Yayı"
+
+#: ../items/categories/level_7.txt:242
+msgid "Wizard Rod"
+msgstr "Büyücü Çubuğu"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr "Paladin Küçük Demir Kalkanı"
+
+#: ../items/categories/level_7.txt:265
+msgid "Adventurer Burn Ring"
+msgstr "Maceracı Yanma Yüzüğü"
+
+#: ../items/categories/level_7.txt:275
+msgid "Adventurer Frost Ring"
+msgstr "Maceracı Ayaz Yüzüğü"
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr "Maceracı Elektrik Yüzüğü"
+
+#: ../items/categories/level_7.txt:295
+msgid "Adventurer Shadow Ring"
+msgstr "Maceracı Gölge Yüzüğü"
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr "Maceracı Bilgi Yüzüğü"
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr "Maceracı Refah Yüzüğü"
+
+#: ../items/categories/level_7.txt:325
+msgid "Adventurer Loot Ring"
+msgstr "Maceracı Ganimet Yüzüğü"
+
+#: ../items/categories/level_10.txt:5
+msgid "Fighting Chain Coif"
+msgstr "Dövüşçü Zincir Başlığı"
+
+#: ../items/categories/level_10.txt:17
+msgid "Recon Chain Coif"
+msgstr "Gözcü Zincir Başlığı"
+
+#: ../items/categories/level_10.txt:29
+msgid "Sorcerer Silk Hood"
+msgstr "Efsuncu İpek Başlığı"
+
+#: ../items/categories/level_10.txt:41
+msgid "Fighting Chain Cuirass"
+msgstr "Dövüşçü Zincir Göğüslüğü"
+
+#: ../items/categories/level_10.txt:53
+msgid "Recon Chain Cuirass"
+msgstr "Gözcü Zincir Göğüslüğü"
+
+#: ../items/categories/level_10.txt:65
+msgid "Sorcerer Silk Vest"
+msgstr "Efsuncu İpek Yeleği"
+
+#: ../items/categories/level_10.txt:77
+msgid "Fighting Chain Greaves"
+msgstr "Dövüşçü Zincir Baldırlıkları"
+
+#: ../items/categories/level_10.txt:89
+msgid "Recon Chain Greaves"
+msgstr "Gözcü Zincir Baldırlıkları"
+
+#: ../items/categories/level_10.txt:101
+msgid "Sorcerer Silk Skirt"
+msgstr "Efsuncu İpek Eteği"
+
+#: ../items/categories/level_10.txt:113
+msgid "Fighting Chain Boots"
+msgstr "Dövüşçü Zincir Çizmeleri"
+
+#: ../items/categories/level_10.txt:125
+msgid "Recon Chain Boots"
+msgstr "Gözcü Zincir Çizmeleri"
+
+#: ../items/categories/level_10.txt:137
+msgid "Sorcerer Silk Boots"
+msgstr "Efsuncu İpek Çizmeleri"
+
+#: ../items/categories/level_10.txt:149
+msgid "Fighting Chain Gloves"
+msgstr "Dövüşçü Zincir Eldivenleri"
+
+#: ../items/categories/level_10.txt:161
+msgid "Recon Chain Gloves"
+msgstr "Gözcü Zincir Eldivenleri"
+
+#: ../items/categories/level_10.txt:173
+msgid "Sorcerer Silk Sleeves"
+msgstr "Efsuncu İpek Kollukları"
+
+#: ../items/categories/level_10.txt:185
+msgid "Wandering Warrior Leather Belt"
+msgstr "Gezgin Savaşçı Deri Kemeri"
+
+#: ../items/categories/level_10.txt:196
+msgid "Wandering Ranger Pendant"
+msgstr "Gezgin Korucu Kolyesi"
+
+#: ../items/categories/level_10.txt:207
+msgid "Wandering Wizard Spellbook"
+msgstr "Gezgin Büyücünün Büyü Kitabı"
+
+#: ../items/categories/level_10.txt:218
+msgid "Fighting Longsword"
+msgstr "Dövüşçü Uzun Kılıcı"
+
+#: ../items/categories/level_10.txt:230
+msgid "Recon Longbow"
+msgstr "Gözcü Uzun Yayı"
+
+#: ../items/categories/level_10.txt:242
+msgid "Sorcerer Staff"
+msgstr "Efsuncu Asası"
+
+#: ../items/categories/level_10.txt:254
+msgid "Keeper Crest Shield"
+msgstr "Koruyucu Armalı Kalkanı"
+
+#: ../items/categories/level_10.txt:265
+msgid "Wandering Blaze Ring"
+msgstr "Gezgin Alev Yüzüğü"
+
+#: ../items/categories/level_10.txt:275
+msgid "Wandering Freeze Ring"
+msgstr "Gezgin Donma Yüzüğü"
+
+#: ../items/categories/level_10.txt:285
+msgid "Wandering Shock Ring"
+msgstr "Gezgin Şok Yüzüğü"
+
+#: ../items/categories/level_10.txt:295
+msgid "Wandering Gloom Ring"
+msgstr "Gezgin Kasvet Yüzüğü"
+
+#: ../items/categories/level_10.txt:305
+msgid "Wandering Intellectual Ring"
+msgstr "Gezgin Zekâ Yüzüğü"
+
+#: ../items/categories/level_10.txt:315
+msgid "Wandering Lucrative Ring"
+msgstr "Gezgin Kazanç Yüzüğü"
+
+#: ../items/categories/level_10.txt:325
+msgid "Wandering Artifact Ring"
+msgstr "Gezgin Kadim Eser Yüzüğü"
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "Et Halkası"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr ""
+"Dokunuşu pürüzsüzdür. Takıldığında parmağın etrafında kendiliğinden "
+"sıkılaşır."
+
+#: ../items/categories/level_16_unique.txt:21
+msgid "Soulband"
+msgstr "Ruh Halkası"
+
+#: ../items/categories/level_16_unique.txt:23
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr ""
+"Takıldığında ışıldar, takanın zihnini berraklaştırır ve derinlemesine "
+"odaklanmasını sağlar."
+
+#: ../items/categories/level_16_unique.txt:38
+msgid "Underworld Cloak"
+msgstr "Yeraltı Dünyası Pelerini"
+
+#: ../items/categories/level_16_unique.txt:51
+msgid "Underworld Platemail"
+msgstr "Yeraltı Dünyası Plaka Zırhı"
+
+#: ../items/categories/level_16_unique.txt:64
+msgid "Underworld Boots"
+msgstr "Yeraltı Dünyası Çizmeleri"
+
+#: ../items/categories/level_16_unique.txt:77
+msgid "Underworld Armguards"
+msgstr "Yeraltı Dünyası Kol Korumaları"
+
+#: ../items/categories/level_16_unique.txt:90
+msgid "Underworld Greaves"
+msgstr "Yeraltı Dünyası Baldırlıkları"
+
+#: ../items/categories/level_16_unique.txt:103
+msgid "Underworld Tome"
+msgstr "Yeraltı Dünyası Kitabı"
+
+#: ../items/categories/level_16_unique.txt:115
+msgid "Underworld Blade"
+msgstr "Yeraltı Dünyası Kılıcı"
+
+#: ../items/categories/level_16_unique.txt:128
+msgid "Underworld Bow"
+msgstr "Yeraltı Dünyası Yayı"
+
+#: ../items/categories/level_16_unique.txt:141
+msgid "Underworld Sceptre"
+msgstr "Yeraltı Dünyası Asası"
+
+#: ../items/categories/quest.txt:3
+msgid "Krolan's Key"
+msgstr "Krolan'ın Anahtarı"
+
+#: ../items/categories/quest.txt:13
+msgid "Krolan's Emerald"
+msgstr "Krolan'ın Zümrüdü"
+
+#: ../items/categories/quest.txt:23
+msgid "Abasi's Journal"
+msgstr "Abasi'nin Günlüğü"
+
+#: ../items/categories/quest.txt:34
+msgid "Gold Family Ring"
+msgstr "Altın Aile Yüzüğü"
+
+#: ../items/categories/quest.txt:45
+msgid "St. Maria Mausoleum Key"
+msgstr "Azize Maria Anıt Mezarı Anahtarı"
+
+#: ../items/categories/quest.txt:55
+msgid "St. Maria Catacombs Key"
+msgstr "Azize Maria Yeraltı Mezarları Anahtarı"
+
+#: ../items/categories/quest.txt:65
+msgid "Strange Sapphire A"
+msgstr "Tuhaf Safir A"
+
+#: ../items/categories/quest.txt:75
+msgid "Strange Sapphire B"
+msgstr "Tuhaf Safir B"
+
+#: ../items/categories/quest.txt:95
+msgid "Bear Figurine"
+msgstr "Ayı Heykelciği"
+
+#: ../items/categories/quest.txt:98
+msgid "Wood sculpture of a bear. A \"1\" is carved into the bottom."
+msgstr "Ahşaptan oyulmuş bir ayı heykelciği. Alt kısmına “1” kazınmış."
+
+#: ../items/categories/quest.txt:107
+msgid "Owl Figurine"
+msgstr "Baykuş Heykelciği"
+
+#: ../items/categories/quest.txt:110
+msgid "Wood sculpture of an owl. A \"2\" is carved into the bottom."
+msgstr "Ahşaptan oyulmuş bir baykuş heykelciği. Alt kısmına “2” kazınmış."
+
+#: ../items/categories/quest.txt:119
+msgid "Cat Figurine"
+msgstr "Kedi Heykelciği"
+
+#: ../items/categories/quest.txt:122
+msgid "Wood sculpture of a cat. A \"3\" is carved into the bottom."
+msgstr "Ahşaptan oyulmuş bir kedi heykelciği. Alt kısmına “3” kazınmış."
+
+#: ../items/categories/quest.txt:131
+msgid "Turtle Figurine"
+msgstr "Kaplumbağa Heykelciği"
+
+#: ../items/categories/quest.txt:134
+msgid "Wood sculpture of a turtle. A \"4\" is carved into the bottom."
+msgstr "Ahşaptan oyulmuş bir kaplumbağa heykelciği. Alt kısmına “4” kazınmış."
+
+#: ../items/categories/quest.txt:143
+msgid "Stormrock Key"
+msgstr "Fırtınakaya Anahtarı"
+
+#: ../items/categories/quest.txt:153
+msgid "Temple of Mez Basement Key"
+msgstr "Mez Tapınağı Bodrum Anahtarı"
+
+#: ../items/categories/quest.txt:163
+msgid "Temple of Mez Main Hall Key"
+msgstr "Mez Tapınağı Ana Salon Anahtarı"
+
+#: ../items/categories/quest.txt:184
+msgid "Worn Note #1"
+msgstr "Yıpranmış Not #1"
+
+#: ../items/categories/quest.txt:195
+msgid "Worn Note #2"
+msgstr "Yıpranmış Not #2"
+
+#: ../items/categories/quest.txt:206
+msgid "Worn Note #3"
+msgstr "Yıpranmış Not #3"
+
+#: ../items/categories/quest.txt:217
+msgid "Worn Note #4"
+msgstr "Yıpranmış Not #4"
+
+#: ../items/categories/quest.txt:228
+msgid "Worn Note #5"
+msgstr "Yıpranmış Not #5"
+
+#: ../items/categories/quest.txt:239
+msgid "Wizard's Tower Entrance Key"
+msgstr "Büyücü Kulesi Giriş Anahtarı"
+
+#: ../items/categories/quest.txt:249
+msgid "Wizard's Tower Research Hall Key"
+msgstr "Büyücü Kulesi Araştırma Salonu Anahtarı"
+
+#: ../items/categories/quest.txt:270
+msgid "Lorund's Sword"
+msgstr "Lorund'un Kılıcı"
+
+#: ../items/categories/quest.txt:282
+msgid "Nerin's Bow"
+msgstr "Nerin'in Yayı"
+
+#: ../items/categories/quest.txt:294
+msgid "Kayl's Staff"
+msgstr "Kayl'ın Asası"
+
+#: ../items/categories/quest.txt:306
+msgid "Underworld Stronghold Foyer Key"
+msgstr "Yeraltı Dünyası Hisarı Giriş Holü Anahtarı"
+
+#: ../items/categories/quest.txt:316
+msgid "Underworld Stronghold Barracks Key"
+msgstr "Yeraltı Dünyası Hisarı Kışla Anahtarı"
+
+#: ../items/categories/quest.txt:326
+msgid "Treasure Chest Key"
+msgstr "Hazine Sandığı Anahtarı"
+
+#: ../items/categories/quest.txt:336
+msgid "Silver Family Ring"
+msgstr "Gümüş Aile Yüzüğü"
+
+#: ../items/categories/quest.txt:362
+msgid ""
+"An odor of iron and its abrasive petals make this rare plant easy to "
+"identify."
+msgstr ""
+"Demir kokusu ve pürüzlü taç yaprakları, bu nadir bitkinin kolayca "
+"tanınmasını sağlar."
+
+#: ../items/categories/quest.txt:374
+msgid ""
+"This mysterious black feather has a very sharp follicle, making it a "
+"suitable writing utensil."
+msgstr ""
+"Bu gizemli siyah tüyün oldukça sivri bir sapı vardır; bu da onu yazı yazmaya"
+" uygun hâle getirir."
+
+#: ../items/categories/quest.txt:386
+msgid "A dark, magical energy flows through the tip of this small blade."
+msgstr "Bu küçük bıçağın ucunda karanlık, büyülü bir enerji dolaşıyor."
+
+#: ../items/categories/quest.txt:395
+msgid "Vial of Your Blood"
+msgstr "Kanınla Dolu Şişe"
+
+#: ../items/categories/quest.txt:398
+msgid "Spoils of the Red Altar ritual."
+msgstr "Kızıl Sunak ayininden geriye kalanlar."
+
+#: ../items/categories/quest.txt:407
+msgid "Blood Inkwell"
+msgstr "Kan Mürekkebi Hokkası"
+
+#: ../items/categories/quest.txt:410
+msgid ""
+"According to Florin, this is the only ink capable of being used in the Book "
+"of the Dead."
+msgstr "Florin'e göre Ölüler Kitabı'nda kullanılabilecek tek mürekkep bu."
+
+#: ../items/categories/quest.txt:419
+msgid "Iron Labyrinth Key"
+msgstr "Demir Labirent Anahtarı"
+
+#: ../items/categories/quest.txt:430
+msgid "Excavation Journal Pages"
+msgstr "Kazı Günlüğü Sayfaları"
+
+#: ../items/categories/crafting.txt:38
+msgid "Mortar and Pestle"
+msgstr "Havan ve Tokmak"
+
+#: ../items/categories/crafting.txt:39
+msgid "Use empty bottles and various ingredients to create potions."
+msgstr "Boş şişeleri ve çeşitli malzemeleri kullanarak iksirler hazırla."
+
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Krolan'ın Çekici"
+
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Her demircinin ihtiyaç duyduğu vazgeçilmez bir araç."
+
+#: ../items/categories/level_4_unique.txt:19
+msgid "Goblin Branch"
+msgstr "Goblin Dalı"
+
+#: ../items/categories/level_4_unique.txt:20
+msgid "Mana flows inside its primitive exterior."
+msgstr "İlkel görünümünün altında mana akıyor."
+
+#: ../items/categories/level_4_unique.txt:36
+msgid "Ardwen's Gloves"
+msgstr "Ardwen'in Eldivenleri"
+
+#: ../items/categories/level_4_unique.txt:37
+msgid "These hands built a village."
+msgstr "Bu eller bir köy inşa etti."
+
+#: ../items/categories/level_4_unique.txt:53
+msgid "Blood Tunic"
+msgstr "Kan Tuniği"
+
+#: ../items/categories/level_4_unique.txt:54
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Giyildiğinde sahibinin damarlarını ısıtır."
+
+#: ../items/categories/level_4_unique.txt:69
+msgid "Dark Steppers"
+msgstr "Karanlık Adımlar"
+
+#: ../items/categories/level_4_unique.txt:70
+msgid "Dancing through the shadows."
+msgstr "Gölgelerin arasında dans edercesine..."
+
+#: ../items/categories/level_4_unique.txt:84
+msgid "Seagate's Tri-pants"
+msgstr "Seagate'in Üçlü Pantolonu"
+
+#: ../items/categories/level_4_unique.txt:85
+msgid ""
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
+msgstr ""
+"Bu yırtık pırtık pantolon yanık izleriyle kaplıdır ama dokunulduğunda "
+"soğuktur."
+
+#: ../items/categories/level_4_unique.txt:101
+msgid "Ardwen's Ring"
+msgstr "Ardwen'in Yüzüğü"
+
+#: ../items/categories/level_4_unique.txt:102
+msgid "Lochport's finest."
+msgstr "Lochport'un en iyisi."
+
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Savaş Lordu Plaka Miğferi"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Keskin Nişancı Plaka Miğferi"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "Başbüyücü Kadife Başlığı"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "Savaş Lordu Plaka Göğüslüğü"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "Keskin Nişancı Plaka Göğüslüğü"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "Başbüyücü Kadife Yeleği"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Savaş Lordu Plaka Baldırlıkları"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Keskin Nişancı Plaka Baldırlıkları"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "Başbüyücü Kadife Eteği"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Savaş Lordu Plaka Çizmeleri"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Keskin Nişancı Plaka Çizmeleri"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "Başbüyücü Kadife Çizmeleri"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Savaş Lordu Plaka Eldivenleri"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Keskin Nişancı Plaka Eldivenleri"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "Başbüyücü Kadife Kollukları"
+
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr "Üstat Savaş Lordu Deri Kemeri"
+
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr "Üstat Keskin Nişancı Kolyesi"
+
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr "Üstat Başbüyücü Büyü Kitabı"
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Savaş Lordu Büyük Kılıcı"
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Keskin Nişancı Büyük Yayı"
+
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "Başbüyücü Büyük Asası"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Tapınak Şövalyesi Kule Kalkanı"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "Üstat Cehennem Ateşi Yüzüğü"
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "Üstat Buzul Yüzüğü"
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "Üstat Volt Yüzüğü"
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "Üstat Hiçlik Yüzüğü"
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "Üstat Bilgin Yüzüğü"
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "Üstat Zenginlik Yüzüğü"
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "Üstat Yadigâr Yüzüğü"
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "Savaşçı Zincir Başlığı"
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "Korucu Zincir Başlığı"
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr "Büyücü İpek Başlığı"
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Cuirass"
+msgstr "Savaşçı Zincir Göğüslüğü"
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Cuirass"
+msgstr "Korucu Zincir Göğüslüğü"
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr "Büyücü İpek Yeleği"
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "Savaşçı Zincir Baldırlıkları"
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "Korucu Zincir Baldırlıkları"
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr "Büyücü İpek Eteği"
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "Savaşçı Zincir Çizmeleri"
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "Korucu Zincir Çizmeleri"
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr "Büyücü İpek Çizmeleri"
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "Savaşçı Zincir Eldivenleri"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "Korucu Zincir Eldivenleri"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr "Büyücü İpek Kollukları"
+
+#: ../items/categories/level_11.txt:185
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Maceracı Savaşçı Deri Kemeri"
+
+#: ../items/categories/level_11.txt:196
+msgid "Adventurer Ranger Pendant"
+msgstr "Maceracı Korucu Kolyesi"
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr "Maceracı Büyücünün Büyü Kitabı"
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "Savaşçı Uzun Kılıcı"
+
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "Korucu Uzun Yayı"
+
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "Büyücü Asası"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr "Paladin Armalı Kalkanı"
+
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr "Maceracı Alev Yüzüğü"
+
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr "Maceracı Donma Yüzüğü"
+
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
+msgstr "Maceracı Şok Yüzüğü"
+
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr "Maceracı Kasvet Yüzüğü"
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr "Maceracı Zekâ Yüzüğü"
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr "Maceracı Kazanç Yüzüğü"
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr "Maceracı Kadim Eser Yüzüğü"
+
+#: ../items/categories/level_9.txt:5
+msgid "Chain Coif"
+msgstr "Zincir Başlık"
+
+#: ../items/categories/level_9.txt:14
+msgid "Chain Cuirass"
+msgstr "Zincir Göğüslük"
+
+#: ../items/categories/level_9.txt:23
+msgid "Chain Greaves"
+msgstr "Zincir Baldırlıklar"
+
+#: ../items/categories/level_9.txt:32
+msgid "Chain Boots"
+msgstr "Zincir Çizmeler"
+
+#: ../items/categories/level_9.txt:41
+msgid "Chain Gloves"
+msgstr "Zincir Eldivenler"
+
+#: ../items/categories/level_9.txt:50
+msgid "Silk Hood"
+msgstr "İpek Başlık"
+
+#: ../items/categories/level_9.txt:59
+msgid "Silk Vest"
+msgstr "İpek Yelek"
+
+#: ../items/categories/level_9.txt:68
+msgid "Silk Skirt"
+msgstr "İpek Etek"
+
+#: ../items/categories/level_9.txt:77
+msgid "Silk Boots"
+msgstr "İpek Çizmeler"
+
+#: ../items/categories/level_9.txt:86
+msgid "Silk Sleeves"
+msgstr "İpek Kolluklar"
+
+#: ../items/categories/level_9.txt:95
+msgid "Longsword"
+msgstr "Uzun Kılıç"
+
+#: ../items/categories/level_9.txt:104
+msgid "Longbow"
+msgstr "Uzun Yay"
+
+#: ../items/categories/level_9.txt:113
+msgid "Staff"
+msgstr "Asa"
+
+#: ../items/categories/level_9.txt:122
+msgid "Crest Shield"
+msgstr "Armalı Kalkan"
+
+#: ../items/categories/level_6.txt:5
+msgid "Fighting Leather Hood"
+msgstr "Dövüşçü Deri Başlığı"
+
+#: ../items/categories/level_6.txt:17
+msgid "Recon Leather Hood"
+msgstr "Gözcü Deri Başlığı"
+
+#: ../items/categories/level_6.txt:29
+msgid "Sorcerer Wool Hood"
+msgstr "Efsuncu Yün Başlığı"
+
+#: ../items/categories/level_6.txt:41
+msgid "Fighting Leather Tunic"
+msgstr "Dövüşçü Deri Tuniği"
+
+#: ../items/categories/level_6.txt:53
+msgid "Recon Leather Tunic"
+msgstr "Gözcü Deri Tuniği"
+
+#: ../items/categories/level_6.txt:65
+msgid "Sorcerer Wool Vest"
+msgstr "Efsuncu Yün Yeleği"
+
+#: ../items/categories/level_6.txt:77
+msgid "Fighting Leather Pants"
+msgstr "Dövüşçü Deri Pantolonu"
+
+#: ../items/categories/level_6.txt:89
+msgid "Recon Leather Pants"
+msgstr "Gözcü Deri Pantolonu"
+
+#: ../items/categories/level_6.txt:101
+msgid "Sorcerer Wool Skirt"
+msgstr "Efsuncu Yün Eteği"
+
+#: ../items/categories/level_6.txt:113
+msgid "Fighting Leather Boots"
+msgstr "Dövüşçü Deri Çizmeleri"
+
+#: ../items/categories/level_6.txt:125
+msgid "Recon Leather Boots"
+msgstr "Gözcü Deri Çizmeleri"
+
+#: ../items/categories/level_6.txt:137
+msgid "Sorcerer Wool Boots"
+msgstr "Efsuncu Yün Çizmeleri"
+
+#: ../items/categories/level_6.txt:149
+msgid "Fighting Leather Gloves"
+msgstr "Dövüşçü Deri Eldivenleri"
+
+#: ../items/categories/level_6.txt:161
+msgid "Recon Leather Gloves"
+msgstr "Gözcü Deri Eldivenleri"
+
+#: ../items/categories/level_6.txt:173
+msgid "Sorcerer Wool Sleeves"
+msgstr "Efsuncu Yün Kollukları"
+
+#: ../items/categories/level_6.txt:185
+msgid "Wandering Fighting Leather Belt"
+msgstr "Gezgin Dövüşçü Deri Kemeri"
+
+#: ../items/categories/level_6.txt:196
+msgid "Wandering Recon Pendant"
+msgstr "Gezgin Gözcü Kolyesi"
+
+#: ../items/categories/level_6.txt:207
+msgid "Wandering Sorcerer Spellbook"
+msgstr "Gezgin Efsuncu Büyü Kitabı"
+
+#: ../items/categories/level_6.txt:218
+msgid "Fighting Shortsword"
+msgstr "Dövüşçü Kısa Kılıcı"
+
+#: ../items/categories/level_6.txt:230
+msgid "Recon Shortbow"
+msgstr "Gözcü Kısa Yayı"
+
+#: ../items/categories/level_6.txt:242
+msgid "Sorcerer Rod"
+msgstr "Efsuncu Çubuğu"
+
+#: ../items/categories/level_6.txt:254
+msgid "Keeper Iron Buckler"
+msgstr "Koruyucu Küçük Demir Kalkanı"
+
+#: ../items/categories/level_6.txt:265
+msgid "Wandering Burn Ring"
+msgstr "Gezgin Yanma Yüzüğü"
+
+#: ../items/categories/level_6.txt:275
+msgid "Wandering Frost Ring"
+msgstr "Gezgin Ayaz Yüzüğü"
+
+#: ../items/categories/level_6.txt:285
+msgid "Wandering Electric Ring"
+msgstr "Gezgin Elektrik Yüzüğü"
+
+#: ../items/categories/level_6.txt:295
+msgid "Wandering Shadow Ring"
+msgstr "Gezgin Gölge Yüzüğü"
+
+#: ../items/categories/level_6.txt:305
+msgid "Wandering Knowledge Ring"
+msgstr "Gezgin Bilgi Yüzüğü"
+
+#: ../items/categories/level_6.txt:315
+msgid "Wandering Prosperity Ring"
+msgstr "Gezgin Refah Yüzüğü"
+
+#: ../items/categories/level_6.txt:325
+msgid "Wandering Loot Ring"
+msgstr "Gezgin Ganimet Yüzüğü"
+
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "Savaşçı Kumaş Gömleği"
+
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "Korucu Kumaş Gömleği"
+
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "Büyücü Kumaş Gömleği"
+
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "Savaşçı Kumaş Pantolonu"
+
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "Korucu Kumaş Pantolonu"
+
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "Büyücü Kumaş Pantolonu"
+
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "Savaşçı Kumaş Sandaletleri"
+
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "Korucu Kumaş Sandaletleri"
+
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "Büyücü Kumaş Sandaletleri"
+
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "Savaşçı Kumaş Eldivenleri"
+
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "Korucu Kumaş Eldivenleri"
+
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "Büyücü Kumaş Eldivenleri"
+
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
+msgstr "Maceracı Deri Kemeri"
+
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
+msgstr "Maceracı Kolyesi"
+
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
+msgstr "Maceracı Büyü Kitabı"
+
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "Savaşçı Hançeri"
+
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "Korucu Sapanı"
+
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "Büyücü Değneği"
+
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "Paladin Küçük Ahşap Kalkanı"
+
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "Maceracı Ateş Yüzüğü"
+
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "Maceracı Buz Yüzüğü"
+
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
+msgstr "Maceracı Yıldırım Yüzüğü"
+
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "Maceracı Karanlık Yüzüğü"
+
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "Maceracı Deneyim Yüzüğü"
+
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "Maceracı Servet Yüzüğü"
+
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "Maceracı Hazine Yüzüğü"
+
+#: ../items/categories/mastite.txt:3
+msgid "Mastite Shirt"
+msgstr "Mastite Gömleği"
+
+#: ../items/categories/mastite.txt:10
+msgid "Mastite Pants"
+msgstr "Mastite Pantolonu"
+
+#: ../items/categories/mastite.txt:17
+msgid "Mastite Sandals"
+msgstr "Mastite Sandaletleri"
+
+#: ../items/categories/mastite.txt:24
+msgid "Mastite Gloves"
+msgstr "Mastite Eldivenleri"
+
+#: ../items/categories/mastite.txt:31
+msgid "Mastite Dagger"
+msgstr "Mastite Hançeri"
+
+#: ../items/categories/mastite.txt:38
+msgid "Mastite Slingshot"
+msgstr "Mastite Sapanı"
+
+#: ../items/categories/mastite.txt:45
+msgid "Mastite Wand"
+msgstr "Mastite Değneği"
+
+#: ../items/categories/mastite.txt:52
+msgid "Mastite Buckler"
+msgstr "Mastite Küçük Kalkanı"
+
+#: ../items/categories/mastite.txt:59
+msgid "Mastite Belt"
+msgstr "Mastite Kemeri"
+
+#: ../items/categories/mastite.txt:66
+msgid "Mastite Pendant"
+msgstr "Mastite Kolyesi"
+
+#: ../items/categories/mastite.txt:94
+msgid "Mastite Spellbook"
+msgstr "Mastite Büyü Kitabı"
+
+#: ../items/categories/mastite.txt:101
+msgid "Mastite Ring"
+msgstr "Mastite Yüzüğü"
+
+#: ../items/categories/mastite.txt:150
+msgid "Mastite Leather Hood"
+msgstr "Mastite Deri Başlığı"
+
+#: ../items/categories/mastite.txt:157
+msgid "Mastite Leather Tunic"
+msgstr "Mastite Deri Tuniği"
+
+#: ../items/categories/mastite.txt:164
+msgid "Mastite Leather Pants"
+msgstr "Mastite Deri Pantolonu"
+
+#: ../items/categories/mastite.txt:171
+msgid "Mastite Leather Boots"
+msgstr "Mastite Deri Çizmeleri"
+
+#: ../items/categories/mastite.txt:178
+msgid "Mastite Leather Gloves"
+msgstr "Mastite Deri Eldivenleri"
+
+#: ../items/categories/mastite.txt:185
+msgid "Mastite Mage Hood"
+msgstr "Mastite Sihirbaz Başlığı"
+
+#: ../items/categories/mastite.txt:192
+msgid "Mastite Mage Vest"
+msgstr "Mastite Sihirbaz Yeleği"
+
+#: ../items/categories/mastite.txt:199
+msgid "Mastite Mage Skirt"
+msgstr "Mastite Sihirbaz Eteği"
+
+#: ../items/categories/mastite.txt:206
+msgid "Mastite Mage Boots"
+msgstr "Mastite Sihirbaz Çizmeleri"
+
+#: ../items/categories/mastite.txt:213
+msgid "Mastite Mage Sleeves"
+msgstr "Mastite Sihirbaz Kollukları"
+
+#: ../items/categories/mastite.txt:220
+msgid "Mastite Shortsword"
+msgstr "Mastite Kısa Kılıcı"
+
+#: ../items/categories/mastite.txt:227
+msgid "Mastite Shortbow"
+msgstr "Mastite Kısa Yayı"
+
+#: ../items/categories/mastite.txt:234
+msgid "Mastite Rod"
+msgstr "Mastite Çubuğu"
+
+#: ../items/categories/mastite.txt:241
+msgid "Mastite Iron Buckler"
+msgstr "Mastite Küçük Demir Kalkanı"
+
+#: ../items/categories/mastite.txt:249
+msgid "Mastite Chain Coif"
+msgstr "Mastite Zincir Başlığı"
+
+#: ../items/categories/mastite.txt:256
+msgid "Mastite Chain Cuirass"
+msgstr "Mastite Zincir Göğüslüğü"
+
+#: ../items/categories/mastite.txt:263
+msgid "Mastite Chain Greaves"
+msgstr "Mastite Zincir Baldırlıkları"
+
+#: ../items/categories/mastite.txt:270
+msgid "Mastite Chain Boots"
+msgstr "Mastite Zincir Çizmeleri"
+
+#: ../items/categories/mastite.txt:277
+msgid "Mastite Chain Gloves"
+msgstr "Mastite Zincir Eldivenleri"
+
+#: ../items/categories/mastite.txt:285
+msgid "Mastite Wizard Hood"
+msgstr "Mastite Büyücü Başlığı"
+
+#: ../items/categories/mastite.txt:292
+msgid "Mastite Wizard Vest"
+msgstr "Mastite Büyücü Yeleği"
+
+#: ../items/categories/mastite.txt:299
+msgid "Mastite Wizard Skirt"
+msgstr "Mastite Büyücü Eteği"
+
+#: ../items/categories/mastite.txt:306
+msgid "Mastite Wizard Boots"
+msgstr "Mastite Büyücü Çizmeleri"
+
+#: ../items/categories/mastite.txt:313
+msgid "Mastite Wizard Sleeves"
+msgstr "Mastite Büyücü Kollukları"
+
+#: ../items/categories/mastite.txt:320
+msgid "Mastite Longsword"
+msgstr "Mastite Uzun Kılıcı"
+
+#: ../items/categories/mastite.txt:327
+msgid "Mastite Longbow"
+msgstr "Mastite Uzun Yayı"
+
+#: ../items/categories/mastite.txt:334
+msgid "Mastite Staff"
+msgstr "Mastite Asası"
+
+#: ../items/categories/mastite.txt:341
+msgid "Mastite Tower Shield"
+msgstr "Mastite Kule Kalkanı"
+
+#: ../items/categories/mastite.txt:349
+msgid "Mastite Plate Helmet"
+msgstr "Mastite Plaka Miğferi"
+
+#: ../items/categories/mastite.txt:356
+msgid "Mastite Plate Cuirass"
+msgstr "Mastite Plaka Göğüslüğü"
+
+#: ../items/categories/mastite.txt:363
+msgid "Mastite Plate Greaves"
+msgstr "Mastite Plaka Baldırlıkları"
+
+#: ../items/categories/mastite.txt:370
+msgid "Mastite Plate Boots"
+msgstr "Mastite Plaka Çizmeleri"
+
+#: ../items/categories/mastite.txt:377
+msgid "Mastite Plate Gauntlets"
+msgstr "Mastite Plaka Eldivenleri"
+
+#: ../items/categories/mastite.txt:385
+msgid "Mastite Archwizard Hood"
+msgstr "Mastite Başbüyücü Başlığı"
+
+#: ../items/categories/mastite.txt:392
+msgid "Mastite Archwizard Vest"
+msgstr "Mastite Başbüyücü Yeleği"
+
+#: ../items/categories/mastite.txt:399
+msgid "Mastite Archwizard Skirt"
+msgstr "Mastite Başbüyücü Eteği"
+
+#: ../items/categories/mastite.txt:406
+msgid "Mastite Archwizard Boots"
+msgstr "Mastite Başbüyücü Çizmeleri"
+
+#: ../items/categories/mastite.txt:413
+msgid "Mastite Archwizard Sleeves"
+msgstr "Mastite Başbüyücü Kollukları"
+
+#: ../items/categories/mastite.txt:420
+msgid "Mastite Greatsword"
+msgstr "Mastite Büyük Kılıcı"
+
+#: ../items/categories/mastite.txt:427
+msgid "Mastite Greatbow"
+msgstr "Mastite Büyük Yayı"
+
+#: ../items/categories/mastite.txt:434
+msgid "Mastite Greatstaff"
+msgstr "Mastite Büyük Asası"
+
+#: ../items/categories/mastite.txt:441
+msgid "Mastite Crest Shield"
+msgstr "Mastite Armalı Kalkanı"
+
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Savaş Lordu Zincir Başlığı"
+
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Keskin Nişancı Zincir Başlığı"
+
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Başbüyücü İpek Başlığı"
+
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Savaş Lordu Zincir Göğüslüğü"
+
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Keskin Nişancı Zincir Göğüslüğü"
+
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Başbüyücü İpek Yeleği"
+
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Savaş Lordu Zincir Baldırlıkları"
+
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Keskin Nişancı Zincir Baldırlıkları"
+
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "Başbüyücü İpek Eteği"
+
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Savaş Lordu Zincir Çizmeleri"
+
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Keskin Nişancı Zincir Çizmeleri"
+
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Başbüyücü İpek Çizmeleri"
+
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Savaş Lordu Zincir Eldivenleri"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Keskin Nişancı Zincir Eldivenleri"
+
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Başbüyücü İpek Kollukları"
+
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Üstat Savaşçı Deri Kemeri"
+
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Üstat Korucu Kolyesi"
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Üstat Büyücü Büyü Kitabı"
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Savaş Lordu Uzun Kılıcı"
+
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Keskin Nişancı Uzun Yayı"
+
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Başbüyücü Asası"
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Tapınak Şövalyesi Armalı Kalkanı"
+
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Üstat Alev Yüzüğü"
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Üstat Donma Yüzüğü"
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Üstat Şok Yüzüğü"
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Üstat Kasvet Yüzüğü"
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Üstat Zekâ Yüzüğü"
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Üstat Kazanç Yüzüğü"
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Üstat Kadim Eser Yüzüğü"
+
+#: ../items/categories/level_8_unique.txt:3
+msgid "Amir Blade"
+msgstr "Amir Kılıcı"
+
+#: ../items/categories/level_8_unique.txt:4
+msgid "A remnant of those who guarded Fort Amir."
+msgstr "Amir Kalesi’ni koruyanlardan kalma bir yadigâr."
+
+#: ../items/categories/level_8_unique.txt:19
+msgid "Huntsman Bow"
+msgstr "Avcı Yayı"
+
+#: ../items/categories/level_8_unique.txt:20
+msgid "Compact enough to be deadly at all ranges of combat."
+msgstr ""
+"Her muharebe mesafesinde ölümcül olabilecek kadar küçük ve kullanışlı."
+
+#: ../items/categories/level_8_unique.txt:36
+msgid "Greed Cowl"
+msgstr "Hırs Kukuletası"
+
+#: ../items/categories/level_8_unique.txt:37
+msgid "Riches fit for a queen."
+msgstr "Bir kraliçeye yaraşır servet."
+
+#: ../items/categories/level_8_unique.txt:52
+msgid "Battle Leathers"
+msgstr "Savaşçı Deri Zırhı"
+
+#: ../items/categories/level_8_unique.txt:53
+msgid "Designed to keep its wearer moving forward."
+msgstr "Kuşananın durmaksızın ilerlemesi için tasarlanmış."
+
+#: ../items/categories/level_8_unique.txt:68
+msgid "Escape Boots"
+msgstr "Kaçış Çizmeleri"
+
+#: ../items/categories/level_8_unique.txt:69
+msgid "Running away doesn't mean the battle is lost."
+msgstr "Kaçmak, savaşı kaybettiğin anlamına gelmez."
+
+#: ../items/categories/level_8_unique.txt:84
+msgid "Mez's Wraps"
+msgstr "Mez’in Sargıları"
+
+#: ../items/categories/level_8_unique.txt:85
+msgid "With its layers of reptilian skin, not much can penetrate this armor."
+msgstr "Kat kat sürüngen derisinden oluşan bu zırhı pek az şey delebilir."
+
+#: ../items/categories/level_12_unique.txt:5
+msgid "Lost Totem"
+msgstr "Kayıp Totem"
+
+#: ../items/categories/level_12_unique.txt:6
+msgid "The ancient scripture contained appears to be some sort of magic."
+msgstr "Üzerindeki kadim yazıların bir tür büyü olduğu anlaşılıyor."
+
+#: ../items/categories/level_12_unique.txt:22
+msgid "Mog's Axe"
+msgstr "Mog’un Baltası"
+
+#: ../items/categories/level_12_unique.txt:23
+msgid "Not as sleek as an arrow, but just as effective."
+msgstr "Bir ok kadar zarif değil ama onun kadar etkili."
+
+#: ../items/categories/level_12_unique.txt:38
+msgid "Guardsman Cuirass"
+msgstr "Muhafız Göğüslüğü"
+
+#: ../items/categories/level_12_unique.txt:39
+msgid "A royal mail with a 'K' engraved on the breast."
+msgstr "Göğüs kısmına “K” harfi işlenmiş kraliyet zincir zırhı."
+
+#: ../items/categories/level_12_unique.txt:56
+msgid "Inferno Pendant"
+msgstr "Cehennem Ateşi Kolyesi"
+
+#: ../items/categories/level_12_unique.txt:57
+msgid "Hot. Hot. Hot."
+msgstr "Sıcak. Sıcak. Sıcak."
+
+#: ../items/categories/level_12_unique.txt:73
+msgid "Alchemist's Skirt"
+msgstr "Simyacının Eteği"
+
+#: ../items/categories/level_12_unique.txt:74
+msgid "Knowledge of formulating many concoctions bestows its wearer."
+msgstr "Kuşanan kişiye türlü karışımlar hazırlama bilgisi kazandırır."
+
+#: ../items/categories/level_12_unique.txt:91
+msgid "Drinking potions may create another potion of the same type."
+msgstr "İksir içildiğinde aynı türden bir iksir daha oluşabilir."
+
+#: ../items/categories/level_12_unique.txt:101
+msgid "Metzger's Battlemace"
+msgstr "Metzger’in Savaş Topuzu"
+
+#: ../items/categories/level_12_unique.txt:102
+msgid "Swinging this mace around leaves a clouded trail of dark smoke."
+msgstr "Bu topuz savrulduğunda ardında kara dumandan bulanık bir iz bırakır."
+
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Azami HP’nin %25’ini yeniler"
+
+#: ../items/categories/potions.txt:19
+msgid "Restore 25% of maximum MP"
+msgstr "Azami MP’nin %25’ini yeniler"
+
+#: ../items/categories/potions.txt:31
+msgid "Temporarily increase regeneration and movement speed"
+msgstr "Yenilenme ve hareket hızını geçici olarak artırır"
+
+#: ../items/categories/potions.txt:43
+msgid "Restore 25% of both HP and MP"
+msgstr "HP ve MP’nin %25’ini yeniler"
+
+#: ../items/categories/potions.txt:55
+msgid "Temporarily increases the ability to find items and gold"
+msgstr "Eşya ve altın bulma ihtimalini geçici olarak artırır"
+
+#: ../items/categories/potions.txt:67
+msgid "Temporarily increases the resistance to all forms of magic by 50%"
+msgstr "Tüm büyü türlerine karşı direnci geçici olarak %50 artırır"
+
+#: ../items/categories/potions.txt:79
+msgid "Restore 50% of maximum HP"
+msgstr "Azami HP’nin %50’sini yeniler"
+
+#: ../items/categories/potions.txt:91
+msgid "Restore 75% of maximum HP"
+msgstr "Azami HP’nin %75’ini yeniler"
+
+#: ../items/categories/potions.txt:103
+msgid "Restore 50% of maximum MP"
+msgstr "Azami MP’nin %50’sini yeniler"
+
+#: ../items/categories/potions.txt:115
+msgid "Restore 75% of maximum MP"
+msgstr "Azami MP’nin %75’ini yeniler"
+
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr "Dövüşçü Plaka Miğferi"
+
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr "Gözcü Plaka Miğferi"
+
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr "Efsuncu Kadife Başlığı"
+
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Cuirass"
+msgstr "Dövüşçü Plaka Göğüslüğü"
+
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Cuirass"
+msgstr "Gözcü Plaka Göğüslüğü"
+
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr "Efsuncu Kadife Yeleği"
+
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr "Dövüşçü Plaka Baldırlıkları"
+
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr "Gözcü Plaka Baldırlıkları"
+
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr "Efsuncu Kadife Eteği"
+
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr "Dövüşçü Plaka Çizmeleri"
+
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr "Gözcü Plaka Çizmeleri"
+
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr "Efsuncu Kadife Çizmeleri"
+
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr "Dövüşçü Plaka Eldivenleri"
+
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr "Gözcü Plaka Eldivenleri"
+
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr "Efsuncu Kadife Kollukları"
+
+#: ../items/categories/level_14.txt:185
+msgid "Wandering Warlord Leather Belt"
+msgstr "Gezgin Savaş Lordu Deri Kemeri"
+
+#: ../items/categories/level_14.txt:196
+msgid "Wandering Sniper Pendant"
+msgstr "Gezgin Keskin Nişancı Kolyesi"
+
+#: ../items/categories/level_14.txt:207
+msgid "Wandering Archwizard Spellbook"
+msgstr "Gezgin Başbüyücü Büyü Kitabı"
+
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr "Dövüşçü Büyük Kılıcı"
+
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr "Gözcü Büyük Yayı"
+
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr "Efsuncu Büyük Asası"
+
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr "Koruyucu Kule Kalkanı"
+
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr "Gezgin Cehennem Ateşi Yüzüğü"
+
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr "Gezgin Buzul Yüzüğü"
+
+#: ../items/categories/level_14.txt:285
+msgid "Wandering Volt Ring"
+msgstr "Gezgin Volt Yüzüğü"
+
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr "Gezgin Hiçlik Yüzüğü"
+
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr "Gezgin Bilgin Yüzüğü"
+
+#: ../items/categories/level_14.txt:315
+msgid "Wandering Affluence Ring"
+msgstr "Gezgin Zenginlik Yüzüğü"
+
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
+msgstr "Gezgin Yadigâr Yüzüğü"
+
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Yanma"
+
+#: ../powers/base/magician/burn.txt:4
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
+"Uzaktaki bir alanda birden fazla düşmanı ateşle vurur. Düşmanları ateş "
+"hasarına karşı son derece savunmasız bırakan şiddetli bir yanma uygulama "
+"ihtimali vardır."
+
+#: ../powers/base/magician/energy_flow.txt:1
+msgid "Energy Flow"
+msgstr "Enerji Akışı"
+
+#: ../powers/base/magician/energy_flow.txt:2
+msgid "Mana reserves are increased and regenerate faster."
+msgstr "Mana rezervleri artar ve mana daha hızlı yenilenir."
+
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Ateş Topu"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Ek zihinsel hasar veren bir ateş topu fırlatır."
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Yıldırım Darbesi"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
+msgstr ""
+"Gökten düşen yıldırım, hareket kabiliyeti kısıtlanmış düşmanlara yüksek "
+"ihtimalle kritik hasar verir. Bir düşmana isabet ettiğinde, diğer düşmanları"
+" sersemletme ihtimali olan bir enerji dalgası yayar."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Hasarı soğuran bir güç alanı oluşturur."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Şok"
+
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr ""
+"Hareket kabiliyeti kısıtlanmış düşmanlara karşı çok daha etkili olan bir "
+"elektrik küresi fırlatır."
+
+#: ../powers/base/magician/mystic_blast.txt:1
+msgid "Mystic Blast"
+msgstr "Mistik Patlama"
+
+#: ../powers/base/magician/mystic_blast.txt:2
+msgid ""
+"Channel an orb that deals dark damage. Targets gain a resistance to dark "
+"damage, but become weaker to other types of magic. The effect can be applied"
+" up to 3 times on a target."
+msgstr ""
+"Karanlık hasarı veren bir küre yönlendirir. Hedefler karanlık hasarına karşı"
+" direnç kazanırken diğer büyü türlerine karşı zayıflar. Bu etki aynı hedefte"
+" en fazla 3 kez birikebilir."
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Buz Oku"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Düşmanları yavaşlatan bir buz parçası fırlatır."
+
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Donma"
+
+#: ../powers/base/magician/freeze.txt:4
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
+msgstr ""
+"Düşmanları yavaşlatan, delici buz parçalarından oluşan bir ışın yaratır. "
+"Parçalar, dağılarak düşmanları buz hasarına karşı savunmasız bırakan bir "
+"ayaz bulutuna dönüşebilir."
+
+#: ../powers/base/magician/summon_skeleton.txt:3
+msgid "Summon Skeleton"
+msgstr "İskelet Çağır"
+
+#: ../powers/base/magician/summon_skeleton.txt:4
+msgid ""
+"Raise an undead to battle alongside you. Each summoned skeleton reduces your"
+" maximum MP."
+msgstr ""
+"Yanında savaşması için bir iskeleti diriltir. Çağrılan her iskelet azami "
+"MP’ni azaltır."
+
+#: ../powers/base/magician/barrier.txt:1
+msgid "Barrier"
+msgstr "Bariyer"
+
+#: ../powers/base/magician/barrier.txt:2
+msgid "Applies permanent protection against all elemental damage."
+msgstr "Tüm element hasarlarına karşı kalıcı koruma sağlar."
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Deprem"
+
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Yakındaki düşmanları geri savurur ve sersemletebilir."
+
+#: ../powers/base/warrior/vampirism.txt:1
+msgid "Vampirism"
+msgstr "Vampirizm"
+
+#: ../powers/base/warrior/vampirism.txt:4
+msgid "Grants attacks the ability to leech enemy health."
+msgstr "Saldırıların düşmanların canını emmesini sağlar."
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Kan Darbesi"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "Kanamaya yol açan güçlü bir darbe indirir."
+
+#: ../powers/base/warrior/throw_knife.txt:1
+msgid "Throw Knife"
+msgstr "Bıçak Fırlat"
+
+#: ../powers/base/warrior/throw_knife.txt:2
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
+"Azaltılmış yakın dövüş silahı hasarı veren bir bıçak fırlatır. İsabet ve "
+"kritik vuruş oranı yüksektir."
+
+#: ../powers/base/warrior/rupture.txt:1
+msgid "Rupture"
+msgstr "Yarılma"
+
+#: ../powers/base/warrior/rupture.txt:4
+msgid ""
+"Split the ground in a straight line. Enemies caught in the chasm suffer "
+"reduced avoidance, absorption, and poise."
+msgstr ""
+"Zemini düz bir hat boyunca yarar. Oluşan yarığa yakalanan düşmanların "
+"kaçınma, hasar soğurma ve denge değerleri azalır."
+
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "Taş Duvar"
+
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr ""
+"Canı ve hasar soğurmayı artırarak daha güçlü saldırılara dayanmanı sağlar."
+
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "Kalkan Darbesi"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "Düşmanlara doğru atılır ve onları ezici bir kuvvetle yere serer."
+
+#: ../powers/base/warrior/cleave.txt:1
+msgid "Cleave"
+msgstr "Yarma"
+
+#: ../powers/base/warrior/cleave.txt:2
+msgid "Attack all enemies in a wide arc."
+msgstr "Geniş bir yay içindeki tüm düşmanlara saldırır."
+
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Balta Fırlat"
+
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Ek yakın dövüş silahı hasarı veren bir balta fırlatır."
+
+#: ../powers/base/warrior/enchanted_blade.txt:1
+msgid "Enchanted Blade"
+msgstr "Tılsımlı Kılıç"
+
+#: ../powers/base/warrior/enchanted_blade.txt:2
+msgid "Imbues attacks with extra dark damage."
+msgstr "Saldırıların ek karanlık hasarı vermesini sağlar."
+
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "Savaş Narası"
+
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr ""
+"Olumsuz etkileri kaldırır ve kısa süreliğine bunlara karşı bağışıklık "
+"kazandırır."
+
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Ayı Kapanı"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
+msgstr ""
+"Bu kapan ek menzilli silah hasarı verir, hedefi hareketsiz bırakır ve "
+"kanamaya yol açabilir."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Çoklu Atış"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr "Yelpaze biçiminde aynı anda birden fazla mermi fırlatır."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Kurt Gözü"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr "İsabet ve kritik vuruş ihtimalini artırır."
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "Seri Atış"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "Düşük güçlü beş mermiyi hızla art arda fırlatır."
+
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Atış"
+
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Temel menzilli saldırı."
+
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Kısa süreliğine daha yüksek hızda hareket etmeni sağlar."
+
+#: ../powers/base/ranger/poison_shot.txt:1
+msgid "Poison Shot"
+msgstr "Zehirli Atış"
+
+#: ../powers/base/ranger/poison_shot.txt:4
+msgid "Shoot a projectile that explodes into a poisonous cloud on impact."
+msgstr ""
+"İsabet ettiğinde patlayarak zehirli bir buluta dönüşen bir mermi fırlatır."
+
+#: ../powers/base/ranger/scavenger.txt:1
+msgid "Scavenger"
+msgstr "Ganimetçi"
+
+#: ../powers/base/ranger/scavenger.txt:2
+msgid ""
+"Good fortune shines upon you, revealing treasures that others might have "
+"overlooked."
+msgstr ""
+"Talih yüzüne güler ve başkalarının gözden kaçırdığı hazineleri ortaya "
+"çıkarır."
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "Kor Atışı"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
+msgstr ""
+"Yakın mesafeden yanan korlar saçar. Zırhlı düşmanlara karşı etkilidir. "
+"Düşmanları ateş hasarına karşı zayıflatan bir yanmaya yol açar."
+
+#: ../powers/base/ranger/charged_shot.txt:1
+msgid "Charged Shot"
+msgstr "Yüklü Atış"
+
+#: ../powers/base/ranger/charged_shot.txt:2
+msgid "Draw a shot for an extended period, increasing its impact."
+msgstr "Atışı daha uzun süre hazırda tutarak darbe gücünü artırır."
+
+#: ../powers/base/ranger/caltrops.txt:1
+msgid "Caltrops"
+msgstr "Dikenli Tuzak"
+
+#: ../powers/base/ranger/caltrops.txt:2
+msgid ""
+"This trap deals reduced ranged weapon damage and slows the target. Can "
+"affect multiple targets."
+msgstr ""
+"Bu tuzak azaltılmış menzilli silah hasarı verir ve hedefi yavaşlatır. Birden"
+" fazla hedefi etkileyebilir."
+
+#: ../powers/base/ranger/piercing_shot.txt:1
+msgid "Piercing Shot"
+msgstr "Delici Atış"
+
+#: ../powers/base/ranger/piercing_shot.txt:2
+msgid "Fire a shot that ignores armor and goes through multiple enemies."
+msgstr "Zırhı yok sayan ve birden fazla düşmanı delip geçen bir atış yapar."
+
+#: ../powers/categories/magician.txt:7
+msgid "Channel"
+msgstr "Yönlendirme"
+
+#: ../powers/categories/magician.txt:10
+msgid "Basic magic attack."
+msgstr "Temel büyü saldırısı."
+
+#: ../powers/categories/items.txt:67
+msgid ""
+"Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
+" performing a basic attack."
+msgstr ""
+"Kullanım: Bir ateş topu fırlatır. Kısa bir süre boyunca temel saldırı "
+"yaparak ilave ateş topları fırlatabilirsin."
+
+#: ../powers/categories/items.txt:76
+msgid ""
+"Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
+"by performing a basic attack."
+msgstr ""
+"Kullanım: Bir buz oku fırlatır. Kısa bir süre boyunca temel saldırı yaparak "
+"ilave buz okları fırlatabilirsin."
+
+#: ../powers/categories/quest.txt:4
+msgid ""
+"Performing the ritual at the Red Altar has granted you faster regeneration."
+msgstr ""
+"Kızıl Sunak’ta gerçekleştirdiğin ritüel daha hızlı yenilenmeni sağladı."
+
+#: ../powers/categories/warrior.txt:7
+msgid "Swing"
+msgstr "Savur"
+
+#: ../powers/categories/warrior.txt:10
+msgid "Basic melee attack."
+msgstr "Temel yakın dövüş saldırısı."
+
+#: ../powers/trees/default.txt:11
+msgid "Magician"
+msgstr "Sihirbaz"
+
+#: ../scripts/dev/waypoints_unlock.txt:14
+msgid "Unlocked all waypoints"
+msgstr "Tüm yol noktalarının kilidi açıldı"
+
+#: ../scripts/dev/waypoints_lock.txt:14
+msgid "Locked all waypoints"
+msgstr "Tüm yol noktaları kilitlendi"
+
+#: ../scripts/maps/the_pit/locked_chest.txt:4
+msgid "It's locked."
+msgstr "Kilitli"
+
+#: ../scripts/maps/the_pit/locked_chest.txt:10
+msgid "You try to unlock the chest, but it's sealed by an unknown power."
+msgstr ""
+"Sandığın kilidini açmaya çalışıyorsun ancak bilinmeyen bir güç tarafından "
+"mühürlenmiş."
+
+#: ../scripts/powers/goblin_steal.txt:107
+msgid "Goblin Thief stole a potion!"
+msgstr "Goblin Hırsızı bir iksir çaldı!"
+
+#: ../scripts/powers/respec_tome.txt:7
+msgid "All stat and power points have been reset."
+msgstr "Tüm nitelik ve yetenek puanları sıfırlandı."

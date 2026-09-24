@@ -1,0 +1,5 @@
+description=Repaginacao dark fantasy da GUI (menus e imagens de menu). Nao altera gameplay.
+requires=fantasycore:1.14,empyrean_campaign:1.14,random_dungeon:0.1
+game=flare-game
+version=0.1
+engine_version_min=1.13.01

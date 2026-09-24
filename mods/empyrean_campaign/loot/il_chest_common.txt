@@ -1,0 +1,18 @@
+INCLUDE loot/chest_common.txt
+
+# guaranteed gold
+[loot]
+id=currency
+chance=100
+quantity=20,40
+quantity_per_level=2,3
+
+INCLUDE loot/il_static.txt
+INCLUDE loot/mastite_chest.txt
+
+# iron labyrinth key
+[loot]
+id=1105
+chance=2
+quantity=1,1
+

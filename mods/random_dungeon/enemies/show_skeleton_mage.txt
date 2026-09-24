@@ -1,0 +1,26 @@
+INCLUDE enemies/base/skeleton_mage.txt
+
+name=Skeleton Mage (amostra)
+level=1
+categories=show_skeleton_mage
+rarity=common
+xp=1
+
+stat=hp,30
+speed=0
+turn_delay=600ms
+chance_pursue=0
+
+power=melee,164,5
+passive_powers=185
+
+stat=accuracy,60
+stat=avoidance,5
+stat=poise,5
+
+stat=dmg_melee_min,1
+stat=dmg_melee_max,2
+cooldown=3000ms
+
+stat=absorb_min,0
+stat=absorb_max,0
