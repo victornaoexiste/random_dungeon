@@ -167,8 +167,12 @@ void HordeManager::spawnGroup() {
 	// One group per spawn tick: all enemies share an anchor player so they
 	// arrive as a pack instead of an even ring.
 	FPoint anchor = targets[static_cast<size_t>(Math::randBetween(0, static_cast<int>(targets.size()) - 1))];
-	for (int i = 0; i < want; ++i)
-		spawnOne(anchor);
+	int spawned_now = 0;
+	for (int i = 0; i < want; ++i) {
+		if (spawnOne(anchor))
+			spawned_now++;
+	}
+	Utils::logInfo("HordeManager: wave %d spawned %d/%d enemies (alive before: %d, players: %u)", wave, spawned_now, want, alive, static_cast<unsigned>(targets.size()));
 }
 
 std::vector<Entity*> HordeManager::logic() {

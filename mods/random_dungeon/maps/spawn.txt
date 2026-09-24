@@ -1,8 +1,7 @@
 # carregado automaticamente ao iniciar um novo jogo.
-# TEMPORARIO (teste de rede): encaminha pra sala de teste fixa 16x16 em vez da
-# masmorra procedural, pra servidor/clientes caírem sempre no mesmo mapa
-# conhecido. Pra voltar pro fluxo normal, troque intermap de volta pra
-# maps/dungeon.txt.
+# Novo jogo cai na arena do modo hordas. Outras opcoes de mapa:
+#   maps/dungeon.txt        masmorra procedural
+#   maps/net_test_room.txt  sala fixa 16x16 para testes de rede
 [header]
 width=1
 height=1
@@ -12,4 +11,4 @@ hero_pos=0,0
 type=event
 location=0,0,1,1
 activate=on_load
-intermap=maps/net_test_room.txt
+intermap=maps/horde_arena.txt

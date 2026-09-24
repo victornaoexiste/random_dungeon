@@ -920,6 +920,11 @@ void GameStatePlay::logic() {
 				if (menu->enemy->enemy == gone[i]) menu->enemy->enemy = NULL;
 				if (pc->cursor_enemy == gone[i]) pc->cursor_enemy = NULL;
 			}
+			if (!gone.empty()) {
+				pc->stats.target_corpse = NULL;
+				pc->stats.target_nearest = NULL;
+				pc->stats.target_nearest_corpse = NULL;
+			}
 		}
 
 		// transfer hero data to enemies, for AI use

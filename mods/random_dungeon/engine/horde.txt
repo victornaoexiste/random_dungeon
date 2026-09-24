@@ -1,0 +1,35 @@
+# Modo hordas (HordeManager, src/HordeManager.cpp). So ativo no mapa abaixo.
+# Tempos em segundos, distancias em tiles.
+
+map=maps/horde_arena.txt
+
+# espera antes da primeira horda / intervalo entre hordas / duracao de cada onda
+start_delay=5
+interval=8
+wave_length=45
+
+# tamanho de cada horda: base_count + count_per_wave * onda, limitado por max_alive
+base_count=4
+count_per_wave=2
+max_alive=60
+
+# anel de spawn ao redor de um jogador vivo (fora da tela)
+spawn_dist_min=16
+spawn_dist_max=24
+
+# cadaveres somem depois disso (libera memoria e rede)
+corpse_seconds=10
+
+# crescimento por onda: fracao dos stats base somada a cada nivel
+hp_growth=0.25
+dmg_growth=0.10
+
+# tier=categoria,onda_minima,peso  (categorias de empyrean_campaign/enemies)
+tier=il_zombie,0,3
+tier=il_goblin,0,4
+tier=il_antlion,2,3
+tier=il_skeleton_archer,3,2
+tier=il_skeleton_knight,4,3
+tier=il_skeleton_fire_mage,5,2
+tier=il_skeleton_ice_mage,5,2
+tier=il_wyvern,7,2

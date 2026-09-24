@@ -2,7 +2,7 @@
 
 Roguelite de masmorras e hordas, **online** (LAN / servidor), isométrico, feito sobre o motor [Flare](https://github.com/flareteam/flare-engine) (C++/SDL2), com camada de rede própria (ENet, host autoritativo).
 
-> Status: protótipo. O que existe hoje: masmorra procedural, 3 classes (Brute, Rogue, Adept), multiplayer com posição/aparência/ataques/inimigos compartilhados, inimigos que perseguem e ferem todos os jogadores, e (em andamento) modo hordas em mapa aberto.
+> Status: protótipo. O que existe hoje: masmorra procedural, 3 classes (Brute, Rogue, Adept), multiplayer com posição/aparência/ataques/inimigos compartilhados, inimigos que perseguem e ferem todos os jogadores, e modo hordas em mapa aberto (primeira versão, ainda sem balanceamento nem HUD de onda).
 
 ## Como rodar (Linux / WSL)
 
@@ -29,6 +29,10 @@ scripts/build.sh          # gera build/flare
 scripts/run.sh
 ```
 Na tela inicial: **Play** -> escolha retrato e classe -> **Create**.
+
+## Modo hordas
+
+Novo jogo cai na **Arena** (mapa aberto, 100x100). A cada 8 s uma horda aparece fora da tela ao redor de um jogador vivo; a cada 45 s a onda sobe (hordas maiores, inimigos mais fortes e novos tipos). Tudo é configurável em `mods/random_dungeon/engine/horde.txt`; o mapa é gerado por `python3 tools/gen_horde_arena.py`. Em multiplayer, só o host simula a horda e todos veem os mesmos inimigos. No log (`~/.config/flare/flare_log.txt`) procure `HordeManager: wave` pra ver os spawns. Para voltar à masmorra procedural, troque o `intermap=` em `mods/random_dungeon/maps/spawn.txt`.
 
 ## Multiplayer
 
