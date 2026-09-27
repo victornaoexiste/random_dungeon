@@ -68,6 +68,5 @@ flare-android-project/app/build/
 flare-android-project/build/
 flare-android-project/.gradle/
 flare-android-project/local.properties
-mods/darkfantasy_sprites/images/
-mods/ek_icons/
-__pycache__/
+/build-win/
+/dist/

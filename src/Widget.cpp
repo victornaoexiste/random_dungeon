@@ -23,6 +23,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Utils.h"
 #include "Widget.h"
 
+#include <cmath>
+
 Widget::Widget()
 	: in_focus(false)
 	, enable_tablist_nav(true)

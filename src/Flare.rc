@@ -6,7 +6,7 @@
 //
 // Version information requires inclusion of either <windows.h> or <winver.h>
 //
-#include <WinVer.h>
+#include <winver.h>
 
 // -------------------------------
 //
@@ -15,7 +15,7 @@
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_FLARE_APP_ICON        ICON                    "..\\distribution\\Flare.ico"
+IDI_FLARE_APP_ICON        ICON                    "../distribution/RandomDungeon.ico"
 
 // -------------------------------
 //
@@ -30,13 +30,13 @@ BEGIN
     BEGIN
         BLOCK "040904E4"
         BEGIN
-            VALUE "Comments", "Flare\0"
-            VALUE "FileDescription", "Free Libre Action Roleplaying Engine\0"
+            VALUE "Comments", "Random Dungeon - built on the Flare engine\0"
+            VALUE "FileDescription", "Random Dungeon\0"
             VALUE "FileVersion", "1, 0, 0\0"
-            VALUE "InternalName", "Flare\0"
-            VALUE "LegalCopyright", "Clint Bellanger and Contributors - 2011\0"
-            VALUE "OriginalFilename", "flare.exe\0"
-            VALUE "ProductName", "Flare\0"
+            VALUE "InternalName", "RandomDungeon\0"
+            VALUE "LegalCopyright", "RedByte; Flare engine by Clint Bellanger and Contributors (GPL-3)\0"
+            VALUE "OriginalFilename", "RandomDungeon.exe\0"
+            VALUE "ProductName", "Random Dungeon\0"
             VALUE "ProductVersion", "1, 15, 0\0"
         END
     END

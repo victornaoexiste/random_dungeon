@@ -1,0 +1,34 @@
+RANDOM DUNGEON
+by RedByte
+
+Game design, programming and content: RedByte
+
+
+BUILT ON THE FLARE ENGINE
+  https://flarerpg.org
+  The engine is free software under the GNU General Public License v3
+  (LICENSE-engine-GPL3.txt). The source code of this game, engine changes
+  included, is at: https://github.com/victornaoexiste/random_dungeon
+
+ART
+  Character, monster, tile and item art from Flare (flare-game), licensed
+  under Creative Commons Attribution-ShareAlike 3.0
+  (LICENSE-content-CC-BY-SA-3.0.txt). Artists are listed in
+  CREDITS-flare-game.txt. Changes: colour grading, recolouring and new
+  interface art made for Random Dungeon; those changes are shared under
+  the same license.
+
+MUSIC
+  "Anguish" by Kevin MacLeod (incompetech.com)
+  Licensed under Creative Commons: By Attribution 3.0
+  https://creativecommons.org/licenses/by/3.0/
+  Other tracks: Flare soundtrack, see CREDITS-flare-game.txt.
+
+FONTS
+  Jersey 10 and Jacquard 12, by The Soft Type Project Authors
+  SIL Open Font License 1.1 (mods/darkfantasy_gui/fonts/OFL-*.txt)
+
+ENGINE CONTRIBUTORS
+  See CREDITS-flare-engine.txt.
+
+Libraries: SDL2, SDL2_image, SDL2_mixer, SDL2_ttf (zlib license), ENet (MIT).
