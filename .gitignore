@@ -70,6 +70,7 @@ flare-android-project/.gradle/
 flare-android-project/local.properties
 /build-win/
 /dist/
+# kept in sync with the GitHub dev branch
 mods/darkfantasy_sprites/images/
 mods/ek_icons/
 __pycache__/
