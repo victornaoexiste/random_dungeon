@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Menu.h"
 #include "MenuActionBar.h"
 #include "MenuInventory.h"
+#include "MenuDevKit.h"
 #include "MenuManager.h"
 #include "MenuPowers.h"
 #include "MessageEngine.h"
@@ -1486,6 +1487,8 @@ void MenuPowers::logic() {
 	setUnlockedPowers();
 
 	points_left = (pc->stats.level * pc->stats.power_points_per_level) - getPointsUsed();
+	if (menu->devkit && menu->devkit->infinite_points)
+		points_left += 999; // dev kit (test room): infinite power points
 	if (points_left > 0) {
 		newPowerNotification = true;
 	}

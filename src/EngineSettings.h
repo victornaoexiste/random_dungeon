@@ -173,6 +173,7 @@ public:
 
 			std::string name;
 			std::string description;
+			std::vector<std::string> aliases; // old names of this class, for saves made before a rename
 			int currency;
 			std::string equipment;
 			std::string carried;

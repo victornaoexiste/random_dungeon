@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "SaveLoad.h"
 #include "Settings.h"
 #include "SharedGameResources.h"
+#include "NetManager.h"
 #include "SharedResources.h"
 #include "SoundManager.h"
 #include "UtilsDebug.h"
@@ -290,7 +291,79 @@ void SDLInputState::initBindings() {
 	setBind(Input::TEXTEDIT_DOWN, InputBind::KEY, SDL_SCANCODE_DOWN, NULL);
 }
 
+namespace {
+	// Automated multi-touch test (env RD_TOUCH_TEST=<dir>): drags the
+	// joystick with one finger while a second holds the attack button, then
+	// taps pause, saving screenshots into <dir>. Needs touch_controls=1.
+	void pushFinger(Uint32 type, SDL_FingerID id, float x, float y) {
+		SDL_Event e;
+		memset(&e, 0, sizeof(e));
+		e.type = type;
+		e.tfinger.fingerId = id;
+		e.tfinger.x = x;
+		e.tfinger.y = y;
+		SDL_PushEvent(&e);
+	}
+	// Automated gamepad test (env RD_PAD_TEST=<dir>): plugs in an SDL virtual
+	// game controller, walks right with the left stick while holding the
+	// right trigger (attack), then presses START (pause), saving screenshots.
+	void padSelftest() {
+		static int f = 0;
+		static SDL_Joystick *joy = NULL;
+		const char *dir = getenv("RD_PAD_TEST");
+		if (!dir)
+			return;
+		++f;
+		if (f == 60) {
+			int idx = SDL_JoystickAttachVirtual(SDL_JOYSTICK_TYPE_GAMECONTROLLER, SDL_CONTROLLER_AXIS_MAX, SDL_CONTROLLER_BUTTON_MAX, 0);
+			joy = (idx >= 0) ? SDL_JoystickOpen(idx) : NULL;
+			Utils::logInfo("PadTest: virtual controller index %d %s", idx, joy ? "opened" : SDL_GetError());
+		}
+		if (!joy)
+			return;
+		if (f == 300) SDL_JoystickSetVirtualAxis(joy, SDL_CONTROLLER_AXIS_LEFTX, 32767);
+		if (f == 340) SDL_JoystickSetVirtualAxis(joy, SDL_CONTROLLER_AXIS_TRIGGERRIGHT, 32767);
+		if (f == 380) render_device->screenshot_request = std::string(dir) + "/pad_play.png";
+		if (f == 420) { SDL_JoystickSetVirtualAxis(joy, SDL_CONTROLLER_AXIS_LEFTX, 0); SDL_JoystickSetVirtualAxis(joy, SDL_CONTROLLER_AXIS_TRIGGERRIGHT, 0); }
+		if (f == 450) SDL_JoystickSetVirtualButton(joy, SDL_CONTROLLER_BUTTON_START, 1);
+		if (f == 455) SDL_JoystickSetVirtualButton(joy, SDL_CONTROLLER_BUTTON_START, 0);
+		if (f == 500) render_device->screenshot_request = std::string(dir) + "/pad_pause.png";
+		if (f == 520) SDL_JoystickSetVirtualButton(joy, SDL_CONTROLLER_BUTTON_DPAD_DOWN, 1);
+		if (f == 525) SDL_JoystickSetVirtualButton(joy, SDL_CONTROLLER_BUTTON_DPAD_DOWN, 0);
+		if (f == 560) render_device->screenshot_request = std::string(dir) + "/pad_pause_nav.png";
+	}
+
+	void touchSelftest() {
+		static int f = 0;
+		const char *dir = getenv("RD_TOUCH_TEST");
+		if (!dir)
+			return;
+		// RD_TOUCH_DELAY=<frames>: start later (e.g. wait for a horde)
+		static int delay = getenv("RD_TOUCH_DELAY") ? atoi(getenv("RD_TOUCH_DELAY")) : 0;
+		++f;
+		if (f <= delay)
+			return;
+		f -= delay;
+		struct Restore { int &r; int d; ~Restore() { r += d; } } restore = { f, delay };
+		const float vw = static_cast<float>(settings->view_w), vh = static_cast<float>(settings->view_h);
+		const float ax = (vw - 170.f * settings->touch_scale) / vw, ay = (vh - 175.f * settings->touch_scale) / vh;
+		const float px_ = (vw - 320.f * settings->touch_scale) / vw, py_ = (48.f * settings->touch_scale) / vh;
+		if (f == 200) pushFinger(SDL_FINGERDOWN, 1, 0.12f, 0.80f);
+		if (f > 200 && f < 330) pushFinger(SDL_FINGERMOTION, 1, 0.12f + 0.0006f * static_cast<float>(f - 200), 0.80f - 0.0006f * static_cast<float>(f - 200));
+		if (f == 240) pushFinger(SDL_FINGERDOWN, 2, ax, ay);
+		if (f > 240 && f < 320) pushFinger(SDL_FINGERMOTION, 2, ax, ay);
+		if (f == 300) render_device->screenshot_request = std::string(dir) + "/touch_play.png";
+		if (f == 320) pushFinger(SDL_FINGERUP, 2, ax, ay);
+		if (f == 330) pushFinger(SDL_FINGERUP, 1, 0.2f, 0.72f);
+		if (f == 360) pushFinger(SDL_FINGERDOWN, 3, px_, py_);
+		if (f == 364) pushFinger(SDL_FINGERUP, 3, px_, py_);
+		if (f == 400) render_device->screenshot_request = std::string(dir) + "/touch_pause.png";
+	}
+}
+
 void SDLInputState::handle() {
+	touchSelftest();
+	padSelftest();
 	InputState::handle();
 
 	SDL_Event event;
@@ -379,7 +452,8 @@ void SDLInputState::handle() {
 					snd->resumeAll();
 				}
 				else if (event.window.event == SDL_WINDOWEVENT_FOCUS_LOST) {
-					if (settings->pause_on_focus_loss && menu) {
+					// never pause during multiplayer: the world keeps running for the other players
+					if (settings->pause_on_focus_loss && menu && !(netmgr && netmgr->isActive())) {
 						menu->showExitMenu();
 					}
 					if (settings->mute_on_focus_loss) {
@@ -578,8 +652,8 @@ void SDLInputState::handle() {
 					Utils::logInfo("InputState: Joystick added.");
 					joysticks_changed = true;
 
-					// try to enable the newly added joystick
-					if (settings->joystick_device == 0) {
+					// plugging a gamepad in while none is active: just use it
+					if (settings->joystick_device <= 0 || !gamepad) {
 						settings->enable_joystick = true;
 						settings->joystick_device = event.jdevice.which;
 					}

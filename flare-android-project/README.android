@@ -1,0 +1,16 @@
+To build for Android do next steps:
+
+1. Install Java Development Kit (x86 version)
+2. Install Android Studio and run it
+3. Open an existing Android Studio project and navigate to the directory containing this README
+4. Install Android NDK from the Android SDK Tools if not already installed
+5. Install SDK Platform for your Android version
+
+6. Set-up SDL libraries
+
+	1. Download SDL2, SDL2_image, SDL2_mixer and SDL2_ttf and extract them to \jni\ folder (so it will be like jni\SDL2\src\SDL.c)
+
+	2. In SDL2_image/Android.mk, set SUPPORT_JPG and SUPPORT_WEBP to false.
+
+	3. In SDL2_mixer/Android.mk, set SUPPORT_MOD_MIKMOD and SUPPORT_MP3_SMPEG to false.
+

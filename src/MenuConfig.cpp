@@ -592,6 +592,22 @@ void MenuConfig::init() {
 		tab_control->setEnabled(static_cast<unsigned>(MODS_TAB), false);
 	}
 
+	// Random Dungeon: hide what this game doesn't use. Gamepads are supported
+	// everywhere; touch options only matter on phones/tablets.
+	tab_control->setEnabled(static_cast<unsigned>(MODS_TAB), false);
+	cfg_tabs[VIDEO_TAB].setOptionEnabled(Platform::Video::MIN_RENDER_SIZE, false);
+	cfg_tabs[VIDEO_TAB].setOptionEnabled(Platform::Video::MAX_RENDER_SIZE, false);
+	cfg_tabs[INTERFACE_TAB].setOptionEnabled(Platform::Interface::LANGUAGE, false);
+	cfg_tabs[INTERFACE_TAB].setOptionEnabled(Platform::Interface::SUBTITLES, false);
+	cfg_tabs[INTERFACE_TAB].setOptionEnabled(Platform::Interface::DEV_MODE, false);
+	if (!platform.is_mobile_device) {
+		cfg_tabs[INPUT_TAB].setOptionEnabled(Platform::Input::TOUCH_CONTROLS, false);
+		cfg_tabs[INPUT_TAB].setOptionEnabled(Platform::Input::TOUCH_SCALE, false);
+	}
+	for (int i = Input::DEVELOPER_MENU; i <= Input::DEVELOPER_CMD_3; ++i) {
+		cfg_tabs[KEYBINDS_TAB].setOptionEnabled(i, false);
+	}
+
 	// some mod-specific settings can disable options
 	if (!eset->misc.mouse_move_enabled) {
 		cfg_tabs[INPUT_TAB].setOptionEnabled(Platform::Input::MOUSE_MOVE, false);

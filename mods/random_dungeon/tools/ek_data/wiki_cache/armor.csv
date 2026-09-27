@@ -1,0 +1,290 @@
+Name,Group,Slot,Class,Rarity,Armor,Health,Mana,Attribute,Resistances,Traits,
+Amulet of Dark Whispers,,Neck,All,Unique,,-25,50,Stun Immunity,,[Awareness] 2,/wiki/images/c/c3/Amulet_dark.png
+Amulet of the Eyes,,Neck,All,Unique,,,,Detection 1,[Holy] 13,[Awareness] 1,/wiki/images/d/d8/Amulet1.png
+Amulet of the Forest,,Neck,All,Unique,,8,,,[Holy] 10,,/wiki/images/d/d8/Amulet1.png
+Amulet of Whispers,,Neck,All,Unique,,,,,,[Awareness] 1,/wiki/images/d/d8/Amulet1.png
+Amulet of Wilderness,,Neck,All,Unique,,,6,,[Death] 8 [Poison] 14,,/wiki/images/d/d8/Amulet1.png
+Anointed Cuirass,Anointed,Body,"W, R, C",Common,1,5,,,[Death] 25,,/wiki/images/e/e7/Armor_leather_chest1.png
+Anointed Shield,Anointed,Shield,"W, C",Common,2,6,,Shield,[Holy] 10,,/wiki/images/6/6f/Armor_shield.png
+Apprentice Boots,Apprentice,Feet,"C, M",Common,,1,2,,,,/wiki/images/d/d3/Armor_leather_feet_green.png
+Apprentice Gloves,Apprentice,Hands,"C, M",Common,,1,2,,,,/wiki/images/f/f5/Armor_leather_hands_green.png
+Apprentice Hood,Apprentice,Head,"C, M",Common,,,2,,,,/wiki/images/6/6e/Armor_leather_head_green.png
+Apprentice Pants,Apprentice,Legs,"C, M",Common,,2,3,,,,/wiki/images/8/89/Armor_leather_legs_green.png
+Apprentice Robes,Apprentice,Body,"C, M",Common,1,2,4,,,,/wiki/images/5/59/Robe1_brown.png
+Arcane Leather Boots,Arcane Leather,Feet,M,Common,1,4,3,,,,/wiki/images/a/a5/Armor_leather_feet_blue.png
+Arcane Leather Doublet,Arcane Leather,Body,M,Common,3,4,4,,[Holy] 5,,/wiki/images/e/e7/Armor_leather_chest1.png
+Arcane Pendant,,Neck,"C, M",Unique,,7,7,,[Fire] 15 [Shock] 15,,/wiki/images/d/d8/Amulet1.png
+Arcanist's Ring of Ice,,Ring,"C, M",Unique,,,10,,[Cold] 30,,/wiki/images/9/92/Ring3.png
+Ashen Boots,Ashen,Feet,"W, C",Uncommon,4,8,4,Stability,[Shock] 9 [Holy] 5,,/wiki/images/4/42/Armor_plate_feet_black.png
+Ashen Chestplate,Ashen,Body,"W, C",Unique,6,15,9,,[Fire] 20 [Holy] 8,,/wiki/images/6/61/Armor_plate_chest_black.png
+Ashen Gauntlets,Ashen,Hands,"W, C",Uncommon,3,9,6,,[Shock] 15 [Holy] 4,,/wiki/images/b/be/Armor_plate_hands_black.png
+Ashen Helm,Ashen,Head,"W, C",Uncommon,4,9,5,Wisdom 1,[Shock] 10 [Holy] 10,,/wiki/images/1/14/Armor_plate_head_black.png
+Ashen Leggings,Ashen,Legs,"W, C",Uncommon,5,13,5,,[Shock] 11 [Holy] 4,,/wiki/images/7/7d/Armor_plate_legs_black.png
+Assassin's Boots,Assassin's,Feet,R,Common,2,5,,,[Cold] 5 [Poison] 5,,/wiki/images/c/cd/Armor_leather_feet2.png
+Assassin's Cuirass,Assassin's,Body,R,Uncommon,4,6,,,[Fire] 6 [Poison] 6,,/wiki/images/0/03/Armor_leather_chest2.png
+Assassin's Gauntlets,Assassin's,Hands,R,Uncommon,2,6,,Tinkering 2,[Fire] 3 [Poison] 5,,/wiki/images/4/4d/Armor_leather_hands2.png
+Assassin's Hood,Assassin's,Head,R,Uncommon,2,6,,Gossip 1,[Poison] 5,,/wiki/images/e/e1/Armor_leather_head2.png
+Assassin's Leggings,Assassin's,Legs,R,Uncommon,3,6,,,[Cold] 6 [Poison] 6,,/wiki/images/a/a2/Armor_leather_legs2.png
+Automated Gloves,,Hands,All,Uncommon,1,10,,Tinkering 3,[Shock] 9 [Holy] 9,[Agility] 3,/wiki/images/e/e3/Gloves3.png
+Azaph's Ring of Elements,,Ring,All,Unique,,,,,[Fire] 8 [Cold] 8 [Shock] 12,,/wiki/images/b/ba/Ring1.png
+Battle Gorget,,Neck,W,Unique,2,30,,Detection 3,,,/wiki/images/6/68/Gorget.png
+Belt of Agility,,Belt,All,Common,,,,,,[Agility] 1,/wiki/images/9/9f/Belt1.png
+Belt of Flowing Thought,,Belt,M,Common,,,,,,[Intellect] 1,/wiki/images/9/9f/Belt1.png
+Belt of Might,,Belt,All,Common,,,,,,[Strength] 1,/wiki/images/9/9f/Belt1.png
+Bishop Ring,,Ring,All,Unique,1,,,Wisdom 2,[Death] 25,[Personality] 2,/wiki/images/5/5a/Ring_bishop.png
+Black Silk Leggings,,Legs,"C, M",Uncommon,3,,12,,[Fire] 10 [Shock] 10,,/wiki/images/6/66/Armor_chain_legs.png
+Blessed Belt of Agility,,Belt,"C, M",Common,,,20,,,[Agility] 1,/wiki/images/9/9f/Belt1.png
+Blessed Belt of Might,,Belt,"C, M",Common,,,20,,,[Strength] 1,/wiki/images/9/9f/Belt1.png
+Blessed Chain Boots,Blessed Chain,Feet,C,Common,1,6,1,,,,/wiki/images/a/a9/Armor_chain_feet_b.png
+Blessed Chain Coif,Blessed Chain,Head,C,Common,1,4,2,Wisdom 1,,,/wiki/images/f/fe/Armor_chain_head_b.png
+Blessed Chain Gauntlets,Blessed Chain,Hands,C,Common,2,2,2,,,,/wiki/images/7/71/Armor_chain_hands_b.png
+Blessed Chain Leggings,Blessed Chain,Legs,C,Common,2,6,2,,,,/wiki/images/3/32/Armor_chain_legs_b.png
+Blessed Chain Shirt,Blessed Chain,Body,C,Common,2,6,3,,,,/wiki/images/d/d7/Armor_chain_chest_b.png
+Blessed Necklace,,Neck,All,Common,,5,3,,[Death] 15 [Poison] 10,,/wiki/images/d/d8/Amulet1.png
+Blessed Platemail Boots,Blessed Platemail,Feet,C,Uncommon,2,6,2,,,,/wiki/images/f/f3/Armor_plate_feet_blue.png
+Blessed Platemail Gauntlets,Blessed Platemail,Hands,C,Uncommon,2,8,3,,,,/wiki/images/d/dc/Armor_plate_hands_blue.png
+Blessed Platemail Helm,Blessed Platemail,Head,C,Uncommon,2,5,3,Wisdom 1,,,/wiki/images/3/37/Helmet_plate_blue.png
+Blessed Platemail Leggings,Blessed Platemail,Legs,C,Uncommon,3,6,4,,,,/wiki/images/c/c6/Armor_plate_legs_blue.png
+Blessed Platemail Vest,Blessed Platemail,Body,C,Uncommon,3,9,4,,,,/wiki/images/d/da/Armor_plate_chest_blue.png
+Bloodied Scarf,,Neck,R,Unique,2,,,Stun Immunity,,,/wiki/images/a/ac/Scarf_red.png
+Boots of Balance,,Feet,All,Unique,1,5,,Stability,,,/wiki/images/7/75/Armor_chain_feet_g.png
+Breastplate of the Forge,,Body,W,Unique,3,15,,,[Fire] 20,,/wiki/images/c/c8/Armor_plate_chest.png
+Breeches of the Mad Wizard,,Legs,"C, M",Uncommon,2,,8,,[Shock] 10,,/wiki/images/8/89/Armor_leather_legs_green.png
+Broken Crown of Tol,,Head,All,Unique,,,90,,[Poison] 30 [Holy] 30,[Endurance] 2,/wiki/images/f/f8/Helmet_tol.png
+Brother Ladan's Holy Symbol,,Neck,"C, M",Unique,,,10,,[Fire] 18 [Shock] 18,,/wiki/images/c/ca/Medallion1.png
+Buckler,,Shield,All,Common,1,3,,Shield,,,/wiki/images/7/73/Armor_buckler.png
+Caretaker Tunic,,Body,M,Unique,2,5,10,,[Holy] 15,,/wiki/images/1/16/Robe1_purple.png
+Chainmail Boots,Chainmail,Feet,"W, C",Common,2,5,,,,,/wiki/images/1/17/Armor_chain_feet.png
+Chainmail Coif,Chainmail,Head,"W, C",Common,1,4,,,,,/wiki/images/8/8f/Armor_chain_head.png
+Chainmail Gauntlets,Chainmail,Hands,"W, C",Common,2,5,,,,,/wiki/images/1/13/Armor_chain_hands.png
+Chainmail Leggings,Chainmail,Legs,"W, C",Common,2,8,,,,,/wiki/images/6/66/Armor_chain_legs.png
+Chainmail Shirt,Chainmail,Body,"W, C",Common,2,11,,,,,/wiki/images/d/d7/Armor_chain_chest.png
+Charm of the Great Seer,,Neck,"C, M",Unique,,,20,Wisdom 2,[Holy] 15,[Awareness] 1  [Personality] 1,/wiki/images/4/4c/Medallion2.png
+Charred Buckler,,Shield,All,Uncommon,1,8,,Shield,[Fire] 8,,/wiki/images/4/4e/Armor_buckler_red.png
+Chitin Shield,,Shield,"W, R, C",Unique,2,,,Shield,[Poison] 5 [Holy] 18,,/wiki/images/9/90/Armor_shield_chitin.png
+Cloak of Dark Fate,,Back,"C, M",Uncommon,,10,20,,[Shock] 10 [Holy] 20,,/wiki/images/e/e9/Cloak_grey.png
+Cloak of Might,,Back,All,Unique,1,20,,,,[Strength] 2,/wiki/images/e/e9/Cloak_grey.png
+Cloak of Survival,,Back,All,Unique,,10,,,[Poison] 15,,/wiki/images/e/e9/Cloak_grey.png
+Cloak of the Bear,,Back,All,Unique,1,20,,,[Cold] 12 [Holy] 12,[Endurance] 2,/wiki/images/8/8f/Cloak_Brown.png
+Cloak of the Wolf,,Back,All,Unique,,5,,,[Cold] 25,,/wiki/images/9/9e/Cloak_white.png
+Conductive Vest,,Body,C,Uncommon,7,10,30,Stun Immunity,[Shock] 20 [Holy] 10,,/wiki/images/e/e6/Vest1.png
+Conjurer Boots,Conjurer,Feet,"C, M",Common,1,4,6,,,,/wiki/images/a/a5/Armor_leather_feet_blue.png
+Conjurer Gloves,Conjurer,Hands,"C, M",Common,1,2,5,,,,/wiki/images/1/12/Armor_blue_gloves.png
+Conjurer Hood,Conjurer,Head,"C, M",Common,1,2,5,Detection 1,,,/wiki/images/b/b0/Armor_leather_head_blue.png
+Conjurer Pantaloons,Conjurer,Legs,"C, M",Uncommon,2,3,5,,[Shock] 5,,/wiki/images/7/74/Armor_leather_legs_blue.png
+Conjurer Tunic,Conjurer,Body,"C, M",Uncommon,2,5,9,,[Fire] 5 [Cold] 5,,/wiki/images/5/56/Robe1_blue.png
+Cowl of Fellowship,,Head,"W, R, C",Common,1,4,,Gossip 1,,,/wiki/images/2/26/Armor_leather_head3.png
+Crown of Galade,,Head,All,Unique,2,25,,Detection 2,,[Intellect] 2,/wiki/images/0/04/Crown1.png
+Dartos' Ring of Isolation,Quest,Ring,All,Unique,,,,,[Shock] 25,,/wiki/images/b/ba/Ring1.png
+Defective Magic Ring,,Ring,"C, M",Common,,,2,,[Shock] 5,,/wiki/images/0/00/Ring4.png
+Enchanted Scutum,,Shield,"W, C",Unique,5,14,,Shield,,,/wiki/images/6/6f/Armor_shield.png
+Essence Gloves,,Hands,"C, M",Unique,2,,5,,[Shock] 15,,/wiki/images/1/12/Armor_blue_gloves.png
+Explorer Gauntlets,,Hands,"W, R",Uncommon,3,8,,Tinkering 2,[Shock] 10,[Agility] 1,/wiki/images/4/4d/Armor_leather_hands2.png
+Firedancer Robes,,Body,M,Unique,1,2,8,,[Fire] 16,,/wiki/images/6/64/Robe1_red.png
+Flame Pendant,,Neck,All,Unique,,,,,[Fire] 45,[Endurance] 1,/wiki/images/d/d0/Fire_crystal.png
+Force Belt,,Belt,All,Unique,2,,,,,[Strength] 3,/wiki/images/6/6d/Belt2.png
+Forest Chain Boots,Forest Chain,Feet,"W, R",Common,1,6,,,,,/wiki/images/7/75/Armor_chain_feet_g.png
+Forest Chain Coif,Forest Chain,Head,"W, R",Common,1,4,,,,,/wiki/images/b/b6/Armor_chain_head_g.png
+Forest Chain Gauntlets,Forest Chain,Hands,"W, R",Common,2,2,,,,,/wiki/images/2/25/Armor_chain_hands_g.png
+Forest Chain Leggings,Forest Chain,Legs,"W, R",Common,2,6,,,,,/wiki/images/f/fa/Armor_chain_legs_g.png
+Forest Chain Shirt,Forest Chain,Body,"W, R",Common,2,6,,,,,/wiki/images/3/32/Armor_chain_chest_g.png
+Forest Robes,,Body,M,Uncommon,1,6,6,,[Cold] 10 [Poison] 10,,/wiki/images/9/90/Robe1_green.png
+Fur Cloak,,Back,All,Common,,2,,,[Cold] 10,,/wiki/images/e/e9/Cloak_grey.png
+Gauntlets of Might,,Hands,All,Unique,2,8,,,[Poison] 10,[Strength] 1,/wiki/images/3/3a/Armor_hands_might.png
+Gauntlets of the Forge,,Hands,All,Common,,3,,,[Fire] 10,,/wiki/images/5/5f/Gauntlets_forge.png
+Girdle of Agility,,Belt,All,Uncommon,2,8,,,,[Agility] 1,/wiki/images/9/9f/Belt1.png
+Girdle of Intellect,,Belt,M,Common,2,8,,,,[Intellect] 1,/wiki/images/9/9f/Belt1.png
+Girdle of Might,,Belt,All,Uncommon,2,8,,,,[Strength] 1,/wiki/images/9/9f/Belt1.png
+Girdle of Supreme Intellect,,Belt,M,Uncommon,,,,,,[Intellect] 2,/wiki/images/9/9f/Belt1.png
+Girdle of the Rogue,,Belt,All,Uncommon,,,,,,[Agility] 2,/wiki/images/9/9f/Belt1.png
+Girdle of the Sorcerer,,Belt,M,Common,1,,15,,,[Intellect] 1,/wiki/images/9/9f/Belt1.png
+Girdle of the Warrior,,Belt,All,Uncommon,,,,,,[Strength] 2,/wiki/images/9/9f/Belt1.png
+Gloves of Luck,,Hands,"W, R",Uncommon,1,5,,Tinkering 1,[Fire] 5 [Shock] 8,,/wiki/images/4/4d/Armor_leather_hands2.png
+Gloves of the Explorer,,Hands,All,Uncommon,3,7,,Detection 1 ♦ Tinkering 1,[Fire] 10,,/wiki/images/4/4d/Armor_leather_hands2.png
+Goblin Lizardskin Boots,,Feet,All,Common,,3,,,[Fire] 20,,/wiki/images/c/ca/Armor_boots_fire.png
+Goggled Helmet,,Head,All,Uncommon,3,,,Detection 2 ♦ Anti-Rad,[Death] 9 [Poison] 9,[Awareness] 2,/wiki/images/1/18/Helm1.png
+Greater Black Orb,,Orb,M,Uncommon,1,25,9,Detection 2,[Death] 28,,/wiki/images/a/a4/Orb_black.png
+Greater Blue Orb,,Orb,M,Uncommon,1,25,9,Detection 2,[Shock] 28,,/wiki/images/0/03/Orb_blue.png
+Greater Green Orb,,Orb,M,Uncommon,1,25,9,Detection 2,[Poison] 28,,/wiki/images/f/f5/Orb_green.png
+Greater Red Orb,,Orb,M,Uncommon,1,25,9,Detection 2,[Fire] 28,,/wiki/images/5/5b/Orb_red.png
+Greater Ring of Death Ward,,Ring,All,Unique,,,,,[Death] 40,,/wiki/images/0/00/Ring4.png
+Greater Ring of Endurance,,Ring,All,Uncommon,,,,,[Poison] 30,,/wiki/images/0/05/Ring5.png
+Greater Ring of Flames,,Ring,All,Uncommon,,,,,[Fire] 30,,/wiki/images/5/51/Ring2.png
+Greater Ring of Ice,,Ring,All,Uncommon,,,,,[Cold] 30,,/wiki/images/9/92/Ring3.png
+Greater Tiara of the Heavens,,Head,All,Unique,2,15,,Detection 2,[Shock] 25,[Intellect] 2,/wiki/images/0/04/Crown1.png
+Greater White Orb,,Orb,M,Uncommon,1,25,9,Detection 2,[Cold] 28,,/wiki/images/f/f3/Orb_white.png
+Half-Moon Medallion,,Neck,All,Unique,,,,Detection 1,[Shock] 15 [Holy] 15,,/wiki/images/d/d8/Amulet1.png
+Hardened Leather Boots,Hardened Leather,Feet,All,Common,1,3,,,,,/wiki/images/c/cd/Armor_leather_feet2.png
+Hardened Leather Cap,Hardened Leather,Head,"W, R, C",Common,,4,,,,,/wiki/images/e/e1/Armor_leather_head2.png
+Hardened Leather Cuirass,Hardened Leather,Body,"W, R, C",Common,2,5,,,,,/wiki/images/0/03/Armor_leather_chest2.png
+Hardened Leather Gauntlets,Hardened Leather,Hands,"W, R, C",Common,1,2,,,,,/wiki/images/4/4d/Armor_leather_hands2.png
+Hardened Leather Leggings,Hardened Leather,Legs,"W, R, C",Common,1,7,,,,,/wiki/images/a/a2/Armor_leather_legs2.png
+Helm of Leadership,,Head,"W, C",Unique,3,6,,,[Shock] 12 [Holy] 5,[Personality] 1,/wiki/images/e/ea/Armor_plate_head_yellow.png
+Hero's Shield,,Shield,"W, C",Uncommon,3,8,,Gossip 2 ♦ Shield,,,/wiki/images/6/6f/Armor_shield.png
+Heroic Helm,,Head,"W, C",Uncommon,3,7,,,[Fire] 5 [Cold] 5 [Shock] 5,,/wiki/images/2/20/Armor_plate_head.png
+High Mage Robes,,Body,M,Limited,3,6,15,,[Fire] 10,,/wiki/images/1/14/Robe2_red.png
+Holy Helm,,Head,C,Unique,2,8,8,Wisdom 1,[Shock] 20,,/wiki/images/3/37/Helmet_plate_blue.png
+Holy Symbol of the Three,,Neck,All,Unique,,,,,[Holy] 20,,/wiki/images/d/d8/Amulet1.png
+Hood of the Hermit,,Head,"C, M",Unique,2,5,12,Detection 1 ♦ Wisdom 1,[Fire] 10 [Shock] 10,,/wiki/images/2/26/Armor_leather_head3.png
+Hunter's Armor,Hunter's,Body,"W, R, C",Unique,4,20,,,[Shock] 10,,/wiki/images/9/92/Armor_leather_chest_green.png
+Hunter's Leggings,Hunter's,Legs,"W, R, C",Unique,3,8,,,[Fire] 8 [Cold] 8,,/wiki/images/8/89/Armor_leather_legs_green.png
+Iagus' Ring of Learning,,Ring,All,Unique,,5,,Wisdom 1,[Death] 12,,/wiki/images/1/11/Ring6.png
+Ilmaran Signet Ring,,Ring,All,Unique,,5,,Detection 1,[Fire] 25 [Death] 25,,/wiki/images/1/11/Ring6.png
+Imperial College Emblem,,Neck,"C, M",Uncommon,,5,16,Detection 1,[Death] 10 [Holy] 10,,/wiki/images/4/4c/Medallion2.png
+Infernal Aegis,,Shield,W,Unique,4,12,,Shield,[Fire] 20,,/wiki/images/6/6f/Armor_shield.png
+Iron Shield,,Shield,"W, C",Common,2,5,,Shield,,,/wiki/images/2/2a/Armor_shield_round.png
+Iron Will Mantle,,Back,All,Unique,,13,,,[Holy] 25,,/wiki/images/9/9e/Cloak_white.png
+Ironfoot Boots,,Feet,All,Unique,3,,,Stability,[Fire] 12 [Holy] 8,,/wiki/images/2/2b/Boots_plate_magic.png
+Ivory Ring,,Ring,All,Uncommon,1,5,,Detection 2,[Cold] 25 [Death] 18,,/wiki/images/a/ad/Ring_ivory.png
+Jabal Silk Cloak,,Back,All,Common,,2,5,,,,/wiki/images/8/85/Cloak_green.png
+Jester's Skull,,Orb,M,Uncommon,2,8,15,Wisdom 2,,[Personality] 1,/wiki/images/4/43/Skull2.png
+Jeweled Breastplate,,Body,"W, C",Unique,4,15,15,,[Fire] 15 [Holy] 10,,/wiki/images/4/47/Armor_plate_chest_epic.png
+Journeyman Boots,Journeyman,Feet,"C, M",Common,1,1,3,,,,/wiki/images/a/a5/Armor_leather_feet_blue.png
+Journeyman Cap,Journeyman,Head,"C, M",Common,,,4,,,,/wiki/images/b/b0/Armor_leather_head_blue.png
+Journeyman Gauntlets,Journeyman,Hands,"C, M",Common,,2,4,,,,/wiki/images/1/12/Armor_blue_gloves.png
+Journeyman Pants,Journeyman,Legs,"C, M",Common,1,3,4,,,,/wiki/images/7/74/Armor_leather_legs_blue.png
+Journeyman Tunic,Journeyman,Body,"C, M",Common,1,5,7,,,,/wiki/images/5/56/Robe1_blue.png
+Jungle Boots,,Feet,All,Unique,2,7,,,[Poison] 25,,/wiki/images/d/d3/Armor_leather_feet_green.png
+Kevlar Vest,,Body,"W, R, C",Uncommon,6,12,,,[Fire] 10 [Shock] 20,,/wiki/images/f/fd/Vest2.png
+Knight Helm,Platemail,Head,W,Common,2,4,,,,,/wiki/images/2/20/Armor_plate_head.png
+Laboratory Gloves,,Hands,All,Unique,1,1,,,[Poison] 10,,/wiki/images/4/4d/Armor_leather_hands2.png
+Laertes' Medallion,,Neck,All,Unique,,,,,[Poison] 17,,/wiki/images/d/d8/Amulet1.png
+Laminated Vest,,Body,W,Uncommon,7,16,,Stability,[Fire] 10 [Shock] 20,,/wiki/images/e/e6/Vest3.png
+Leather Boots,Leather,Feet,All,Common,1,,,,,,/wiki/images/8/8e/Armor_leather_feet1.png
+Leather Bracers,Leather,Hands,All,Common,,2,,,,,/wiki/images/3/3b/Armor_leather_hands1.png
+Leather Cap,Leather,Head,All,Common,,2,,,,,/wiki/images/8/87/Armor_leather_head1.png
+Leather Cuirass,Leather,Body,All,Common,1,3,,,,,/wiki/images/e/e7/Armor_leather_chest1.png
+Leather Leggings,Leather,Legs,All,Common,1,3,,,,,/wiki/images/4/45/Armor_leather_legs1.png
+Leggings of Shadows,,Legs,"W, R, C",Common,4,9,,,[Fire] 15 [Shock] 15,,/wiki/images/6/66/Armor_chain_legs.png
+Legion Boots,Legion,Feet,W,Uncommon,4,2,,,[Fire] 4 [Cold] 4,,/wiki/images/4/45/Armor_plate_feet_yellow.png
+Legion Breastplate,Legion,Body,W,Common,4,9,,,[Fire] 7 [Cold] 7,,/wiki/images/4/43/Armor_plate_chest_yellow.png
+Legion Gauntlets,Legion,Hands,W,Uncommon,3,4,,,[Fire] 4 [Cold] 4,,/wiki/images/6/65/Armor_plate_hands_yellow.png
+Legion Helm,Legion,Head,W,Common,3,3,,,[Fire] 4 [Cold] 4,,/wiki/images/e/ea/Armor_plate_head_yellow.png
+Legion Leggings,Legion,Legs,W,Uncommon,4,7,,,[Fire] 5 [Cold] 5,,/wiki/images/a/af/Armor_plate_legs_yellow.png
+Lesser Black Orb,,Orb,M,Common,,14,5,Detection 1,[Death] 18,,/wiki/images/a/a4/Orb_black.png
+Lesser Blue Orb,,Orb,M,Common,,14,5,Detection 1,[Shock] 18,,/wiki/images/0/03/Orb_blue.png
+Lesser Green Orb,,Orb,M,Common,,14,5,Detection 1,[Poison] 18,,/wiki/images/f/f5/Orb_green.png
+Lesser Red Orb,,Orb,M,Common,,14,5,Detection 1,[Fire] 18,,/wiki/images/5/5b/Orb_red.png
+Lesser Ring of Death Ward,,Ring,All,Common,,,,,[Death] 20,,/wiki/images/0/00/Ring4.png
+Lesser Ring of Endurance,,Ring,All,Unique,,,,,[Poison] 10,,/wiki/images/0/05/Ring5.png
+Lesser Ring of Flames,,Ring,All,Common,,,,,[Fire] 10,,/wiki/images/5/51/Ring2.png
+Lesser Ring of Ice,,Ring,All,Common,,,,,[Cold] 10,,/wiki/images/9/92/Ring3.png
+Lesser Ring of Learning,,Ring,All,Common,,3,,Wisdom 1,,,/wiki/images/1/11/Ring6.png
+Lesser Shield of Life,,Shield,"W, C",Unique,2,,,Shield,[Death] 9,,/wiki/images/6/6f/Armor_shield.png
+Lesser White Orb,,Orb,M,Common,,14,5,Detection 1,[Cold] 18,,/wiki/images/f/f3/Orb_white.png
+Lionskin Cuirass,Lionskin,Body,All,Unique,3,6,,,[Fire] 10,,/wiki/images/0/03/Armor_leather_chest2.png
+Lionskin Leggings,Lionskin,Legs,All,Uncommon,3,4,,,[Shock] 10,,/wiki/images/a/a2/Armor_leather_legs2.png
+Magister Pendant,,Neck,All,Unique,,20,20,Wisdom 2,,[Personality] 2,/wiki/images/0/03/Amulet2.png
+Myrosian Boots,Myrosian,Feet,W,Unique,4,8,,,[Shock] 5 [Holy] 5,,/wiki/images/9/90/Armor_plate_feet_r.png
+Myrosian Breastplate,Myrosian,Body,W,Uncommon,5,15,,,[Shock] 16 [Holy] 4,,/wiki/images/4/47/Armor_plate_chest_epic.png
+Myrosian Gauntlets,Myrosian,Hands,W,Unique,3,9,,,[Shock] 7 [Holy] 2,,/wiki/images/f/f6/Armor_plate_hands_purple.png
+Myrosian Leggings,Myrosian,Legs,W,Uncommon,5,13,,,[Shock] 9 [Holy] 4,,/wiki/images/4/4e/Armor_plate_legs_r.png
+Mystic Ring,,Ring,"C, M",Unique,,4,2,,[Shock] 5,,/wiki/images/b/ba/Ring1.png
+Mystic Sandals,,Feet,"C, M",Uncommon,1,2,6,,[Poison] 12,,/wiki/images/6/6f/Sandals.png
+Mystic Vest,,Body,"C, M",Unique,1,5,4,,[Shock] 15,,/wiki/images/e/e7/Armor_leather_chest1.png
+Nature's Robes,,Body,"C, M",Common,1,3,6,,[Poison] 10,,/wiki/images/5/59/Robe1_brown.png
+Necklace of Charm,,Neck,"C, M",Unique,,9,9,,,[Personality] 1,/wiki/images/d/d8/Amulet1.png
+Necklace of the Depths,,Neck,"C, M",Uncommon,,20,20,Detection 1 ♦ Wisdom 1,,[Personality] 1,/wiki/images/0/0e/Necklace_depths.png
+Nivarian Cloak,,Back,All,Limited,,8,,,[Death] 12 [Poison] 15,,/wiki/images/9/9e/Cloak_white.png
+Oasis Ring,,Ring,All,Unique,,,,,[Fire] 10,[Endurance] 1,/wiki/images/5/51/Ring2.png
+Orb of the High Clouds,,Orb,M,Unique,1,,10,Detection 3,[Fire] 25 [Shock] 35,,/wiki/images/f/fb/Orb_cloud.png
+Petrified Wood Buckler,,Shield,All,Uncommon,2,8,,Shield,[Fire] 12 [Death] 12,,/wiki/images/7/73/Armor_buckler.png
+Phantom Cloak,,Back,"C, M",Uncommon,,10,15,,[Fire] 8 [Cold] 8 [Shock] 8,,/wiki/images/e/e9/Cloak_grey.png
+Platemail Boots,Platemail,Feet,W,Common,3,5,,,,,/wiki/images/a/a5/Armor_plate_feet.png
+Platemail Gauntlets,Platemail,Hands,W,Common,2,8,,,,,/wiki/images/1/18/Armor_plate_hands.png
+Platemail Leggings,Platemail,Legs,W,Common,3,13,,,,,/wiki/images/b/bf/Armor_plate_legs.png
+Platemail Vest,Platemail,Body,W,Common,3,15,,,,,/wiki/images/c/c8/Armor_plate_chest.png
+Plexifiber Robes,,Body,M,Uncommon,4,10,45,Stability,[Shock] 20 [Holy] 10,,/wiki/images/5/52/Robe_ark.png
+Pouch of Reagents,,Orb,M,Common,,,24,Wisdom 1,[Holy] 15,,/wiki/images/7/79/Pouch.png
+Primal Ice Chain Boots,Primal Ice,Feet,"W, R, C",Uncommon,3,3,,,[Fire] -10 [Cold] 6,,/wiki/images/a/a9/Armor_chain_feet_b.png
+Primal Ice Chain Coif,Primal Ice,Head,"W, R, C",Uncommon,3,3,,,[Fire] -10 [Cold] 6,,/wiki/images/f/fe/Armor_chain_head_b.png
+Primal Ice Chain Gauntlets,Primal Ice,Hands,"W, R, C",Common,3,4,,,[Fire] -10 [Cold] 6,,/wiki/images/7/71/Armor_chain_hands_b.png
+Primal Ice Chain Leggings,Primal Ice,Legs,"W, R, C",Uncommon,3,6,,,[Fire] -10 [Cold] 10,,/wiki/images/3/32/Armor_chain_legs_b.png
+Primal Ice Chain Shirt,Primal Ice,Body,"W, R, C",Uncommon,4,6,,,[Fire] -12 [Cold] 12,,/wiki/images/d/d7/Armor_chain_chest_b.png
+Primeval Mantle,,Back,All,Uncommon,1,6,,,[Cold] 25,,/wiki/images/4/4d/Cloak_green2.png
+Primzar's Tunic,,Body,M,Unique,2,8,12,,[Holy] 15,,/wiki/images/d/de/Robe2_blue.png
+Purple Medallion,,Neck,All,Uncommon,,,15,,[Death] 15 [Holy] 15,,/wiki/images/d/d9/Purple_Medallion.png
+Red Leather Buckler,,Shield,All,Unique,2,8,,Shield,[Fire] 20,,/wiki/images/4/4e/Armor_buckler_red.png
+Red Leather Shield,,Shield,"W, C",Unique,3,11,,Shield,[Fire] 20,,/wiki/images/0/02/Armor_shield_round3.png
+Ring of Charm,,Ring,All,Unique,,5,,,,[Personality] 1,/wiki/images/0/05/Ring5.png
+Ring of Death Ward,,Ring,All,Common,,,,,[Death] 30,,/wiki/images/0/00/Ring4.png
+Ring of Endurance,,Ring,All,Unique,,,,,[Poison] 20,,/wiki/images/0/05/Ring5.png
+Ring of Flames,,Ring,All,Common,,,,,[Fire] 20,,/wiki/images/5/51/Ring2.png
+Ring of Health,,Ring,All,Limited,,20,,,[Poison] 20,,/wiki/images/0/05/Ring5.png
+Ring of Holiness,,Ring,C,Crafted,1,20,,Stun Immunity,[Cold] 30,[Personality] 1,/wiki/images/7/76/Ring10.png
+Ring of Ice,,Ring,All,Common,,,,,[Cold] 20,,/wiki/images/9/92/Ring3.png
+Ring of Isolation,,Ring,All,Limited,,,,,[Shock] 25,,/wiki/images/b/ba/Ring1.png
+Ring of Mentalism,,Ring,"C, M",Unique,,,20,,[Holy] 10,,/wiki/images/b/ba/Ring1.png
+Ring of Perfect Isolation,,Ring,All,Unique,,,15,,[Shock] 35,,/wiki/images/b/ba/Ring1.png
+Ring of the Bull,,Ring,All,Crafted,1,20,,,[Cold] 30,[Strength] 1  [Endurance] 1,/wiki/images/0/05/Ring5.png
+Ring of the Elements,,Ring,All,Common,,,,,[Fire] 7 [Cold] 7 [Shock] 10,,/wiki/images/b/ba/Ring1.png
+Ring of the Frozen Heart,,Ring,All,Uncommon,,5,,,[Cold] 18 [Poison] 18,,/wiki/images/9/92/Ring3.png
+Ring of the Planeswalker,,Ring,M,Unique,,,10,,[Shock] 30,,/wiki/images/0/00/Ring4.png
+Ring of the Red Sorcerer,,Ring,"C, M",Uncommon,,,10,,[Fire] 30,,/wiki/images/5/51/Ring2.png
+Ring of the Scholar,,Ring,"C, M",Unique,,,4,,[Death] 10,,/wiki/images/0/00/Ring4.png
+Ring of the Star Traveller,,Ring,All,Uncommon,1,,42,Wisdom 2,[Shock] 21,[Intellect] 1,/wiki/images/5/56/Ring11.png
+Ring of the Trader,,Ring,All,Uncommon,,9,,Gossip 2,,[Personality] 1,/wiki/images/0/05/Ring5.png
+Ring of Unlife,,Ring,All,Uncommon,,,,,[Death] 30 [Holy] 10,[Endurance] 1   [Intellect] 1,/wiki/images/7/74/Ring_magic3.png
+Ring of Vitality,,Ring,All,Uncommon,,8,,,[Death] 12,[Endurance] 1,/wiki/images/5/51/Ring2.png
+Robe of the White Mage,,Body,M,Unique,2,8,12,,[Cold] 12 [Holy] 12,,/wiki/images/d/d4/Robe_White.png
+Ruined Dragoon Boots,,Feet,All,Uncommon,2,4,,,[Fire] 30,,/wiki/images/d/d2/Boots_leather_red.png
+Ruined Gauntlets of Might,,Hands,All,Unique,,5,,,[Poison] 10,[Strength] 1,/wiki/images/4/4d/Armor_leather_hands2.png
+Sailor Buckler,,Shield,All,Common,2,7,,Shield,[Cold] 10,,/wiki/images/1/14/Shield_sailor.png
+Sandals of the Saint,,Feet,"C, M",Unique,2,,12,,[Death] 15 [Holy] 15,,/wiki/images/e/ec/Sandals2.png
+Scutum,,Shield,W,Uncommon,4,10,,Shield,,,/wiki/images/6/6f/Armor_shield.png
+Sentient Ring,,Ring,"R, C, M",Common,,3,3,Detection 1,,,/wiki/images/1/11/Ring6.png
+Serpentine Necklace,,Neck,All,Unique,,5,,,,,/wiki/images/d/d8/Amulet1.png
+Shaman Boots,,Feet,"C, M",Uncommon,2,,4,,[Fire] 20,,/wiki/images/c/ca/Armor_boots_fire.png
+Shaman Charm,,Neck,"C, M",Uncommon,,8,8,Detection 1,[Holy] 8,[Personality] 1,/wiki/images/6/67/Amulet3.png
+Sharkskin Boots,,Feet,All,Unique,2,4,,,[Cold] 9 [Holy] 6,,/wiki/images/a/a9/Armor_chain_feet_b.png
+Shield of Life,,Shield,"W, C",Unique,3,,,Shield,[Death] 9 [Holy] 10,,/wiki/images/6/6f/Armor_shield.png
+Shield of the Dragon Hunter,,Shield,W,Unique,5,12,,Gossip 2 ♦ Shield,[Fire] 25 [Cold] 25,,/wiki/images/6/6f/Armor_shield.png
+Shield of the Forge,,Shield,"W, C",Common,2,4,,Shield,[Fire] 9,,/wiki/images/2/2a/Armor_shield_round.png
+Shield of the Storm,,Shield,"W, C",Common,2,4,,Shield,[Shock] 13,,/wiki/images/d/d3/Armor_shield_round2.png
+Sister Calvin's Holy Symbol,,Neck,All,Unique,,8,8,,,,/wiki/images/c/ca/Medallion1.png
+Sorceress' Sandals,,Feet,"C, M",Uncommon,2,5,9,,[Poison] 12,,/wiki/images/6/6f/Sandals.png
+Spectral Cloak,,Back,All,Unique,,5,8,,[Shock] 10 [Poison] 25,,/wiki/images/9/9e/Cloak_white.png
+Steel Shield,,Shield,W,Common,3,7,,Shield,,,/wiki/images/6/6f/Armor_shield.png
+Strange Hood,,Head,All,Limited,2,,,Anti-Rad,,,/wiki/images/6/6a/Hood_rad.png
+Superior Belt of Agility,,Belt,All,Common,1,6,,,,[Agility] 1,/wiki/images/9/9f/Belt1.png
+Superior Belt of Flowing Thought,,Belt,M,Common,1,6,,,,[Intellect] 1,/wiki/images/9/9f/Belt1.png
+Superior Belt of Might,,Belt,All,Common,1,6,,,,[Strength] 1,/wiki/images/9/9f/Belt1.png
+The Abbot's Ring,,Ring,All,Unique,1,,,Wisdom 1,[Shock] 25,[Awareness] 1  [Personality] 1,/wiki/images/b/b8/Ring_red.png
+The Orb of Shadows,Quest,Orb,M,Unique,1,,12,,[Death] 15,,/wiki/images/9/9a/Orb_shadows.png
+The Undermother's Hide,,Body,All,Unique,5,10,,,[Death] 10 [Holy] 10,,/wiki/images/a/ad/Armor_chest_carpace.png
+Thuramiam Breastplate,Thuramiam,Body,"W, C, M",Unique,4,10,10,,[Cold] 20 [Holy] 5,,/wiki/images/4/47/Armor_plate_chest_epic.png
+Thuramiam Plate Boots,Thuramiam,Feet,"W, C, M",Common,2,5,5,,[Cold] 5 [Holy] 2,,/wiki/images/9/90/Armor_plate_feet_r.png
+Thuramiam Plate Gauntlets,Thuramiam,Hands,"W, C, M",Common,3,2,2,,[Cold] 6 [Holy] 3,,/wiki/images/f/f6/Armor_plate_hands_purple.png
+Thuramiam Plate Helm,Thuramiam,Head,"W, C, M",Common,2,4,4,,[Cold] 7 [Holy] 5,,/wiki/images/9/90/Armor_plate_head_epic.png
+Tiara of the Heavens,,Head,All,Unique,1,5,,Detection 2,[Shock] 20,[Intellect] 1,/wiki/images/0/04/Crown1.png
+Tiara of the Mentalist,,Head,"C, M",Unique,2,,15,Detection 1,[Shock] 10 [Holy] 10,,/wiki/images/0/04/Crown1.png
+Toga of the Theurgist,,Body,M,Uncommon,2,,12,,[Death] 9 [Holy] 9,,/wiki/images/1/16/Robe1_purple.png
+Tolassian Chain Boots,Tolassian Chain,Feet,"W, R, C",Common,2,4,,,[Death] 6,,/wiki/images/0/0e/Armor_chain_feet_red.png
+Tolassian Chain Coif,Tolassian Chain,Head,"W, R, C",Uncommon,2,4,,,[Death] 5,,/wiki/images/c/c8/Armor_chain_head_red.png
+Tolassian Chain Gauntlets,Tolassian Chain,Hands,"W, R, C",Common,2,6,,,[Death] 8,,/wiki/images/8/87/Armor_chain_hands_red.png
+Tolassian Chain Leggings,Tolassian Chain,Legs,"W, R, C",Uncommon,2,8,,,[Death] 9,,/wiki/images/f/f0/Armor_chain_legs_red.png
+Tolassian Chain Shirt,Tolassian Chain,Body,"W, R, C",Uncommon,3,7,,,[Death] 10,,/wiki/images/a/a4/Armor_chain_chest_red.png
+Totem of Protection,,Orb,All,Common,2,20,,Stability,[Holy] 20,,/wiki/images/7/77/Totem1.png
+Traitor's Chain Boots,Traitor's Chain,Feet,"W, R, C",Common,3,3,,,[Holy] -5,,/wiki/images/a/a9/Armor_chain_feet_b.png
+Traitor's Chain Coif,Traitor's Chain,Head,"W, R, C",Common,3,3,,,[Holy] -5,,/wiki/images/f/fe/Armor_chain_head_b.png
+Traitor's Chain Gauntlets,Traitor's Chain,Hands,"W, R, C",Common,3,4,,,[Holy] -5,,/wiki/images/7/71/Armor_chain_hands_b.png
+Traitor's Chain Leggings,Traitor's Chain,Legs,"W, R, C",Common,3,6,,,[Fire] -5 [Holy] -5,,/wiki/images/3/32/Armor_chain_legs_b.png
+Traitor's Chain Shirt,Traitor's Chain,Body,"W, R, C",Common,4,6,,,[Fire] -5 [Holy] -5,,/wiki/images/d/d7/Armor_chain_chest_b.png
+Trollskin Boots,Trollskin,Feet,All,Unique,1,2,,,[Poison] 40,,/wiki/images/d/d3/Armor_leather_feet_green.png
+Trollskin Cap,Trollskin,Head,All,Unique,1,2,,,[Poison] 40,,/wiki/images/6/6e/Armor_leather_head_green.png
+Trollskin Gauntlets,Trollskin,Hands,All,Unique,1,2,,,[Poison] 40,,/wiki/images/f/f5/Armor_leather_hands_green.png
+Tunic of the Lightning Priest,,Body,"C, M",Uncommon,3,,20,,[Shock] 20 [Holy] 10,,/wiki/images/d/de/Robe2_blue.png
+Ursan Charm,,Neck,All,Uncommon,1,5,,Wisdom 1,,,/wiki/images/6/67/Amulet3.png
+Ursan Figurine,,Orb,M,Uncommon,1,15,,Detection 3,[Death] 20,,/wiki/images/7/7a/Totem5.png
+Varannari Cat Figurine,,Orb,M,Common,2,-15,25,,[Holy] 15,,/wiki/images/6/62/Totem3.png
+Varannari Owl Figurine,,Orb,M,Common,,10,5,Detection 1,,,/wiki/images/2/24/Totem2.png
+Varannari Turtle Figurine,,Orb,M,Common,2,25,,Stability,[Death] 20,,/wiki/images/3/3e/Totem4.png
+Varaol's Boots,,Feet,"W, C",Unique,2,,,,[Cold] 6 [Shock] 6,,/wiki/images/a/a5/Armor_plate_feet.png
+Velites Chain Boots,Velites Chain,Feet,"W, R",Common,2,6,,,,,/wiki/images/7/75/Armor_chain_feet_g.png
+Velites Chain Coif,Velites Chain,Head,"W, R",Uncommon,2,6,,,,,/wiki/images/b/b6/Armor_chain_head_g.png
+Velites Chain Gauntlets,Velites Chain,Hands,"W, R",Common,2,8,,,,,/wiki/images/2/25/Armor_chain_hands_g.png
+Velites Chain Leggings,Velites Chain,Legs,"W, R",Common,2,11,,,,,/wiki/images/f/fa/Armor_chain_legs_g.png
+Velites Chain Shirt,Velites Chain,Body,"W, R",Uncommon,3,11,,,,,/wiki/images/3/32/Armor_chain_chest_g.png
+Vorator Hide Mantle,,Back,All,Unique,1,15,,,[Fire] 20,,/wiki/images/e/e9/Cloak_grey.png
+Wisdom of the Seas,,Shield,All,Unique,3,12,,Wisdom 2 ♦ Shield,[Cold] 25,[Intellect] 1,/wiki/images/2/2a/Buckler_steel.png
+Witch Robes,,Body,M,Uncommon,2,5,10,,,,/wiki/images/1/16/Robe1_purple.png

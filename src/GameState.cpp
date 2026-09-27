@@ -17,6 +17,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "GameState.h"
+#include "FileParser.h"
+#include "Version.h"
+#include "FontEngine.h"
+#include "ModManager.h"
+#include "WidgetLabel.h"
 #include "InputState.h"
 #include "MessageEngine.h"
 #include "RenderDevice.h"
@@ -107,3 +112,39 @@ void GameState::showLoading() {
 	render_device->commitFrame();
 }
 
+void GameState::renderSignature() {
+	static WidgetLabel *label = NULL;
+	if (!label) {
+		std::string version;
+		for (size_t i = 0; i < mods->mod_list.size(); ++i) {
+			if (mods->mod_list[i].name == "random_dungeon" && mods->mod_list[i].version)
+				version = mods->mod_list[i].version->getString();
+		}
+		label = new WidgetLabel();
+		label->setFont("font_small");
+		label->setJustify(FontEngine::JUSTIFY_RIGHT);
+		label->setVAlign(LabelInfo::VALIGN_BOTTOM);
+		label->setColor(font->getColor(FontEngine::COLOR_MENU_NORMAL));
+		label->setText("Random Dungeon " + (version.empty() ? std::string("") : "v" + version + "  ") + "- RedByte");
+	}
+	label->setPos(settings->view_w - 12, settings->view_h - 8);
+	label->render();
+}
+
+bool GameState::runEdition() {
+	static int edition = -1;
+	if (edition < 0) {
+		edition = 0;
+		FileParser infile;
+		// @CLASS Edition|Description of engine/edition.txt
+		if (infile.open("engine/edition.txt", FileParser::MOD_FILE, FileParser::ERROR_NONE)) {
+			while (infile.next()) {
+				// @ATTR edition|["full", "run"]|Which game modes this build offers.
+				if (infile.key == "edition")
+					edition = (infile.val == "run") ? 1 : 0;
+			}
+			infile.close();
+		}
+	}
+	return edition == 1;
+}

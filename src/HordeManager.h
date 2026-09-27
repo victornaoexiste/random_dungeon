@@ -30,6 +30,9 @@ public:
 	int getWave() const {
 		return wave;
 	}
+	// true on the horde's map(s) (maps/run/...), whether or not this machine
+	// runs the horde itself (net clients don't)
+	bool isRunMap(const std::string& map);
 
 private:
 	struct Tier {
@@ -40,6 +43,7 @@ private:
 
 	void loadConfig();
 	void spawnGroup();
+	void endRun();
 	bool spawnOne(const FPoint& near_pos);
 	const Tier* pickTier() const;
 
@@ -59,7 +63,12 @@ private:
 	float corpse_seconds;
 	float hp_growth;
 	float dmg_growth;
+	float xp_multiplier;     // run-only XP boost on every horde kill
+	std::string end_map;     // where the hero respawns after dying (run over)
 	std::vector<Tier> tiers;
+
+	int kills;
+	bool run_over;
 
 	int ticks;
 	int next_spawn_tick;

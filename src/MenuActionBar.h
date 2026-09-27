@@ -66,6 +66,9 @@ private:
 
 	int tablist_cursor;
 
+private:
+	FPoint touchAimTarget();
+
 public:
 	enum {
 		MENU_CHARACTER = 0,

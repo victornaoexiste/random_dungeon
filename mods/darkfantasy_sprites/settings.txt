@@ -1,0 +1,5 @@
+description=Tratamento dark fantasy (dessaturado, sombras frias) sobre os sprites BASE de herois e inimigos. Gerado por tools/grade.py; nao altera o base.
+requires=fantasycore:1.14,empyrean_campaign:1.14
+game=flare-game
+version=0.1
+engine_version_min=1.13.01

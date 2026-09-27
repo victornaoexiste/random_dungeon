@@ -61,13 +61,17 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuLog.h"
 #include "MenuManager.h"
 #include "NetManager.h"
+#include "FontEngine.h"
 #include "MenuMiniMap.h"
+#include "MenuRunUpgrade.h"
 #include "MenuPowers.h"
 #include "MenuRegionTitle.h"
 #include "MenuStash.h"
 #include "MenuTalker.h"
 #include "MenuVendor.h"
+#include "MessageEngine.h"
 #include "ModManager.h"
+#include "UtilsFileSystem.h"
 #include "NPC.h"
 #include "NPCManager.h"
 #include "PowerManager.h"
@@ -93,7 +97,10 @@ GameStatePlay::GameStatePlay()
 	, last_pc_state(-1)
 	, net_hit_src(NULL)
 	, horde(new HordeManager())
+	, run_upgrade(new MenuRunUpgrade())
+	, net_follow_teleport(false)
 {
+	net_send_frames = 0;
 	second_timer.setDuration(settings->max_frames_per_sec);
 
 	hasMusic = true;
@@ -127,6 +134,7 @@ GameStatePlay::GameStatePlay()
 
 void GameStatePlay::refreshWidgets() {
 	menu->alignAll();
+	run_upgrade->align();
 }
 
 /**
@@ -151,6 +159,56 @@ void GameStatePlay::resetGame() {
 
 	mapr->teleportation = true;
 	mapr->teleport_mapname = "maps/spawn.txt";
+
+	std::string mode_map = modeStartMap();
+	if (!mode_map.empty()) {
+		mapr->teleport_mapname = mode_map;
+		mapr->teleport_destination.x = -1;
+		mapr->teleport_destination.y = -1;
+	}
+}
+
+void GameStatePlay::syncPartyMap() {
+	if (netmgr->isServer())
+		return;
+	std::string map;
+	float x = 0, y = 0;
+	if (netmgr->takeMapChange(map, x, y) && map != mapr->getFilename() && Filesystem::fileExists(mods->locate(map))) {
+		mapr->teleportation = true;
+		mapr->teleport_mapname = map;
+		mapr->teleport_destination.x = x;
+		mapr->teleport_destination.y = y;
+		net_follow_teleport = true;
+		pc->logMsg(msg->get("Following the host to another area."), Avatar::MSG_UNIQUE);
+	}
+}
+
+std::string GameStatePlay::modeStartMap() {
+	if (settings->game_mode == "run" || runEdition()) return "maps/run/start.txt";
+	if (settings->game_mode == "test") return "maps/dev_room.txt";
+	return "";
+}
+
+void GameStatePlay::applyModeToLoadedGame() {
+	std::string target = modeStartMap();
+	if (target.empty()) {
+		// Open world: a character saved inside a run arena or the dev room
+		// goes back to the world's starting town instead.
+		const std::string& saved = mapr->teleport_mapname;
+		if (saved.compare(0, 9, "maps/run/") == 0 || saved == "maps/dev_room.txt")
+			target = "maps/world/aurora_a.txt";
+		else
+			return;
+	}
+	if (!Filesystem::fileExists(mods->locate(target))) {
+		Utils::logError("GameStatePlay: game mode map '%s' not found, keeping the saved map", target.c_str());
+		return;
+	}
+	mapr->teleport_mapname = target;
+	mapr->teleport_destination.x = -1;
+	mapr->teleport_destination.y = -1;
+	mapr->teleportation = true;
+	mapr->clearEvents();
 }
 
 /**
@@ -301,6 +359,18 @@ void GameStatePlay::checkTeleport() {
 	// both map events and player powers can cause teleportation
 	if (mapr->teleportation || pc->stats.teleportation) {
 
+		// a client only changes map by following the host (syncPartyMap):
+		// its own exits, portals and caves are closed while connected
+		if (mapr->teleportation && !mapr->teleport_mapname.empty() && !net_follow_teleport &&
+			netmgr && netmgr->isActive() && !netmgr->isServer() &&
+			!netmgr->getHostMap().empty() && mapr->teleport_mapname != netmgr->getHostMap()) {
+			pc->logMsg(msg->get("Only the host can lead the party to another area."), Avatar::MSG_UNIQUE);
+			mapr->teleportation = false;
+			mapr->teleport_mapname.clear();
+			return;
+		}
+		net_follow_teleport = false;
+
 		if (mapr->fogofwar)
 			if(fow->fog_layer_id != 0)
 				fow->handleIntramapTeleport();
@@ -363,6 +433,10 @@ void GameStatePlay::checkTeleport() {
 				mapr->cam.warpTo(pc->stats.pos);
 			}
 
+			// multiplayer: the host leads the party, clients follow it here
+			if (netmgr && netmgr->isActive() && netmgr->isServer())
+				netmgr->sendMapChange(teleport_mapname, pc->stats.pos.x, pc->stats.pos.y);
+
 			// store this as the new respawn point (provided the tile is open)
 			if (mapr->collider.isValidPosition(pc->stats.pos.x, pc->stats.pos.y, MapCollision::MOVE_NORMAL, MapCollision::COLLIDE_TYPE_HERO)) {
 				mapr->respawn_map = teleport_mapname;
@@ -388,6 +462,10 @@ void GameStatePlay::checkTeleport() {
 
 			// enemies and npcs should be initialized AFTER on_load events execute
 			entitym->handleNewMap();
+			// handleNewMap() deleted every entity, the network enemy proxies
+			// included: forget them, syncRemoteEnemies() recreates the ones the
+			// host still reports (a client follows the host from map to map)
+			remote_enemies_local.clear();
 			npcs->handleNewMap();
 			resetNPC();
 
@@ -608,6 +686,9 @@ void GameStatePlay::checkTitle() {
 
 void GameStatePlay::checkEquipmentChange() {
 	if (menu->inv->changed_equipment) {
+		// the other players should see the new gear too
+		sent_own_appearance = false;
+
 		// force the actionbar to update when we change gear
 		menu->act->updated = true;
 
@@ -870,8 +951,28 @@ void GameStatePlay::logic() {
 
 	checkCutscene();
 
+	selftestUiShots();
+
 	// check menus first (top layer gets mouse click priority)
 	menu->logic();
+
+	// test hook: RD_GIVE_LEVELS=<n> grants n levels ~3s after entering an arena
+	if (getenv("RD_GIVE_LEVELS") && horde->isRunMap(mapr->getFilename())) {
+		static int frames = 0;
+		if (++frames == settings->max_frames_per_sec * 3) {
+			int n = atoi(getenv("RD_GIVE_LEVELS"));
+			pc->stats.xp = eset->xp.getLevelXP(std::min(pc->stats.level + n, eset->xp.getMaxLevel()));
+			Utils::logInfo("RunUpgrade test: xp set for level %d (hp_max %.0f, dmg %.0f-%.0f, crit %.0f)", pc->stats.level + n,
+				static_cast<double>(pc->stats.get(Stats::HP_MAX)), static_cast<double>(pc->stats.getDamageMin(0)), static_cast<double>(pc->stats.getDamageMax(0)), static_cast<double>(pc->stats.get(Stats::CRIT)));
+		}
+		if (frames == settings->max_frames_per_sec * 9)
+			Utils::logInfo("RunUpgrade test: now level %d (hp_max %.0f, dmg %.0f-%.0f, crit %.0f, speed x%.2f, attack x%.2f)", pc->stats.level,
+				static_cast<double>(pc->stats.get(Stats::HP_MAX)), static_cast<double>(pc->stats.getDamageMin(0)), static_cast<double>(pc->stats.getDamageMax(0)), static_cast<double>(pc->stats.get(Stats::CRIT)),
+				static_cast<double>(pc->stats.run_speed), static_cast<double>(pc->stats.run_attack_speed));
+	}
+
+	// Infinite Run: level-up upgrade choice (pauses single-player while open)
+	run_upgrade->update(horde->isRunMap(mapr->getFilename()), &pc->stats);
 
 	if (!isPaused()) {
 		if (!second_timer.isEnd())
@@ -893,15 +994,24 @@ void GameStatePlay::logic() {
 		checkTitle();
 
 		menu->act->checkAction(pc->action_queue);
+		selftestPvpAttack();
 		pc->logic();
 
 		if (netmgr && netmgr->isActive()) {
 			netmgr->pollGame();
-			netmgr->sendPosition(pc->stats.pos.x, pc->stats.pos.y);
+			// position/hp at NET_SEND_HZ instead of every frame; receivers
+			// interpolate between samples (NetManager.h Step 7)
+			if (++net_send_frames >= std::max(1, settings->max_frames_per_sec / NetManager::NET_SEND_HZ)) {
+				net_send_frames = 0;
+				netmgr->sendPosition(pc->stats.pos.x, pc->stats.pos.y, pc->stats.hp, static_cast<float>(pc->stats.get(Stats::HP_MAX)), pc->stats.alive);
+			}
+			if (netmgr->isServer())
+				netmgr->setLocalInfo(pc->stats.name, mapr->title);
 			if (!sent_own_appearance) {
 				sendOwnAppearance();
 				sent_own_appearance = true;
 			}
+			syncPartyMap();
 			syncOwnAction();
 			syncRemoteEntities();
 			syncRemotePowerVisuals();
@@ -913,17 +1023,12 @@ void GameStatePlay::logic() {
 		updateNetTargets();
 
 		// Horde mode is host/single-player only; a net client mirrors the host's enemies.
-		if (settings->net_join_target.empty()) {
+		if (!netmgr || !netmgr->isClient()) {
 			std::vector<Entity*> gone = horde->logic();
 			for (size_t i = 0; i < gone.size(); ++i) {
 				if (hazards->last_enemy == gone[i]) hazards->last_enemy = NULL;
 				if (menu->enemy->enemy == gone[i]) menu->enemy->enemy = NULL;
 				if (pc->cursor_enemy == gone[i]) pc->cursor_enemy = NULL;
-			}
-			if (!gone.empty()) {
-				pc->stats.target_corpse = NULL;
-				pc->stats.target_nearest = NULL;
-				pc->stats.target_nearest_corpse = NULL;
 			}
 		}
 
@@ -939,7 +1044,10 @@ void GameStatePlay::logic() {
 		if (netmgr && netmgr->isActive()) {
 			reportEnemyHitsAfterCombat();
 			syncOwnEnemies();
+			if (net_send_frames == 0)
+				netmgr->flushEnemyStates();
 		}
+		checkLostConnection();
 
 		loot->logic();
 		npcs->logic();
@@ -1070,8 +1178,8 @@ void GameStatePlay::logic() {
  * Detects a fresh transition of our own hero into StatBlock::ENTITY_POWER
  * (an attack or skill use) and sends pc->attack_anim once via
  * NetManager::sendAction(), so remote players see us swing/cast/shoot
- * instead of just sliding to a new position. Animation only -- doesn't
- * touch hazards/damage, so this can't hurt anyone over the network yet.
+ * instead of just sliding to a new position. Animation only -- damage to
+ * other players (PvP) goes through HazardManager::pvp_targets instead.
  */
 void GameStatePlay::syncOwnAction() {
 	int cur_state = pc->stats.cur_state;
@@ -1102,7 +1210,8 @@ void GameStatePlay::sendOwnAppearance() {
 	temp_preview.setStatBlock(&pc->stats);
 	temp_preview.loadDefaultGraphics();
 	std::vector<std::string> layers = temp_preview.getPreviewGfx(menu->inv);
-	netmgr->sendAppearance(pc->stats.gfx_base, pc->stats.gfx_head, layers);
+	const std::string colors[3] = { pc->stats.color_skin, pc->stats.color_hair, pc->stats.color_cloth };
+	netmgr->sendAppearance(pc->stats.name, pc->stats.gfx_base, pc->stats.gfx_head, layers, colors);
 }
 
 /**
@@ -1165,6 +1274,7 @@ void GameStatePlay::syncRemoteEntities() {
 	for (std::map<uint32_t, NetPos>::const_iterator it = positions.begin(); it != positions.end(); ++it) {
 		uint32_t id = it->first;
 		FPoint new_pos(it->second.x, it->second.y);
+		netmgr->samplePlayerPos(id, new_pos.x, new_pos.y); // smoothed, see NetManager.h Step 7
 
 		std::map<uint32_t, RemotePlayerVisual>::iterator found = remote_players.find(id);
 		if (found == remote_players.end()) {
@@ -1176,8 +1286,15 @@ void GameStatePlay::syncRemoteEntities() {
 			rpv.stats = new StatBlock();
 			rpv.stats->gfx_base = app_it->second.gfx_base;
 			rpv.stats->gfx_head = app_it->second.gfx_head;
+			rpv.stats->color_skin = app_it->second.color_skin;
+			rpv.stats->color_hair = app_it->second.color_hair;
+			rpv.stats->color_cloth = app_it->second.color_cloth;
 			rpv.stats->direction = 6;
 			rpv.stats->pos = new_pos;
+			rpv.stats->hp = it->second.hp;
+			rpv.stats->alive = it->second.alive;
+			rpv.hp_max = it->second.hp_max;
+			rpv.appearance = app_it->second;
 			rpv.in_action_anim = false;
 
 			rpv.preview = new GameSlotPreview();
@@ -1190,6 +1307,49 @@ void GameStatePlay::syncRemoteEntities() {
 		else {
 			StatBlock *s = found->second.stats;
 			GameSlotPreview *preview = found->second.preview;
+
+			// new gear (or look): reload their graphics
+			std::map<uint32_t, PlayerAppearance>::const_iterator app_it = appearances.find(id);
+			if (app_it != appearances.end()) {
+				const PlayerAppearance& app = app_it->second;
+				PlayerAppearance& cur = found->second.appearance;
+				if (app.gfx_base != cur.gfx_base || app.gfx_head != cur.gfx_head || app.layers != cur.layers ||
+				    app.color_skin != cur.color_skin || app.color_hair != cur.color_hair || app.color_cloth != cur.color_cloth) {
+					s->gfx_base = app.gfx_base;
+					s->gfx_head = app.gfx_head;
+					s->color_skin = app.color_skin;
+					s->color_hair = app.color_hair;
+					s->color_cloth = app.color_cloth;
+					preview->loadGraphics(app.layers);
+					found->second.in_action_anim = false;
+					Utils::logInfo("NetManager: player %u changed equipment", static_cast<unsigned>(id));
+				}
+				cur = app;
+			}
+
+			// hp/death: flinch when hurt, hold the death pose while dead
+			const NetPos& np = it->second;
+			bool was_alive = s->alive;
+			if (np.alive && was_alive && np.hp < s->hp && !found->second.in_action_anim) {
+				preview->setAnimation("hit");
+				found->second.in_action_anim = true;
+			}
+			s->hp = np.hp;
+			s->alive = np.alive;
+			found->second.hp_max = np.hp_max;
+			if (!np.alive) {
+				if (was_alive || !preview->activeAnimation || preview->activeAnimation->getName() != "die") {
+					preview->setAnimation("die");
+					found->second.in_action_anim = false;
+				}
+				s->pos = new_pos;
+				remote_last_pos[id] = new_pos;
+				remote_players[id].preview->logic();
+				continue;
+			}
+			if (!was_alive) {
+				preview->setAnimation("stance");
+			}
 
 			// Let a triggered attack/skill animation play out before position
 			// updates are allowed to switch it back to stance/run.
@@ -1274,7 +1434,8 @@ void GameStatePlay::syncOwnEnemies() {
 			debug_last_alive[s.net_id] = alive;
 		}
 
-		netmgr->sendEnemyState(s.net_id, s.pos.x, s.pos.y, s.direction, hp_percent, alive, anim_name);
+		if (net_send_frames == 0)
+			netmgr->sendEnemyState(s.net_id, s.pos.x, s.pos.y, s.direction, hp_percent, alive, anim_name);
 	}
 
 	for (std::set<uint32_t>::iterator it = announced_enemy_ids.begin(); it != announced_enemy_ids.end();) {
@@ -1384,6 +1545,7 @@ void GameStatePlay::syncRemoteEnemies() {
 
 			e->stats.pos.x = re.x;
 			e->stats.pos.y = re.y;
+			netmgr->sampleEnemyPos(net_id, e->stats.pos.x, e->stats.pos.y); // smoothed, see NetManager.h Step 7
 			e->stats.direction = re.direction;
 		}
 
@@ -1437,6 +1599,24 @@ void GameStatePlay::syncRemoteEnemies() {
  */
 void GameStatePlay::updateNetTargets() {
 	entitym->net_targets.clear();
+	hazards->pvp_targets.clear();
+
+	// PvP (see NetManager.h Step 6): every other player on our map is a
+	// target for our own hazards. A client only counts once it's on the
+	// host's map -- positions don't say which map a player is on.
+	if (netmgr && netmgr->isActive() && netmgr->isPvp() && pc->stats.alive &&
+		(netmgr->isServer() || netmgr->getHostMap() == mapr->getFilename()))
+	{
+		for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it) {
+			if (!it->second.stats->alive)
+				continue;
+			HazardManager::PvpTarget pt;
+			pt.player_id = it->first;
+			pt.pos = it->second.stats->pos;
+			hazards->pvp_targets.push_back(pt);
+		}
+	}
+
 	if (!netmgr || !netmgr->isServer())
 		return;
 
@@ -1449,13 +1629,14 @@ void GameStatePlay::updateNetTargets() {
 }
 
 /**
- * Host only. Sends each enemy hazard that hit a remote player this tick to
- * that player's client (see PlayerHitPacket); always clears the queue.
+ * Sends each hazard that hit a remote player this tick to that player (see
+ * PlayerHitPacket): enemy hazards on the host, our own hazards with PvP on.
+ * Always clears the queue.
  */
 void GameStatePlay::forwardNetPlayerHits() {
 	std::vector<HazardManager::NetPlayerHit> hits;
 	hits.swap(hazards->net_player_hits);
-	if (!netmgr || !netmgr->isServer())
+	if (!netmgr || !netmgr->isActive())
 		return;
 
 	for (size_t i = 0; i < hits.size(); ++i) {
@@ -1475,8 +1656,9 @@ void GameStatePlay::forwardNetPlayerHits() {
 }
 
 /**
- * Client only in effect (drainPlayerHitEvents() is empty elsewhere). Rebuilds
- * the host's enemy hazard and runs it through our own hero's real takeHit(),
+ * Hits against our own hero from elsewhere: a host enemy's hazard (clients)
+ * or another player's hazard with PvP on (anyone). Rebuilds the hazard and
+ * runs it through our own hero's real takeHit(),
  * so defense/avoidance/resists/effects and death all behave like single-player.
  */
 void GameStatePlay::applyPlayerHits() {
@@ -1503,8 +1685,191 @@ void GameStatePlay::applyPlayerHits() {
 			h.damage[d].max = pkt.dmg_max[d];
 		}
 
+		float hp_before = pc->stats.hp;
 		pc->takeHit(h);
+		Utils::logInfo("NetManager: our hero was hit, power_id=%u hp %.1f -> %.1f", static_cast<unsigned>(pkt.power_id), static_cast<double>(hp_before), static_cast<double>(pc->stats.hp));
 	}
+}
+
+/**
+ * A small health bar over every other living player (hp comes with their
+ * position, see TickPacket), so co-op partners and PvP opponents can see
+ * how hurt they are.
+ */
+void GameStatePlay::renderRemotePlayerBars() {
+	const int BAR_W = 48;
+	const int BAR_H = 5;
+	const int BAR_OFFSET_Y = 132; // above the head, at the default zoom
+
+	for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it) {
+		const StatBlock *s = it->second.stats;
+		Point p = Utils::mapToScreen(s->pos.x, s->pos.y, mapr->cam.pos.x, mapr->cam.pos.y);
+		int x = p.x - BAR_W / 2;
+		int y = p.y - BAR_OFFSET_Y;
+
+		// name above the bar (or above the body, when dead)
+		if (!it->second.appearance.name.empty()) {
+			font->setFont("font_regular");
+			int name_y = s->alive ? y - font->getLineHeight() - 2 : p.y - font->getLineHeight() - 24;
+			font->renderShadowed(it->second.appearance.name, p.x, name_y, FontEngine::JUSTIFY_CENTER, NULL, 0, font->getColor(FontEngine::COLOR_MENU_NORMAL));
+		}
+
+		if (!s->alive || it->second.hp_max <= 0)
+			continue;
+
+		float ratio = std::max(0.0f, std::min(1.0f, s->hp / it->second.hp_max));
+		int fill = static_cast<int>(ratio * static_cast<float>(BAR_W - 2) + 0.5f);
+		if (fill == 0 && s->hp > 0)
+			fill = 1;
+
+		render_device->drawRectangle(Point(x, y), Point(x + BAR_W - 1, y + BAR_H - 1), Color(20, 12, 12, 255));
+		for (int row = 1; row < BAR_H - 1; ++row) {
+			if (fill < BAR_W - 2)
+				render_device->drawLine(x + 1 + fill, y + row, x + BAR_W - 2, y + row, Color(52, 24, 24, 255));
+			if (fill > 0)
+				render_device->drawLine(x + 1, y + row, x + fill, y + row, Color(196, 40, 36, 255));
+		}
+	}
+}
+
+/**
+ * Client only: the host went away (NetManager dropped the session, see
+ * NetManager.h Step 7). Say so, and reload the current map so its own
+ * enemies spawn again -- we're playing alone now.
+ */
+void GameStatePlay::checkLostConnection() {
+	if (!netmgr || !netmgr->takeLostConnection())
+		return;
+
+	Utils::logInfo("NetManager: lost the host (%s), reloading %s to play alone", netmgr->getLastError().c_str(), mapr->getFilename().c_str());
+	if (netmgr->getLastError() == "host_left")
+		pc->logMsg(msg->get("The host closed the game. You are now playing alone."), Avatar::MSG_UNIQUE);
+	else
+		pc->logMsg(msg->get("Connection to the host was lost. You are now playing alone."), Avatar::MSG_UNIQUE);
+
+	announced_enemy_ids.clear();
+	mapr->teleportation = true;
+	mapr->teleport_mapname = mapr->getFilename();
+	mapr->teleport_destination = pc->stats.pos;
+}
+
+/**
+ * Automated UI screenshot hook (env RD_UI_SHOTS=<dir>): opens the main
+ * panels one after another like a player would (same key inputs), saves a
+ * screenshot of each into <dir>, then quits. For checking the UI theme
+ * without clicking through it.
+ */
+void GameStatePlay::selftestUiShots() {
+	static int f = 0;
+	const char* dir_env = getenv("RD_UI_SHOTS");
+	if (!dir_env)
+		return;
+	const std::string dir = std::string(dir_env) + "/";
+	++f;
+
+	struct Step { int frame; int key; const char* shot; };
+	static const Step steps[] = {
+		{ 60, Input::INVENTORY, NULL },
+		{ 70, Input::CHARACTER, NULL },
+		{ 110, -1, "ui_inventory_character.png" },
+		{ 120, Input::INVENTORY, NULL },
+		{ 130, Input::CHARACTER, NULL },
+		{ 140, Input::POWERS, NULL },
+		{ 150, Input::LOG, NULL },
+		{ 190, -1, "ui_powers_log.png" },
+		{ 200, Input::POWERS, NULL },
+		{ 210, Input::LOG, NULL },
+		{ 220, Input::CANCEL, NULL },
+		{ 260, -1, "ui_pause.png" },
+		{ 270, Input::CANCEL, NULL },
+		{ 300, -1, "ui_hud.png" },
+	};
+	for (size_t i = 0; i < sizeof(steps) / sizeof(steps[0]); ++i) {
+		if (f == steps[i].frame) {
+			if (steps[i].key >= 0) {
+				inpt->pressing[steps[i].key] = true;
+				inpt->lock[steps[i].key] = false;
+			}
+			if (steps[i].shot)
+				render_device->screenshot_request = dir + steps[i].shot;
+		}
+		else if (f == steps[i].frame + 1 && steps[i].key >= 0) {
+			inpt->pressing[steps[i].key] = false;
+		}
+	}
+	// then die, for the game over screen
+	if (f == 320) {
+		pc->stats.hp = 0;
+		pc->stats.alive = false;
+		pc->stats.cur_state = StatBlock::ENTITY_DEAD;
+		pc->stats.corpse = true;
+	}
+	if (f == 520)
+		render_device->screenshot_request = dir + "ui_gameover.png";
+	if (f == 540)
+		exitRequested = true;
+}
+
+/**
+ * Automated PvP test hook (env RD_NET_PVP_SELFTEST, net clients only, with
+ * the host's PvP on): once a second, stand next to the first other player
+ * and use our first hazard power on them. Pair it with --net-host --net-pvp
+ * on the other instance and read both flare_log_*.txt.
+ */
+void GameStatePlay::selftestPvpAttack() {
+	static int frames = 0;
+	if (!netmgr || !netmgr->isClient() || !netmgr->isPvp() || remote_players.empty() || !getenv("RD_NET_PVP_SELFTEST"))
+		return;
+	++frames;
+
+	// RD_NET_PVP_SELFTEST=<dir> (anything but "1"): also save what we see
+	const std::string shot_dir = getenv("RD_NET_PVP_SELFTEST");
+	if (shot_dir != "1") {
+		if (frames == settings->max_frames_per_sec * 3 + settings->max_frames_per_sec / 2)
+			render_device->screenshot_request = shot_dir + "/pvp_fighting.png";
+		else if (!remote_players.begin()->second.stats->alive) {
+			static int dead_frames = 0;
+			if (++dead_frames == settings->max_frames_per_sec)
+				render_device->screenshot_request = shot_dir + "/pvp_dead.png";
+		}
+	}
+
+	// once, at ~5s: take off the first equipped item, so the other side has
+	// to pick up our new look (appearance resend)
+	if (frames == settings->max_frames_per_sec * 5) {
+		for (int i = 0; i < menu->inv->inventory[MenuInventory::EQUIPMENT].getSlotNumber(); ++i) {
+			ItemStack stack = menu->inv->inventory[MenuInventory::EQUIPMENT][i];
+			if (stack.empty())
+				continue;
+			menu->inv->inventory[MenuInventory::EQUIPMENT][i].clear();
+			menu->inv->add(stack, MenuInventory::CARRIED, ItemStorage::NO_SLOT, false, false);
+			menu->inv->applyEquipment();
+			menu->inv->changed_equipment = true;
+			Utils::logInfo("PvP selftest: unequipped slot %d", i);
+			break;
+		}
+	}
+
+	if (frames % settings->max_frames_per_sec != 0 || !pc->stats.alive || !remote_players.begin()->second.stats->alive)
+		return;
+
+	PowerID power = 0;
+	for (size_t i = 0; i < menu->act->hotkeys.size() && power == 0; ++i) {
+		PowerID id = menu->act->hotkeys[i];
+		if (id != 0 && powers->isValid(id) && powers->powers[id]->use_hazard)
+			power = id;
+	}
+	if (power == 0)
+		return;
+
+	FPoint target = remote_players.begin()->second.stats->pos;
+	pc->stats.pos = FPoint(target.x + 0.75f, target.y);
+
+	ActionData action;
+	action.power = power;
+	action.target = target;
+	pc->action_queue.push_back(action);
+	Utils::logInfo("PvP selftest: using power %u on player %u", static_cast<unsigned>(power), static_cast<unsigned>(remote_players.begin()->first));
 }
 
 /**
@@ -1573,8 +1938,13 @@ void GameStatePlay::render() {
 		rens.insert(rens.end(), player_rens.begin(), player_rens.end());
 	}
 
-	// render the static map layers plus the renderables
+	// render the static map layers plus the renderables (through the world
+	// filter: pixel art + colour grade; everything after stays sharp)
+	render_device->beginWorldFilter();
 	mapr->render(rens, rens_dead);
+	render_device->endWorldFilter();
+
+	renderRemotePlayerBars();
 
 	// mouseover tooltips
 	loot->renderTooltips(mapr->cam.pos);
@@ -1584,17 +1954,30 @@ void GameStatePlay::render() {
 		mapr->map_change = false;
 	}
 	menu->mini->setMapTitle(mapr->title);
+	menu->mini->net_players.clear();
+	for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it)
+		menu->mini->net_players.push_back(it->second.stats->pos);
 	menu->mini->render(pc->stats.pos);
 	menu->region_title->setTitle(mapr->title);
 	menu->render();
+	run_upgrade->render();
 
 	// render combat text last - this should make it obvious you're being
 	// attacked, even if you have menus open
 	if (!isPaused())
 		comb->render();
+
+	if (menu->exit->visible)
+		renderSignature();
 }
 
 bool GameStatePlay::isPaused() {
+	if (run_upgrade && run_upgrade->visible && !(netmgr && netmgr->isActive()))
+		return true;
+	// the world keeps running in multiplayer: pausing the host would freeze
+	// everyone (and time them out)
+	if (netmgr && netmgr->isActive())
+		return false;
 	return menu->pause;
 }
 
@@ -1651,6 +2034,7 @@ bool GameStatePlay::checkPrimaryStat(const std::string& first, const std::string
 GameStatePlay::~GameStatePlay() {
 	delete net_hit_src;
 	delete horde;
+	delete run_upgrade;
 	curs->setLowHP(false);
 
 	// Leaving gameplay (Save & Exit, death, starting a different character...)

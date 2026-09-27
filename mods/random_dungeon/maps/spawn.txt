@@ -1,7 +1,7 @@
 # carregado automaticamente ao iniciar um novo jogo.
-# Novo jogo cai na arena do modo hordas. Outras opcoes de mapa:
-#   maps/dungeon.txt        masmorra procedural
-#   maps/net_test_room.txt  sala fixa 16x16 para testes de rede
+# Começa no mundo aberto: Aurora, a cidade inicial (maps/world/, gerado por
+# tools/gen_world.py). Pra voltar à sala fixa de teste de rede, troque o
+# intermap por maps/net_test_room.txt; pra masmorra procedural, maps/dungeon.txt.
 [header]
 width=1
 height=1
@@ -11,4 +11,4 @@ hero_pos=0,0
 type=event
 location=0,0,1,1
 activate=on_load
-intermap=maps/horde_arena.txt
+intermap=maps/world/aurora_a.txt,26,27

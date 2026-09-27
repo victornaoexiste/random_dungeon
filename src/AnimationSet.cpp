@@ -20,6 +20,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "Animation.h"
 #include "AnimationSet.h"
+#include "HeroColors.h"
 #include "AnimationManager.h"
 #include "FileParser.h"
 #include "ModManager.h"
@@ -68,8 +69,11 @@ void AnimationSet::load() {
 	loaded = true;
 
 	FileParser parser;
+	// a hero layer may carry a colour spec ("file.txt|S=..."): it applies to the images
+	std::string file_name, color_spec;
+	HeroColors::split(name, file_name, color_spec);
 	// @CLASS AnimationSet|Description of animations in animations/
-	if (name.empty() || !parser.open(name, FileParser::MOD_FILE, FileParser::ERROR_NORMAL))
+	if (file_name.empty() || !parser.open(file_name, FileParser::MOD_FILE, FileParser::ERROR_NORMAL))
 		return;
 
 	std::string _name = "";
@@ -118,6 +122,8 @@ void AnimationSet::load() {
 				// @ATTR image|filename, string : Filename, ID|Filename of sprite-sheet image along with an identifier string. The identifier string may be omitted if there is only a single image.
 				std::string img_filename = Parse::popFirstString(parser.val);
 				std::string img_id = Parse::popFirstString(parser.val);
+				if (!color_spec.empty())
+					img_filename += "|" + color_spec;
 				sprite->loadImage(img_filename, img_id);
 			}
 			else if (parser.key == "render_size") {

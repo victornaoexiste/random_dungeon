@@ -19,6 +19,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #ifndef PLATFORM_CPP
 #define PLATFORM_CPP
 
+#include "AndroidData.h"
 #include "Platform.h"
 #include "Settings.h"
 #include "SharedResources.h"
@@ -253,6 +254,9 @@ void Platform::setPaths() {
 	settings->path_conf += "/";
 	settings->path_user += "/";
 	settings->path_data += "/";
+
+	// Random Dungeon ships its mods inside the APK; copy them out on first run
+	AndroidData::extractIfNeeded(settings->path_data);
 
 	// create a .nomedia file to prevent game data being added to the Android media library
 	std::ofstream nomedia;

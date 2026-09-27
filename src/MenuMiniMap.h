@@ -57,6 +57,7 @@ private:
 	Color color_ally;
 	Color color_npc;
 	Color color_teleport;
+	Color color_net_player;
 
 	Sprite *map_surface;
 	Sprite *map_surface_2x;
@@ -90,6 +91,9 @@ private:
 
 
 public:
+	// other connected players this frame (filled by GameStatePlay)
+	std::vector<FPoint> net_players;
+
 	MenuMiniMap();
 	~MenuMiniMap();
 	void align();

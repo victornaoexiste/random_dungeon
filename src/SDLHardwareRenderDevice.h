@@ -76,6 +76,8 @@ public:
 	SDLHardwareRenderDevice();
 
 	virtual int render(Renderable& r, Rect& dest);
+	void beginWorldFilter();
+	void endWorldFilter();
 	virtual int render(Sprite* r);
 	virtual int renderToImage(Image* src_image, Rect& src, Image* dest_image, Rect& dest);
 
@@ -110,6 +112,11 @@ private:
 	SDL_Window *window;
 	SDL_Renderer *renderer;
 	SDL_Texture *texture;
+	SDL_Texture *active_target; // texture, or world_tex while the world filter is on
+	SDL_Texture *world_tex;
+	SDL_Texture *vignette_tex;
+	int world_w, world_h;
+	bool world_filter_on;
 	SDL_Surface* titlebar_icon;
 	char* title;
 	Color background_color;

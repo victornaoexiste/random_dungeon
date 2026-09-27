@@ -37,6 +37,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "FontEngine.h"
 #include "GameStateCutscene.h"
+#include "GameStateConfig.h"
+#include "GameStateLoad.h"
+#include "GameStateMultiplayer.h"
+#include "GameStateNew.h"
+#include "GameStatePlay.h"
 #include "GameStateTitle.h"
 #include "GameSwitcher.h"
 #include "InputState.h"
@@ -200,6 +205,18 @@ void GameSwitcher::logic() {
 	// reset the global tooltip
 	tooltipm->clear();
 
+	selftestStateShots();
+
+	// test hook: RD_AUTO_NEW="slot,class,option,skin,hair,cloth,mode" creates a
+	// brand new character without clicking (see GameStateNew::logic)
+	static int auto_new_frames = 0;
+	if (getenv("RD_AUTO_NEW") && ++auto_new_frames == 30 && dynamic_cast<GameStateTitle*>(currentState)) {
+		std::string spec = getenv("RD_AUTO_NEW");
+		GameStateNew *n = new GameStateNew();
+		n->game_slot = Parse::popFirstInt(spec);
+		currentState->setRequestedGameState(n);
+	}
+
 	// Check if a the game state is to be changed and change it if necessary, deleting the old state
 	GameState* newState = currentState->getRequestedGameState();
 	if (newState != NULL) {
@@ -317,6 +334,37 @@ bool GameSwitcher::isPaused() {
 	return currentState->isPaused();
 }
 
+/**
+ * Automated screenshot hook (env RD_STATE_SHOTS=<dir>): walks through the
+ * out-of-game screens (title, load, new character, multiplayer, settings),
+ * saving one screenshot each, then quits. For checking the UI theme.
+ */
+void GameSwitcher::selftestStateShots() {
+	static int f = 0;
+	const char *dir_env = getenv("RD_STATE_SHOTS");
+	if (!dir_env)
+		return;
+	const std::string dir = std::string(dir_env) + "/";
+	++f;
+	const int STEP = 100;
+	const char *shots[] = { "state_title.png", "state_load.png", "state_new.png", "state_multiplayer.png", "state_config.png", "state_credits.png", "state_credits2.png", "state_credits3.png" };
+	int stage = f / STEP;
+	if (f % STEP == 80 && stage < 8)
+		render_device->screenshot_request = dir + shots[stage];
+	if (f % STEP == 0 && stage >= 1) {
+		if (stage == 1) currentState->setRequestedGameState(new GameStateLoad());
+		else if (stage == 2) { GameStateNew *n = new GameStateNew(); n->game_slot = 9; currentState->setRequestedGameState(n); }
+		else if (stage == 3) currentState->setRequestedGameState(new GameStateMultiplayer());
+		else if (stage == 4) currentState->setRequestedGameState(new GameStateConfig());
+		else if (stage == 5) {
+			GameStateCutscene *c = new GameStateCutscene(new GameStateTitle());
+			if (c->load("cutscenes/credits.txt")) currentState->setRequestedGameState(c);
+			else delete c;
+		}
+		else if (stage >= 8) done = true;
+	}
+}
+
 void GameSwitcher::render() {
 	render_device->loadQueuedImages();
 
@@ -333,6 +381,8 @@ void GameSwitcher::render() {
 	}
 
 	currentState->render();
+	if (!dynamic_cast<GameStatePlay*>(currentState))
+		GameState::renderSignature();
 	tooltipm->render();
 	curs->render();
 }

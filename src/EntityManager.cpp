@@ -38,6 +38,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "PowerManager.h"
 #include "RenderDevice.h"
 #include "Settings.h"
+#include "NetManager.h"
 #include "SharedGameResources.h"
 #include "SharedResources.h"
 #include "Utils.h"
@@ -153,7 +154,7 @@ void EntityManager::handleNewMap () {
 		// whatever the host reports instead (see GameStatePlay::syncRemoteEnemies
 		// and NetManager.h's Step 5 comment), so map-placed enemies are the
 		// host's job only. Still have to drain mapr->enemies either way.
-		if (!settings->net_join_target.empty())
+		if (netmgr && netmgr->isClient())
 			continue;
 
 		Entity *e = getEntityPrototype(me.type);

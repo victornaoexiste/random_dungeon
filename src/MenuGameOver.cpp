@@ -67,6 +67,12 @@ MenuGameOver::MenuGameOver()
 		infile.close();
 	}
 
+	for (int i = 0; i < 2; ++i) {
+		label_info[i].setJustify(FontEngine::JUSTIFY_CENTER);
+		label_info[i].setBasePos(window_area.w / 2, 60 + i * 26, Utils::ALIGN_TOPLEFT);
+		label_info[i].setColor(font->getColor(FontEngine::COLOR_MENU_NORMAL));
+	}
+
 	label.setText(msg->get("Game Over"));
 	label.setColor(font->getColor(FontEngine::COLOR_MENU_NORMAL));
 
@@ -93,6 +99,13 @@ void MenuGameOver::align() {
 	button_continue->setPos(window_area.x, window_area.y);
 	button_exit->setPos(window_area.x, window_area.y);
 	label.setPos(window_area.x, window_area.y);
+	for (int i = 0; i < 2; ++i)
+		label_info[i].setPos(window_area.x, window_area.y);
+}
+
+void MenuGameOver::setInfo(const std::string& line1, const std::string& line2) {
+	label_info[0].setText(line1);
+	label_info[1].setText(line2);
 }
 
 void MenuGameOver::logic() {
@@ -114,6 +127,7 @@ void MenuGameOver::close() {
 	continue_clicked = false;
 	exit_clicked = false;
 	tablist.defocus();
+	setInfo("", "");
 }
 
 void MenuGameOver::disableSave() {
@@ -129,6 +143,8 @@ void MenuGameOver::render() {
 	Menu::render();
 
 	label.render();
+	label_info[0].render();
+	label_info[1].render();
 
 	button_continue->render();
 	button_exit->render();

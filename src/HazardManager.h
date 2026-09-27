@@ -47,8 +47,9 @@ public:
 	std::vector<Hazard*> h;
 	Entity* last_enemy;
 
-	// Host only: enemy hazards that hit a remote net player this tick. GameStatePlay
-	// forwards each one to that player's client, which applies it to its own hero.
+	// Hazards that hit a remote net player this tick: enemy hazards (host only)
+	// and, with PvP on, our own hero's hazards. GameStatePlay forwards each one
+	// to that player, who applies it to their own hero.
 	struct NetPlayerHit {
 		uint32_t player_id;
 		uint32_t power_id;
@@ -58,6 +59,15 @@ public:
 		std::vector<FMinMax> damage;
 	};
 	std::vector<NetPlayerHit> net_player_hits;
+
+	// PvP (see NetManager.h Step 6): the other players our own hero's hazards
+	// can hit this tick. Filled by GameStatePlay only while PvP is on; hits
+	// land in net_player_hits like enemy hits on the host do.
+	struct PvpTarget {
+		uint32_t player_id;
+		FPoint pos;
+	};
+	std::vector<PvpTarget> pvp_targets;
 };
 
 #endif

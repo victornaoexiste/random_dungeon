@@ -532,7 +532,9 @@ void PowerManager::loadPowers() {
 				}
 			}
 
-			if (!item_stack.empty()) {
+			// quantity 0 is valid here: "must own it, but don't use it up".
+			// (ItemStack::empty() treats that as broken and dropped the requirement)
+			if (item_stack.item > 0 && item_stack.quantity >= 0) {
 				pri.id = item_stack.item;
 				pri.quantity = item_stack.quantity;
 				power->required_items.push_back(pri);
@@ -554,7 +556,7 @@ void PowerManager::loadPowers() {
 				}
 			}
 
-			if (!item_stack.empty()) {
+			if (item_stack.item > 0 && item_stack.quantity >= 0) {
 				// a maximum of 1 equipped item can be consumed at a time
 				if (item_stack.quantity > 1) {
 					infile.error("PowerManager: Only 1 equipped item can be consumed at a time.");

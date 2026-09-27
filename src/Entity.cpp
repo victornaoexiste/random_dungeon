@@ -32,6 +32,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CommonIncludes.h"
 #include "EngineSettings.h"
 #include "Entity.h"
+#include "HeroColors.h"
 #include "EntityBehavior.h"
 #include "Hazard.h"
 #include "HazardManager.h"
@@ -301,7 +302,7 @@ bool Entity::move() {
 
 	move_from_offending_tile();
 
-	float speed = stats.speed * StatBlock::SPEED_MULTIPLIER[stats.direction] * stats.effects.speed / 100;
+	float speed = stats.speed * StatBlock::SPEED_MULTIPLIER[stats.direction] * stats.effects.speed / 100 * stats.run_speed;
 	float dx = speed * StatBlock::DIRECTION_DELTA_X[stats.direction];
 	float dy = speed * StatBlock::DIRECTION_DELTA_Y[stats.direction];
 
@@ -501,6 +502,18 @@ bool Entity::takeHit(Hazard &h) {
 	// misses cause reduced damage
 	if (missed) {
 		dmg = (dmg * Math::randBetweenF(eset->combat.min_miss_damage, eset->combat.max_miss_damage)) / 100;
+	}
+
+	// item slayer bonuses of the attacker (e.g. silver vs undead)
+	if (h.src_stats && !h.src_stats->slayer_bonus.empty() && dmg > 0) {
+		int slayer = 0;
+		for (size_t i = 0; i < stats.categories.size(); ++i) {
+			std::map<std::string, int>::const_iterator it = h.src_stats->slayer_bonus.find(stats.categories[i]);
+			if (it != h.src_stats->slayer_bonus.end())
+				slayer += it->second;
+		}
+		if (slayer != 0)
+			dmg = dmg * static_cast<float>(100 + slayer) / 100.f;
 	}
 
 	dmg = eset->combat.resourceRound(dmg);
@@ -969,7 +982,7 @@ void Entity::loadAnimations() {
 		if (img_gfx[i].gfx != "") {
 			std::string name;
 			if (stats.hero && !stats.transformed)
-				name = "animations/avatar/" + stats.gfx_base + "/" + img_gfx[i].gfx + ".txt";
+				name = HeroColors::animName(&stats, img_gfx[i].type, img_gfx[i].gfx);
 			else
 				name = img_gfx[i].gfx;
 

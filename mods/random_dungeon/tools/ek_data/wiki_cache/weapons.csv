@@ -1,0 +1,206 @@
+Name,Type,Category,Class,Rarity,Damage,Speed,Crit %,DPS,Attribute,
+Acidspitter,Ranged,Wand,M,Unique,[Sword] 3-6 +[Poison] 4,11,6,9.6,,/wiki/images/b/b9/Acidspitter.png
+Adamantite Greatsword,2-Handed,Greatsword,W,Crafted,[Sword] 14-24,9,4,17.5,Banishing 5,/wiki/images/7/72/Weapon_greatsw_bl.png
+Adamantite Longsword,Hand,Longsword,"W, R",Crafted,[Sword] 13-19,10,6,16.5,Banishing 4,/wiki/images/0/01/Weapon_longsword2.png
+Adamantite Shortsword,Light,Shortsword,"W, R",Crafted,[Sword] 9-14,12,6,14.3,Banishing 3,/wiki/images/a/a8/Weapon_shortsword2.png
+Ancestral Blade of the Deer,Hand,Longsword,"W, R",Unique,[Sword] 8-13 +[Cold] 9,10,6,19.9,Stun 1,/wiki/images/6/60/Weapon_longsword_ice.png
+Ancient Fang,Light,Dagger,All,Uncommon,[Sword] 4-10,13,7,9.6,Beast Slayer 1,/wiki/images/c/c1/Wpn_dagger_fang.png
+Axe of the Depths,2-Handed,Greataxe,W,Uncommon,[Sword] 4-25,9,5,13.8,,/wiki/images/7/72/Battleaxe5.png
+Axe of the Minotaur Kings,2-Handed,Greataxe,W,Unique,[Sword] 4-25 +[Shock] 8,9,5,21,Vicious 1,/wiki/images/8/8c/Battleaxe4.png
+Batrax Wand,Ranged,Wand,M,Uncommon,[Sword] 3-7 +[Cold] 3,11,6,9.1,,/wiki/images/5/56/Wand6.png
+Beastgrinder,Hand,Mace,"W, C",Unique,[Sword] 6-9,9,5,6.9,Beast Slayer 2,/wiki/images/8/89/Weapon_mace_blue.png
+Blood Thunder,Light,Hammer,"W, C",Uncommon,[Sword] 5-6 +[Shock] 3,11,6,9.5,Orc Slayer 2 ♦ Banishing 2,/wiki/images/3/36/Hammer3.png
+Bluesteel Axe,Hand,Axe,"W, R",Common,[Sword] 3-12,10,6,8,,/wiki/images/f/fa/Axe2.png
+Bluesteel Dagger,Light,Dagger,All,Common,[Sword] 2-7,13,7,6.3,,/wiki/images/2/2c/Weapon_dagger2.png
+Bluesteel Dirk,Off-Hand,Off Hand,R,Uncommon,[Sword] 4-4,10,0,4,,/wiki/images/b/b1/Weapon_gauche_blue.png
+Bluesteel Greataxe,2-Handed,Greataxe,W,Common,[Sword] 2-18,9,5,9.6,,/wiki/images/9/90/Battleaxe2.png
+Bluesteel Greatsword,2-Handed,Greatsword,W,Common,[Sword] 6-15,9,4,9.8,,/wiki/images/6/64/Weapon_greatsword2.png
+Bluesteel Hammer,Light,Hammer,"W, C",Common,[Sword] 5-7,11,6,6.8,,/wiki/images/b/b6/Hammer2.png
+Bluesteel Longsword,Hand,Longsword,"W, R",Common,[Sword] 5-10,10,6,7.8,,/wiki/images/0/01/Weapon_longsword2.png
+Bluesteel Mace,Hand,Mace,"W, C",Common,[Sword] 6-9,9,5,6.9,,/wiki/images/8/89/Weapon_mace_blue.png
+Bluesteel Maul,2-Handed,Maul,"W, C",Common,[Sword] 7-16,8,3,9.4,,/wiki/images/2/20/Maul2.png
+Bluesteel Poisonous Dagger,Light,Dagger,R,Uncommon,[Sword] 3-8 +[Poison] 4,13,7,12.8,,/wiki/images/8/89/Weapon_dagger_toxic.png
+Bluesteel Shortsword,Light,Shortsword,"W, R",Common,[Sword] 3-8,11,6,6.4,,/wiki/images/a/a8/Weapon_shortsword2.png
+Bone Mace,Hand,Mace,"W, C",Common,[Sword] 9-12,9,5,9.7,Stun 1,/wiki/images/0/0d/Weapon_bone_mace.png
+Bone Maul,2-Handed,Maul,"W, C",Common,[Sword] 11-20,8,3,12.6,Stun 1,/wiki/images/5/54/Weapon_maul_bone.png
+Bone Shiv,Light,Dagger,R,Unique,[Sword] 1-5,13,7,4.2,,/wiki/images/9/96/Weapon_dagger4.png
+Bonegrinder,Hand,Mace,"W, C",Uncommon,[Sword] 7-10,9,5,7.9,,/wiki/images/7/79/Hammer1.png
+Branch of the Holy Tree,Ranged,Wand,M,Unique,[Sword] 3-7 +[Holy] 4,11,6,10.2,Banishing 3 ♦ Arcane 1,/wiki/images/6/6a/Wand10.png
+Caduceus of Scorching,Ranged,Staff,M,Common,[Fire] 5-9,9,5,6.5,Arcane 1,/wiki/images/4/4e/Staff3.png
+Composite Bow,Ranged,Bow,"W, R",Unique,[Sword] 8-13,10,5,10.8,,/wiki/images/f/fd/Wpn_bow_comp.png
+Corsair Falchion,Light,Shortsword,"W, R",Common,[Sword] 4-8,12,6,7.5,Vicious 2,/wiki/images/0/0e/Weapon_falchion.png
+Cruelty,2-Handed,Greatsword,W,Unique,[Sword] 6-15 +[Fire] 4,9,4,13.4,Vicious 1,/wiki/images/b/bb/Weapon_greatsword.png
+Crushing Ember,Hand,Mace,"W, C",Unique,[Sword] 6-8 +[Fire] 3,9,5,9.2,,/wiki/images/a/ac/Weapon_mace_red.png
+Crystallized Wand,Ranged,Wand,M,Unique,[Cold] 6-11,11,6,9.7,Banishing 2 ♦ Arcane 4,/wiki/images/5/56/Wand6.png
+Cursed Fang,Off-Hand,Off Hand,R,Uncommon,[Death] 4,10,0,4,Stun 1,/wiki/images/2/2e/Weapon_fang_cursed.png
+Dagger of Ice,Light,Dagger,All,Common,[Sword] 1-3 +[Cold] 2,13,7,5.4,,/wiki/images/a/a6/Weapon_dagger_ice.png
+Dagger of Poison,Light,Dagger,"W, R, C",Common,[Sword] 1-3 +[Poison] 2,13,7,5.4,,/wiki/images/8/89/Weapon_dagger_toxic.png
+Dancing Flame,Light,Shortsword,"W, R",Unique,[Sword] 4-10 +[Fire] 7,12,6,17.2,Vicious 2,/wiki/images/8/82/Weapon_Dagger_Fire.png
+Deathclaw,Light,Shortsword,"W, R",Unique,[Sword] 3-7 +[Death] 3,11,7,9.1,,/wiki/images/1/14/Weapon_dagger3.png
+Demonclaw,2-Handed,Greatsword,W,Unique,[Sword] 10-19 +[Fire] 9,9,4,21.5,Slow 1 ♦ Vicious 2,/wiki/images/b/bb/Weapon_greatsword.png
+Despair,Light,Hammer,"W, R, C",Unique,[Sword] 6-8 +[Poison] 4,11,6,12.3,Vicious 2,/wiki/images/9/9a/Weapon_hammer_corrosion.png
+Devourer Sting,Light,Dagger,R,Uncommon,[Sword] 4-10,13,7,9.6,Paralysis 1,/wiki/images/4/4d/Wpn_dagger_devour.png
+Dirk,Off-Hand,Off Hand,"W, R",Common,[Sword] 2-2,10,0,2,,/wiki/images/e/e8/Weapon_dirk.png
+Dirk of Betrayal,Off-Hand,Off Hand,R,Unique,[Sword] 5-5,10,0,5,Stun 1,/wiki/images/e/e8/Weapon_dirk.png
+Dirk of the Gambler,Off-Hand,Off Hand,R,Unique,[Sword] 5-5,10,0,5,Slow 1,/wiki/images/e/e8/Weapon_dirk.png
+Elm Wand,Ranged,Wand,M,Common,[Sword] 4-8,11,6,6.9,,/wiki/images/7/7b/Wand1.png
+Enchanted Vulcan Bow,Ranged,Bow,"W, R",Unique,[Sword] 3-7 +[Fire] 4,11,6,10.2,,/wiki/images/6/6b/Weapon_bow_fire.png
+Executioner's Axe,2-Handed,Greataxe,W,Limited,[Sword] 3-21,9,5,11.5,Vicious 2,/wiki/images/8/81/Battleaxe1.png
+Fiendish Dagger,Light,Dagger,R,Unique,[Sword] 5-10 +[Death] 6,13,7,18.1,Vicious 2,/wiki/images/e/ea/Weapon_Dagger_Death_Epic.png
+Firesplitter,Hand,Axe,"W, R",Common,[Sword] 2-11 +[Fire] 2,10,7,9,,/wiki/images/7/7c/Axe3.png
+First Winter,Ranged,Staff,M,Uncommon,[Cold] 9-17,9,6,12.2,Banishing 2 ♦ Arcane 4,/wiki/images/9/9d/Staff6.png
+Flaming Dirk,Off-Hand,Off Hand,R,Uncommon,[Fire] 4,10,0,4,,/wiki/images/a/a0/Weapon_dirk_flaming.png
+Flaming Hatchet,Off-Hand,Off Hand,"W, R",Common,[Fire] 2,10,0,2,,/wiki/images/b/b5/Weapon_hatchet_fire.png
+Flaming Warhammer,Light,Hammer,"W, R, C",Unique,[Sword] 6-8 +[Fire] 4,11,6,12.3,Holy 1,/wiki/images/f/f4/Weapon_hammer_flaming.png
+Forest Lament,Hand,Longsword,"W, R",Unique,[Sword] 6-11 +[Cold] 6,10,6,14.8,Slow 1,/wiki/images/6/60/Weapon_longsword_ice.png
+Frost Bow,Ranged,Bow,"W, R",Common,[Sword] 2-6 +[Cold] 2,11,5,6.8,,/wiki/images/c/cd/Weapon_bow_ice.png
+Ghost Eye,Ranged,Bow,"W, R",Unique,[Sword] 4-9 +[Death] 6,10,5,12.8,Vicious 1,/wiki/images/7/76/Ghost_Eye.png
+Ghostbane,Hand,Mace,"W, C",Unique,[Sword] 6-9 +[Shock] 6,9,5,12.3,Holy 1,/wiki/images/8/89/Weapon_mace_blue.png
+Ghostfinger,Off-Hand,Off Hand,R,Unique,[Shock] 5-5,10,0,5,Slow 1,/wiki/images/b/b1/Weapon_gauche_blue.png
+Glacier Stone,Hand,Mace,"W, C",Unique,[Sword] 7-10 +[Cold] 5,9,5,12.4,,/wiki/images/d/d9/Weapon_mace_white.png
+Goblin Flesh-Cutter,Light,Dagger,R,Common,[Sword] 2-5,13,7,4.8,,/wiki/images/9/96/Weapon_dagger4.png
+Golden Wand,Ranged,Wand,M,Unique,[Sword] 4-9 +[Holy] 5,11,6,13,Banishing 2 ♦ Arcane 2,/wiki/images/7/76/Wand_golden.png
+Greataxe of Falling Stars,2-Handed,Greataxe,W,Common,[Sword] 3-18 +[Death] 5,9,5,14.5,Beast Slayer 2,/wiki/images/8/8c/Battleaxe4.png
+Gurguth's Maul,2-Handed,Maul,"W, C",Unique,[Sword] 10-22,8,3,13.1,Stun 1,/wiki/images/f/f4/Maul.png
+Hammer of Corrosion,Light,Hammer,"W, C",Common,[Sword] 5-6 +[Poison] 4,11,6,10.6,,/wiki/images/9/9a/Weapon_hammer_corrosion.png
+Hammer of the White Priest,Light,Hammer,"W, R, C",Unique,[Sword] 6-8 +[Cold] 3,11,6,11.2,Holy 2 ♦ Silver,/wiki/images/b/b9/Silver_Hammer.png
+Hatchet,Off-Hand,Off Hand,"W, R",Common,[Sword] 3-3,10,0,3,,/wiki/images/b/b9/Weapon_hatchet.png
+Heavy Scimitar,2-Handed,Greatsword,W,Common,[Sword] 5-12,10,4,8.8,Vicious 1,/wiki/images/d/d8/Weapon_scimitar.png
+Hunter's Fang,Light,Dagger,"W, R, C",Common,[Sword] 3-7,11,6,5.8,Beast Slayer 1,/wiki/images/e/ea/Weapon_shortsword1.png
+Hunter's Machete,Light,Shortsword,"W, R",Unique,[Sword] 5-11 +[Shock] 4,12,6,14.9,Beast Slayer 2 ♦ Silver,/wiki/images/1/14/Weapon_dagger3.png
+Hunter's Mark,Ranged,Bow,"W, R",Common,[Sword] 2-6,11,5,4.6,Beast Slayer 2,/wiki/images/6/61/Weapon_bow.png
+Hunting Bow,Ranged,Bow,"W, R",Common,[Sword] 2-6,11,5,4.6,,/wiki/images/6/61/Weapon_bow.png
+Icicle,Light,Shortsword,"W, R",Unique,[Sword] 4-10 +[Cold] 5,12,6,14.8,Orc Slayer 1,/wiki/images/7/7f/Wpn_dagger_icicle.png
+Icy Claymore,2-Handed,Greatsword,W,Common,[Sword] 6-15 +[Cold] 4,9,4,13.4,,/wiki/images/7/7a/Weapon_greatsword_ice.png
+Icy Greatsword,2-Handed,Greatsword,W,Common,[Sword] 5-13 +[Cold] 4,9,4,12,,/wiki/images/7/7a/Weapon_greatsword_ice.png
+Icy Maul,2-Handed,Maul,"W, C",Common,[Sword] 6-14 +[Cold] 3,8,3,10.6,,/wiki/images/2/20/Maul2.png
+Icy Wand,Ranged,Wand,M,Unique,[Sword] 2-6 +[Cold] 2,11,6,6.9,,/wiki/images/5/56/Wand6.png
+Imperial Battlemage Wand,Ranged,Wand,M,Unique,[Fire] 5-8,11,6,7.4,Arcane 1,/wiki/images/c/cd/Wand7.png
+Imperial Trollhunter Bow,Ranged,Bow,"W, R",Uncommon,[Sword] 1-5 +[Fire] 2,15,5,7.8,,/wiki/images/6/6b/Weapon_bow_fire.png
+Invisible Fist,Ranged,Wand,M,Uncommon,[Sword] 5-9,11,6,8,,/wiki/images/7/7b/Wand1.png
+Ion Recurve,Ranged,Bow,"W, R",Uncommon,[Sword] 3-7 +[Shock] 6,15,5,16.8,EMP 1,/wiki/images/1/10/Powerbow.png
+Iron Axe,Hand,Axe,"W, R",Common,[Sword] 2-9,10,7,5.9,,/wiki/images/7/7c/Axe3.png
+Iron Dagger,Light,Dagger,All,Limited,[Sword] 1-5,13,7,4.2,,/wiki/images/1/1f/Weapon_dagger.png
+Iron Golem Fist,Hand,Mace,"W, C",Uncommon,[Sword] 8-11 +[Shock] 6,9,5,14.2,,/wiki/images/d/d7/Wpn_mace_golem.png
+Iron Greataxe,2-Handed,Greataxe,W,Common,[Sword] 3-12,9,6,7.2,,/wiki/images/c/c3/Battleaxe3.png
+Iron Greatsword,2-Handed,Greatsword,W,Common,[Sword] 4-11,9,4,7,,/wiki/images/b/bb/Weapon_greatsword.png
+Iron Hammer,Light,Hammer,"W, C",Common,[Sword] 4-5,11,6,5.1,,/wiki/images/3/36/Hammer3.png
+Iron Longsword,Hand,Longsword,"W, R",Common,[Sword] 4-8,10,6,6.3,,/wiki/images/9/96/Weapon_longsword.png
+Iron Mace,Hand,Mace,"W, C",Common,[Sword] 5-7,9,5,5.5,,/wiki/images/1/1e/Weapon_mace1.png
+Iron Maul,2-Handed,Maul,"W, C",Common,[Sword] 5-12,8,3,7,,/wiki/images/9/98/Maul3.png
+Iron Shortsword,Light,Shortsword,"W, R",Common,[Sword] 2-6,11,6,4.7,,/wiki/images/a/a3/Weapon_shortsword.png
+Jester's Bow,Ranged,Bow,"W, R",Unique,[Sword] 1-1,18,3,1.8,,/wiki/images/6/61/Weapon_bow.png
+Justice,Hand,Longsword,"W, R, C",Uncommon,[Sword] 5-9 +[Fire] 5,10,6,12.3,Holy 3 ♦ Silver,/wiki/images/7/76/Weapon_sword_long_flaming.png
+Lady's Eye,Ranged,Bow,"W, R",Unique,[Sword] 3-7 +[Cold] 4,11,5,10.1,,/wiki/images/c/cd/Weapon_bow_ice.png
+Lightning Axe,Hand,Axe,"W, R",Common,[Sword] 2-11 +[Shock] 2,10,7,9,,/wiki/images/f/fa/Axe2.png
+Lightning Blade,Hand,Longsword,"W, R",Uncommon,[Sword] 6-11 +[Shock] 5,10,6,13.8,,/wiki/images/3/3c/Weapon_longsword_shock.png
+Lightning Dirk,Off-Hand,Off Hand,"W, R",Uncommon,[Shock] 3,10,0,3,Stun 1,/wiki/images/0/02/Weapon_dirk_blue.png
+Lightning Falchion of Defense,Light,Shortsword,"W, R",Unique,[Sword] 5-9 +[Shock] 3,12,6,12.3,Vicious 2,/wiki/images/0/09/Weapon_falchion_b.png
+Lightning Greataxe,2-Handed,Greataxe,W,Common,[Sword] 3-15 +[Shock] 4,9,5,12.2,,/wiki/images/9/90/Battleaxe2.png
+Longsword of Falling Stars,Hand,Longsword,"W, R",Unique,[Sword] 5-10 +[Death] 4,10,6,11.8,Beast Slayer 2,/wiki/images/e/e3/Weapon_sword_long_magic3.png
+Lord's Fist,Hand,Mace,"W, C",Unique,[Sword] 8-10 +[Death] 4,9,7,12,Vicious 1,/wiki/images/0/0c/Skull_Mace.png
+Magma Axe,Hand,Axe,"W, R",Unique,[Sword] 3-12 +[Fire] 5,10,7,13.1,,/wiki/images/f/ff/Weapon_axe_fire.png
+Magma Dagger,Light,Dagger,"W, R",Uncommon,[Sword] 3-8 +[Fire] 5,13,7,14.1,,/wiki/images/8/82/Weapon_Dagger_Fire.png
+Magma Greatstaff,Ranged,Staff,M,Uncommon,[Fire] 8-15,9,6,10.8,Arcane 3,/wiki/images/5/5d/Greatstaff_red.png
+Magma Longsword,Hand,Longsword,"W, R",Limited,[Sword] 5-9 +[Fire] 5,10,6,12.3,,/wiki/images/7/76/Weapon_sword_long_flaming.png
+Magma Shortsword,Light,Shortsword,"W, R",Uncommon,[Sword] 3-8 +[Fire] 5,11,6,11.9,,/wiki/images/3/3d/Weapon_shortsword_fire.png
+Main Gauche,Off-Hand,Off Hand,R,Common,[Sword] 2-2,10,0,2,,/wiki/images/b/b1/Weapon_gauche_blue.png
+Main Gauche of Shadows,Off-Hand,Off Hand,R,Unique,[Death] 3,10,0,3,Slow 1,/wiki/images/9/94/Weapon_gauche_shadow.png
+Maul of Corrosion,2-Handed,Maul,"W, C",Uncommon,[Sword] 7-15 +[Poison] 4,8,3,12.2,,/wiki/images/e/e9/Weapon_maul_acid.png
+Maul of Desecration,2-Handed,Maul,"W, C",Unique,[Sword] 7-15 +[Death] 7,8,4,14.7,,/wiki/images/b/bc/Maul5.png
+Maul of Disease,2-Handed,Maul,"W, C",Unique,[Sword] 7-15 +[Poison] 5,8,3,13,Slow 1,/wiki/images/e/e9/Weapon_maul_acid.png
+Maul of Garrak,2-Handed,Maul,"W, C",Unique,[Sword] 8-16 +[Shock] 7,8,4,15.5,Silver,/wiki/images/8/8b/Wpn_maul_garack.png
+Maul of Terror,2-Handed,Maul,"W, C",Uncommon,[Sword] 13-26,8,4,16,Vicious 2 ♦ Banishing 3,/wiki/images/b/bc/Maul5.png
+Melporth's Sword,Hand,Longsword,"W, R",Unique,[Sword] 8-13 +[Poison] 7,10,6,17.9,Beast Slayer 3,/wiki/images/1/1c/Weapon_sword_long_magic.png
+Midnight,Hand,Mace,"W, C",Unique,[Sword] 10-12 +[Death] 7,9,5,16.4,Paralysis 1 ♦ Vicious 3,/wiki/images/8/82/Weapon_mace_death.png
+Minotaur Axe,2-Handed,Greataxe,W,Uncommon,[Sword] 3-21,9,5,11.5,,/wiki/images/8/81/Battleaxe1.png
+Mist Hunter's Bow,Ranged,Bow,"W, R",Unique,[Sword] 4-8 +[Shock] 5,11,4,12.3,,/wiki/images/e/e8/Weapon_bow_compos_light.png
+Mystic Bone Mace,Hand,Mace,"W, C",Uncommon,[Sword] 9-12,9,5,9.7,Beast Slayer 1 ♦ Stun 1,/wiki/images/d/d1/Weapon_mace_bone_b.png
+Nanocarbon Scalpel,Light,Dagger,All,Uncommon,[Sword] 7-13 +[Shock] 6,12,6,19.7,EMP 1,/wiki/images/4/45/Powerdagger.png
+Nanocarbon Sword,Hand,Longsword,"W, C",Uncommon,[Sword] 11-17 +[Shock] 8,10,6,22.5,EMP 2,/wiki/images/b/b6/Powerblade.png
+Oak Wand,Ranged,Wand,M,Common,[Sword] 3-6,11,6,5.2,,/wiki/images/7/7b/Wand1.png
+Oaken Bow,Ranged,Bow,"W, R",Common,[Sword] 3-8,11,4,6.3,,/wiki/images/6/61/Weapon_bow.png
+Orcslicer,Hand,Longsword,"W, R",Common,[Sword] 5-9,10,5,7.2,Orc Slayer 2,/wiki/images/d/de/Weapon_sword_long_magic2.png
+Paladin's Longsword,Hand,Longsword,"W, C",Unique,[Sword] 6-11 +[Holy] 6,10,6,14.8,Holy 2,/wiki/images/c/c1/Weapon_longsword_magic2.png
+Permafrost Bow,Ranged,Bow,"W, R",Unique,[Sword] 6-11 +[Cold] 4,10,5,12.8,Stun 1,/wiki/images/4/4d/Permafrost_Bow.png
+Permafrost Greataxe,2-Handed,Greataxe,W,Unique,[Sword] 3-15 +[Cold] 6,9,5,14,Paralysis 1,/wiki/images/9/97/Weapon_greataxe_pfrost.png
+Phantom Longsword,Hand,Longsword,"W, R",Unique,[Sword] 6-11 +[Shock] 6,10,6,14.8,Banishing 2,/wiki/images/e/e3/Weapon_sword_long_magic3.png
+Pneumatic Mallet,2-Handed,Maul,"W, C",Uncommon,[Sword] 12-22 +[Shock] 10,8,4,22,EMP 3,/wiki/images/c/c2/Powermaul.png
+Poisonous Bow,Ranged,Bow,R,Common,[Sword] 2-6 +[Poison] 2,11,5,6.8,,/wiki/images/8/82/Weapon_bow_toxic.png
+Poisonous Longbow,Ranged,Bow,R,Uncommon,[Sword] 4-8 +[Poison] 4,10,5,10.2,Vicious 1,/wiki/images/f/f6/Weapon_bow_toxic2.png
+Polarized Staff,Ranged,Staff,M,Unique,[Sword] 4-9 +[Shock] 5,9,5,10.6,Stun 1 ♦ Arcane 1,/wiki/images/4/42/Greatstaff_blue.png
+Primal Icicle,Light,Shortsword,"W, R",Uncommon,[Sword] 4-10 +[Cold] 6,12,6,16,Orc Slayer 2,/wiki/images/7/7f/Wpn_dagger_icicle.png
+Queen's Heart,Light,Dagger,R,Unique,[Sword] 6-12 +[Cold] 6,13,7,20.1,Banishing 2,/wiki/images/a/a6/Weapon_dagger_ice.png
+Rancor,2-Handed,Greatsword,W,Unique,[Sword] 7-16 +[Fire] 7,9,4,17,Vicious 1,/wiki/images/b/bb/Weapon_greatsword.png
+Righteousness,Hand,Longsword,"W, R, C",Uncommon,[Sword] 9-10,10,7,9.7,Holy 2 ♦ Banishing 3,/wiki/images/1/1c/Weapon_sword_long_magic.png
+Rod of Incineration,Ranged,Wand,M,Limited,[Fire] 6-11,11,6,9.7,Arcane 2,/wiki/images/c/cd/Wand7.png
+Sacrificial Dagger,Light,Dagger,All,Common,[Sword] 2-6,13,7,5.6,Holy 1 ♦ Banishing 1,/wiki/images/2/2c/Weapon_dagger2.png
+Scepter of the Underworld,Ranged,Wand,M,Unique,[Sword] 5-12 +[Death] 6,11,7,16.5,Arcane 4,/wiki/images/0/09/Staff5.png
+Scimitar of Flames,2-Handed,Greatsword,W,Unique,[Sword] 5-12 +[Fire] 2,10,4,10.8,Vicious 1,/wiki/images/a/ae/Weapon_scimitar_y.png
+Scimitar of the Wolf,2-Handed,Greatsword,W,Unique,[Sword] 7-15 +[Death] 5,10,4,16.3,Vicious 2,/wiki/images/a/ae/Weapon_scimitar_y.png
+Screaming Mace,Hand,Mace,"W, C",Common,[Sword] 7-9 +[Death] 4,9,5,11,Vicious 1,/wiki/images/0/0c/Skull_Mace.png
+Shadow Blade,Light,Shortsword,"W, R",Unique,[Sword] 5-11 +[Death] 6,13,7,18.8,Paralysis 1 ♦ Vicious 3,/wiki/images/c/c8/Weapon_dagger_death.png
+Sharp Orc Knife,Light,Dagger,R,Common,[Sword] 3-6,12,6,5.7,Vicious 1,/wiki/images/1/14/Weapon_dagger3.png
+Shock Dagger,Light,Dagger,All,Common,[Sword] 1-3 +[Shock] 2,13,7,5.4,,/wiki/images/0/0e/Weapon_dagger_shock.png
+Short Bow,Ranged,Bow,"W, R",Common,[Sword] 1-4,12,6,3.2,,/wiki/images/3/3c/Weapon_shortbow.png
+Shortsword of Frost,Light,Shortsword,"W, R",Common,[Sword] 2-5 +[Cold] 2,12,6,6.8,,/wiki/images/9/9e/Weapon_shortsword_ice.png
+Silver Bow,Ranged,Bow,"W, R",Common,[Sword] 2-6,11,5,4.6,Silver,/wiki/images/3/3c/Weapon_shortbow.png
+Silver Bow of Malan,Ranged,Bow,"W, R",Unique,[Sword] 5-10 +[Holy] 4,10,5,11.8,Holy 3 ♦ Silver ♦ Banishing 3,/wiki/images/e/e8/Weapon_bow_compos_light.png
+Silver Dagger,Light,Dagger,All,Common,[Sword] 2-6,13,7,5.6,Silver,/wiki/images/9/95/Weapon_dagger_white.png
+Silver Greatsword,2-Handed,Greatsword,W,Common,[Sword] 5-13,9,4,8.4,Silver,/wiki/images/b/bb/Weapon_greatsword_white.png
+Silver Longsword,Hand,Longsword,"W, R",Common,[Sword] 5-9,10,6,7.3,Silver,/wiki/images/e/ee/Weapon_longsword_white.png
+Silver Mace,Hand,Mace,"W, C",Common,[Sword] 6-8,9,5,6.5,Silver,/wiki/images/d/d9/Weapon_mace_white.png
+Silver Shortsword,Light,Shortsword,"W, R",Common,[Sword] 3-7,11,6,5.8,Silver,/wiki/images/5/58/Weapon_shortsword_white.png
+Silvery Mace,Hand,Mace,"W, C",Unique,[Sword] 6-8,9,5,6.5,Holy 1 ♦ Silver ♦ Banishing 2,/wiki/images/d/d9/Weapon_mace_white.png
+Sir Mason's Longsword,Hand,Longsword,"W, R",Unique,[Sword] 5-10,10,6,7.8,,/wiki/images/0/01/Weapon_longsword2.png
+Skeletal Bow,Ranged,Bow,"W, R",Common,[Sword] 3-7 +[Death] 4,11,6,10.2,,/wiki/images/5/5d/Skeletal_Bow1.png
+Sonnet,Light,Shortsword,"W, R",Unique,[Sword] 3-8 +[Holy] 5,12,6,13,,/wiki/images/8/8e/Sonnet_ico.png
+Soul Cleaver,Hand,Axe,"W, R",Uncommon,[Sword] 3-12 +[Death] 4,10,7,12.1,,/wiki/images/e/e9/Wpn_axe_soul.png
+Soul Drinker,2-Handed,Greataxe,W,Uncommon,[Sword] 4-19 +[Death] 6,9,5,16.3,Beast Slayer 2,/wiki/images/8/8c/Battleaxe4.png
+Spirit Breaker,Light,Hammer,"W, R, C",Unique,[Sword] 6-9 +[Holy] 4,11,6,12.9,Holy 2 ♦ Banishing 2,/wiki/images/f/fb/Hammer4.png
+Spirit Cleaver,2-Handed,Greatsword,W,Unique,[Sword] 7-16 +[Holy] 5,9,4,15.2,Holy 3 ♦ Banishing 3,/wiki/images/2/26/Zweihander4.png
+Staff of Force,Ranged,Staff,M,Common,[Sword] 5-8,9,5,6,,/wiki/images/7/70/Staff0.png
+Staff of Impact,Ranged,Staff,M,Unique,[Sword] 11-19,9,6,14,Stun 1 ♦ Arcane 5,/wiki/images/b/b8/Greatstaff_green.png
+Staff of Mighty Missiles,Ranged,Staff,M,Common,[Sword] 7-12,9,5,8.8,,/wiki/images/b/bf/Staff1.png
+Staff of Storms,Ranged,Staff,M,Limited,[Sword] 4-9 +[Shock] 3,9,5,8.8,Stun 1,/wiki/images/b/bf/Staff1.png
+Staff of the Arcanist,Ranged,Staff,M,Uncommon,[Sword] 8-14,9,5,10.2,Arcane 3,/wiki/images/6/67/Wand11.png
+Staff of the Dead Kings,Ranged,Staff,M,Unique,[Death] 9-19,9,6,13.2,Arcane 5,/wiki/images/b/ba/Greatstaff_death.png
+Staff of the Seas,Ranged,Staff,M,Limited,[Cold] 6-9,9,5,6.9,Stun 1 ♦ Arcane 2,/wiki/images/0/04/Greatstaff_white.png
+Staff of the Traveller,Ranged,Staff,M,Uncommon,[Sword] 5-10 +[Shock] 8,9,5,14.2,Banishing 4 ♦ Arcane 2,/wiki/images/4/42/Greatstaff_blue.png
+Staff of Wonders,Ranged,Staff,M,Unique,[Sword] 5-10 +[Holy] 5,9,5,11.5,Banishing 3 ♦ Arcane 1,/wiki/images/4/4e/Staff3.png
+Steel Axe,Hand,Axe,"W, R",Common,[Sword] 2-11,10,7,7,,/wiki/images/3/36/Axe1.png
+Steel Dagger,Light,Dagger,All,Common,[Sword] 2-6,13,7,5.6,,/wiki/images/8/82/Weapon_dagger1.png
+Steel Greataxe,2-Handed,Greataxe,W,Common,[Sword] 3-15,9,5,8.6,,/wiki/images/8/81/Battleaxe1.png
+Steel Greatsword,2-Handed,Greatsword,W,Common,[Sword] 5-13,9,4,8.4,,/wiki/images/b/bb/Weapon_greatsword.png
+Steel Hammer,Light,Hammer,"W, C",Common,[Sword] 5-6,11,6,6.2,,/wiki/images/7/79/Hammer1.png
+Steel Longsword,Hand,Longsword,"W, R",Common,[Sword] 5-9,10,6,7.3,,/wiki/images/f/f3/Weapon_longsword1.png
+Steel Mace,Hand,Mace,"W, C",Common,[Sword] 6-8,9,5,6.5,,/wiki/images/5/55/Weapon_mace2.png
+Steel Maul,2-Handed,Maul,"W, C",Common,[Sword] 6-14,8,3,8.2,,/wiki/images/4/41/Maul1.png
+Steel Shortsword,Light,Shortsword,"W, R",Common,[Sword] 3-7,11,6,5.8,,/wiki/images/e/ea/Weapon_shortsword1.png
+Stiletto,Light,Dagger,R,Unique,[Sword] 3-8 +[Death] 5,13,7,14.1,Vicious 2,/wiki/images/8/82/Wpn_dagger_stiletto.png
+Sword of Flames,Hand,Longsword,"W, R",Uncommon,[Sword] 4-8 +[Fire] 3,10,5,9.2,,/wiki/images/7/76/Weapon_sword_long_flaming.png
+Sword of Shock,Hand,Longsword,"W, R",Common,[Sword] 4-8 +[Shock] 3,10,6,9.3,,/wiki/images/3/3c/Weapon_longsword_shock.png
+Tarand's Hatchet,Off-Hand,Off Hand,"W, R",Unique,[Fire] 4,10,0,4,Slow 1,/wiki/images/b/b5/Weapon_hatchet_fire.png
+Tesla Emitter,Ranged,Wand,M,Uncommon,[Shock] 7-12,11,7,10.9,EMP 2 ♦ Arcane 2,/wiki/images/c/c1/Tesla_emitter.png
+Tesla Rod,Ranged,Staff,M,Uncommon,[Shock] 8-16,9,5,11.2,EMP 3 ♦ Arcane 3,/wiki/images/9/90/Tesla_rod.png
+The Corruptor,Ranged,Staff,M,Unique,[Sword] 6-11 +[Poison] 6,9,5,13.3,Arcane 3,/wiki/images/b/bf/Staff1.png
+Thief's Blade,Light,Shortsword,R,Common,[Sword] 4-7,11,7,6.3,,/wiki/images/1/14/Weapon_dagger3.png
+Thunder,Light,Hammer,"W, C",Common,[Sword] 5-6 +[Shock] 3,11,6,9.5,Banishing 2,/wiki/images/7/79/Hammer1.png
+Toecutter,Off-Hand,Off Hand,"W, R",Uncommon,[Sword] 3-3,10,0,3,Slow 1,/wiki/images/6/6f/Weapon_hatchet_blue.png
+Tolassian Greatstaff,Ranged,Staff,M,Uncommon,[Death] 6-10,9,5,7.4,Arcane 2,/wiki/images/b/ba/Greatstaff_death.png
+Tolassian Wand,Ranged,Wand,M,Uncommon,[Sword] 3-6 +[Death] 3,11,6,8.5,,/wiki/images/c/c8/Wand3.png
+Troll Cleaver,Light,Dagger,R,Unique,[Sword] 5-11 +[Poison] 3,12,6,13.7,Vicious 1,/wiki/images/9/93/Weapon_cleaver.png
+Vindicator,2-Handed,Maul,"W, C",Unique,[Sword] 7-15 +[Holy] 5,8,4,13.1,Holy 1 ♦ Banishing 1,/wiki/images/b/bb/Vindicator.png
+Vitriolic Staff,Ranged,Staff,M,Unique,[Sword] 3-8 +[Poison] 2,9,5,7,,/wiki/images/1/14/Staff2.png
+Vulcan Bow,Ranged,Bow,"W, R",Common,[Sword] 2-6 +[Fire] 2,11,6,6.9,,/wiki/images/6/6b/Weapon_bow_fire.png
+Vulcan Dagger,Light,Dagger,All,Common,[Sword] 1-3 +[Fire] 2,13,7,5.4,,/wiki/images/e/e0/Weapon_dagger5.png
+Vulcan Maul,2-Handed,Maul,"W, C",Common,[Sword] 6-14 +[Fire] 2,8,3,9.8,,/wiki/images/9/98/Maul3.png
+Wand of Power,Ranged,Wand,M,Unique,[Sword] 9-17,11,8,15.1,Stun 1 ♦ Arcane 5,/wiki/images/8/84/Wand5.png
+Wand of Scorching,Ranged,Wand,M,Common,[Fire] 4-6,11,5,5.7,Arcane 1,/wiki/images/c/cd/Wand7.png
+Wand of Storms,Ranged,Wand,M,Limited,[Sword] 3-6 +[Shock] 4,11,6,9.6,Stun 2,/wiki/images/0/04/Wand4.png
+Wand of the Arcanist,Ranged,Wand,M,Uncommon,[Sword] 7-12,11,6,10.8,Arcane 3,/wiki/images/6/6a/Wand10.png
+Wild Thunder,2-Handed,Greatsword,W,Unique,[Sword] 6-15 +[Shock] 5,9,4,14.3,,/wiki/images/7/72/Weapon_greatsw_bl.png
+Willow Wand,Ranged,Wand,M,Common,[Sword] 2-5,11,6,4.1,,/wiki/images/c/c1/Wand0.png
+Winter Stone,Hand,Mace,"W, C",Uncommon,[Sword] 6-8 +[Cold] 2,9,4,8.2,,/wiki/images/d/d9/Weapon_mace_white.png
+Winter Wail,Hand,Longsword,"W, R",Unique,[Sword] 5-10 +[Cold] 5,10,6,12.8,,/wiki/images/6/60/Weapon_longsword_ice.png
+Wyrmslayer,Ranged,Bow,"W, R",Unique,[Sword] 1-5 +[Fire] 2,15,5,7.8,Beast Slayer 2 ♦ Vicious 2,/wiki/images/6/6b/Weapon_bow_fire.png

@@ -31,6 +31,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "InputState.h"
 #include "Menu.h"
 #include "MenuCharacter.h"
+#include "MenuDevKit.h"
+#include "MenuManager.h"
 #include "MessageEngine.h"
 #include "SharedGameResources.h"
 #include "SharedResources.h"
@@ -877,9 +879,11 @@ bool MenuCharacter::checkSkillPoints() {
 		spent += pc->stats.primary[i] - pc->stats.primary_starting[i];
 	}
 
-	skill_points = ((pc->stats.level - 1) * pc->stats.stat_points_per_level) - spent;
+	// dev kit (test room): "infinite points" keeps a big pool available
+	int dev_bonus = (menu->devkit && menu->devkit->infinite_points) ? 999 : 0;
+	skill_points = ((pc->stats.level - 1) * pc->stats.stat_points_per_level) - spent + dev_bonus;
 
-	return (spent < ((pc->stats.level - 1) * pc->stats.stat_points_per_level) && spent < pc->stats.max_spendable_stat_points);
+	return (spent < ((pc->stats.level - 1) * pc->stats.stat_points_per_level) + dev_bonus && (dev_bonus || spent < pc->stats.max_spendable_stat_points));
 }
 
 void MenuCharacter::parseShowStat(FileParser& infile) {

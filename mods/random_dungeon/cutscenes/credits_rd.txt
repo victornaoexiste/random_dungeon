@@ -1,0 +1,39 @@
+[vscroll]
+image=images/menus/df_logo.png
+separator=16
+
+text=Random Dungeon
+text=by RedByte
+separator=32
+
+text=Game Design, Programming and Content
+separator=16
+text=RedByte
+separator=32
+
+text=Built on the Flare engine
+separator=16
+text=flarerpg.org
+text=Engine licensed under the GNU GPL v3
+text=Source code: github.com/victornaoexiste/random_dungeon
+separator=32
+
+text=Art
+separator=16
+text=Flare art and animations: CC-BY-SA 3.0
+text=(artists listed below)
+separator=32
+
+text=Music
+separator=16
+text="Anguish" by Kevin MacLeod (incompetech.com)
+text=Licensed under Creative Commons: By Attribution 3.0
+text=Flare soundtrack: artists listed below
+separator=32
+
+text=Fonts
+separator=16
+text=Jersey 10 and Jacquard 12
+text=by The Soft Type Project Authors
+text=SIL Open Font License 1.1
+separator=48

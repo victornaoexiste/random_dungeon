@@ -77,6 +77,7 @@ public:
 	bool isPaused();
 	void logic();
 	void render();
+	void selftestStateShots();
 	void showFPS(float fps);
 	void saveUserSettings();
 	bool done;

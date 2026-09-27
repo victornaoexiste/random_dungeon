@@ -2,6 +2,7 @@
 
 #include "Utils.h"
 
+#include <algorithm>
 #include <cstdio>
 #include <cstring>
 
@@ -27,12 +28,131 @@ namespace {
 		memcpy(dst, src.data(), n);
 		dst[n] = '\0';
 	}
+
+	std::string fieldToString(const char *src, size_t len) {
+		return std::string(src, strnlen(src, len));
+	}
+
+	// LAN discovery wire format (plain UDP on DISCOVERY_PORT, not ENet)
+	const char DISCOVERY_QUERY[4] = {'R', 'D', 'Q', '1'};
+	struct DiscoveryReply {
+		char magic[4]; // "RDH1"
+		uint32_t protocol;
+		uint16_t port;
+		uint16_t players;
+		char name[32];
+		char map[64];
+	};
+
+	// ENet peer timeouts: notice a vanished peer in seconds, not ~30s
+	void setPeerTimeouts(ENetPeer *peer) {
+		enet_peer_timeout(peer, 0, 4000, 10000);
+	}
+
+	const uint16_t MAX_ENEMY_STATES_PER_PACKET = 28; // 1 + 2 + 28 * 44 bytes, under a typical MTU
+}
+
+ENetPacket* NetManager::makePacket(uint8_t type, const void *data, size_t len, uint32_t flags) {
+	ENetPacket *packet = enet_packet_create(NULL, len + 1, flags);
+	packet->data[0] = type;
+	memcpy(packet->data + 1, data, len);
+	return packet;
+}
+
+bool NetManager::isMsg(const ENetPacket *packet, uint8_t type, size_t len) {
+	return packet->dataLength == len + 1 && packet->data[0] == type;
+}
+
+void NetManager::pushSnap(std::deque<NetSnap>& hist, float x, float y) {
+	NetSnap s;
+	s.t = enet_time_get();
+	s.x = x;
+	s.y = y;
+	hist.push_back(s);
+	while (hist.size() > 24)
+		hist.pop_front();
+}
+
+/**
+ * Position INTERP_DELAY_MS in the past, linearly interpolated between the two
+ * samples around that moment. Holds the newest sample if we ran out (no
+ * guessing ahead), and jumps straight to the later sample across a big gap
+ * (a teleport shouldn't be drawn as a slide across the map).
+ */
+bool NetManager::sampleHistory(const std::deque<NetSnap>& hist, float& x, float& y) {
+	if (hist.empty())
+		return false;
+
+	const uint32_t now = enet_time_get();
+	const uint32_t render_t = now - INTERP_DELAY_MS;
+
+	const NetSnap& newest = hist.back();
+	if (static_cast<int32_t>(render_t - newest.t) >= 0 || hist.size() == 1) {
+		x = newest.x;
+		y = newest.y;
+		return true;
+	}
+	if (static_cast<int32_t>(render_t - hist.front().t) <= 0) {
+		x = hist.front().x;
+		y = hist.front().y;
+		return true;
+	}
+
+	for (size_t i = hist.size() - 1; i > 0; --i) {
+		const NetSnap& a = hist[i - 1];
+		const NetSnap& b = hist[i];
+		if (static_cast<int32_t>(render_t - a.t) >= 0) {
+			float dx = b.x - a.x;
+			float dy = b.y - a.y;
+			if (dx * dx + dy * dy > 16.0f || b.t == a.t) {
+				x = b.x;
+				y = b.y;
+				return true;
+			}
+			float f = static_cast<float>(render_t - a.t) / static_cast<float>(b.t - a.t);
+			x = a.x + dx * f;
+			y = a.y + dy * f;
+			return true;
+		}
+	}
+	x = newest.x;
+	y = newest.y;
+	return true;
+}
+
+bool NetManager::samplePlayerPos(uint32_t player_id, float& x, float& y) const {
+	std::map<uint32_t, std::deque<NetSnap> >::const_iterator it = player_history.find(player_id);
+	return it != player_history.end() && sampleHistory(it->second, x, y);
+}
+
+bool NetManager::sampleEnemyPos(uint32_t net_id, float& x, float& y) const {
+	std::map<uint32_t, std::deque<NetSnap> >::const_iterator it = enemy_history.find(net_id);
+	return it != enemy_history.end() && sampleHistory(it->second, x, y);
+}
+
+bool NetManager::takeLostConnection() {
+	if (!lost_connection)
+		return false;
+	lost_connection = false;
+	return true;
+}
+
+void NetManager::setLocalInfo(const std::string& name, const std::string& map) {
+	local_name = name;
+	local_map = map;
 }
 
 NetManager::NetManager()
 	: role(ROLE_NONE)
+	, pvp(false)
+	, lost_connection(false)
+	, discovery_socket(ENET_SOCKET_NULL)
+	, server_port(0)
 	, host(NULL)
-	, server_peer(NULL) {
+	, server_peer(NULL)
+	, has_host_map(false)
+	, map_change_pending(false)
+{
 }
 
 NetManager::~NetManager() {
@@ -59,7 +179,24 @@ bool NetManager::startServer(uint16_t port) {
 	}
 
 	role = ROLE_SERVER;
-	Utils::logInfo("NetManager: server listening on port %u", static_cast<unsigned>(port));
+	Utils::logInfo("NetManager: server listening on port %u (protocol %u)", static_cast<unsigned>(port), static_cast<unsigned>(PROTOCOL_VERSION));
+
+	// LAN discovery responder; optional (e.g. a second host on this machine
+	// can't bind it -- it just won't show up in searches)
+	discovery_socket = enet_socket_create(ENET_SOCKET_TYPE_DATAGRAM);
+	if (discovery_socket != ENET_SOCKET_NULL) {
+		ENetAddress daddr;
+		daddr.host = ENET_HOST_ANY;
+		daddr.port = DISCOVERY_PORT;
+		enet_socket_set_option(discovery_socket, ENET_SOCKOPT_NONBLOCK, 1);
+		enet_socket_set_option(discovery_socket, ENET_SOCKOPT_REUSEADDR, 1);
+		if (enet_socket_bind(discovery_socket, &daddr) != 0) {
+			Utils::logInfo("NetManager: LAN discovery port %u busy, this host won't be listed", static_cast<unsigned>(DISCOVERY_PORT));
+			enet_socket_destroy(discovery_socket);
+			discovery_socket = ENET_SOCKET_NULL;
+		}
+	}
+	server_port = port;
 	return true;
 }
 
@@ -83,7 +220,9 @@ bool NetManager::connectToServer(const std::string& host_str, uint16_t port, uin
 	}
 	address.port = port;
 
-	server_peer = enet_host_connect(host, &address, 6, 0);
+	last_error.clear();
+	lost_connection = false;
+	server_peer = enet_host_connect(host, &address, 6, PROTOCOL_VERSION);
 	if (!server_peer) {
 		Utils::logError("NetManager: no available peers for connection attempt");
 		return false;
@@ -91,21 +230,58 @@ bool NetManager::connectToServer(const std::string& host_str, uint16_t port, uin
 
 	ENetEvent event;
 	if (enet_host_service(host, &event, timeout_ms) > 0 && event.type == ENET_EVENT_TYPE_CONNECT) {
+		// a host running another protocol version accepts the connection and
+		// then drops it right away with DISCONNECT_VERSION: give it a moment.
+		// Anything else arriving meanwhile (the host's backfill: appearance,
+		// map...) is kept for pollGame(), not lost.
+		const uint32_t wait_start = enet_time_get();
+		while (enet_time_get() - wait_start < 300) {
+			if (enet_host_service(host, &event, 20) <= 0)
+				continue;
+			if (event.type == ENET_EVENT_TYPE_DISCONNECT) {
+				last_error = (event.data == DISCONNECT_VERSION) ? "version" : "refused";
+				Utils::logError("NetManager: %s:%u refused the connection (%s)", host_str.c_str(), static_cast<unsigned>(port), last_error.c_str());
+				for (size_t i = 0; i < early_events.size(); ++i)
+					enet_packet_destroy(early_events[i].packet);
+				early_events.clear();
+				server_peer = NULL;
+				enet_host_destroy(host);
+				host = NULL;
+				enet_deinitialize();
+				return false;
+			}
+			if (event.type == ENET_EVENT_TYPE_RECEIVE)
+				early_events.push_back(event);
+		}
+		setPeerTimeouts(server_peer);
 		role = ROLE_CLIENT;
-		Utils::logInfo("NetManager: connected to %s:%u", host_str.c_str(), static_cast<unsigned>(port));
+		Utils::logInfo("NetManager: connected to %s:%u (protocol %u)", host_str.c_str(), static_cast<unsigned>(port), static_cast<unsigned>(PROTOCOL_VERSION));
 		return true;
 	}
 
 	enet_peer_reset(server_peer);
 	server_peer = NULL;
+	enet_host_destroy(host);
+	host = NULL;
+	enet_deinitialize();
+	last_error = "timeout";
 	Utils::logError("NetManager: connection to %s:%u failed/timed out", host_str.c_str(), static_cast<unsigned>(port));
 	return false;
 }
 
 void NetManager::shutdown() {
 	if (server_peer) {
-		enet_peer_disconnect_now(server_peer, 0);
+		enet_peer_disconnect_now(server_peer, DISCONNECT_NORMAL);
 		server_peer = NULL;
+	}
+	if (host && role == ROLE_SERVER) {
+		// tell clients right away instead of letting them time out
+		for (std::map<uint32_t, ENetPeer*>::iterator it = server_peers.begin(); it != server_peers.end(); ++it)
+			enet_peer_disconnect_now(it->second, DISCONNECT_HOST_LEFT);
+	}
+	if (discovery_socket != ENET_SOCKET_NULL) {
+		enet_socket_destroy(discovery_socket);
+		discovery_socket = ENET_SOCKET_NULL;
 	}
 	if (host) {
 		enet_host_destroy(host);
@@ -115,6 +291,11 @@ void NetManager::shutdown() {
 		enet_deinitialize();
 	}
 	role = ROLE_NONE;
+	pvp = false;
+	has_host_map = false;
+	map_change_pending = false;
+	host_map.clear();
+	pending_player_hits.clear();
 	server_peers.clear();
 	remote_positions.clear();
 	remote_appearances.clear();
@@ -124,6 +305,12 @@ void NetManager::shutdown() {
 	cached_enemy_spawns.clear();
 	remote_enemies.clear();
 	pending_enemy_hits.clear();
+	player_history.clear();
+	enemy_history.clear();
+	enemy_state_queue.clear();
+	for (size_t i = 0; i < early_events.size(); ++i)
+		enet_packet_destroy(early_events[i].packet);
+	early_events.clear();
 }
 
 void NetManager::runServerTestLoop() {
@@ -158,7 +345,7 @@ void NetManager::runServerTestLoop() {
 		pkt.x = 100.0f + 50.0f * static_cast<float>(tick % 100) / 100.0f;
 		pkt.y = 100.0f;
 
-		ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), 0); // unreliable, matches real movement sync later
+		ENetPacket *packet = makePacket(MSG_TICK, &pkt, sizeof(pkt), 0); // unreliable, matches real movement sync later
 		enet_host_broadcast(host, 0, packet);
 
 		if (tick % 20 == 0) {
@@ -182,9 +369,9 @@ void NetManager::runClientTestLoop() {
 		while (enet_host_service(host, &event, 100) > 0) {
 			switch (event.type) {
 				case ENET_EVENT_TYPE_RECEIVE: {
-					if (event.packet->dataLength == sizeof(TickPacket)) {
+					if (isMsg(event.packet, MSG_TICK, sizeof(TickPacket))) {
 						TickPacket pkt;
-						memcpy(&pkt, event.packet->data, sizeof(TickPacket));
+						memcpy(&pkt, event.packet->data + 1, sizeof(TickPacket));
 						received++;
 						if (received % 20 == 0) {
 							Utils::logInfo("NetManager: client received tick=%u pos=(%.1f,%.1f)", static_cast<unsigned>(pkt.tick), static_cast<double>(pkt.x), static_cast<double>(pkt.y));
@@ -207,11 +394,27 @@ void NetManager::pollGame() {
 	if (!host)
 		return;
 
+	if (role == ROLE_SERVER)
+		pollDiscovery();
+
 	ENetEvent event;
-	while (enet_host_service(host, &event, 0) > 0) {
+	while (host) {
+		if (!early_events.empty()) {
+			event = early_events.front();
+			early_events.pop_front();
+		}
+		else if (enet_host_service(host, &event, 0) <= 0) {
+			break;
+		}
 		switch (event.type) {
 			case ENET_EVENT_TYPE_CONNECT:
 				if (role == ROLE_SERVER) {
+					if (event.data != PROTOCOL_VERSION) {
+						Utils::logInfo("NetManager: refused a player with protocol %u (ours is %u)", static_cast<unsigned>(event.data), static_cast<unsigned>(PROTOCOL_VERSION));
+						enet_peer_disconnect_later(event.peer, DISCONNECT_VERSION);
+						break;
+					}
+					setPeerTimeouts(event.peer);
 					server_peers[event.peer->connectID] = event.peer;
 					Utils::logInfo("NetManager: player %u connected (%u total)", static_cast<unsigned>(event.peer->connectID), static_cast<unsigned>(server_peers.size()));
 
@@ -221,13 +424,19 @@ void NetManager::pollGame() {
 					// joins after someone else already sent theirs would
 					// never see them.
 					for (std::map<uint32_t, AppearancePacket>::iterator it = cached_appearances.begin(); it != cached_appearances.end(); ++it) {
-						ENetPacket *out = enet_packet_create(&it->second, sizeof(AppearancePacket), ENET_PACKET_FLAG_RELIABLE);
+						ENetPacket *out = makePacket(MSG_APPEARANCE, &it->second, sizeof(AppearancePacket), ENET_PACKET_FLAG_RELIABLE);
+						enet_peer_send(event.peer, 1, out);
+					}
+
+					// Backfill: the map the party is on, so the new client follows us there.
+					if (has_host_map) {
+						ENetPacket *out = makePacket(MSG_MAP, &host_map_packet, sizeof(MapPacket), ENET_PACKET_FLAG_RELIABLE);
 						enet_peer_send(event.peer, 1, out);
 					}
 
 					// Backfill: every networked enemy spawned so far, same reasoning.
 					for (std::map<uint32_t, EnemySpawnPacket>::iterator it = cached_enemy_spawns.begin(); it != cached_enemy_spawns.end(); ++it) {
-						ENetPacket *out = enet_packet_create(&it->second, sizeof(EnemySpawnPacket), ENET_PACKET_FLAG_RELIABLE);
+						ENetPacket *out = makePacket(MSG_ENEMY_SPAWN, &it->second, sizeof(EnemySpawnPacket), ENET_PACKET_FLAG_RELIABLE);
 						enet_peer_send(event.peer, 3, out);
 					}
 				}
@@ -236,22 +445,20 @@ void NetManager::pollGame() {
 				}
 				break;
 			case ENET_EVENT_TYPE_RECEIVE:
-				if (event.packet->dataLength == sizeof(TickPacket)) {
+				if (isMsg(event.packet, MSG_TICK, sizeof(TickPacket))) {
 					TickPacket pkt;
-					memcpy(&pkt, event.packet->data, sizeof(TickPacket));
+					memcpy(&pkt, event.packet->data + 1, sizeof(TickPacket));
 
 					if (role == ROLE_SERVER) {
 						// The sender is identified by the ENet connection itself,
 						// not by whatever it put in pkt.player_id.
 						uint32_t sender_id = event.peer->connectID;
-						remote_positions[sender_id] = NetPos(pkt.x, pkt.y);
+						remote_positions[sender_id] = NetPos(pkt);
+						pushSnap(player_history[sender_id], pkt.x, pkt.y);
 
 						// Relay to everyone else, tagged with the true sender id.
-						TickPacket relay;
+						TickPacket relay = pkt;
 						relay.player_id = sender_id;
-						relay.tick = pkt.tick;
-						relay.x = pkt.x;
-						relay.y = pkt.y;
 						for (std::map<uint32_t, ENetPeer*>::iterator it = server_peers.begin(); it != server_peers.end(); ++it) {
 							if (it->first == sender_id)
 								continue;
@@ -263,28 +470,33 @@ void NetManager::pollGame() {
 							// a single ordered one. Cost the same, since we already
 							// don't care about ordering, just about not losing updates
 							// to unrelated cross-talk.
-							ENetPacket *out = enet_packet_create(&relay, sizeof(relay), ENET_PACKET_FLAG_UNSEQUENCED);
+							ENetPacket *out = makePacket(MSG_TICK, &relay, sizeof(relay), ENET_PACKET_FLAG_UNSEQUENCED);
 							enet_peer_send(it->second, 0, out);
 						}
 					}
 					else {
-						remote_positions[pkt.player_id] = NetPos(pkt.x, pkt.y);
+						remote_positions[pkt.player_id] = NetPos(pkt);
+						pushSnap(player_history[pkt.player_id], pkt.x, pkt.y);
 					}
 				}
-				else if (event.packet->dataLength == sizeof(AppearancePacket)) {
+				else if (isMsg(event.packet, MSG_APPEARANCE, sizeof(AppearancePacket))) {
 					AppearancePacket pkt;
-					memcpy(&pkt, event.packet->data, sizeof(AppearancePacket));
+					memcpy(&pkt, event.packet->data + 1, sizeof(AppearancePacket));
 
 					uint32_t owner_id = (role == ROLE_SERVER) ? event.peer->connectID : pkt.player_id;
 
 					PlayerAppearance app;
+					app.name = fieldToString(pkt.name, AppearancePacket::FIELD_LEN);
+					app.color_skin = fieldToString(pkt.colors[0], sizeof(pkt.colors[0]));
+					app.color_hair = fieldToString(pkt.colors[1], sizeof(pkt.colors[1]));
+					app.color_cloth = fieldToString(pkt.colors[2], sizeof(pkt.colors[2]));
 					app.gfx_base.assign(pkt.gfx_base, strnlen(pkt.gfx_base, AppearancePacket::FIELD_LEN));
 					app.gfx_head.assign(pkt.gfx_head, strnlen(pkt.gfx_head, AppearancePacket::FIELD_LEN));
 					for (size_t i = 0; i < AppearancePacket::NUM_LAYERS; i++) {
 						app.layers.push_back(std::string(pkt.layers[i], strnlen(pkt.layers[i], AppearancePacket::FIELD_LEN)));
 					}
 					remote_appearances[owner_id] = app;
-					Utils::logInfo("NetManager: received appearance for player %u (gfx_base=%s)", static_cast<unsigned>(owner_id), app.gfx_base.c_str());
+					Utils::logInfo("NetManager: received appearance for player %u '%s' (gfx_base=%s)", static_cast<unsigned>(owner_id), app.name.c_str(), app.gfx_base.c_str());
 
 					if (role == ROLE_SERVER) {
 						AppearancePacket cached = pkt;
@@ -293,9 +505,9 @@ void NetManager::pollGame() {
 						relayAppearance(owner_id, pkt);
 					}
 				}
-				else if (event.packet->dataLength == sizeof(ActionPacket)) {
+				else if (isMsg(event.packet, MSG_ACTION, sizeof(ActionPacket))) {
 					ActionPacket pkt;
-					memcpy(&pkt, event.packet->data, sizeof(ActionPacket));
+					memcpy(&pkt, event.packet->data + 1, sizeof(ActionPacket));
 
 					uint32_t owner_id = (role == ROLE_SERVER) ? event.peer->connectID : pkt.player_id;
 					std::string anim_name(pkt.anim, strnlen(pkt.anim, ActionPacket::FIELD_LEN));
@@ -306,9 +518,9 @@ void NetManager::pollGame() {
 						relayAction(owner_id, pkt);
 					}
 				}
-				else if (event.packet->dataLength == sizeof(PowerVisualPacket)) {
+				else if (isMsg(event.packet, MSG_POWER_VISUAL, sizeof(PowerVisualPacket))) {
 					PowerVisualPacket pkt;
-					memcpy(&pkt, event.packet->data, sizeof(PowerVisualPacket));
+					memcpy(&pkt, event.packet->data + 1, sizeof(PowerVisualPacket));
 
 					uint32_t owner_id = (role == ROLE_SERVER) ? event.peer->connectID : pkt.player_id;
 					pkt.player_id = owner_id;
@@ -319,59 +531,103 @@ void NetManager::pollGame() {
 						relayPowerVisual(owner_id, pkt);
 					}
 				}
-				else if (event.packet->dataLength == sizeof(EnemySpawnPacket)) {
+				else if (isMsg(event.packet, MSG_ENEMY_SPAWN, sizeof(EnemySpawnPacket))) {
 					// Host -> client only; a client never sends this.
 					if (role == ROLE_CLIENT) {
 						EnemySpawnPacket pkt;
-						memcpy(&pkt, event.packet->data, sizeof(EnemySpawnPacket));
+						memcpy(&pkt, event.packet->data + 1, sizeof(EnemySpawnPacket));
 						RemoteEnemyState& re = remote_enemies[pkt.net_id];
 						re.type_filename.assign(pkt.type_filename, strnlen(pkt.type_filename, EnemySpawnPacket::FIELD_LEN));
 						Utils::logInfo("NetManager: enemy net_id=%u spawned (%s)", static_cast<unsigned>(pkt.net_id), re.type_filename.c_str());
 					}
 				}
-				else if (event.packet->dataLength == sizeof(EnemyStatePacket)) {
-					// Host -> client only.
-					if (role == ROLE_CLIENT) {
-						EnemyStatePacket pkt;
-						memcpy(&pkt, event.packet->data, sizeof(EnemyStatePacket));
-						std::map<uint32_t, RemoteEnemyState>::iterator found = remote_enemies.find(pkt.net_id);
-						if (found != remote_enemies.end()) {
-							RemoteEnemyState& re = found->second;
-							re.x = pkt.x;
-							re.y = pkt.y;
-							re.direction = pkt.direction;
-							re.hp_percent = pkt.hp_percent;
-							re.alive = pkt.alive;
-							re.anim.assign(pkt.anim, strnlen(pkt.anim, EnemyStatePacket::FIELD_LEN));
+				else if (event.packet->dataLength >= 3 && event.packet->data[0] == MSG_ENEMY_STATES) {
+					// Host -> client only: uint16 count, then count states.
+					uint16_t count = 0;
+					memcpy(&count, event.packet->data + 1, sizeof(count));
+					if (role == ROLE_CLIENT && event.packet->dataLength == 3 + count * sizeof(EnemyStatePacket)) {
+						for (uint16_t n = 0; n < count; ++n) {
+							EnemyStatePacket pkt;
+							memcpy(&pkt, event.packet->data + 3 + n * sizeof(EnemyStatePacket), sizeof(EnemyStatePacket));
+							std::map<uint32_t, RemoteEnemyState>::iterator found = remote_enemies.find(pkt.net_id);
+							if (found != remote_enemies.end()) {
+								RemoteEnemyState& re = found->second;
+								re.x = pkt.x;
+								re.y = pkt.y;
+								re.direction = pkt.direction;
+								re.hp_percent = pkt.hp_percent;
+								re.alive = pkt.alive;
+								re.anim.assign(pkt.anim, strnlen(pkt.anim, EnemyStatePacket::FIELD_LEN));
+								pushSnap(enemy_history[pkt.net_id], pkt.x, pkt.y);
+							}
 						}
 					}
 				}
-				else if (event.packet->dataLength == sizeof(EnemyDespawnPacket)) {
+				else if (isMsg(event.packet, MSG_ENEMY_DESPAWN, sizeof(EnemyDespawnPacket))) {
 					// Host -> client only.
 					if (role == ROLE_CLIENT) {
 						EnemyDespawnPacket pkt;
-						memcpy(&pkt, event.packet->data, sizeof(EnemyDespawnPacket));
+						memcpy(&pkt, event.packet->data + 1, sizeof(EnemyDespawnPacket));
 						Utils::logInfo("NetManager: enemy net_id=%u despawned", static_cast<unsigned>(pkt.net_id));
 						remote_enemies.erase(pkt.net_id);
+						enemy_history.erase(pkt.net_id);
 					}
 				}
-				else if (event.packet->dataLength == sizeof(EnemyHitPacket)) {
+				else if (isMsg(event.packet, MSG_ENEMY_HIT, sizeof(EnemyHitPacket))) {
 					// Client -> host only, never relayed.
 					if (role == ROLE_SERVER) {
 						EnemyHitPacket pkt;
-						memcpy(&pkt, event.packet->data, sizeof(EnemyHitPacket));
+						memcpy(&pkt, event.packet->data + 1, sizeof(EnemyHitPacket));
 						Utils::logInfo("NetManager: received hit report net_id=%u damage=%.1f", static_cast<unsigned>(pkt.net_id), static_cast<double>(pkt.damage));
 						pending_enemy_hits.push_back(std::make_pair(pkt.net_id, pkt.damage));
 					}
 				}
-				else if (event.packet->dataLength == sizeof(PlayerHitPacket)) {
+				else if (isMsg(event.packet, MSG_MAP, sizeof(MapPacket))) {
 					// Host -> client only.
+					MapPacket pkt;
+					memcpy(&pkt, event.packet->data + 1, sizeof(MapPacket));
+					if (role == ROLE_CLIENT && pkt.magic == 0x524d4150) {
+						pvp = (pkt.pvp != 0);
+						// same map + spot = only the rules changed (see setPvp), not a map change
+						std::string new_map(pkt.map, strnlen(pkt.map, MapPacket::FIELD_LEN));
+						bool rules_only = has_host_map && new_map == host_map && pkt.x == host_map_packet.x && pkt.y == host_map_packet.y;
+						host_map_packet = pkt;
+						host_map = new_map;
+						has_host_map = true;
+						if (!rules_only) {
+							map_change_pending = true;
+							// the host left the old map: its enemies there are gone
+							remote_enemies.clear();
+							enemy_history.clear();
+						}
+						Utils::logInfo("NetManager: host is on map %s (%.1f,%.1f), pvp=%d", host_map.c_str(), static_cast<double>(pkt.x), static_cast<double>(pkt.y), pvp ? 1 : 0);
+					}
+				}
+				else if (isMsg(event.packet, MSG_PLAYER_HIT, sizeof(PlayerHitPacket))) {
+					PlayerHitPacket pkt;
+					memcpy(&pkt, event.packet->data + 1, sizeof(PlayerHitPacket));
 					if (role == ROLE_CLIENT) {
-						PlayerHitPacket pkt;
-						memcpy(&pkt, event.packet->data, sizeof(PlayerHitPacket));
 						Utils::logInfo("NetManager: received player hit power_id=%u", static_cast<unsigned>(pkt.power_id));
 						pending_player_hits.push_back(pkt);
 					}
+					else if (pvp) {
+						// a client's PvP hit: ours to apply, or relay it to the victim
+						uint32_t attacker_id = event.peer->connectID;
+						if (pkt.target_player_id == attacker_id) {
+							// can't hit yourself
+						}
+						else if (pkt.target_player_id == 0) {
+							Utils::logInfo("NetManager: player %u hit the host (pvp) power_id=%u", static_cast<unsigned>(attacker_id), static_cast<unsigned>(pkt.power_id));
+							pending_player_hits.push_back(pkt);
+						}
+						else {
+							Utils::logInfo("NetManager: player %u hit player %u (pvp) power_id=%u", static_cast<unsigned>(attacker_id), static_cast<unsigned>(pkt.target_player_id), static_cast<unsigned>(pkt.power_id));
+							sendPlayerHit(pkt.target_player_id, pkt);
+						}
+					}
+				}
+				else {
+					Utils::logError("NetManager: unknown message type %u (%u bytes)", event.packet->dataLength ? static_cast<unsigned>(event.packet->data[0]) : 0u, static_cast<unsigned>(event.packet->dataLength));
 				}
 				enet_packet_destroy(event.packet);
 				break;
@@ -382,13 +638,21 @@ void NetManager::pollGame() {
 					remote_positions.erase(gone_id);
 					remote_appearances.erase(gone_id);
 					cached_appearances.erase(gone_id);
+					player_history.erase(gone_id);
 					Utils::logInfo("NetManager: player %u disconnected (%u total)", static_cast<unsigned>(gone_id), static_cast<unsigned>(server_peers.size()));
 				}
 				else {
-					Utils::logInfo("NetManager: disconnected from server");
-					remote_positions.clear();
-					remote_appearances.clear();
-					remote_enemies.clear();
+					Utils::logInfo("NetManager: disconnected from server (reason %u)", static_cast<unsigned>(event.data));
+					last_error = (event.data == DISCONNECT_HOST_LEFT) ? "host_left" : "lost";
+					lost_connection = true;
+					// the server peer is gone: drop the whole session, we're
+					// back to playing alone (see GameStatePlay::checkLostConnection)
+					server_peer = NULL;
+					std::string err = last_error;
+					shutdown();
+					last_error = err;
+					lost_connection = true;
+					return;
 				}
 				break;
 			default:
@@ -397,7 +661,7 @@ void NetManager::pollGame() {
 	}
 }
 
-void NetManager::sendPosition(float x, float y) {
+void NetManager::sendPosition(float x, float y, float hp, float hp_max, bool alive) {
 	if (!host)
 		return;
 
@@ -406,10 +670,13 @@ void NetManager::sendPosition(float x, float y) {
 	pkt.tick = 0;
 	pkt.x = x;
 	pkt.y = y;
+	pkt.hp = hp;
+	pkt.hp_max = hp_max;
+	pkt.alive = alive ? 1 : 0;
 
 	// UNSEQUENCED (see the relay comment above for why plain unreliable is
 	// the wrong choice once more than one sender shares a channel).
-	ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_UNSEQUENCED);
+	ENetPacket *packet = makePacket(MSG_TICK, &pkt, sizeof(pkt), ENET_PACKET_FLAG_UNSEQUENCED);
 
 	if (role == ROLE_SERVER) {
 		enet_host_broadcast(host, 0, packet);
@@ -422,12 +689,15 @@ void NetManager::sendPosition(float x, float y) {
 	}
 }
 
-void NetManager::sendAppearance(const std::string& gfx_base, const std::string& gfx_head, const std::vector<std::string>& layers) {
+void NetManager::sendAppearance(const std::string& name, const std::string& gfx_base, const std::string& gfx_head, const std::vector<std::string>& layers, const std::string colors[3]) {
 	if (!host)
 		return;
 
 	AppearancePacket pkt;
 	pkt.player_id = 0; // host's own hero; clients' player_id is set by the server on relay
+	copyToField(pkt.name, AppearancePacket::FIELD_LEN, name);
+	for (int k = 0; k < 3; ++k)
+		copyToField(pkt.colors[k], sizeof(pkt.colors[k]), colors[k]);
 	copyToField(pkt.gfx_base, AppearancePacket::FIELD_LEN, gfx_base);
 	copyToField(pkt.gfx_head, AppearancePacket::FIELD_LEN, gfx_head);
 	for (size_t i = 0; i < AppearancePacket::NUM_LAYERS; i++) {
@@ -435,13 +705,14 @@ void NetManager::sendAppearance(const std::string& gfx_base, const std::string& 
 			copyToField(pkt.layers[i], AppearancePacket::FIELD_LEN, layers[i]);
 	}
 
+	Utils::logInfo("NetManager: sending our appearance ('%s', %s)", name.c_str(), gfx_base.c_str());
 	if (role == ROLE_SERVER) {
 		cached_appearances[0] = pkt; // so peers who join later still get it, see ENET_EVENT_TYPE_CONNECT
-		ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *packet = makePacket(MSG_APPEARANCE, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 		enet_host_broadcast(host, 1, packet);
 	}
 	else if (role == ROLE_CLIENT && server_peer) {
-		ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *packet = makePacket(MSG_APPEARANCE, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 		enet_peer_send(server_peer, 1, packet);
 	}
 }
@@ -453,7 +724,7 @@ void NetManager::relayAppearance(uint32_t sender_id, const AppearancePacket& pkt
 	for (std::map<uint32_t, ENetPeer*>::iterator it = server_peers.begin(); it != server_peers.end(); ++it) {
 		if (it->first == sender_id)
 			continue;
-		ENetPacket *out = enet_packet_create(&relay, sizeof(relay), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *out = makePacket(MSG_APPEARANCE, &relay, sizeof(relay), ENET_PACKET_FLAG_RELIABLE);
 		enet_peer_send(it->second, 1, out);
 	}
 }
@@ -467,11 +738,11 @@ void NetManager::sendAction(const std::string& anim_name) {
 	copyToField(pkt.anim, ActionPacket::FIELD_LEN, anim_name);
 
 	if (role == ROLE_SERVER) {
-		ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *packet = makePacket(MSG_ACTION, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 		enet_host_broadcast(host, 2, packet);
 	}
 	else if (role == ROLE_CLIENT && server_peer) {
-		ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *packet = makePacket(MSG_ACTION, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 		enet_peer_send(server_peer, 2, packet);
 	}
 }
@@ -483,7 +754,7 @@ void NetManager::relayAction(uint32_t sender_id, const ActionPacket& pkt) {
 	for (std::map<uint32_t, ENetPeer*>::iterator it = server_peers.begin(); it != server_peers.end(); ++it) {
 		if (it->first == sender_id)
 			continue;
-		ENetPacket *out = enet_packet_create(&relay, sizeof(relay), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *out = makePacket(MSG_ACTION, &relay, sizeof(relay), ENET_PACKET_FLAG_RELIABLE);
 		enet_peer_send(it->second, 2, out);
 	}
 }
@@ -501,11 +772,11 @@ void NetManager::sendPowerVisual(uint32_t power_id, float origin_x, float origin
 	pkt.target_y = target_y;
 
 	if (role == ROLE_SERVER) {
-		ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *packet = makePacket(MSG_POWER_VISUAL, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 		enet_host_broadcast(host, 2, packet);
 	}
 	else if (role == ROLE_CLIENT && server_peer) {
-		ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *packet = makePacket(MSG_POWER_VISUAL, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 		enet_peer_send(server_peer, 2, packet);
 	}
 }
@@ -517,7 +788,7 @@ void NetManager::relayPowerVisual(uint32_t sender_id, const PowerVisualPacket& p
 	for (std::map<uint32_t, ENetPeer*>::iterator it = server_peers.begin(); it != server_peers.end(); ++it) {
 		if (it->first == sender_id)
 			continue;
-		ENetPacket *out = enet_packet_create(&relay, sizeof(relay), ENET_PACKET_FLAG_RELIABLE);
+		ENetPacket *out = makePacket(MSG_POWER_VISUAL, &relay, sizeof(relay), ENET_PACKET_FLAG_RELIABLE);
 		enet_peer_send(it->second, 2, out);
 	}
 }
@@ -544,7 +815,7 @@ void NetManager::sendEnemySpawn(uint32_t net_id, const std::string& type_filenam
 
 	cached_enemy_spawns[net_id] = pkt;
 
-	ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+	ENetPacket *packet = makePacket(MSG_ENEMY_SPAWN, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 	enet_host_broadcast(host, 3, packet);
 }
 
@@ -560,19 +831,127 @@ void NetManager::sendEnemyState(uint32_t net_id, float x, float y, uint8_t direc
 	pkt.hp_percent = hp_percent;
 	pkt.alive = alive ? 1 : 0;
 	copyToField(pkt.anim, EnemyStatePacket::FIELD_LEN, anim);
+	enemy_state_queue.push_back(pkt);
+}
 
-	// UNSEQUENCED: this is called once per networked enemy per tick, all on
-	// the same channel. Plain unreliable (flag 0) is per-channel sequenced
-	// in ENet, so enemy A's and enemy B's packets look like one ordered
-	// stream to it -- under any jitter, a genuinely fresh update for one
-	// enemy can get silently dropped for looking "older" than an unrelated
-	// enemy's packet that happened to arrive first. That's exactly what
-	// was causing one of two test skeletons to never show as dead client-
-	// side while the other did, consistently, on localhost. UNSEQUENCED
-	// makes every packet independent instead, which is what we want since
-	// each carries a full current-state snapshot anyway.
-	ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_UNSEQUENCED);
-	enet_host_broadcast(host, 4, packet);
+void NetManager::flushEnemyStates() {
+	if (!host || role != ROLE_SERVER || enemy_state_queue.empty() || server_peers.empty()) {
+		enemy_state_queue.clear();
+		return;
+	}
+
+	// UNSEQUENCED: each batch is a full snapshot of its enemies, and plain
+	// unreliable (per-channel sequenced) could drop a fresh batch for
+	// looking "older" than another one of the same tick.
+	for (size_t start = 0; start < enemy_state_queue.size(); start += MAX_ENEMY_STATES_PER_PACKET) {
+		uint16_t count = static_cast<uint16_t>(std::min<size_t>(MAX_ENEMY_STATES_PER_PACKET, enemy_state_queue.size() - start));
+		ENetPacket *packet = enet_packet_create(NULL, 3 + count * sizeof(EnemyStatePacket), ENET_PACKET_FLAG_UNSEQUENCED);
+		packet->data[0] = MSG_ENEMY_STATES;
+		memcpy(packet->data + 1, &count, sizeof(count));
+		memcpy(packet->data + 3, &enemy_state_queue[start], count * sizeof(EnemyStatePacket));
+		enet_host_broadcast(host, 4, packet);
+	}
+	enemy_state_queue.clear();
+}
+
+void NetManager::pollDiscovery() {
+	if (discovery_socket == ENET_SOCKET_NULL)
+		return;
+
+	char buf[16];
+	for (int guard = 0; guard < 16; ++guard) {
+		ENetAddress from;
+		ENetBuffer in;
+		in.data = buf;
+		in.dataLength = sizeof(buf);
+		int got = enet_socket_receive(discovery_socket, &from, &in, 1);
+		if (got <= 0)
+			break;
+		if (got != sizeof(DISCOVERY_QUERY) || memcmp(buf, DISCOVERY_QUERY, sizeof(DISCOVERY_QUERY)) != 0)
+			continue;
+
+		DiscoveryReply reply;
+		memset(&reply, 0, sizeof(reply));
+		memcpy(reply.magic, "RDH1", 4);
+		reply.protocol = PROTOCOL_VERSION;
+		reply.port = server_port;
+		reply.players = static_cast<uint16_t>(server_peers.size() + 1);
+		copyToField(reply.name, sizeof(reply.name), local_name);
+		copyToField(reply.map, sizeof(reply.map), local_map);
+
+		ENetBuffer out;
+		out.data = &reply;
+		out.dataLength = sizeof(reply);
+		enet_socket_send(discovery_socket, &from, &out, 1);
+	}
+}
+
+std::vector<LanGame> NetManager::discoverLan(uint32_t wait_ms) {
+	std::vector<LanGame> found;
+	if (enet_initialize() != 0)
+		return found;
+
+	ENetSocket sock = enet_socket_create(ENET_SOCKET_TYPE_DATAGRAM);
+	if (sock == ENET_SOCKET_NULL) {
+		enet_deinitialize();
+		return found;
+	}
+	enet_socket_set_option(sock, ENET_SOCKOPT_BROADCAST, 1);
+	enet_socket_set_option(sock, ENET_SOCKOPT_NONBLOCK, 1);
+
+	// broadcast for the LAN, plus loopback for a host on this same machine
+	ENetAddress targets[2];
+	targets[0].host = ENET_HOST_BROADCAST;
+	targets[0].port = DISCOVERY_PORT;
+	enet_address_set_host(&targets[1], "127.0.0.1");
+	targets[1].port = DISCOVERY_PORT;
+	for (int i = 0; i < 2; ++i) {
+		ENetBuffer out;
+		out.data = const_cast<char*>(DISCOVERY_QUERY);
+		out.dataLength = sizeof(DISCOVERY_QUERY);
+		enet_socket_send(sock, &targets[i], &out, 1);
+	}
+
+	const uint32_t start = enet_time_get();
+	while (enet_time_get() - start < wait_ms) {
+		enet_uint32 cond = ENET_SOCKET_WAIT_RECEIVE;
+		if (enet_socket_wait(sock, &cond, 50) != 0 || !(cond & ENET_SOCKET_WAIT_RECEIVE))
+			continue;
+
+		DiscoveryReply reply;
+		ENetAddress from;
+		ENetBuffer in;
+		in.data = &reply;
+		in.dataLength = sizeof(reply);
+		int got = enet_socket_receive(sock, &from, &in, 1);
+		if (got != static_cast<int>(sizeof(reply)) || memcmp(reply.magic, "RDH1", 4) != 0 || reply.protocol != PROTOCOL_VERSION)
+			continue;
+
+		char ip[64];
+		if (enet_address_get_host_ip(&from, ip, sizeof(ip)) != 0)
+			continue;
+
+		LanGame g;
+		char addr[96];
+		snprintf(addr, sizeof(addr), "%s:%u", ip, static_cast<unsigned>(reply.port));
+		g.address = addr;
+		g.name = fieldToString(reply.name, sizeof(reply.name));
+		g.map = fieldToString(reply.map, sizeof(reply.map));
+		g.players = reply.players;
+
+		// the same host can answer on both the broadcast and loopback query
+		bool dup = false;
+		for (size_t i = 0; i < found.size(); ++i) {
+			if (found[i].address == g.address || (found[i].name == g.name && found[i].map == g.map && g.address.compare(0, 4, "127.") == 0))
+				dup = true;
+		}
+		if (!dup)
+			found.push_back(g);
+	}
+
+	enet_socket_destroy(sock);
+	enet_deinitialize();
+	return found;
 }
 
 void NetManager::sendEnemyDespawn(uint32_t net_id) {
@@ -584,7 +963,7 @@ void NetManager::sendEnemyDespawn(uint32_t net_id) {
 	EnemyDespawnPacket pkt;
 	pkt.net_id = net_id;
 
-	ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+	ENetPacket *packet = makePacket(MSG_ENEMY_DESPAWN, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 	enet_host_broadcast(host, 3, packet);
 }
 
@@ -596,7 +975,7 @@ void NetManager::sendEnemyHit(uint32_t net_id, float damage) {
 	pkt.net_id = net_id;
 	pkt.damage = damage;
 
-	ENetPacket *packet = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+	ENetPacket *packet = makePacket(MSG_ENEMY_HIT, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
 	enet_peer_send(server_peer, 5, packet);
 }
 
@@ -607,6 +986,20 @@ std::vector<std::pair<uint32_t, float> > NetManager::drainEnemyHitEvents() {
 }
 
 void NetManager::sendPlayerHit(uint32_t target_player_id, const PlayerHitPacket& pkt) {
+	if (!host)
+		return;
+
+	PlayerHitPacket out_pkt = pkt;
+	out_pkt.target_player_id = target_player_id;
+
+	if (role == ROLE_CLIENT) {
+		// PvP only; the server checks its own rule and forwards to the victim
+		if (!server_peer || !pvp)
+			return;
+		ENetPacket *out = makePacket(MSG_PLAYER_HIT, &out_pkt, sizeof(out_pkt), ENET_PACKET_FLAG_RELIABLE);
+		enet_peer_send(server_peer, 5, out);
+		return;
+	}
 	if (role != ROLE_SERVER)
 		return;
 
@@ -614,12 +1007,57 @@ void NetManager::sendPlayerHit(uint32_t target_player_id, const PlayerHitPacket&
 	if (it == server_peers.end())
 		return;
 
-	ENetPacket *out = enet_packet_create(&pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE);
+	ENetPacket *out = makePacket(MSG_PLAYER_HIT, &out_pkt, sizeof(out_pkt), ENET_PACKET_FLAG_RELIABLE);
 	enet_peer_send(it->second, 5, out);
+}
+
+void NetManager::setPvp(bool enabled) {
+	pvp = enabled;
+	if (role != ROLE_SERVER)
+		return;
+
+	Utils::logInfo("NetManager: pvp=%d", pvp ? 1 : 0);
+	host_map_packet.pvp = pvp ? 1 : 0;
+	// clients learn the rule from MapPacket: resend it if we're already on a map
+	if (has_host_map && host) {
+		for (std::map<uint32_t, ENetPeer*>::iterator it = server_peers.begin(); it != server_peers.end(); ++it) {
+			ENetPacket *out = makePacket(MSG_MAP, &host_map_packet, sizeof(MapPacket), ENET_PACKET_FLAG_RELIABLE);
+			enet_peer_send(it->second, 1, out);
+		}
+	}
 }
 
 std::vector<PlayerHitPacket> NetManager::drainPlayerHitEvents() {
 	std::vector<PlayerHitPacket> out;
 	out.swap(pending_player_hits);
 	return out;
+}
+
+void NetManager::sendMapChange(const std::string& map, float x, float y) {
+	if (role != ROLE_SERVER || !host)
+		return;
+	MapPacket pkt;
+	strncpy(pkt.map, map.c_str(), MapPacket::FIELD_LEN - 1);
+	pkt.x = x;
+	pkt.y = y;
+	pkt.pvp = pvp ? 1 : 0;
+	host_map_packet = pkt;
+	has_host_map = true;
+	// enemies of the previous map must not be backfilled to newcomers anymore
+	cached_enemy_spawns.clear();
+	for (std::map<uint32_t, ENetPeer*>::iterator it = server_peers.begin(); it != server_peers.end(); ++it) {
+		ENetPacket *out = makePacket(MSG_MAP, &pkt, sizeof(MapPacket), ENET_PACKET_FLAG_RELIABLE);
+		enet_peer_send(it->second, 1, out);
+	}
+	Utils::logInfo("NetManager: party map is now %s", map.c_str());
+}
+
+bool NetManager::takeMapChange(std::string& map, float& x, float& y) {
+	if (!map_change_pending)
+		return false;
+	map_change_pending = false;
+	map = host_map;
+	x = host_map_packet.x;
+	y = host_map_packet.y;
+	return true;
 }

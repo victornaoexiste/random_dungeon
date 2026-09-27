@@ -246,6 +246,15 @@ public:
 	virtual Image* renderTextToImage(FontStyle* font_style, const std::string& text, const Color& color, bool blended) = 0;
 	virtual void blankScreen() = 0;
 	virtual void commitFrame() = 0;
+	// Random Dungeon world filter (settings->world_filter): everything drawn
+	// between these two goes to a half-resolution target, which is then
+	// scaled up without smoothing (pixel art) and colour graded. The UI is
+	// drawn after endWorldFilter(), so it stays sharp. No-op by default.
+	virtual void beginWorldFilter() {}
+	virtual void endWorldFilter() {}
+	// If set, the next commitFrame() saves the finished frame as a PNG at this
+	// path and clears it (Random Dungeon dev kit; SDLHardwareRenderDevice only).
+	std::string screenshot_request;
 	virtual void drawPixel(int x, int y, const Color& color) = 0;
 	virtual void drawLine(int x0, int y0, int x1, int y1, const Color& color) = 0;
 	virtual void drawRectangle(const Point& p0, const Point& p1, const Color& color) = 0;

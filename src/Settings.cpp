@@ -60,6 +60,9 @@ Settings::Settings()
 	, game("")
 	, load_slot("")
 	, load_script("")
+	, net_pvp(false)
+	, title_screenshot(false)
+	, mp_screenshot(false)
 	, view_w(0)
 	, view_h(0)
 	, view_w_half(0)
@@ -73,7 +76,7 @@ Settings::Settings()
 	, soft_reset(false)
 	, safe_video(false)
 {
-	config.resize(55);
+	config.resize(56);
 	setConfigDefault(0,  "fullscreen",          &typeid(fullscreen),          "1",             &fullscreen,          "Fullscreen mode | 0 = disable, 1 = enable");
 	setConfigDefault(1,  "resolution_w",        &typeid(screen_w),            "640",           &screen_w,            "Window size");
 	setConfigDefault(2,  "resolution_h",        &typeid(screen_h),            "480",           &screen_h,            "");
@@ -127,8 +130,10 @@ Settings::Settings()
 	setConfigDefault(50, "joystick_rumble",     &typeid(joystick_rumble),     "1",             &joystick_rumble,     "Enables joystick rumble/vibrartion | 0 = disable, 1 = enable");
 	setConfigDefault(51, "enable_threaded_image_load",     &typeid(enable_threaded_image_load),     "1",             &enable_threaded_image_load,     "Enables multi-threaded image loading. Try disabling to reduce memory usage or fix instability.");
 	setConfigDefault(52, "fade_walls",          &typeid(fade_walls),          "1",             &fade_walls,          "Lowers the opacity of walls that are covering the player. 0 = disable, 1 = enable");
-	setConfigDefault(53, "setup_language",      &typeid(setup_language),      "0",             &setup_language,      "(First-time-launch setup) Language | 0 = show dialog, 1 = no dialog");
-	setConfigDefault(54, "setup_mousemove",     &typeid(setup_mousemove),     "0",             &setup_mousemove,     "(First-time-launch setup) Mouse movement | 0 = show dialog, 1 = no dialog");
+	setConfigDefault(53, "world_filter",        &typeid(world_filter),        "1",             &world_filter,        "Random Dungeon look: world drawn at half resolution (pixel art) with a dark fantasy color grade; the UI stays sharp | 0 = disable, 1 = enable");
+	// the two one-time setup flags must stay last (see loadDefaults)
+	setConfigDefault(54, "setup_language",      &typeid(setup_language),      "0",             &setup_language,      "(First-time-launch setup) Language | 0 = show dialog, 1 = no dialog");
+	setConfigDefault(55, "setup_mousemove",     &typeid(setup_mousemove),     "0",             &setup_mousemove,     "(First-time-launch setup) Mouse movement | 0 = show dialog, 1 = no dialog");
 }
 
 void Settings::setConfigDefault(size_t index, const std::string& name, const std::type_info *type, const std::string& default_val, void *storage, const std::string& comment) {
@@ -285,10 +290,13 @@ void Settings::saveSettings() {
  * Load all default settings, except video settings.
  */
 void Settings::loadDefaults() {
-	// HACK init defaults except video and one-time flags
-	for (size_t i = 4; i < config.size() - 2; i++) {
+	// HACK init defaults except video (fullscreen/resolution), the language
+	// (auto-detected on first run, not selectable here) and one-time flags
+	const std::string keep_language = language;
+	for (size_t i = 3; i < config.size() - 2; i++) {
 		Parse::tryParseValue(*config[i].type, config[i].default_val, config[i].storage);
 	}
+	language = keep_language;
 
 	loadMobileDefaults();
 }
@@ -300,7 +308,7 @@ void Settings::loadMobileDefaults() {
 	if (platform.is_mobile_device) {
 		mouse_move = false;
 		no_mouse = false;
-		enable_joystick = false;
+		// keep enable_joystick: a Bluetooth/USB gamepad works on phones too
 		hardware_cursor = true;
 		touchscreen = true;
 		fullscreen = true;

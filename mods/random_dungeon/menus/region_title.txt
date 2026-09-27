@@ -1,0 +1,14 @@
+# Copy of fantasycore/menus/region_title.txt + an empty background.
+# Without a background the engine falls back to images/menus/game_over.png,
+# which does not exist (the "Could not load game_over.png" error on every boot).
+pos=0,128,0,0
+align=top
+
+label=0,0,center,top,font_region_title
+
+hold_duration=3s
+fade_in_duration=1s
+fade_out_duration=1s
+
+
+background=images/menus/rd_blank.png

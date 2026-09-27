@@ -61,6 +61,7 @@ MenuMiniMap::MenuMiniMap()
 	, color_ally(255,255,0)
 	, color_npc(0,255,0)
 	, color_teleport(0,191,255)
+	, color_net_player(255,200,40)
 	, map_surface(NULL)
 	, map_surface_2x(NULL)
 	, map_surface_entities(NULL)
@@ -619,6 +620,11 @@ void MenuMiniMap::fillEntities() {
 				entities.push_back(new PixelEntity(static_cast<int>(e->stats.pos.x), static_cast<int>(e->stats.pos.y), &color_obst));
 			}
 		}
+	}
+
+	// other connected players: always shown, drawn last so they stay on top
+	for (size_t i = 0; i < net_players.size(); ++i) {
+		entities.push_back(new PixelEntity(static_cast<int>(net_players[i].x), static_cast<int>(net_players[i].y), &color_net_player));
 	}
 }
 

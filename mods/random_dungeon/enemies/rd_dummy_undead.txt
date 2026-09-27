@@ -1,0 +1,6 @@
+# Undead training dummy: same as rd_dummy, but in the "undead" category, so
+# the dev kit's damage meter shows slayer bonuses (silver weapons: +25%).
+INCLUDE enemies/rd_dummy.txt
+
+name=Undead Training Dummy
+categories=rd_dummy_undead,undead

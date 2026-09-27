@@ -143,6 +143,7 @@ Set (FLARE_SOURCES
 	./src/Entity.cpp
 	./src/EntityBehavior.cpp
 	./src/EntityManager.cpp
+	./src/HeroColors.cpp
 	./src/HordeManager.cpp
 	./src/EventManager.cpp
 	./src/FileParser.cpp
@@ -180,6 +181,7 @@ Set (FLARE_SOURCES
 	./src/MenuConfig.cpp
 	./src/MenuConfirm.cpp
 	./src/MenuDevConsole.cpp
+	./src/MenuDevKit.cpp
 	./src/MenuEnemy.cpp
 	./src/MenuExit.cpp
 	./src/MenuGameOver.cpp
@@ -191,6 +193,7 @@ Set (FLARE_SOURCES
 	./src/MenuMiniMap.cpp
 	./src/MenuNumPicker.cpp
 	./src/MenuPowers.cpp
+	./src/MenuRunUpgrade.cpp
 	./src/MenuRegionTitle.cpp
 	./src/MenuStash.cpp
 	./src/MenuStatBar.cpp

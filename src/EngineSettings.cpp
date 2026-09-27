@@ -653,6 +653,10 @@ void EngineSettings::HeroClasses::load() {
 				// @ATTR description|string|A description of this class.
 				current->description = infile.val;
 			}
+			else if (infile.key == "alias") {
+				// @ATTR alias|string|A former name of this class. Saves that still use it load as this class.
+				current->aliases.push_back(infile.val);
+			}
 			else if (infile.key == "currency") {
 				// @ATTR currency|int|The amount of currency this class will start with.
 				current->currency = Parse::toInt(infile.val);
@@ -765,6 +769,12 @@ EngineSettings::HeroClasses::HeroClass* EngineSettings::HeroClasses::getByName(c
 	for (size_t i = 0; i < list.size(); ++i) {
 		if (name == list[i].name) {
 			return &list[i];
+		}
+	}
+	for (size_t i = 0; i < list.size(); ++i) {
+		for (size_t j = 0; j < list[i].aliases.size(); ++j) {
+			if (name == list[i].aliases[j])
+				return &list[i];
 		}
 	}
 

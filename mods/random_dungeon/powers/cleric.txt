@@ -1,0 +1,38 @@
+# Cleric powers (Exiled Kingdoms' 4th class: melee + healing, Mental/Physical).
+# Both are self-contained (no meta_power/replace_power chain, see rogue.txt for
+# why) and only affect the caster, so they need no extra network sync.
+
+# Holy Strike: the Cleric's basic attack. Same shape as the Rogue's Dagger
+# Strike / Swing (melee hazard), with a little extra damage.
+[power]
+id=5001
+name=Holy Strike
+description=A blessed blow with your weapon.
+icon=40
+type=fixed
+new_state=swing
+face=true
+use_hazard=true
+base_damage=melee
+modifier_damage=multiply,110,0
+lifespan=33ms
+radius=1.0
+starting_pos=melee
+aim_assist=true
+soundfx=soundfx/melee_attack.ogg
+
+# Heal: restores 20% of max HP over 1s for mana. Uses the same effect as the
+# health potion (effects.txt: hp_restore), so it scales with the hero's HP.
+[power]
+id=5002
+name=Heal
+description=Restore 20% of maximum HP.
+icon=64
+type=fixed
+new_state=cast
+buff=true
+requires_mp=8
+cooldown=5s
+post_effect=hp_restore,20,1s
+soundfx=soundfx/powers/potion.ogg
+requires_hpmp_state=all,not_percent,100,ignore,0

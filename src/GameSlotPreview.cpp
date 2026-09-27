@@ -30,6 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "AnimationSet.h"
 #include "CommonIncludes.h"
 #include "GameSlotPreview.h"
+#include "HeroColors.h"
 #include "ItemManager.h"
 #include "FileParser.h"
 #include "MenuInventory.h"
@@ -109,7 +110,7 @@ void GameSlotPreview::loadGraphics(std::vector<std::string> _img_gfx) {
 
 	for (unsigned int i=0; i<_img_gfx.size(); i++) {
 		if (_img_gfx[i] != "") {
-			std::string name = "animations/avatar/"+stats->gfx_base+"/"+_img_gfx[i] +".txt";
+			std::string name = HeroColors::animName(stats, i < layer_reference_order.size() ? layer_reference_order[i] : "", _img_gfx[i]);
 			anim->increaseCount(name);
 			animsets.push_back(anim->getAnimationSet(name));
 			animsets.back()->setParent(animationSet);

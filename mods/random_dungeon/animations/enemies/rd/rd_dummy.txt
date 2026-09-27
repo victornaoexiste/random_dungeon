@@ -1,0 +1,4 @@
+# Training dummy look: the weak skeleton, stained like wood. Hand-written.
+color_mod=200,150,95
+
+INCLUDE animations/enemies/skeleton_weak.txt

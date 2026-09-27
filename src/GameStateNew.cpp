@@ -30,7 +30,12 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "EngineSettings.h"
 #include "FileParser.h"
 #include "FontEngine.h"
+#include "GameSlotPreview.h"
 #include "GameStateNew.h"
+#include "HeroColors.h"
+#include "StatBlock.h"
+#include "UtilsFileSystem.h"
+#include "ModManager.h"
 #include "GameStateLoad.h"
 #include "GameStatePlay.h"
 #include "InputState.h"
@@ -77,6 +82,32 @@ GameStateNew::GameStateNew()
 
 	button_prev = new WidgetButton(WidgetButton::DIR_LEFT_FILE);
 	button_next = new WidgetButton(WidgetButton::DIR_RIGHT_FILE);
+
+	// colour selectors: rows of [<] swatch name [>] in the middle column
+	{
+		const char *names[3] = { "Skin", "Hair", "Clothes" };
+		const char *env = getenv("RD_NEW_COLORS"); // test hook: preselect "skin,hair,cloth" indices
+		std::string preset = env ? env : "";
+		for (int k = 0; k < 3; ++k) {
+			button_color_prev[k] = new WidgetButton("images/menus/buttons/left.png");
+			button_color_next[k] = new WidgetButton("images/menus/buttons/right.png");
+			button_color_prev[k]->setBasePos(612, 548 + k * 56, Utils::ALIGN_FRAME_TOPLEFT);
+			button_color_next[k]->setBasePos(912, 548 + k * 56, Utils::ALIGN_FRAME_TOPLEFT);
+			label_color[k] = new WidgetLabel();
+			label_color[k]->setFont("font_small");
+			label_color[k]->setJustify(FontEngine::JUSTIFY_LEFT);
+			label_color[k]->setVAlign(LabelInfo::VALIGN_CENTER);
+			label_color[k]->setColor(font->getColor(FontEngine::COLOR_MENU_NORMAL));
+			label_color[k]->setText(msg->get(names[k]));
+			color_index[k] = preset.empty() ? 0 : std::max(0, Parse::popFirstInt(preset));
+			if (color_index[k] >= static_cast<int>(HeroColors::options(k).size()))
+				color_index[k] = 0;
+		}
+	}
+	preview_stats = new StatBlock();
+	preview = new GameSlotPreview();
+	preview->setStatBlock(preview_stats);
+	preview_turn.setDuration(settings->max_frames_per_sec * 2);
 
 	button_randomize = new WidgetButton(WidgetButton::DEFAULT_FILE);
 	button_randomize->setLabel(msg->get("Randomize"));
@@ -483,7 +514,37 @@ void GameStateNew::logic() {
 		setRequestedGameState(new GameStateLoad());
 	}
 
-	if (button_create->checkClick()) {
+	// test hook (see GameSwitcher): pick class/option/colours/mode, then create
+	bool auto_create = false;
+	if (getenv("RD_AUTO_NEW")) {
+		static int frames = 0;
+		if (++frames == 20) {
+			std::string spec = getenv("RD_AUTO_NEW");
+			Parse::popFirstInt(spec); // slot
+			int cls = Parse::popFirstInt(spec);
+			int opt = Parse::popFirstInt(spec);
+			class_list->select(cls);
+			if (opt >= 0 && static_cast<size_t>(opt) < hero_options.size()) {
+				current_option = opt;
+				loadPortrait(hero_options[current_option].portrait);
+				setName(hero_options[current_option].name);
+			}
+			for (int k = 0; k < 3; ++k) {
+				int c = Parse::popFirstInt(spec);
+				if (c >= 0 && c < static_cast<int>(HeroColors::options(k).size()))
+					color_index[k] = c;
+			}
+			settings->game_mode = Parse::popFirstString(spec);
+			if (settings->game_mode == "world") settings->game_mode = "";
+			Utils::logInfo("AutoNew: class %d option %d colours %d,%d,%d mode '%s'", cls, opt, color_index[0], color_index[1], color_index[2], settings->game_mode.c_str());
+		}
+		if (frames == 60) {
+			render_device->screenshot_request = std::string(getenv("RD_UI_SHOTS") ? getenv("RD_UI_SHOTS") : ".") + "/new_character.png";
+		}
+		auto_create = (frames == 70);
+	}
+
+	if (button_create->checkClick() || auto_create) {
 		// start the new game
 		inpt->lock_all = true;
 		delete_items = false;
@@ -493,6 +554,9 @@ void GameStateNew::logic() {
 		avatar->stats.gfx_base = hero_options[current_option].base;
 		avatar->stats.gfx_head = hero_options[current_option].head;
 		avatar->stats.gfx_portrait = hero_options[current_option].portrait;
+		avatar->stats.color_skin = HeroColors::options(HeroColors::SKIN)[color_index[0]].hex;
+		avatar->stats.color_hair = HeroColors::options(HeroColors::HAIR)[color_index[1]].hex;
+		avatar->stats.color_cloth = HeroColors::options(HeroColors::CLOTH)[color_index[2]].hex;
 		avatar->stats.checkGFXPaths();
 		avatar->stats.name = input_name->getText();
 		avatar->stats.permadeath = button_permadeath->isChecked();
@@ -525,6 +589,85 @@ void GameStateNew::logic() {
 
 	if (input_name->getText() != hero_options[current_option].name)
 		modified_name = true;
+
+	// colour selectors
+	for (int k = 0; k < 3; ++k) {
+		const int n = static_cast<int>(HeroColors::options(k).size());
+		if (button_color_prev[k]->checkClick())
+			color_index[k] = (color_index[k] + n - 1) % n;
+		else if (button_color_next[k]->checkClick())
+			color_index[k] = (color_index[k] + 1) % n;
+	}
+	updateColorLabels();
+
+	// live preview: rebuild when anything it shows changed, turn slowly
+	updatePreview();
+	preview_turn.tick();
+	if (preview_turn.isEnd()) {
+		preview_turn.reset(Timer::BEGIN);
+		preview_stats->direction = static_cast<unsigned char>((preview_stats->direction + 1) % 8);
+		preview->setDirection(preview_stats->direction);
+	}
+	preview->logic();
+}
+
+void GameStateNew::updateColorLabels() {
+	const char *names[3] = { "Skin", "Hair", "Clothes" };
+	for (int k = 0; k < 3; ++k) {
+		const HeroColors::Option& o = HeroColors::options(k)[color_index[k]];
+		label_color[k]->setText(msg->get(names[k]) + ": " + (o.hex.empty() ? msg->get("Original") : o.name));
+	}
+}
+
+/**
+ * The preview shows the chosen body/head with the selected class's starting
+ * gear, in the chosen colours (see HeroColors).
+ */
+void GameStateNew::updatePreview() {
+	if (hero_options.empty())
+		return;
+	const HeroOption& opt = hero_options[current_option];
+	const int class_index = class_list->getSelected();
+	std::string key = opt.base + "/" + opt.head + "/" + Parse::toString(typeid(int), const_cast<int*>(&class_index));
+	for (int k = 0; k < 3; ++k)
+		key += "/" + HeroColors::options(k)[color_index[k]].hex;
+	if (key == preview_key)
+		return;
+	preview_key = key;
+
+	preview_stats->gfx_base = opt.base;
+	preview_stats->gfx_head = opt.head;
+	preview_stats->color_skin = HeroColors::options(HeroColors::SKIN)[color_index[0]].hex;
+	preview_stats->color_hair = HeroColors::options(HeroColors::HAIR)[color_index[1]].hex;
+	preview_stats->color_cloth = HeroColors::options(HeroColors::CLOTH)[color_index[2]].hex;
+	preview->setStatBlock(preview_stats);
+
+	std::vector<std::string>& layers = preview->layer_reference_order;
+	std::vector<std::string> img_gfx(layers.size());
+	for (size_t i = 0; i < layers.size(); ++i) {
+		if (Filesystem::fileExists(mods->locate("animations/avatar/" + opt.base + "/default_" + layers[i] + ".txt")))
+			img_gfx[i] = "default_" + layers[i];
+		else if (layers[i] == "head")
+			img_gfx[i] = opt.head;
+	}
+	// the class gear needs item data; GameStateLoad normally leaves us its ItemManager
+	if (!items)
+		items = new ItemManager();
+	if (class_index >= 0 && static_cast<size_t>(class_index) < eset->hero_classes.list.size()) {
+		std::string equipment = eset->hero_classes.list[class_index].equipment;
+		while (!equipment.empty()) {
+			ItemID id = Parse::toItemID(Parse::popFirstString(equipment));
+			if (!items->isValid(id))
+				continue;
+			const std::string type = items->getItemType(items->items[id]->type).id;
+			for (size_t i = 0; i < layers.size(); ++i) {
+				if (layers[i] == type && !items->items[id]->gfx.empty())
+					img_gfx[i] = items->items[id]->gfx;
+			}
+		}
+	}
+	preview->loadGraphics(img_gfx);
+	preview->setDirection(preview_stats->direction);
 }
 
 void GameStateNew::refreshWidgets() {
@@ -536,6 +679,10 @@ void GameStateNew::refreshWidgets() {
 	button_permadeath->setPos(0, 0);
 	button_randomize->setPos(0, 0);
 	class_list->setPos(0, 0);
+	for (int k = 0; k < 3; ++k) {
+		button_color_prev[k]->setPos(0, 0);
+		button_color_next[k]->setPos(0, 0);
+	}
 
 	label_portrait->setPos((settings->view_w - eset->resolutions.frame_w)/2, (settings->view_h - eset->resolutions.frame_h)/2);
 	label_name->setPos((settings->view_w - eset->resolutions.frame_w)/2, (settings->view_h - eset->resolutions.frame_h)/2);
@@ -546,6 +693,32 @@ void GameStateNew::refreshWidgets() {
 }
 
 void GameStateNew::render() {
+	const int fx = (settings->view_w - eset->resolutions.frame_w) / 2;
+	const int fy = (settings->view_h - eset->resolutions.frame_h) / 2;
+
+	// colour customisation: preview + selectors with a swatch each
+	preview->setPos(Point(fx + 790, fy + 500));
+	preview->render();
+	for (int k = 0; k < 3; ++k) {
+		button_color_prev[k]->render();
+		button_color_next[k]->render();
+		const int cy = fy + 548 + k * 56 + 21;
+		const std::string& hex = HeroColors::options(k)[color_index[k]].hex;
+		const int sx = fx + 674;
+		render_device->drawRectangle(Point(sx - 1, cy - 12), Point(sx + 22, cy + 11), Color(8, 4, 5, 255));
+		render_device->drawRectangle(Point(sx, cy - 11), Point(sx + 21, cy + 10), Color(222, 170, 44, 255));
+		if (!hex.empty()) {
+			long v = strtol(hex.c_str(), NULL, 16);
+			Color c(static_cast<Uint8>((v >> 16) & 255), static_cast<Uint8>((v >> 8) & 255), static_cast<Uint8>(v & 255), 255);
+			for (int y = cy - 9; y <= cy + 8; ++y)
+				render_device->drawLine(sx + 2, y, sx + 19, y, c);
+		}
+		else {
+			render_device->drawLine(sx + 2, cy + 8, sx + 19, cy - 9, Color(222, 170, 44, 255));
+		}
+		label_color[k]->setPos(fx + 704, cy);
+		label_color[k]->render();
+	}
 
 	// display buttons
 	button_exit->render();
@@ -636,4 +809,11 @@ GameStateNew::~GameStateNew() {
 	delete label_classlist;
 	delete class_list;
 	delete class_tip;
+	for (int k = 0; k < 3; ++k) {
+		delete button_color_prev[k];
+		delete button_color_next[k];
+		delete label_color[k];
+	}
+	delete preview;
+	delete preview_stats;
 }

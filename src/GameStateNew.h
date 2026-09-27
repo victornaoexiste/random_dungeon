@@ -29,8 +29,11 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 #include "CommonIncludes.h"
 #include "GameState.h"
+#include "Utils.h"
 #include "WidgetLabel.h"
 
+class GameSlotPreview;
+class StatBlock;
 class WidgetButton;
 class WidgetCheckBox;
 class WidgetInput;
@@ -84,6 +87,19 @@ private:
 	WidgetLabel *label_classlist;
 	WidgetListBox *class_list;
 	WidgetTooltip *class_tip;
+
+	// Random Dungeon colour customisation (see HeroColors.h): skin, hair,
+	// clothes selectors and a live, turning sprite preview
+	WidgetButton *button_color_prev[3];
+	WidgetButton *button_color_next[3];
+	WidgetLabel *label_color[3];
+	int color_index[3];
+	StatBlock *preview_stats;
+	GameSlotPreview *preview;
+	Timer preview_turn;
+	std::string preview_key; // what the preview currently shows
+	void updateColorLabels();
+	void updatePreview();
 
 	TabList tablist;
 

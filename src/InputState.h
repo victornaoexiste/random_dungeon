@@ -194,6 +194,16 @@ public:
 	bool joysticks_changed;
 	bool refresh_hotkeys;
 
+	class FingerData {
+	public:
+		long int id;
+		Point pos;
+	};
+	// every finger currently on the screen (multi-touch), see MenuTouchControls
+	const std::vector<FingerData>& getTouchFingers() const {
+		return touch_fingers;
+	}
+
 protected:
 	Point scaleMouse(unsigned int x, unsigned int y);
 	virtual int getBindFromString(const std::string& bind, int type) = 0;
@@ -203,11 +213,6 @@ protected:
 	Point current_touch;
 	bool dump_event;
 
-	class FingerData {
-	public:
-		long int id;
-		Point pos;
-	};
 	std::vector<FingerData> touch_fingers;
 
 	Version* file_version;

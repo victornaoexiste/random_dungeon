@@ -112,3 +112,5 @@ requires_item=2002,0
 
 # 5000 (random_dungeon: Rogue's working melee basic attack)
 INCLUDE powers/rogue.txt
+# 5001-5002 (random_dungeon: Cleric's Holy Strike and Heal)
+INCLUDE powers/cleric.txt

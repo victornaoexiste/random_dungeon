@@ -446,6 +446,10 @@ void RenderDevice::pushQueuedImage(const std::string& filename, int error_type) 
 	if (!settings->enable_threaded_image_load)
 		return;
 
+	// recoloured hero layers (see HeroColors.h) load synchronously in loadImage()
+	if (filename.find('|') != std::string::npos)
+		return;
+
 	Image* cache_test = cacheLookup(filename);
 	if (cache_test) {
 		// image already in cache. We need to decrease the ref count because the lookup would have increased it

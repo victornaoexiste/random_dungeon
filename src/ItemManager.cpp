@@ -603,7 +603,7 @@ void ItemManager::loadItems(const std::string& filename) {
 				infile.error("ItemManager: '%s' is not a valid primary stat.", s.c_str());
 		}
 		else if (infile.key == "requires_class") {
-			// @ATTR requires_class|predefined_string|The hero's base class (engine/classes.txt) must match for this item to be equipped.
+			// @ATTR requires_class|list(predefined_string)|The hero's base class (engine/classes.txt) must be one of these for this item to be equipped (comma-separated, e.g. Warrior,Rogue).
 			item->requires_class = infile.val;
 		}
 		else if (infile.key == "bonus") {
@@ -616,6 +616,13 @@ void ItemManager::loadItems(const std::string& filename) {
 			BonusData bdata;
 			parseBonus(bdata, infile);
 			item->bonus.push_back(bdata);
+		}
+		else if (infile.key == "slayer") {
+			// @ATTR slayer|repeatable(string, int) : Enemy category, Percent|Extra damage dealt by the wearer to enemies in that category (e.g. slayer=undead,25 for silver weapons).
+			std::string cat = Parse::popFirstString(infile.val);
+			int pct = Parse::popFirstInt(infile.val);
+			if (!cat.empty())
+				item->slayer.push_back(std::make_pair(cat, pct));
 		}
 		else if (infile.key == "bonus_power_level") {
 			// @ATTR bonus_power_level|repeatable(power_id, list(level_scaled_value)) : Base power, Bonus levels|Grants bonus levels to a given base power.
@@ -1393,6 +1400,18 @@ TooltipData ItemManager::getShortTooltip(ItemStack stack) {
 /**
  * Create detailed tooltip showing all relevant item info
  */
+/**
+ * requires_class may list several classes ("Warrior,Rogue"); any of them allows the item.
+ */
+bool ItemManager::classAllowed(const std::string& requires_class, const std::string& character_class) {
+	std::string list = requires_class, c;
+	while (!(c = Parse::popFirstString(list)).empty()) {
+		if (c == character_class)
+			return true;
+	}
+	return false;
+}
+
 TooltipData ItemManager::getTooltip(ItemStack stack, StatBlock *stats, int context, bool input_hint) {
 	TooltipData tip;
 
@@ -1525,6 +1544,13 @@ TooltipData ItemManager::getTooltip(ItemStack stack, StatBlock *stats, int conte
 		bonus_counter++;
 	}
 
+	// slayer bonuses ("+25% damage vs Undead")
+	for (size_t i = 0; i < item->slayer.size(); ++i) {
+		std::string cat = item->slayer[i].first;
+		if (!cat.empty()) cat[0] = static_cast<char>(toupper(cat[0]));
+		tip.addColoredText(msg->getv("+%d%% damage vs %s", item->slayer[i].second, msg->get(cat).c_str()), font->getColor(FontEngine::COLOR_ITEM_BONUS));
+	}
+
 	// power
 	if (!item->power_desc.empty()) {
 		tip.addColoredText(item->power_desc, font->getColor(FontEngine::COLOR_ITEM_BONUS));
@@ -1554,14 +1580,17 @@ TooltipData ItemManager::getTooltip(ItemStack stack, StatBlock *stats, int conte
 		}
 	}
 
-	// requires class
+	// requires class (one of a comma-separated list)
 	if (!item->requires_class.empty()) {
-		if (item->requires_class != stats->character_class)
+		if (!classAllowed(item->requires_class, stats->character_class))
 			color = font->getColor(FontEngine::COLOR_REQUIREMENTS_NOT_MET);
 		else
 			color = font->getColor(FontEngine::COLOR_WIDGET_NORMAL);
 
-		tip.addColoredText(msg->getv("Requires Class: %s", msg->get(item->requires_class).c_str()), color);
+		std::string names, list = item->requires_class, c;
+		while (!(c = Parse::popFirstString(list)).empty())
+			names += (names.empty() ? "" : ", ") + msg->get(c);
+		tip.addColoredText(msg->getv("Requires Class: %s", names.c_str()), color);
 	}
 
 	// flavor text
@@ -1734,7 +1763,7 @@ bool ItemManager::requirementsMet(const StatBlock *stats, ItemID item_id) {
 	}
 
 	// class
-	if (!item->requires_class.empty() && item->requires_class != stats->character_class) {
+	if (!item->requires_class.empty() && !classAllowed(item->requires_class, stats->character_class)) {
 		return false;
 	}
 

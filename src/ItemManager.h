@@ -296,6 +296,7 @@ public:
 	std::vector<size_t> equip_flags;   // common values include: melee, ranged, mental, shield
 	std::vector<LevelScaledMinMax> base_dmg; // minimum/maximum damage amount
 	std::vector<BonusData> bonus;   // stat to increase/decrease e.g. hp, accuracy, speed
+	std::vector<std::pair<std::string, int> > slayer; // (enemy category, % extra damage) e.g. silver vs undead
 	std::vector<LootAnimation> loot_animation;// the flying loot animation for this item
 	std::vector< std::pair<PowerID, PowerID> > replace_power;        // alter powers when this item is equipped. The first PowerID is replaced with the second.
 	std::vector<size_t> disable_slots; // if this item is equipped, it will disable slots that match the types in the list
@@ -360,6 +361,7 @@ public:
 	TooltipData getTooltip(ItemStack stack, StatBlock *stats, int context, bool input_hint);
 	TooltipData getShortTooltip(ItemStack item);
 	std::string getItemName(ItemID id);
+	static bool classAllowed(const std::string& requires_class, const std::string& character_class);
 	size_t getItemTypeIndexByString(const std::string& _type);
 	ItemType& getItemType(size_t id);
 	size_t getItemQualityIndexByString(const std::string& _id);

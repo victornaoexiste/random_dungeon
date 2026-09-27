@@ -34,6 +34,10 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MapRenderer.h"
 #include "Menu.h"
 #include "MenuActionBar.h"
+#include "ModManager.h"
+#include "UtilsFileSystem.h"
+#include "Entity.h"
+#include "EntityManager.h"
 #include "MenuCharacter.h"
 #include "MenuInventory.h"
 #include "MenuLog.h"
@@ -98,7 +102,11 @@ MenuActionBar::MenuActionBar()
 	FileParser infile;
 
 	// @CLASS MenuActionBar|Description of menus/actionbar.txt
-	if (infile.open("menus/actionbar.txt", FileParser::MOD_FILE, FileParser::ERROR_NORMAL)) {
+	// mobile gets its own layout (skills live on the touch buttons), if the UI mod has one
+	std::string layout_file = "menus/actionbar.txt";
+	if (settings->touchscreen && Filesystem::fileExists(mods->locate("menus/actionbar_touch.txt")))
+		layout_file = "menus/actionbar_touch.txt";
+	if (infile.open(layout_file, FileParser::MOD_FILE, FileParser::ERROR_NORMAL)) {
 		while (infile.next()) {
 			if (parseMenuKey(infile.key, infile.val))
 				continue;
@@ -243,6 +251,20 @@ void MenuActionBar::align() {
 	}
 	for (unsigned i=0; i<MENU_COUNT; i++) {
 		menus[i]->setPos(window_area.x, window_area.y);
+	}
+
+	// mobile: the slots that feed the touch buttons sit right under them, so
+	// with the Powers menu open (touch buttons hidden) powers can be dragged
+	// onto them like on desktop
+	if (settings->touchscreen && menu && menu->touch_controls) {
+		menu->touch_controls->align();
+		for (unsigned i = 0; i < slots_count; i++) {
+			Point c;
+			if (slots[i] && menu->touch_controls->getSlotCenter(i, c)) {
+				slots[i]->pos.x = c.x - slots[i]->pos.w / 2;
+				slots[i]->pos.y = c.y - slots[i]->pos.h / 2;
+			}
+		}
 	}
 
 	// set keybinding labels
@@ -448,6 +470,9 @@ void MenuActionBar::render() {
 
 	// draw hotkeyed icons
 	for (unsigned i = 0; i < slots_count; i++) {
+		// mobile: slots under the touch buttons only show while a menu is open (to drag powers onto them)
+		Point touch_c;
+		if (settings->touchscreen && menu && menu->touch_controls && !menu->menus_open && menu->touch_controls->getSlotCenter(i, touch_c)) continue;
 		if (!slots[i]) continue;
 
 		slots[i]->show_disabled_overlay = (hotkeys[i] != 0);
@@ -593,11 +618,20 @@ void MenuActionBar::checkAction(std::vector<ActionData> &action_queue) {
 		ActionData action;
 		action.hotkey = i;
 		bool have_aim = false;
+		bool touch_aim = false;
+		Point touch_tmp;
 		slot_activated[i] = false;
 
 		if (!slots[i]) continue;
 
-		if (i == mm_slot && mouse_move_target) {
+		// mobile: a touch button bound to this slot is held (see MenuTouchControls)
+		if (menu && menu->touch_controls && menu->touch_controls->isSlotHeld(i) && !menu->menus_open) {
+			touch_aim = true;
+			slot_activated[i] = true;
+			action.power = hotkeys_mod[i];
+			twostep_slot = -1;
+		}
+		else if (i == mm_slot && mouse_move_target) {
 			action.power = hotkeys_mod[i];
 			have_aim = true;
 		}
@@ -611,7 +645,7 @@ void MenuActionBar::checkAction(std::vector<ActionData> &action_queue) {
 		}
 
 		// mouse/touch click
-		else if ((inpt->mode == InputState::MODE_TOUCHSCREEN && touch_slot == slots[i]) || (inpt->mode != InputState::MODE_TOUCHSCREEN && inpt->usingMouse() && !pc->using_main1 && !pc->using_main2 && slots[i]->checkClick() == WidgetSlot::ACTIVATE)) {
+		else if ((inpt->mode == InputState::MODE_TOUCHSCREEN && touch_slot == slots[i] && !(menu->touch_controls->visible && menu->touch_controls->getSlotCenter(i, touch_tmp))) || (inpt->mode != InputState::MODE_TOUCHSCREEN && inpt->usingMouse() && !pc->using_main1 && !pc->using_main2 && slots[i]->checkClick() == WidgetSlot::ACTIVATE)) {
 			touch_slot = NULL;
 			have_aim = false;
 			slot_activated[i] = true;
@@ -698,7 +732,10 @@ void MenuActionBar::checkAction(std::vector<ActionData> &action_queue) {
 			}
 
 			// set the target depending on how the power was triggered
-			if (have_aim && settings->mouse_aim && (settings->mouse_move || !inpt->usingTouchscreen())) {
+			if (touch_aim) {
+				action.target = touchAimTarget();
+			}
+			else if (have_aim && settings->mouse_aim && (settings->mouse_move || !inpt->usingTouchscreen())) {
 				action.target = pc->stats.pos;
 
 				if (power->target_nearest > 0) {
@@ -746,6 +783,31 @@ void MenuActionBar::checkAction(std::vector<ActionData> &action_queue) {
 			}
 		}
 	}
+}
+
+/**
+ * Mobile auto-aim: the nearest living enemy in sight (turning the hero to
+ * face it), or straight ahead if there's none.
+ */
+FPoint MenuActionBar::touchAimTarget() {
+	const float MAX_RANGE = 9.0f;
+	Entity *best = NULL;
+	float best_dist = MAX_RANGE;
+	for (size_t i = 0; i < entitym->entities.size(); ++i) {
+		Entity *e = entitym->entities[i];
+		if (e->stats.hero_ally || e->stats.hp <= 0 || e->stats.cur_state == StatBlock::ENTITY_DEAD || e->stats.cur_state == StatBlock::ENTITY_CRITDEAD)
+			continue;
+		float dist = Utils::calcDist(pc->stats.pos, e->stats.pos);
+		if (dist < best_dist && mapr->collider.lineOfSight(pc->stats.pos.x, pc->stats.pos.y, e->stats.pos.x, e->stats.pos.y)) {
+			best = e;
+			best_dist = dist;
+		}
+	}
+	if (best) {
+		pc->stats.direction = Utils::calcDirection(pc->stats.pos.x, pc->stats.pos.y, best->stats.pos.x, best->stats.pos.y);
+		return best->stats.pos;
+	}
+	return Utils::calcVector(pc->stats.pos, pc->stats.direction, pc->stats.melee_range);
 }
 
 /**

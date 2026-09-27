@@ -1,0 +1,19 @@
+id,col,row,region,name,level_min,level_max,town,dungeon,boss
+geleira_b,0,0,geleira,Fenda do Uivo,13,16,,,1
+geleira_a,1,0,geleira,Campos de Gelo,10,13,,Gruta Congelada,
+planalto_a,2,0,planalto,Portões do Planalto,11,14,,Labirinto do Touro,
+planalto_b,3,0,planalto,Trono de Cinzas,13,16,,,1
+vulcao_a,4,0,vulcao,Encosta Fumegante,14,17,,Forja Abissal,
+vulcao_b,5,0,vulcao,Coração do Vulcão,16,19,,,1
+arcano_b,0,1,arcano,Jardins Proibidos,9,12,,Biblioteca Afundada,
+arcano_a,1,1,arcano,Torre de Vidro,8,11,torre,,
+pantano_a,2,1,pantano,Brejo dos Ossos,5,8,,Cripta Alagada,
+pantano_b,3,1,pantano,Lodo Eterno,7,10,,,1
+rubras_a,4,1,rubras,Forte da Fronteira,7,10,forte,,
+rubras_b,5,1,rubras,Acampamento de Guerra,9,12,,Minas de Sangue,1
+bosque_b,0,2,bosque,Coração do Bosque,4,7,,Toca Goblin,1
+bosque_a,1,2,bosque,Trilha das Sombras,2,5,,,
+aurora_a,2,2,aurora,Aurora,1,2,aurora,,
+aurora_b,3,2,aurora,Campos da Aurora,1,3,,Porão Esquecido,
+dunas_a,4,2,dunas,Mar de Areia,4,7,,,
+dunas_b,5,2,dunas,Colmeia de Âmbar,6,9,,Ninho da Rainha,1

@@ -1,3 +1,9 @@
-# Override do misc.txt do default/fantasycore, só pra renomear o jogo.
+# Random Dungeon: acrescenta ao misc.txt do fantasycore/empyrean_campaign.
+# APPEND e obrigatorio: sem ele este arquivo substitui o de baixo inteiro e
+# perde currency_id, fogofwar, aim_assist etc.
+APPEND
 
 window_title=Random Dungeon
+# pasta dos saves (~/.local/share/flare/saves/random_dungeon); antes caia em
+# "default" porque o override antigo apagava o save_prefix da campanha
+save_prefix=random_dungeon

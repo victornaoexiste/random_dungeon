@@ -1,0 +1,3 @@
+# Biome tilesets: tinted copies of fantasycore tilesets (~5-9MB each).
+# Rebuilt by: python3 tools/gen_world.py --tilesets
+images/tilesets/rd_*.png

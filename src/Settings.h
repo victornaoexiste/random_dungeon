@@ -162,6 +162,14 @@ public:
 	// by main.cpp right after init() to start NetManager. See NetManager.h.
 	std::string net_host_port;
 	std::string net_join_target;
+	bool net_pvp; // --net-pvp (host): players can hurt each other, see NetManager.h Step 6
+
+	// Random Dungeon game mode, picked on the title screen: "" (open world,
+	// the default), "run" (infinite horde run) or "test" (dev room). Decides
+	// where a character enters the game, see GameStatePlay::modeStartMap().
+	std::string game_mode;
+	bool title_screenshot; // --title-shot: dev test hook, see GameStateTitle::logic
+	bool mp_screenshot; // --mp-shot: same, for the Multiplayer screen
 
 	// Misc
 	unsigned short view_w;
@@ -173,6 +181,7 @@ public:
 	bool audio;
 
 	bool touchscreen;
+	bool world_filter; // see RenderDevice::beginWorldFilter
 	bool mouse_scaled; // mouse position is automatically scaled to view_w * view_h resolution
 
 	bool show_hud;

@@ -1,0 +1,32 @@
+# Random Dungeon - hero colour options (character creation), see src/HeroColors.h
+# key=Name,rrggbb   ("Original" = the sprite's own colours is always first)
+# Hair: light colours (blond, white) bleed into the face, since hair and face
+# share one image; keep hair options medium to dark.
+
+skin=Clara,f1cdb2
+skin=Rosada,e3ae92
+skin=Oliva,c49468
+skin=Morena,a8704a
+skin=Parda,8a5636
+skin=Escura,64391f
+skin=Ébano,452516
+
+hair=Preto,181412
+hair=Castanho esc.,3a2418
+hair=Castanho,5e3a22
+hair=Ruivo,8c2e16
+hair=Acobreado,a0521e
+hair=Loiro escuro,9c7a40
+hair=Grisalho,8e8c90
+hair=Vermelho sangue,6e0e0e
+
+cloth=Vermelho,8e1c1c
+cloth=Carmesim,5e0e14
+cloth=Preto,2a2624
+cloth=Cinza,5a5652
+cloth=Azul,22387a
+cloth=Verde,2a5a30
+cloth=Roxo,4e2a6a
+cloth=Marrom,5e3c22
+cloth=Dourado,a8842a
+cloth=Branco,d0c8b8

@@ -1,0 +1,6 @@
+# Random Dungeon credits (title screen "Credits" button), followed by the
+# credits of the Flare content and engine it is built on.
+INCLUDE cutscenes/credits_rd.txt
+INCLUDE cutscenes/credits_empyrean.txt
+INCLUDE cutscenes/credits_fantasycore.txt
+INCLUDE cutscenes/credits_engine.txt

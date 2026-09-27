@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [
+          {
+            cc: gcc,
+            cxx: g++
+          },
+          {
+            cc: clang,
+            cxx: clang++
+          }
+        ]
+
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get clean -qq
+          sudo apt-get update -qq
+          sudo apt-get install -qq g++ clang libegl1-mesa-dev libgles2-mesa-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+
+      - name: Build
+        id: build
+        continue-on-error: true
+        env:
+          CC: ${{ matrix.compiler.cc }}
+          CXX: ${{ matrix.compiler.cxx }}
+        run: cmake . && make
+
+      - name: Check Status
+        if: steps.build.outcome != 'success'
+        run: exit 1
+
+  cppcheck:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get clean -qq
+          sudo apt-get update -qq
+          sudo apt-get install -qq libegl1-mesa-dev libgles2-mesa-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev cppcheck
+
+      - name: Run cppcheck
+        run: cppcheck --quiet --verbose --enable=all `git ls-files src/\*.cpp`

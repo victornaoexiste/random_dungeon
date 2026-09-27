@@ -1,0 +1,371 @@
+Name,Type,Level,XP,Health,Armor,Damage,DPS,Resistances,
+Abyss Demon,Demons,14,200,178,19,[Sword] 27-37 +[Fire] 22,54.7,[Fire] 250 [Cold] -50,/wiki/images/4/49/Adt_imp.png
+Accountant,Zombies,8-10,52-85,106,14,[Sword] 10-15 +[Poison] 6,18.6,[Fire] -20 [Cold] 40 [Shock] 40 [Death] 150 [Poison] 300,/wiki/images/9/98/Adt_zombie.png
+Acid Elemental,Elementals,12,131,90,14,[Sword] 17-24 +[Poison] 12,32.6,[Fire] 90 [Cold] 90 [Shock] 80 [Death] 250 [Poison] 250 [Holy] 100,/wiki/images/9/99/Golem_green.png
+Ancient Guardian,Golems,20,650,346,28,[Sword] 53-63,58.9,[Fire] 50 [Cold] 50 [Shock] 250 [Death] 250 [Poison] 250 [Holy] 70,/wiki/images/c/ce/Golem.png
+Ancient Mummy,Zombies,8-10,52-85,106,14,[Sword] 10-15 +[Poison] 6,18.6,[Fire] -20 [Cold] 40 [Shock] 40 [Death] 150 [Poison] 300,/wiki/images/9/98/Adt_zombie.png
+Animated Waste,Elementals,19,550,314,21,[Sword] 43-56 +[Poison] 15,65.6,[Fire] 25 [Cold] 25 [Shock] 90 [Death] 90 [Poison] 90 [Holy] 25,/wiki/images/9/99/Golem_green.png
+Ashen Minotaur,Minotaurs,16,310,226,20,[Sword] 24-45,32.1,[Fire] 20 [Cold] 70 [Shock] 20 [Death] 20 [Poison] 70 [Holy] 30,/wiki/images/6/60/Adt_minotaur_warrior.png
+Ashen Oracle,Minotaurs,16,310,199,18,[Shock] 22-31,24,[Cold] 70 [Poison] 70 [Holy] 30,/wiki/images/c/ca/Adt_minotaur_shaman.png
+Ashen Warlord,Minotaurs,18,860,424,25,[Sword] 29-50,36.6,[Fire] 40 [Cold] 100 [Shock] 20 [Death] 20 [Poison] 100 [Holy] 30,/wiki/images/6/60/Adt_minotaur_warrior.png
+Assassin,Bandits,8-11,52-107,52,15,[Sword] 18-23 +[Poison] 4,32.6,,/wiki/images/5/5a/Male_black_ssword.png
+Bandit,Bandits,3-4,14-19,22,3,[Sword] 4-8,8.2,,/wiki/images/5/5a/Male_black_ssword.png
+Bandit (Ranged),Bandits,4-5,19-25,20,4,[Sword] 7-11,8.3,,/wiki/images/5/5a/Male_black_ssword.png
+Bandit King,Bandits,16,610,293,20,[Sword] 41-47 +[Poison] 6,67.6,,/wiki/images/b/b7/Male_archer.png
+Batrax,Batraxs,6-9,32-67,40,8,[Sword] 15-19,17.4,[Cold] 40 [Shock] 30 [Death] 30 [Poison] 25,/wiki/images/3/3a/Batrax.png
+Batrax Theurgist,Batraxs,7-9,40-67,50,9,[Cold] 11-15,13.3,[Cold] 80 [Shock] 30 [Death] 30 [Poison] 25,/wiki/images/6/61/Batrax_red.png
+Battle Droid,Robots,21,1350,556,26,[Shock] 64-84,163.5,[Fire] 300 [Cold] 300 [Death] 300 [Poison] 300,/wiki/images/6/61/Robot.png
+Bear,Bears,8-10,52-85,70,11,[Sword] 13-18,15.6,[Fire] -25 [Cold] 25,/wiki/images/a/a4/Bear.png
+Bear (Summoned),Bears,10,85,70,11,[Sword] 13-18,15.6,[Fire] -25 [Cold] 25,/wiki/images/a/a4/Bear.png
+Beheaded One,Zombies,9,67,60,12,[Sword] 14-17,14.2,[Death] 300 [Poison] 180,/wiki/images/9/9d/Beheaded.png
+Black Wolf,Wolves,10,85,70,10,[Sword] 13-20,18.6,[Fire] -25 [Cold] 25,/wiki/images/7/7b/Wolf_black.png
+Blood Wraith,Ghosts,14,200,115,38,[Sword] 19-34 +[Death] 9,32.7,[Fire] -60 [Cold] -60 [Shock] -80 [Death] 200 [Poison] 200 [Holy] -60,/wiki/images/6/62/Wraith_knight.png
+Bloodcrawler,Spiders,5-6,25-32,34,5,[Sword] 6-11 +[Poison] 6,14.6,[Shock] -70,/wiki/images/8/84/Spider.png
+Carrion Eater,Worms,8-10,52-85,70,12,[Sword] 15-19,17.3,[Fire] 20 [Cold] 20 [Shock] -30 [Death] 20 [Poison] 150 [Holy] 80,/wiki/images/5/52/Worm.png
+Clockwork Guardian,Golems,9,67,30,7,[Sword] 15-20,18,[Fire] 40 [Cold] 40 [Shock] 40,/wiki/images/c/ce/Golem.png
+Coral Snake,Snakes,11,107,66,10,[Poison] 30-40,35.8,[Cold] -40 [Death] 20 [Poison] 300 [Holy] 11,/wiki/images/b/b7/Snake2.png
+Corrupted Sabercat,Cats,14-15,200-250,130,16,[Sword] 22-29 +[Death] 7,36.4,[Fire] -25 [Cold] 25,/wiki/images/5/51/Tiger_blue.png
+Coyote,Wolves,3-6,14-32,40,5,[Sword] 6-9,7.5,[Fire] -25 [Cold] 25,/wiki/images/0/02/Coyote.png
+Cultist,Forsaken,2-6,10-32,40,5,[Sword] 5-9,9.5,,/wiki/images/5/5a/Male_black_ssword.png
+Dark Presence,Shadows,21,1900,928,28,[Sword] 54-70 +[Death] 28,91.3,[Fire] 180 [Cold] 50 [Shock] 180 [Death] 180 [Poison] 180 [Holy] -60,/wiki/images/2/2a/Worm_shadow.png
+Death Knight,Ghosts,13-15,160-250,202,27,[Sword] 21-36 +[Death] 9,34.5,[Fire] -50 [Cold] -50 [Shock] -80 [Death] 100 [Poison] 100,/wiki/images/d/da/Death_knight.png
+Decurion Deserter,Legionnaires,14-15,400-500,314,29,[Sword] 23-32,25.2,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/c/c7/Male_knight.png
+Demilich,Liches,17,730,350,21,[Sword] 33-41 +[Death] 25,49.6,[Fire] 80 [Cold] 20 [Death] 120 [Poison] 120,/wiki/images/7/70/Skeleton_mage_high.png
+Demon,Demons,7-12,40-131,90,13,[Sword] 12-16 +[Fire] 10,24.1,[Fire] 200 [Cold] -50,/wiki/images/4/49/Adt_imp.png
+Demon (Icemist),Demons,17,380,250,18,[Sword] 34-44 +[Fire] 22,61.8,[Fire] 200 [Cold] -50,/wiki/images/4/49/Adt_imp.png
+Devourer,Worms,10-13,85-160,100,17,[Sword] 26-35,31.2,[Fire] 50 [Cold] 50 [Shock] -10 [Death] 40 [Poison] 150 [Holy] 80,/wiki/images/5/52/Worm.png
+Dire Wolf,Wolves,6-7,32-40,45,6,[Sword] 7-10,8.5,[Fire] -25 [Cold] 25,/wiki/images/c/c8/Wolf.png
+Dragon Priest,Hobgoblins,14,200,157,15,[Cold] 16-20,18.4,[Fire] 200 [Cold] 200 [Shock] 20 [Poison] 20 [Holy] 20,/wiki/images/4/4d/Goblin_shaman.png
+Earth Elemental,Elementals,13,160,154,24,[Sword] 23-35,23.6,[Fire] 120 [Cold] 120 [Shock] 120 [Death] 180 [Poison] -75 [Holy] 65,/wiki/images/1/13/Golem_rock.png
+Earth Elemental (Guardian),Elementals,13,160,154,24,[Sword] 23-35,23.6,[Fire] 120 [Cold] 120 [Shock] 120 [Death] 180 [Poison] -75 [Holy] 65,/wiki/images/1/13/Golem_rock.png
+Earth Elemental (Lesser),Elementals,9,67,90,13,[Sword] 12-16,14.4,[Fire] 90 [Cold] 70 [Shock] 70 [Death] 70 [Poison] -75 [Holy] 65,/wiki/images/1/13/Golem_rock.png
+Elder Troll,Trolls,12-13,131-160,154,18,[Sword] 20-23,19.7,[Fire] -25 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/f/f3/Troll.png
+Elder Troll (Rumor Boss),Trolls,12-13,131-160,154,18,[Sword] 20-23,19.7,[Fire] -25 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/f/f3/Troll.png
+Elite Archer,Bandits,10-12,85-131,58,14,[Sword] 25-30,30.7,,/wiki/images/b/b7/Male_archer.png
+Elite Bandit,Bandits,5-7,25-40,31,8,[Sword] 10-15,14.2,,/wiki/images/a/a1/Bandit_elite.png
+Fallen Dragoon,Skeletons,13,160,136,16,[Sword] 11-20 +[Fire] 5,21.2,[Fire] 300 [Cold] -100 [Death] 180 [Poison] 180,/wiki/images/8/85/Adt_skeleton_red.png
+Fallen Hero,Skeletons,13-14,160-200,178,19,[Sword] 20-25 +[Cold] 5,28.1,[Death] 180 [Poison] 180,/wiki/images/b/bb/Skeleton_knight.png
+Fire Drake,Drakes,10-11,85-107,122,15,[Sword] 18-25 +[Fire] 12,33.8,[Fire] 300 [Cold] -25,/wiki/images/9/94/Wyvern_red.png
+Fire Elemental (Level 7),Elementals,7,40,66,11,[Sword] 10-13 +[Fire] 8,19.6,[Fire] 300 [Cold] -100 [Shock] 60 [Death] 60 [Poison] 60,/wiki/images/6/6d/Fire_elemental.png
+Fire Elemental (Level 10),Elementals,10,85,106,16,[Sword] 13-16 +[Fire] 8,22.6,[Fire] 300 [Cold] -100 [Shock] 60 [Death] 60 [Poison] 60,/wiki/images/6/6d/Fire_elemental.png
+Fire Elemental (Level 13),Elementals,13,160,154,20,[Sword] 20-25 +[Fire] 10,32.6,[Fire] 300 [Cold] -100 [Shock] 60 [Death] 60 [Poison] 60,/wiki/images/6/6d/Fire_elemental.png
+Fire Elemental Epic,Elementals,18,460,282,25,[Sword] 32-37 +[Fire] 10,44.6,[Fire] 300 [Cold] -100 [Shock] 160 [Death] 60 [Poison] 60,/wiki/images/6/6d/Fire_elemental.png
+Fire Mirmek,Mirmeks,5-7,25-40,45,10,[Sword] 9-13 +[Fire] 3,14.3,[Fire] 30 [Cold] -30 [Poison] -40,/wiki/images/c/c1/Adt_antilion_warrior.png
+Flame Priest,Demons,8,52,42,9,[Fire] 10-14,11.1,[Fire] 200 [Cold] -50,/wiki/images/4/49/Adt_imp.png
+Ghost (weak),Ghosts,4-6,19-32,22,19,[Death] 8-12,10.1,[Fire] -25 [Cold] -25 [Shock] -40 [Death] 100 [Poison] 100,/wiki/images/a/ab/Ghost.png
+Ghoul,Zombies,5-7,25-40,45,10,[Sword] 7-12 +[Poison] 6,15.6,[Fire] -50 [Death] 150 [Poison] 150,/wiki/images/9/98/Adt_zombie.png
+Giant Chieftain,Giants,16-17,610-730,465,21,[Sword] 31-38,41.9,[Cold] 80 [Shock] 30 [Death] 60 [Poison] 60 [Holy] 30,/wiki/images/0/0c/Giant.png
+Giant Mamba,Snakes,12-13,131-160,100,14,[Sword] 21-29 +[Poison] 5,30.6,[Cold] -40 [Death] 20 [Poison] 300 [Holy] 10,/wiki/images/5/5a/Snake.png
+Giant Rat,Rats,5,25,35,6,[Sword] 5-10 +[Poison] 6,13.6,[Cold] 25 [Poison] 70,/wiki/images/8/8b/Rat.png
+Giant Skeleton,Skeletons,16,610,347,21,[Sword] 26-31 +[Cold] 6,35.1,[Death] 300 [Poison] 180,/wiki/images/2/26/Adt_skeleton.png
+Giant Spider,Spiders,4-7,19-40,45,8,[Sword] 7-12 +[Poison] 6,15.6,[Shock] -30 [Poison] 100,/wiki/images/8/84/Spider.png
+Goblin (weak),Goblins,1-2,7-10,18,1,[Sword] 2-5,3.9,[Fire] 10,/wiki/images/a/a1/Adt_goblin_warrior.png
+Goblin Beastlord,Goblins,5-6,25-32,40,7,[Sword] 9-14,12.9,[Fire] 25,/wiki/images/2/21/Adt_goblin_spearman.png
+Goblin Firedancer,Goblins,4-7,19-40,59,6,[Fire] 5-7,4.9,[Fire] 120,/wiki/images/a/a1/Adt_goblin_warrior.png
+Goblin Firelord,Goblins,7-10,40-85,66,6,[Sword] 3-7 +[Fire] 10,15,[Fire] 200,/wiki/images/a/a1/Adt_goblin_warrior.png
+Goblin Guardian,Goblins,2-5,10-25,30,6,[Sword] 7-11,9.3,[Fire] 25,/wiki/images/2/21/Adt_goblin_spearman.png
+Goblin King,Goblins,9-11,67-157,204,15,[Sword] 15-20,18,[Fire] 50,/wiki/images/a/a1/Adt_goblin_warrior.png
+Goblin Sergeant,Goblins,3-6,14-32,40,7,[Sword] 8-12,10.3,[Fire] 25,/wiki/images/2/21/Adt_goblin_spearman.png
+Goblin Spearman,Goblins,2-4,10-19,18,2,[Sword] 5-7,5.5,[Fire] 10,/wiki/images/2/21/Adt_goblin_spearman.png
+Goblin Warrior,Goblins,2-4,10-19,26,4,[Sword] 4-8,6.9,[Fire] 25,/wiki/images/a/a1/Adt_goblin_warrior.png
+Great Manticore,Manticores,16,610,427,21,[Sword] 36-52 +[Poison] 24,68.6,[Fire] 120 [Cold] 40 [Shock] 120 [Death] 120 [Poison] 300 [Holy] 20,/wiki/images/0/03/Manticore.png
+Greater Demon (Elemental Plane of Fire),Demons,22,2200,1110,24,[Sword] 51-61 +[Fire] 22,79,[Shock] 200 [Death] 200 [Poison] 200 [Holy] 40,/wiki/images/c/c4/Demon.png
+Greater Shadow,Shadows,19,1000,468,24,[Sword] 32-47 +[Death] 9,44.5,[Fire] 100 [Cold] 50 [Shock] 180 [Death] 90 [Poison] 90 [Holy] -60,/wiki/images/1/11/Ape_shadow.png
+Green Dragon,Dragons,14-17,600-1080,725,23,[Sword] 39-52 +[Poison] 15,61.5,[Fire] 50 [Cold] 50 [Shock] 50 [Poison] 300,/wiki/images/c/c1/Wyvern.png
+Grey Wolf,Wolves,2-3,10-14,25,2,[Sword] 4-7,5.5,[Fire] -25 [Cold] 25,/wiki/images/c/c8/Wolf.png
+Guard,Soldiers,7-10,40-85,70,12,[Sword] 13-17,15.4,,/wiki/images/9/90/Male_leather.png
+Guard (Friguld),Soldiers,11,107,80,14,[Sword] 15-19,17.4,[Poison] 250,/wiki/images/9/90/Male_leather.png
+Guard (Ranged),Soldiers,7-10,40-85,46,10,[Sword] 17-22,21.8,,/wiki/images/b/b7/Male_archer.png
+Hell Hound,Wolves,6-8,32-52,74,9,[Sword] 10-14,12.4,[Fire] 100 [Cold] -25,/wiki/images/c/c8/Wolf.png
+Hill Giant,Giants,15,250,277,19,[Sword] 26-33,35.8,[Cold] 80 [Shock] 30 [Death] 60 [Poison] 60 [Holy] 30,/wiki/images/0/0c/Giant.png
+Hobgoblin,Hobgoblins,8-9,52-67,60,10,[Sword] 10-15 +[Cold] 6,18.6,[Cold] 40 [Shock] 20,/wiki/images/1/16/Goblin_assasin.png
+Ice Demon,Demons,11,107,80,14,[Cold] 17-21,19.4,[Fire] -50 [Cold] 200,/wiki/images/0/0c/Adt_icylon.png
+Ice Drake,Drakes,10-11,85-107,122,15,[Sword] 18-25 +[Cold] 12,33.8,[Fire] -25 [Cold] 300,/wiki/images/6/63/Wyvern_white.png
+Ice Elemental (Level 7),Elementals,7,40,66,13,[Sword] 8-12 +[Cold] 5,15.1,[Fire] -100 [Cold] 300 [Shock] 60 [Death] 60 [Poison] 60,/wiki/images/d/d5/Ice_elemental.png
+Ice Elemental (Level 10),Elementals,10,85,106,18,[Sword] 11-15 +[Cold] 5,18.1,[Fire] -100 [Cold] 300 [Shock] 60 [Death] 60 [Poison] 60,/wiki/images/d/d5/Ice_elemental.png
+Ice Elemental (Level 13),Elementals,13,160,154,22,[Sword] 18-23 +[Cold] 8,28.6,[Fire] -100 [Cold] 300 [Shock] 60 [Death] 60 [Poison] 60,/wiki/images/d/d5/Ice_elemental.png
+Ice Elemental Epic,Elementals,18,460,282,27,[Sword] 30-35 +[Cold] 8,40.6,[Fire] -100 [Cold] 300 [Shock] 160 [Death] 60 [Poison] 60,/wiki/images/d/d5/Ice_elemental.png
+Ice Giant,Giants,15,250,277,19,[Sword] 24-29 +[Cold] 8,34.6,[Fire] -40 [Cold] 100 [Shock] 30 [Death] 60 [Poison] 60 [Holy] 30,/wiki/images/9/96/Ice_giant.png
+Ice Shaman,Hobgoblins,10-11,85-107,66,10,[Cold] 13-17,15.3,[Fire] 20 [Cold] 80 [Shock] 20 [Poison] 20 [Holy] 20,/wiki/images/4/4d/Goblin_shaman.png
+Ice Warlord,Hobgoblins,15,500,314,20,[Sword] 25-32 +[Cold] 12,40.9,[Fire] -30 [Cold] 120 [Shock] 50 [Death] 50 [Poison] 50 [Holy] 25,/wiki/images/c/cb/Goblin_spearman_elite.png
+Ice Wolf,Wolves,11-12,107-131,115,15,[Sword] 18-23 +[Cold] 6,26.6,[Fire] -25 [Cold] 280,/wiki/images/2/20/Wolf_white.png
+Icylon,Demons,5-8,25-52,42,10,[Sword] 6-9 +[Cold] 5,12.7,[Fire] -50 [Cold] 200,/wiki/images/0/0c/Adt_icylon.png
+Imp,Demons,4-7,19-40,38,8,[Fire] 10-14,11.1,[Fire] 200 [Cold] -50,/wiki/images/4/49/Adt_imp.png
+Inori Spider,Spiders,2-4,10-19,30,3,[Sword] 4-9 +[Poison] 6,12.6,[Shock] -30,/wiki/images/8/84/Spider.png
+Insane Wizard (Blue),Wizards,20,650,178,24,[Cold] 34-50,43.1,[Fire] 50 [Cold] 250 [Shock] 120 [Death] 40 [Poison] 40 [Holy] 40,/wiki/images/5/55/Male_tunic_blue_staff.png
+Insane Wizard (Red),Wizards,20,650,178,24,[Fire] 36-58,48.3,[Fire] 250 [Cold] 50 [Shock] 120 [Death] 40 [Poison] 40 [Holy] 40,/wiki/images/4/41/Male_tunic_red_rod.png
+Iron Golem,Golems,15,250,202,23,[Sword] 24-31,33.4,[Fire] 90 [Cold] 10 [Shock] 250 [Death] 250 [Poison] 250 [Holy] 70,/wiki/images/0/0d/Iron_Golem.png
+Iron Guardian,Golems,12,131,138,15,[Sword] 18-25,26.2,[Fire] 20 [Cold] 60 [Shock] 250 [Death] 250 [Poison] 250 [Holy] 70,/wiki/images/0/0d/Iron_Golem.png
+Jailer,Bandits,10,85,70,11,[Sword] 13-15,15.7,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/d/d6/Male_slave.png
+Kurg Ape,Apes,8-9,52-67,90,8,[Sword] 12-16,14.4,[Fire] 30,/wiki/images/4/45/Ape.png
+Kurg Elder,Apes,12-14,131-200,178,15,[Sword] 20-25,23.1,[Fire] 50 [Cold] 30 [Shock] 30 [Holy] 30,/wiki/images/4/45/Ape.png
+Kurg Silverback,Apes,12-14,131-200,157,14,[Sword] 14-19,17,[Fire] 50 [Cold] 30 [Shock] 30 [Holy] 30,/wiki/images/3/37/Ape_white.png
+Legion Deserter,Legionnaires,12,131,90,21,[Sword] 16-21,19,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/c/c7/Male_knight.png
+Legionnaire (Female),Legionnaires,12-17,131-380,250,27,[Sword] 27-32,30.2,,/wiki/images/5/54/Female_knight.png
+Legionnaire (Male),Legionnaires,12-15,131-250,202,25,[Sword] 22-27,25.1,,/wiki/images/c/c7/Male_knight.png
+Lesser Shadow,Shadows,13-14,160-200,115,17,[Sword] 20-27 +[Death] 7,34.1,[Fire] 100 [Cold] 50 [Shock] 180 [Death] 90 [Poison] 90 [Holy] -60,/wiki/images/9/9d/Spider_shadow.png
+Librarian,Ghosts,8-9,52-67,60,26,[Death] 11-17,14.1,[Fire] -20 [Cold] -20 [Shock] -30 [Death] 100 [Poison] 100,/wiki/images/a/ab/Ghost.png
+Librarian (weak),Ghosts,4-6,19-32,22,19,[Death] 8-12,10.1,[Fire] -25 [Cold] -25 [Shock] -40 [Death] 100 [Poison] 100,/wiki/images/a/ab/Ghost.png
+Lich (Rumor Boss),Liches,17-20,1080-1650,814,29,[Sword] 38-46 +[Death] 25,53.6,[Fire] 120 [Cold] 20 [Death] 120 [Poison] 120,/wiki/images/7/70/Skeleton_mage_high.png
+Lost Soul,Shadows,14,200,157,16,[Death] 33-39,32.4,[Fire] 100 [Cold] 50 [Shock] 180 [Death] 90 [Poison] 90 [Holy] -60,/wiki/images/d/dd/Male_tunic_shadow.png
+Mad Master,Monks,12,231,226,14,[Sword] 16-18,19.1,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/0/02/Male_red.png
+Mad Monk,Monks,10,85,70,11,[Sword] 13-15,15.7,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/d/d6/Male_slave.png
+Mad Monk Healer,Monks,10,85,58,11,[Sword] 10-12,12.4,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/0/0d/Female_slave.png
+Mamba,Snakes,7-9,40-67,50,8,[Poison] 11-18,14.9,[Cold] -40 [Death] 20 [Poison] 300 [Holy] 10,/wiki/images/5/5a/Snake.png
+Manticore,Manticores,14,200,178,17,[Sword] 27-40 +[Poison] 20,54,[Fire] 120 [Cold] 40 [Shock] 120 [Death] 120 [Poison] 300 [Holy] 10,/wiki/images/0/03/Manticore.png
+Manticore (Rumor Boss),Manticores,14,200,178,17,[Sword] 27-40 +[Poison] 20,54,[Fire] 120 [Cold] 40 [Shock] 120 [Death] 120 [Poison] 300 [Holy] 10,/wiki/images/0/03/Manticore.png
+Manticore Whelp,Manticores,12,131,226,17,[Sword] 22-30 +[Poison] 10,36.4,[Fire] 120 [Cold] 40 [Shock] 120 [Death] 120 [Poison] 300 [Holy] 40,/wiki/images/0/03/Manticore.png
+Matriarch Voratrix,Vorators,15,500,314,19,[Sword] 35-49,43,[Fire] 200 [Shock] 50 [Death] 200 [Poison] 200 [Holy] 30,/wiki/images/a/a4/Vorator.png
+Mercenary,Mercenaries,4-7,19-40,45,8,[Sword] 10-14,12.4,,/wiki/images/9/90/Male_leather.png
+Mercenary (Guild),Mercenaries,8,52,50,11,[Sword] 10-14,12.4,,/wiki/images/9/90/Male_leather.png
+Minotaur,Minotaurs,7-9,40-67,90,12,[Sword] 9-25,16,[Cold] 70 [Poison] 70,/wiki/images/6/60/Adt_minotaur_warrior.png
+Minotaur Lord,Minotaurs,10-12,85-131,138,17,[Sword] 14-32,21.5,[Fire] 20 [Cold] 70 [Shock] 20 [Death] 20 [Poison] 70,/wiki/images/6/60/Adt_minotaur_warrior.png
+Minotaur Oracle,Minotaurs,11-12,107-131,122,15,[Shock] 15-20,15.8,[Cold] 70 [Poison] 70,/wiki/images/c/ca/Adt_minotaur_shaman.png
+Minotaur Oracle (Raider),Minotaurs,10,85,94,13,[Shock] 13-18,14,[Cold] 70 [Poison] 70,/wiki/images/c/ca/Adt_minotaur_shaman.png
+Minotaur Raider,Minotaurs,9,67,90,12,[Sword] 9-25,16,[Cold] 70 [Poison] 70,/wiki/images/6/60/Adt_minotaur_warrior.png
+Minotaur Royal Guard,Minotaurs,14,200,178,19,[Sword] 19-40,27.5,[Fire] 20 [Cold] 70 [Shock] 20 [Death] 20 [Poison] 70,/wiki/images/6/60/Adt_minotaur_warrior.png
+Minotaur Warlord,Minotaurs,12-14,231-400,281,20,[Sword] 18-36,26.8,[Fire] 20 [Cold] 70 [Shock] 20 [Death] 20 [Poison] 70,/wiki/images/6/60/Adt_minotaur_warrior.png
+Mirmek,Mirmeks,3-5,14-25,35,7,[Sword] 6-11,8.8,[Poison] -40,/wiki/images/f/fe/Adt_antilion.png
+Mirmek Hatchling,Mirmeks,1-3,7-14,25,3,[Sword] 4-8,6.9,[Poison] -40,/wiki/images/f/fe/Adt_antilion.png
+Mirmek Queen,Mirmeks,8-12,52-131,90,17,[Sword] 16-24,18.4,[Poison] -40,/wiki/images/c/c1/Adt_antilion_warrior.png
+Monk (Forbidden),Monks,13,160,100,14,[Sword] 18-20,21.3,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/d/d6/Male_slave.png
+Monk Healer (Forbidden),Monks,12,131,74,13,[Sword] 15-16 +[Poison] 7,20.5,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/0/0d/Female_slave.png
+Monstruous Spider,Spiders,8-10,52-85,70,13,[Sword] 12-18 +[Poison] 10,25.4,[Shock] -30 [Poison] 250,/wiki/images/8/84/Spider.png
+Mummy,Zombies,5-7,25-40,45,10,[Sword] 7-12 +[Poison] 6,15.6,[Fire] -50 [Death] 150 [Poison] 150,/wiki/images/9/98/Adt_zombie.png
+Mutant Devourer,Worms,16,310,145,20,[Sword] 33-42,38.3,[Fire] 150 [Cold] 150 [Shock] 150 [Holy] 80,/wiki/images/5/52/Worm.png
+Mutant Rat,Rats,15,250,202,18,[Sword] 19-24 +[Poison] 6,27.7,[Fire] 90 [Cold] 90 [Shock] 90 [Poison] 250,/wiki/images/8/8b/Rat.png
+Nightblade,Bandits,10-12,85-131,58,15,[Sword] 20-25 +[Poison] 4,35.3,,/wiki/images/5/5a/Male_black_ssword.png
+Old One (Green),Old Ones,18,460,180,18,[Poison] 43-51,43.1,[Fire] -20 [Cold] 250 [Shock] 250 [Death] 250 [Poison] 250 [Holy] 30,/wiki/images/3/38/Ghoul_green.png
+Old One (Purple),Old Ones,19,1000,468,19,[Sword] 53-69 +[Death] 28,90.3,[Fire] 250 [Cold] 250 [Shock] -20 [Death] 250 [Poison] 250 [Holy] 30,/wiki/images/5/53/Ghoul_purple.png
+Old One (Red),Old Ones,17,380,250,20,[Sword] 34-44 +[Fire] 22,61.8,[Fire] 250 [Cold] -20 [Shock] 250 [Death] 250 [Poison] 250 [Holy] 30,/wiki/images/e/e3/Ghoul.png
+Orc Archer,Orcs,5-6,25-32,28,4,[Sword] 8-12,11.3,[Death] 90 [Poison] 25,/wiki/images/2/26/Orc_archer.png
+Orc Commander,Orcs,10-12,85-131,226,18,[Sword] 17-26,19.8,[Fire] 25 [Cold] 20 [Death] 150 [Poison] 30,/wiki/images/1/14/Adt_orc_warrior.png
+Orc Cook,Orcs,5,25,35,6,[Sword] 7-11,9.3,[Death] 90 [Poison] 30,/wiki/images/c/c9/Adt_orc_grunt.png
+Orc Elite,Orcs,6-8,32-52,50,10,[Sword] 9-14,11.9,[Death] 100 [Poison] 25,/wiki/images/1/14/Adt_orc_warrior.png
+Orc Grunt,Orcs,2-3,10-14,25,3,[Sword] 5-10,7.8,[Death] 40 [Poison] 25,/wiki/images/c/c9/Adt_orc_grunt.png
+Orc King,Orcs,10-12,85-231,226,18,[Sword] 17-26,19.8,[Fire] 25 [Cold] 20 [Death] 150 [Poison] 30,/wiki/images/c/c9/Adt_orc_grunt.png
+Orc Shooter,Orcs,7-9,40-67,40,9,[Sword] 17-22,21.8,[Death] 160 [Poison] 25,/wiki/images/2/26/Orc_archer.png
+Orc Trooper,Orcs,9-11,67-107,80,13,[Sword] 15-20,18,[Death] 160 [Poison] 25,/wiki/images/1/14/Adt_orc_warrior.png
+Orc Warrior,Orcs,3-5,14-25,35,6,[Sword] 7-11,9.3,[Death] 40 [Poison] 25,/wiki/images/1/14/Adt_orc_warrior.png
+Outlaw,Bandits,7-10,40-85,70,12,[Sword] 13-17,15.4,,/wiki/images/9/90/Male_leather.png
+Outlaw (Ranged),Bandits,7-10,40-85,46,10,[Sword] 17-22,21.8,,/wiki/images/b/b7/Male_archer.png
+Outlaw Chief,Bandits,10-12,85-231,226,17,[Sword] 16-21,19,,/wiki/images/3/3e/Male_mail.png
+Primeval Bear,Bears,14-15,400-500,314,18,[Sword] 25-29 +[Cold] 16,43.1,[Fire] -35 [Cold] 150 [Shock] 40 [Death] 20 [Poison] 20,/wiki/images/c/cd/Bear_white.png
+Raging Shadow,Shadows,17,380,160,21,[Sword] 26-41 +[Death] 9,39.1,[Fire] 100 [Cold] 50 [Shock] 180 [Death] 90 [Poison] 90 [Holy] -60,/wiki/images/a/a1/Adt_orc_shadow.png
+Rampaging Hill Giant,Giants,15,500,277,19,[Sword] 26-33,35.8,[Cold] 80 [Shock] 30 [Death] 60 [Poison] 60 [Holy] 30,/wiki/images/0/0c/Giant.png
+Rat,Rats,1-3,7-14,22,2,[Sword] 3-6,5,[Cold] 25 [Poison] 70,/wiki/images/8/8b/Rat.png
+Red Dragon,Dragons,17-20,1080-1650,956,30,[Sword] 45-55 +[Fire] 22,73,[Fire] 300 [Cold] -30 [Shock] 100,/wiki/images/9/94/Wyvern_red.png
+Red Dragon (Icemist),Dragons,17-20,1080-1650,956,30,[Sword] 45-55 +[Fire] 22,73,[Fire] 300 [Cold] -30 [Shock] 100,/wiki/images/9/94/Wyvern_red.png
+Rexadon,Rexadons,14,200,136,15,[Sword] 27-33 +[Fire] 7,45.2,[Death] -50 [Poison] 80,/wiki/images/5/5b/Rexadon.png
+Rexadon Chief,Rexadons,18,860,424,23,[Sword] 29-35 +[Fire] 7,47.7,[Death] -50 [Poison] 80,/wiki/images/8/88/Rexadon_lord.png
+Rexadon Shaman,Rexadons,15,250,178,20,[Sword] 17-20,17,[Fire] 30 [Cold] 30 [Shock] 30 [Death] -30 [Poison] 80 [Holy] 30,/wiki/images/8/88/Rexadon_lord.png
+Sabercat,Cats,10,85,70,10,[Sword] 13-20,18.6,[Fire] -25 [Cold] 25,/wiki/images/a/ae/Tiger.png
+Sabercat Alpha,Cats,13-14,160-200,178,16,[Sword] 23-30,29.8,[Fire] -25 [Cold] 25,/wiki/images/a/ae/Tiger.png
+Sand Spider,Spiders,5-8,25-52,26,6,[Poison] 12-17,13.2,[Shock] -30 [Poison] 100,/wiki/images/8/84/Spider.png
+Shadow Hound,Shadows,12-13,131-160,100,16,[Sword] 18-25 +[Death] 7,31.9,[Fire] 100 [Cold] 50 [Shock] 180 [Death] 90 [Poison] 90 [Holy] -60,/wiki/images/3/37/Wolf_shadow.png
+Skeletal Archer,Skeletons,6-8,32-52,34,8,[Sword] 14-18 +[Cold] 2,20.2,[Death] 180 [Poison] 180,/wiki/images/0/09/Skeleton_archer.png
+Skeletal Champion,Skeletons,10-11,85-107,122,16,[Sword] 15-19 +[Cold] 4,21.4,[Death] 180 [Poison] 180,/wiki/images/2/26/Adt_skeleton.png
+Skeletal Evoker,Skeletons,7-9,40-67,50,9,[Death] 14-20,15.7,[Death] 180 [Poison] 180,/wiki/images/1/11/Skeleton_mage.png
+Skeletal Warlord,Skeletons,12-13,231-310,248,18,[Sword] 18-22 +[Cold] 4,24.5,[Cold] 70 [Death] 180 [Poison] 180,/wiki/images/b/bb/Skeleton_knight.png
+Skeletal Warrior,Skeletons,6-8,32-52,50,11,[Sword] 7-10 +[Cold] 2,12.9,[Death] 180 [Poison] 180,/wiki/images/2/26/Adt_skeleton.png
+Skeleton,Skeletons,3-5,14-25,35,6,[Sword] 7-11,9.3,[Death] 180 [Poison] 180,/wiki/images/b/b8/Skeleton_weak.png
+Soldier,House Storme,11-13,107-160,100,16,[Sword] 18-22,20.5,,/wiki/images/9/90/Male_leather.png
+Soldier (Ranged),House Storme,11-13,107-160,64,14,[Sword] 27-32,32.9,,/wiki/images/b/b7/Male_archer.png
+Sparkling,Demons,6-9,32-67,50,10,[Shock] 12-16,12.7,[Fire] -25 [Cold] -25 [Shock] 200 [Poison] 100,/wiki/images/d/d1/Adt_sparkling.png
+Sparkling (Level 2),Elementals,2-6,10-32,20,3,[Sword] 2-4 +[Shock] 2,6.7,[Fire] -25 [Cold] -25 [Shock] 200 [Poison] 100,/wiki/images/d/d1/Adt_sparkling.png
+Sparkling (Level 4),Elementals,4-9,19-67,30,7,[Sword] 3-5 +[Shock] 2,8.1,[Fire] -25 [Cold] -25 [Shock] 200 [Poison] 100,/wiki/images/d/d1/Adt_sparkling.png
+Spirit Wolf,Wolves,13,160,100,16,[Sword] 17-22 +[Holy] 6,25.6,[Fire] 150 [Cold] 150 [Shock] 150,/wiki/images/0/02/Coyote.png
+Steel Spider,Robots,18,460,180,19,[Sword] 47-57,52.8,[Fire] 300 [Cold] 300 [Shock] -50 [Death] 300 [Poison] 300,/wiki/images/f/f8/Robot2.png
+Steel Wizard,Robots,18,460,282,19,[Shock] 40-45,93.8,[Fire] 300 [Cold] 300 [Shock] -50 [Death] 300 [Poison] 300,/wiki/images/6/61/Robot.png
+Stormknight,House Storme,13,310,248,21,[Sword] 20-24 +[Shock] 6,28.5,[Shock] 80,/wiki/images/6/62/Male_plate_head_shield_longsword.png
+Swamp Scavenger,Rats,6-7,32-40,45,8,[Sword] 7-12 +[Poison] 6,15.6,[Cold] 25 [Poison] 70,/wiki/images/8/8b/Rat.png
+Tolassian Champion,Skeletons,9-11,67-157,190,15,[Death] 16-22,17.5,[Death] 100 [Poison] 100,/wiki/images/b/bb/Skeleton_knight.png
+Troll,Trolls,10-11,85-107,122,15,[Sword] 17-20,17,[Fire] -25 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/f/f3/Troll.png
+Troll Cook,Trolls,12-13,131-160,154,18,[Sword] 20-23,19.7,[Fire] -25 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/f/f3/Troll.png
+Troll King,Trolls,14,400,281,23,[Sword] 24-32,22.7,[Fire] -20 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/f/f3/Troll.png
+Troll Marauder,Trolls,14,400,281,23,[Sword] 24-32,22.7,[Fire] -20 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/f/f3/Troll.png
+Troll Shaman,Trolls,10,85,94,14,[Shock] 13-18,14,[Fire] -25 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/0/0e/Troll_red.png
+Ursan,Ursans,9-11,67-107,122,14,[Sword] 12-28,18.7,[Fire] 30 [Cold] 30 [Shock] -20 [Death] -40 [Poison] 30,/wiki/images/b/b4/Ursan.png
+Ursan Chief,Ursans,11-13,157-310,248,17,[Sword] 15-31,21.4,[Fire] 30 [Cold] 30 [Shock] -20 [Death] 30 [Poison] 30,/wiki/images/b/b4/Ursan.png
+Ursan High Shaman,Ursans,14,400,260,16,[Fire] 17-22,19.9,[Fire] 30 [Cold] 30 [Shock] -20 [Death] -40 [Poison] 30,/wiki/images/d/d1/Ursan2.png
+Ursan Shaman,Ursans,12,131,122,14,[Fire] 15-20,17.9,[Fire] 30 [Cold] 30 [Shock] -20 [Death] -40 [Poison] 30,/wiki/images/d/d1/Ursan2.png
+Vampire,Vampires,15,500,314,23,[Sword] 21-36 +[Death] 6,31.8,[Fire] -30 [Cold] 50 [Shock] 80 [Death] 60 [Poison] 60,/wiki/images/4/4e/Vampire.png
+Varannari Bodyguard,Varannari,6-8,32-52,74,10,[Sword] 10-14,12.4,,/wiki/images/4/45/Male_var_warrior.png
+Varannari Druid (Common),Varannari,7-8,40-52,42,9,[Fire] 8-12,9.2,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/f/f2/Male_tunic_grey.png
+Varannari Druid (Woodland),Varannari,11,107,108,13,[Cold] 13-17,15.3,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 50 [Poison] 50 [Holy] 30,/wiki/images/a/a0/Female_var.png
+Varannari Hag,Varannari,13-16,160-310,199,19,[Death] 36-42,35.1,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 50 [Poison] 50 [Holy] 30,/wiki/images/a/a0/Female_var.png
+Varannari Hunter,Varannari,5-6,25-32,40,8,[Sword] 9-13,11.3,,/wiki/images/a/ae/Var_warrior.png
+Varannari Hunter (Rebel),Varannari,5-8,25-52,50,10,[Sword] 10-14,12.4,,/wiki/images/4/45/Male_var_warrior.png
+Varannari Huntmaster,Varannari,6-10,32-85,182,16,[Sword] 13-17,15.4,,/wiki/images/b/be/Male_var_leader.png
+Varannari Leader,Varannari,5-6,25-32,40,8,[Sword] 9-13,11.3,,/wiki/images/4/45/Male_var_warrior.png
+Varannari Warrior,Varannari,11,107,122,13,[Sword] 15-19,17.4,[Fire] 60 [Cold] 60 [Shock] 60 [Holy] 20,/wiki/images/4/45/Male_var_warrior.png
+Varannari Witch,Varannari,11,107,108,13,[Death] 16-22,17.5,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 50 [Poison] 50 [Holy] 30,/wiki/images/a/a0/Female_var.png
+Vengeful Wraith,Ghosts,9-11,67-157,176,29,[Death] 19-25,22.1,[Fire] -25 [Cold] -25 [Shock] -40 [Death] 100 [Poison] 100,/wiki/images/a/ab/Ghost.png
+Vorator,Vorators,13,160,100,14,[Sword] 25-39,32.9,[Fire] 100 [Shock] 50 [Death] 100 [Poison] 100 [Holy] 20,/wiki/images/a/a4/Vorator.png
+Werewolf,Werewolves,13-14,160-200,178,14,[Sword] 21-30,23.4,[Cold] 60 [Shock] 20 [Death] 20 [Poison] 20,/wiki/images/f/f5/Werewolf.png
+Werewolf (Lesser),Werewolves,12,131,138,11,[Sword] 17-26,19.8,[Cold] 60 [Shock] 20 [Death] 20 [Poison] 20,/wiki/images/f/f5/Werewolf.png
+White Dragon,Dragons,16-18,910-1260,802,28,[Sword] 39-49 +[Cold] 20,64.9,[Fire] -30 [Cold] 200 [Shock] 40,/wiki/images/6/63/Wyvern_white.png
+White Wolf,Wolves,8-10,52-85,70,11,[Sword] 11-16 +[Cold] 6,19.6,[Fire] -25 [Cold] 100,/wiki/images/2/20/Wolf_white.png
+Winter Bear,Bears,11-12,107-131,90,13,[Sword] 16-21 +[Cold] 6,24.6,[Fire] -25 [Cold] 250,/wiki/images/c/cd/Bear_white.png
+Wolf,Wolves,4-5,19-25,35,4,[Sword] 5-8,6.5,[Fire] -25 [Cold] 25,/wiki/images/c/c8/Wolf.png
+Worg,Wolves,14,400,281,19,[Sword] 20-27 +[Death] 7,34.1,[Fire] -25 [Cold] 25,/wiki/images/7/7b/Wolf_black.png
+Wraith,Ghosts,8-9,52-67,60,26,[Death] 11-17,14.1,[Fire] -20 [Cold] -20 [Shock] -30 [Death] 100 [Poison] 100,/wiki/images/a/ab/Ghost.png
+Wyvern,Wyverns,10-12,85-131,138,19,[Sword] 19-29 +[Poison] 5,26.4,[Cold] 40 [Shock] 40 [Death] 20 [Poison] 20,/wiki/images/c/c1/Wyvern.png
+Wyvern Whelp,Wyverns,8-9,52-67,90,13,[Sword] 12-21 +[Poison] 4,18.7,[Shock] -50,/wiki/images/c/c1/Wyvern.png
+Yeti,Yetis,13,160,154,14,[Sword] 18-23 +[Cold] 8,28.6,[Fire] -25 [Cold] 250 [Shock] 90 [Death] 30 [Poison] 30 [Holy] 30,/wiki/images/7/7d/Yeti.png
+Zealot,Goblins,9,67,30,7,[Sword] 15-20,18,[Fire] 25,/wiki/images/a/a1/Adt_goblin_warrior.png
+Zombie,Zombies,2-3,10-14,25,4,[Sword] 3-7,6.9,[Fire] -25 [Death] 100 [Poison] 50,/wiki/images/9/98/Adt_zombie.png
+Name,Type,Level,XP,Health,Armor,Damage,DPS,Resistances,
+A Lady,Bandits,11,107,94,14,[Sword] 18-23 +[Poison] 4,32.6,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 80 [Poison] 80,/wiki/images/b/bb/Female_white.png
+Ahroun,Werewolves,16,610,347,21,[Sword] 26-35,27.9,[Cold] 60 [Shock] 20 [Death] 20 [Poison] 20,/wiki/images/f/f5/Werewolf.png
+Ancient Lich,Liches,18,1260,678,29,[Shock] 40-55 +[Fire] 18,52.4,[Fire] 120 [Cold] 20 [Death] 180 [Poison] 180,/wiki/images/7/70/Skeleton_mage_high.png
+Ancient Yeti,Yetis,17,1080,640,20,[Sword] 27-32 +[Cold] 8,37.6,[Fire] -25 [Cold] 250 [Shock] 90 [Death] 30 [Poison] 30 [Holy] 30,/wiki/images/7/7d/Yeti.png
+Araim Darkflames (Lich),Liches,17,1080,610,28,[Death] 35-46 +[Fire] 19,47.6,[Fire] 120 [Cold] 20 [Death] 180 [Poison] 180,/wiki/images/7/70/Skeleton_mage_high.png
+Basrudaxul the Elder,Dragons,22,2200,1110,34,[Sword] 51-61 +[Fire] 22,79,[Fire] 300 [Cold] -30 [Shock] 100,/wiki/images/9/94/Wyvern_red.png
+Blafarne the Lich,Liches,22,2200,900,37,[Sword] 71-76 +[Cold] 9,88.5,[Fire] 120 [Cold] 20 [Shock] -60 [Death] 180 [Poison] 180 [Holy] 40,/wiki/images/0/09/Skeleton_archer.png
+Brimard the Bard,Ghosts,15,500,314,18,[Sword] 33-47,41,[Death] 180 [Poison] 180,/wiki/images/d/da/Death_knight.png
+Carrion Lord,Worms,22,2200,1000,29,[Sword] 50-59,55.5,[Fire] 150 [Cold] 150 [Shock] 150 [Holy] 80,/wiki/images/5/52/Worm.png
+Chief Baabu,Giants,19,1450,879,26,[Sword] 37-44,49.1,[Cold] 80 [Shock] 30 [Death] 60 [Poison] 60 [Holy] 30,/wiki/images/0/0c/Giant.png
+Decurion Deserter (Arena),Legionnaires,13,310,248,18,[Sword] 19-28,21.6,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/d/d0/Female_mail.png
+Demonic Spider,Spiders,16,910,586,21,[Sword] 35-48 +[Poison] 15,57.5,[Shock] -30 [Poison] 250,/wiki/images/8/84/Spider.png
+Demonic Wolf,Wolves,18,1260,712,23,[Sword] 37-51,45,[Fire] 100 [Cold] 50 [Shock] 100 [Death] 100,/wiki/images/c/c8/Wolf.png
+Desecrated Lich,Liches,17-20,1080-1650,814,29,[Sword] 38-46 +[Death] 25,53.6,[Fire] 120 [Cold] 20 [Death] 120 [Poison] 120,/wiki/images/7/70/Skeleton_mage_high.png
+Dimensional Parasite,Magical Creatures,24,2900,1264,35,[Sword] 75-105,110.5,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 100 [Poison] 90 [Holy] 240,/wiki/images/4/41/Horror.png
+Director,Demons,15-17,750-1080,725,20,[Sword] 36-46 +[Fire] 22,63.9,[Cold] -100 [Shock] 200 [Death] 200 [Poison] 200 [Holy] 40,/wiki/images/c/c4/Demon.png
+Eddie,Thieves,2-4,10-19,22,2,[Sword] 5-9,8,,/wiki/images/5/5a/Male_black_ssword.png
+Enraged Giant Rat,Rats,8,52,74,11,[Sword] 7-12 +[Poison] 6,15.6,[Cold] 25 [Poison] 70,/wiki/images/8/8b/Rat.png
+Enraged Minotaur,Minotaurs,6-11,32-157,204,15,[Sword] 15-23,17.5,[Cold] 70 [Poison] 70,/wiki/images/6/60/Adt_minotaur_warrior.png
+Enraged Troll,Trolls,13,310,248,21,[Sword] 20-23,19.7,[Fire] -20 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/0/0e/Troll_red.png
+Faazvolfrul,Dragons,17,1080,725,27,[Sword] 36-46 +[Fire] 22,63.9,[Fire] 300 [Cold] -30 [Shock] 100,/wiki/images/9/94/Wyvern_red.png
+Falund the Just,Zombies,17,730,380,20,[Sword] 34-44 +[Cold] 20,59.8,[Fire] -80 [Cold] 180 [Shock] 180 [Death] 180 [Poison] 180 [Holy] 30,/wiki/images/2/26/Adt_skeleton.png
+Fevresee,Dragons,16-18,910-1260,802,28,[Sword] 39-49 +[Cold] 20,64.9,[Fire] -30 [Cold] 200 [Shock] 40,/wiki/images/6/63/Wyvern_white.png
+Forsaken Leader,Forsaken,3-7,14-40,108,6,[Sword] 10-15,14.2,,/wiki/images/3/3b/Male_red_ssword.png
+Furious Werewolf,Werewolves,8-10,52-85,182,7,[Sword] 14-23,17,[Fire] 60 [Cold] 60 [Shock] 60 [Death] 60 [Poison] 60,/wiki/images/a/aa/Werewolf_clothed.png
+Giant Skeleton (Mountain),Skeletons,16,610,347,21,[Sword] 26-31 +[Cold] 6,35.1,[Death] 300 [Poison] 180,/wiki/images/2/26/Adt_skeleton.png
+Greater Demon (Hellish Cave),Demons,22,2200,1110,24,[Sword] 51-61 +[Fire] 22,79,[Shock] 200 [Death] 200 [Poison] 200 [Holy] 40,/wiki/images/c/c4/Demon.png
+Grozza the Insatiable,Vorators,18,1260,712,23,[Sword] 42-56,50.1,[Fire] 300 [Shock] 50 [Death] 300 [Poison] 300 [Holy] 30,/wiki/images/a/a4/Vorator.png
+Hidalix,Dragons,17,1080,725,27,[Sword] 36-46 +[Cold] 20,61.9,[Fire] -30 [Cold] 200 [Shock] 40,/wiki/images/6/63/Wyvern_white.png
+High Priest of Tol,Liches,17,1080,610,28,[Death] 35-46 +[Fire] 19,47.6,[Fire] 120 [Cold] 20 [Death] 180 [Poison] 180,/wiki/images/7/70/Skeleton_mage_high.png
+Ice Elemental Lord,Elementals,25,3250,1341,34,[Sword] 66-76 +[Cold] 36,108.2,[Fire] 140 [Cold] 140 [Shock] 200 [Death] 200 [Poison] 200 [Holy] 90,/wiki/images/d/d5/Ice_elemental.png
+Initiate Glaydan,Ghosts,5-7,25-40,52,21,[Death] 9-13,11.1,[Fire] -25 [Cold] -25 [Shock] -40 [Death] 100 [Poison] 100,/wiki/images/a/ab/Ghost.png
+Itharrak the Firedancer,Goblins,6,32,110,6,[Sword] 3-7 +[Fire] 10,15,[Fire] 100 [Cold] -50,/wiki/images/a/a1/Adt_goblin_warrior.png
+Joun,Thieves,2-4,10-19,22,2,[Sword] 5-9,8,,/wiki/images/5/5a/Male_black_ssword.png
+Kakrak,Batraxs,10,85,158,11,[Cold] 19-23,21.4,[Cold] 80 [Shock] 30 [Death] 250 [Poison] 25 [Holy] 25,/wiki/images/6/61/Batrax_red.png
+King Gurguth,Trolls,16,910,586,25,[Sword] 30-38,27.5,[Fire] -20 [Cold] 50 [Shock] 50 [Death] 50 [Poison] 50 [Holy] 50,/wiki/images/f/f3/Troll.png
+King of Korne,Ursans,23,2550,1072,30,[Sword] 62-80 +[Fire] 33,105.5,[Fire] 80 [Cold] 80 [Shock] 20 [Death] -60 [Poison] 60 [Holy] 30,/wiki/images/b/b4/Ursan.png
+Krysoradir,Dragons,20,1650,956,30,[Sword] 45-55 +[Cold] 20,71,[Fire] -30 [Cold] 200 [Shock] 40,/wiki/images/6/63/Wyvern_white.png
+Kurg King,Apes,17-18,1080-1260,802,25,[Sword] 39-53,47,[Fire] 90 [Cold] 50 [Shock] 50 [Holy] 40,/wiki/images/4/45/Ape.png
+Lady of the City,Skeletons,12,231,194,10,[Sword] 30-35 +[Cold] 4,37.1,[Death] 300 [Poison] 180,/wiki/images/0/09/Skeleton_archer.png
+Lord of the City,Skeletons,15,500,314,20,[Sword] 23-28 +[Cold] 6,32.1,[Death] 300 [Poison] 180,/wiki/images/b/bb/Skeleton_knight.png
+Lord of the Pit,Demons,25,3250,1341,34,[Sword] 60-70 +[Fire] 22,88.2,[Shock] 200 [Death] 200 [Poison] 200 [Holy] 40,/wiki/images/c/c4/Demon.png
+Mausoleum Lich,Liches,17,1080,610,28,[Death] 35-46 +[Fire] 19,47.6,[Fire] 120 [Cold] 20 [Death] 180 [Poison] 180,/wiki/images/7/70/Skeleton_mage_high.png
+Melporth the Invincible,Shadows,19,1450,784,23,[Sword] 46-61 +[Poison] 20,74.7,[Fire] 180 [Cold] 180 [Shock] 180 [Death] 180 [Poison] 180 [Holy] -30,/wiki/images/6/6e/Male_knight_shadow.png
+Merzadan the Undying,Liches,21,1900,882,32,[Death] 42-53 +[Fire] 19,53.2,[Fire] 120 [Cold] 20 [Death] 180 [Poison] 180,/wiki/images/7/70/Skeleton_mage_high.png
+Mylora the Lich,Liches,22,2200,1000,37,[Sword] 44-59 +[Death] 6,52.8,[Fire] -60 [Cold] 20 [Shock] 40 [Death] 180 [Poison] 180 [Holy] 40,/wiki/images/b/bb/Skeleton_knight.png
+Myrso the Merciful,Zombies,16,610,347,19,[Sword] 38-53 +[Poison] 20,66.6,[Fire] -80 [Cold] 180 [Shock] 180 [Death] 180 [Poison] 180 [Holy] 30,/wiki/images/9/98/Adt_zombie.png
+Nastur the Conqueror,Skeletons,15,500,314,20,[Sword] 29-39 +[Fire] 22,56.8,[Fire] 120 [Death] 180 [Poison] 180,/wiki/images/b/bb/Skeleton_knight.png
+Necromancer (Mercian Royal Crypt),Wizards,13-14,310-400,260,14,[Death] 33-39,32.4,[Fire] 50 [Cold] 50 [Shock] 50,/wiki/images/f/ff/Male_tunic_blue.png
+Necromancer (Nayau Tomb),Wizards,7-9,40-67,160,11,[Sword] 12-20 +[Cold] 4,18.3,[Fire] 50 [Cold] 50 [Shock] 50,/wiki/images/8/8e/Male_tunic_red.png
+Night Lord,Ghosts,16,910,586,40,[Death] 32-46 +[Cold] 14,53.2,[Fire] 90 [Cold] 90 [Shock] -100 [Death] 90 [Poison] 90 [Holy] 50,/wiki/images/a/ab/Ghost.png
+Nightmare Dragon,Shadows,20,1650,856,26,[Sword] 51-67 +[Death] 28,88.3,[Fire] 60 [Cold] -70 [Shock] 50 [Death] 100 [Poison] 300,/wiki/images/e/eb/Wyvern_shadow.png
+Nightwalker (Shadows),Ghosts,12,231,226,36,[Death] 23-37 +[Cold] 14,44.2,[Fire] 90 [Cold] 90 [Shock] -100 [Death] 90 [Poison] 90 [Holy] 50,/wiki/images/a/ab/Ghost.png
+Nightwalker (Sonnet),Ghosts,12,231,226,36,[Death] 23-37 +[Cold] 14,44.2,[Fire] 90 [Cold] 90 [Shock] -100 [Death] 90 [Poison] 90 [Holy] 50,/wiki/images/a/ab/Ghost.png
+Nightwalker (Undergrove),Ghosts,16,610,347,27,[Death] 32-46 +[Cold] 14,53.2,[Cold] -50 [Death] 100 [Poison] 100 [Holy] -20,/wiki/images/a/ab/Ghost.png
+Nightwalker Lord,Ghosts,14-17,600-1080,640,41,[Death] 34-48 +[Cold] 14,55.2,[Fire] -25 [Cold] -25 [Shock] -40 [Death] 100 [Poison] 100,/wiki/images/a/ab/Ghost.png
+Primzar,Wizards,12,131,122,14,[Shock] 15-20,15.8,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/f/ff/Male_tunic_blue.png
+Renegade Minotaur,Minotaurs,15,500,314,20,[Sword] 21-42,29.3,[Fire] 20 [Cold] 70 [Shock] 20 [Death] 20 [Poison] 70 [Holy] 30,/wiki/images/6/60/Adt_minotaur_warrior.png
+Saradan the Fire Lord,Wizards,23,2550,1018,31,[Sword] 39-54 +[Fire] 30,77.6,[Fire] 250 [Cold] 50 [Shock] 120 [Death] 40 [Poison] 40 [Holy] 40,/wiki/images/6/66/Male_tunic_red_greatstaff.png
+Sir Morfados,Ghosts,13,160,154,27,[Sword] 17-32 +[Death] 6,28.2,[Fire] -50 [Cold] -50 [Shock] -80 [Death] 100 [Poison] 100,/wiki/images/d/da/Death_knight.png
+Surtag,Varannari,11,157,204,19,[Sword] 16-25 +[Fire] 4,22.5,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/4/45/Male_var_warrior.png
+Syxadris,Dragons,14-17,600-1080,725,23,[Sword] 39-52 +[Poison] 15,61.5,[Fire] 50 [Cold] 50 [Shock] 50 [Poison] 300,/wiki/images/c/c1/Wyvern.png
+Tenera the Learned,Zombies,18,860,424,21,[Death] 37-51 +[Cold] 14,58.2,[Fire] -80 [Cold] 180 [Shock] 180 [Death] 180 [Poison] 180 [Holy] 30,/wiki/images/7/70/Skeleton_mage_high.png
+Tharum the Mighty,Skeletons,16,610,347,19,[Shock] 60-80,70.6,[Shock] 300 [Death] 180 [Poison] 180,/wiki/images/1/11/Skeleton_mage.png
+The Executioner,Zombies,16,910,586,25,[Sword] 24-39 +[Death] 6,37.1,[Cold] 250 [Shock] 250 [Death] 250 [Poison] 250,/wiki/images/2/29/Male_plate_battleaxe.png
+The Underking,Minotaurs,21,1900,928,28,[Sword] 38-59 +[Shock] 8,52,[Fire] 40 [Cold] 140 [Shock] 50 [Death] 50 [Poison] 140 [Holy] 80,/wiki/images/6/60/Adt_minotaur_warrior.png
+The White King,Dragons,22,2200,1110,32,[Sword] 51-61 +[Cold] 20,77,[Fire] -30 [Cold] 200 [Shock] 40,/wiki/images/6/63/Wyvern_white.png
+Tyogos,Varannari,11,157,190,10,[Fire] 14-19,16.9,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/f/f2/Male_tunic_grey.png
+Urcrymdrax,Dragons,16,910,666,26,[Sword] 34-44 +[Cold] 20,59.8,[Fire] -30 [Cold] 200 [Shock] 40,/wiki/images/6/63/Wyvern_white.png
+Vampire Elder,Vampires,17,1080,640,26,[Death] 34-48 +[Cold] 14,55.2,[Fire] -30 [Cold] 50 [Shock] 80 [Death] 60 [Poison] 60,/wiki/images/8/89/Vampire_greatsword.png
+Varannari Druid (Rhonata Cave),Varannari,7,40,38,8,[Fire] 8-12,9.2,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/f/f2/Male_tunic_grey.png
+Varessa the Lich,Liches,22,2200,950,37,[Shock] 47-62 +[Fire] 18,58,[Fire] 120 [Cold] -60 [Shock] 40 [Death] 180 [Poison] 180 [Holy] 40,/wiki/images/7/70/Skeleton_mage_high.png
+Void Lord,Shadows,24,2900,1144,34,[Sword] 63-79 +[Death] 28,100.4,[Fire] 180 [Cold] 50 [Shock] 180 [Death] 180 [Poison] 180 [Holy] -60,/wiki/images/e/eb/Wyvern_shadow.png
+War Golem,Golems,20,1150,512,28,[Sword] 58-68,63.9,[Fire] 50 [Cold] 50 [Shock] 250 [Death] 250 [Poison] 250 [Holy] 70,/wiki/images/c/ce/Golem.png
+Warlord Xurta,Orcs,10-11,85-157,204,15,[Sword] 16-25,18.9,[Fire] 25 [Cold] 20 [Poison] 50,/wiki/images/1/14/Adt_orc_warrior.png
+Werewolf (Castle Bluerock),Werewolves,14,400,281,14,[Sword] 21-26,26.5,[Fire] 60 [Cold] 60 [Shock] 60 [Death] 60 [Poison] 60,/wiki/images/a/aa/Werewolf_clothed.png
+Woodsman,Civilians,11,107,122,12,[Sword] 12-21,17.2,[Cold] 100,/wiki/images/4/42/Male_red_head_axe.png
+Young Ice Wyrm,Drakes,10,85,182,14,[Sword] 16-23 +[Cold] 12,31.8,[Fire] -25 [Cold] 300,/wiki/images/6/63/Wyvern_white.png
+Zeghast,Demons,7-12,40-231,210,17,[Sword] 8-12 +[Fire] 10,20.1,[Fire] 200 [Cold] -50,/wiki/images/4/49/Adt_imp.png
+Zogaris,Dragons,17-20,1080-1650,956,30,[Sword] 45-55 +[Fire] 22,73,[Fire] 300 [Cold] -30 [Shock] 100,/wiki/images/9/94/Wyvern_red.png
+Zombie Dragon,Dragons,19,1450,879,25,[Sword] 45-58 +[Poison] 15,67.6,[Fire] -100 [Cold] 50 [Shock] 50 [Death] 100 [Poison] 300,/wiki/images/c/c1/Wyvern.png
+Name,Type,Level,XP,Health,Armor,Damage,DPS,Resistances,
+A Scarred Vagabond,Legionnaires,14,600,478,27,[Sword] 21-30,23.4,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 80 [Poison] 80 [Holy] 80,/wiki/images/d/d6/Male_slave.png
+A Shady Traveller (Forsaken),Forsaken,8-11,52-107,52,14,[Sword] 18-23 +[Poison] 4,32.6,,/wiki/images/5/5a/Male_black_ssword.png
+Amarisa,Muud'ari,16,610,320,19,[Shock] 22-31,24,[Fire] 240 [Cold] 60 [Shock] 60 [Death] 60 [Poison] 60 [Holy] 60,/wiki/images/5/5c/Female_tunic_head3.png
+Andrys Storme,House Storme,14,600,457,14,[Death] 33-39,32.4,[Fire] 50 [Cold] 50 [Shock] 50,/wiki/images/f/ff/Male_tunic_blue.png
+Azeran,Wizards,17,1080,640,25,[Cold] 38-54,47.1,[Fire] 50 [Cold] 250 [Shock] 120 [Death] 40 [Poison] 40 [Holy] 40,/wiki/images/5/55/Male_tunic_blue_staff.png
+Bafrat,Thieves,7,40,108,9,[Sword] 10-15,14.2,,/wiki/images/3/3b/Male_red_ssword.png
+Breno,Soldiers,18,460,282,26,[Sword] 30-34 +[Shock] 3,42.8,[Fire] 175 [Cold] 175 [Shock] 50 [Death] 50 [Poison] 50 [Holy] 50,/wiki/images/6/6d/Male_plate_head2_battleaxe.png
+Brogg,Giants,15,250,277,19,[Sword] 26-33,35.8,[Cold] 80 [Shock] 30 [Death] 60 [Poison] 60 [Holy] 30,/wiki/images/0/0c/Giant.png
+Brother Tarlus,Monks,14,400,260,15,[Sword] 17-18 +[Poison] 7,22.3,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/f/f2/Male_tunic_grey.png
+Captain,Soldiers,16,310,226,21,[Sword] 26-35,27.9,[Poison] 250,/wiki/images/c/c7/Male_knight.png
+Captain Fendrick,House Storme,14,400,281,23,[Sword] 25-29 +[Shock] 6,33.6,[Cold] 250 [Shock] 250 [Death] 250 [Poison] 250,/wiki/images/a/a5/Male_plate_head_plate_maul.png
+Captain Torden,Soldiers,12,231,226,19,[Sword] 16-20,18.5,[Fire] 100 [Cold] 50 [Shock] 50 [Death] 50 [Poison] 100,/wiki/images/3/3e/Male_mail.png
+Centurion Hyartis,Legionnaires,14,600,478,26,[Sword] 20-25,23.1,[Fire] 60 [Cold] 60 [Shock] 60 [Holy] 20,/wiki/images/6/62/Male_plate_head_shield_longsword.png
+Centurion Kanum,Legionnaires,15-20,750-1650,856,44,[Sword] 36-41,39.3,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 80 [Poison] 80 [Holy] 80,/wiki/images/c/c7/Male_knight.png
+Chancellor Malard,Soldiers,14,400,281,17,[Sword] 20-27 +[Fire] 2,25.9,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 50 [Poison] 50 [Holy] 20,/wiki/images/c/c3/M100.png
+Conjurer (Golden Hand),Golden Hand,14,400,94,14,[Shock] 17-22,17.6,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 40 [Poison] 40 [Holy] 40,/wiki/images/f/ff/Male_tunic_blue.png
+Conjurer (Icemist),Wizards,14,200,94,14,[Shock] 17-22,17.6,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 40 [Poison] 40 [Holy] 40,/wiki/images/f/ff/Male_tunic_blue.png
+Demonic Lawyer,Demons,7-12,40-131,90,13,[Sword] 12-16 +[Fire] 10,24.1,[Fire] 200 [Cold] -50,/wiki/images/4/49/Adt_imp.png
+Dobros Storme,House Storme,15,500,314,24,[Sword] 27-31 +[Shock] 6,35.6,[Cold] 250 [Shock] 250 [Death] 250 [Poison] 250,/wiki/images/a/a5/Male_plate_head_plate_maul.png
+Dorphis Greyrune,Muud'ari,15,500,290,16,[Shock] 18-23,18.5,[Fire] 20 [Cold] 30 [Shock] 30,/wiki/images/8/87/Male_tunic_red_greatsword.png
+Duremas,Monks,15,750,508,27,[Sword] 17-25 +[Poison] 4,20.3,[Fire] 40 [Cold] 40 [Shock] 80 [Death] 80 [Poison] 80 [Holy] 60,/wiki/images/4/41/Male_plate_hood_maul.png
+Flame Prophet,Mirmeks,16,910,559,23,[Fire] 52-72,62.6,[Fire] 300 [Cold] 150 [Shock] 150 [Death] 150 [Poison] 40 [Holy] 80,/wiki/images/e/ea/Female_tunic.png
+Ghostly Scribe,Ghosts,9-11,67-157,204,30,[Death] 14-20,17.1,[Fire] -25 [Cold] -25 [Shock] -40 [Death] 100 [Poison] 100,/wiki/images/a/ab/Ghost.png
+Glunk,Giants,15,250,277,19,[Sword] 26-33,35.8,[Cold] 80 [Shock] 30 [Death] 60 [Poison] 60 [Holy] 30,/wiki/images/0/0c/Giant.png
+Grur Ironscale,Rexadons,18,860,390,24,[Sword] 25-28,24.3,[Fire] 30 [Cold] 30 [Shock] 30 [Death] -30 [Poison] 80 [Holy] 30,/wiki/images/8/88/Rexadon_lord.png
+Guardian Golem,Golems,15,250,202,23,[Sword] 24-31,33.4,[Fire] 90 [Cold] 10 [Shock] 250 [Death] 250 [Poison] 250 [Holy] 70,/wiki/images/0/0d/Iron_Golem.png
+Gurr,Trolls,13,310,248,18,[Sword] 20-23,19.7,[Fire] -25 [Cold] 40 [Shock] 40 [Death] 40,/wiki/images/f/f3/Troll.png
+High Priestess Br'mee,Minotaurs,18,860,390,21,[Shock] 25-34,26.7,[Cold] 70 [Poison] 70,/wiki/images/c/ca/Adt_minotaur_shaman.png
+Horton,Thieves,4-6,19-32,46,6,[Sword] 9-13,12.5,,/wiki/images/3/3b/Male_red_ssword.png
+Hunting Moon,Varannari,20,1650,856,31,[Sword] 42-47 +[Cold] 6,51.4,[Fire] 80 [Cold] 80 [Shock] 80 [Death] 20 [Poison] 20 [Holy] 20,/wiki/images/9/98/Female_var_warrior.png
+Janod,Wizard's Guild,14,400,260,23,[Fire] 17-22,19.9,[Fire] 40 [Cold] 40 [Shock] 40 [Death] 40 [Poison] 40 [Holy] 40,/wiki/images/f/ff/Male_tunic_blue.png
+Jarbad,Soldiers,12,131,138,15,[Sword] 17-26,19.8,,/wiki/images/c/c7/Male_knight.png
+Kalagru,Demons,31,2100,1803,44,[Sword] 101-131,142.1,[Fire] 200 [Cold] 90 [Shock] 200 [Death] 90 [Poison] 90 [Holy] 90,/wiki/images/c/c4/Demon.png
+Kardagis,Thieves,16-18,610-860,356,28,[Sword] 40-45 +[Fire] 5,53.2,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/9/93/Female_purple_ssword.png
+King M'dmoo,Minotaurs,19,1450,784,25,[Sword] 32-53,39.3,[Fire] 20 [Cold] 70 [Shock] 20 [Death] 20 [Poison] 70,/wiki/images/6/60/Adt_minotaur_warrior.png
+Lady Calenda,Muud'ari,20,1150,470,23,[Shock] 28-37,29.4,[Fire] 240 [Cold] 60 [Shock] 60 [Death] 60 [Poison] 60 [Holy] 60,/wiki/images/b/bb/Female_white.png
+Lady Xidar,Varannari,14,600,457,21,[Death] 19-25,20.2,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 80 [Poison] 80 [Holy] 80,/wiki/images/a/a0/Female_var.png
+Laertes,Civilians,12,231,226,19,[Sword] 16-20,18.5,[Fire] 100 [Cold] 50 [Shock] 50 [Death] 50 [Poison] 100,/wiki/images/3/3e/Male_mail.png
+Laughing Deer,Varannari,6-10,32-85,182,16,[Sword] 13-17,15.4,,/wiki/images/b/be/Male_var_leader.png
+Liserpix,Civilians,6,32,58,9,[Sword] 9-13,11.3,,/wiki/images/8/86/Female_purple.png
+Magister,Forsaken,24,2900,1086,31,[Sword] 46-54 +[Death] 25,60,[Fire] 80 [Cold] 60 [Shock] 60 [Death] 60 [Poison] 60 [Holy] 60,/wiki/images/2/28/Male_black_head.png
+Minotaur Priest,Minotaurs,15,250,178,18,[Shock] 18-23,18.5,[Cold] 70 [Poison] 70,/wiki/images/c/ca/Adt_minotaur_shaman.png
+Nifuruc,Thieves,14,400,239,16,[Sword] 28-33,31.2,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30 [Holy] 30,/wiki/images/3/3e/Male_mail.png
+Niur,Civilians,3-6,14-32,58,10,[Sword] 5-9,9.5,,/wiki/images/0/02/Male_red.png
+Quartermaster,Legionnaires,6-15,32-250,154,28,[Sword] 29-34,35.2,,/wiki/images/b/b7/Male_archer.png
+Raegar,Soldiers,8,52,50,11,[Sword] 10-14,12.4,,/wiki/images/9/90/Male_leather.png
+Renda Windstrike,Soldiers,16,610,347,25,[Sword] 30-34 +[Fire] 5,37.7,[Fire] 100 [Cold] 100 [Shock] 100 [Death] 100 [Poison] 100 [Holy] 100,/wiki/images/7/7d/Female_leather.png
+Riella,Civilians,4,19,42,5,[Sword] 4-8,6.9,,/wiki/images/b/bb/Female_white.png
+Rodney,Civilians,3-4,14-19,42,4,[Sword] 3-7,6.9,,/wiki/images/5/5a/Male_black_ssword.png
+Rodo,Thieves,9,67,140,11,[Sword] 15-20,18,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/3/3e/Male_mail.png
+Rolf Ehrar,Thieves,4-5,19-25,40,5,[Sword] 7-11,10.2,,/wiki/images/3/3b/Male_green.png
+Sergeant Dumek,Soldiers,12,231,226,29,[Sword] 16-21,19,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 80 [Poison] 80 [Holy] 80,/wiki/images/c/c7/Male_knight.png
+Starshadow,Varannari,6-10,32-85,182,16,[Sword] 13-17,15.4,,/wiki/images/b/be/Male_var_leader.png
+Steel Thunder,Varannari,12,131,138,15,[Sword] 17-26 +[Shock] 5,24.3,,/wiki/images/9/98/Female_var_warrior.png
+Stone Fang,Varannari,14,600,478,19,[Sword] 24-33,26.1,[Fire] 60 [Cold] 60 [Shock] 60 [Holy] 20,/wiki/images/b/be/Male_var_leader.png
+Stridsibum,Goblinkind,27,1700,1360,38,[Sword] 56-77 +[Shock] 8,68.4,[Fire] 300 [Cold] 300 [Shock] 300 [Death] 300 [Poison] 300 [Holy] 300,/wiki/images/e/ee/Goblin_elite.png
+Sulidar,Thieves,10,85,82,28,[Sword] 13-17,20.1,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 80 [Poison] 80 [Holy] 80,/wiki/images/3/3b/Male_green.png
+Teram,Civilians,2-3,10-14,25,5,[Sword] 3-7,6.9,,/wiki/images/c/cb/Male_black.png
+Thalassos,Civilians,13,310,230,12,[Sword] 15-18,15.1,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/3/3b/Male_green.png
+The Abbot,Liches,20,1650,856,32,[Death] 53-64 +[Fire] 19,62,[Fire] 100 [Shock] -180 [Death] 100 [Poison] 100,/wiki/images/7/70/Skeleton_mage_high.png
+The Undermother,Mirmeks,24,2900,1206,56,[Sword] 58-88,89.9,[Fire] 250 [Cold] 250 [Shock] 250 [Death] 250 [Holy] 90,/wiki/images/f/fe/Adt_antilion.png
+Three Claws,Varannari,6-10,32-85,182,16,[Sword] 13-17,15.4,,/wiki/images/b/be/Male_var_leader.png
+Trix,Elementals,9,67,50,10,[Sword] 8-11 +[Shock] 5,14.7,[Fire] -25 [Cold] -25 [Shock] 200,/wiki/images/d/d1/Adt_sparkling.png
+Valeran,Muud'ari,19,1450,784,43,[Sword] 45-55 +[Fire] 22,73,[Fire] 250 [Cold] 250 [Shock] 250 [Holy] 200,/wiki/images/6/6d/Male_plate_head2_battleaxe.png
+Varaol,Thieves,7-9,40-67,160,12,[Sword] 12-17,14.9,,/wiki/images/3/3e/Male_mail.png
+Vigilant Knight,Soldiers,7-11,40-107,122,18,[Sword] 15-20,18,,/wiki/images/c/c7/Male_knight.png
+Wandering Grandmaster,Monks,12,231,226,14,[Sword] 16-18,19.1,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/0/02/Male_red.png
+Wandering Monk,Monks,8-10,52-85,70,11,[Sword] 13-15,15.7,[Fire] 30 [Cold] 30 [Shock] 30 [Death] 30 [Poison] 30,/wiki/images/d/d6/Male_slave.png
+Woodswoman (Werewolf),Werewolves,13-14,160-200,178,14,[Sword] 21-30,23.4,[Cold] 60 [Shock] 20 [Death] 20 [Poison] 20,/wiki/images/7/70/Skeleton_mage_high.png
+Zenmo,Civilians,9,67,60,11,[Sword] 8-12,13.5,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 80 [Poison] 80 [Holy] 80,/wiki/images/c/cb/Male_black.png
+Zilda,Thieves,13,460,388,20,[Sword] 24-28 +[Shock] 3,35.5,[Fire] 50 [Cold] 50 [Shock] 50 [Death] 120 [Poison] 120 [Holy] 50,/wiki/images/9/93/Female_purple_ssword.png

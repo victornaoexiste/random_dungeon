@@ -63,7 +63,7 @@ public:
 	// since the real hit already happened (or will) on whichever side the
 	// power actually originated from.
 	bool cosmetic_only;
-	// Host only: ids of remote net players this hazard already hit (see HazardManager::net_player_hits)
+	// ids of remote net players this hazard already hit (enemy hits on the host, or PvP) (see HazardManager::net_player_hits)
 	std::vector<uint32_t> net_players_hit;
 
 	std::vector<FMinMax> damage;

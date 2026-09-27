@@ -177,6 +177,30 @@ void HazardManager::logic() {
 				}
 			}
 
+			// PvP: our own hero's (and allies') hazards can hurt the other players
+			if ((hazard->source_type == Power::SOURCE_TYPE_HERO || hazard->source_type == Power::SOURCE_TYPE_ALLY) && !hazard->power->beacon) {
+				for (size_t t = 0; t < pvp_targets.size(); ++t) {
+					const PvpTarget& pt = pvp_targets[t];
+					if (!hazard->active)
+						break;
+					if (std::find(hazard->net_players_hit.begin(), hazard->net_players_hit.end(), pt.player_id) != hazard->net_players_hit.end())
+						continue;
+					if (!Utils::isWithinRadius(hazard->pos, hazard->power->radius, pt.pos))
+						continue;
+
+					hazard->net_players_hit.push_back(pt.player_id);
+					NetPlayerHit hit;
+					hit.player_id = pt.player_id;
+					hit.power_id = static_cast<uint32_t>(hazard->power_index);
+					hit.pos = hazard->pos;
+					hit.crit_chance = hazard->crit_chance;
+					hit.accuracy = hazard->accuracy;
+					hit.damage = hazard->damage;
+					net_player_hits.push_back(hit);
+					hitEntity(hindex, true);
+				}
+			}
+
 			// dispel hazards can remove other hazards by ID
 			for (size_t j = 0; j < hazard->power->dispel_power_ids.size(); ++j) {
 				PowerID dispel_id = hazard->power->dispel_power_ids[j];

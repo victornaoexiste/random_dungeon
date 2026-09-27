@@ -1,6 +1,11 @@
-# Menu principal: logo + 3 botoes centralizados. So o que o jogo tem.
+# Menu principal: logo + botoes centralizados.
+# Modos do Random Dungeon: "Mundo Aberto" (play), "Run Infinita" (run),
+# "Sala de Teste" (test) -- ver GameStatePlay::modeStartMap no motor.
 logo=images/menus/df_logo.png,0,-250,center
 
-play_pos=0,-20,center
-multiplayer_pos=0,54,center
-config_pos=0,128,center
+play_pos=0,-110,center
+run_pos=0,-36,center
+test_pos=0,38,center
+multiplayer_pos=0,112,center
+config_pos=0,186,center
+credits_pos=0,260,center

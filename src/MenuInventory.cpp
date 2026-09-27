@@ -1316,6 +1316,7 @@ void MenuInventory::applyItemStats() {
 		pc->stats.item_base_dmg[i].min = pc->stats.item_base_dmg[i].max = 0;
 	}
 	pc->stats.item_base_abs.min = pc->stats.item_base_abs.max = 0;
+	pc->stats.slayer_bonus.clear();
 
 	// apply stats from all items
 	for (int i=0; i<MAX_EQUIPPED; i++) {
@@ -1336,6 +1337,10 @@ void MenuInventory::applyItemStats() {
 			for (unsigned j=0; j<item->equip_flags.size(); ++j) {
 				pc->stats.equip_flags.insert(item->equip_flags[j]);
 			}
+
+			// slayer bonuses (extra damage vs an enemy category)
+			for (size_t j = 0; j < item->slayer.size(); ++j)
+				pc->stats.slayer_bonus[item->slayer[j].first] += item->slayer[j].second;
 
 			// apply absorb bonus
 			pc->stats.item_base_abs.min += item->base_abs.min.get();

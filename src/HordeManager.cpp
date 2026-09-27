@@ -1,12 +1,19 @@
 #include "Avatar.h"
+#include "MenuGameOver.h"
+#include "MenuManager.h"
+#include "MessageEngine.h"
+#include "SaveLoad.h"
+#include "UtilsFileSystem.h"
 #include "EnemyGroupManager.h"
 #include "EngineSettings.h"
 #include "Entity.h"
 #include "EntityManager.h"
 #include "FileParser.h"
 #include "HordeManager.h"
+#include "GameState.h"
 #include "MapCollision.h"
 #include "MapRenderer.h"
+#include "RenderDevice.h"
 #include "Settings.h"
 #include "SharedGameResources.h"
 #include "SharedResources.h"
@@ -16,6 +23,9 @@
 #include "UtilsParsing.h"
 
 #include <cmath>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
 
 HordeManager::HordeManager()
 	: config_loaded(false)
@@ -31,10 +41,22 @@ HordeManager::HordeManager()
 	, corpse_seconds(10)
 	, hp_growth(0.25f)
 	, dmg_growth(0.10f)
+	, xp_multiplier(1)
+	, kills(0)
+	, run_over(false)
 	, ticks(0)
 	, next_spawn_tick(0)
 	, wave(0)
 {
+}
+
+bool HordeManager::isRunMap(const std::string& map) {
+	if (!config_loaded)
+		loadConfig();
+	if (map_filename.empty())
+		return false;
+	bool folder = map_filename[map_filename.size() - 1] == '/';
+	return map == map_filename || (folder && map.compare(0, map_filename.size(), map_filename) == 0);
 }
 
 void HordeManager::loadConfig() {
@@ -57,6 +79,8 @@ void HordeManager::loadConfig() {
 		else if (infile.key == "corpse_seconds") corpse_seconds = Parse::toFloat(infile.val);
 		else if (infile.key == "hp_growth") hp_growth = Parse::toFloat(infile.val);
 		else if (infile.key == "dmg_growth") dmg_growth = Parse::toFloat(infile.val);
+		else if (infile.key == "xp_multiplier") xp_multiplier = Parse::toFloat(infile.val);
+		else if (infile.key == "end_map") end_map = infile.val;
 		else if (infile.key == "tier") {
 			// tier=category,min_wave,weight
 			Tier t;
@@ -136,6 +160,7 @@ bool HordeManager::spawnOne(const FPoint& near_pos) {
 	s.threat_range_far = std::max(s.threat_range_far, spawn_dist_max * 4);
 
 	s.recalc();
+	s.xp = static_cast<unsigned long>(static_cast<float>(s.xp) * xp_multiplier + 0.5f);
 	s.net_id = entitym->next_net_id++;
 
 	entitym->entities.push_back(e);
@@ -167,12 +192,8 @@ void HordeManager::spawnGroup() {
 	// One group per spawn tick: all enemies share an anchor player so they
 	// arrive as a pack instead of an even ring.
 	FPoint anchor = targets[static_cast<size_t>(Math::randBetween(0, static_cast<int>(targets.size()) - 1))];
-	int spawned_now = 0;
-	for (int i = 0; i < want; ++i) {
-		if (spawnOne(anchor))
-			spawned_now++;
-	}
-	Utils::logInfo("HordeManager: wave %d spawned %d/%d enemies (alive before: %d, players: %u)", wave, spawned_now, want, alive, static_cast<unsigned>(targets.size()));
+	for (int i = 0; i < want; ++i)
+		spawnOne(anchor);
 }
 
 std::vector<Entity*> HordeManager::logic() {
@@ -188,10 +209,16 @@ std::vector<Entity*> HordeManager::logic() {
 		dead_ticks.clear();
 		ticks = 0;
 		wave = 0;
+		kills = 0;
+		run_over = false;
 		next_spawn_tick = static_cast<int>(start_delay * static_cast<float>(settings->max_frames_per_sec));
 	}
 
-	active = (!map_filename.empty() && mapr->getFilename() == map_filename);
+	// map= may name one map, or a folder ending in '/' (e.g. maps/run/) so the
+	// horde runs on any arena in it -- the run start map picks one at random.
+	const std::string& cur = mapr->getFilename();
+	bool folder = !map_filename.empty() && map_filename[map_filename.size() - 1] == '/';
+	active = !map_filename.empty() && (cur == map_filename || (folder && cur.compare(0, map_filename.size(), map_filename) == 0));
 	if (!active)
 		return removed;
 
@@ -205,8 +232,10 @@ std::vector<Entity*> HordeManager::logic() {
 		Entity *e = *it;
 		StatBlock& s = e->stats;
 		bool dead = (s.cur_state == StatBlock::ENTITY_DEAD || s.cur_state == StatBlock::ENTITY_CRITDEAD);
-		if (dead && dead_ticks.find(e) == dead_ticks.end())
+		if (dead && dead_ticks.find(e) == dead_ticks.end()) {
 			dead_ticks[e] = 0;
+			kills++;
+		}
 
 		if (dead && ++dead_ticks[e] >= corpse_ticks) {
 			if (s.corpse_has_collision)
@@ -228,10 +257,84 @@ std::vector<Entity*> HordeManager::logic() {
 		}
 	}
 
+	// the hero died: the run is over (summary on the Game Over screen, respawn at end_map)
+	if (!run_over && pc && (pc->stats.cur_state == StatBlock::ENTITY_DEAD || pc->stats.cur_state == StatBlock::ENTITY_CRITDEAD)) {
+		run_over = true;
+		endRun();
+	}
+	if (run_over) {
+		// automated test hook (see MenuDevKit.h): capture the Game Over summary once
+		static bool shot = false;
+		const char* st = getenv("RD_DEVKIT_SELFTEST");
+		if (st && !shot && menu->game_over->visible) {
+			render_device->screenshot_request = std::string(st) + "/run_over.png";
+			shot = true;
+		}
+		else if (st && shot && menu->game_over->visible) {
+			menu->game_over->continue_clicked = true; // then check that we respawn at end_map
+		}
+		return removed;
+	}
+
 	if (ticks >= next_spawn_tick) {
 		spawnGroup();
 		next_spawn_tick = ticks + std::max(1, static_cast<int>(interval * fps));
 	}
 
 	return removed;
+}
+
+/**
+ * Run over: show wave/kills/time/level on the Game Over screen, keep a per-save
+ * best (saves/<prefix>/<slot>/run_best.txt) and send the respawn to end_map, so
+ * "Continue" leaves the arena instead of dropping back into the same run.
+ */
+void HordeManager::endRun() {
+	const int fps = std::max(1, static_cast<int>(settings->max_frames_per_sec));
+	const int seconds = ticks / fps;
+	const int reached = wave + 1;
+
+	std::stringstream summary;
+	summary << msg->get("Wave") << " " << reached << "  |  " << kills << " " << msg->get("kills") << "  |  "
+		<< seconds / 60 << "m" << (seconds % 60 < 10 ? "0" : "") << seconds % 60 << "s  |  " << msg->get("Level") << " " << pc->stats.level;
+
+	// best run of this character
+	int best_wave = 0, best_kills = 0;
+	std::string best_path;
+	if (save_load && save_load->getGameSlot() > 0) {
+		std::stringstream p;
+		p << settings->path_user << "saves/" << eset->misc.save_prefix << "/" << save_load->getGameSlot() << "/run_best.txt";
+		best_path = p.str();
+		std::ifstream in(best_path.c_str());
+		std::string line;
+		while (std::getline(in, line)) {
+			if (line.compare(0, 5, "wave=") == 0) best_wave = Parse::toInt(line.substr(5));
+			else if (line.compare(0, 6, "kills=") == 0) best_kills = Parse::toInt(line.substr(6));
+		}
+	}
+	bool record = reached > best_wave || (reached == best_wave && kills > best_kills);
+	if (record && !best_path.empty()) {
+		std::ofstream out(best_path.c_str());
+		out << "wave=" << reached << "\nkills=" << kills << "\nseconds=" << seconds << "\nlevel=" << pc->stats.level << "\n";
+		best_wave = reached;
+		best_kills = kills;
+	}
+	std::stringstream best;
+	if (record)
+		best << msg->get("New record!");
+	else
+		best << msg->get("Best") << ": " << msg->get("Wave") << " " << best_wave << ", " << best_kills << " " << msg->get("kills");
+
+	menu->game_over->setInfo(summary.str(), best.str());
+	pc->logMsg(msg->get("Run over") + ": " + summary.str(), Avatar::MSG_NORMAL);
+	Utils::logInfo("HordeManager: run over -- wave %d, %d kills, %ds, level %d%s", reached, kills, seconds, pc->stats.level, record ? " (record)" : "");
+
+	// run edition (see GameState::runEdition): there is no open world to go
+	// back to, "Continue" starts a fresh run
+	const std::string target = GameState::runEdition() ? std::string("maps/run/start.txt") : end_map;
+	if (!target.empty()) {
+		mapr->respawn_map = target;
+		mapr->respawn_point.x = -1;
+		mapr->respawn_point.y = -1;
+	}
 }

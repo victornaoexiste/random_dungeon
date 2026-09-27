@@ -118,6 +118,9 @@ void SaveLoad::saveGame() {
 
 		outfile << "," << pc->stats.gfx_portrait << "\n";
 
+		// colour customisation (Random Dungeon, see HeroColors.h)
+		outfile << "hero_colors=" << pc->stats.color_skin << "," << pc->stats.color_hair << "," << pc->stats.color_cloth << "\n";
+
 		// hero class
 		outfile << "class=" << pc->stats.character_class << "," << pc->stats.character_subclass << "\n";
 
@@ -429,9 +432,18 @@ void SaveLoad::loadGame() {
 
 				pc->stats.checkGFXPaths();
 			}
+			else if (infile.key == "hero_colors") {
+				pc->stats.color_skin = Parse::popFirstString(infile.val);
+				pc->stats.color_hair = Parse::popFirstString(infile.val);
+				pc->stats.color_cloth = Parse::popFirstString(infile.val);
+			}
 			else if (infile.key == "class") {
 				pc->stats.character_class = Parse::popFirstString(infile.val);
 				pc->stats.character_subclass = Parse::popFirstString(infile.val);
+				// a renamed class (classes.txt alias=) loads under its current name
+				EngineSettings::HeroClasses::HeroClass* hc = eset->hero_classes.getByName(pc->stats.character_class);
+				if (hc)
+					pc->stats.character_class = hc->name;
 			}
 			else if (infile.key == "xp") {
 				pc->stats.xp = Parse::toUnsignedLong(infile.val);

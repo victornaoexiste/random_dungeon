@@ -1,0 +1,28 @@
+# Training dummy for the dev room's damage test (dev kit button).
+# Hand-written (not generated): never moves, never attacks, gives no XP or
+# loot, and has 1,000,000 hp so the kit can measure damage/DPS on it.
+INCLUDE enemies/base/skeleton_weak.txt
+
+name=Training Dummy
+level=1
+categories=rd_dummy
+rarity=common
+xp=0
+
+animations=animations/enemies/rd/rd_dummy.txt
+
+stat=hp,1000000
+stat=accuracy,0
+stat=avoidance,0
+stat=poise,0
+stat=absorb_min,0
+stat=absorb_max,0
+speed=0
+turn_delay=100000ms
+chance_pursue=0
+chance_flee=0
+threat_range=0
+combat_style=passive
+# the engine heals idle enemies to full in 5s by default; that would erase
+# every hit on a 1,000,000 hp dummy before the meter sees it
+resting_hp_regen_time=0

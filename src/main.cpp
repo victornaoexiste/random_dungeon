@@ -51,10 +51,12 @@ GameSwitcher *gswitch;
 
 class CmdLineArgs {
 public:
+	CmdLineArgs() : net_discover(false) {}
 	std::string render_device_name;
 	std::vector<std::string> mod_list;
 	std::string net_server_port;
 	std::string net_client_target;
+	bool net_discover;
 };
 
 #define PLATFORM_CPP_INCLUDE
@@ -397,6 +399,25 @@ int main(int argc, char *argv[]) {
 				cmd_line_args.mod_list.push_back(Parse::popFirstString(mod_list_str));
 			}
 		}
+		else if (arg == "title-shot") {
+			settings->title_screenshot = true;
+		}
+		else if (arg == "mp-shot") {
+			settings->mp_screenshot = true;
+		}
+		else if (arg == "net-discover") {
+			cmd_line_args.net_discover = true;
+		}
+		else if (arg == "net-pvp") {
+			settings->net_pvp = true;
+		}
+		else if (arg == "mode") {
+			// Random Dungeon game mode, same as the title-screen buttons:
+			// world (default), run or test. Useful with --load-slot.
+			settings->game_mode = parseArgValue(arg_full);
+			if (settings->game_mode == "world")
+				settings->game_mode = "";
+		}
 		else if (arg == "load-slot") {
 			settings->load_slot = parseArgValue(arg_full);
 		}
@@ -442,7 +463,9 @@ int main(int argc, char *argv[]) {
 --net-server[=PORT]      Runs a headless network transport smoke test as a server (default port 4650).\n\
 --net-client=HOST[:PORT] Runs a headless network transport smoke test as a client, connecting to HOST:PORT.\n\
 --net-host[=PORT]        Plays normally, also hosting a game server (default port 4650).\n\
---net-join=HOST[:PORT]   Plays normally, connecting to a host's game server at HOST:PORT.");
+--net-join=HOST[:PORT]   Plays normally, connecting to a host's game server at HOST:PORT.\n\
+--net-pvp                With --net-host: players can hurt each other.\n\
+--net-discover           Lists the games hosted on the LAN (log + stdout) and quits.");
 			done = true;
 		}
 		else {
@@ -454,6 +477,20 @@ int main(int argc, char *argv[]) {
 	// init()/mainLoop() -- no SDL video/audio/render device is touched.
 	// This proves the ENet build+link+handshake works before it gets wired
 	// into GameStatePlay for real entity sync.
+	if (!done && cmd_line_args.net_discover) {
+		platform.setPaths();
+		settings->setCustomPathData();
+		settings->setGame();
+		Utils::createLogFile();
+		std::vector<LanGame> games = NetManager::discoverLan(1000);
+		Utils::logInfo("NetManager: %u game(s) found on the LAN", static_cast<unsigned>(games.size()));
+		for (size_t i = 0; i < games.size(); ++i) {
+			Utils::logInfo("NetManager:   %s  '%s'  %s  (%u players)", games[i].address.c_str(), games[i].name.c_str(), games[i].map.c_str(), games[i].players);
+			printf("%s\t%s\t%s\t%u\n", games[i].address.c_str(), games[i].name.c_str(), games[i].map.c_str(), games[i].players);
+		}
+		done = true;
+	}
+
 	if (!done && (!cmd_line_args.net_server_port.empty() || !cmd_line_args.net_client_target.empty())) {
 		// Just enough of init()'s setup to get a persistent log file (PATH_CONF
 		// resolution + flare_log.txt), without touching SDL video/audio/render.
@@ -499,7 +536,8 @@ soft_reset:
 			netmgr = new NetManager();
 			if (!settings->net_host_port.empty()) {
 				uint16_t port = static_cast<uint16_t>(atoi(settings->net_host_port.c_str()));
-				netmgr->startServer(port);
+				if (netmgr->startServer(port))
+					netmgr->setPvp(settings->net_pvp);
 			}
 			else {
 				std::string host = settings->net_join_target;

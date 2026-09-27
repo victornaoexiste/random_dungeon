@@ -460,6 +460,11 @@ void GameStateLoad::readGameSlots() {
 
 				game_slots[i]->stats.checkGFXPaths();
 			}
+			else if (infile.key == "hero_colors") {
+				game_slots[i]->stats.color_skin = Parse::popFirstString(infile.val);
+				game_slots[i]->stats.color_hair = Parse::popFirstString(infile.val);
+				game_slots[i]->stats.color_cloth = Parse::popFirstString(infile.val);
+			}
 			else if (infile.key == "spawn") {
 				game_slots[i]->current_map = getMapName(Parse::popFirstString(infile.val));
 			}
@@ -818,6 +823,7 @@ void GameStateLoad::logicLoading() {
 	play->resetGame();
 	save_load->setGameSlot(game_slots[selected_slot]->id);
 	save_load->loadGame();
+	GameStatePlay::applyModeToLoadedGame();
 	loaded = true;
 	loading = false;
 	setRequestedGameState(play);

@@ -1,0 +1,68 @@
+# Random Dungeon - Infinite Run upgrades (see src/MenuRunUpgrade.h)
+# Each level gained in a run offers 3 of these; effects are per rank.
+# effect kinds: damage, hp, speed, attack_speed (percent) | crit, absorb, hp_steal, xp_gain (flat)
+# name/description are translated through languages/data.*.po
+
+[upgrade]
+id=sharp_blade
+name=Sharp Blade
+description=+10% damage
+icon=40
+max_rank=5
+effect=damage,10
+
+[upgrade]
+id=stone_heart
+name=Stone Heart
+description=+12% maximum HP
+icon=64
+max_rank=5
+effect=hp,12
+
+[upgrade]
+id=swift_boots
+name=Swift Boots
+description=+8% movement speed
+icon=9
+max_rank=5
+effect=speed,8
+
+[upgrade]
+id=frenzy
+name=Frenzy
+description=+10% attack speed
+icon=23
+max_rank=5
+effect=attack_speed,10
+
+[upgrade]
+id=executioner
+name=Executioner's Eye
+description=+4% critical chance
+icon=6
+max_rank=5
+effect=crit,4
+
+[upgrade]
+id=iron_skin
+name=Iron Skin
+description=+2 absorb
+icon=15
+max_rank=5
+effect=absorb,2
+
+[upgrade]
+id=bloodthirst
+name=Bloodthirst
+description=+2% life steal
+icon=38
+max_rank=5
+effect=hp_steal,2
+
+[upgrade]
+id=scholar
+name=Scholar
+description=+15% XP gained
+icon=43
+max_rank=5
+effect=xp_gain,15

@@ -156,6 +156,8 @@ public:
 	bool summoned;
 	PowerID summoned_power_index;
 	uint32_t net_id; // stable id assigned by the host so enemy state packets can be matched to the right Entity across the network; 0 = not networked
+	// % extra damage against enemies in a category, summed from equipped items (item slayer=)
+	std::map<std::string, int> slayer_bonus;
 	bool net_proxy; // true for an Entity mirroring a host-authoritative enemy on a net client: position/anim/hp are forced from the network each tick, so EntityManager::logic() must skip its AI (see net_proxy check there) and just advance animation frames
 	bool encountered; // enemy only
 	StatBlock* target_corpse;
@@ -188,6 +190,12 @@ public:
 	std::vector<float> starting; // default level 1 values per stat. Read from file and never changes at runtime.
 	std::vector<float> base; // values before any active effects are applied
 	std::vector<float> current; // values after all active effects are applied
+	// Random Dungeon run upgrades (see MenuRunUpgrade): added / multiplied on
+	// top of everything else, cleared when the run ends
+	std::vector<float> run_bonus;
+	std::vector<float> run_mult;
+	float run_speed;         // movement speed multiplier
+	float run_attack_speed;  // attack animation speed multiplier
 	std::vector<float> per_level; // value increases each level after level 1
 	std::vector< std::vector<float> > per_primary;
 
@@ -310,6 +318,10 @@ public:
 	// player look options
 	std::string gfx_base; // folder in /images/avatar
 	std::string gfx_head; // png in /images/avatar/[base]
+	// Random Dungeon colour customisation, "rrggbb" or empty (see HeroColors.h)
+	std::string color_skin;
+	std::string color_hair;
+	std::string color_cloth;
 	std::string gfx_portrait; // png in /images/portraits
 	std::string transform_type;
 

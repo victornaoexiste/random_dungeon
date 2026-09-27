@@ -1,0 +1,4 @@
+# Random Dungeon edition (see src/GameState.cpp, GameState::runEdition)
+#   full = open world + infinite run + test room (dev version)
+#   run  = only the infinite run (the commercial release)
+edition=full

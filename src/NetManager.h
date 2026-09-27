@@ -27,9 +27,9 @@ monster Entity once that data arrives.
 Step 4 (sendAction/drainActionEvents) sends "I just started this attack/
 skill animation" as a one-shot event (channel 2, reliable) whenever the
 local hero enters StatBlock::ENTITY_POWER, so remote players visibly
-swing/cast/shoot instead of just sliding around. This is animation only --
-no hazard/damage sync yet, so an attack a remote player throws doesn't
-actually hurt anyone here.
+swing/cast/shoot instead of just sliding around. Animation only; the
+hazard itself is replayed cosmetically (PowerVisualPacket) and damage goes
+through the enemy-hit / player-hit paths below (Step 5, Step 6).
 
 Server-authoritative model: matches the target deployment (game runs on a
 dedicated Linux box, players connect as clients).
@@ -64,7 +64,33 @@ consistent: when a client's hazard chips a proxy's hp, sendEnemyHit reports
 host subtracts that from its own authoritative Entity so everyone's next
 broadcast reflects the whole party's damage, not just the host's own hits.
 
-Known limits of this step: quick-spawned/summoned creatures (EntityManager::
+Step 6 (PvP, optional): the host decides whether players can hurt each
+other (setPvp, from the Multiplayer screen's toggle or --net-pvp) and tells
+clients through MapPacket::pvp. When it's on, every machine checks its OWN
+hero's hazards against the other players' positions (HazardManager::
+pvp_targets) and sends each hit as a PlayerHitPacket addressed to the victim
+(client -> server -> victim, or host -> victim). The victim rebuilds the
+hazard and runs its own hero's takeHit(), exactly like an enemy hit, so
+defense/avoidance/resists stay authoritative on the victim's side.
+
+Step 7 (protocol cleanup, smoothing, LAN):
+- Every message starts with a one-byte MsgType, so packets are no longer
+  told apart by their size (adding a field used to risk two messages
+  colliding). Clients send PROTOCOL_VERSION as ENet connect data; the host
+  refuses a different version (DISCONNECT_VERSION) instead of desyncing.
+- Position and enemy state go out at NET_SEND_HZ (not every frame), and all
+  enemy states of one tick travel in a few batched MSG_ENEMY_STATES packets.
+  Receivers keep a short history of timestamped samples and draw remote
+  players/enemies INTERP_DELAY_MS in the past, interpolating between two
+  real samples (samplePlayerPos/sampleEnemyPos), so motion is smooth even
+  with fewer packets or jitter.
+- Appearance is resent whenever the equipment changes, and carries the hero
+  name.
+- A host answers LAN discovery broadcasts on DISCOVERY_PORT (discoverLan).
+- A client notices losing the host (takeLostConnection) instead of staying
+  "connected" to nobody.
+
+Known limits: quick-spawned/summoned creatures (EntityManager::
 handleSpawn, e.g. a player's own summon powers) are NOT synced -- only
 creatures placed on the map are. Proxies aren't blocked in the client's map
 collider, so a hero can currently walk through one.
@@ -79,22 +105,50 @@ collider, so a hero can currently walk through one.
 #include <stdint.h>
 #include <map>
 #include <cstring>
+#include <deque>
 
+// First byte of every packet (see Step 7).
+enum NetMsgType {
+	MSG_TICK = 1,
+	MSG_APPEARANCE = 2,
+	MSG_ACTION = 3,
+	MSG_POWER_VISUAL = 4,
+	MSG_ENEMY_SPAWN = 5,
+	MSG_ENEMY_STATES = 6, // batch: uint16 count, then count * EnemyStatePacket
+	MSG_ENEMY_DESPAWN = 7,
+	MSG_ENEMY_HIT = 8,
+	MSG_MAP = 9,
+	MSG_PLAYER_HIT = 10
+};
+
+// Per-tick player state. Also carries hp so others can draw a health bar and
+// know who's dead (enemy AI and PvP skip dead players).
 struct TickPacket {
+	TickPacket() : player_id(0), tick(0), x(0), y(0), hp(0), hp_max(0), alive(1) {
+		memset(pad, 0, sizeof(pad));
+	}
 	uint32_t player_id; // 0 = host's own hero; otherwise the sender's connectID
 	uint32_t tick;
 	float x;
 	float y;
+	float hp;
+	float hp_max;
+	uint8_t alive;
+	uint8_t pad[3];
 };
 
 struct NetPos {
-	NetPos() : x(0), y(0) {}
-	NetPos(float _x, float _y) : x(_x), y(_y) {}
+	NetPos() : x(0), y(0), hp(0), hp_max(0), alive(true) {}
+	NetPos(const TickPacket& pkt) : x(pkt.x), y(pkt.y), hp(pkt.hp), hp_max(pkt.hp_max), alive(pkt.alive != 0) {}
 	float x;
 	float y;
+	float hp;
+	float hp_max;
+	bool alive;
 };
 
-// Fixed-size on the wire so it can be memcpy'd like TickPacket. Field order
+// Fixed-size on the wire so it can be memcpy'd like TickPacket. Resent
+// whenever the sender's equipment changes. Field order
 // matches layer_reference_order as built from engine/hero_layers.txt (see
 // GameSlotPreview's constructor): main, feet, legs, hands, chest, off, head.
 struct AppearancePacket {
@@ -102,18 +156,26 @@ struct AppearancePacket {
 	static const size_t FIELD_LEN = 32;
 
 	AppearancePacket() : player_id(0) {
+		memset(colors, 0, sizeof(colors));
+		memset(name, 0, sizeof(name));
 		memset(gfx_base, 0, sizeof(gfx_base));
 		memset(gfx_head, 0, sizeof(gfx_head));
 		memset(layers, 0, sizeof(layers));
 	}
 
 	uint32_t player_id;
+	char name[FIELD_LEN]; // hero name, shown over their head
+	char colors[3][8];    // skin, hair, cloth: "rrggbb" or empty (see HeroColors.h)
 	char gfx_base[FIELD_LEN];
 	char gfx_head[FIELD_LEN];
 	char layers[NUM_LAYERS][FIELD_LEN];
 };
 
 struct PlayerAppearance {
+	std::string name;
+	std::string color_skin;
+	std::string color_hair;
+	std::string color_cloth;
 	std::string gfx_base;
 	std::string gfx_head;
 	std::vector<std::string> layers;
@@ -206,18 +268,20 @@ struct EnemyHitPacket {
 	float damage;
 };
 
-// Host -> one client only (reliable, channel 5): "an enemy hazard just hit YOUR
-// hero". Carries just enough of the hazard for the client to rebuild it and run
+// Reliable, channel 5: "a hazard just hit YOUR hero". Either an enemy hazard
+// (host -> that client) or, with PvP on, another player's hazard (routed
+// through the server to target_player_id; 0 = the host's own hero). Carries just enough of the hazard for the client to rebuild it and run
 // its own Entity::takeHit(), so avoidance/absorption/resists/effects use the
 // client's real hero stats. The sender's damage rolls happen on the client.
 struct PlayerHitPacket {
 	static const size_t MAX_DAMAGE_TYPES = 8;
 
-	PlayerHitPacket() : power_id(0), pos_x(0), pos_y(0), crit_chance(0), accuracy(0), num_damage(0) {
+	PlayerHitPacket() : target_player_id(0), power_id(0), pos_x(0), pos_y(0), crit_chance(0), accuracy(0), num_damage(0) {
 		memset(dmg_min, 0, sizeof(dmg_min));
 		memset(dmg_max, 0, sizeof(dmg_max));
 	}
 
+	uint32_t target_player_id;
 	uint32_t power_id;
 	float pos_x;
 	float pos_y;
@@ -226,6 +290,36 @@ struct PlayerHitPacket {
 	uint32_t num_damage;
 	float dmg_min[MAX_DAMAGE_TYPES];
 	float dmg_max[MAX_DAMAGE_TYPES];
+};
+
+// Host -> clients, reliable: "the party is on this map now". The host is the
+// party leader: it simulates one map at a time, so clients follow it there
+// (GameStatePlay::syncPartyMap) instead of wandering off to maps nobody
+// simulates. Also carries the host's PvP rule (see Step 6).
+struct MapPacket {
+	static const size_t FIELD_LEN = 128;
+	MapPacket() : magic(0x524d4150), x(0), y(0), pvp(0) { memset(map, 0, sizeof(map)); }
+	uint32_t magic; // "RMAP"
+	char map[FIELD_LEN];
+	float x;
+	float y;
+	uint32_t pvp;
+};
+
+// A received position sample, stamped with our own clock on arrival
+// (enet_time_get), for interpolation.
+struct NetSnap {
+	uint32_t t;
+	float x;
+	float y;
+};
+
+// One host found by NetManager::discoverLan().
+struct LanGame {
+	std::string address; // "ip:port", ready for connectToServer/the IP field
+	std::string name;    // host's hero name
+	std::string map;
+	unsigned players;
 };
 
 struct RemoteEnemyState {
@@ -241,6 +335,17 @@ struct RemoteEnemyState {
 
 class NetManager {
 public:
+	static const uint32_t PROTOCOL_VERSION = 8; // 8: hero colours in AppearancePacket
+	static const uint16_t DISCOVERY_PORT = 4651;
+	static const int NET_SEND_HZ = 20;
+	static const uint32_t INTERP_DELAY_MS = 100;
+	// ENet disconnect data we use as a reason code
+	enum {
+		DISCONNECT_NORMAL = 0,
+		DISCONNECT_VERSION = 1,
+		DISCONNECT_HOST_LEFT = 2
+	};
+
 	enum Role {
 		ROLE_NONE,
 		ROLE_SERVER,
@@ -252,6 +357,18 @@ public:
 
 	bool startServer(uint16_t port);
 	bool connectToServer(const std::string& host_str, uint16_t port, uint32_t timeout_ms);
+	// Why the last connectToServer() failed or the connection dropped, for
+	// the UI ("" = no known reason).
+	const std::string& getLastError() const {
+		return last_error;
+	}
+	// Client only: true once after the host went away (see Step 7).
+	bool takeLostConnection();
+
+	// Blocking (wait_ms): broadcast on the LAN and collect answering hosts.
+	static std::vector<LanGame> discoverLan(uint32_t wait_ms);
+	// Host: what discovery replies advertise.
+	void setLocalInfo(const std::string& name, const std::string& map);
 	void shutdown();
 
 	bool isActive() const {
@@ -259,6 +376,16 @@ public:
 	}
 	bool isServer() const {
 		return role == ROLE_SERVER;
+	}
+	bool isClient() const {
+		return role == ROLE_CLIENT;
+	}
+
+	// PvP rule (Step 6). Host: set it any time, clients learn it with the next
+	// MapPacket (and on connect). Client: whatever the host last said.
+	void setPvp(bool enabled);
+	bool isPvp() const {
+		return pvp;
 	}
 
 	// Blocking test loops. Ctrl+C to stop. Headless smoke test only
@@ -273,7 +400,11 @@ public:
 	// Sends our own hero's position to the peer(s). Server broadcasts to
 	// all connected clients (tagged player_id=0); client sends to the
 	// server, which re-tags it with that client's player_id before relaying.
-	void sendPosition(float x, float y);
+	void sendPosition(float x, float y, float hp, float hp_max, bool alive);
+	// Interpolated position of a remote player / networked enemy, drawn
+	// INTERP_DELAY_MS in the past (see Step 7). False if we have no sample.
+	bool samplePlayerPos(uint32_t player_id, float& x, float& y) const;
+	bool sampleEnemyPos(uint32_t net_id, float& x, float& y) const;
 	// Last known position of every OTHER connected player, keyed by
 	// player_id. Entries disappear once that player disconnects.
 	const std::map<uint32_t, NetPos>& getRemotePositions() const {
@@ -282,7 +413,7 @@ public:
 
 	// Sends our own look (body/head option + per-layer equipped item
 	// graphics) reliably. Same relay/tagging rules as sendPosition().
-	void sendAppearance(const std::string& gfx_base, const std::string& gfx_head, const std::vector<std::string>& layers);
+	void sendAppearance(const std::string& name, const std::string& gfx_base, const std::string& gfx_head, const std::vector<std::string>& layers, const std::string colors[3]);
 	// Every OTHER connected player's look we've received so far, keyed by
 	// player_id. An id can be missing for a bit right after it appears in
 	// getRemotePositions() -- appearance arrives separately, once.
@@ -306,8 +437,10 @@ public:
 	// Host only. Registers a new networked enemy (once, reliable) and
 	// caches it so a peer connecting later still gets it.
 	void sendEnemySpawn(uint32_t net_id, const std::string& type_filename);
-	// Host only. Per-tick position/anim/hp snapshot for one networked enemy.
+	// Host only. Queues one networked enemy's position/anim/hp snapshot;
+	// flushEnemyStates() sends everything queued in as few packets as fit.
 	void sendEnemyState(uint32_t net_id, float x, float y, uint8_t direction, uint8_t hp_percent, bool alive, const std::string& anim);
+	void flushEnemyStates();
 	// Host only. Tells clients to stop tracking net_id.
 	void sendEnemyDespawn(uint32_t net_id);
 	// Every enemy the host currently wants us to render, keyed by net_id.
@@ -322,14 +455,51 @@ public:
 	// clears them.
 	std::vector<std::pair<uint32_t, float> > drainEnemyHitEvents();
 
-	// Host only: tell one client an enemy hazard hit its hero.
+	// Host only: the host's hero entered this map (sent to everyone, and to
+	// every client that connects later).
+	void sendMapChange(const std::string& map, float x, float y);
+	// Client only: the map the host is on ("" until the host told us).
+	const std::string& getHostMap() const {
+		return host_map;
+	}
+	// Client only: true once per new host map; fills where to go.
+	bool takeMapChange(std::string& map, float& x, float& y);
+
+	// Tell player target_player_id that a hazard hit its hero. Host: enemy
+	// hits and its own PvP hits. Client: PvP hits only, relayed by the host.
 	void sendPlayerHit(uint32_t target_player_id, const PlayerHitPacket& pkt);
-	// Client only: every PlayerHitPacket received since the last call, then clears them.
+	// Hits against OUR hero received since the last call, then clears them.
 	std::vector<PlayerHitPacket> drainPlayerHitEvents();
 
 private:
 	std::vector<PlayerHitPacket> pending_player_hits;
 	Role role;
+	bool pvp;
+	std::string last_error;
+	bool lost_connection;
+	// events that arrived while connectToServer() waited for a possible
+	// refusal; pollGame() handles them first
+	std::deque<ENetEvent> early_events;
+
+	// interpolation history (receivers), see samplePlayerPos
+	std::map<uint32_t, std::deque<NetSnap> > player_history;
+	std::map<uint32_t, std::deque<NetSnap> > enemy_history;
+	static void pushSnap(std::deque<NetSnap>& hist, float x, float y);
+	static bool sampleHistory(const std::deque<NetSnap>& hist, float& x, float& y);
+
+	// host: queued enemy states, see flushEnemyStates
+	std::vector<EnemyStatePacket> enemy_state_queue;
+
+	// host: LAN discovery responder
+	ENetSocket discovery_socket;
+	uint16_t server_port;
+	std::string local_name;
+	std::string local_map;
+	void pollDiscovery();
+
+	// typed packets (Step 7)
+	static ENetPacket* makePacket(uint8_t type, const void *data, size_t len, uint32_t flags);
+	static bool isMsg(const ENetPacket *packet, uint8_t type, size_t len);
 	ENetHost *host;
 	ENetPeer *server_peer;
 
@@ -356,6 +526,11 @@ private:
 	std::map<uint32_t, RemoteEnemyState> remote_enemies;
 	// Server only: damage reports awaiting HazardManager::hitEntity-equivalent application.
 	std::vector<std::pair<uint32_t, float> > pending_enemy_hits;
+
+	MapPacket host_map_packet;   // server: current map (backfill); client: last received
+	bool has_host_map;
+	bool map_change_pending;
+	std::string host_map;
 
 	void relayAppearance(uint32_t sender_id, const AppearancePacket& pkt);
 	void relayAction(uint32_t sender_id, const ActionPacket& pkt);

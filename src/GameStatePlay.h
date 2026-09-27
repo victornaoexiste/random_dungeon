@@ -30,6 +30,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "CommonIncludes.h"
 #include "GameState.h"
 #include "Utils.h"
+#include "NetManager.h"
 
 #include <map>
 #include <set>
@@ -38,6 +39,7 @@ class Avatar;
 class Entity;
 class GameSlotPreview;
 class HordeManager;
+class MenuRunUpgrade;
 class MenuManager;
 class QuestLog;
 class StatBlock;
@@ -111,6 +113,8 @@ private:
 	struct RemotePlayerVisual {
 		StatBlock *stats;
 		GameSlotPreview *preview;
+		float hp_max; // from the player's TickPacket, for the health bar (see renderRemotePlayerBars)
+		PlayerAppearance appearance; // what the preview currently shows; reloaded when a new one arrives
 		bool in_action_anim; // true while playing a triggered attack/skill anim (see NetManager::sendAction) -- position sync won't override stance/run until it's isCompleted()
 	};
 	std::map<uint32_t, RemotePlayerVisual> remote_players;
@@ -141,8 +145,14 @@ private:
 	// Client: applies the forwarded hit to our own hero via the real Entity::takeHit().
 	StatBlock *net_hit_src;
 	HordeManager *horde;
+	MenuRunUpgrade *run_upgrade;
 	void updateNetTargets();
 	void forwardNetPlayerHits();
+	void selftestPvpAttack();
+	void selftestUiShots();
+	void renderRemotePlayerBars();
+	void checkLostConnection();
+	int net_send_frames; // position/enemy states go out at NetManager::NET_SEND_HZ, see logic()
 	void applyPlayerHits();
 	void syncRemoteEnemies();
 	void snapshotEnemyHpBeforeCombat();
@@ -159,6 +169,16 @@ public:
 	void logic();
 	void render();
 	void resetGame();
+
+	// Map a character is sent to by the title-screen game mode ("" = keep the
+	// normal flow: spawn.txt for a new game, the saved map for a loaded one).
+	static std::string modeStartMap();
+	// After loading a save, send the hero where the chosen mode starts.
+	static void applyModeToLoadedGame();
+
+	// multiplayer: clients follow the host (party leader) from map to map
+	void syncPartyMap();
+	bool net_follow_teleport;
 };
 
 #endif

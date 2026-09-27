@@ -16,15 +16,15 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 /**
  * class GameStateMultiplayer
  *
- * "Hospedar" (start a server on this machine) / "Conectar" (join one by
- * IP[:port]) screen, reached from the title screen. Replaces having to know
- * --net-host/--net-join command line flags to test multiplayer -- see
- * NetManager.h for what those flags used to be the only way to reach.
+ * Multiplayer screen reached from the main menu: one panel with two
+ * sections -- host a game on this machine (fixed port), or join one by
+ * IP[:port], with a PvP toggle for the host (see NetManager.h Step 6).
+ * Replaces having to know the --net-host/--net-join command line
+ * flags (see NetManager.h).
  *
  * connectToServer() is a blocking call (up to a few seconds' timeout) -- the
- * engine has no async networking, so clicking "Conectar" will briefly freeze
- * the game while it waits for the handshake or the timeout. Known limitation,
- * not a bug.
+ * engine has no async networking, so joining briefly freezes the screen while
+ * it waits for the handshake or the timeout. Known limitation, not a bug.
  */
 
 #ifndef GAMESTATEMULTIPLAYER_H
@@ -39,19 +39,29 @@ class WidgetLabel;
 
 class GameStateMultiplayer : public GameState {
 private:
+	static const int HOST_PORT = 4650;
+
+	Sprite *panel;
+	WidgetLabel *label_title;
+	WidgetLabel *label_host;
+	WidgetLabel *label_join;
+	WidgetLabel *label_status;
 	WidgetButton *button_host;
+	WidgetButton *button_pvp;
+	WidgetInput *input_ip;
+	WidgetButton *button_search;
 	WidgetButton *button_join;
 	WidgetButton *button_back;
-	WidgetInput *input_ip;
-	WidgetLabel *label_ip;
-	WidgetLabel *label_title;
-	WidgetLabel *label_status;
 
 	TabList tablist;
 
 	void refreshWidgets();
+	void setStatus(const std::string& text, bool error);
+	void refreshPvpLabel();
+	bool parseTarget(const std::string& target, std::string& host_str, uint16_t& port);
 	void startAsHost();
 	void startAsClient();
+	void searchLan();
 	void proceedToNewGame();
 
 public:

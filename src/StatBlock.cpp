@@ -106,6 +106,10 @@ StatBlock::StatBlock()
 	, starting(getFullStatCount(), 0)
 	, base(getFullStatCount(), 0)
 	, current(getFullStatCount(), 0)
+	, run_bonus(getFullStatCount(), 0)
+	, run_mult(getFullStatCount(), 1)
+	, run_speed(1)
+	, run_attack_speed(1)
 	, per_level(getFullStatCount(), 0)
 	, character_class("")
 	, character_subclass("")
@@ -1040,7 +1044,7 @@ void StatBlock::applyEffects() {
 	calcBase();
 
 	for (size_t i = 0; i < getFullStatCount(); ++i) {
-		current[i] = (base[i] + effects.bonus[i]) * effects.bonus_multiplier[i];
+		current[i] = (base[i] + effects.bonus[i] + run_bonus[i]) * effects.bonus_multiplier[i] * run_mult[i];
 	}
 
 	// max HP and MP can't drop below 1

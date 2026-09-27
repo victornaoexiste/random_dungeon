@@ -94,3 +94,13 @@ docs/UPSTREAM.md    origem do código e licenças
 Este projeto é derivado do Flare, então **continua aberto**: código do motor sob **GPL v3** (`COPYING`), conteúdo do Flare sob **CC-BY-SA 3.0** (`LICENSE-CONTENT-flare-game.txt`). Créditos completos em `CREDITS.md`, `CREDITS.engine.txt` e `CREDITS.content-flare-game.txt`.
 
 Música dos menus: *Anguish* de Kevin MacLeod ([incompetech.com](https://incompetech.com)), licença [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+
+## Branch `dev`
+
+Versão de desenvolvimento completa (Mundo Aberto, dungeons, Sala de Teste,
+Run Infinita, multiplayer, Android). O jogo comercial é a edição reduzida
+(`mods/random_dungeon/engine/edition.txt` com `edition=run`).
+
+- As imagens de `mods/darkfantasy_sprites` são geradas: `python3 mods/darkfantasy_sprites/tools/grade.py`.
+- `mods/ek_icons` é de uso pessoal e não faz parte do repositório.
+- Conteúdo gerado: `mods/random_dungeon/tools/gen_*.py` a partir dos CSVs.

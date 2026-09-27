@@ -29,6 +29,7 @@ protected:
 	WidgetButton *button_continue;
 	WidgetButton *button_exit;
 	WidgetLabel label;
+	WidgetLabel label_info[2]; // optional extra lines (Random Dungeon: run summary)
 
 public:
 	MenuGameOver();
@@ -38,6 +39,8 @@ public:
 	void align();
 	void close();
 	void disableSave();
+	// Two optional lines under the title; cleared when the menu closes.
+	void setInfo(const std::string& line1, const std::string& line2);
 	virtual void render();
 
 	bool continue_clicked;

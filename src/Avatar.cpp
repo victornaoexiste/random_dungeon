@@ -777,7 +777,7 @@ void Avatar::logic() {
 
 					if (activeAnimation->isFirstFrame()) {
 						beginPower(current_power, &act_target);
-						float attack_speed = (stats.effects.getAttackSpeed(attack_anim) * power->attack_speed) / 100.0f;
+						float attack_speed = (stats.effects.getAttackSpeed(attack_anim) * power->attack_speed) / 100.0f * stats.run_attack_speed;
 						activeAnimation->setSpeed(attack_speed);
 						for (size_t i=0; i<anims.size(); ++i) {
 							if (anims[i])

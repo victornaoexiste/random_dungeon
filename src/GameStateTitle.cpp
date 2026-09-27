@@ -18,10 +18,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include "CommonIncludes.h"
-#include "DeviceList.h"
 #include "EngineSettings.h"
 #include "FileParser.h"
-#include "FontEngine.h"
 #include "GameStateConfig.h"
 #include "GameStateCutscene.h"
 #include "GameStateLoad.h"
@@ -29,41 +27,34 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameStateNew.h"
 #include "GameStateTitle.h"
 #include "InputState.h"
-#include "MenuConfig.h"
-#include "MenuConfirm.h"
 #include "MessageEngine.h"
-#include "Platform.h"
 #include "RenderDevice.h"
 #include "Settings.h"
 #include "SharedResources.h"
-#include "SoundManager.h"
 #include "WidgetButton.h"
-#include "WidgetHorizontalList.h"
-#include "WidgetLabel.h"
 #include "UtilsFileSystem.h"
-#include "UtilsMath.h"
 #include "UtilsParsing.h"
-#include "Version.h"
+
+#include <cstdlib>
 
 GameStateTitle::GameStateTitle()
 	: GameState()
 	, logo(NULL)
 	, button_play(new WidgetButton(WidgetButton::DEFAULT_FILE))
-	, button_exit(new WidgetButton(WidgetButton::DEFAULT_FILE))
+	, button_run(new WidgetButton(WidgetButton::DEFAULT_FILE))
+	, button_test(new WidgetButton(WidgetButton::DEFAULT_FILE))
+	, button_multiplayer(new WidgetButton(WidgetButton::DEFAULT_FILE))
 	, button_cfg(new WidgetButton(WidgetButton::DEFAULT_FILE))
 	, button_credits(new WidgetButton(WidgetButton::DEFAULT_FILE))
-	, button_multiplayer(new WidgetButton(WidgetButton::DEFAULT_FILE))
-	, label_version(new WidgetLabel())
-	, menu_language(NULL)
-	, menu_movement_type(NULL)
 	, align_logo(Utils::ALIGN_CENTER)
-	, language_id(0)
-	, exit_game(false)
-	, load_game(false)
 {
-	// Default position (above "Play Game"); mods can override via
-	// multiplayer_pos in menus/gametitle.txt like the other buttons here.
-	button_multiplayer->setBasePos(256, -320, Utils::ALIGN_BOTTOM);
+	// Defaults, overridden by menus/gametitle.txt
+	button_play->setBasePos(0, -110, Utils::ALIGN_CENTER);
+	button_run->setBasePos(0, -36, Utils::ALIGN_CENTER);
+	button_test->setBasePos(0, 38, Utils::ALIGN_CENTER);
+	button_multiplayer->setBasePos(0, 112, Utils::ALIGN_CENTER);
+	button_cfg->setBasePos(0, 186, Utils::ALIGN_CENTER);
+	button_credits->setBasePos(0, 260, Utils::ALIGN_CENTER);
 
 	FileParser infile;
 	// @CLASS GameStateTitle|Description of menus/gametitle.txt
@@ -73,7 +64,7 @@ GameStateTitle::GameStateTitle()
 			if (infile.key == "logo") {
 				Image *graphics = render_device->loadImage(Parse::popFirstString(infile.val), RenderDevice::ERROR_NONE);
 				if (graphics) {
- 				    logo = graphics->createSprite();
+					logo = graphics->createSprite();
 					graphics->unref();
 
 					pos_logo.x = Parse::popFirstInt(infile.val);
@@ -81,40 +72,47 @@ GameStateTitle::GameStateTitle()
 					align_logo = Parse::toAlignment(Parse::popFirstString(infile.val));
 				}
 			}
-			// @ATTR play_pos|int, int, alignment : X, Y, Alignment|Position of the "Play Game" button.
+			// @ATTR play_pos|int, int, alignment : X, Y, Alignment|Position of the "Open World" game mode button.
 			else if (infile.key == "play_pos") {
 				int x = Parse::popFirstInt(infile.val);
 				int y = Parse::popFirstInt(infile.val);
 				int a = Parse::toAlignment(Parse::popFirstString(infile.val));
 				button_play->setBasePos(x, y, a);
 			}
-			// @ATTR config_pos|int, int, alignment : X, Y, Alignment|Position of the "Configuration" button.
+			// @ATTR run_pos|int, int, alignment : X, Y, Alignment|Position of the "Infinite Run" game mode button.
+			else if (infile.key == "run_pos") {
+				int x = Parse::popFirstInt(infile.val);
+				int y = Parse::popFirstInt(infile.val);
+				int a = Parse::toAlignment(Parse::popFirstString(infile.val));
+				button_run->setBasePos(x, y, a);
+			}
+			// @ATTR test_pos|int, int, alignment : X, Y, Alignment|Position of the "Test Room" game mode button.
+			else if (infile.key == "test_pos") {
+				int x = Parse::popFirstInt(infile.val);
+				int y = Parse::popFirstInt(infile.val);
+				int a = Parse::toAlignment(Parse::popFirstString(infile.val));
+				button_test->setBasePos(x, y, a);
+			}
+			// @ATTR multiplayer_pos|int, int, alignment : X, Y, Alignment|Position of the Multiplayer button.
+			else if (infile.key == "multiplayer_pos") {
+				int x = Parse::popFirstInt(infile.val);
+				int y = Parse::popFirstInt(infile.val);
+				int a = Parse::toAlignment(Parse::popFirstString(infile.val));
+				button_multiplayer->setBasePos(x, y, a);
+			}
+			// @ATTR config_pos|int, int, alignment : X, Y, Alignment|Position of the Configuration button.
 			else if (infile.key == "config_pos") {
 				int x = Parse::popFirstInt(infile.val);
 				int y = Parse::popFirstInt(infile.val);
 				int a = Parse::toAlignment(Parse::popFirstString(infile.val));
 				button_cfg->setBasePos(x, y, a);
 			}
-			// @ATTR credits_pos|int, int, alignment : X, Y, Alignment|Position of the "Credits" button.
+			// @ATTR credits_pos|int, int, alignment : X, Y, Alignment|Position of the Credits button.
 			else if (infile.key == "credits_pos") {
 				int x = Parse::popFirstInt(infile.val);
 				int y = Parse::popFirstInt(infile.val);
 				int a = Parse::toAlignment(Parse::popFirstString(infile.val));
 				button_credits->setBasePos(x, y, a);
-			}
-			// @ATTR exit_pos|int, int, alignment : X, Y, Alignment|Position of the "Exit Game" button.
-			else if (infile.key == "exit_pos") {
-				int x = Parse::popFirstInt(infile.val);
-				int y = Parse::popFirstInt(infile.val);
-				int a = Parse::toAlignment(Parse::popFirstString(infile.val));
-				button_exit->setBasePos(x, y, a);
-			}
-			// @ATTR multiplayer_pos|int, int, alignment : X, Y, Alignment|Position of the "Multiplayer" button.
-			else if (infile.key == "multiplayer_pos") {
-				int x = Parse::popFirstInt(infile.val);
-				int y = Parse::popFirstInt(infile.val);
-				int a = Parse::toAlignment(Parse::popFirstString(infile.val));
-				button_multiplayer->setBasePos(x, y, a);
 			}
 			else {
 				infile.error("GameStateTitle: '%s' is not a valid key.", infile.key.c_str());
@@ -123,95 +121,54 @@ GameStateTitle::GameStateTitle()
 		infile.close();
 	}
 
-	button_play->setLabel(msg->get("Play Game"));
+	// run edition: no mode buttons, so Multiplayer/Configuration/Credits move
+	// up into the Infinite Run / Test Room / Multiplayer slots of the layout
+	if (runEdition()) {
+		button_credits->setBasePos(button_multiplayer->pos_base.x, button_multiplayer->pos_base.y, button_multiplayer->alignment);
+		Point mp = button_run->pos_base, cfg = button_test->pos_base;
+		int mpa = button_run->alignment, cfga = button_test->alignment;
+		button_multiplayer->setBasePos(mp.x, mp.y, mpa);
+		button_cfg->setBasePos(cfg.x, cfg.y, cfga);
+	}
+
+	// the run edition only has the infinite run: one "Play" button
+	button_play->setLabel(runEdition() ? msg->get("Play") : msg->get("Open World"));
 	button_play->refresh();
 
-	button_cfg->setLabel(msg->get("Configuration"));
+	button_run->setLabel(msg->get("Infinite Run"));
+	button_run->refresh();
+
+	button_test->setLabel(msg->get("Test Room"));
+	button_test->refresh();
+
+	button_multiplayer->setLabel(msg->get("Multiplayer"));
+	button_multiplayer->refresh();
+
+	button_cfg->setLabel(msg->get("Configurações"));
 	button_cfg->refresh();
 
 	button_credits->setLabel(msg->get("Credits"));
 	button_credits->refresh();
 
-	button_exit->setLabel(msg->get("Exit Game"));
-	button_exit->refresh();
-
-	button_multiplayer->setLabel(msg->get("Multiplayer"));
-	button_multiplayer->refresh();
-
-	// set up labels
-	label_version->setJustify(FontEngine::JUSTIFY_RIGHT);
-	label_version->setText(VersionInfo::createVersionStringFull());
-	label_version->setColor(font->getColor(FontEngine::COLOR_MENU_NORMAL));
-
-	// Setup tab order
 	tablist.add(button_play);
+	if (!runEdition()) {
+		tablist.add(button_run);
+		tablist.add(button_test);
+	}
 	tablist.add(button_multiplayer);
 	tablist.add(button_cfg);
 	tablist.add(button_credits);
-	tablist.add(button_exit);
-
-	// Core mod not selected dialogue
-	prompt_select_mods = new MenuConfirm();
-	prompt_select_mods->setTitle(msg->get("Enable a core mod to continue"));
-	prompt_select_mods->action_list->append(msg->get("Mods"), "");
-	prompt_select_mods->action_list->append(msg->get("Cancel"), "");
 
 	refreshWidgets();
 	force_refresh_background = true;
 
-	if (eset->gameplay.enable_playgame && !settings->load_slot.empty()) {
+	// --load-slot=N skips this menu (used to launch test sessions directly)
+	if (!settings->load_slot.empty()) {
 		showLoading();
 		setRequestedGameState(new GameStateLoad());
 	}
 
 	render_device->setBackgroundColor(Color(0,0,0,0));
-
-	// NOTE The presence of the language setting is used to determine if the
-	// language select dialog is displayed. Is this adequate?
-	if (!settings->setup_language && platform.config_interface[Platform::Interface::LANGUAGE]) {
-		menu_language = new MenuConfirm();
-		menu_language->setTitle(msg->get("Language"));
-
-		language_ISO.clear();
-		menu_language->action_list->clear();
-
-		if (infile.open("engine/languages.txt", FileParser::MOD_FILE, FileParser::ERROR_NORMAL)) {
-			int i = 0;
-			while (infile.next()) {
-				if (!infile.key.empty()) {
-					language_ISO.push_back(infile.key);
-					menu_language->action_list->append(infile.val, infile.val + " [" + infile.key + "]");
-
-					if (infile.key == settings->language) {
-						language_id = i;
-					}
-
-					i++;
-				}
-			}
-			infile.close();
-		}
-
-		// no languages found; include English by default
-		if (menu_language->action_list->getSize() == 0) {
-			language_ISO.push_back("en");
-			menu_language->action_list->append("English", "English [en]");
-			language_id = 0;
-		}
-
-		if (language_ISO.size() <= 1) {
-			settings->setup_language = true;
-		}
-	}
-
-	// NOTE The presence of the mouse move setting is used to determine if the
-	// movement type dialog is displayed. Is this adequate?
-	if (!settings->setup_mousemove && platform.config_input[Platform::Input::MOUSE_MOVE] && eset->misc.mouse_move_enabled) {
-		menu_movement_type = new MenuConfirm();
-		menu_movement_type->setTitle(msg->get("Use mouse to move player?"));
-		menu_movement_type->action_list->append(msg->get("No"), "");
-		menu_movement_type->action_list->append(msg->get("Yes"), "");
-	}
 
 	if (!eset->misc.mouse_move_enabled)
 		settings->mouse_move = false;
@@ -219,146 +176,88 @@ GameStateTitle::GameStateTitle()
 }
 
 void GameStateTitle::logic() {
-	if (!settings->setup_language && !menu_language->visible && menu_language->action_list->getSize() > 1) {
-		menu_language->show();
-		menu_language->action_list->select(language_id);
+	// automated test hook (RD_DEVKIT_SELFTEST=<dir>, see MenuDevKit.h): with
+	// --title-shot, capture the title screen once and quit
+	static int selftest_frames = 0;
+	if (settings->title_screenshot && getenv("RD_DEVKIT_SELFTEST")) {
+		++selftest_frames;
+		if (selftest_frames == 90)
+			render_device->screenshot_request = std::string(getenv("RD_DEVKIT_SELFTEST")) + "/title.png";
+		else if (selftest_frames == 100)
+			exitRequested = true;
 	}
-	else if (!settings->setup_mousemove && menu_movement_type && !menu_movement_type->visible) {
-		menu_movement_type->show();
+	if (settings->mp_screenshot && getenv("RD_DEVKIT_SELFTEST")) {
+		setRequestedGameState(new GameStateMultiplayer());
+		return;
 	}
 
 	if (inpt->window_resized)
 		refreshWidgets();
 
-	if (menu_language && menu_language->visible) {
-		menu_language->logic();
+	if (inpt->pressing[Input::CANCEL] && !inpt->lock[Input::CANCEL]) {
+		inpt->lock[Input::CANCEL] = true;
+		exitRequested = true;
+	}
 
-		if (menu_language->clicked_confirm) {
-			settings->language = language_ISO[menu_language->action_list->getSelected()];
-			settings->setup_language = true;
-			settings->saveSettings();
+	tablist.logic();
 
-			delete msg;
-			msg = new MessageEngine();
-			delete font;
-			font = getFontEngine();
-			setRequestedGameState(new GameStateTitle());
+	bool play_clicked = button_play->checkClick();
+
+	if (!inpt->usingMouse() && tablist.getCurrent() == -1) {
+		tablist.getNext(!TabList::GET_INNER, TabList::WIDGET_SELECT_AUTO);
+	}
+
+	if (play_clicked) {
+		startPlay(runEdition() ? "run" : "");
+	}
+	else if (!runEdition() && button_run->checkClick()) {
+		startPlay("run");
+	}
+	else if (!runEdition() && button_test->checkClick()) {
+		startPlay("test");
+	}
+	else if (button_multiplayer->checkClick()) {
+		showLoading();
+		setRequestedGameState(new GameStateMultiplayer());
+	}
+	else if (button_cfg->checkClick()) {
+		showLoading();
+		setRequestedGameState(new GameStateConfig());
+	}
+	else if (button_credits->checkClick()) {
+		showLoading();
+		GameStateTitle *title = new GameStateTitle();
+		GameStateCutscene *credits = new GameStateCutscene(title);
+		if (!credits->load("cutscenes/credits.txt")) {
+			delete credits;
+			delete title;
 		}
-		else if (menu_language->clicked_cancel) {
-			settings->setup_language = true;
-			settings->saveSettings();
-
-			menu_language->visible = false;
-			menu_language->clicked_cancel = false;
+		else {
+			setRequestedGameState(credits);
 		}
 	}
-	else if (menu_movement_type && menu_movement_type->visible) {
-		menu_movement_type->logic();
+}
 
-		if (menu_movement_type->clicked_confirm) {
-			if (menu_movement_type->action_list->getSelected() == PROMPT_SELECT_MOUSEMOVE_NO) {
-				settings->mouse_move = false;
+/**
+ * Every game mode goes through the normal character select / new character
+ * screens; the mode only decides where the hero enters the game
+ * (GameStatePlay::modeStartMap).
+ */
+void GameStateTitle::startPlay(const std::string& mode) {
+	settings->game_mode = mode;
+	showLoading();
 
-				menu_movement_type->visible = false;
-				menu_movement_type->clicked_confirm = false;
-
-				settings->setup_mousemove = true;
-				settings->saveSettings();
-			} else if (menu_movement_type->action_list->getSelected() == PROMPT_SELECT_MOUSEMOVE_YES) {
-				settings->mouse_move = true;
-
-				menu_movement_type->visible = false;
-				menu_movement_type->clicked_confirm = false;
-
-				settings->setup_mousemove = true;
-				settings->saveSettings();
-			}
-		}
-		else if (menu_movement_type->clicked_cancel) {
-			settings->mouse_move = false;
-
-			menu_movement_type->clicked_cancel = false;
-
-			settings->setup_mousemove = true;
-			settings->saveSettings();
-		}
-	}
-	else if (prompt_select_mods && prompt_select_mods->visible) {
-		prompt_select_mods->logic();
-		if (prompt_select_mods->clicked_confirm) {
-			if (prompt_select_mods->action_list->getSelected() == PROMPT_SELECT_MODS_OK) {
-				showLoading();
-				GameStateConfig* config = new GameStateConfig();
-				config->setActiveTab(MenuConfig::MODS_TAB);
-				setRequestedGameState(config);
-
-				prompt_select_mods->visible = false;
-				prompt_select_mods->clicked_confirm = false;
-			} else if (prompt_select_mods->action_list->getSelected() == PROMPT_SELECT_MODS_CANCEL) {
-				prompt_select_mods->visible = false;
-				prompt_select_mods->clicked_confirm = false;
-			}
-
-		}
+	// no saves yet: go straight to character creation
+	std::vector<std::string> save_dirs;
+	Filesystem::getDirList(settings->path_user + "saves/" + eset->misc.save_prefix, save_dirs);
+	if (save_dirs.empty()) {
+		GameStateNew* newgame = new GameStateNew();
+		newgame->game_slot = 1;
+		setRequestedGameState(newgame);
 	}
 	else {
-		if(inpt->pressing[Input::CANCEL] && !inpt->lock[Input::CANCEL]) {
-			inpt->lock[Input::CANCEL] = true;
-			exitRequested = true;
-		}
-
-		tablist.logic();
-
-		bool play_clicked = button_play->checkClick();
-
-		if (!inpt->usingMouse() && tablist.getCurrent() == -1) {
-			tablist.getNext(!TabList::GET_INNER, TabList::WIDGET_SELECT_AUTO);
-		}
-
-		if (play_clicked && !eset->gameplay.enable_playgame) {
-			prompt_select_mods->show();
-		}
-		else if (play_clicked) {
-			showLoading();
-
-			// if we don't have any saves, go directly to GameStateNew
-			std::vector<std::string> save_dirs;
-			Filesystem::getDirList(settings->path_user + "saves/" + eset->misc.save_prefix, save_dirs);
-			if (save_dirs.size() == 0) {
-				GameStateNew* newgame = new GameStateNew();
-				newgame->game_slot = 1;
-				setRequestedGameState(newgame);
-			}
-			else {
-				setRequestedGameState(new GameStateLoad());
-			}
-		}
-		else if (button_multiplayer->checkClick()) {
-			showLoading();
-			setRequestedGameState(new GameStateMultiplayer());
-		}
-		else if (button_cfg->checkClick()) {
-			showLoading();
-			setRequestedGameState(new GameStateConfig());
-		}
-		else if (button_credits->checkClick()) {
-			showLoading();
-			GameStateTitle *title = new GameStateTitle();
-			GameStateCutscene *credits = new GameStateCutscene(title);
-
-			if (!credits->load("cutscenes/credits.txt")) {
-				delete credits;
-				delete title;
-			}
-			else {
-				setRequestedGameState(credits);
-			}
-		}
-		else if (platform.has_exit_button && button_exit->checkClick()) {
-			exitRequested = true;
-		}
+		setRequestedGameState(new GameStateLoad());
 	}
-
 }
 
 void GameStateTitle::refreshWidgets() {
@@ -373,56 +272,32 @@ void GameStateTitle::refreshWidgets() {
 	}
 
 	button_play->setPos(0, 0);
+	button_run->setPos(0, 0);
+	button_test->setPos(0, 0);
 	button_multiplayer->setPos(0, 0);
 	button_cfg->setPos(0, 0);
 	button_credits->setPos(0, 0);
-	button_exit->setPos(0, 0);
-
-	label_version->setPos(settings->view_w, 0);
-
-	if (menu_movement_type)
-		menu_movement_type->align();
-	if (prompt_select_mods)
-		prompt_select_mods->align();
 }
 
 void GameStateTitle::render() {
-	if (menu_language && menu_language->visible) {
-		menu_language->render();
+	render_device->render(logo);
+
+	button_play->render();
+	if (!runEdition()) {
+		button_run->render();
+		button_test->render();
 	}
-	else if (menu_movement_type && menu_movement_type->visible) {
-		menu_movement_type->render();
-	}
-	else {
-		// display logo
-		render_device->render(logo);
-
-		// display buttons
-		button_play->render();
-		button_multiplayer->render();
-		button_cfg->render();
-		button_credits->render();
-
-		if (prompt_select_mods && prompt_select_mods->visible)
-			prompt_select_mods->render();
-
-		if (platform.has_exit_button)
-			button_exit->render();
-	}
-
-	// version number
-	label_version->render();
+	button_multiplayer->render();
+	button_cfg->render();
+	button_credits->render();
 }
 
 GameStateTitle::~GameStateTitle() {
 	if (logo) delete logo;
 	delete button_play;
+	delete button_run;
+	delete button_test;
 	delete button_multiplayer;
 	delete button_cfg;
 	delete button_credits;
-	delete button_exit;
-	delete label_version;
-	delete menu_language;
-	delete menu_movement_type;
-	if (prompt_select_mods) delete prompt_select_mods;
 }

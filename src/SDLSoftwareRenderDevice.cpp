@@ -37,6 +37,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 
 #include "SDLSoftwareRenderDevice.h"
+#include "HeroColors.h"
 #include "SDLFontEngine.h"
 
 SDLSoftwareImage::SDLSoftwareImage(RenderDevice *_device)
@@ -636,7 +637,9 @@ Image *SDLSoftwareRenderDevice::loadImage(const std::string& filename, int error
 	// load image
 	SDLSoftwareImage *image;
 	image = NULL;
-	SDL_Surface *cleanup = IMG_Load(mods->locate(filename).c_str());
+	std::string base_file, color_spec;
+	HeroColors::split(filename, base_file, color_spec); // (no recolouring in the software renderer)
+	SDL_Surface *cleanup = IMG_Load(mods->locate(base_file).c_str());
 	if(!cleanup) {
 		if (error_type != ERROR_NONE)
 			Utils::logError("SDLSoftwareRenderDevice: Couldn't load image: '%s'. %s", filename.c_str(), IMG_GetError());

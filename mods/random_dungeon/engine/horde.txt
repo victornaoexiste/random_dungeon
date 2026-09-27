@@ -1,35 +1,37 @@
-# Modo hordas (HordeManager, src/HordeManager.cpp). So ativo no mapa abaixo.
-# Tempos em segundos, distancias em tiles.
+# Run Infinita (HordeManager, src/HordeManager.cpp no motor).
+# Ativo em qualquer mapa dentro de maps/run/ (a arena e sorteada por maps/run/start.txt).
+map=maps/run/
 
-map=maps/horde_arena.txt
+# tempo (segundos)
+start_delay=3
+interval=5
+wave_length=30
 
-# espera antes da primeira horda / intervalo entre hordas / duracao de cada onda
-start_delay=5
-interval=8
-wave_length=45
+# quantos inimigos por grupo: base_count + count_per_wave * onda
+base_count=3
+count_per_wave=1.5
+max_alive=70
 
-# tamanho de cada horda: base_count + count_per_wave * onda, limitado por max_alive
-base_count=4
-count_per_wave=2
-max_alive=60
+# distancia de spawn ao redor do jogador (tiles)
+spawn_dist_min=10
+spawn_dist_max=16
+corpse_seconds=6
 
-# anel de spawn ao redor de um jogador vivo (fora da tela)
-spawn_dist_min=16
-spawn_dist_max=24
-
-# cadaveres somem depois disso (libera memoria e rede)
-corpse_seconds=10
-
-# crescimento por onda: fracao dos stats base somada a cada nivel
+# crescimento de vida/dano por onda (fracao do valor base)
 hp_growth=0.25
-dmg_growth=0.10
+dmg_growth=0.12
 
-# tier=categoria,onda_minima,peso  (categorias de empyrean_campaign/enemies)
-tier=il_zombie,0,3
-tier=il_goblin,0,4
-tier=il_antlion,2,3
-tier=il_skeleton_archer,3,2
-tier=il_skeleton_knight,4,3
-tier=il_skeleton_fire_mage,5,2
-tier=il_skeleton_ice_mage,5,2
-tier=il_wyvern,7,2
+# tier=categoria,onda_minima,peso  (categorias em enemies/rd_*.txt, ver README)
+tier=rd_t1,0,10
+tier=rd_t2,2,8
+tier=rd_t3,4,7
+tier=rd_t4,6,6
+tier=rd_t5,8,5
+tier=rd_t6,10,4
+tier=rd_elite,5,2
+tier=rd_boss,12,1
+
+# XP de cada abate na run (em cima do XP normal do inimigo)
+xp_multiplier=2.5
+# onde o heroi renasce quando morre (fim da run)
+end_map=maps/world/aurora_a.txt

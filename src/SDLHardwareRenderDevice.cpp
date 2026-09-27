@@ -36,6 +36,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Settings.h"
 
 #include "SDLHardwareRenderDevice.h"
+#include "HeroColors.h"
+
+#include <cmath>
 #include "SDLFontEngine.h"
 
 SDLHardwareImage::SDLHardwareImage(RenderDevice *_device, SDL_Renderer *_renderer)
@@ -268,6 +271,12 @@ SDLHardwareRenderDevice::SDLHardwareRenderDevice()
 	: window(NULL)
 	, renderer(NULL)
 	, texture(NULL)
+	, active_target(NULL)
+	, world_tex(NULL)
+	, vignette_tex(NULL)
+	, world_w(0)
+	, world_h(0)
+	, world_filter_on(false)
 	, titlebar_icon(NULL)
 	, title(NULL)
 	, background_color(0,0,0,255)
@@ -443,7 +452,7 @@ int SDLHardwareRenderDevice::render(Renderable& r, Rect& dest) {
 	dest.h = r.src.h;
     SDL_Rect src = r.src;
     SDL_Rect _dest = dest;
-	SDL_SetRenderTarget(renderer, texture);
+	SDL_SetRenderTarget(renderer, active_target ? active_target : texture);
 
 	SDL_Texture *surface = static_cast<SDLHardwareImage *>(r.image)->surface;
 
@@ -457,6 +466,11 @@ int SDLHardwareRenderDevice::render(Renderable& r, Rect& dest) {
 	SDL_SetTextureColorMod(surface, r.color_mod.r, r.color_mod.g, r.color_mod.b);
 	SDL_SetTextureAlphaMod(surface, r.alpha_mod);
 
+	if (world_filter_on) {
+		// world filter: half-resolution target (see beginWorldFilter)
+		SDL_FRect half = { static_cast<float>(_dest.x) * 0.5f, static_cast<float>(_dest.y) * 0.5f, static_cast<float>(_dest.w) * 0.5f, static_cast<float>(_dest.h) * 0.5f };
+		return SDL_RenderCopyF(renderer, surface, &src, &half);
+	}
 	return SDL_RenderCopy(renderer, surface, &src, &_dest);
 }
 
@@ -486,12 +500,16 @@ int SDLHardwareRenderDevice::render(Sprite *r) {
 
     SDL_Rect src = m_clip;
     SDL_Rect dest = m_dest;
-	SDL_SetRenderTarget(renderer, texture);
+	SDL_SetRenderTarget(renderer, active_target ? active_target : texture);
 
 	SDL_Texture *surface = static_cast<SDLHardwareImage *>(r->getGraphics())->surface;
 	SDL_SetTextureColorMod(surface, r->color_mod.r, r->color_mod.g, r->color_mod.b);
 	SDL_SetTextureAlphaMod(surface, r->alpha_mod);
 
+	if (world_filter_on) {
+		SDL_FRect half = { static_cast<float>(dest.x) * 0.5f, static_cast<float>(dest.y) * 0.5f, static_cast<float>(dest.w) * 0.5f, static_cast<float>(dest.h) * 0.5f };
+		return SDL_RenderCopyF(renderer, surface, &src, &half);
+	}
 	return SDL_RenderCopy(renderer, static_cast<SDLHardwareImage *>(r->getGraphics())->surface, &src, &dest);
 }
 
@@ -562,7 +580,94 @@ void SDLHardwareRenderDevice::blankScreen() {
 	return;
 }
 
+void SDLHardwareRenderDevice::beginWorldFilter() {
+	if (!settings->world_filter || !texture || world_filter_on)
+		return;
+
+	const int w = std::max(1, settings->view_w / 2);
+	const int h = std::max(1, settings->view_h / 2);
+	if (!world_tex || w != world_w || h != world_h) {
+		if (world_tex) SDL_DestroyTexture(world_tex);
+		world_tex = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_TARGET, w, h);
+		if (!world_tex)
+			return;
+		SDL_SetTextureScaleMode(world_tex, SDL_ScaleModeNearest);
+		SDL_SetTextureBlendMode(world_tex, SDL_BLENDMODE_NONE);
+		world_w = w;
+		world_h = h;
+	}
+
+	active_target = world_tex;
+	SDL_SetRenderTarget(renderer, world_tex);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_RenderClear(renderer);
+	// (draw calls halve their own coordinates: SDL resets the render scale
+	// whenever the target changes, which the engine does all the time)
+	world_filter_on = true;
+}
+
+void SDLHardwareRenderDevice::endWorldFilter() {
+	if (!world_filter_on)
+		return;
+	world_filter_on = false;
+
+	active_target = NULL; // back to 'texture' (which windowResize may recreate)
+	SDL_SetRenderTarget(renderer, texture);
+
+	// warm grade: pull blue/green down a little (multiply)
+	SDL_SetTextureColorMod(world_tex, 236, 210, 192);
+	SDL_RenderCopy(renderer, world_tex, NULL, NULL);
+
+	// lift the shadows toward blood red
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(renderer, 90, 12, 10, 26);
+	SDL_RenderFillRect(renderer, NULL);
+
+	// vignette: built once, black with alpha growing toward the corners
+	if (!vignette_tex) {
+		const int VW = 256, VH = 144;
+		SDL_Surface *v = SDL_CreateRGBSurfaceWithFormat(0, VW, VH, 32, SDL_PIXELFORMAT_ARGB8888);
+		if (v) {
+			Uint32 *px = static_cast<Uint32*>(v->pixels);
+			for (int y = 0; y < VH; ++y) {
+				for (int x = 0; x < VW; ++x) {
+					float dx = (static_cast<float>(x) + 0.5f) / VW * 2.f - 1.f;
+					float dy = (static_cast<float>(y) + 0.5f) / VH * 2.f - 1.f;
+					float d = std::sqrt(dx * dx * 0.85f + dy * dy);
+					float a = std::max(0.f, std::min(1.f, (d - 0.55f) / 0.75f));
+					Uint32 alpha = static_cast<Uint32>(a * a * 200.f);
+					px[y * (v->pitch / 4) + x] = (alpha << 24) | (6u << 16) | (2u << 8) | 2u;
+				}
+			}
+			vignette_tex = SDL_CreateTextureFromSurface(renderer, v);
+			SDL_FreeSurface(v);
+			if (vignette_tex)
+				SDL_SetTextureBlendMode(vignette_tex, SDL_BLENDMODE_BLEND);
+		}
+	}
+	if (vignette_tex)
+		SDL_RenderCopy(renderer, vignette_tex, NULL, NULL);
+
+	SDL_SetRenderDrawColor(renderer, background_color.r, background_color.g, background_color.b, background_color.a);
+}
+
 void SDLHardwareRenderDevice::commitFrame() {
+	if (!screenshot_request.empty()) {
+		// the frame is still on the render target texture here
+		int w = 0, h = 0;
+		SDL_QueryTexture(texture, NULL, NULL, &w, &h);
+		SDL_Surface *shot = SDL_CreateRGBSurfaceWithFormat(0, w, h, 32, SDL_PIXELFORMAT_ARGB8888);
+		if (shot && SDL_RenderReadPixels(renderer, NULL, SDL_PIXELFORMAT_ARGB8888, shot->pixels, shot->pitch) == 0) {
+			if (IMG_SavePNG(shot, screenshot_request.c_str()) == 0)
+				Utils::logInfo("RenderDevice: screenshot saved to %s", screenshot_request.c_str());
+			else
+				Utils::logError("RenderDevice: could not save screenshot: %s", IMG_GetError());
+		}
+		if (shot)
+			SDL_FreeSurface(shot);
+		screenshot_request.clear();
+	}
+
 	SDL_SetRenderTarget(renderer, NULL);
 	SDL_RenderCopy(renderer, texture, NULL, NULL);
 	SDL_RenderPresent(renderer);
@@ -592,6 +697,12 @@ void SDLHardwareRenderDevice::destroyContext() {
 
 	SDL_DestroyTexture(texture);
 	texture = NULL;
+	if (world_tex) SDL_DestroyTexture(world_tex);
+	world_tex = NULL;
+	if (vignette_tex) SDL_DestroyTexture(vignette_tex);
+	vignette_tex = NULL;
+	active_target = NULL;
+	world_filter_on = false;
 
 	SDL_DestroyRenderer(renderer);
 	renderer = NULL;
@@ -668,7 +779,21 @@ Image *SDLHardwareRenderDevice::loadImage(const std::string& filename, int error
 	SDLHardwareImage *image = new SDLHardwareImage(this, renderer);
 	if (!image) return NULL;
 
-	image->surface = IMG_LoadTexture(renderer, mods->locate(filename).c_str());
+	std::string base_file, color_spec;
+	if (HeroColors::split(filename, base_file, color_spec)) {
+		// recoloured hero layer: recolour the pixels before making the texture
+		SDL_Surface *loaded = IMG_Load(mods->locate(base_file).c_str());
+		SDL_Surface *argb = loaded ? SDL_ConvertSurfaceFormat(loaded, SDL_PIXELFORMAT_ARGB8888, 0) : NULL;
+		if (loaded) SDL_FreeSurface(loaded);
+		if (argb) {
+			HeroColors::recolor(argb, color_spec);
+			image->surface = SDL_CreateTextureFromSurface(renderer, argb);
+			SDL_FreeSurface(argb);
+		}
+	}
+	else {
+		image->surface = IMG_LoadTexture(renderer, mods->locate(filename).c_str());
+	}
 
 	if(image->surface == NULL) {
 		delete image;

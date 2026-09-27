@@ -35,6 +35,7 @@ class MenuBook;
 class MenuCharacter;
 class MenuConfirm;
 class MenuDevConsole;
+class MenuDevKit;
 class MenuEnemy;
 class MenuExit;
 class MenuGameOver;
@@ -186,6 +187,7 @@ public:
 	MenuRegionTitle *region_title;
 
 	MenuDevConsole *devconsole;
+	MenuDevKit *devkit; // Random Dungeon test-room dev kit, see MenuDevKit.h
 	MenuTouchControls *touch_controls;
 
 	Subtitles *subtitles;

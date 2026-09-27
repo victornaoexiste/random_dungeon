@@ -41,6 +41,15 @@ public:
 	}
 	void setLoadingFrame();
 	virtual bool isPaused();
+
+	// "Random Dungeon vX.Y - RedByte", bottom-right corner (menus and the
+	// pause screen, see GameSwitcher::render / GameStatePlay::render)
+	static void renderSignature();
+
+	// Random Dungeon edition, from engine/edition.txt: "full" (default: open
+	// world, infinite run, test room) or "run" (the commercial release: only
+	// the infinite run -- every game, new or loaded, starts in an arena)
+	static bool runEdition();
 	void showLoading();
 
 	bool hasMusic;

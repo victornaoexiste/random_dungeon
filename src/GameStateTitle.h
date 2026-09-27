@@ -17,6 +17,13 @@ You should have received a copy of the GNU General Public License along with
 FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
+/*
+ * Main menu, rebuilt for Random Dungeon: logo + the three game modes
+ * (Open World, Infinite Run, Test Room), Multiplayer and Configurações.
+ * Esc/window close quits. Layout comes from menus/gametitle.txt (logo,
+ * play_pos, run_pos, test_pos, multiplayer_pos, config_pos).
+ */
+
 #ifndef GAMESTATETITLE_H
 #define GAMESTATETITLE_H
 
@@ -24,52 +31,30 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Widget.h"
 
 class WidgetButton;
-class WidgetLabel;
-class MenuConfirm;
 
 class GameStateTitle : public GameState {
 private:
-	enum {
-		PROMPT_SELECT_MODS_OK = 0,
-		PROMPT_SELECT_MODS_CANCEL = 1,
-	};
-	enum {
-		PROMPT_SELECT_MOUSEMOVE_NO = 0,
-		PROMPT_SELECT_MOUSEMOVE_YES = 1,
-	};
-
 	void refreshWidgets();
+	void startPlay(const std::string& mode);
 
 	Sprite *logo;
 	WidgetButton *button_play;
-	WidgetButton *button_exit;
+	WidgetButton *button_run;
+	WidgetButton *button_test;
+	WidgetButton *button_multiplayer;
 	WidgetButton *button_cfg;
 	WidgetButton *button_credits;
-	WidgetButton *button_multiplayer;
-	WidgetLabel *label_version;
-	MenuConfirm *menu_language;
-	MenuConfirm *menu_movement_type;
-	MenuConfirm *prompt_select_mods; // Nag dialogue when core mod is not selected
 
 	TabList tablist;
 
 	Point pos_logo;
 	int align_logo;
 
-	unsigned int language_id;
-	std::vector<std::string> language_ISO;
-
 public:
 	GameStateTitle();
 	~GameStateTitle();
 	void logic();
 	void render();
-
-	// switch
-	bool exit_game;
-	bool load_game;
-
 };
 
 #endif
-

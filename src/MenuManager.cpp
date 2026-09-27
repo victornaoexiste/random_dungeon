@@ -34,6 +34,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuCharacter.h"
 #include "MenuConfirm.h"
 #include "MenuDevConsole.h"
+#include "MenuDevKit.h"
 #include "MenuEnemy.h"
 #include "MenuExit.h"
 #include "MenuGameOver.h"
@@ -104,6 +105,7 @@ MenuManager::MenuManager()
 	, action_picker(NULL)
 	, region_title(NULL)
 	, devconsole(NULL)
+	, devkit(NULL)
 	, touch_controls(NULL)
 	, subtitles(NULL)
 	, pause(false)
@@ -164,6 +166,7 @@ MenuManager::MenuManager()
 	if (settings->dev_mode) {
 		devconsole = new MenuDevConsole();
 	}
+	devkit = new MenuDevKit();
 
 	touch_controls = new MenuTouchControls();
 
@@ -190,6 +193,7 @@ void MenuManager::alignAll() {
 	if (settings->dev_mode) {
 		devconsole->align();
 	}
+	devkit->align();
 
 	touch_controls->align();
 }
@@ -618,7 +622,8 @@ void MenuManager::logic() {
 	(questlog->visible && Utils::isWithinRect(questlog->window_area, inpt->mouse)) ||
 	(talker->visible && Utils::isWithinRect(talker->window_area, inpt->mouse)) ||
 	(stash->visible && Utils::isWithinRect(stash->window_area, inpt->mouse)) ||
-	(settings->dev_mode && devconsole->visible && Utils::isWithinRect(devconsole->window_area, inpt->mouse)));
+	(settings->dev_mode && devconsole->visible && Utils::isWithinRect(devconsole->window_area, inpt->mouse)) ||
+	devkit->isMouseOver());
 
 	// Stop attacking if the cursor is inside an interactable menu
 	if ((pc->using_main1 || pc->using_main2) && is_within_menus) {
@@ -631,6 +636,7 @@ void MenuManager::logic() {
 	if (settings->dev_mode) {
 		devconsole->logic();
 	}
+	devkit->logic();
 
 	if (!exit->visible && !is_within_menus)
 		mini->logic();
@@ -656,6 +662,15 @@ void MenuManager::logic() {
 		region_title->logic();
 
 	touch_controls->logic();
+	if (touch_controls->takePausePressed() && !exit->visible)
+		showExitMenu();
+	// the action bar places its touch-bound slots using the global 'menu',
+	// which doesn't exist yet during our constructor: redo it once here
+	static bool touch_slots_placed = false;
+	if (!touch_slots_placed && settings->touchscreen) {
+		act->align();
+		touch_slots_placed = true;
+	}
 
 	if (chr->checkUpgrade() || pc->stats.level_up) {
 		// apply equipment and max hp/mp
@@ -687,7 +702,7 @@ void MenuManager::logic() {
 	if (!inpt->pressing[Input::INVENTORY] && !inpt->pressing[Input::POWERS] && !inpt->pressing[Input::CHARACTER] && !inpt->pressing[Input::LOG])
 		key_lock = false;
 
-	if (settings->dev_mode && devconsole->inputFocus())
+	if ((settings->dev_mode && devconsole->inputFocus()) || devkit->inputFocus())
 		key_lock = true;
 
 	// stop dragging with cancel key
@@ -1662,6 +1677,8 @@ void MenuManager::render() {
 		renderIcon(keydrag_pos.x - eset->resolutions.icon_size/2, keydrag_pos.y - eset->resolutions.icon_size/2);
 	}
 
+	devkit->render();
+
 	// render the dev console above everything else
 	if (settings->dev_mode) {
 		devconsole->render();
@@ -2078,6 +2095,7 @@ MenuManager::~MenuManager() {
 	if (settings->dev_mode) {
 		delete devconsole;
 	}
+	delete devkit;
 
 	delete touch_controls;
 
