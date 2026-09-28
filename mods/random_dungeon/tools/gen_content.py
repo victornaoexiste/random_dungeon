@@ -302,9 +302,9 @@ SET_BONUSES = {
     'Leather': ('rd_leather', [(3, 'avoidance', 5), (5, 'hp', 20)]),
     'Chainmail': ('rd_chain', [(3, 'absorb_min', 1), (5, 'hp', 40)]),
     'Platemail': ('rd_plate', [(3, 'absorb_max', 2), (5, 'hp', 60)]),
-    'Legion': ('rd_legion', [(2, 'poise', 10), (4, 'physical', 2), (5, 'hp', 80)]),
-    "Assassin's": ('rd_assassin', [(2, 'crit', 3), (4, 'offense', 2), (5, 'avoidance', 15)]),
-    'Conjurer': ('rd_conjurer', [(3, 'mp', 30), (5, 'mental', 2)]),
+    'Volante': ('rd_legion', [(2, 'poise', 10), (4, 'physical', 2), (5, 'hp', 80)]),
+    'Jagunço': ('rd_assassin', [(2, 'crit', 3), (4, 'offense', 2), (5, 'avoidance', 15)]),
+    'Enchanter': ('rd_conjurer', [(3, 'mp', 30), (5, 'mental', 2)]),
     'Ashen': ('rd_ashen', [(2, 'fire_resist', 10), (4, 'hp', 100)]),
     'Blessed Platemail': ('rd_blessed_plate', [(3, 'dark_resist', 15), (5, 'hp_regen', 10)]),
 }
@@ -587,7 +587,7 @@ FAMILY_TYPE = {'Caveiras': 'undead', 'Dead': 'undead', 'Visagens': 'undead', 'De
                'Tanajuras': 'beast', 'Spiders': 'beast', 'Caimans': 'beast', 'Lobisomens': 'beast', 'Snakes': 'beast'}
 # damage-type names shown in item tooltips ("+25% damage vs Undead")
 EXTRA_PT_SLAYER = [('+%d%% damage vs %s', '+%d%% de dano contra %s'), ('Undead', 'Mortos-vivos'), ('Demon', 'Demônios'),
-                   ('Greenskin', 'Peles-verdes'), ('Beast', 'Feras')]
+                   ('Greenskin', 'Criaturas do Mato'), ('Beast', 'Feras')]
 REGIONS = list(csv.DictReader(open(os.path.join(TOOLS, 'world/regions.csv'), encoding='utf8')))
 REGION_BY_ID = {r['id']: r for r in REGIONS}
 ZONES = list(csv.DictReader(open(os.path.join(TOOLS, 'world/zones.csv'), encoding='utf8')))
@@ -739,7 +739,9 @@ def po_escape(s):
 def gen_po(items, enemies):
     pairs = [(it['name'], it['name_pt']) for it in items if it['name_pt']]
     pairs += [(e['name'], e['name_pt']) for e in enemies if e['name_pt']]
-    pairs += [('%s Set' % g, 'Conjunto %s' % g) for g in SET_BONUSES]
+    SET_PT = {'Leather': 'de Couro', 'Chainmail': 'de Cota de Malha', 'Platemail': 'de Placas', 'Volante': 'da Volante',
+              'Jagunço': 'de Jagunço', 'Enchanter': 'de Encantador', 'Ashen': 'das Cinzas', 'Blessed Platemail': 'de Placas Benzidas'}
+    pairs += [('%s Set' % g, 'Conjunto %s' % SET_PT.get(g, g)) for g in SET_BONUSES]
     pairs += EXTRA_PT + EXTRA_PT_SLAYER
     import gen_skills
     pairs += gen_skills.translations()

@@ -75,7 +75,7 @@ bonus=5,hp,60
 
 [set]
 id=8
-name=Legion Set
+name=Volante Set
 items=5250,5251,5252,5253,5254
 color=255,215,120
 bonus=2,poise,10
@@ -84,7 +84,7 @@ bonus=5,hp,80
 
 [set]
 id=9
-name=Assassin's Set
+name=Jagunço Set
 items=5240,5241,5242,5243,5244
 color=255,215,120
 bonus=2,crit,3
@@ -93,7 +93,7 @@ bonus=5,avoidance,15
 
 [set]
 id=10
-name=Conjurer Set
+name=Enchanter Set
 items=5235,5236,5237,5238,5239
 color=255,215,120
 bonus=3,mp,30

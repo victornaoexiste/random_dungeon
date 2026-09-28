@@ -2,7 +2,7 @@
 
 [item]
 id=5000
-name=Iron Dagger
+name=Iron Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=1
 quality=normal
@@ -15,7 +15,7 @@ gfx=rd_dagger_iron
 
 [item]
 id=5001
-name=Steel Dagger
+name=Steel Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=4
 quality=normal
@@ -27,7 +27,7 @@ bonus=crit,3
 
 [item]
 id=5002
-name=Silver Dagger
+name=Silver Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=6
 quality=normal
@@ -41,7 +41,7 @@ gfx=rd_dagger_silver
 
 [item]
 id=5003
-name=Bluesteel Dagger
+name=Bluesteel Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=9
 quality=normal
@@ -54,7 +54,7 @@ gfx=rd_dagger_bluesteel
 
 [item]
 id=5004
-name=Adamantite Dagger
+name=Adamantite Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=13
 quality=epic
@@ -67,7 +67,7 @@ gfx=rd_dagger_adamantite
 
 [item]
 id=5005
-name=Iron Shortsword
+name=Iron Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=1
 quality=normal
@@ -81,7 +81,7 @@ gfx=rd_shortsword_iron
 
 [item]
 id=5006
-name=Steel Shortsword
+name=Steel Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=4
 quality=normal
@@ -94,7 +94,7 @@ requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5007
-name=Silver Shortsword
+name=Silver Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=6
 quality=normal
@@ -109,7 +109,7 @@ gfx=rd_shortsword_silver
 
 [item]
 id=5008
-name=Bluesteel Shortsword
+name=Bluesteel Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=9
 quality=normal
@@ -123,7 +123,7 @@ gfx=rd_shortsword_bluesteel
 
 [item]
 id=5009
-name=Adamantite Shortsword
+name=Adamantite Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=13
 quality=epic
@@ -138,7 +138,7 @@ gfx=rd_shortsword_adamantite
 
 [item]
 id=5010
-name=Iron Longsword
+name=Iron Saber
 INCLUDE items/base/weapons/melee/longsword.txt
 level=1
 quality=normal
@@ -152,7 +152,7 @@ gfx=rd_longsword_iron
 
 [item]
 id=5011
-name=Steel Longsword
+name=Steel Saber
 INCLUDE items/base/weapons/melee/longsword.txt
 level=4
 quality=normal
@@ -165,7 +165,7 @@ requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5012
-name=Silver Longsword
+name=Silver Saber
 INCLUDE items/base/weapons/melee/longsword.txt
 level=6
 quality=normal
@@ -180,7 +180,7 @@ gfx=rd_longsword_silver
 
 [item]
 id=5013
-name=Bluesteel Longsword
+name=Bluesteel Saber
 INCLUDE items/base/weapons/melee/longsword.txt
 level=9
 quality=normal
@@ -194,7 +194,7 @@ gfx=rd_longsword_bluesteel
 
 [item]
 id=5014
-name=Adamantite Longsword
+name=Adamantite Saber
 INCLUDE items/base/weapons/melee/longsword.txt
 level=13
 quality=epic
@@ -286,7 +286,7 @@ gfx=rd_greatsword_adamantite
 
 [item]
 id=5020
-name=Iron Axe
+name=Iron Hatchet
 INCLUDE items/base/weapons/melee/hand_axe.txt
 level=1
 quality=normal
@@ -300,7 +300,7 @@ gfx=rd_hand_axe_iron
 
 [item]
 id=5021
-name=Steel Axe
+name=Steel Hatchet
 INCLUDE items/base/weapons/melee/hand_axe.txt
 level=4
 quality=normal
@@ -313,7 +313,7 @@ requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5022
-name=Bluesteel Axe
+name=Bluesteel Hatchet
 INCLUDE items/base/weapons/melee/hand_axe.txt
 level=9
 quality=normal
@@ -327,7 +327,7 @@ gfx=rd_hand_axe_bluesteel
 
 [item]
 id=5023
-name=Adamantite Axe
+name=Adamantite Hatchet
 INCLUDE items/base/weapons/melee/hand_axe.txt
 level=13
 quality=epic
@@ -341,7 +341,7 @@ gfx=rd_hand_axe_adamantite
 
 [item]
 id=5024
-name=Iron Greataxe
+name=Iron Woodcutter's Axe
 INCLUDE items/base/weapons/melee/battle_axe.txt
 level=1
 quality=normal
@@ -357,7 +357,7 @@ gfx=rd_battle_axe_iron
 
 [item]
 id=5025
-name=Steel Greataxe
+name=Steel Woodcutter's Axe
 INCLUDE items/base/weapons/melee/battle_axe.txt
 level=4
 quality=normal
@@ -371,7 +371,7 @@ requires_class=Cangaceiro
 
 [item]
 id=5026
-name=Bluesteel Greataxe
+name=Bluesteel Woodcutter's Axe
 INCLUDE items/base/weapons/melee/battle_axe.txt
 level=9
 quality=normal
@@ -386,7 +386,7 @@ gfx=rd_battle_axe_bluesteel
 
 [item]
 id=5027
-name=Adamantite Greataxe
+name=Adamantite Woodcutter's Axe
 INCLUDE items/base/weapons/melee/battle_axe.txt
 level=13
 quality=epic
@@ -402,7 +402,7 @@ gfx=rd_battle_axe_adamantite
 
 [item]
 id=5028
-name=Iron Mace
+name=Iron Cudgel
 INCLUDE items/base/weapons/melee/mace.txt
 level=1
 quality=normal
@@ -415,7 +415,7 @@ gfx=rd_mace_iron
 
 [item]
 id=5029
-name=Steel Mace
+name=Steel Cudgel
 INCLUDE items/base/weapons/melee/mace.txt
 level=4
 quality=normal
@@ -427,7 +427,7 @@ requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5030
-name=Silver Mace
+name=Silver Cudgel
 INCLUDE items/base/weapons/melee/mace.txt
 level=6
 quality=normal
@@ -441,7 +441,7 @@ gfx=rd_mace_silver
 
 [item]
 id=5031
-name=Bluesteel Mace
+name=Bluesteel Cudgel
 INCLUDE items/base/weapons/melee/mace.txt
 level=9
 quality=normal
@@ -454,7 +454,7 @@ gfx=rd_mace_bluesteel
 
 [item]
 id=5032
-name=Adamantite Mace
+name=Adamantite Cudgel
 INCLUDE items/base/weapons/melee/mace.txt
 level=13
 quality=epic
@@ -583,7 +583,7 @@ gfx=rd_maul_adamantite
 
 [item]
 id=5100
-name=Goblin Gutter
+name=Saci's Knife
 INCLUDE items/base/weapons/melee/dagger.txt
 level=2
 quality=normal
@@ -596,7 +596,7 @@ requires_class=Mateiro
 
 [item]
 id=5101
-name=Dagger of Ice
+name=Ice Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=3
 quality=normal
@@ -611,7 +611,7 @@ gfx=rd_dagger_ice
 
 [item]
 id=5102
-name=Dagger of Poison
+name=Jararaca Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=3
 quality=normal
@@ -627,7 +627,7 @@ gfx=rd_dagger_venom
 
 [item]
 id=5103
-name=Shock Dagger
+name=Lightning Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=3
 quality=normal
@@ -642,7 +642,7 @@ gfx=rd_dagger_gold
 
 [item]
 id=5104
-name=Hunter's Fang
+name=Jaguar Fang
 INCLUDE items/base/weapons/melee/dagger.txt
 level=4
 quality=normal
@@ -656,7 +656,7 @@ slayer=beast,15
 
 [item]
 id=5105
-name=Sharp Orc Knife
+name=Quibungo Knife
 INCLUDE items/base/weapons/melee/dagger.txt
 level=4
 quality=normal
@@ -669,7 +669,7 @@ requires_class=Mateiro
 
 [item]
 id=5106
-name=Shortsword of Frost
+name=Frost Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=5
 quality=normal
@@ -685,7 +685,7 @@ gfx=rd_shortsword_ice
 
 [item]
 id=5107
-name=Thief's Blade
+name=Jagunço Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=5
 quality=normal
@@ -711,7 +711,7 @@ requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5109
-name=Sword of Flames
+name=Boitatá Saber
 INCLUDE items/base/weapons/melee/longsword.txt
 level=6
 quality=high
@@ -726,7 +726,7 @@ gfx=rd_longsword_fire
 
 [item]
 id=5110
-name=Sword of Shock
+name=Thunder Saber
 INCLUDE items/base/weapons/melee/longsword.txt
 level=6
 quality=normal
@@ -742,7 +742,7 @@ gfx=rd_longsword_gold
 
 [item]
 id=5111
-name=Greenskin Bane
+name=Saci Bane
 INCLUDE items/base/weapons/melee/longsword.txt
 level=7
 quality=normal
@@ -771,7 +771,7 @@ gfx=rd_hand_axe_fire
 
 [item]
 id=5113
-name=Lightning Axe
+name=Lightning Hatchet
 INCLUDE items/base/weapons/melee/hand_axe.txt
 level=7
 quality=normal
@@ -802,7 +802,7 @@ requires_class=Cangaceiro
 
 [item]
 id=5115
-name=Bone Mace
+name=Bone Cudgel
 INCLUDE items/base/weapons/melee/mace.txt
 level=8
 quality=normal
@@ -814,7 +814,7 @@ requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5116
-name=Hammer of Corrosion
+name=Rust Hammer
 INCLUDE items/base/weapons/melee/war_hammer.txt
 level=8
 quality=normal
@@ -864,7 +864,7 @@ gfx=rd_maul_ice
 
 [item]
 id=5119
-name=Screaming Mace
+name=Howling Cudgel
 INCLUDE items/base/weapons/melee/mace.txt
 level=9
 quality=normal
@@ -898,7 +898,7 @@ gfx=rd_longsword_fire
 
 [item]
 id=5121
-name=Lightning Greataxe
+name=Lightning Woodcutter Axe
 INCLUDE items/base/weapons/melee/battle_axe.txt
 level=10
 quality=normal
@@ -915,7 +915,7 @@ gfx=rd_battle_axe_gold
 
 [item]
 id=5122
-name=Minotaur Axe
+name=Lobisomem Axe
 INCLUDE items/base/weapons/melee/battle_axe.txt
 level=10
 quality=high
@@ -943,7 +943,7 @@ requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5124
-name=Magma Shortsword
+name=Magma Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=10
 quality=high
@@ -959,7 +959,7 @@ gfx=rd_shortsword_fire
 
 [item]
 id=5125
-name=Magma Dagger
+name=Magma Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=10
 quality=high
@@ -975,7 +975,7 @@ gfx=rd_dagger_fire
 
 [item]
 id=5126
-name=Magma Longsword
+name=Magma Saber
 INCLUDE items/base/weapons/melee/longsword.txt
 level=11
 quality=normal
@@ -1022,7 +1022,7 @@ gfx=rd_longsword_gold
 
 [item]
 id=5129
-name=Spirit Reaver
+name=Soul Reaper
 INCLUDE items/base/weapons/melee/hand_axe.txt
 level=12
 quality=high
@@ -1038,7 +1038,7 @@ gfx=rd_hand_axe_venom
 
 [item]
 id=5130
-name=Lifedrinker
+name=Chupacabra
 INCLUDE items/base/weapons/melee/battle_axe.txt
 level=14
 quality=high
@@ -1069,7 +1069,7 @@ requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5132
-name=Hunting Bow
+name=Hunter's Bow
 INCLUDE items/base/weapons/ranged/shortbow.txt
 level=3
 quality=normal
@@ -1081,7 +1081,7 @@ requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5133
-name=Oaken Bow
+name=Aroeira Bow
 INCLUDE items/base/weapons/ranged/longbow.txt
 level=5
 quality=normal
@@ -1122,7 +1122,7 @@ gfx=rd_longbow_ice
 
 [item]
 id=5136
-name=Poisonous Longbow
+name=Curare Longbow
 INCLUDE items/base/weapons/ranged/longbow.txt
 level=11
 quality=high
@@ -1138,7 +1138,7 @@ gfx=rd_longbow_venom
 
 [item]
 id=5137
-name=Skeletal Bow
+name=Caveira Bow
 INCLUDE items/base/weapons/ranged/greatbow.txt
 level=12
 quality=normal
@@ -1154,7 +1154,7 @@ gfx=rd_greatbow_venom
 
 [item]
 id=5138
-name=Oak Wand
+name=Ipê Wand
 INCLUDE items/base/weapons/magic/wand.txt
 level=1
 quality=normal
@@ -1181,7 +1181,7 @@ requires_class=Feiticeiro
 
 [item]
 id=5140
-name=Elm Wand
+name=Jacarandá Wand
 INCLUDE items/base/weapons/magic/wand.txt
 level=4
 quality=normal
@@ -1195,7 +1195,7 @@ requires_class=Feiticeiro
 
 [item]
 id=5141
-name=Caduceus of Scorching
+name=Scorching Staff
 INCLUDE items/base/weapons/magic/staff.txt
 level=6
 quality=normal
@@ -1222,7 +1222,7 @@ requires_class=Feiticeiro
 
 [item]
 id=5143
-name=Rod of Incineration
+name=Wildfire Rod
 INCLUDE items/base/weapons/magic/rod.txt
 level=8
 quality=normal
@@ -1237,7 +1237,7 @@ requires_class=Feiticeiro
 
 [item]
 id=5144
-name=Staff of Storms
+name=Thunderstorm Staff
 INCLUDE items/base/weapons/magic/staff.txt
 level=9
 quality=normal
@@ -1253,7 +1253,7 @@ gfx=rd_staff_gold
 
 [item]
 id=5145
-name=Staff of the Arcanist
+name=Sorcerer's Staff
 INCLUDE items/base/weapons/magic/greatstaff.txt
 level=11
 quality=high
@@ -1284,7 +1284,7 @@ requires_class=Feiticeiro
 
 [item]
 id=5500
-name=Stiletto
+name=Lampião's Peixeira
 INCLUDE items/base/weapons/melee/dagger.txt
 level=8
 quality=unique
@@ -1301,7 +1301,7 @@ loot_drops_max=1
 
 [item]
 id=5501
-name=Hammer of the Pale Abbot
+name=The Beato's Hammer
 INCLUDE items/base/weapons/melee/war_hammer.txt
 level=8
 quality=unique
@@ -1320,7 +1320,7 @@ loot_drops_max=1
 
 [item]
 id=5502
-name=Frostlament
+name=Minuano's Lament
 INCLUDE items/base/weapons/melee/longsword.txt
 level=9
 quality=unique
@@ -1337,7 +1337,7 @@ loot_drops_max=1
 
 [item]
 id=5503
-name=Barbed Spite
+name=Mandacaru Thorn
 INCLUDE items/base/weapons/melee/greatsword.txt
 level=10
 quality=unique
@@ -1356,7 +1356,7 @@ loot_drops_max=1
 
 [item]
 id=5504
-name=Emberbite
+name=Boitatá's Bite
 INCLUDE items/base/weapons/melee/hand_axe.txt
 level=10
 quality=unique
@@ -1373,7 +1373,7 @@ loot_drops_max=1
 
 [item]
 id=5505
-name=Ironbound Fist
+name=Cowhand's Fist
 INCLUDE items/base/weapons/melee/mace.txt
 level=10
 quality=unique
@@ -1390,7 +1390,7 @@ loot_drops_max=1
 
 [item]
 id=5506
-name=Hollow Sorrow
+name=Haunting Hammer
 INCLUDE items/base/weapons/melee/war_hammer.txt
 level=10
 quality=unique
@@ -1407,7 +1407,7 @@ loot_drops_max=1
 
 [item]
 id=5507
-name=Mountainbreaker
+name=Sierra Breaker
 INCLUDE items/base/weapons/melee/maul.txt
 level=10
 quality=unique
@@ -1422,7 +1422,7 @@ loot_drops_max=1
 
 [item]
 id=5508
-name=Hornbow
+name=Oxhorn Bow
 INCLUDE items/base/weapons/ranged/greatbow.txt
 level=10
 quality=unique
@@ -1435,7 +1435,7 @@ loot_drops_max=1
 
 [item]
 id=5509
-name=Heart of the Brood
+name=Tanajura Stinger
 INCLUDE items/base/weapons/melee/dagger.txt
 level=12
 quality=unique
@@ -1470,7 +1470,7 @@ loot_drops_max=1
 
 [item]
 id=5511
-name=Oathkeeper's Blade
+name=Saber of the Vow
 INCLUDE items/base/weapons/melee/longsword.txt
 level=12
 quality=unique
@@ -1507,7 +1507,7 @@ loot_drops_max=1
 
 [item]
 id=5513
-name=Stag's Heirloom
+name=Pampas Deer Heirloom
 INCLUDE items/base/weapons/melee/longsword.txt
 level=13
 quality=unique
@@ -1540,7 +1540,7 @@ loot_drops_max=1
 
 [item]
 id=5515
-name=Gravecaller Scepter
+name=Corpo-Seco Scepter
 INCLUDE items/base/weapons/magic/wand.txt
 level=13
 quality=unique
@@ -1559,7 +1559,7 @@ loot_drops_max=1
 
 [item]
 id=5516
-name=Duskfang
+name=Lobisomem Fang
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=14
 quality=unique
@@ -1576,7 +1576,7 @@ loot_drops_max=1
 
 [item]
 id=5517
-name=Hornking's Axe
+name=Mapinguari's Axe
 INCLUDE items/base/weapons/melee/battle_axe.txt
 level=14
 quality=unique
@@ -1595,7 +1595,7 @@ loot_drops_max=1
 
 [item]
 id=5518
-name=Moonless
+name=Moonless Night
 INCLUDE items/base/weapons/melee/mace.txt
 level=14
 quality=unique
@@ -1612,7 +1612,7 @@ loot_drops_max=1
 
 [item]
 id=5519
-name=Hellhook
+name=Devil's Hook
 INCLUDE items/base/weapons/melee/greatsword.txt
 level=15
 quality=unique
@@ -1631,7 +1631,7 @@ loot_drops_max=1
 
 [item]
 id=5520
-name=Wand of the Archmage
+name=Cuca's Wand
 INCLUDE items/base/weapons/magic/wand.txt
 level=15
 quality=unique
@@ -1647,7 +1647,7 @@ loot_drops_max=1
 
 [item]
 id=5521
-name=Barrow King's Staff
+name=Iara's Staff
 INCLUDE items/base/weapons/magic/greatstaff.txt
 level=16
 quality=unique
@@ -1664,7 +1664,7 @@ loot_drops_max=1
 
 [item]
 id=5200
-name=Leather Cap
+name=Leather Hat
 INCLUDE items/base/armor/leather/head.txt
 level=1
 quality=normal
@@ -1676,7 +1676,7 @@ bonus=hp,8
 
 [item]
 id=5201
-name=Leather Cuirass
+name=Leather Gibão
 INCLUDE items/base/armor/leather/chest.txt
 level=1
 quality=normal
@@ -1688,7 +1688,7 @@ bonus=hp,12
 
 [item]
 id=5202
-name=Leather Bracers
+name=Leather Gloves
 INCLUDE items/base/armor/leather/hands.txt
 level=1
 quality=normal
@@ -1700,7 +1700,7 @@ bonus=hp,8
 
 [item]
 id=5203
-name=Leather Leggings
+name=Leather Chaps
 INCLUDE items/base/armor/leather/legs.txt
 level=1
 quality=normal
@@ -1792,7 +1792,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5210
-name=Hardened Leather Cap
+name=Tanned Leather Cap
 INCLUDE items/base/armor/leather/head.txt
 level=4
 quality=normal
@@ -1806,7 +1806,7 @@ gfx=rd_leather_hood_hardened
 
 [item]
 id=5211
-name=Hardened Leather Cuirass
+name=Tanned Leather Cuirass
 INCLUDE items/base/armor/leather/chest.txt
 level=4
 quality=normal
@@ -1820,7 +1820,7 @@ gfx=rd_leather_chest_hardened
 
 [item]
 id=5212
-name=Hardened Leather Gauntlets
+name=Tanned Leather Gauntlets
 INCLUDE items/base/armor/leather/hands.txt
 level=4
 quality=normal
@@ -1834,7 +1834,7 @@ gfx=rd_leather_gloves_hardened
 
 [item]
 id=5213
-name=Hardened Leather Leggings
+name=Tanned Leather Leggings
 INCLUDE items/base/armor/leather/legs.txt
 level=4
 quality=normal
@@ -1848,7 +1848,7 @@ gfx=rd_leather_pants_hardened
 
 [item]
 id=5214
-name=Hardened Leather Boots
+name=Tanned Leather Boots
 INCLUDE items/base/armor/leather/feet.txt
 level=4
 quality=normal
@@ -1861,7 +1861,7 @@ gfx=rd_leather_boots_hardened
 
 [item]
 id=5215
-name=Journeyman Cap
+name=Tropeiro Cap
 INCLUDE items/base/armor/mage_alt1/head.txt
 level=4
 quality=normal
@@ -1874,7 +1874,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5216
-name=Journeyman Tunic
+name=Tropeiro Tunic
 INCLUDE items/base/armor/mage_alt1/chest.txt
 level=4
 quality=normal
@@ -1888,7 +1888,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5217
-name=Journeyman Gauntlets
+name=Tropeiro Gauntlets
 INCLUDE items/base/armor/mage_alt1/hands.txt
 level=4
 quality=normal
@@ -1902,7 +1902,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5218
-name=Journeyman Pants
+name=Tropeiro Pants
 INCLUDE items/base/armor/mage_alt1/legs.txt
 level=4
 quality=normal
@@ -1916,7 +1916,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5219
-name=Journeyman Boots
+name=Tropeiro Boots
 INCLUDE items/base/armor/mage_alt1/feet.txt
 level=4
 quality=normal
@@ -1995,7 +1995,7 @@ requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5225
-name=Forest Chain Coif
+name=Jungle Chain Coif
 INCLUDE items/base/armor/chain/head.txt
 level=6
 quality=normal
@@ -2009,7 +2009,7 @@ gfx=rd_chain_coif_forest
 
 [item]
 id=5226
-name=Forest Chain Shirt
+name=Jungle Chain Shirt
 INCLUDE items/base/armor/chain/chest.txt
 level=6
 quality=normal
@@ -2023,7 +2023,7 @@ gfx=rd_chain_cuirass_forest
 
 [item]
 id=5227
-name=Forest Chain Gauntlets
+name=Jungle Chain Gauntlets
 INCLUDE items/base/armor/chain/hands.txt
 level=6
 quality=normal
@@ -2037,7 +2037,7 @@ gfx=rd_chain_gloves_forest
 
 [item]
 id=5228
-name=Forest Chain Leggings
+name=Jungle Chain Leggings
 INCLUDE items/base/armor/chain/legs.txt
 level=6
 quality=normal
@@ -2051,7 +2051,7 @@ gfx=rd_chain_greaves_forest
 
 [item]
 id=5229
-name=Forest Chain Boots
+name=Jungle Chain Boots
 INCLUDE items/base/armor/chain/feet.txt
 level=6
 quality=normal
@@ -2141,7 +2141,7 @@ gfx=rd_chain_boots_blessed
 
 [item]
 id=5235
-name=Conjurer Hood
+name=Enchanter Hood
 INCLUDE items/base/armor/mage_alt2/head.txt
 level=7
 quality=normal
@@ -2156,7 +2156,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5236
-name=Conjurer Tunic
+name=Enchanter Tunic
 INCLUDE items/base/armor/mage_alt2/chest.txt
 level=7
 quality=high
@@ -2172,7 +2172,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5237
-name=Conjurer Gloves
+name=Enchanter Gloves
 INCLUDE items/base/armor/mage_alt2/hands.txt
 level=7
 quality=normal
@@ -2186,7 +2186,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5238
-name=Conjurer Pantaloons
+name=Enchanter Pantaloons
 INCLUDE items/base/armor/mage_alt2/legs.txt
 level=7
 quality=high
@@ -2201,7 +2201,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5239
-name=Conjurer Boots
+name=Enchanter Boots
 INCLUDE items/base/armor/mage_alt2/feet.txt
 level=7
 quality=normal
@@ -2215,7 +2215,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5240
-name=Assassin's Hood
+name=Jagunço Hood
 INCLUDE items/base/armor/leather/head.txt
 level=8
 quality=high
@@ -2230,7 +2230,7 @@ gfx=rd_leather_hood_shadow
 
 [item]
 id=5241
-name=Assassin's Cuirass
+name=Jagunço Cuirass
 INCLUDE items/base/armor/leather/chest.txt
 level=8
 quality=high
@@ -2246,7 +2246,7 @@ gfx=rd_leather_chest_shadow
 
 [item]
 id=5242
-name=Assassin's Gauntlets
+name=Jagunço Gauntlets
 INCLUDE items/base/armor/leather/hands.txt
 level=8
 quality=high
@@ -2263,7 +2263,7 @@ gfx=rd_leather_gloves_shadow
 
 [item]
 id=5243
-name=Assassin's Leggings
+name=Jagunço Leggings
 INCLUDE items/base/armor/leather/legs.txt
 level=8
 quality=high
@@ -2279,7 +2279,7 @@ gfx=rd_leather_pants_shadow
 
 [item]
 id=5244
-name=Assassin's Boots
+name=Jagunço Boots
 INCLUDE items/base/armor/leather/feet.txt
 level=8
 quality=normal
@@ -2360,7 +2360,7 @@ requires_class=Cangaceiro
 
 [item]
 id=5250
-name=Legion Helm
+name=Volante Helm
 INCLUDE items/base/armor/plate/head.txt
 level=11
 quality=normal
@@ -2376,7 +2376,7 @@ gfx=rd_plate_helm_gold
 
 [item]
 id=5251
-name=Legion Breastplate
+name=Volante Breastplate
 INCLUDE items/base/armor/plate/chest.txt
 level=11
 quality=normal
@@ -2392,7 +2392,7 @@ gfx=rd_plate_cuirass_gold
 
 [item]
 id=5252
-name=Legion Gauntlets
+name=Volante Gauntlets
 INCLUDE items/base/armor/plate/hands.txt
 level=11
 quality=high
@@ -2408,7 +2408,7 @@ gfx=rd_plate_gauntlets_gold
 
 [item]
 id=5253
-name=Legion Leggings
+name=Volante Leggings
 INCLUDE items/base/armor/plate/legs.txt
 level=11
 quality=high
@@ -2424,7 +2424,7 @@ gfx=rd_plate_greaves_gold
 
 [item]
 id=5254
-name=Legion Boots
+name=Volante Boots
 INCLUDE items/base/armor/plate/feet.txt
 level=11
 quality=high
@@ -2440,7 +2440,7 @@ gfx=rd_plate_boots_gold
 
 [item]
 id=5255
-name=Primal Ice Chain Coif
+name=Minuano Chain Coif
 INCLUDE items/base/armor/chain/head.txt
 level=11
 quality=high
@@ -2456,7 +2456,7 @@ gfx=rd_chain_coif_ice
 
 [item]
 id=5256
-name=Primal Ice Chain Shirt
+name=Minuano Chain Shirt
 INCLUDE items/base/armor/chain/chest.txt
 level=11
 quality=high
@@ -2472,7 +2472,7 @@ gfx=rd_chain_cuirass_ice
 
 [item]
 id=5257
-name=Primal Ice Chain Gauntlets
+name=Minuano Chain Gauntlets
 INCLUDE items/base/armor/chain/hands.txt
 level=11
 quality=normal
@@ -2488,7 +2488,7 @@ gfx=rd_chain_gloves_ice
 
 [item]
 id=5258
-name=Primal Ice Chain Leggings
+name=Minuano Chain Leggings
 INCLUDE items/base/armor/chain/legs.txt
 level=11
 quality=high
@@ -2504,7 +2504,7 @@ gfx=rd_chain_greaves_ice
 
 [item]
 id=5259
-name=Primal Ice Chain Boots
+name=Minuano Chain Boots
 INCLUDE items/base/armor/chain/feet.txt
 level=11
 quality=high
@@ -2596,7 +2596,7 @@ gfx=rd_plate_boots_blessed
 
 [item]
 id=5265
-name=Dreadiron Breastplate
+name=Haunted Iron Breastplate
 INCLUDE items/base/armor/plate/chest.txt
 level=14
 quality=high
@@ -2612,7 +2612,7 @@ gfx=rd_plate_cuirass_crimson
 
 [item]
 id=5266
-name=Dreadiron Gauntlets
+name=Haunted Iron Gauntlets
 INCLUDE items/base/armor/plate/hands.txt
 level=14
 quality=unique
@@ -2629,7 +2629,7 @@ loot_drops_max=1
 
 [item]
 id=5267
-name=Dreadiron Leggings
+name=Haunted Iron Leggings
 INCLUDE items/base/armor/plate/legs.txt
 level=14
 quality=high
@@ -2645,7 +2645,7 @@ gfx=rd_plate_greaves_crimson
 
 [item]
 id=5268
-name=Dreadiron Boots
+name=Haunted Iron Boots
 INCLUDE items/base/armor/plate/feet.txt
 level=14
 quality=unique
@@ -2749,7 +2749,7 @@ gfx=rd_plate_boots_ashen
 
 [item]
 id=5400
-name=Buckler
+name=Leather Buckler
 INCLUDE items/base/shields/wood.txt
 level=1
 quality=normal
@@ -2788,7 +2788,7 @@ gfx=rd_buckler_fire
 
 [item]
 id=5403
-name=Anointed Shield
+name=Blessed Shield
 INCLUDE items/base/shields/kite.txt
 level=7
 quality=normal
@@ -2817,7 +2817,7 @@ gfx=rd_buckler_ashen
 
 [item]
 id=5405
-name=Hero's Shield
+name=Cangaceiro Shield
 INCLUDE items/base/shields/steel.txt
 level=10
 quality=high
@@ -2921,7 +2921,7 @@ bonus=dark_resist,30
 
 [item]
 id=5414
-name=Ivory Ring
+name=Tucum Ring
 INCLUDE items/base/rings/silver_5.txt
 level=9
 quality=high
@@ -2970,7 +2970,7 @@ bonus=hp,60
 
 [item]
 id=5418
-name=Blessed Necklace
+name=Scapular
 INCLUDE items/base/necklaces/silver_1.txt
 level=3
 quality=normal
@@ -2983,7 +2983,7 @@ bonus=dark_resist,15
 
 [item]
 id=5419
-name=Purple Medallion
+name=Rue Figa
 INCLUDE items/base/necklaces/gold_1.txt
 level=8
 quality=high
@@ -2996,7 +2996,7 @@ bonus=fire_resist,15
 
 [item]
 id=5420
-name=Sigil of the Academy
+name=Sorcerer's Patuá
 INCLUDE items/base/necklaces/gold_2.txt
 level=10
 quality=high
@@ -3012,7 +3012,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5421
-name=Abyssal Pendant
+name=Devil's Pendant
 INCLUDE items/base/necklaces/silver_2.txt
 level=12
 quality=high

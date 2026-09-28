@@ -4,50 +4,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: pt\n"
 
-msgid "Iron Dagger"
-msgstr "Adaga de Ferro"
+msgid "Iron Peixeira"
+msgstr "Peixeira de Ferro"
 
-msgid "Steel Dagger"
-msgstr "Adaga de Aço"
+msgid "Steel Peixeira"
+msgstr "Peixeira de Aço"
 
-msgid "Silver Dagger"
-msgstr "Adaga de Prata"
+msgid "Silver Peixeira"
+msgstr "Peixeira de Prata"
 
-msgid "Bluesteel Dagger"
-msgstr "Adaga de Aço Azul"
+msgid "Bluesteel Peixeira"
+msgstr "Peixeira de Aço Azul"
 
-msgid "Adamantite Dagger"
-msgstr "Adaga de Adamantita"
+msgid "Adamantite Peixeira"
+msgstr "Peixeira de Adamantita"
 
-msgid "Iron Shortsword"
-msgstr "Espada Curta de Ferro"
+msgid "Iron Machete"
+msgstr "Facão de Ferro"
 
-msgid "Steel Shortsword"
-msgstr "Espada Curta de Aço"
+msgid "Steel Machete"
+msgstr "Facão de Aço"
 
-msgid "Silver Shortsword"
-msgstr "Espada Curta de Prata"
+msgid "Silver Machete"
+msgstr "Facão de Prata"
 
-msgid "Bluesteel Shortsword"
-msgstr "Espada Curta de Aço Azul"
+msgid "Bluesteel Machete"
+msgstr "Facão de Aço Azul"
 
-msgid "Adamantite Shortsword"
-msgstr "Espada Curta de Adamantita"
+msgid "Adamantite Machete"
+msgstr "Facão de Adamantita"
 
-msgid "Iron Longsword"
-msgstr "Espada Longa de Ferro"
+msgid "Iron Saber"
+msgstr "Sabre de Ferro"
 
-msgid "Steel Longsword"
-msgstr "Espada Longa de Aço"
+msgid "Steel Saber"
+msgstr "Sabre de Aço"
 
-msgid "Silver Longsword"
-msgstr "Espada Longa de Prata"
+msgid "Silver Saber"
+msgstr "Sabre de Prata"
 
-msgid "Bluesteel Longsword"
-msgstr "Espada Longa de Aço Azul"
+msgid "Bluesteel Saber"
+msgstr "Sabre de Aço Azul"
 
-msgid "Adamantite Longsword"
-msgstr "Espada Longa de Adamantita"
+msgid "Adamantite Saber"
+msgstr "Sabre de Adamantita"
 
 msgid "Iron Greatsword"
 msgstr "Espadão de Ferro"
@@ -64,44 +64,44 @@ msgstr "Espadão de Aço Azul"
 msgid "Adamantite Greatsword"
 msgstr "Espadão de Adamantita"
 
-msgid "Iron Axe"
-msgstr "Machado de Ferro"
+msgid "Iron Hatchet"
+msgstr "Machadinha de Ferro"
 
-msgid "Steel Axe"
-msgstr "Machado de Aço"
+msgid "Steel Hatchet"
+msgstr "Machadinha de Aço"
 
-msgid "Bluesteel Axe"
-msgstr "Machado de Aço Azul"
+msgid "Bluesteel Hatchet"
+msgstr "Machadinha de Aço Azul"
 
-msgid "Adamantite Axe"
-msgstr "Machado de Adamantita"
+msgid "Adamantite Hatchet"
+msgstr "Machadinha de Adamantita"
 
-msgid "Iron Greataxe"
-msgstr "Machado de Guerra de Ferro"
+msgid "Iron Woodcutter's Axe"
+msgstr "Machado de Lenhador de Ferro"
 
-msgid "Steel Greataxe"
-msgstr "Machado de Guerra de Aço"
+msgid "Steel Woodcutter's Axe"
+msgstr "Machado de Lenhador de Aço"
 
-msgid "Bluesteel Greataxe"
-msgstr "Machado de Guerra de Aço Azul"
+msgid "Bluesteel Woodcutter's Axe"
+msgstr "Machado de Lenhador de Aço Azul"
 
-msgid "Adamantite Greataxe"
-msgstr "Machado de Guerra de Adamantita"
+msgid "Adamantite Woodcutter's Axe"
+msgstr "Machado de Lenhador de Adamantita"
 
-msgid "Iron Mace"
-msgstr "Maça de Ferro"
+msgid "Iron Cudgel"
+msgstr "Porrete de Ferro"
 
-msgid "Steel Mace"
-msgstr "Maça de Aço"
+msgid "Steel Cudgel"
+msgstr "Porrete de Aço"
 
-msgid "Silver Mace"
-msgstr "Maça de Prata"
+msgid "Silver Cudgel"
+msgstr "Porrete de Prata"
 
-msgid "Bluesteel Mace"
-msgstr "Maça de Aço Azul"
+msgid "Bluesteel Cudgel"
+msgstr "Porrete de Aço Azul"
 
-msgid "Adamantite Mace"
-msgstr "Maça de Adamantita"
+msgid "Adamantite Cudgel"
+msgstr "Porrete de Adamantita"
 
 msgid "Iron Hammer"
 msgstr "Martelo de Ferro"
@@ -127,56 +127,56 @@ msgstr "Marreta de Aço Azul"
 msgid "Adamantite Maul"
 msgstr "Marreta de Adamantita"
 
-msgid "Goblin Gutter"
-msgstr "Estripadora Goblin"
+msgid "Saci's Knife"
+msgstr "Faca de Saci"
 
-msgid "Dagger of Ice"
-msgstr "Adaga de Gelo"
+msgid "Ice Peixeira"
+msgstr "Peixeira de Gelo"
 
-msgid "Dagger of Poison"
-msgstr "Adaga Envenenada"
+msgid "Jararaca Peixeira"
+msgstr "Peixeira de Jararaca"
 
-msgid "Shock Dagger"
-msgstr "Adaga de Choque"
+msgid "Lightning Peixeira"
+msgstr "Peixeira de Raio"
 
-msgid "Hunter's Fang"
-msgstr "Presa do Caçador"
+msgid "Jaguar Fang"
+msgstr "Presa de Onça"
 
-msgid "Sharp Orc Knife"
-msgstr "Faca Orc Afiada"
+msgid "Quibungo Knife"
+msgstr "Faca de Quibungo"
 
-msgid "Shortsword of Frost"
-msgstr "Espada Curta do Gelo"
+msgid "Frost Machete"
+msgstr "Facão Gelado"
 
-msgid "Thief's Blade"
-msgstr "Lâmina do Ladrão"
+msgid "Jagunço Machete"
+msgstr "Facão de Jagunço"
 
 msgid "Pirate Cutlass"
 msgstr "Cutelo Pirata"
 
-msgid "Sword of Flames"
-msgstr "Espada das Chamas"
+msgid "Boitatá Saber"
+msgstr "Sabre do Boitatá"
 
-msgid "Sword of Shock"
-msgstr "Espada do Choque"
+msgid "Thunder Saber"
+msgstr "Sabre de Trovão"
 
-msgid "Greenskin Bane"
-msgstr "Ruína dos Peles-verdes"
+msgid "Saci Bane"
+msgstr "Ruína dos Sacis"
 
 msgid "Blazecleaver"
-msgstr "Fende-Chamas"
+msgstr "Fende-Brasa"
 
-msgid "Lightning Axe"
-msgstr "Machado Relâmpago"
+msgid "Lightning Hatchet"
+msgstr "Machadinha de Raio"
 
 msgid "Heavy Scimitar"
 msgstr "Cimitarra Pesada"
 
-msgid "Bone Mace"
-msgstr "Maça de Osso"
+msgid "Bone Cudgel"
+msgstr "Porrete de Osso"
 
-msgid "Hammer of Corrosion"
-msgstr "Martelo da Corrosão"
+msgid "Rust Hammer"
+msgstr "Martelo da Ferrugem"
 
 msgid "Icy Greatsword"
 msgstr "Espadão Gélido"
@@ -184,29 +184,29 @@ msgstr "Espadão Gélido"
 msgid "Icy Maul"
 msgstr "Marreta Gélida"
 
-msgid "Screaming Mace"
-msgstr "Maça Uivante"
+msgid "Howling Cudgel"
+msgstr "Porrete Uivante"
 
 msgid "Verdict"
-msgstr "Veredito"
+msgstr "Sentença"
 
-msgid "Lightning Greataxe"
-msgstr "Machado de Guerra Relâmpago"
+msgid "Lightning Woodcutter Axe"
+msgstr "Machado de Raio"
 
-msgid "Minotaur Axe"
-msgstr "Machado do Minotauro"
+msgid "Lobisomem Axe"
+msgstr "Machado de Lobisomem"
 
 msgid "Bone Maul"
 msgstr "Marreta de Osso"
 
-msgid "Magma Shortsword"
-msgstr "Espada Curta de Magma"
+msgid "Magma Machete"
+msgstr "Facão de Magma"
 
-msgid "Magma Dagger"
-msgstr "Adaga de Magma"
+msgid "Magma Peixeira"
+msgstr "Peixeira de Magma"
 
-msgid "Magma Longsword"
-msgstr "Espada Longa de Magma"
+msgid "Magma Saber"
+msgstr "Sabre de Magma"
 
 msgid "Executioner's Axe"
 msgstr "Machado do Carrasco"
@@ -214,20 +214,20 @@ msgstr "Machado do Carrasco"
 msgid "Lightning Blade"
 msgstr "Lâmina Relâmpago"
 
-msgid "Spirit Reaver"
-msgstr "Ceifador de Espíritos"
+msgid "Soul Reaper"
+msgstr "Ceifa-Almas"
 
-msgid "Lifedrinker"
-msgstr "Bebe-Vida"
+msgid "Chupacabra"
+msgstr "Chupa-Cabra"
 
 msgid "Short Bow"
 msgstr "Arco Curto"
 
-msgid "Hunting Bow"
-msgstr "Arco de Caça"
+msgid "Hunter's Bow"
+msgstr "Arco de Caçador"
 
-msgid "Oaken Bow"
-msgstr "Arco de Carvalho"
+msgid "Aroeira Bow"
+msgstr "Arco de Aroeira"
 
 msgid "Silver Bow"
 msgstr "Arco de Prata"
@@ -235,116 +235,116 @@ msgstr "Arco de Prata"
 msgid "Frost Bow"
 msgstr "Arco do Gelo"
 
-msgid "Poisonous Longbow"
-msgstr "Arco Longo Venenoso"
+msgid "Curare Longbow"
+msgstr "Arco Longo de Curare"
 
-msgid "Skeletal Bow"
-msgstr "Arco Esquelético"
+msgid "Caveira Bow"
+msgstr "Arco de Caveira"
 
-msgid "Oak Wand"
-msgstr "Varinha de Carvalho"
+msgid "Ipê Wand"
+msgstr "Varinha de Ipê"
 
 msgid "Staff of Force"
 msgstr "Cajado da Força"
 
-msgid "Elm Wand"
-msgstr "Varinha de Olmo"
+msgid "Jacarandá Wand"
+msgstr "Varinha de Jacarandá"
 
-msgid "Caduceus of Scorching"
-msgstr "Caduceu Escaldante"
+msgid "Scorching Staff"
+msgstr "Cajado Escaldante"
 
 msgid "Staff of Mighty Missiles"
 msgstr "Cajado dos Mísseis"
 
-msgid "Rod of Incineration"
-msgstr "Bastão da Incineração"
+msgid "Wildfire Rod"
+msgstr "Bastão da Queimada"
 
-msgid "Staff of Storms"
-msgstr "Cajado das Tempestades"
+msgid "Thunderstorm Staff"
+msgstr "Cajado das Trovoadas"
 
-msgid "Staff of the Arcanist"
-msgstr "Cajado do Arcanista"
+msgid "Sorcerer's Staff"
+msgstr "Cajado do Feiticeiro"
 
 msgid "Magma Greatstaff"
 msgstr "Grande Cajado de Magma"
 
-msgid "Stiletto"
-msgstr "Estilete"
+msgid "Lampião's Peixeira"
+msgstr "Peixeira de Lampião"
 
-msgid "Hammer of the Pale Abbot"
-msgstr "Martelo do Abade Pálido"
+msgid "The Beato's Hammer"
+msgstr "Martelo do Beato"
 
-msgid "Frostlament"
-msgstr "Lamento Gélido"
+msgid "Minuano's Lament"
+msgstr "Lamento do Minuano"
 
-msgid "Barbed Spite"
-msgstr "Rancor Farpado"
+msgid "Mandacaru Thorn"
+msgstr "Espinho de Mandacaru"
 
-msgid "Emberbite"
-msgstr "Mordida de Brasa"
+msgid "Boitatá's Bite"
+msgstr "Mordida do Boitatá"
 
-msgid "Ironbound Fist"
-msgstr "Punho Blindado"
+msgid "Cowhand's Fist"
+msgstr "Punho de Vaqueiro"
 
-msgid "Hollow Sorrow"
-msgstr "Pesar Oco"
+msgid "Haunting Hammer"
+msgstr "Martelo da Assombração"
 
-msgid "Mountainbreaker"
-msgstr "Quebra-Montanhas"
+msgid "Sierra Breaker"
+msgstr "Quebra-Serra"
 
-msgid "Hornbow"
-msgstr "Arco de Chifre"
+msgid "Oxhorn Bow"
+msgstr "Arco de Chifre de Boi"
 
-msgid "Heart of the Brood"
-msgstr "Coração da Ninhada"
+msgid "Tanajura Stinger"
+msgstr "Ferrão da Tanajura"
 
 msgid "Wildfire Edge"
-msgstr "Fio do Incêndio"
+msgstr "Fio da Queimada"
 
-msgid "Oathkeeper's Blade"
-msgstr "Lâmina do Juramento"
+msgid "Saber of the Vow"
+msgstr "Sabre da Promessa"
 
 msgid "Skullcrusher"
-msgstr "Esmaga-Crânios"
+msgstr "Quebra-Caveira"
 
-msgid "Stag's Heirloom"
-msgstr "Relíquia do Cervo"
+msgid "Pampas Deer Heirloom"
+msgstr "Herança do Veado-Campeiro"
 
 msgid "Rimeshot"
 msgstr "Tiro de Geada"
 
-msgid "Gravecaller Scepter"
-msgstr "Cetro Chama-Túmulos"
+msgid "Corpo-Seco Scepter"
+msgstr "Cetro do Corpo-Seco"
 
-msgid "Duskfang"
-msgstr "Presa do Crepúsculo"
+msgid "Lobisomem Fang"
+msgstr "Presa do Lobisomem"
 
-msgid "Hornking's Axe"
-msgstr "Machado do Rei Chifrudo"
+msgid "Mapinguari's Axe"
+msgstr "Machado do Mapinguari"
 
-msgid "Moonless"
-msgstr "Sem-Lua"
+msgid "Moonless Night"
+msgstr "Noite Sem Lua"
 
-msgid "Hellhook"
-msgstr "Gancho Infernal"
+msgid "Devil's Hook"
+msgstr "Anzol do Capeta"
 
-msgid "Wand of the Archmage"
-msgstr "Varinha do Arquimago"
+msgid "Cuca's Wand"
+msgstr "Varinha da Cuca"
 
-msgid "Barrow King's Staff"
-msgstr "Cajado do Rei do Túmulo"
+msgid "Iara's Staff"
+msgstr "Cajado da Iara"
 
-msgid "Leather Cap"
-msgstr "Capuz de Couro"
+msgid "Leather Hat"
+msgstr "Chapéu de Couro"
 
-msgid "Leather Cuirass"
-msgstr "Túnica de Couro"
+msgid "Leather Gibão"
+msgstr "Gibão de Couro"
 
-msgid "Leather Bracers"
+msgid "Leather Gloves"
 msgstr "Luvas de Couro"
 
-msgid "Leather Leggings"
-msgstr "Calças de Couro"
+msgid "Leather Chaps"
+msgstr "Perneiras de Couro"
 
 msgid "Leather Boots"
 msgstr "Botas de Couro"
@@ -364,35 +364,35 @@ msgstr "Calças de Aprendiz"
 msgid "Apprentice Boots"
 msgstr "Botas de Aprendiz"
 
-msgid "Hardened Leather Cap"
-msgstr "Capuz de Couro Endurecido"
+msgid "Tanned Leather Cap"
+msgstr "Capuz de Couro Curtido"
 
-msgid "Hardened Leather Cuirass"
-msgstr "Túnica de Couro Endurecido"
+msgid "Tanned Leather Cuirass"
+msgstr "Túnica de Couro Curtido"
 
-msgid "Hardened Leather Gauntlets"
-msgstr "Luvas de Couro Endurecido"
+msgid "Tanned Leather Gauntlets"
+msgstr "Luvas de Couro Curtido"
 
-msgid "Hardened Leather Leggings"
-msgstr "Calças de Couro Endurecido"
+msgid "Tanned Leather Leggings"
+msgstr "Calças de Couro Curtido"
 
-msgid "Hardened Leather Boots"
-msgstr "Botas de Couro Endurecido"
+msgid "Tanned Leather Boots"
+msgstr "Botas de Couro Curtido"
 
-msgid "Journeyman Cap"
-msgstr "Capuz de Viajante"
+msgid "Tropeiro Cap"
+msgstr "Capuz de Tropeiro"
 
-msgid "Journeyman Tunic"
-msgstr "Túnica de Viajante"
+msgid "Tropeiro Tunic"
+msgstr "Túnica de Tropeiro"
 
-msgid "Journeyman Gauntlets"
-msgstr "Luvas de Viajante"
+msgid "Tropeiro Gauntlets"
+msgstr "Luvas de Tropeiro"
 
-msgid "Journeyman Pants"
-msgstr "Calças de Viajante"
+msgid "Tropeiro Pants"
+msgstr "Calças de Tropeiro"
 
-msgid "Journeyman Boots"
-msgstr "Botas de Viajante"
+msgid "Tropeiro Boots"
+msgstr "Botas de Tropeiro"
 
 msgid "Chainmail Coif"
 msgstr "Elmo de Cota de Malha"
@@ -409,65 +409,65 @@ msgstr "Calças de Cota de Malha"
 msgid "Chainmail Boots"
 msgstr "Botas de Cota de Malha"
 
-msgid "Forest Chain Coif"
-msgstr "Elmo de Malha da Floresta"
+msgid "Jungle Chain Coif"
+msgstr "Elmo de Malha da Mata"
 
-msgid "Forest Chain Shirt"
-msgstr "Peitoral de Malha da Floresta"
+msgid "Jungle Chain Shirt"
+msgstr "Peitoral de Malha da Mata"
 
-msgid "Forest Chain Gauntlets"
-msgstr "Luvas de Malha da Floresta"
+msgid "Jungle Chain Gauntlets"
+msgstr "Luvas de Malha da Mata"
 
-msgid "Forest Chain Leggings"
-msgstr "Calças de Malha da Floresta"
+msgid "Jungle Chain Leggings"
+msgstr "Calças de Malha da Mata"
 
-msgid "Forest Chain Boots"
-msgstr "Botas de Malha da Floresta"
+msgid "Jungle Chain Boots"
+msgstr "Botas de Malha da Mata"
 
 msgid "Blessed Chain Coif"
-msgstr "Elmo de Malha Abençoada"
+msgstr "Elmo de Malha Benzida"
 
 msgid "Blessed Chain Shirt"
-msgstr "Peitoral de Malha Abençoada"
+msgstr "Peitoral de Malha Benzida"
 
 msgid "Blessed Chain Gauntlets"
-msgstr "Luvas de Malha Abençoada"
+msgstr "Luvas de Malha Benzida"
 
 msgid "Blessed Chain Leggings"
-msgstr "Calças de Malha Abençoada"
+msgstr "Calças de Malha Benzida"
 
 msgid "Blessed Chain Boots"
-msgstr "Botas de Malha Abençoada"
+msgstr "Botas de Malha Benzida"
 
-msgid "Conjurer Hood"
-msgstr "Capuz de Conjurador"
+msgid "Enchanter Hood"
+msgstr "Capuz de Encantador"
 
-msgid "Conjurer Tunic"
-msgstr "Túnica de Conjurador"
+msgid "Enchanter Tunic"
+msgstr "Túnica de Encantador"
 
-msgid "Conjurer Gloves"
-msgstr "Luvas de Conjurador"
+msgid "Enchanter Gloves"
+msgstr "Luvas de Encantador"
 
-msgid "Conjurer Pantaloons"
-msgstr "Calças de Conjurador"
+msgid "Enchanter Pantaloons"
+msgstr "Calças de Encantador"
 
-msgid "Conjurer Boots"
-msgstr "Botas de Conjurador"
+msgid "Enchanter Boots"
+msgstr "Botas de Encantador"
 
-msgid "Assassin's Hood"
-msgstr "Capuz do Assassino"
+msgid "Jagunço Hood"
+msgstr "Capuz de Jagunço"
 
-msgid "Assassin's Cuirass"
-msgstr "Túnica do Assassino"
+msgid "Jagunço Cuirass"
+msgstr "Túnica de Jagunço"
 
-msgid "Assassin's Gauntlets"
-msgstr "Luvas do Assassino"
+msgid "Jagunço Gauntlets"
+msgstr "Luvas de Jagunço"
 
-msgid "Assassin's Leggings"
-msgstr "Calças do Assassino"
+msgid "Jagunço Leggings"
+msgstr "Calças de Jagunço"
 
-msgid "Assassin's Boots"
-msgstr "Botas do Assassino"
+msgid "Jagunço Boots"
+msgstr "Botas de Jagunço"
 
 msgid "Knight Helm"
 msgstr "Elmo de Placas"
@@ -484,62 +484,62 @@ msgstr "Calças de Placas"
 msgid "Platemail Boots"
 msgstr "Botas de Placas"
 
-msgid "Legion Helm"
-msgstr "Elmo da Legião"
+msgid "Volante Helm"
+msgstr "Elmo da Volante"
 
-msgid "Legion Breastplate"
-msgstr "Peitoral da Legião"
+msgid "Volante Breastplate"
+msgstr "Peitoral da Volante"
 
-msgid "Legion Gauntlets"
-msgstr "Luvas da Legião"
+msgid "Volante Gauntlets"
+msgstr "Luvas da Volante"
 
-msgid "Legion Leggings"
-msgstr "Calças da Legião"
+msgid "Volante Leggings"
+msgstr "Calças da Volante"
 
-msgid "Legion Boots"
-msgstr "Botas da Legião"
+msgid "Volante Boots"
+msgstr "Botas da Volante"
 
-msgid "Primal Ice Chain Coif"
-msgstr "Elmo de Gelo Primordial"
+msgid "Minuano Chain Coif"
+msgstr "Elmo de Malha Minuano"
 
-msgid "Primal Ice Chain Shirt"
-msgstr "Peitoral de Gelo Primordial"
+msgid "Minuano Chain Shirt"
+msgstr "Peitoral de Malha Minuano"
 
-msgid "Primal Ice Chain Gauntlets"
-msgstr "Luvas de Gelo Primordial"
+msgid "Minuano Chain Gauntlets"
+msgstr "Luvas de Malha Minuano"
 
-msgid "Primal Ice Chain Leggings"
-msgstr "Calças de Gelo Primordial"
+msgid "Minuano Chain Leggings"
+msgstr "Calças de Malha Minuano"
 
-msgid "Primal Ice Chain Boots"
-msgstr "Botas de Gelo Primordial"
+msgid "Minuano Chain Boots"
+msgstr "Botas de Malha Minuano"
 
 msgid "Blessed Platemail Helm"
-msgstr "Elmo de Placas Abençoadas"
+msgstr "Elmo de Placas Benzidas"
 
 msgid "Blessed Platemail Vest"
-msgstr "Peitoral de Placas Abençoadas"
+msgstr "Peitoral de Placas Benzidas"
 
 msgid "Blessed Platemail Gauntlets"
-msgstr "Luvas de Placas Abençoadas"
+msgstr "Luvas de Placas Benzidas"
 
 msgid "Blessed Platemail Leggings"
-msgstr "Calças de Placas Abençoadas"
+msgstr "Calças de Placas Benzidas"
 
 msgid "Blessed Platemail Boots"
-msgstr "Botas de Placas Abençoadas"
+msgstr "Botas de Placas Benzidas"
 
-msgid "Dreadiron Breastplate"
-msgstr "Peitoral de Ferro Sombrio"
+msgid "Haunted Iron Breastplate"
+msgstr "Peitoral de Ferro Assombrado"
 
-msgid "Dreadiron Gauntlets"
-msgstr "Luvas de Ferro Sombrio"
+msgid "Haunted Iron Gauntlets"
+msgstr "Luvas de Ferro Assombrado"
 
-msgid "Dreadiron Leggings"
-msgstr "Calças de Ferro Sombrio"
+msgid "Haunted Iron Leggings"
+msgstr "Calças de Ferro Assombrado"
 
-msgid "Dreadiron Boots"
-msgstr "Botas de Ferro Sombrio"
+msgid "Haunted Iron Boots"
+msgstr "Botas de Ferro Assombrado"
 
 msgid "Ashen Helm"
 msgstr "Elmo das Cinzas"
@@ -556,8 +556,8 @@ msgstr "Calças das Cinzas"
 msgid "Ashen Boots"
 msgstr "Botas das Cinzas"
 
-msgid "Buckler"
-msgstr "Broquel"
+msgid "Leather Buckler"
+msgstr "Broquel de Couro"
 
 msgid "Iron Shield"
 msgstr "Escudo de Ferro"
@@ -565,14 +565,14 @@ msgstr "Escudo de Ferro"
 msgid "Charred Buckler"
 msgstr "Broquel Chamuscado"
 
-msgid "Anointed Shield"
-msgstr "Escudo Ungido"
+msgid "Blessed Shield"
+msgstr "Escudo Benzido"
 
 msgid "Petrified Wood Buckler"
 msgstr "Broquel de Madeira Petrificada"
 
-msgid "Hero's Shield"
-msgstr "Escudo do Herói"
+msgid "Cangaceiro Shield"
+msgstr "Escudo de Cangaceiro"
 
 msgid "Lesser Ring of Flames"
 msgstr "Anel Menor das Chamas"
@@ -598,8 +598,8 @@ msgstr "Anel da Saúde"
 msgid "Ring of Death Ward"
 msgstr "Anel da Proteção Mortal"
 
-msgid "Ivory Ring"
-msgstr "Anel de Marfim"
+msgid "Tucum Ring"
+msgstr "Anel de Tucum"
 
 msgid "Greater Ring of Flames"
 msgstr "Anel Maior das Chamas"
@@ -610,17 +610,17 @@ msgstr "Anel Maior do Gelo"
 msgid "Greater Ring of Endurance"
 msgstr "Anel Maior da Resistência"
 
-msgid "Blessed Necklace"
-msgstr "Colar Abençoado"
+msgid "Scapular"
+msgstr "Escapulário"
 
-msgid "Purple Medallion"
-msgstr "Medalhão Púrpura"
+msgid "Rue Figa"
+msgstr "Figa de Arruda"
 
-msgid "Sigil of the Academy"
-msgstr "Sigilo da Academia"
+msgid "Sorcerer's Patuá"
+msgstr "Patuá do Feiticeiro"
 
-msgid "Abyssal Pendant"
-msgstr "Pingente Abissal"
+msgid "Devil's Pendant"
+msgstr "Pingente do Capeta"
 
 msgid "Belt of Might"
 msgstr "Cinto do Poder"
@@ -857,28 +857,28 @@ msgid "Headless Mule"
 msgstr "Mula sem Cabeça"
 
 msgid "Leather Set"
-msgstr "Conjunto Leather"
+msgstr "Conjunto de Couro"
 
 msgid "Chainmail Set"
-msgstr "Conjunto Chainmail"
+msgstr "Conjunto de Cota de Malha"
 
 msgid "Platemail Set"
-msgstr "Conjunto Platemail"
+msgstr "Conjunto de Placas"
 
-msgid "Legion Set"
-msgstr "Conjunto Legion"
+msgid "Volante Set"
+msgstr "Conjunto da Volante"
 
-msgid "Assassin's Set"
-msgstr "Conjunto Assassin's"
+msgid "Jagunço Set"
+msgstr "Conjunto de Jagunço"
 
-msgid "Conjurer Set"
-msgstr "Conjunto Conjurer"
+msgid "Enchanter Set"
+msgstr "Conjunto de Encantador"
 
 msgid "Ashen Set"
-msgstr "Conjunto Ashen"
+msgstr "Conjunto das Cinzas"
 
 msgid "Blessed Platemail Set"
-msgstr "Conjunto Blessed Platemail"
+msgstr "Conjunto de Placas Benzidas"
 
 msgid "Cangaceiro"
 msgstr "Cangaceiro"
@@ -1295,7 +1295,7 @@ msgid "Demon"
 msgstr "Demônios"
 
 msgid "Greenskin"
-msgstr "Peles-verdes"
+msgstr "Criaturas do Mato"
 
 msgid "Beast"
 msgstr "Feras"
@@ -1342,8 +1342,8 @@ msgstr "Adiciona dano de veneno aos ataques não elementais."
 msgid "Adds holy damage to non-elemental attacks. Undead are weak to it."
 msgstr "Adiciona dano sagrado aos ataques não elementais. Mortos-vivos são fracos a ele."
 
-msgid "Zealot's Might"
-msgstr "Força do Zelote"
+msgid "Might of the Vow"
+msgstr "Força da Promessa"
 
 msgid "+6 damage and +8 fire damage for 12s."
 msgstr "+6 de dano e +8 de dano de fogo por 12s."
@@ -1354,8 +1354,8 @@ msgstr "+10 de dano e +8 de dano de fogo por 14s."
 msgid "+16 damage and +8 fire damage for 16s."
 msgstr "+16 de dano e +8 de dano de fogo por 16s."
 
-msgid "Runed Edge"
-msgstr "Lâmina Rúnica"
+msgid "Hexed Machete"
+msgstr "Facão Mandingado"
 
 msgid "Your fire, ice and lightning damage from gear is increased by 25%."
 msgstr "Seu dano de fogo, gelo e raio vindo de equipamentos aumenta 25%."
@@ -1369,8 +1369,8 @@ msgstr "Seu dano de fogo, gelo e raio vindo de equipamentos aumenta 100%."
 msgid "Your fire, ice and lightning damage from gear is increased by 150%."
 msgstr "Seu dano de fogo, gelo e raio vindo de equipamentos aumenta 150%."
 
-msgid "Spell Thrift"
-msgstr "Economia Arcana"
+msgid "Thrifty Hex"
+msgstr "Feitiço Poupado"
 
 msgid "Mana flows back faster (+10 mana regeneration)."
 msgstr "A mana volta mais rápido (+10 de regeneração de mana)."
@@ -1381,8 +1381,8 @@ msgstr "A mana volta mais rápido (+20 de regeneração de mana)."
 msgid "Mana flows back faster (+30 mana regeneration)."
 msgstr "A mana volta mais rápido (+30 de regeneração de mana)."
 
-msgid "Keen Arrows"
-msgstr "Flechas Afiadas"
+msgid "Cane Arrows"
+msgstr "Flechas de Taquara"
 
 msgid "Arrows deal +2 damage and hit more often."
 msgstr "Flechas causam +2 de dano e acertam mais."
@@ -1393,8 +1393,8 @@ msgstr "Flechas causam +4 de dano e acertam mais."
 msgid "Arrows deal +6 damage and hit more often."
 msgstr "Flechas causam +6 de dano e acertam mais."
 
-msgid "Killing Flow"
-msgstr "Fluxo Assassino"
+msgid "Killing Rhythm"
+msgstr "Embalo Assassino"
 
 msgid "After a kill, attack 25% faster for 3s."
 msgstr "Depois de matar, ataca 25% mais rápido por 3s."
@@ -1405,8 +1405,8 @@ msgstr "Depois de matar, ataca 40% mais rápido por 3s."
 msgid "After a kill, attack 60% faster for 3s."
 msgstr "Depois de matar, ataca 60% mais rápido por 3s."
 
-msgid "Shield Slam"
-msgstr "Pancada de Escudo"
+msgid "Leather Shield Bash"
+msgstr "Escudada"
 
 msgid "Slam into the enemy: knocks it back and stuns it for 1s."
 msgstr "Golpeia o inimigo: empurra e atordoa por 1s."
@@ -1417,8 +1417,8 @@ msgstr "Golpeia o inimigo: empurra e atordoa por 2s."
 msgid "Slam into the enemy: knocks it back and stuns it for 3s."
 msgstr "Golpeia o inimigo: empurra e atordoa por 3s."
 
-msgid "War Hymn"
-msgstr "Hino de Guerra"
+msgid "War Bendito"
+msgstr "Bendito de Guerra"
 
 msgid "You and allies nearby: +2 absorb, +4 damage for 12s."
 msgstr "Você e aliados próximos: +2 de absorção, +4 de dano por 12s."
@@ -1429,8 +1429,8 @@ msgstr "Você e aliados próximos: +3 de absorção, +6 de dano, +10% em todas a
 msgid "You and allies nearby: +4 absorb, +10 damage, +25% to all resistances for 12s."
 msgstr "Você e aliados próximos: +4 de absorção, +10 de dano, +25% em todas as resistências por 12s."
 
-msgid "Blood Frenzy"
-msgstr "Frenesi Sangrento"
+msgid "Lampião's Fury"
+msgstr "Fúria de Lampião"
 
 msgid "+8 physical, +2 absorb and immunity to crowd control for 6s."
 msgstr "+8 de físico, +2 de absorção e imunidade a controle por 6s."
@@ -1441,14 +1441,14 @@ msgstr "+12 de físico, +3 de absorção e imunidade a controle por 8s."
 msgid "+16 physical, +4 absorb and immunity to crowd control for 9s."
 msgstr "+16 de físico, +4 de absorção e imunidade a controle por 9s."
 
-msgid "Beast Friend"
-msgstr "Amigo das Feras"
+msgid "Friend of the Wild"
+msgstr "Amigo da Mata"
 
 msgid "Call a wild beast to fight for you."
 msgstr "Chama uma fera selvagem para lutar por você."
 
-msgid "Thrill of the Kill"
-msgstr "Êxtase da Matança"
+msgid "Hot Blood"
+msgstr "Sangue Quente"
 
 msgid "After a kill: +6 damage and +1 absorb for 6s."
 msgstr "Depois de matar: +6 de dano e +1 de absorção por 6s."
@@ -1459,8 +1459,8 @@ msgstr "Depois de matar: +8 de dano e +2 de absorção por 6s."
 msgid "After a kill: +12 damage and +3 absorb for 6s."
 msgstr "Depois de matar: +12 de dano e +3 de absorção por 6s."
 
-msgid "Hardened Body"
-msgstr "Corpo Calejado"
+msgid "Tanned Hide"
+msgstr "Couro Curtido"
 
 msgid "+5% maximum health."
 msgstr "+5% de vida máxima."
@@ -1471,8 +1471,8 @@ msgstr "+10% de vida máxima."
 msgid "+15% maximum health."
 msgstr "+15% de vida máxima."
 
-msgid "Bull Rush"
-msgstr "Investida Taurina"
+msgid "Stampede"
+msgstr "Estouro da Boiada"
 
 msgid "Charge forward and hit for +60% damage, briefly stunning."
 msgstr "Avança e golpeia com +60% de dano, atordoando por um instante."
@@ -1486,8 +1486,8 @@ msgstr "Avança e golpeia com +125% de dano, atordoando por um instante."
 msgid "Charge forward and hit for +160% damage, briefly stunning."
 msgstr "Avança e golpeia com +160% de dano, atordoando por um instante."
 
-msgid "Wide Swing"
-msgstr "Golpe Amplo"
+msgid "Machete Sweep"
+msgstr "Golpe de Facão"
 
 msgid "Your attacks also sweep up to 1 nearby enemies for 50% damage."
 msgstr "Seus ataques também atingem até 1 inimigos próximos com 50% do dano."
@@ -1498,8 +1498,8 @@ msgstr "Seus ataques também atingem até 2 inimigos próximos com 60% do dano."
 msgid "Your attacks also sweep up to 3 nearby enemies for 75% damage."
 msgstr "Seus ataques também atingem até 3 inimigos próximos com 75% do dano."
 
-msgid "Immolate"
-msgstr "Imolação"
+msgid "Wildfire"
+msgstr "Queimada"
 
 msgid "30-60 fire damage; the target loses 2 absorb and 20% resistances for 8s."
 msgstr "30-60 de dano de fogo; o alvo perde 2 de absorção e 20% de resistências por 8s."
@@ -1510,8 +1510,8 @@ msgstr "40-80 de dano de fogo; o alvo perde 3 de absorção e 40% de resistênci
 msgid "56-112 fire damage; the target loses 5 absorb and 60% resistances for 8s."
 msgstr "56-112 de dano de fogo; o alvo perde 5 de absorção e 60% de resistências por 8s."
 
-msgid "Templar"
-msgstr "Templário"
+msgid "Armed Pilgrim"
+msgstr "Romeiro Armado"
 
 msgid "Your attacks burn with +2 holy damage (undead take more)."
 msgstr "Seus ataques queimam com +2 de dano sagrado (mortos-vivos sofrem mais)."
@@ -1522,8 +1522,8 @@ msgstr "Seus ataques queimam com +4 de dano sagrado (mortos-vivos sofrem mais)."
 msgid "Your attacks burn with +6 holy damage (undead take more)."
 msgstr "Seus ataques queimam com +6 de dano sagrado (mortos-vivos sofrem mais)."
 
-msgid "Plague Mist"
-msgstr "Névoa da Peste"
+msgid "Mangrove Mist"
+msgstr "Névoa do Mangue"
 
 msgid "A toxic cloud: 20-40 poison damage, slows and lowers shadow resistance by 30%."
 msgstr "Uma nuvem tóxica: 20-40 de dano de veneno, deixa lento e reduz a resistência a sombra em 30%."
@@ -1534,8 +1534,8 @@ msgstr "Uma nuvem tóxica: 28-56 de dano de veneno, deixa lento e reduz a resist
 msgid "A toxic cloud: 36-72 poison damage, slows and lowers shadow resistance by 80%."
 msgstr "Uma nuvem tóxica: 36-72 de dano de veneno, deixa lento e reduz a resistência a sombra em 80%."
 
-msgid "Grave Ward"
-msgstr "Proteção Tumular"
+msgid "Charm against the Dead"
+msgstr "Benzedura contra Finados"
 
 msgid "+12% shadow resistance."
 msgstr "+12% de resistência a sombra."
@@ -1546,8 +1546,8 @@ msgstr "+24% de resistência a sombra."
 msgid "+36% shadow resistance."
 msgstr "+36% de resistência a sombra."
 
-msgid "Unmake"
-msgstr "Desfazer"
+msgid "Quebranto"
+msgstr "Quebranto"
 
 msgid "A ray of pure force: 100-125 damage."
 msgstr "Um raio de força pura: 100-125 de dano."
@@ -1558,6 +1558,9 @@ msgstr "Um raio de força pura: 150-187 de dano."
 msgid "A ray of pure force: 200-250 damage."
 msgstr "Um raio de força pura: 200-250 de dano."
 
+msgid "Sertão Duelist"
+msgstr "Duelista do Sertão"
+
 msgid "Each attack adds +2 damage for 4s, stacking up to +8."
 msgstr "Cada ataque soma +2 de dano por 4s, acumulando até +8."
 
@@ -1567,8 +1570,8 @@ msgstr "Cada ataque soma +4 de dano por 4s, acumulando até +12."
 msgid "Each attack adds +4 damage for 4s, stacking up to +20."
 msgstr "Cada ataque soma +4 de dano por 4s, acumulando até +20."
 
-msgid "Delver"
-msgstr "Explorador"
+msgid "Trailblazer"
+msgstr "Desbravador"
 
 msgid "+10% item find."
 msgstr "+10% de chance de encontrar itens."
@@ -1579,14 +1582,14 @@ msgstr "+18% de chance de encontrar itens."
 msgid "+25% item find."
 msgstr "+25% de chance de encontrar itens."
 
-msgid "Stone Caller"
-msgstr "Chamado da Pedra"
+msgid "Enchanted Stone"
+msgstr "Pedra Encantada"
 
 msgid "Call a stone guardian that soaks up blows."
 msgstr "Invoca um guardião de pedra que aguenta os golpes."
 
-msgid "Slip Away"
-msgstr "Esquiva Sombria"
+msgid "Saci's Vanish"
+msgstr "Sumiço de Saci"
 
 msgid "Dodge most attacks: +50 avoidance for 5s."
 msgstr "Esquiva da maioria dos ataques: +50 de esquiva por 5s."
@@ -1597,8 +1600,8 @@ msgstr "Esquiva da maioria dos ataques: +70 de esquiva por 5s."
 msgid "Dodge most attacks: +90 avoidance for 5s."
 msgstr "Esquiva da maioria dos ataques: +90 de esquiva por 5s."
 
-msgid "Blast Snares"
-msgstr "Armadilhas Explosivas"
+msgid "Firecracker Snare"
+msgstr "Armadilha de Rojão"
 
 msgid "Set an explosive trap: 24-48 fire damage to everyone near it."
 msgstr "Arma uma armadilha explosiva: 24-48 de dano de fogo em todos por perto."
@@ -1609,8 +1612,8 @@ msgstr "Arma uma armadilha explosiva: 36-72 de dano de fogo em todos por perto."
 msgid "Set an explosive trap: 48-96 fire damage to everyone near it."
 msgstr "Arma uma armadilha explosiva: 48-96 de dano de fogo em todos por perto."
 
-msgid "Second Wind"
-msgstr "Segundo Fôlego"
+msgid "Sertanejo's Wind"
+msgstr "Fôlego de Sertanejo"
 
 msgid "You recover health faster (+30 health regeneration)."
 msgstr "Recupera a vida mais rápido (+30 de regeneração de vida)."
@@ -1618,14 +1621,14 @@ msgstr "Recupera a vida mais rápido (+30 de regeneração de vida)."
 msgid "You recover health faster (+60 health regeneration)."
 msgstr "Recupera a vida mais rápido (+60 de regeneração de vida)."
 
-msgid "Flame Caller"
-msgstr "Chamado da Chama"
+msgid "Call of the Boitatá"
+msgstr "Chamado do Boitatá"
 
 msgid "Call a fire elemental."
 msgstr "Invoca um elemental de fogo."
 
-msgid "Ember Ward"
-msgstr "Proteção Ígnea"
+msgid "Charm against Fire"
+msgstr "Benzedura contra Fogo"
 
 msgid "+12% fire resistance."
 msgstr "+12% de resistência a fogo."
@@ -1636,8 +1639,8 @@ msgstr "+24% de resistência a fogo."
 msgid "+36% fire resistance."
 msgstr "+36% de resistência a fogo."
 
-msgid "Ember Orb"
-msgstr "Orbe de Brasa"
+msgid "Flying Ember"
+msgstr "Brasa Voadora"
 
 msgid "Hurl a ball of fire: 18-36 fire damage."
 msgstr "Arremessa uma bola de fogo: 18-36 de dano de fogo."
@@ -1651,8 +1654,8 @@ msgstr "Arremessa uma bola de fogo: 56-112 de dano de fogo."
 msgid "Hurl a ball of fire: 84-168 fire damage."
 msgstr "Arremessa uma bola de fogo: 84-168 de dano de fogo."
 
-msgid "Pyre of Faith"
-msgstr "Pira da Fé"
+msgid "St. John's Bonfire"
+msgstr "Fogueira de São João"
 
 msgid "A holy pyre: 48 holy damage around you; you and allies nearby heal 20 HP per second for 5s."
 msgstr "Uma pira sagrada: 48 de dano sagrado ao redor; você e aliados próximos curam 20 de vida por segundo por 5s."
@@ -1663,8 +1666,8 @@ msgstr "Uma pira sagrada: 90 de dano sagrado ao redor; você e aliados próximos
 msgid "A holy pyre: 126 holy damage around you; you and allies nearby heal 40 HP per second for 5s."
 msgstr "Uma pira sagrada: 126 de dano sagrado ao redor; você e aliados próximos curam 40 de vida por segundo por 5s."
 
-msgid "Blade Dance"
-msgstr "Dança das Lâminas"
+msgid "Knife Ginga"
+msgstr "Ginga de Facas"
 
 msgid "Attack 25% faster for 6s."
 msgstr "Ataca 25% mais rápido por 6s."
@@ -1675,8 +1678,8 @@ msgstr "Ataca 50% mais rápido por 6s."
 msgid "Attack 75% faster for 6s."
 msgstr "Ataca 75% mais rápido por 6s."
 
-msgid "Berserk Blood"
-msgstr "Sangue Berserker"
+msgid "Cangaceiro Blood"
+msgstr "Sangue de Cangaceiro"
 
 msgid "Below half health, deal +30% damage for 8s."
 msgstr "Com menos da metade da vida, causa +30% de dano por 8s."
@@ -1688,7 +1691,7 @@ msgid "Below half health, deal +65% damage for 8s."
 msgstr "Com menos da metade da vida, causa +65% de dano por 8s."
 
 msgid "Pilgrim's Step"
-msgstr "Passo do Peregrino"
+msgstr "Passo de Romeiro"
 
 msgid "Step through space to where you aim (up to 6 tiles)."
 msgstr "Atravessa o espaço até onde você mira (até 6 metros)."
@@ -1697,7 +1700,7 @@ msgid "Step through space to where you aim (up to 9 tiles)."
 msgstr "Atravessa o espaço até onde você mira (até 9 metros)."
 
 msgid "Silver Tongue"
-msgstr "Língua de Prata"
+msgstr "Lábia"
 
 msgid "+10% gold found."
 msgstr "+10% de ouro encontrado."
@@ -1708,14 +1711,14 @@ msgstr "+20% de ouro encontrado."
 msgid "+30% gold found."
 msgstr "+30% de ouro encontrado."
 
-msgid "Spirit Hound"
-msgstr "Cão Espiritual"
+msgid "Soul Hound"
+msgstr "Cachorro de Alma"
 
 msgid "Call a spirit hound to guard you."
 msgstr "Invoca um cão espiritual para protegê-lo."
 
-msgid "Mend Flesh"
-msgstr "Sarar a Carne"
+msgid "Bless the Wound"
+msgstr "Benzer Ferida"
 
 msgid "Heal 120 HP, you and allies nearby."
 msgstr "Cura 120 de vida em você e nos aliados próximos."
@@ -1726,8 +1729,8 @@ msgstr "Cura 300 de vida em você e nos aliados próximos."
 msgid "Heal 500 HP, you and allies nearby."
 msgstr "Cura 500 de vida em você e nos aliados próximos."
 
-msgid "Crushing Blows"
-msgstr "Golpes Esmagadores"
+msgid "Cudgel Blows"
+msgstr "Pancada de Cacete"
 
 msgid "+2 melee damage on every hit."
 msgstr "+2 de dano corpo a corpo em cada golpe."
@@ -1738,8 +1741,8 @@ msgstr "+6 de dano corpo a corpo em cada golpe."
 msgid "+10 melee damage on every hit."
 msgstr "+10 de dano corpo a corpo em cada golpe."
 
-msgid "Hallowed Aegis"
-msgstr "Égide Sagrada"
+msgid "Blessed Mantle"
+msgstr "Manto Bento"
 
 msgid "+2 absorb and +25% shadow resistance for 12s."
 msgstr "+2 de absorção e +25% de resistência a sombra por 12s."
@@ -1753,14 +1756,14 @@ msgstr "+4 de absorção e +60% de resistência a sombra por 12s."
 msgid "+5 absorb and +80% shadow resistance for 12s."
 msgstr "+5 de absorção e +80% de resistência a sombra por 12s."
 
-msgid "Frost Caller"
-msgstr "Chamado do Gelo"
+msgid "Call of the Frost"
+msgstr "Chamado da Geada"
 
 msgid "Call an ice elemental."
 msgstr "Invoca um elemental de gelo."
 
-msgid "Frost Squall"
-msgstr "Rajada Gélida"
+msgid "Minuano Gust"
+msgstr "Vento Minuano"
 
 msgid "An icy squall where you aim: 16-32 ice damage and slow."
 msgstr "Uma rajada gélida onde você mira: 16-32 de dano de gelo e lentidão."
@@ -1774,8 +1777,8 @@ msgstr "Uma rajada gélida onde você mira: 36-72 de dano de gelo e lentidão."
 msgid "An icy squall where you aim: 64-128 ice damage and slow."
 msgstr "Uma rajada gélida onde você mira: 64-128 de dano de gelo e lentidão."
 
-msgid "Frost Ward"
-msgstr "Proteção Gélida"
+msgid "Charm against Cold"
+msgstr "Benzedura contra Frio"
 
 msgid "+12% ice resistance."
 msgstr "+12% de resistência a gelo."
@@ -1786,8 +1789,8 @@ msgstr "+24% de resistência a gelo."
 msgid "+36% ice resistance."
 msgstr "+36% de resistência a gelo."
 
-msgid "Veteran Stance"
-msgstr "Postura Veterana"
+msgid "Old Cangaceiro Stance"
+msgstr "Postura de Cangaceiro Velho"
 
 msgid "Shrug off blows: +35 poise and +1 absorb."
 msgstr "Aguenta golpes: +35 de firmeza e +1 de absorção."
@@ -1795,8 +1798,8 @@ msgstr "Aguenta golpes: +35 de firmeza e +1 de absorção."
 msgid "Shrug off blows: +50 poise and +2 absorb."
 msgstr "Aguenta golpes: +50 de firmeza e +2 de absorção."
 
-msgid "Last Rite"
-msgstr "Último Rito"
+msgid "Last Rites"
+msgstr "Encomendação"
 
 msgid "When your health falls below half, recover 15% of it (once per minute)."
 msgstr "Quando a vida cai abaixo da metade, recupera 15% dela (uma vez por minuto)."
@@ -1807,8 +1810,8 @@ msgstr "Quando a vida cai abaixo da metade, recupera 25% dela (uma vez por minut
 msgid "When your health falls below half, recover 40% of it (once per minute)."
 msgstr "Quando a vida cai abaixo da metade, recupera 40% dela (uma vez por minuto)."
 
-msgid "Heel Strike"
-msgstr "Chute Brutal"
+msgid "Capoeira Spin Kick"
+msgstr "Meia-Lua de Compasso"
 
 msgid "Kick the enemy away and slow it for 3s."
 msgstr "Chuta o inimigo para longe e o deixa lento por 3s."
@@ -1819,14 +1822,14 @@ msgstr "Chuta o inimigo para longe e o deixa lento por 4s."
 msgid "Kick the enemy away and slow it for 5s."
 msgstr "Chuta o inimigo para longe e o deixa lento por 5s."
 
-msgid "Call Wisp"
-msgstr "Invocar Fagulha"
+msgid "Call Will-o'-Wisp"
+msgstr "Chamar Fogo-Fátuo"
 
 msgid "Call a fiery wisp to fight at your side."
 msgstr "Invoca uma fagulha de fogo para lutar ao seu lado."
 
-msgid "Storm Lance"
-msgstr "Lança da Tempestade"
+msgid "Sertão Lightning"
+msgstr "Raio do Sertão"
 
 msgid "A bolt of lightning: 20-30 lightning damage, 20% stun chance."
 msgstr "Um raio: 20-30 de dano elétrico, 20% de chance de atordoar."
@@ -1840,8 +1843,8 @@ msgstr "Um raio: 40-56 de dano elétrico, 30% de chance de atordoar."
 msgid "A bolt of lightning: 72-88 lightning damage, 40% stun chance."
 msgstr "Um raio: 72-88 de dano elétrico, 40% de chance de atordoar."
 
-msgid "Arcane Mantle"
-msgstr "Manto Arcano"
+msgid "Patuá Charm"
+msgstr "Patuá"
 
 msgid "+3 absorb for 20s."
 msgstr "+3 de absorção por 20s."
@@ -1855,8 +1858,8 @@ msgstr "+7 de absorção e +20% de resistência a fogo, gelo e raio por 20s."
 msgid "+10 absorb and +30% fire, ice and lightning resistance for 20s."
 msgstr "+10 de absorção e +30% de resistência a fogo, gelo e raio por 20s."
 
-msgid "Arc Repulse"
-msgstr "Repulsão Arcana"
+msgid "Back Off!"
+msgstr "Arreda!"
 
 msgid "Push everyone around you away with 24 lightning damage."
 msgstr "Empurra todos ao redor com 24 de dano elétrico."
@@ -1867,8 +1870,8 @@ msgstr "Empurra todos ao redor com 50 de dano elétrico (10% de atordoar)."
 msgid "Push everyone around you away with 80 lightning damage (30% stun)."
 msgstr "Empurra todos ao redor com 80 de dano elétrico (30% de atordoar)."
 
-msgid "Blood Casting"
-msgstr "Magia de Sangue"
+msgid "Blood Pact"
+msgstr "Pacto de Sangue"
 
 msgid "Drink your enemies' blood: 2% of damage heals you."
 msgstr "Bebe o sangue dos inimigos: 2% do dano causado cura você."
@@ -1879,8 +1882,8 @@ msgstr "Bebe o sangue dos inimigos: 3% do dano causado cura você."
 msgid "Drink your enemies' blood: 4% of damage heals you."
 msgstr "Bebe o sangue dos inimigos: 4% do dano causado cura você."
 
-msgid "Deep Well"
-msgstr "Poço Profundo"
+msgid "Deep Cacimba"
+msgstr "Cacimba Funda"
 
 msgid "+20 max mana, faster mana regeneration."
 msgstr "+20 de mana máxima, regeneração de mana mais rápida."
@@ -1891,8 +1894,8 @@ msgstr "+40 de mana máxima, regeneração de mana mais rápida."
 msgid "+60 max mana, faster mana regeneration."
 msgstr "+60 de mana máxima, regeneração de mana mais rápida."
 
-msgid "Brutal Criticals"
-msgstr "Críticos Brutais"
+msgid "Mercy Blow"
+msgstr "Golpe de Misericórdia"
 
 msgid "+3% critical chance; criticals hit very hard."
 msgstr "+3% de chance de crítico; críticos batem muito forte."
@@ -1903,8 +1906,8 @@ msgstr "+6% de chance de crítico; críticos batem muito forte."
 msgid "+10% critical chance; criticals hit very hard."
 msgstr "+10% de chance de crítico; críticos batem muito forte."
 
-msgid "Warding Faith"
-msgstr "Fé Protetora"
+msgid "Strong Prayer"
+msgstr "Oração Forte"
 
 msgid "+1 absorb, +5% shadow resistance."
 msgstr "+1 de absorção, +5% de resistência a sombra."
@@ -1915,8 +1918,8 @@ msgstr "+2 de absorção, +10% de resistência a sombra."
 msgid "+3 absorb, +15% shadow resistance."
 msgstr "+3 de absorção, +15% de resistência a sombra."
 
-msgid "Venomcraft"
-msgstr "Arte do Veneno"
+msgid "Jararaca Venom"
+msgstr "Peçonha de Jararaca"
 
 msgid "+2 poison damage, +10% poison resistance."
 msgstr "+2 de dano de veneno, +10% de resistência a veneno."
@@ -1927,8 +1930,8 @@ msgstr "+4 de dano de veneno, +20% de resistência a veneno."
 msgid "+6 poison damage, +30% poison resistance."
 msgstr "+6 de dano de veneno, +30% de resistência a veneno."
 
-msgid "Deadeye"
-msgstr "Olho Mortal"
+msgid "Hunter's Eye"
+msgstr "Olho de Caçador"
 
 msgid "+3% critical chance."
 msgstr "+3% de chance de crítico."
@@ -1939,11 +1942,11 @@ msgstr "+6% de chance de crítico."
 msgid "+9% critical chance."
 msgstr "+9% de chance de crítico."
 
-msgid "Keen Strikes"
-msgstr "Golpes Precisos"
+msgid "Sure Strike"
+msgstr "Golpe Certeiro"
 
-msgid "Quickdraw"
-msgstr "Saque Rápido"
+msgid "Peixeira Draw"
+msgstr "Saque de Peixeira"
 
 msgid "Attack 40% faster for 6s."
 msgstr "Ataca 40% mais rápido por 6s."
@@ -1954,8 +1957,8 @@ msgstr "Ataca 70% mais rápido por 6s."
 msgid "Attack 100% faster for 6s."
 msgstr "Ataca 100% mais rápido por 6s."
 
-msgid "Iron Will"
-msgstr "Vontade de Ferro"
+msgid "Hardheaded"
+msgstr "Cabeça Dura"
 
 msgid "Gain +3 absorb and resist staggering for 6s."
 msgstr "Ganha +3 de absorção e resiste a atordoamentos por 6s."
@@ -1975,8 +1978,8 @@ msgstr "Cada abate restaura 3% da sua mana."
 msgid "Each kill restores 6% of your mana."
 msgstr "Cada abate restaura 6% da sua mana."
 
-msgid "Cleansing Flame"
-msgstr "Chama Purificadora"
+msgid "Smudging"
+msgstr "Defumação"
 
 msgid "Holy flames hit for 24-32 holy damage (undead take more)."
 msgstr "Chamas sagradas causam 24-32 de dano sagrado (mortos-vivos sofrem mais)."
@@ -1987,8 +1990,8 @@ msgstr "Chamas sagradas causam 48-64 de dano sagrado (mortos-vivos sofrem mais).
 msgid "Holy flames hit for 96-128 holy damage (undead take more)."
 msgstr "Chamas sagradas causam 96-128 de dano sagrado (mortos-vivos sofrem mais)."
 
-msgid "Bulwark"
-msgstr "Baluarte"
+msgid "Leather Wall"
+msgstr "Muralha de Couro"
 
 msgid "With a shield: +1 absorb and +3 avoidance."
 msgstr "Com escudo: +1 de absorção e +3 de esquiva."
@@ -1999,8 +2002,8 @@ msgstr "Com escudo: +2 de absorção e +6 de esquiva."
 msgid "With a shield: +3 absorb and +9 avoidance."
 msgstr "Com escudo: +3 de absorção e +9 de esquiva."
 
-msgid "Storm Ward"
-msgstr "Proteção Elétrica"
+msgid "Charm against Lightning"
+msgstr "Benzedura contra Raio"
 
 msgid "+12% lightning resistance."
 msgstr "+12% de resistência a raio."
@@ -2011,8 +2014,8 @@ msgstr "+24% de resistência a raio."
 msgid "+36% lightning resistance."
 msgstr "+36% de resistência a raio."
 
-msgid "Smoke Veil"
-msgstr "Véu de Fumaça"
+msgid "Pipe Smoke"
+msgstr "Fumaça de Cachimbo"
 
 msgid "Throw a smoke bomb and vanish."
 msgstr "Joga uma bomba de fumaça e some."
@@ -2024,7 +2027,7 @@ msgid "Throw a smoke bomb and vanish (50% chance to stun those nearby)."
 msgstr "Joga uma bomba de fumaça e some (50% de chance de atordoar quem estiver perto)."
 
 msgid "Backstab"
-msgstr "Golpe Traiçoeiro"
+msgstr "Facada nas Costas"
 
 msgid "Strike weak spots: +6% critical chance."
 msgstr "Ataca pontos fracos: +6% de chance de crítico."
@@ -2035,8 +2038,8 @@ msgstr "Ataca pontos fracos: +10% de chance de crítico."
 msgid "Strike weak spots: +15% critical chance."
 msgstr "Ataca pontos fracos: +15% de chance de crítico."
 
-msgid "Soul Ward"
-msgstr "Proteção da Alma"
+msgid "Charm of the Soul"
+msgstr "Benzedura da Alma"
 
 msgid "+10% holy resistance."
 msgstr "+10% de resistência a sagrado."
@@ -2047,8 +2050,8 @@ msgstr "+20% de resistência a sagrado."
 msgid "+30% holy resistance."
 msgstr "+30% de resistência a sagrado."
 
-msgid "Dash"
-msgstr "Disparada"
+msgid "Sprint"
+msgstr "Carreira"
 
 msgid "Sprint at +60% speed for 4s."
 msgstr "Corre com +60% de velocidade por 4s."
@@ -2059,8 +2062,8 @@ msgstr "Corre com +60% de velocidade por 5s."
 msgid "Sprint at +60% speed for 6s."
 msgstr "Corre com +60% de velocidade por 6s."
 
-msgid "Gut Strike"
-msgstr "Estocada"
+msgid "Peixeira Stab"
+msgstr "Peixeirada"
 
 msgid "A precise stab for +100% damage."
 msgstr "Uma estocada precisa com +100% de dano."
@@ -2074,7 +2077,7 @@ msgstr "Uma estocada precisa com +200% de dano."
 msgid "A precise stab for +250% damage."
 msgstr "Uma estocada precisa com +250% de dano."
 
-msgid "Staff Adept"
+msgid "Staff Master"
 msgstr "Mestre do Cajado"
 
 msgid "With a staff: +4 magic damage."
@@ -2089,8 +2092,8 @@ msgstr "Com cajado: +12 de dano mágico."
 msgid "With a staff: +16 magic damage."
 msgstr "Com cajado: +16 de dano mágico."
 
-msgid "Fade"
-msgstr "Sumir nas Sombras"
+msgid "Vanish into the Brush"
+msgstr "Sumir no Mato"
 
 msgid "Vanish into the shadows for 8s: enemies notice you much later."
 msgstr "Some nas sombras por 8s: os inimigos demoram muito mais a notar você."
@@ -2101,8 +2104,8 @@ msgstr "Some nas sombras por 10s: os inimigos demoram muito mais a notar você."
 msgid "Vanish into the shadows for 12s: enemies notice you much later."
 msgstr "Some nas sombras por 12s: os inimigos demoram muito mais a notar você."
 
-msgid "Binder"
-msgstr "Invocador Mestre"
+msgid "Master of Spirits"
+msgstr "Mestre dos Encantados"
 
 msgid "+4 mental: your summons come out stronger."
 msgstr "+4 de mental: suas invocações ficam mais fortes."
@@ -2113,8 +2116,8 @@ msgstr "+8 de mental: suas invocações ficam mais fortes."
 msgid "+12 mental: your summons come out stronger."
 msgstr "+12 de mental: suas invocações ficam mais fortes."
 
-msgid "Seer's Sight"
-msgstr "Visão do Vidente"
+msgid "Healer's Sight"
+msgstr "Olho de Rezadeira"
 
 msgid "+15% item find."
 msgstr "+15% de chance de encontrar itens."
@@ -2122,8 +2125,8 @@ msgstr "+15% de chance de encontrar itens."
 msgid "+30% item find."
 msgstr "+30% de chance de encontrar itens."
 
-msgid "Venom Ward"
-msgstr "Proteção Tóxica"
+msgid "Charm against Venom"
+msgstr "Benzedura contra Peçonha"
 
 msgid "+12% poison resistance."
 msgstr "+12% de resistência a veneno."
@@ -2134,8 +2137,8 @@ msgstr "+24% de resistência a veneno."
 msgid "+36% poison resistance."
 msgstr "+36% de resistência a veneno."
 
-msgid "Snare Craft"
-msgstr "Armadilheiro"
+msgid "Arapuca Traps"
+msgstr "Arapuca"
 
 msgid "Set a trap that lasts 15s, hurts and holds the first enemy in place."
 msgstr "Arma uma armadilha que dura 15s, fere e prende o primeiro inimigo."
@@ -2146,8 +2149,8 @@ msgstr "Arma uma armadilha que dura 20s, fere e prende o primeiro inimigo."
 msgid "Set a trap that lasts 30s, hurts and holds the first enemy in place."
 msgstr "Arma uma armadilha que dura 30s, fere e prende o primeiro inimigo."
 
-msgid "Banish Dead"
-msgstr "Banir Mortos"
+msgid "Exorcise"
+msgstr "Esconjurar"
 
 msgid "A holy word paralyzes every enemy within 2 tiles for 2s."
 msgstr "Uma palavra sagrada paralisa os inimigos a até 2 metros por 2s."
@@ -2158,8 +2161,8 @@ msgstr "Uma palavra sagrada paralisa os inimigos a até 4 metros por 3s."
 msgid "A holy word paralyzes every enemy within 6 tiles for 4s."
 msgstr "Uma palavra sagrada paralisa os inimigos a até 6 metros por 4s."
 
-msgid "Heavy Arms"
-msgstr "Armas Pesadas"
+msgid "Cowhand Arms"
+msgstr "Braço de Vaqueiro"
 
 msgid "With a two-handed weapon: +15% melee damage."
 msgstr "Com arma de duas mãos: +15% de dano corpo a corpo."
@@ -2170,8 +2173,8 @@ msgstr "Com arma de duas mãos: +30% de dano corpo a corpo."
 msgid "With a two-handed weapon: +50% melee damage."
 msgstr "Com arma de duas mãos: +50% de dano corpo a corpo."
 
-msgid "Leeching Edge"
-msgstr "Lâmina Sanguessuga"
+msgid "Bloodsucker Blade"
+msgstr "Lâmina Chupa-Sangue"
 
 msgid "+2 shadow damage and 2% of damage heals you."
 msgstr "+2 de dano de sombra e 2% do dano cura você."
@@ -2182,7 +2185,7 @@ msgstr "+4 de dano de sombra e 3% do dano cura você."
 msgid "+6 shadow damage and 4% of damage heals you."
 msgstr "+6 de dano de sombra e 4% do dano cura você."
 
-msgid "Wand Adept"
+msgid "Wand Master"
 msgstr "Mestre da Varinha"
 
 msgid "With a wand: +2 magic damage."
@@ -2197,8 +2200,8 @@ msgstr "Com varinha: +10 de dano mágico."
 msgid "With a wand: +16 magic damage."
 msgstr "Com varinha: +16 de dano mágico."
 
-msgid "Blade Storm"
-msgstr "Tempestade de Lâminas"
+msgid "Machete Whirlwind"
+msgstr "Redemoinho de Facão"
 
 msgid "Spin and hit everyone around you for +50% damage."
 msgstr "Gira e atinge todos ao redor com +50% de dano."

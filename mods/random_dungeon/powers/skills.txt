@@ -3,10 +3,10 @@
 # 75 skills, ids 6000-6375 (skill index * 5 + rank)
 
 
-# ---- Zealot's Might (class, cleric; EK: Arbenos' Might)
+# ---- Might of the Vow (class, cleric; EK: Arbenos' Might)
 [power]
 id=6000
-name=Zealot's Might
+name=Might of the Vow
 description=+6 damage and +8 fire damage for 12s.
 icon=6144
 type=fixed
@@ -22,7 +22,7 @@ requires_mp=6
 
 [power]
 id=6001
-name=Zealot's Might
+name=Might of the Vow
 description=+10 damage and +8 fire damage for 14s.
 icon=6144
 type=fixed
@@ -38,7 +38,7 @@ requires_mp=12
 
 [power]
 id=6002
-name=Zealot's Might
+name=Might of the Vow
 description=+16 damage and +8 fire damage for 16s.
 icon=6144
 type=fixed
@@ -53,10 +53,10 @@ cooldown=20s
 requires_mp=21
 
 
-# ---- Runed Edge (advanced, mage; EK: Arcane Blade)
+# ---- Hexed Machete (advanced, mage; EK: Arcane Blade)
 [power]
 id=6005
-name=Runed Edge
+name=Hexed Machete
 description=Your fire, ice and lightning damage from gear is increased by 25%.
 icon=6145
 type=fixed
@@ -70,7 +70,7 @@ post_effect=dmg_lightning_max,125%,0
 
 [power]
 id=6006
-name=Runed Edge
+name=Hexed Machete
 description=Your fire, ice and lightning damage from gear is increased by 50%.
 icon=6145
 type=fixed
@@ -84,7 +84,7 @@ post_effect=dmg_lightning_max,150%,0
 
 [power]
 id=6007
-name=Runed Edge
+name=Hexed Machete
 description=Your fire, ice and lightning damage from gear is increased by 100%.
 icon=6145
 type=fixed
@@ -98,7 +98,7 @@ post_effect=dmg_lightning_max,200%,0
 
 [power]
 id=6008
-name=Runed Edge
+name=Hexed Machete
 description=Your fire, ice and lightning damage from gear is increased by 150%.
 icon=6145
 type=fixed
@@ -111,10 +111,10 @@ post_effect=dmg_lightning_min,250%,0
 post_effect=dmg_lightning_max,250%,0
 
 
-# ---- Spell Thrift (advanced, mage; EK: Arcanist)
+# ---- Thrifty Hex (advanced, mage; EK: Arcanist)
 [power]
 id=6010
-name=Spell Thrift
+name=Thrifty Hex
 description=Mana flows back faster (+10 mana regeneration).
 icon=6146
 type=fixed
@@ -123,7 +123,7 @@ post_effect=mp_regen,10,0
 
 [power]
 id=6011
-name=Spell Thrift
+name=Thrifty Hex
 description=Mana flows back faster (+20 mana regeneration).
 icon=6146
 type=fixed
@@ -132,7 +132,7 @@ post_effect=mp_regen,20,0
 
 [power]
 id=6012
-name=Spell Thrift
+name=Thrifty Hex
 description=Mana flows back faster (+30 mana regeneration).
 icon=6146
 type=fixed
@@ -140,10 +140,10 @@ passive=true
 post_effect=mp_regen,30,0
 
 
-# ---- Keen Arrows (class, rogue; EK: Archery)
+# ---- Cane Arrows (class, rogue; EK: Archery)
 [power]
 id=6015
-name=Keen Arrows
+name=Cane Arrows
 description=Arrows deal +2 damage and hit more often.
 icon=6147
 type=fixed
@@ -154,7 +154,7 @@ post_effect=accuracy,3,0
 
 [power]
 id=6016
-name=Keen Arrows
+name=Cane Arrows
 description=Arrows deal +4 damage and hit more often.
 icon=6147
 type=fixed
@@ -165,7 +165,7 @@ post_effect=accuracy,6,0
 
 [power]
 id=6017
-name=Keen Arrows
+name=Cane Arrows
 description=Arrows deal +6 damage and hit more often.
 icon=6147
 type=fixed
@@ -175,10 +175,10 @@ post_effect=dmg_ranged_max,6,0
 post_effect=accuracy,9,0
 
 
-# ---- Killing Flow (advanced, rogue; EK: Assassinate)
+# ---- Killing Rhythm (advanced, rogue; EK: Assassinate)
 [power]
 id=6020
-name=Killing Flow
+name=Killing Rhythm
 description=After a kill, attack 25% faster for 3s.
 icon=6148
 type=fixed
@@ -189,7 +189,7 @@ post_effect=haste_attack,125,3s
 
 [power]
 id=6021
-name=Killing Flow
+name=Killing Rhythm
 description=After a kill, attack 40% faster for 3s.
 icon=6148
 type=fixed
@@ -200,7 +200,7 @@ post_effect=haste_attack,140,3s
 
 [power]
 id=6022
-name=Killing Flow
+name=Killing Rhythm
 description=After a kill, attack 60% faster for 3s.
 icon=6148
 type=fixed
@@ -210,10 +210,10 @@ buff=true
 post_effect=haste_attack,160,3s
 
 
-# ---- Shield Slam (class, warrior; EK: Bash)
+# ---- Leather Shield Bash (class, warrior; EK: Bash)
 [power]
 id=6025
-name=Shield Slam
+name=Leather Shield Bash
 description=Slam into the enemy: knocks it back and stuns it for 1s.
 icon=6149
 type=fixed
@@ -234,7 +234,7 @@ post_effect=force,10,100ms
 
 [power]
 id=6026
-name=Shield Slam
+name=Leather Shield Bash
 description=Slam into the enemy: knocks it back and stuns it for 2s.
 icon=6149
 type=fixed
@@ -255,7 +255,7 @@ post_effect=force,15,100ms
 
 [power]
 id=6027
-name=Shield Slam
+name=Leather Shield Bash
 description=Slam into the enemy: knocks it back and stuns it for 3s.
 icon=6149
 type=fixed
@@ -275,10 +275,10 @@ post_effect=paralyze,0,3s
 post_effect=force,20,100ms
 
 
-# ---- War Hymn (advanced, cleric; EK: Battle Prayer)
+# ---- War Bendito (advanced, cleric; EK: Battle Prayer)
 [power]
 id=6030
-name=War Hymn
+name=War Bendito
 description=You and allies nearby: +2 absorb, +4 damage for 12s.
 icon=6150
 type=fixed
@@ -297,7 +297,7 @@ share_radius=6
 
 [power]
 id=6031
-name=War Hymn
+name=War Bendito
 description=You and allies nearby: +3 absorb, +6 damage, +10% to all resistances for 12s.
 icon=6150
 type=fixed
@@ -320,7 +320,7 @@ share_radius=6
 
 [power]
 id=6032
-name=War Hymn
+name=War Bendito
 description=You and allies nearby: +4 absorb, +10 damage, +25% to all resistances for 12s.
 icon=6150
 type=fixed
@@ -342,10 +342,10 @@ requires_mp=36
 share_radius=6
 
 
-# ---- Blood Frenzy (advanced, warrior; EK: Battle Rage)
+# ---- Lampião's Fury (advanced, warrior; EK: Battle Rage)
 [power]
 id=6035
-name=Blood Frenzy
+name=Lampião's Fury
 description=+8 physical, +2 absorb and immunity to crowd control for 6s.
 icon=6151
 type=fixed
@@ -360,7 +360,7 @@ cooldown=30s
 
 [power]
 id=6036
-name=Blood Frenzy
+name=Lampião's Fury
 description=+12 physical, +3 absorb and immunity to crowd control for 8s.
 icon=6151
 type=fixed
@@ -375,7 +375,7 @@ cooldown=30s
 
 [power]
 id=6037
-name=Blood Frenzy
+name=Lampião's Fury
 description=+16 physical, +4 absorb and immunity to crowd control for 9s.
 icon=6151
 type=fixed
@@ -389,10 +389,10 @@ post_effect=immune,100,9s
 cooldown=30s
 
 
-# ---- Beast Friend (general, all; EK: Beast Master)
+# ---- Friend of the Wild (general, all; EK: Beast Master)
 [power]
 id=6040
-name=Beast Friend
+name=Friend of the Wild
 description=Call a wild beast to fight for you.
 icon=6152
 type=spawn
@@ -411,7 +411,7 @@ requires_mp=0
 
 [power]
 id=6041
-name=Beast Friend
+name=Friend of the Wild
 description=Call a wild beast to fight for you.
 icon=6152
 type=spawn
@@ -430,7 +430,7 @@ requires_mp=0
 
 [power]
 id=6042
-name=Beast Friend
+name=Friend of the Wild
 description=Call a wild beast to fight for you.
 icon=6152
 type=spawn
@@ -448,10 +448,10 @@ cooldown=90s
 requires_mp=0
 
 
-# ---- Thrill of the Kill (advanced, warrior,rogue,cleric; EK: Bloodlust)
+# ---- Hot Blood (advanced, warrior,rogue,cleric; EK: Bloodlust)
 [power]
 id=6045
-name=Thrill of the Kill
+name=Hot Blood
 description=After a kill: +6 damage and +1 absorb for 6s.
 icon=6153
 type=fixed
@@ -467,7 +467,7 @@ post_effect=absorb_max,1,6s
 
 [power]
 id=6046
-name=Thrill of the Kill
+name=Hot Blood
 description=After a kill: +8 damage and +2 absorb for 6s.
 icon=6153
 type=fixed
@@ -483,7 +483,7 @@ post_effect=absorb_max,2,6s
 
 [power]
 id=6047
-name=Thrill of the Kill
+name=Hot Blood
 description=After a kill: +12 damage and +3 absorb for 6s.
 icon=6153
 type=fixed
@@ -498,10 +498,10 @@ post_effect=absorb_min,3,6s
 post_effect=absorb_max,3,6s
 
 
-# ---- Hardened Body (advanced, warrior,rogue,cleric,mage; EK: Body Development)
+# ---- Tanned Hide (advanced, warrior,rogue,cleric,mage; EK: Body Development)
 [power]
 id=6050
-name=Hardened Body
+name=Tanned Hide
 description=+5% maximum health.
 icon=6154
 type=fixed
@@ -510,7 +510,7 @@ post_effect=hp,105%,0
 
 [power]
 id=6051
-name=Hardened Body
+name=Tanned Hide
 description=+10% maximum health.
 icon=6154
 type=fixed
@@ -519,7 +519,7 @@ post_effect=hp,110%,0
 
 [power]
 id=6052
-name=Hardened Body
+name=Tanned Hide
 description=+15% maximum health.
 icon=6154
 type=fixed
@@ -527,10 +527,10 @@ passive=true
 post_effect=hp,115%,0
 
 
-# ---- Bull Rush (class, warrior; EK: Charge)
+# ---- Stampede (class, warrior; EK: Charge)
 [power]
 id=6055
-name=Bull Rush
+name=Stampede
 description=Charge forward and hit for +60% damage, briefly stunning.
 icon=6155
 type=fixed
@@ -553,7 +553,7 @@ post_effect=paralyze,0,600ms
 
 [power]
 id=6056
-name=Bull Rush
+name=Stampede
 description=Charge forward and hit for +90% damage, briefly stunning.
 icon=6155
 type=fixed
@@ -576,7 +576,7 @@ post_effect=paralyze,0,600ms
 
 [power]
 id=6057
-name=Bull Rush
+name=Stampede
 description=Charge forward and hit for +125% damage, briefly stunning.
 icon=6155
 type=fixed
@@ -599,7 +599,7 @@ post_effect=paralyze,0,600ms
 
 [power]
 id=6058
-name=Bull Rush
+name=Stampede
 description=Charge forward and hit for +160% damage, briefly stunning.
 icon=6155
 type=fixed
@@ -621,10 +621,10 @@ cooldown=9s
 post_effect=paralyze,0,600ms
 
 
-# ---- Wide Swing (class, warrior; EK: Cleave)
+# ---- Machete Sweep (class, warrior; EK: Cleave)
 [power]
 id=6060
-name=Wide Swing
+name=Machete Sweep
 description=Your attacks also sweep up to 1 nearby enemies for 50% damage.
 icon=6156
 type=fixed
@@ -641,7 +641,7 @@ cooldown=400ms
 
 [power]
 id=6061
-name=Wide Swing
+name=Machete Sweep
 description=Your attacks also sweep up to 2 nearby enemies for 60% damage.
 icon=6156
 type=fixed
@@ -658,7 +658,7 @@ cooldown=400ms
 
 [power]
 id=6062
-name=Wide Swing
+name=Machete Sweep
 description=Your attacks also sweep up to 3 nearby enemies for 75% damage.
 icon=6156
 type=fixed
@@ -674,10 +674,10 @@ modifier_damage=multiply,75,0
 cooldown=400ms
 
 
-# ---- Immolate (advanced, mage; EK: Combustion)
+# ---- Wildfire (advanced, mage; EK: Combustion)
 [power]
 id=6065
-name=Immolate
+name=Wildfire
 description=30-60 fire damage; the target loses 2 absorb and 20% resistances for 8s.
 icon=6157
 new_state=cast
@@ -704,7 +704,7 @@ post_effect=lightning_resist,-20,8s
 
 [power]
 id=6066
-name=Immolate
+name=Wildfire
 description=40-80 fire damage; the target loses 3 absorb and 40% resistances for 8s.
 icon=6157
 new_state=cast
@@ -731,7 +731,7 @@ post_effect=lightning_resist,-40,8s
 
 [power]
 id=6067
-name=Immolate
+name=Wildfire
 description=56-112 fire damage; the target loses 5 absorb and 60% resistances for 8s.
 icon=6157
 new_state=cast
@@ -757,10 +757,10 @@ post_effect=ice_resist,-60,8s
 post_effect=lightning_resist,-60,8s
 
 
-# ---- Templar (class, cleric; EK: Crusader)
+# ---- Armed Pilgrim (class, cleric; EK: Crusader)
 [power]
 id=6070
-name=Templar
+name=Armed Pilgrim
 description=Your attacks burn with +2 holy damage (undead take more).
 icon=6158
 type=fixed
@@ -770,7 +770,7 @@ post_effect=dmg_holy_max,2,0
 
 [power]
 id=6071
-name=Templar
+name=Armed Pilgrim
 description=Your attacks burn with +4 holy damage (undead take more).
 icon=6158
 type=fixed
@@ -780,7 +780,7 @@ post_effect=dmg_holy_max,4,0
 
 [power]
 id=6072
-name=Templar
+name=Armed Pilgrim
 description=Your attacks burn with +6 holy damage (undead take more).
 icon=6158
 type=fixed
@@ -789,10 +789,10 @@ post_effect=dmg_holy_min,6,0
 post_effect=dmg_holy_max,6,0
 
 
-# ---- Plague Mist (advanced, mage; EK: Death Cloud)
+# ---- Mangrove Mist (advanced, mage; EK: Death Cloud)
 [power]
 id=6075
-name=Plague Mist
+name=Mangrove Mist
 description=A toxic cloud: 20-40 poison damage, slows and lowers shadow resistance by 30%.
 icon=6159
 new_state=cast
@@ -818,7 +818,7 @@ post_effect=poison,7,4s
 
 [power]
 id=6076
-name=Plague Mist
+name=Mangrove Mist
 description=A toxic cloud: 28-56 poison damage, slows and lowers shadow resistance by 50%.
 icon=6159
 new_state=cast
@@ -844,7 +844,7 @@ post_effect=poison,9,4s
 
 [power]
 id=6077
-name=Plague Mist
+name=Mangrove Mist
 description=A toxic cloud: 36-72 poison damage, slows and lowers shadow resistance by 80%.
 icon=6159
 new_state=cast
@@ -869,10 +869,10 @@ post_effect=dark_resist,-80,8s
 post_effect=poison,11,4s
 
 
-# ---- Grave Ward (advanced, warrior,rogue,cleric,mage; EK: Death Ward)
+# ---- Charm against the Dead (advanced, warrior,rogue,cleric,mage; EK: Death Ward)
 [power]
 id=6080
-name=Grave Ward
+name=Charm against the Dead
 description=+12% shadow resistance.
 icon=6160
 type=fixed
@@ -881,7 +881,7 @@ post_effect=dark_resist,12,0
 
 [power]
 id=6081
-name=Grave Ward
+name=Charm against the Dead
 description=+24% shadow resistance.
 icon=6160
 type=fixed
@@ -890,7 +890,7 @@ post_effect=dark_resist,24,0
 
 [power]
 id=6082
-name=Grave Ward
+name=Charm against the Dead
 description=+36% shadow resistance.
 icon=6160
 type=fixed
@@ -898,10 +898,10 @@ passive=true
 post_effect=dark_resist,36,0
 
 
-# ---- Unmake (advanced, mage; EK: Disintegrate)
+# ---- Quebranto (advanced, mage; EK: Disintegrate)
 [power]
 id=6085
-name=Unmake
+name=Quebranto
 description=A ray of pure force: 100-125 damage.
 icon=6161
 new_state=cast
@@ -922,7 +922,7 @@ animation=animations/powers/plasmaball.txt
 
 [power]
 id=6086
-name=Unmake
+name=Quebranto
 description=A ray of pure force: 150-187 damage.
 icon=6161
 new_state=cast
@@ -943,7 +943,7 @@ animation=animations/powers/plasmaball.txt
 
 [power]
 id=6087
-name=Unmake
+name=Quebranto
 description=A ray of pure force: 200-250 damage.
 icon=6161
 new_state=cast
@@ -963,10 +963,10 @@ speed=20
 animation=animations/powers/plasmaball.txt
 
 
-# ---- Duelist (advanced, warrior,cleric; EK: Duel)
+# ---- Sertão Duelist (advanced, warrior,cleric; EK: Duel)
 [power]
 id=6090
-name=Duelist
+name=Sertão Duelist
 description=Each attack adds +2 damage for 4s, stacking up to +8.
 icon=6162
 type=fixed
@@ -977,7 +977,7 @@ post_effect=rd_duel_0,2,4s
 
 [power]
 id=6091
-name=Duelist
+name=Sertão Duelist
 description=Each attack adds +4 damage for 4s, stacking up to +12.
 icon=6162
 type=fixed
@@ -988,7 +988,7 @@ post_effect=rd_duel_1,4,4s
 
 [power]
 id=6092
-name=Duelist
+name=Sertão Duelist
 description=Each attack adds +4 damage for 4s, stacking up to +20.
 icon=6162
 type=fixed
@@ -998,10 +998,10 @@ buff=true
 post_effect=rd_duel_2,4,4s
 
 
-# ---- Delver (general, all; EK: Dungeoneering)
+# ---- Trailblazer (general, all; EK: Dungeoneering)
 [power]
 id=6095
-name=Delver
+name=Trailblazer
 description=+10% item find.
 icon=6163
 type=fixed
@@ -1010,7 +1010,7 @@ post_effect=item_find,10,0
 
 [power]
 id=6096
-name=Delver
+name=Trailblazer
 description=+18% item find.
 icon=6163
 type=fixed
@@ -1019,7 +1019,7 @@ post_effect=item_find,18,0
 
 [power]
 id=6097
-name=Delver
+name=Trailblazer
 description=+25% item find.
 icon=6163
 type=fixed
@@ -1027,10 +1027,10 @@ passive=true
 post_effect=item_find,25,0
 
 
-# ---- Stone Caller (advanced, mage; EK: Earth Mastery)
+# ---- Enchanted Stone (advanced, mage; EK: Earth Mastery)
 [power]
 id=6100
-name=Stone Caller
+name=Enchanted Stone
 description=Call a stone guardian that soaks up blows.
 icon=6164
 type=spawn
@@ -1049,7 +1049,7 @@ requires_mp=60
 
 [power]
 id=6101
-name=Stone Caller
+name=Enchanted Stone
 description=Call a stone guardian that soaks up blows.
 icon=6164
 type=spawn
@@ -1068,7 +1068,7 @@ requires_mp=90
 
 [power]
 id=6102
-name=Stone Caller
+name=Enchanted Stone
 description=Call a stone guardian that soaks up blows.
 icon=6164
 type=spawn
@@ -1086,10 +1086,10 @@ cooldown=30s
 requires_mp=120
 
 
-# ---- Slip Away (class, rogue; EK: Evasion)
+# ---- Saci's Vanish (class, rogue; EK: Evasion)
 [power]
 id=6105
-name=Slip Away
+name=Saci's Vanish
 description=Dodge most attacks: +50 avoidance for 5s.
 icon=6165
 type=fixed
@@ -1101,7 +1101,7 @@ cooldown=30s
 
 [power]
 id=6106
-name=Slip Away
+name=Saci's Vanish
 description=Dodge most attacks: +70 avoidance for 5s.
 icon=6165
 type=fixed
@@ -1113,7 +1113,7 @@ cooldown=25s
 
 [power]
 id=6107
-name=Slip Away
+name=Saci's Vanish
 description=Dodge most attacks: +90 avoidance for 5s.
 icon=6165
 type=fixed
@@ -1124,10 +1124,10 @@ post_effect=avoidance,90,5s
 cooldown=20s
 
 
-# ---- Blast Snares (advanced, rogue; EK: Explosive Traps)
+# ---- Firecracker Snare (advanced, rogue; EK: Explosive Traps)
 [power]
 id=6110
-name=Blast Snares
+name=Firecracker Snare
 description=Set an explosive trap: 24-48 fire damage to everyone near it.
 icon=6166
 type=fixed
@@ -1148,7 +1148,7 @@ floor=true
 
 [power]
 id=6111
-name=Blast Snares
+name=Firecracker Snare
 description=Set an explosive trap: 36-72 fire damage to everyone near it.
 icon=6166
 type=fixed
@@ -1169,7 +1169,7 @@ floor=true
 
 [power]
 id=6112
-name=Blast Snares
+name=Firecracker Snare
 description=Set an explosive trap: 48-96 fire damage to everyone near it.
 icon=6166
 type=fixed
@@ -1189,10 +1189,10 @@ cooldown=12s
 floor=true
 
 
-# ---- Second Wind (general, all; EK: Extra Recovery)
+# ---- Sertanejo's Wind (general, all; EK: Extra Recovery)
 [power]
 id=6115
-name=Second Wind
+name=Sertanejo's Wind
 description=You recover health faster (+30 health regeneration).
 icon=6167
 type=fixed
@@ -1201,7 +1201,7 @@ post_effect=hp_regen,30,0
 
 [power]
 id=6116
-name=Second Wind
+name=Sertanejo's Wind
 description=You recover health faster (+60 health regeneration).
 icon=6167
 type=fixed
@@ -1209,10 +1209,10 @@ passive=true
 post_effect=hp_regen,60,0
 
 
-# ---- Flame Caller (advanced, mage; EK: Fire Mastery)
+# ---- Call of the Boitatá (advanced, mage; EK: Fire Mastery)
 [power]
 id=6120
-name=Flame Caller
+name=Call of the Boitatá
 description=Call a fire elemental.
 icon=6168
 type=spawn
@@ -1231,7 +1231,7 @@ requires_mp=37
 
 [power]
 id=6121
-name=Flame Caller
+name=Call of the Boitatá
 description=Call a fire elemental.
 icon=6168
 type=spawn
@@ -1250,7 +1250,7 @@ requires_mp=52
 
 [power]
 id=6122
-name=Flame Caller
+name=Call of the Boitatá
 description=Call a fire elemental.
 icon=6168
 type=spawn
@@ -1268,10 +1268,10 @@ cooldown=10s
 requires_mp=67
 
 
-# ---- Ember Ward (advanced, warrior,rogue,cleric,mage; EK: Fire Ward)
+# ---- Charm against Fire (advanced, warrior,rogue,cleric,mage; EK: Fire Ward)
 [power]
 id=6125
-name=Ember Ward
+name=Charm against Fire
 description=+12% fire resistance.
 icon=6169
 type=fixed
@@ -1280,7 +1280,7 @@ post_effect=fire_resist,12,0
 
 [power]
 id=6126
-name=Ember Ward
+name=Charm against Fire
 description=+24% fire resistance.
 icon=6169
 type=fixed
@@ -1289,7 +1289,7 @@ post_effect=fire_resist,24,0
 
 [power]
 id=6127
-name=Ember Ward
+name=Charm against Fire
 description=+36% fire resistance.
 icon=6169
 type=fixed
@@ -1297,10 +1297,10 @@ passive=true
 post_effect=fire_resist,36,0
 
 
-# ---- Ember Orb (class, mage; EK: Fireball)
+# ---- Flying Ember (class, mage; EK: Fireball)
 [power]
 id=6130
-name=Ember Orb
+name=Flying Ember
 description=Hurl a ball of fire: 18-36 fire damage.
 icon=6170
 new_state=cast
@@ -1322,7 +1322,7 @@ animation=animations/powers/fireball.txt
 
 [power]
 id=6131
-name=Ember Orb
+name=Flying Ember
 description=Hurl a ball of fire: 30-60 fire damage.
 icon=6170
 new_state=cast
@@ -1344,7 +1344,7 @@ animation=animations/powers/fireball.txt
 
 [power]
 id=6132
-name=Ember Orb
+name=Flying Ember
 description=Hurl a ball of fire: 56-112 fire damage.
 icon=6170
 new_state=cast
@@ -1366,7 +1366,7 @@ animation=animations/powers/fireball.txt
 
 [power]
 id=6133
-name=Ember Orb
+name=Flying Ember
 description=Hurl a ball of fire: 84-168 fire damage.
 icon=6170
 new_state=cast
@@ -1387,10 +1387,10 @@ speed=16
 animation=animations/powers/fireball.txt
 
 
-# ---- Pyre of Faith (advanced, cleric; EK: Flames of Faith)
+# ---- St. John's Bonfire (advanced, cleric; EK: Flames of Faith)
 [power]
 id=6135
-name=Pyre of Faith
+name=St. John's Bonfire
 description=A holy pyre: 48 holy damage around you; you and allies nearby heal 20 HP per second for 5s.
 icon=6171
 type=fixed
@@ -1412,7 +1412,7 @@ share_radius=5
 
 [power]
 id=6136
-name=Pyre of Faith
+name=St. John's Bonfire
 description=A holy pyre: 90 holy damage around you; you and allies nearby heal 32 HP per second for 5s.
 icon=6171
 type=fixed
@@ -1434,7 +1434,7 @@ share_radius=5
 
 [power]
 id=6137
-name=Pyre of Faith
+name=St. John's Bonfire
 description=A holy pyre: 126 holy damage around you; you and allies nearby heal 40 HP per second for 5s.
 icon=6171
 type=fixed
@@ -1455,10 +1455,10 @@ requires_mp=105
 share_radius=5
 
 
-# ---- Blade Dance (advanced, warrior,rogue; EK: Flurry)
+# ---- Knife Ginga (advanced, warrior,rogue; EK: Flurry)
 [power]
 id=6140
-name=Blade Dance
+name=Knife Ginga
 description=Attack 25% faster for 6s.
 icon=6172
 type=fixed
@@ -1470,7 +1470,7 @@ cooldown=20s
 
 [power]
 id=6141
-name=Blade Dance
+name=Knife Ginga
 description=Attack 50% faster for 6s.
 icon=6172
 type=fixed
@@ -1482,7 +1482,7 @@ cooldown=20s
 
 [power]
 id=6142
-name=Blade Dance
+name=Knife Ginga
 description=Attack 75% faster for 6s.
 icon=6172
 type=fixed
@@ -1493,10 +1493,10 @@ post_effect=haste_attack,175,6s
 cooldown=20s
 
 
-# ---- Berserk Blood (class, warrior; EK: Fury)
+# ---- Cangaceiro Blood (class, warrior; EK: Fury)
 [power]
 id=6145
-name=Berserk Blood
+name=Cangaceiro Blood
 description=Below half health, deal +30% damage for 8s.
 icon=6173
 type=fixed
@@ -1511,7 +1511,7 @@ cooldown=20s
 
 [power]
 id=6146
-name=Berserk Blood
+name=Cangaceiro Blood
 description=Below half health, deal +50% damage for 8s.
 icon=6173
 type=fixed
@@ -1526,7 +1526,7 @@ cooldown=20s
 
 [power]
 id=6147
-name=Berserk Blood
+name=Cangaceiro Blood
 description=Below half health, deal +65% damage for 8s.
 icon=6173
 type=fixed
@@ -1599,10 +1599,10 @@ passive=true
 post_effect=currency_find,30,0
 
 
-# ---- Spirit Hound (advanced, cleric; EK: Guardian Wolf)
+# ---- Soul Hound (advanced, cleric; EK: Guardian Wolf)
 [power]
 id=6160
-name=Spirit Hound
+name=Soul Hound
 description=Call a spirit hound to guard you.
 icon=6176
 type=spawn
@@ -1621,7 +1621,7 @@ requires_mp=45
 
 [power]
 id=6161
-name=Spirit Hound
+name=Soul Hound
 description=Call a spirit hound to guard you.
 icon=6176
 type=spawn
@@ -1640,7 +1640,7 @@ requires_mp=60
 
 [power]
 id=6162
-name=Spirit Hound
+name=Soul Hound
 description=Call a spirit hound to guard you.
 icon=6176
 type=spawn
@@ -1658,10 +1658,10 @@ cooldown=60s
 requires_mp=105
 
 
-# ---- Mend Flesh (class, cleric; EK: Heal Wounds)
+# ---- Bless the Wound (class, cleric; EK: Heal Wounds)
 [power]
 id=6165
-name=Mend Flesh
+name=Bless the Wound
 description=Heal 120 HP, you and allies nearby.
 icon=6177
 type=fixed
@@ -1678,7 +1678,7 @@ share_radius=6
 
 [power]
 id=6166
-name=Mend Flesh
+name=Bless the Wound
 description=Heal 300 HP, you and allies nearby.
 icon=6177
 type=fixed
@@ -1695,7 +1695,7 @@ share_radius=6
 
 [power]
 id=6167
-name=Mend Flesh
+name=Bless the Wound
 description=Heal 500 HP, you and allies nearby.
 icon=6177
 type=fixed
@@ -1711,10 +1711,10 @@ requires_mp=54
 share_radius=6
 
 
-# ---- Crushing Blows (advanced, warrior,rogue,cleric; EK: Heavyhand)
+# ---- Cudgel Blows (advanced, warrior,rogue,cleric; EK: Heavyhand)
 [power]
 id=6170
-name=Crushing Blows
+name=Cudgel Blows
 description=+2 melee damage on every hit.
 icon=6178
 type=fixed
@@ -1724,7 +1724,7 @@ post_effect=dmg_melee_max,2,0
 
 [power]
 id=6171
-name=Crushing Blows
+name=Cudgel Blows
 description=+6 melee damage on every hit.
 icon=6178
 type=fixed
@@ -1734,7 +1734,7 @@ post_effect=dmg_melee_max,6,0
 
 [power]
 id=6172
-name=Crushing Blows
+name=Cudgel Blows
 description=+10 melee damage on every hit.
 icon=6178
 type=fixed
@@ -1743,10 +1743,10 @@ post_effect=dmg_melee_min,10,0
 post_effect=dmg_melee_max,10,0
 
 
-# ---- Hallowed Aegis (class, cleric; EK: Holy Shield)
+# ---- Blessed Mantle (class, cleric; EK: Holy Shield)
 [power]
 id=6175
-name=Hallowed Aegis
+name=Blessed Mantle
 description=+2 absorb and +25% shadow resistance for 12s.
 icon=6179
 type=fixed
@@ -1761,7 +1761,7 @@ requires_mp=15
 
 [power]
 id=6176
-name=Hallowed Aegis
+name=Blessed Mantle
 description=+3 absorb and +40% shadow resistance for 12s.
 icon=6179
 type=fixed
@@ -1776,7 +1776,7 @@ requires_mp=15
 
 [power]
 id=6177
-name=Hallowed Aegis
+name=Blessed Mantle
 description=+4 absorb and +60% shadow resistance for 12s.
 icon=6179
 type=fixed
@@ -1791,7 +1791,7 @@ requires_mp=18
 
 [power]
 id=6178
-name=Hallowed Aegis
+name=Blessed Mantle
 description=+5 absorb and +80% shadow resistance for 12s.
 icon=6179
 type=fixed
@@ -1805,10 +1805,10 @@ cooldown=15s
 requires_mp=18
 
 
-# ---- Frost Caller (advanced, mage; EK: Ice Mastery)
+# ---- Call of the Frost (advanced, mage; EK: Ice Mastery)
 [power]
 id=6180
-name=Frost Caller
+name=Call of the Frost
 description=Call an ice elemental.
 icon=6180
 type=spawn
@@ -1827,7 +1827,7 @@ requires_mp=37
 
 [power]
 id=6181
-name=Frost Caller
+name=Call of the Frost
 description=Call an ice elemental.
 icon=6180
 type=spawn
@@ -1846,7 +1846,7 @@ requires_mp=52
 
 [power]
 id=6182
-name=Frost Caller
+name=Call of the Frost
 description=Call an ice elemental.
 icon=6180
 type=spawn
@@ -1864,10 +1864,10 @@ cooldown=20s
 requires_mp=67
 
 
-# ---- Frost Squall (class, mage; EK: Ice Storm)
+# ---- Minuano Gust (class, mage; EK: Ice Storm)
 [power]
 id=6185
-name=Frost Squall
+name=Minuano Gust
 description=An icy squall where you aim: 16-32 ice damage and slow.
 icon=6181
 new_state=cast
@@ -1891,7 +1891,7 @@ post_effect=slow_ice,50,2s
 
 [power]
 id=6186
-name=Frost Squall
+name=Minuano Gust
 description=An icy squall where you aim: 24-48 ice damage and slow.
 icon=6181
 new_state=cast
@@ -1915,7 +1915,7 @@ post_effect=slow_ice,50,2s
 
 [power]
 id=6187
-name=Frost Squall
+name=Minuano Gust
 description=An icy squall where you aim: 36-72 ice damage and slow.
 icon=6181
 new_state=cast
@@ -1939,7 +1939,7 @@ post_effect=slow_ice,50,2s
 
 [power]
 id=6188
-name=Frost Squall
+name=Minuano Gust
 description=An icy squall where you aim: 64-128 ice damage and slow.
 icon=6181
 new_state=cast
@@ -1962,10 +1962,10 @@ animation=animations/powers/freeze.txt
 post_effect=slow_ice,50,2s
 
 
-# ---- Frost Ward (advanced, warrior,rogue,cleric,mage; EK: Ice Ward)
+# ---- Charm against Cold (advanced, warrior,rogue,cleric,mage; EK: Ice Ward)
 [power]
 id=6190
-name=Frost Ward
+name=Charm against Cold
 description=+12% ice resistance.
 icon=6182
 type=fixed
@@ -1974,7 +1974,7 @@ post_effect=ice_resist,12,0
 
 [power]
 id=6191
-name=Frost Ward
+name=Charm against Cold
 description=+24% ice resistance.
 icon=6182
 type=fixed
@@ -1983,7 +1983,7 @@ post_effect=ice_resist,24,0
 
 [power]
 id=6192
-name=Frost Ward
+name=Charm against Cold
 description=+36% ice resistance.
 icon=6182
 type=fixed
@@ -1991,10 +1991,10 @@ passive=true
 post_effect=ice_resist,36,0
 
 
-# ---- Veteran Stance (advanced, warrior; EK: Infantry Training)
+# ---- Old Cangaceiro Stance (advanced, warrior; EK: Infantry Training)
 [power]
 id=6195
-name=Veteran Stance
+name=Old Cangaceiro Stance
 description=Shrug off blows: +35 poise and +1 absorb.
 icon=6183
 type=fixed
@@ -2005,7 +2005,7 @@ post_effect=absorb_max,1,0
 
 [power]
 id=6196
-name=Veteran Stance
+name=Old Cangaceiro Stance
 description=Shrug off blows: +50 poise and +2 absorb.
 icon=6183
 type=fixed
@@ -2015,10 +2015,10 @@ post_effect=absorb_min,2,0
 post_effect=absorb_max,2,0
 
 
-# ---- Last Rite (class, cleric; EK: Intervention)
+# ---- Last Rites (class, cleric; EK: Intervention)
 [power]
 id=6200
-name=Last Rite
+name=Last Rites
 description=When your health falls below half, recover 15% of it (once per minute).
 icon=6184
 type=fixed
@@ -2030,7 +2030,7 @@ cooldown=60s
 
 [power]
 id=6201
-name=Last Rite
+name=Last Rites
 description=When your health falls below half, recover 25% of it (once per minute).
 icon=6184
 type=fixed
@@ -2042,7 +2042,7 @@ cooldown=60s
 
 [power]
 id=6202
-name=Last Rite
+name=Last Rites
 description=When your health falls below half, recover 40% of it (once per minute).
 icon=6184
 type=fixed
@@ -2053,10 +2053,10 @@ post_effect=hp_restore,40,1s
 cooldown=60s
 
 
-# ---- Heel Strike (class, rogue; EK: Kick)
+# ---- Capoeira Spin Kick (class, rogue; EK: Kick)
 [power]
 id=6205
-name=Heel Strike
+name=Capoeira Spin Kick
 description=Kick the enemy away and slow it for 3s.
 icon=6185
 type=fixed
@@ -2077,7 +2077,7 @@ post_effect=slow,50,3s
 
 [power]
 id=6206
-name=Heel Strike
+name=Capoeira Spin Kick
 description=Kick the enemy away and slow it for 4s.
 icon=6185
 type=fixed
@@ -2098,7 +2098,7 @@ post_effect=slow,50,4s
 
 [power]
 id=6207
-name=Heel Strike
+name=Capoeira Spin Kick
 description=Kick the enemy away and slow it for 5s.
 icon=6185
 type=fixed
@@ -2118,10 +2118,10 @@ post_effect=force,20,100ms
 post_effect=slow,50,5s
 
 
-# ---- Call Wisp (class, mage; EK: Lesser Summoning)
+# ---- Call Will-o'-Wisp (class, mage; EK: Lesser Summoning)
 [power]
 id=6210
-name=Call Wisp
+name=Call Will-o'-Wisp
 description=Call a fiery wisp to fight at your side.
 icon=6186
 type=spawn
@@ -2140,7 +2140,7 @@ requires_mp=36
 
 [power]
 id=6211
-name=Call Wisp
+name=Call Will-o'-Wisp
 description=Call a fiery wisp to fight at your side.
 icon=6186
 type=spawn
@@ -2158,10 +2158,10 @@ cooldown=30s
 requires_mp=60
 
 
-# ---- Storm Lance (class, mage; EK: Lightning Bolt)
+# ---- Sertão Lightning (class, mage; EK: Lightning Bolt)
 [power]
 id=6215
-name=Storm Lance
+name=Sertão Lightning
 description=A bolt of lightning: 20-30 lightning damage, 20% stun chance.
 icon=6187
 new_state=cast
@@ -2184,7 +2184,7 @@ post_effect=paralyze,0,1s,20
 
 [power]
 id=6216
-name=Storm Lance
+name=Sertão Lightning
 description=A bolt of lightning: 30-40 lightning damage, 25% stun chance.
 icon=6187
 new_state=cast
@@ -2207,7 +2207,7 @@ post_effect=paralyze,0,1s,25
 
 [power]
 id=6217
-name=Storm Lance
+name=Sertão Lightning
 description=A bolt of lightning: 40-56 lightning damage, 30% stun chance.
 icon=6187
 new_state=cast
@@ -2230,7 +2230,7 @@ post_effect=paralyze,0,1s,30
 
 [power]
 id=6218
-name=Storm Lance
+name=Sertão Lightning
 description=A bolt of lightning: 72-88 lightning damage, 40% stun chance.
 icon=6187
 new_state=cast
@@ -2252,10 +2252,10 @@ animation=animations/powers/lightning.txt
 post_effect=paralyze,0,1s,40
 
 
-# ---- Arcane Mantle (class, mage; EK: Mage Armor)
+# ---- Patuá Charm (class, mage; EK: Mage Armor)
 [power]
 id=6220
-name=Arcane Mantle
+name=Patuá Charm
 description=+3 absorb for 20s.
 icon=6188
 type=fixed
@@ -2269,7 +2269,7 @@ requires_mp=9
 
 [power]
 id=6221
-name=Arcane Mantle
+name=Patuá Charm
 description=+5 absorb and +15% fire, ice and lightning resistance for 20s.
 icon=6188
 type=fixed
@@ -2286,7 +2286,7 @@ requires_mp=15
 
 [power]
 id=6222
-name=Arcane Mantle
+name=Patuá Charm
 description=+7 absorb and +20% fire, ice and lightning resistance for 20s.
 icon=6188
 type=fixed
@@ -2303,7 +2303,7 @@ requires_mp=27
 
 [power]
 id=6223
-name=Arcane Mantle
+name=Patuá Charm
 description=+10 absorb and +30% fire, ice and lightning resistance for 20s.
 icon=6188
 type=fixed
@@ -2319,10 +2319,10 @@ cooldown=5s
 requires_mp=48
 
 
-# ---- Arc Repulse (advanced, mage; EK: Mage Barrier)
+# ---- Back Off! (advanced, mage; EK: Mage Barrier)
 [power]
 id=6225
-name=Arc Repulse
+name=Back Off!
 description=Push everyone around you away with 24 lightning damage.
 icon=6189
 new_state=cast
@@ -2345,7 +2345,7 @@ post_effect=force,10,150ms
 
 [power]
 id=6226
-name=Arc Repulse
+name=Back Off!
 description=Push everyone around you away with 50 lightning damage (10% stun).
 icon=6189
 new_state=cast
@@ -2369,7 +2369,7 @@ post_effect=paralyze,0,1s,10
 
 [power]
 id=6227
-name=Arc Repulse
+name=Back Off!
 description=Push everyone around you away with 80 lightning damage (30% stun).
 icon=6189
 new_state=cast
@@ -2392,10 +2392,10 @@ post_effect=force,20,150ms
 post_effect=paralyze,0,1s,30
 
 
-# ---- Blood Casting (advanced, warrior,rogue; EK: Magical Training)
+# ---- Blood Pact (advanced, warrior,rogue; EK: Magical Training)
 [power]
 id=6230
-name=Blood Casting
+name=Blood Pact
 description=Drink your enemies' blood: 2% of damage heals you.
 icon=6190
 type=fixed
@@ -2404,7 +2404,7 @@ post_effect=hp_steal,2,0
 
 [power]
 id=6231
-name=Blood Casting
+name=Blood Pact
 description=Drink your enemies' blood: 3% of damage heals you.
 icon=6190
 type=fixed
@@ -2413,7 +2413,7 @@ post_effect=hp_steal,3,0
 
 [power]
 id=6232
-name=Blood Casting
+name=Blood Pact
 description=Drink your enemies' blood: 4% of damage heals you.
 icon=6190
 type=fixed
@@ -2421,10 +2421,10 @@ passive=true
 post_effect=hp_steal,4,0
 
 
-# ---- Deep Well (class, mage; EK: Mana Surge)
+# ---- Deep Cacimba (class, mage; EK: Mana Surge)
 [power]
 id=6235
-name=Deep Well
+name=Deep Cacimba
 description=+20 max mana, faster mana regeneration.
 icon=6191
 type=fixed
@@ -2434,7 +2434,7 @@ post_effect=mp_regen,5,0
 
 [power]
 id=6236
-name=Deep Well
+name=Deep Cacimba
 description=+40 max mana, faster mana regeneration.
 icon=6191
 type=fixed
@@ -2444,7 +2444,7 @@ post_effect=mp_regen,10,0
 
 [power]
 id=6237
-name=Deep Well
+name=Deep Cacimba
 description=+60 max mana, faster mana regeneration.
 icon=6191
 type=fixed
@@ -2453,10 +2453,10 @@ post_effect=mp,60,0
 post_effect=mp_regen,15,0
 
 
-# ---- Brutal Criticals (advanced, warrior,rogue,cleric,mage; EK: Massive Criticals)
+# ---- Mercy Blow (advanced, warrior,rogue,cleric,mage; EK: Massive Criticals)
 [power]
 id=6240
-name=Brutal Criticals
+name=Mercy Blow
 description=+3% critical chance; criticals hit very hard.
 icon=6192
 type=fixed
@@ -2465,7 +2465,7 @@ post_effect=crit,3,0
 
 [power]
 id=6241
-name=Brutal Criticals
+name=Mercy Blow
 description=+6% critical chance; criticals hit very hard.
 icon=6192
 type=fixed
@@ -2474,7 +2474,7 @@ post_effect=crit,6,0
 
 [power]
 id=6242
-name=Brutal Criticals
+name=Mercy Blow
 description=+10% critical chance; criticals hit very hard.
 icon=6192
 type=fixed
@@ -2482,10 +2482,10 @@ passive=true
 post_effect=crit,10,0
 
 
-# ---- Warding Faith (class, cleric; EK: Nivaria's Barrier)
+# ---- Strong Prayer (class, cleric; EK: Nivaria's Barrier)
 [power]
 id=6245
-name=Warding Faith
+name=Strong Prayer
 description=+1 absorb, +5% shadow resistance.
 icon=6193
 type=fixed
@@ -2496,7 +2496,7 @@ post_effect=dark_resist,5,0
 
 [power]
 id=6246
-name=Warding Faith
+name=Strong Prayer
 description=+2 absorb, +10% shadow resistance.
 icon=6193
 type=fixed
@@ -2507,7 +2507,7 @@ post_effect=dark_resist,10,0
 
 [power]
 id=6247
-name=Warding Faith
+name=Strong Prayer
 description=+3 absorb, +15% shadow resistance.
 icon=6193
 type=fixed
@@ -2517,10 +2517,10 @@ post_effect=absorb_max,3,0
 post_effect=dark_resist,15,0
 
 
-# ---- Venomcraft (advanced, rogue; EK: Poison Master)
+# ---- Jararaca Venom (advanced, rogue; EK: Poison Master)
 [power]
 id=6250
-name=Venomcraft
+name=Jararaca Venom
 description=+2 poison damage, +10% poison resistance.
 icon=6194
 type=fixed
@@ -2531,7 +2531,7 @@ post_effect=poison_resist,10,0
 
 [power]
 id=6251
-name=Venomcraft
+name=Jararaca Venom
 description=+4 poison damage, +20% poison resistance.
 icon=6194
 type=fixed
@@ -2542,7 +2542,7 @@ post_effect=poison_resist,20,0
 
 [power]
 id=6252
-name=Venomcraft
+name=Jararaca Venom
 description=+6 poison damage, +30% poison resistance.
 icon=6194
 type=fixed
@@ -2552,10 +2552,10 @@ post_effect=dmg_poison_max,6,0
 post_effect=poison_resist,30,0
 
 
-# ---- Deadeye (advanced, warrior,rogue,mage; EK: Precision Shots)
+# ---- Hunter's Eye (advanced, warrior,rogue,mage; EK: Precision Shots)
 [power]
 id=6255
-name=Deadeye
+name=Hunter's Eye
 description=+3% critical chance.
 icon=6195
 type=fixed
@@ -2565,7 +2565,7 @@ post_effect=accuracy,5,0
 
 [power]
 id=6256
-name=Deadeye
+name=Hunter's Eye
 description=+6% critical chance.
 icon=6195
 type=fixed
@@ -2575,7 +2575,7 @@ post_effect=accuracy,5,0
 
 [power]
 id=6257
-name=Deadeye
+name=Hunter's Eye
 description=+9% critical chance.
 icon=6195
 type=fixed
@@ -2584,10 +2584,10 @@ post_effect=crit,9,0
 post_effect=accuracy,5,0
 
 
-# ---- Keen Strikes (advanced, warrior,rogue,cleric; EK: Precision Strikes)
+# ---- Sure Strike (advanced, warrior,rogue,cleric; EK: Precision Strikes)
 [power]
 id=6260
-name=Keen Strikes
+name=Sure Strike
 description=+3% critical chance.
 icon=6196
 type=fixed
@@ -2597,7 +2597,7 @@ post_effect=accuracy,5,0
 
 [power]
 id=6261
-name=Keen Strikes
+name=Sure Strike
 description=+6% critical chance.
 icon=6196
 type=fixed
@@ -2607,7 +2607,7 @@ post_effect=accuracy,5,0
 
 [power]
 id=6262
-name=Keen Strikes
+name=Sure Strike
 description=+9% critical chance.
 icon=6196
 type=fixed
@@ -2616,10 +2616,10 @@ post_effect=crit,9,0
 post_effect=accuracy,5,0
 
 
-# ---- Quickdraw (advanced, warrior,rogue; EK: Rapid Fire)
+# ---- Peixeira Draw (advanced, warrior,rogue; EK: Rapid Fire)
 [power]
 id=6265
-name=Quickdraw
+name=Peixeira Draw
 description=Attack 40% faster for 6s.
 icon=6197
 type=fixed
@@ -2631,7 +2631,7 @@ cooldown=20s
 
 [power]
 id=6266
-name=Quickdraw
+name=Peixeira Draw
 description=Attack 70% faster for 6s.
 icon=6197
 type=fixed
@@ -2643,7 +2643,7 @@ cooldown=20s
 
 [power]
 id=6267
-name=Quickdraw
+name=Peixeira Draw
 description=Attack 100% faster for 6s.
 icon=6197
 type=fixed
@@ -2654,10 +2654,10 @@ post_effect=haste_attack,200,6s
 cooldown=20s
 
 
-# ---- Iron Will (class, warrior; EK: Resilience)
+# ---- Hardheaded (class, warrior; EK: Resilience)
 [power]
 id=6270
-name=Iron Will
+name=Hardheaded
 description=Gain +3 absorb and resist staggering for 6s.
 icon=6198
 type=fixed
@@ -2671,7 +2671,7 @@ cooldown=35s
 
 [power]
 id=6271
-name=Iron Will
+name=Hardheaded
 description=Gain +5 absorb and resist staggering for 8s.
 icon=6198
 type=fixed
@@ -2685,7 +2685,7 @@ cooldown=35s
 
 [power]
 id=6272
-name=Iron Will
+name=Hardheaded
 description=Gain +7 absorb and resist staggering for 10s.
 icon=6198
 type=fixed
@@ -2722,10 +2722,10 @@ buff=true
 post_effect=mp_restore,6,1s
 
 
-# ---- Cleansing Flame (class, cleric; EK: Sacred Fire)
+# ---- Smudging (class, cleric; EK: Sacred Fire)
 [power]
 id=6280
-name=Cleansing Flame
+name=Smudging
 description=Holy flames hit for 24-32 holy damage (undead take more).
 icon=6200
 new_state=cast
@@ -2748,7 +2748,7 @@ animation=animations/powers/runes_orange.txt
 
 [power]
 id=6281
-name=Cleansing Flame
+name=Smudging
 description=Holy flames hit for 48-64 holy damage (undead take more).
 icon=6200
 new_state=cast
@@ -2771,7 +2771,7 @@ animation=animations/powers/runes_orange.txt
 
 [power]
 id=6282
-name=Cleansing Flame
+name=Smudging
 description=Holy flames hit for 96-128 holy damage (undead take more).
 icon=6200
 new_state=cast
@@ -2793,10 +2793,10 @@ multitarget=true
 animation=animations/powers/runes_orange.txt
 
 
-# ---- Bulwark (class, warrior; EK: Shield Expert)
+# ---- Leather Wall (class, warrior; EK: Shield Expert)
 [power]
 id=6285
-name=Bulwark
+name=Leather Wall
 description=With a shield: +1 absorb and +3 avoidance.
 icon=6201
 type=fixed
@@ -2808,7 +2808,7 @@ requires_flags=shield
 
 [power]
 id=6286
-name=Bulwark
+name=Leather Wall
 description=With a shield: +2 absorb and +6 avoidance.
 icon=6201
 type=fixed
@@ -2820,7 +2820,7 @@ requires_flags=shield
 
 [power]
 id=6287
-name=Bulwark
+name=Leather Wall
 description=With a shield: +3 absorb and +9 avoidance.
 icon=6201
 type=fixed
@@ -2831,10 +2831,10 @@ post_effect=avoidance,9,0
 requires_flags=shield
 
 
-# ---- Storm Ward (advanced, warrior,rogue,cleric,mage; EK: Shock Ward)
+# ---- Charm against Lightning (advanced, warrior,rogue,cleric,mage; EK: Shock Ward)
 [power]
 id=6290
-name=Storm Ward
+name=Charm against Lightning
 description=+12% lightning resistance.
 icon=6202
 type=fixed
@@ -2843,7 +2843,7 @@ post_effect=lightning_resist,12,0
 
 [power]
 id=6291
-name=Storm Ward
+name=Charm against Lightning
 description=+24% lightning resistance.
 icon=6202
 type=fixed
@@ -2852,7 +2852,7 @@ post_effect=lightning_resist,24,0
 
 [power]
 id=6292
-name=Storm Ward
+name=Charm against Lightning
 description=+36% lightning resistance.
 icon=6202
 type=fixed
@@ -2860,10 +2860,10 @@ passive=true
 post_effect=lightning_resist,36,0
 
 
-# ---- Smoke Veil (advanced, rogue; EK: Smoke Bomb)
+# ---- Pipe Smoke (advanced, rogue; EK: Smoke Bomb)
 [power]
 id=6295
-name=Smoke Veil
+name=Pipe Smoke
 description=Throw a smoke bomb and vanish.
 icon=6203
 type=fixed
@@ -2881,7 +2881,7 @@ cooldown=25s
 
 [power]
 id=6296
-name=Smoke Veil
+name=Pipe Smoke
 description=Throw a smoke bomb and vanish (35% chance to stun those nearby).
 icon=6203
 type=fixed
@@ -2900,7 +2900,7 @@ post_effect=paralyze,0,3s,35
 
 [power]
 id=6297
-name=Smoke Veil
+name=Pipe Smoke
 description=Throw a smoke bomb and vanish (50% chance to stun those nearby).
 icon=6203
 type=fixed
@@ -2947,10 +2947,10 @@ passive=true
 post_effect=crit,15,0
 
 
-# ---- Soul Ward (advanced, warrior,rogue,cleric,mage; EK: Spiritual Ward)
+# ---- Charm of the Soul (advanced, warrior,rogue,cleric,mage; EK: Spiritual Ward)
 [power]
 id=6305
-name=Soul Ward
+name=Charm of the Soul
 description=+10% holy resistance.
 icon=6205
 type=fixed
@@ -2959,7 +2959,7 @@ post_effect=holy_resist,10,0
 
 [power]
 id=6306
-name=Soul Ward
+name=Charm of the Soul
 description=+20% holy resistance.
 icon=6205
 type=fixed
@@ -2968,7 +2968,7 @@ post_effect=holy_resist,20,0
 
 [power]
 id=6307
-name=Soul Ward
+name=Charm of the Soul
 description=+30% holy resistance.
 icon=6205
 type=fixed
@@ -2976,10 +2976,10 @@ passive=true
 post_effect=holy_resist,30,0
 
 
-# ---- Dash (class, rogue; EK: Sprint)
+# ---- Sprint (class, rogue; EK: Sprint)
 [power]
 id=6310
-name=Dash
+name=Sprint
 description=Sprint at +60% speed for 4s.
 icon=6206
 type=fixed
@@ -2991,7 +2991,7 @@ cooldown=30s
 
 [power]
 id=6311
-name=Dash
+name=Sprint
 description=Sprint at +60% speed for 5s.
 icon=6206
 type=fixed
@@ -3003,7 +3003,7 @@ cooldown=25s
 
 [power]
 id=6312
-name=Dash
+name=Sprint
 description=Sprint at +60% speed for 6s.
 icon=6206
 type=fixed
@@ -3014,10 +3014,10 @@ post_effect=speed,160,6s
 cooldown=20s
 
 
-# ---- Gut Strike (class, rogue; EK: Stab)
+# ---- Peixeira Stab (class, rogue; EK: Stab)
 [power]
 id=6315
-name=Gut Strike
+name=Peixeira Stab
 description=A precise stab for +100% damage.
 icon=6207
 type=fixed
@@ -3037,7 +3037,7 @@ post_effect=bleeding,3,4s
 
 [power]
 id=6316
-name=Gut Strike
+name=Peixeira Stab
 description=A precise stab for +150% damage.
 icon=6207
 type=fixed
@@ -3057,7 +3057,7 @@ post_effect=bleeding,5,4s
 
 [power]
 id=6317
-name=Gut Strike
+name=Peixeira Stab
 description=A precise stab for +200% damage.
 icon=6207
 type=fixed
@@ -3077,7 +3077,7 @@ post_effect=bleeding,7,4s
 
 [power]
 id=6318
-name=Gut Strike
+name=Peixeira Stab
 description=A precise stab for +250% damage.
 icon=6207
 type=fixed
@@ -3096,10 +3096,10 @@ cooldown=9s
 post_effect=bleeding,9,4s
 
 
-# ---- Staff Adept (class, mage; EK: Staff Mastery)
+# ---- Staff Master (class, mage; EK: Staff Mastery)
 [power]
 id=6320
-name=Staff Adept
+name=Staff Master
 description=With a staff: +4 magic damage.
 icon=6208
 type=fixed
@@ -3110,7 +3110,7 @@ requires_flags=staff
 
 [power]
 id=6321
-name=Staff Adept
+name=Staff Master
 description=With a staff: +8 magic damage.
 icon=6208
 type=fixed
@@ -3121,7 +3121,7 @@ requires_flags=staff
 
 [power]
 id=6322
-name=Staff Adept
+name=Staff Master
 description=With a staff: +12 magic damage.
 icon=6208
 type=fixed
@@ -3132,7 +3132,7 @@ requires_flags=staff
 
 [power]
 id=6323
-name=Staff Adept
+name=Staff Master
 description=With a staff: +16 magic damage.
 icon=6208
 type=fixed
@@ -3142,10 +3142,10 @@ post_effect=dmg_ment_max,16,0
 requires_flags=staff
 
 
-# ---- Fade (class, rogue; EK: Stealth)
+# ---- Vanish into the Brush (class, rogue; EK: Stealth)
 [power]
 id=6325
-name=Fade
+name=Vanish into the Brush
 description=Vanish into the shadows for 8s: enemies notice you much later.
 icon=6209
 type=fixed
@@ -3158,7 +3158,7 @@ cooldown=25s
 
 [power]
 id=6326
-name=Fade
+name=Vanish into the Brush
 description=Vanish into the shadows for 10s: enemies notice you much later.
 icon=6209
 type=fixed
@@ -3171,7 +3171,7 @@ cooldown=25s
 
 [power]
 id=6327
-name=Fade
+name=Vanish into the Brush
 description=Vanish into the shadows for 12s: enemies notice you much later.
 icon=6209
 type=fixed
@@ -3183,10 +3183,10 @@ post_effect=speed,115,12s
 cooldown=25s
 
 
-# ---- Binder (advanced, cleric,mage; EK: Summoner)
+# ---- Master of Spirits (advanced, cleric,mage; EK: Summoner)
 [power]
 id=6330
-name=Binder
+name=Master of Spirits
 description=+4 mental: your summons come out stronger.
 icon=6210
 type=fixed
@@ -3195,7 +3195,7 @@ post_effect=mental,4,0
 
 [power]
 id=6331
-name=Binder
+name=Master of Spirits
 description=+8 mental: your summons come out stronger.
 icon=6210
 type=fixed
@@ -3204,7 +3204,7 @@ post_effect=mental,8,0
 
 [power]
 id=6332
-name=Binder
+name=Master of Spirits
 description=+12 mental: your summons come out stronger.
 icon=6210
 type=fixed
@@ -3212,10 +3212,10 @@ passive=true
 post_effect=mental,12,0
 
 
-# ---- Seer's Sight (class, cleric; EK: Thelume's Wisdom)
+# ---- Healer's Sight (class, cleric; EK: Thelume's Wisdom)
 [power]
 id=6335
-name=Seer's Sight
+name=Healer's Sight
 description=+15% item find.
 icon=6211
 type=fixed
@@ -3224,7 +3224,7 @@ post_effect=item_find,15,0
 
 [power]
 id=6336
-name=Seer's Sight
+name=Healer's Sight
 description=+30% item find.
 icon=6211
 type=fixed
@@ -3232,10 +3232,10 @@ passive=true
 post_effect=item_find,30,0
 
 
-# ---- Venom Ward (advanced, warrior,rogue,cleric,mage; EK: Toxic Ward)
+# ---- Charm against Venom (advanced, warrior,rogue,cleric,mage; EK: Toxic Ward)
 [power]
 id=6340
-name=Venom Ward
+name=Charm against Venom
 description=+12% poison resistance.
 icon=6212
 type=fixed
@@ -3244,7 +3244,7 @@ post_effect=poison_resist,12,0
 
 [power]
 id=6341
-name=Venom Ward
+name=Charm against Venom
 description=+24% poison resistance.
 icon=6212
 type=fixed
@@ -3253,7 +3253,7 @@ post_effect=poison_resist,24,0
 
 [power]
 id=6342
-name=Venom Ward
+name=Charm against Venom
 description=+36% poison resistance.
 icon=6212
 type=fixed
@@ -3261,10 +3261,10 @@ passive=true
 post_effect=poison_resist,36,0
 
 
-# ---- Snare Craft (class, rogue; EK: Trap Master)
+# ---- Arapuca Traps (class, rogue; EK: Trap Master)
 [power]
 id=6345
-name=Snare Craft
+name=Arapuca Traps
 description=Set a trap that lasts 15s, hurts and holds the first enemy in place.
 icon=6213
 type=fixed
@@ -3284,7 +3284,7 @@ floor=true
 
 [power]
 id=6346
-name=Snare Craft
+name=Arapuca Traps
 description=Set a trap that lasts 20s, hurts and holds the first enemy in place.
 icon=6213
 type=fixed
@@ -3304,7 +3304,7 @@ floor=true
 
 [power]
 id=6347
-name=Snare Craft
+name=Arapuca Traps
 description=Set a trap that lasts 30s, hurts and holds the first enemy in place.
 icon=6213
 type=fixed
@@ -3323,10 +3323,10 @@ cooldown=15s
 floor=true
 
 
-# ---- Banish Dead (advanced, cleric; EK: Turn Undead)
+# ---- Exorcise (advanced, cleric; EK: Turn Undead)
 [power]
 id=6350
-name=Banish Dead
+name=Exorcise
 description=A holy word paralyzes every enemy within 2 tiles for 2s.
 icon=6214
 type=fixed
@@ -3345,7 +3345,7 @@ requires_mp=12
 
 [power]
 id=6351
-name=Banish Dead
+name=Exorcise
 description=A holy word paralyzes every enemy within 4 tiles for 3s.
 icon=6214
 type=fixed
@@ -3364,7 +3364,7 @@ requires_mp=15
 
 [power]
 id=6352
-name=Banish Dead
+name=Exorcise
 description=A holy word paralyzes every enemy within 6 tiles for 4s.
 icon=6214
 type=fixed
@@ -3382,10 +3382,10 @@ cooldown=20s
 requires_mp=18
 
 
-# ---- Heavy Arms (class, warrior; EK: Two Handed Expert)
+# ---- Cowhand Arms (class, warrior; EK: Two Handed Expert)
 [power]
 id=6355
-name=Heavy Arms
+name=Cowhand Arms
 description=With a two-handed weapon: +15% melee damage.
 icon=6215
 type=fixed
@@ -3397,7 +3397,7 @@ requires_flags=two_handed
 
 [power]
 id=6356
-name=Heavy Arms
+name=Cowhand Arms
 description=With a two-handed weapon: +30% melee damage.
 icon=6215
 type=fixed
@@ -3409,7 +3409,7 @@ requires_flags=two_handed
 
 [power]
 id=6357
-name=Heavy Arms
+name=Cowhand Arms
 description=With a two-handed weapon: +50% melee damage.
 icon=6215
 type=fixed
@@ -3420,10 +3420,10 @@ post_effect=poise,10,0
 requires_flags=two_handed
 
 
-# ---- Leeching Edge (advanced, mage; EK: Vampiric Blade)
+# ---- Bloodsucker Blade (advanced, mage; EK: Vampiric Blade)
 [power]
 id=6360
-name=Leeching Edge
+name=Bloodsucker Blade
 description=+2 shadow damage and 2% of damage heals you.
 icon=6216
 type=fixed
@@ -3434,7 +3434,7 @@ post_effect=dmg_dark_max,2,0
 
 [power]
 id=6361
-name=Leeching Edge
+name=Bloodsucker Blade
 description=+4 shadow damage and 3% of damage heals you.
 icon=6216
 type=fixed
@@ -3445,7 +3445,7 @@ post_effect=dmg_dark_max,4,0
 
 [power]
 id=6362
-name=Leeching Edge
+name=Bloodsucker Blade
 description=+6 shadow damage and 4% of damage heals you.
 icon=6216
 type=fixed
@@ -3455,10 +3455,10 @@ post_effect=dmg_dark_min,6,0
 post_effect=dmg_dark_max,6,0
 
 
-# ---- Wand Adept (class, mage; EK: Wand Mastery)
+# ---- Wand Master (class, mage; EK: Wand Mastery)
 [power]
 id=6365
-name=Wand Adept
+name=Wand Master
 description=With a wand: +2 magic damage.
 icon=6217
 type=fixed
@@ -3470,7 +3470,7 @@ requires_flags=wand
 
 [power]
 id=6366
-name=Wand Adept
+name=Wand Master
 description=With a wand: +6 magic damage.
 icon=6217
 type=fixed
@@ -3482,7 +3482,7 @@ requires_flags=wand
 
 [power]
 id=6367
-name=Wand Adept
+name=Wand Master
 description=With a wand: +10 magic damage.
 icon=6217
 type=fixed
@@ -3494,7 +3494,7 @@ requires_flags=wand
 
 [power]
 id=6368
-name=Wand Adept
+name=Wand Master
 description=With a wand: +16 magic damage.
 icon=6217
 type=fixed
@@ -3505,10 +3505,10 @@ post_effect=accuracy,5,0
 requires_flags=wand
 
 
-# ---- Blade Storm (class, warrior; EK: Whirlwind)
+# ---- Machete Whirlwind (class, warrior; EK: Whirlwind)
 [power]
 id=6370
-name=Blade Storm
+name=Machete Whirlwind
 description=Spin and hit everyone around you for +50% damage.
 icon=6218
 type=fixed
@@ -3530,7 +3530,7 @@ cooldown=12s
 
 [power]
 id=6371
-name=Blade Storm
+name=Machete Whirlwind
 description=Spin and hit everyone around you for +75% damage (3% stun chance).
 icon=6218
 type=fixed
@@ -3553,7 +3553,7 @@ post_effect=paralyze,0,1s,3
 
 [power]
 id=6372
-name=Blade Storm
+name=Machete Whirlwind
 description=Spin and hit everyone around you for +100% damage (5% stun chance).
 icon=6218
 type=fixed
@@ -3576,7 +3576,7 @@ post_effect=paralyze,0,1s,5
 
 [power]
 id=6373
-name=Blade Storm
+name=Machete Whirlwind
 description=Spin and hit everyone around you for +120% damage (7% stun chance).
 icon=6218
 type=fixed
