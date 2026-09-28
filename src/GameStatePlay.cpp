@@ -2423,8 +2423,14 @@ void GameStatePlay::trailerLogic() {
 		static int f = 0;
 		const int fps = static_cast<int>(settings->max_frames_per_sec);
 		++f;
-		if (f == 12 * fps) inpt->last_key = SDL_SCANCODE_F2;
-		if (f == 13 * fps || f == 16 * fps) inpt->last_key = SDL_SCANCODE_F3;
+		if (std::string(getenv("RD_TRAILER_TEST")) == "shots") {
+			// a screenshot every 4 s from 10 s on (store page material)
+			if (f >= 10 * fps && f % (getenv("RD_TRAILER_EVERY") ? atoi(getenv("RD_TRAILER_EVERY")) * fps / 2 : 4 * fps) == 0) inpt->last_key = SDL_SCANCODE_F2;
+		}
+		else {
+			if (f == 12 * fps) inpt->last_key = SDL_SCANCODE_F2;
+			if (f == 13 * fps || f == 16 * fps) inpt->last_key = SDL_SCANCODE_F3;
+		}
 	}
 	int key = inpt->last_key;
 	if (key == SDL_SCANCODE_F1 || key == SDL_SCANCODE_F2 || key == SDL_SCANCODE_F3 || key == SDL_SCANCODE_F4)
@@ -2491,6 +2497,6 @@ void GameStatePlay::trailerLogic() {
 	// the show must go on
 	pc->stats.hp = pc->stats.get(Stats::HP_MAX);
 	pc->stats.mp = pc->stats.get(Stats::MP_MAX);
-	horde->crowd_mult = 4.0f;
+	horde->crowd_mult = getenv("RD_TRAILER_CROWD") ? static_cast<float>(atof(getenv("RD_TRAILER_CROWD"))) : 4.0f;
 	mapr->cam.shake_timer.reset(Timer::END);
 }

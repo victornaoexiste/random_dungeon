@@ -134,3 +134,30 @@ pela internet).
 (cross-compile MinGW, ver o topo do arquivo) e
 `python3 flare-android-project/pack_data.py --edition run && ./gradlew assembleDebug`
 dentro de `flare-android-project` (SDK/NDK: `setup_android_deps.sh`).
+
+## Prints e GIFs para divulgação (modo trailer)
+
+```sh
+./build/flare --data-path=. --trailer          # Linux (código-fonte)
+./jogar.sh --trailer                           # Linux (pacote)
+RandomDungeon-trailer.bat                      # Windows (pacote)
+```
+
+Entre numa Run: HUD e cursor somem, o herói não morre, a tela não treme.
+
+| Tecla | Ação |
+|---|---|
+| F1 | mostra / esconde o HUD |
+| F2 | screenshot PNG (tamanho real) |
+| F3 | começa / para de gravar quadros para GIF (15 fps, até 20 s) |
+| F4 | trava / solta a câmera |
+
+Arquivos em `~/.local/share/flare/trailer/` (Linux) ou
+`%APPDATA%\RandomDungeon\userdata\trailer\` (Windows).
+GIF/MP4: `python3 distribution/make_gif.py <pasta gif_NNN>`.
+
+Para prints limpos, desligue o texto de combate em Configurações (ou
+`combat_text=0` no `settings.txt`). Variáveis opcionais:
+`RD_TRAILER_CROWD=1.3` (tamanho da horda; padrão 4) e, para capturas
+automáticas, `RD_TRAILER_TEST=shots RD_TRAILER_EVERY=2` (um print a cada
+2 × 0,5 s a partir dos 10 s).
