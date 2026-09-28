@@ -210,6 +210,8 @@ void GameStatePlay::syncPartyMap() {
 }
 
 std::string GameStatePlay::modeStartMap() {
+	// test hook: RD_START_MAP=maps/run/start.txt skips the camp (marketing captures)
+	if (getenv("RD_START_MAP")) return getenv("RD_START_MAP");
 	// solo or in a group, everyone starts at camp (maps/lobby.txt) and enters
 	// the horde through its portal
 	if (settings->game_mode == "run" || runEdition()) return "maps/lobby.txt";
@@ -1007,15 +1009,20 @@ void GameStatePlay::logic() {
 
 	// test hook: RD_SHOWCASE="rd_mula,rd_boitata" puts those enemies around the
 	// hero ~3s into a run; RD_SHOWCASE_SHOT=<dir> takes 4 screenshots after it
+	// (optional: RD_SHOWCASE_AT=<s> when, RD_SHOWCASE_SHOTS=<n> how many,
+	// RD_SHOWCASE_EVERY=<frames> apart -- e.g. 90 shots every 4 frames for a GIF)
 	if (getenv("RD_SHOWCASE") && horde->isRunMap(mapr->getFilename())) {
 		static int frames = 0;
 		const int fps = settings->max_frames_per_sec;
-		if (++frames == fps * 3)
+		const int at = fps * (getenv("RD_SHOWCASE_AT") ? atoi(getenv("RD_SHOWCASE_AT")) : 3);
+		const int shots = getenv("RD_SHOWCASE_SHOTS") ? atoi(getenv("RD_SHOWCASE_SHOTS")) : 4;
+		const int every = std::max(1, getenv("RD_SHOWCASE_EVERY") ? atoi(getenv("RD_SHOWCASE_EVERY")) : fps / 2);
+		if (++frames == at)
 			horde->showcase(pc->stats.pos, getenv("RD_SHOWCASE"));
-		if (getenv("RD_SHOWCASE_SHOT") && frames > fps * 3 && (frames - fps * 3) % (fps / 2) == 0 && frames <= fps * 5) {
-			std::stringstream ss;
-			ss << getenv("RD_SHOWCASE_SHOT") << "/showcase_" << (frames - fps * 3) / (fps / 2) << ".png";
-			render_device->screenshot_request = ss.str();
+		if (getenv("RD_SHOWCASE_SHOT") && frames > at && (frames - at) % every == 0 && (frames - at) / every <= shots) {
+			char name[32];
+			snprintf(name, sizeof(name), "/showcase_%03d.png", (frames - at) / every);
+			render_device->screenshot_request = std::string(getenv("RD_SHOWCASE_SHOT")) + name;
 		}
 	}
 
