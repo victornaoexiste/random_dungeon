@@ -386,7 +386,7 @@ EndIf (NOT SDL2MAIN_LIBRARY)
 Target_Link_Libraries (flare ${CMAKE_LD_FLAGS} ${SDL2_LIBRARY} ${SDL2IMAGE_LIBRARY} ${SDL2MIXER_LIBRARY} ${SDL2TTF_LIBRARY} ${SDL2MAIN_LIBRARY} ${ENET_LIBRARY})
 # ENet on Windows needs Winsock and the multimedia timer
 IF (WIN32)
-	Target_Link_Libraries (flare ws2_32 winmm)
+	Target_Link_Libraries (flare ws2_32 winmm iphlpapi)
 ENDIF (WIN32)
 
 

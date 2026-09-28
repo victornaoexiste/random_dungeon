@@ -726,6 +726,8 @@ EXTRA_PT = [
     ('Open on LAN', 'Aberta na rede local'), ('Your game is solo again.', 'Sua partida voltou a ser solo.'),
     ('Could not open the game to friends.', 'Não foi possível abrir a partida para amigos.'),
     ('Room open! Friends join with the code %s', 'Sala aberta! Seus amigos entram com o código %s'),
+    ('LAN: %s', 'Rede local: %s'),
+    ('Open on the local network: friends use Search, or type %s', 'Aberta na rede local: os amigos usam Buscar na rede, ou digitam %s'),
     ('Dagger Strike', 'Golpe de Adaga'), ('A quick stab with your dagger.', 'Uma estocada rápida com sua adaga.'),
 ]
 

@@ -166,6 +166,9 @@ private:
 	void renderRoomCode();
 	WidgetLabel *room_label;
 	std::string room_announced;
+	std::string lan_address;   // this machine's LAN IP while hosting
+	int lan_address_frames;
+	bool lan_announced;
 	// red flash when the hero takes a heavy hit (renderHurtFlash)
 	void renderHurtFlash();
 	// trailer / screenshot mode (--trailer, see trailerLogic)

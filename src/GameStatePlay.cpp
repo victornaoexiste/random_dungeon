@@ -114,6 +114,8 @@ GameStatePlay::GameStatePlay()
 	trailer_cam_lock = false;
 	trailer_rec_frame = -1;
 	trailer_frames = 0;
+	lan_address_frames = 0;
+	lan_announced = false;
 	room_label = new WidgetLabel();
 	room_label->setJustify(FontEngine::JUSTIFY_RIGHT);
 	room_label->setColor(Color(232, 184, 72, 255));
@@ -2413,15 +2415,29 @@ void GameStatePlay::onlineLogic() {
 		button = msg->get("Close to friends");
 		if (!netmgr->getRoomCode().empty())
 			status = msg->getv("Room code: %s", netmgr->getRoomCode().c_str());
-		else if (!netmgr->getRoomError().empty())
-			status = msg->get("Online room unavailable (LAN only)");
-		else if (netmgr->isRoomRequested())
+		else if (netmgr->isRoomRequested() && netmgr->getRoomError().empty())
 			status = msg->get("Opening room...");
-		else
+		// friends on the same network: search, or type this address
+		if (lan_address.empty() || ++lan_address_frames > 5 * settings->max_frames_per_sec) {
+			lan_address = NetManager::lanAddressText(netmgr->getServerPort());
+			lan_address_frames = 0;
+		}
+		if (!lan_address.empty()) {
+			const std::string lan = msg->getv("LAN: %s", lan_address.c_str());
+			status = status.empty() ? lan : status + "  " + lan;
+		}
+		else if (status.empty()) {
 			status = msg->get("Open on LAN");
+		}
 	}
 	ex->setOnlineStatus(status, button, enabled);
 
+	if (netmgr && netmgr->isServer() && !lan_address.empty() && !lan_announced) {
+		lan_announced = true;
+		pc->logMsg(msg->getv("Open on the local network: friends use Search, or type %s", lan_address.c_str()), Avatar::MSG_UNIQUE);
+	}
+	if (!(netmgr && netmgr->isServer()))
+		lan_announced = false;
 	if (netmgr && netmgr->isServer() && !netmgr->getRoomCode().empty() && netmgr->getRoomCode() != room_announced) {
 		room_announced = netmgr->getRoomCode();
 		pc->logMsg(msg->getv("Room open! Friends join with the code %s", room_announced.c_str()), Avatar::MSG_UNIQUE);
@@ -2430,9 +2446,15 @@ void GameStatePlay::onlineLogic() {
 
 // while hosting an online room, its code stays in a corner of the screen
 void GameStatePlay::renderRoomCode() {
-	if (!netmgr || !netmgr->isServer() || netmgr->getRoomCode().empty() || settings->trailer_clean)
+	if (!netmgr || !netmgr->isServer() || settings->trailer_clean)
 		return;
-	std::string text = msg->getv("Room: %s", netmgr->getRoomCode().c_str());
+	std::string text;
+	if (!netmgr->getRoomCode().empty())
+		text = msg->getv("Room: %s", netmgr->getRoomCode().c_str());
+	if (!lan_address.empty())
+		text += (text.empty() ? "" : "   ") + msg->getv("LAN: %s", lan_address.c_str());
+	if (text.empty())
+		return;
 	if (room_label->getText() != text)
 		room_label->setText(text);
 	room_label->setPos(settings->view_w - 12, settings->view_h - 28);

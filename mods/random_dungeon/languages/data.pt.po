@@ -1273,6 +1273,12 @@ msgstr "Não foi possível abrir a partida para amigos."
 msgid "Room open! Friends join with the code %s"
 msgstr "Sala aberta! Seus amigos entram com o código %s"
 
+msgid "LAN: %s"
+msgstr "Rede local: %s"
+
+msgid "Open on the local network: friends use Search, or type %s"
+msgstr "Aberta na rede local: os amigos usam Buscar na rede, ou digitam %s"
+
 msgid "Dagger Strike"
 msgstr "Golpe de Adaga"
 

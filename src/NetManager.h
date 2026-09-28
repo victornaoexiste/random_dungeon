@@ -384,6 +384,18 @@ public:
 
 	// Blocking (wait_ms): broadcast on the LAN and collect answering hosts.
 	static std::vector<LanGame> discoverLan(uint32_t wait_ms);
+	// This machine's LAN IPv4 addresses (home network first; VPN/virtual
+	// adapters last), each with its subnet broadcast address.
+	struct LocalAddr {
+		std::string ip;
+		uint32_t ip_be;
+		uint32_t broadcast_be;
+		int rank; // lower = more likely the LAN a friend is on
+	};
+	static std::vector<LocalAddr> localAddresses();
+	// "192.168.0.10" (+ ":port" when not the default one), for friends to type
+	static std::string lanAddressText(uint16_t port);
+	uint16_t getServerPort() const { return server_port; }
 	// Host: what discovery replies advertise.
 	void setLocalInfo(const std::string& name, const std::string& map);
 	void shutdown();

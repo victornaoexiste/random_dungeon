@@ -191,6 +191,7 @@ def main():
     files, total, skipped = pack_data(out, edition)
     copy_licenses(out)
     copy_trailer_tools(out, True)
+    shutil.copy2(os.path.join(HERE, 'Liberar-firewall.bat'), os.path.join(out, 'Liberar-firewall.bat'))
     with open(os.path.join(out, '.itch.toml'), 'w') as f:
         f.write('[[actions]]\nname = "play"\npath = "RandomDungeon.exe"\nplatform = "windows"\n')
 

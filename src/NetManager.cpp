@@ -9,9 +9,16 @@
 #include <cstring>
 
 #ifdef _WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <iphlpapi.h>
 #include <windows.h>
 #else
 #include <unistd.h>
+#include <ifaddrs.h>
+#include <net/if.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #endif
 
 namespace {
@@ -204,6 +211,14 @@ bool NetManager::startServer(uint16_t port) {
 		}
 	}
 	server_port = port;
+	if (server_port == 0) {
+		// asked for any free port: find out which one we got (LAN discovery
+		// tells friends this port)
+		ENetAddress bound;
+		if (enet_socket_get_address(host->socket, &bound) == 0)
+			server_port = bound.port;
+		Utils::logInfo("NetManager: server listening on port %u instead", static_cast<unsigned>(server_port));
+	}
 	return true;
 }
 
@@ -964,17 +979,30 @@ std::vector<LanGame> NetManager::discoverLan(uint32_t wait_ms) {
 	enet_socket_set_option(sock, ENET_SOCKOPT_BROADCAST, 1);
 	enet_socket_set_option(sock, ENET_SOCKOPT_NONBLOCK, 1);
 
-	// broadcast for the LAN, plus loopback for a host on this same machine
-	ENetAddress targets[2];
-	targets[0].host = ENET_HOST_BROADCAST;
-	targets[0].port = DISCOVERY_PORT;
-	enet_address_set_host(&targets[1], "127.0.0.1");
-	targets[1].port = DISCOVERY_PORT;
-	for (int i = 0; i < 2; ++i) {
-		ENetBuffer out;
-		out.data = const_cast<char*>(DISCOVERY_QUERY);
-		out.dataLength = sizeof(DISCOVERY_QUERY);
-		enet_socket_send(sock, &targets[i], &out, 1);
+	// 255.255.255.255 only leaves through the default route -- with a VPN
+	// (Cloudflare WARP...) or virtual adapters (VirtualBox, Hyper-V) that's
+	// not the home network. So also each adapter's own subnet broadcast
+	// (192.168.0.255...), plus loopback for a host on this same machine.
+	std::vector<ENetAddress> targets;
+	ENetAddress t;
+	t.host = ENET_HOST_BROADCAST;
+	t.port = DISCOVERY_PORT;
+	targets.push_back(t);
+	std::vector<LocalAddr> locals = localAddresses();
+	for (size_t i = 0; i < locals.size(); ++i) {
+		t.host = locals[i].broadcast_be;
+		targets.push_back(t);
+	}
+	enet_address_set_host(&t, "127.0.0.1");
+	t.port = DISCOVERY_PORT;
+	targets.push_back(t);
+	for (int round = 0; round < 2; ++round) {   // UDP may drop one
+		for (size_t i = 0; i < targets.size(); ++i) {
+			ENetBuffer out;
+			out.data = const_cast<char*>(DISCOVERY_QUERY);
+			out.dataLength = sizeof(DISCOVERY_QUERY);
+			enet_socket_send(sock, &targets[i], &out, 1);
+		}
 	}
 
 	const uint32_t start = enet_time_get();
@@ -1343,4 +1371,111 @@ bool NetManager::connectWithCode(const std::string& code_in, uint32_t timeout_ms
 	}
 	Utils::logInfo("NetManager: relay accepted us into room %s", code.c_str());
 	return connectAddress(relay_addr, "room " + code, timeout_ms);
+}
+
+
+// ------------------------------------------------------------------ local addresses
+
+namespace {
+	// home networks first; VPN / container / virtual adapters last
+	int rankAdapter(const std::string& name, uint32_t ip_host_order) {
+		std::string n = name;
+		for (size_t i = 0; i < n.size(); ++i) n[i] = static_cast<char>(tolower(n[i]));
+		const char *virt[] = { "warp", "cloudflare", "tailscale", "zerotier", "wireguard", "wg", "tun", "tap",
+		                       "docker", "br-", "virbr", "veth", "vmware", "virtualbox", "vbox", "hyper-v", "vethernet", "radmin", "hamachi" };
+		for (size_t i = 0; i < sizeof(virt) / sizeof(virt[0]); ++i)
+			if (n.find(virt[i]) != std::string::npos)
+				return 3;
+		const uint32_t a = ip_host_order >> 24, b = (ip_host_order >> 16) & 0xff;
+		if (a == 192 && b == 168) return 0;
+		if (a == 10) return 1;
+		if (a == 172 && b >= 16 && b < 32) return 1;
+		if (a == 100 && b >= 64 && b < 128) return 3; // CGNAT / Tailscale range
+		return 2;
+	}
+}
+
+std::vector<NetManager::LocalAddr> NetManager::localAddresses() {
+	std::vector<LocalAddr> out;
+#ifdef _WIN32
+	ULONG size = 16 * 1024;
+	std::vector<unsigned char> buf(size);
+	IP_ADAPTER_ADDRESSES *list = reinterpret_cast<IP_ADAPTER_ADDRESSES*>(&buf[0]);
+	ULONG rc = GetAdaptersAddresses(AF_INET, GAA_FLAG_SKIP_ANYCAST | GAA_FLAG_SKIP_MULTICAST | GAA_FLAG_SKIP_DNS_SERVER, NULL, list, &size);
+	if (rc == ERROR_BUFFER_OVERFLOW) {
+		buf.resize(size);
+		list = reinterpret_cast<IP_ADAPTER_ADDRESSES*>(&buf[0]);
+		rc = GetAdaptersAddresses(AF_INET, GAA_FLAG_SKIP_ANYCAST | GAA_FLAG_SKIP_MULTICAST | GAA_FLAG_SKIP_DNS_SERVER, NULL, list, &size);
+	}
+	if (rc != NO_ERROR)
+		return out;
+	for (IP_ADAPTER_ADDRESSES *ad = list; ad; ad = ad->Next) {
+		if (ad->OperStatus != IfOperStatusUp || ad->IfType == IF_TYPE_SOFTWARE_LOOPBACK)
+			continue;
+		char name[256];
+		WideCharToMultiByte(CP_UTF8, 0, ad->FriendlyName, -1, name, sizeof(name), NULL, NULL);
+		std::string desc_name = name;
+		char desc[256];
+		WideCharToMultiByte(CP_UTF8, 0, ad->Description, -1, desc, sizeof(desc), NULL, NULL);
+		desc_name += " ";
+		desc_name += desc;
+		for (IP_ADAPTER_UNICAST_ADDRESS *ua = ad->FirstUnicastAddress; ua; ua = ua->Next) {
+			sockaddr_in *sin = reinterpret_cast<sockaddr_in*>(ua->Address.lpSockaddr);
+			if (sin->sin_family != AF_INET)
+				continue;
+			uint32_t ip = ntohl(sin->sin_addr.s_addr);
+			if ((ip >> 24) == 127 || (ip >> 16) == 0xA9FE) // loopback, 169.254 link-local
+				continue;
+			uint32_t mask = ua->OnLinkPrefixLength >= 32 ? 0xffffffffu : ~(0xffffffffu >> ua->OnLinkPrefixLength);
+			LocalAddr la;
+			la.ip_be = htonl(ip);
+			la.broadcast_be = htonl(ip | ~mask);
+			char txt[32];
+			snprintf(txt, sizeof(txt), "%u.%u.%u.%u", ip >> 24, (ip >> 16) & 0xff, (ip >> 8) & 0xff, ip & 0xff);
+			la.ip = txt;
+			la.rank = rankAdapter(desc_name, ip);
+			out.push_back(la);
+		}
+	}
+#else
+	struct ifaddrs *ifs = NULL;
+	if (getifaddrs(&ifs) != 0)
+		return out;
+	for (struct ifaddrs *it = ifs; it; it = it->ifa_next) {
+		if (!it->ifa_addr || it->ifa_addr->sa_family != AF_INET)
+			continue;
+		if ((it->ifa_flags & IFF_LOOPBACK) || !(it->ifa_flags & IFF_UP))
+			continue;
+		uint32_t ip = ntohl(reinterpret_cast<struct sockaddr_in*>(it->ifa_addr)->sin_addr.s_addr);
+		uint32_t mask = it->ifa_netmask ? ntohl(reinterpret_cast<struct sockaddr_in*>(it->ifa_netmask)->sin_addr.s_addr) : 0xffffff00u;
+		if ((ip >> 16) == 0xA9FE)
+			continue;
+		LocalAddr la;
+		la.ip_be = htonl(ip);
+		la.broadcast_be = htonl(ip | ~mask);
+		char txt[32];
+		snprintf(txt, sizeof(txt), "%u.%u.%u.%u", ip >> 24, (ip >> 16) & 0xff, (ip >> 8) & 0xff, ip & 0xff);
+		la.ip = txt;
+		la.rank = rankAdapter(it->ifa_name ? it->ifa_name : "", ip);
+		out.push_back(la);
+	}
+	freeifaddrs(ifs);
+#endif
+	for (size_t i = 1; i < out.size(); ++i)   // stable sort by rank
+		for (size_t j = i; j > 0 && out[j].rank < out[j - 1].rank; --j)
+			std::swap(out[j], out[j - 1]);
+	return out;
+}
+
+std::string NetManager::lanAddressText(uint16_t port) {
+	std::vector<LocalAddr> locals = localAddresses();
+	if (locals.empty())
+		return "";
+	std::string text = locals[0].ip;
+	if (port != 0 && port != 4650) {
+		char p[16];
+		snprintf(p, sizeof(p), ":%u", static_cast<unsigned>(port));
+		text += p;
+	}
+	return text;
 }
