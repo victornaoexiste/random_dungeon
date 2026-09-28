@@ -164,9 +164,10 @@ private:
 	// "Play with friends" (pause menu): turns this game into a hosted one
 	void onlineLogic();
 	void renderRoomCode();
-	WidgetLabel *room_label;
+	WidgetLabel *room_labels[3];  // room code / LAN IP / Tailscale IP
 	std::string room_announced;
 	std::string lan_address;   // this machine's LAN IP while hosting
+	std::string vpn_address;   // "Tailscale: 100.x.y.z", if on a virtual LAN
 	int lan_address_frames;
 	bool lan_announced;
 	// red flash when the hero takes a heavy hit (renderHurtFlash)

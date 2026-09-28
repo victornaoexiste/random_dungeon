@@ -391,10 +391,14 @@ public:
 		uint32_t ip_be;
 		uint32_t broadcast_be;
 		int rank; // lower = more likely the LAN a friend is on
+		std::string vpn; // "Tailscale", "ZeroTier", "Radmin VPN", "Hamachi" (virtual LANs friends can join), else ""
 	};
 	static std::vector<LocalAddr> localAddresses();
 	// "192.168.0.10" (+ ":port" when not the default one), for friends to type
 	static std::string lanAddressText(uint16_t port);
+	// "Tailscale: 100.x.y.z" when this machine is on a virtual LAN (works
+	// across isolated Wi-Fi and the internet), else ""
+	static std::string vpnAddressText(uint16_t port);
 	uint16_t getServerPort() const { return server_port; }
 	// Host: what discovery replies advertise.
 	void setLocalInfo(const std::string& name, const std::string& map);

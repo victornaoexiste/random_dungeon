@@ -261,8 +261,11 @@ void GameStateMultiplayer::startAsClient() {
 	else if (by_code) {
 		setStatus(msg->get("A sala existe, mas o host não respondeu"), true);
 	}
+	else if (host_str.compare(0, 4, "127.") == 0) {
+		setStatus(msg->get("127.0.0.1 é o seu PC: digite o IP da tela do host"), true);
+	}
 	else {
-		setStatus(msg->get("Não foi possível conectar"), true);
+		setStatus(msg->get("Host não respondeu. Wi-Fi de visitantes bloqueia: use o Tailscale"), true);
 	}
 }
 
@@ -274,7 +277,9 @@ void GameStateMultiplayer::searchLan() {
 
 	std::vector<LanGame> games = NetManager::discoverLan(800);
 	if (games.empty()) {
-		setStatus(msg->get("Nenhuma partida encontrada na rede"), true);
+		// most common causes, in order: guest/school Wi-Fi isolating devices,
+		// not the same network, host not open yet
+		setStatus(msg->get("Nada encontrado. Wi-Fi de visitantes bloqueia: use o Tailscale"), true);
 		return;
 	}
 

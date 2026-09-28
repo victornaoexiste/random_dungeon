@@ -116,9 +116,11 @@ GameStatePlay::GameStatePlay()
 	trailer_frames = 0;
 	lan_address_frames = 0;
 	lan_announced = false;
-	room_label = new WidgetLabel();
-	room_label->setJustify(FontEngine::JUSTIFY_RIGHT);
-	room_label->setColor(Color(232, 184, 72, 255));
+	for (int i = 0; i < 3; ++i) {
+		room_labels[i] = new WidgetLabel();
+		room_labels[i]->setJustify(FontEngine::JUSTIFY_RIGHT);
+		room_labels[i]->setColor(Color(232, 184, 72, 255));
+	}
 	banner_label = new WidgetLabel();
 	banner_label->setFont("font_region_title");
 	banner_label->setJustify(FontEngine::JUSTIFY_CENTER);
@@ -2109,7 +2111,8 @@ GameStatePlay::~GameStatePlay() {
 	delete net_hit_src;
 	delete horde;
 	delete banner_label;
-	delete room_label;
+	for (int i = 0; i < 3; ++i)
+		delete room_labels[i];
 	delete hurt_overlay;
 	delete run_upgrade;
 	delete sanctuary;
@@ -2420,12 +2423,15 @@ void GameStatePlay::onlineLogic() {
 		// friends on the same network: search, or type this address
 		if (lan_address.empty() || ++lan_address_frames > 5 * settings->max_frames_per_sec) {
 			lan_address = NetManager::lanAddressText(netmgr->getServerPort());
+			vpn_address = NetManager::vpnAddressText(netmgr->getServerPort());
 			lan_address_frames = 0;
 		}
 		if (!lan_address.empty()) {
 			const std::string lan = msg->getv("LAN: %s", lan_address.c_str());
 			status = status.empty() ? lan : status + "  " + lan;
 		}
+		if (!vpn_address.empty())
+			status = status.empty() ? vpn_address : status + "  " + vpn_address;
 		else if (status.empty()) {
 			status = msg->get("Open on LAN");
 		}
@@ -2448,17 +2454,21 @@ void GameStatePlay::onlineLogic() {
 void GameStatePlay::renderRoomCode() {
 	if (!netmgr || !netmgr->isServer() || settings->trailer_clean)
 		return;
-	std::string text;
+	// one line each, under the minimap (top right)
+	std::vector<std::string> lines;
 	if (!netmgr->getRoomCode().empty())
-		text = msg->getv("Room: %s", netmgr->getRoomCode().c_str());
+		lines.push_back(msg->getv("Room: %s", netmgr->getRoomCode().c_str()));
 	if (!lan_address.empty())
-		text += (text.empty() ? "" : "   ") + msg->getv("LAN: %s", lan_address.c_str());
-	if (text.empty())
-		return;
-	if (room_label->getText() != text)
-		room_label->setText(text);
-	room_label->setPos(settings->view_w - 12, settings->view_h - 28);
-	room_label->render();
+		lines.push_back(msg->getv("LAN: %s", lan_address.c_str()));
+	if (!vpn_address.empty())
+		lines.push_back(vpn_address);
+	for (size_t i = 0; i < lines.size() && i < 3; ++i) {
+		WidgetLabel *l = room_labels[i];
+		if (l->getText() != lines[i])
+			l->setText(lines[i]);
+		l->setPos(settings->view_w - 12, 350 + static_cast<int>(i) * 22);
+		l->render();
+	}
 }
 
 void GameStatePlay::renderWaveBanner() {

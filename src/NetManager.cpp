@@ -1378,6 +1378,19 @@ bool NetManager::connectWithCode(const std::string& code_in, uint32_t timeout_ms
 
 namespace {
 	// home networks first; VPN / container / virtual adapters last
+	std::string vpnName(const std::string& name, uint32_t ip_host_order) {
+		std::string n = name;
+		for (size_t i = 0; i < n.size(); ++i) n[i] = static_cast<char>(tolower(n[i]));
+		if (n.find("tailscale") != std::string::npos) return "Tailscale";
+		if (n.find("zerotier") != std::string::npos || n.compare(0, 2, "zt") == 0) return "ZeroTier";
+		if (n.find("radmin") != std::string::npos) return "Radmin VPN";
+		if (n.find("hamachi") != std::string::npos || n.compare(0, 3, "ham") == 0) return "Hamachi";
+		// Tailscale's own range, whatever the adapter is called
+		if ((ip_host_order >> 24) == 100 && ((ip_host_order >> 16) & 0xff) >= 64 && ((ip_host_order >> 16) & 0xff) < 128 && n.find("warp") == std::string::npos)
+			return "Tailscale";
+		return "";
+	}
+
 	int rankAdapter(const std::string& name, uint32_t ip_host_order) {
 		std::string n = name;
 		for (size_t i = 0; i < n.size(); ++i) n[i] = static_cast<char>(tolower(n[i]));
@@ -1434,6 +1447,7 @@ std::vector<NetManager::LocalAddr> NetManager::localAddresses() {
 			snprintf(txt, sizeof(txt), "%u.%u.%u.%u", ip >> 24, (ip >> 16) & 0xff, (ip >> 8) & 0xff, ip & 0xff);
 			la.ip = txt;
 			la.rank = rankAdapter(desc_name, ip);
+			la.vpn = vpnName(desc_name, ip);
 			out.push_back(la);
 		}
 	}
@@ -1457,6 +1471,7 @@ std::vector<NetManager::LocalAddr> NetManager::localAddresses() {
 		snprintf(txt, sizeof(txt), "%u.%u.%u.%u", ip >> 24, (ip >> 16) & 0xff, (ip >> 8) & 0xff, ip & 0xff);
 		la.ip = txt;
 		la.rank = rankAdapter(it->ifa_name ? it->ifa_name : "", ip);
+		la.vpn = vpnName(it->ifa_name ? it->ifa_name : "", ip);
 		out.push_back(la);
 	}
 	freeifaddrs(ifs);
@@ -1467,8 +1482,28 @@ std::vector<NetManager::LocalAddr> NetManager::localAddresses() {
 	return out;
 }
 
+std::string NetManager::vpnAddressText(uint16_t port) {
+	std::vector<LocalAddr> locals = localAddresses();
+	for (size_t i = 0; i < locals.size(); ++i) {
+		if (locals[i].vpn.empty())
+			continue;
+		std::string text = locals[i].vpn + ": " + locals[i].ip;
+		if (port != 0 && port != 4650) {
+			char p[16];
+			snprintf(p, sizeof(p), ":%u", static_cast<unsigned>(port));
+			text += p;
+		}
+		return text;
+	}
+	return "";
+}
+
 std::string NetManager::lanAddressText(uint16_t port) {
 	std::vector<LocalAddr> locals = localAddresses();
+	for (size_t i = 0; i < locals.size();) {   // virtual LANs are shown separately
+		if (!locals[i].vpn.empty()) locals.erase(locals.begin() + i);
+		else ++i;
+	}
 	if (locals.empty())
 		return "";
 	std::string text = locals[0].ip;
