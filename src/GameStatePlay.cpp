@@ -109,6 +109,10 @@ GameStatePlay::GameStatePlay()
 	hurt_last_hp = -1;
 	hurt_flash = 0;
 	hurt_overlay = NULL;
+	trailer_hud = false;
+	trailer_cam_lock = false;
+	trailer_rec_frame = -1;
+	trailer_frames = 0;
 	banner_label = new WidgetLabel();
 	banner_label->setFont("font_region_title");
 	banner_label->setJustify(FontEngine::JUSTIFY_CENTER);
@@ -1053,6 +1057,7 @@ void GameStatePlay::logic() {
 		}
 		updateNetTargets();
 		coopLogic();
+		trailerLogic();
 
 		// Horde mode is host/single-player only; a net client mirrors the host's enemies.
 		if (!netmgr || !netmgr->isClient()) {
@@ -1995,9 +2000,15 @@ void GameStatePlay::render() {
 	menu->mini->net_players.clear();
 	for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it)
 		menu->mini->net_players.push_back(it->second.stats->pos);
-	menu->mini->render(pc->stats.pos);
-	menu->region_title->setTitle(mapr->title);
-	menu->render();
+	// trailer mode: a clean screen unless F1 or a menu is open
+	const bool clean = settings->trailer_mode && !trailer_hud && !menu->exit->visible && !menu->isDragging() &&
+		!menu->inv->visible && !menu->pow->visible && !menu->chr->visible && !menu->game_over->visible;
+	settings->trailer_clean = clean;
+	if (!clean) {
+		menu->mini->render(pc->stats.pos);
+		menu->region_title->setTitle(mapr->title);
+		menu->render();
+	}
 	run_upgrade->render();
 	sanctuary->render();
 
@@ -2389,4 +2400,97 @@ void GameStatePlay::renderHurtFlash() {
 	hurt_overlay->setDest(0, 0);
 	render_device->render(hurt_overlay);
 	hurt_flash--;
+}
+
+/**
+ * Trailer / screenshot mode (command line --trailer). For shooting the
+ * game's page and videos: the HUD starts hidden, the hero can't die, the
+ * horde is four times bigger and the screen doesn't shake.
+ *   F1  show / hide the HUD
+ *   F2  screenshot            -> <user folder>/trailer/shot_NNN.png
+ *   F3  start / stop recording frames at 15 fps (max 20 s)
+ *                              -> <user folder>/trailer/gif_NNN/frame_NNNN.bmp (half size)
+ *       (make a GIF with tools/make_gif.py, or drop the frames on ezgif.com)
+ *   F4  lock / unlock the camera where it is
+ */
+void GameStatePlay::trailerLogic() {
+	if (!settings->trailer_mode)
+		return;
+
+	const std::string base = settings->path_user + "trailer";
+	// test hook: RD_TRAILER_TEST presses F2 at 12s and F3 at 13s / 16s
+	if (getenv("RD_TRAILER_TEST")) {
+		static int f = 0;
+		const int fps = static_cast<int>(settings->max_frames_per_sec);
+		++f;
+		if (f == 12 * fps) inpt->last_key = SDL_SCANCODE_F2;
+		if (f == 13 * fps || f == 16 * fps) inpt->last_key = SDL_SCANCODE_F3;
+	}
+	int key = inpt->last_key;
+	if (key == SDL_SCANCODE_F1 || key == SDL_SCANCODE_F2 || key == SDL_SCANCODE_F3 || key == SDL_SCANCODE_F4)
+		inpt->last_key = -1;
+
+	if (key == SDL_SCANCODE_F1)
+		trailer_hud = !trailer_hud;
+
+	if (key == SDL_SCANCODE_F2) {
+		Filesystem::createDir(base);
+		for (int n = 1; n < 1000; ++n) {
+			char name[32];
+			snprintf(name, sizeof(name), "/shot_%03d.png", n);
+			if (!Filesystem::fileExists(base + name)) {
+				render_device->screenshot_request = base + name;
+				Utils::logInfo("Trailer: screenshot %s", (base + name).c_str());
+				break;
+			}
+		}
+	}
+
+	if (key == SDL_SCANCODE_F3) {
+		if (trailer_rec_frame >= 0) {
+			Utils::logInfo("Trailer: recorded %d frames in %s", trailer_rec_frame, trailer_rec_dir.c_str());
+			trailer_rec_frame = -1;
+		}
+		else {
+			Filesystem::createDir(base);
+			for (int n = 1; n < 1000; ++n) {
+				char name[32];
+				snprintf(name, sizeof(name), "/gif_%03d", n);
+				if (!Filesystem::pathExists(base + name)) {
+					trailer_rec_dir = base + name;
+					Filesystem::createDir(trailer_rec_dir);
+					trailer_rec_frame = 0;
+					trailer_frames = 0;
+					Utils::logInfo("Trailer: recording to %s", trailer_rec_dir.c_str());
+					break;
+				}
+			}
+		}
+	}
+	if (trailer_rec_frame >= 0) {
+		const int step = std::max(1, static_cast<int>(settings->max_frames_per_sec) / 15);
+		// one frame at a time: a new request would replace one not yet saved
+		if (trailer_frames++ % step == 0 && render_device->screenshot_request.empty()) {
+			char name[32];
+			snprintf(name, sizeof(name), "/frame_%04d.bmp", trailer_rec_frame++);
+			render_device->screenshot_request = trailer_rec_dir + name;
+		}
+		if (trailer_rec_frame >= 15 * 20) {
+			Utils::logInfo("Trailer: recorded %d frames in %s (limit)", trailer_rec_frame, trailer_rec_dir.c_str());
+			trailer_rec_frame = -1;
+		}
+	}
+
+	if (key == SDL_SCANCODE_F4) {
+		trailer_cam_lock = !trailer_cam_lock;
+		trailer_cam_pos = mapr->cam.pos;
+	}
+	if (trailer_cam_lock)
+		mapr->cam.warpTo(trailer_cam_pos);
+
+	// the show must go on
+	pc->stats.hp = pc->stats.get(Stats::HP_MAX);
+	pc->stats.mp = pc->stats.get(Stats::MP_MAX);
+	horde->crowd_mult = 4.0f;
+	mapr->cam.shake_timer.reset(Timer::END);
 }

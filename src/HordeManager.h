@@ -38,6 +38,8 @@ public:
 	// Co-op (see GameStatePlay::coopLogic):
 	// players on the arena, for scaling group size and enemy hp
 	void setPlayers(int n) { players = n < 1 ? 1 : n; }
+	// trailer mode (--trailer): multiplies group size, lifts the enemy cap
+	float crowd_mult;
 	// true while a fallen hero may still be revived by an ally: the run
 	// isn't over until the whole party is down
 	bool coop_hold;

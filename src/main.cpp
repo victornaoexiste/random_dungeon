@@ -402,6 +402,9 @@ int main(int argc, char *argv[]) {
 		else if (arg == "title-shot") {
 			settings->title_screenshot = true;
 		}
+		else if (arg == "trailer") {
+			settings->trailer_mode = true;
+		}
 		else if (arg == "mp-shot") {
 			settings->mp_screenshot = true;
 		}
@@ -448,6 +451,7 @@ int main(int argc, char *argv[]) {
 --help                   Prints this message.\n\
 --version                Prints the release version.\n\
 --data-path=<PATH>       Specifies an exact path to look for mod data.\n\
+--trailer                Trailer/screenshot mode: F1 HUD, F2 screenshot, F3 record GIF frames, F4 lock camera.\n\
 --save-data-path         Saves the path specified with --data-path to the user's config.\n\
 --clear-data-path        Removes the saved data-path from the user's config.\n\
 --ignore-data-path       Temporarily ignores any saved data-path in the user's config.\n\

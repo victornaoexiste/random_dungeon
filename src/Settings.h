@@ -170,6 +170,8 @@ public:
 	std::string game_mode;
 	bool title_screenshot; // --title-shot: dev test hook, see GameStateTitle::logic
 	bool mp_screenshot; // --mp-shot: same, for the Multiplayer screen
+	bool trailer_mode;  // --trailer: clean HUD, capture keys, huge horde (GameStatePlay::trailerLogic)
+	bool trailer_clean; // trailer mode, HUD hidden right now: no mouse cursor either
 
 	// Misc
 	unsigned short view_w;

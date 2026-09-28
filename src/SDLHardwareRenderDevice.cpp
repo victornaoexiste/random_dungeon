@@ -664,8 +664,20 @@ void SDLHardwareRenderDevice::commitFrame() {
 		SDL_QueryTexture(texture, NULL, NULL, &w, &h);
 		SDL_Surface *shot = SDL_CreateRGBSurfaceWithFormat(0, w, h, 32, SDL_PIXELFORMAT_ARGB8888);
 		if (shot && SDL_RenderReadPixels(renderer, NULL, SDL_PIXELFORMAT_ARGB8888, shot->pixels, shot->pitch) == 0) {
-			if (IMG_SavePNG(shot, screenshot_request.c_str()) == 0)
-				Utils::logInfo("RenderDevice: screenshot saved to %s", screenshot_request.c_str());
+			const std::string& req = screenshot_request;
+			if (req.size() > 4 && req.compare(req.size() - 4, 4, ".bmp") == 0) {
+				// video/GIF frames (trailer mode): half size, uncompressed -- fast
+				SDL_Surface *half = SDL_CreateRGBSurfaceWithFormat(0, w / 2, h / 2, 32, SDL_PIXELFORMAT_ARGB8888);
+				if (half) {
+					SDL_SetSurfaceBlendMode(shot, SDL_BLENDMODE_NONE);
+					SDL_BlitScaled(shot, NULL, half, NULL);
+					if (SDL_SaveBMP(half, req.c_str()) != 0)
+						Utils::logError("RenderDevice: could not save frame: %s", SDL_GetError());
+					SDL_FreeSurface(half);
+				}
+			}
+			else if (IMG_SavePNG(shot, req.c_str()) == 0)
+				Utils::logInfo("RenderDevice: screenshot saved to %s", req.c_str());
 			else
 				Utils::logError("RenderDevice: could not save screenshot: %s", IMG_GetError());
 		}

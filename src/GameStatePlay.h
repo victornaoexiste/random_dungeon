@@ -163,6 +163,14 @@ private:
 	WidgetLabel *banner_label;
 	// red flash when the hero takes a heavy hit (renderHurtFlash)
 	void renderHurtFlash();
+	// trailer / screenshot mode (--trailer, see trailerLogic)
+	void trailerLogic();
+	bool trailer_hud;       // F1: HUD shown
+	bool trailer_cam_lock;  // F4: camera held still
+	FPoint trailer_cam_pos;
+	int trailer_rec_frame;  // F3: >= 0 while recording GIF frames
+	std::string trailer_rec_dir;
+	int trailer_frames;
 	float hurt_last_hp;
 	int hurt_flash;
 	Sprite *hurt_overlay;

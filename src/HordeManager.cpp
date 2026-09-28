@@ -53,6 +53,7 @@ HordeManager::HordeManager()
 	, next_spawn_tick(0)
 	, wave(0)
 {
+	crowd_mult = 1.0f;
 	boss_every = 5;
 	theme_index = 0;
 	family_index = 0;
@@ -240,11 +241,12 @@ void HordeManager::spawnGroup() {
 	int want = base_count + static_cast<int>(count_per_wave * static_cast<float>(wave));
 	// co-op: bigger packs for a bigger party (+60% per extra player)
 	want = static_cast<int>(static_cast<float>(want) * (1.0f + 0.6f * static_cast<float>(players - 1)) * (theme ? theme->count_mult : 1.0f) + 0.5f);
-	want = std::max(1, want);
+	want = std::max(1, static_cast<int>(static_cast<float>(want) * crowd_mult));
 	std::string category = theme ? theme->category : "";
 	if (theme && theme->id == "family" && static_cast<size_t>(family_index) < families.size())
 		category = families[family_index].category;
-	want = std::min(want, max_alive - alive);
+	const int cap = static_cast<int>(static_cast<float>(max_alive) * crowd_mult);
+	want = std::min(want, cap - alive);
 
 	std::vector<FPoint> targets;
 	if (pc && pc->stats.alive)
@@ -259,7 +261,7 @@ void HordeManager::spawnGroup() {
 	// One group per spawn tick: all enemies share an anchor player so they
 	// arrive as a pack instead of an even ring.
 	FPoint anchor = targets[static_cast<size_t>(Math::randBetween(0, static_cast<int>(targets.size()) - 1))];
-	for (int i = 0; i < want && i < max_alive - alive; ++i)
+	for (int i = 0; i < want && i < cap - alive; ++i)
 		spawnOne(anchor, category);
 }
 

@@ -384,7 +384,8 @@ void GameSwitcher::render() {
 	if (!dynamic_cast<GameStatePlay*>(currentState))
 		GameState::renderSignature();
 	tooltipm->render();
-	curs->render();
+	if (!settings->trailer_clean || !dynamic_cast<GameStatePlay*>(currentState))
+		curs->render();
 }
 
 void GameSwitcher::saveUserSettings() {
