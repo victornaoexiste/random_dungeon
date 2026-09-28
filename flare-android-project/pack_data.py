@@ -2,7 +2,7 @@
 """
 Packs Random Dungeon's game data into the APK's assets.
 
-  python3 flare-android-project/pack_data.py
+  python3 flare-android-project/pack_data.py [--edition run|full]
 
 Writes app/src/main/assets/ with mods/<mod>/... for the mods the game uses,
 mods/mods.txt, and rd_manifest.txt (first line: a stamp that changes every
@@ -88,6 +88,16 @@ def main():
                 link(src, os.path.join(ASSETS, rel))
                 files.append(rel)
                 total += os.path.getsize(src)
+
+    # --edition run|full: which game the APK is (engine/edition.txt). The
+    # asset is a hard link to the source file: unlink before writing.
+    if '--edition' in sys.argv:
+        edition = sys.argv[sys.argv.index('--edition') + 1]
+        ed = os.path.join(ASSETS, 'mods', 'random_dungeon', 'engine', 'edition.txt')
+        if os.path.exists(ed):
+            os.remove(ed)
+        with open(ed, 'w') as f:
+            f.write('edition=%s\n' % edition)
 
     mods_txt = os.path.join(ASSETS, 'mods', 'mods.txt')
     with open(mods_txt, 'w') as f:

@@ -104,3 +104,33 @@ Run Infinita, multiplayer, Android). O jogo comercial é a edição reduzida
 - As imagens de `mods/darkfantasy_sprites` são geradas: `python3 mods/darkfantasy_sprites/tools/grade.py`.
 - `mods/ek_icons` é de uso pessoal e não faz parte do repositório.
 - Conteúdo gerado: `mods/random_dungeon/tools/gen_*.py` a partir dos CSVs.
+
+## Como testar em outra máquina
+
+**Windows / Android (mais fácil):** baixe na página *Releases* do GitHub o
+`RandomDungeon-run-win64.zip` (descompacte e abra `RandomDungeon.exe`) ou o
+`RandomDungeon.apk` (instale no celular; permita "fontes desconhecidas").
+
+**Linux (a partir do código):**
+
+```sh
+# Fedora
+sudo dnf install gcc-c++ cmake SDL2-devel SDL2_image-devel SDL2_mixer-devel SDL2_ttf-devel enet-devel python3-pillow
+# Debian/Ubuntu
+sudo apt install g++ cmake libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libenet-dev python3-pil
+
+git clone -b dev https://github.com/victornaoexiste/random_dungeon.git && cd random_dungeon
+python3 mods/darkfantasy_sprites/tools/grade.py     # gera as sprites do tema (uma vez)
+cmake -B build -DCMAKE_BUILD_TYPE=Release && make -C build -j8
+./build/flare --data-path=.
+```
+
+**Multiplayer:** todos precisam da mesma versão. Um jogador escolhe
+Multiplayer > Hospedar; os outros usam "Buscar na rede" (mesma rede local) ou
+o IP do anfitrião (porta 4650 UDP liberada no roteador/firewall para jogar
+pela internet).
+
+**Gerar os instaláveis:** `python3 distribution/windows/package_windows.py`
+(cross-compile MinGW, ver o topo do arquivo) e
+`python3 flare-android-project/pack_data.py --edition run && ./gradlew assembleDebug`
+dentro de `flare-android-project` (SDK/NDK: `setup_android_deps.sh`).

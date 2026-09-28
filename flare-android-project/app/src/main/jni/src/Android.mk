@@ -131,6 +131,7 @@ LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
 	../../../../../../src/GameStateMultiplayer.cpp \
 	../../../../../../src/HeroColors.cpp \
 	../../../../../../src/MenuRunUpgrade.cpp \
+	../../../../../../src/MenuSanctuary.cpp \
 	../../../../../../src/HordeManager.cpp \
 	../../../../../../src/MenuDevKit.cpp \
 	../../../../../../src/NetManager.cpp \
