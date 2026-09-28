@@ -42,6 +42,8 @@ ANIMS = [
     ('spawn', 6, 800, 'play_once', None),
 ]
 
+ANIMS_PROP = [('stance', 8, 900, 'looped', None)]
+
 SPECIES = {
     # cobra comum das hordas
     'jararaca': dict(mode='snake', L=78, r=4.6, r_tail=1.2, head=1.3,
@@ -95,10 +97,22 @@ SPECIES = {
                                 3: dict(pattern='none', base=(104, 72, 44), dark=(70, 48, 30), belly=(120, 86, 54)),
                                 4: dict(pattern='flat', base=(170, 255, 120), dark=(170, 255, 120), belly=(170, 255, 120))},
                      durations={'swing': 550, 'cast': 700, 'shoot': 700}),
+    # objetos do acampamento (mode 'prop': só a animação stance, em loop)
+    'camp_fogueira': dict(mode='prop', kind='campfire', L=40, r=10, r_tail=1, head=1.0, base=(0, 0, 0), dark=(0, 0, 0),
+                          belly=(0, 0, 0), eyes=None, pattern='none', period=10, canvas=(140, 150), edge=1.2, glow=(255, 130, 40),
+                          materials={1: dict(pattern='none', base=(128, 122, 112), dark=(84, 80, 74), belly=(140, 134, 124)), 2: dict(pattern='none', base=(104, 70, 42), dark=(70, 46, 28), belly=(120, 84, 52)), 3: dict(pattern='fire', base=(255, 130, 30), dark=(200, 45, 10), belly=(255, 235, 130))}),
+    'camp_portal': dict(mode='prop', kind='portal', L=40, r=12, r_tail=1, head=1.0, base=(0, 0, 0), dark=(0, 0, 0),
+                        belly=(0, 0, 0), eyes=None, pattern='none', period=10, canvas=(200, 260), edge=1.2, glow=(255, 110, 30),
+                        materials={1: dict(pattern='none', base=(128, 122, 112), dark=(84, 80, 74), belly=(140, 134, 124)), 3: dict(pattern='fire', base=(255, 130, 30), dark=(200, 45, 10), belly=(255, 235, 130))}),
+    'camp_altar': dict(mode='prop', kind='altar', L=40, r=10, r_tail=1, head=1.0, base=(0, 0, 0), dark=(0, 0, 0),
+                       belly=(0, 0, 0), eyes=None, pattern='none', period=10, canvas=(170, 230), edge=1.2, glow=(90, 170, 255),
+                       materials={1: dict(pattern='none', base=(128, 122, 112), dark=(84, 80, 74), belly=(140, 134, 124)), 2: dict(pattern='none', base=(236, 228, 206), dark=(180, 170, 150), belly=(240, 234, 216)),
+                                  3: dict(pattern='fire', base=(255, 130, 30), dark=(200, 45, 10), belly=(255, 235, 130)), 4: dict(pattern='fire', base=(90, 190, 255), dark=(30, 60, 200), belly=(220, 245, 255))}),
 }
 
 # tamanho na tela: os chefes precisam ser bem maiores que o herói
-SCALE = {'sucuri': 1.2, 'boitata': 1.5, 'cobra_grande': 1.5, 'minhocao': 1.6, 'mula': 1.6, 'saci': 1.5, 'curupira': 1.55}
+SCALE = {'sucuri': 1.2, 'boitata': 1.5, 'cobra_grande': 1.5, 'minhocao': 1.6, 'mula': 1.6, 'saci': 1.5, 'curupira': 1.55,
+         'camp_fogueira': 1.7, 'camp_portal': 1.7, 'camp_altar': 2.0}
 for _n, _k in SCALE.items():
     _sp = SPECIES[_n]
     for _key in ('L', 'r', 'r_tail', 'period'):
@@ -696,6 +710,79 @@ def biped_pose(sp, anim, f, n):
     return pose
 
 
+def prop_pose(sp, anim, f, n):
+    """Objetos do acampamento (só 'stance', em loop): fogueira, portal da horda, altar do Santuário."""
+    u = sp['r']
+    t = f / n
+    kind = sp['kind']
+    pts = []
+    sc = [0.0]
+
+    def add(a, b, z, mat, rad):
+        sc[0] += 1
+        pts.append((sc[0], a, b, z, mat, rad))
+
+    def seg(p0, p1, r0, r1, mat):
+        p0, p1 = np.array(p0, float), np.array(p1, float)
+        L = np.linalg.norm(p1 - p0)
+        k = max(2, int(L / (min(r0, r1) * 0.55)) + 1)
+        for i in range(k):
+            w = i / (k - 1)
+            q = p0 + (p1 - p0) * w
+            add(q[0], q[1], q[2], mat, r0 + (r1 - r0) * w)
+
+    def flame(x, y, z, height, width, mat, seed):
+        for i in range(8):
+            w = i / 7
+            wob = 0.35 * width * w * math.sin(2 * math.pi * (t * 2 + w * 1.2 + seed))
+            wob2 = 0.25 * width * w * math.cos(2 * math.pi * (t * 3 + w + seed * 1.7))
+            h = height * (0.85 + 0.15 * math.sin(2 * math.pi * (t + seed)))
+            add(x + wob2, y + wob, z + h * w, mat, width * (1.0 - 0.8 * w))
+
+    if kind == 'campfire':
+        for k in range(9):                                  # pedras
+            ang = k * 2 * math.pi / 9
+            add(math.cos(ang) * 1.5 * u, math.sin(ang) * 1.5 * u, 0.3 * u, 1, (0.42 + 0.06 * (k % 3)) * u)
+        for k in range(4):                                  # lenha
+            ang = k * math.pi / 2 + 0.4
+            seg((math.cos(ang) * 1.2 * u, math.sin(ang) * 1.2 * u, 0.3 * u), (0, 0, 0.9 * u), 0.26 * u, 0.2 * u, 2)
+        flame(0, 0, 0.6 * u, 2.8 * u, 0.9 * u, 3, 0.0)
+        flame(0.4 * u, 0.3 * u, 0.6 * u, 1.8 * u, 0.55 * u, 3, 0.37)
+        flame(-0.4 * u, -0.2 * u, 0.6 * u, 2.0 * u, 0.55 * u, 3, 0.71)
+    elif kind == 'portal':
+        # arco de pedra de frente para a câmera (plano b/z), redemoinho de fogo dentro
+        for sgn in (-1, 1):
+            for i in range(7):
+                add(0, sgn * 2.3 * u, (0.4 + i * 0.75) * u, 1, (0.62 - 0.03 * i) * u)
+        for i in range(11):
+            ang = math.pi * i / 10
+            add(0, -math.cos(ang) * 2.3 * u, 4.9 * u + math.sin(ang) * 1.3 * u, 1, 0.55 * u)
+        for i in range(3):                                  # degrau
+            add(0.2 * u, (i - 1) * 1.3 * u, 0.2 * u, 1, 0.6 * u)
+        N = 34
+        for k in range(N):                                  # espiral girando
+            w = k / (N - 1)
+            ang = w * 5.0 * math.pi + t * 2 * math.pi
+            rad = (1.75 - 1.5 * w) * u
+            add(0.05 * u, math.cos(ang) * rad, 3.2 * u + math.sin(ang) * rad * 1.15, 3, (0.34 + 0.18 * (1 - w)) * u)
+        add(0.1 * u, 0, 3.2 * u, 3, 0.45 * u)
+    elif kind == 'altar':
+        for i in range(3):                                  # base em degraus
+            add(0, 0, (0.3 + 0.5 * i) * u, 1, (1.5 - 0.3 * i) * u)
+        for sgn in (-1, 1):
+            add(0, sgn * 0.9 * u, 1.9 * u, 1, 0.55 * u)
+        add(0, 0, 2.1 * u, 1, 0.8 * u)                      # tampo
+        for k, (a, b) in enumerate(((0.5 * u, -0.9 * u), (0.6 * u, 0.0), (0.5 * u, 0.9 * u))):   # velas
+            seg((a, b, 2.4 * u), (a, b, 3.0 * u), 0.16 * u, 0.16 * u, 2)
+            flame(a, b, 3.1 * u, 0.5 * u, 0.13 * u, 3, k * 0.3)
+        bob = 0.3 * u * math.sin(2 * math.pi * t)          # alma azul flutuando
+        flame(0, 0, 3.4 * u + bob, 2.6 * u, 0.95 * u, 4, 0.5)
+        flame(0.3 * u, 0.4 * u, 3.6 * u + bob, 1.6 * u, 0.45 * u, 4, 0.2)
+        flame(-0.3 * u, -0.4 * u, 3.6 * u + bob, 1.8 * u, 0.45 * u, 4, 0.8)
+    pose = dict(mouth=0.0, flash=0.0, dark=0.0, clip=None, eyes=False, dust=0.0, pts=pts)
+    return pose
+
+
 # ------------------------------------------------------------------ rendering
 def pattern_mask(sp, S, NX, NY):
     """True where the darker color goes."""
@@ -995,13 +1082,14 @@ def crop(im, origin):
 
 def generate(name, sp):
     rng = np.random.default_rng(abs(hash(name)) % (2 ** 32))
-    pose_fn = {'burrow': burrow_pose, 'quad': quad_pose, 'biped': biped_pose}.get(sp['mode'], snake_pose)
+    pose_fn = {'burrow': burrow_pose, 'quad': quad_pose, 'biped': biped_pose, 'prop': prop_pose}.get(sp['mode'], snake_pose)
     frames = []  # (anim, index, dir, image, offset)
-    for anim, n, _, _, _ in ANIMS:
+    anims = ANIMS_PROP if sp['mode'] == 'prop' else ANIMS
+    for anim, n, _, _, _ in anims:
         for f in range(n):
             for d in range(8):
                 pose = pose_fn(sp, anim, f, n)
-                im, origin = render(sp, pose, d, rng)
+                im, origin = render(sp, pose, 6 if sp['mode'] == 'prop' else d, rng)
                 im, off = crop(im, origin)
                 frames.append((anim, f, d, im, off))
     # shelf packing into 2048x2048 sheets
@@ -1031,7 +1119,7 @@ def generate(name, sp):
     for k, rel in enumerate(img_rel):
         out.append('image=%s,s%d\n' % (rel, k))
     durations = sp.get('durations', {})
-    for anim, n, dur, typ, active in ANIMS:
+    for anim, n, dur, typ, active in anims:
         out.append('\n[%s]\nframes=%d\nduration=%dms\ntype=%s\n' % (anim, n, durations.get(anim, dur), typ))
         if active is not None:
             out.append('active_frame=%d\n' % active)
@@ -1054,7 +1142,7 @@ def preview(names):
     for name in names:
         sp = SPECIES[name]
         rng = np.random.default_rng(1)
-        pose_fn = {'burrow': burrow_pose, 'quad': quad_pose, 'biped': biped_pose}.get(sp['mode'], snake_pose)
+        pose_fn = {'burrow': burrow_pose, 'quad': quad_pose, 'biped': biped_pose, 'prop': prop_pose}.get(sp['mode'], snake_pose)
         tiles = []
         for anim, f, n, d in [('stance', 0, 4, 6), ('stance', 0, 4, 3), ('run', 2, 8, 7), ('run', 5, 8, 4),
                               ('swing', 0, 4, 5), ('swing', 2, 4, 5), ('cast', 2, 4, 6), ('die', 5, 6, 6),

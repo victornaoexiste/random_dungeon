@@ -538,7 +538,7 @@ void MenuDevKit::selfTest() {
 	}
 	else if (t == 240) {
 		tab = TAB_CLASS;
-		list_classes->select(0); // Warrior: may use the Silver Longsword (slayer test below)
+		list_classes->select(0); // Cangaceiro (was Warrior): may use the Silver Longsword (slayer test below)
 		std::string before = pc->stats.character_class;
 		changeClass();
 		Utils::logInfo("DevKit selftest: class %s -> %s, powers=%u", before.c_str(), pc->stats.character_class.c_str(), static_cast<unsigned>(pc->stats.powers_list.size()));

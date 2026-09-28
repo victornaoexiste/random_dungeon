@@ -640,11 +640,11 @@ msgstr "Cinturão da Agilidade"
 msgid "Girdle of Intellect"
 msgstr "Cinturão do Intelecto"
 
-msgid "Girdle of the Warrior"
-msgstr "Cinturão do Guerreiro"
+msgid "Cangaceiro Belt"
+msgstr "Cinturão de Cangaceiro"
 
-msgid "Girdle of the Rogue"
-msgstr "Cinturão do Ladino"
+msgid "Mateiro Belt"
+msgstr "Cinturão de Mateiro"
 
 msgid "Girdle of Supreme Intellect"
 msgstr "Cinturão do Intelecto Supremo"
@@ -880,29 +880,29 @@ msgstr "Conjunto Ashen"
 msgid "Blessed Platemail Set"
 msgstr "Conjunto Blessed Platemail"
 
-msgid "Warrior"
-msgstr "Guerreiro"
+msgid "Cangaceiro"
+msgstr "Cangaceiro"
 
-msgid "Rogue"
-msgstr "Ladino"
+msgid "Mateiro"
+msgstr "Mateiro"
 
-msgid "Cleric"
-msgstr "Clérigo"
+msgid "Benzedeiro"
+msgstr "Benzedeiro"
 
-msgid "Mage"
-msgstr "Mago"
+msgid "Feiticeiro"
+msgstr "Feiticeiro"
 
-msgid "Warriors rely on physical strength, heavy armor and big weapons. Primary attribute: Physical"
-msgstr "Guerreiros confiam na força física, armaduras pesadas e armas grandes. Atributo principal: Físico"
+msgid "Outlaws of the sertão: heavy blows, leather armor and pure grit. Primary attribute: Physical"
+msgstr "Fora-da-lei do sertão: golpes pesados, gibão de couro e muita coragem. Atributo principal: Físico"
 
-msgid "Rogues strike fast and silent with daggers, and shoot from afar with bows. Primary attribute: Offense"
-msgstr "Ladinos golpeiam rápido e em silêncio com adagas, e atiram de longe com arcos. Atributo principal: Ataque"
+msgid "Backwoods hunters: they strike fast with knives and shoot from afar with bows. Primary attribute: Offense"
+msgstr "Caçadores do mato: golpeiam rápido com facas e atiram de longe com arcos. Atributo principal: Ataque"
 
-msgid "Clerics fight with mace and shield and heal themselves with holy magic. Primary attributes: Mental and Physical"
-msgstr "Clérigos lutam com maça e escudo e se curam com magia sagrada. Atributos principais: Mental e Físico"
+msgid "Folk healers who fight with club and shield and cure with prayers and blessings. Primary attributes: Mental and Physical"
+msgstr "Benzedeiros lutam com porrete e escudo e curam com rezas e bênçãos. Atributos principais: Mental e Físico"
 
-msgid "Mages cast powerful spells from a distance. Primary attribute: Mental"
-msgstr "Magos lançam feitiços poderosos à distância. Atributo principal: Mental"
+msgid "Sorcerers who cast powerful spells from a distance. Primary attribute: Mental"
+msgstr "Feiticeiros lançam feitiços poderosos à distância. Atributo principal: Mental"
 
 msgid "Holy Strike"
 msgstr "Golpe Sagrado"

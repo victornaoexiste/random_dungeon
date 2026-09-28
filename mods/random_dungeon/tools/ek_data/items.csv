@@ -4,191 +4,191 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5002,Silver Dagger,Adaga de Prata,items/base/weapons/melee/dagger.txt,6,common,melee,10,28,,,0,silver,crit:3,138,/wiki/images/9/95/Weapon_dagger_white.png,,undead:25,
 5003,Bluesteel Dagger,Adaga de Aço Azul,items/base/weapons/melee/dagger.txt,9,common,melee,12,42,,,0,bluesteel,crit:3,232,/wiki/images/2/2c/Weapon_dagger2.png,,,
 5004,Adamantite Dagger,Adaga de Adamantita,items/base/weapons/melee/dagger.txt,13,rare,melee,18,63,,,0,adamantite,crit:5,1511,/wiki/images/2/2c/Weapon_dagger2.png,extrapolated,,
-5005,Iron Shortsword,Espada Curta de Ferro,items/base/weapons/melee/shortsword.txt,1,common,melee,4,13,,,0,iron,crit:2,25,/wiki/images/a/a3/Weapon_shortsword.png,,,Warrior;Rogue
-5006,Steel Shortsword,Espada Curta de Aço,items/base/weapons/melee/shortsword.txt,4,common,melee,10,23,,,0,,crit:2,85,/wiki/images/e/ea/Weapon_shortsword1.png,,,Warrior;Rogue
-5007,Silver Shortsword,Espada Curta de Prata,items/base/weapons/melee/shortsword.txt,6,common,melee,13,29,,,0,silver,crit:2,138,/wiki/images/5/58/Weapon_shortsword_white.png,,undead:25,Warrior;Rogue
-5008,Bluesteel Shortsword,Espada Curta de Aço Azul,items/base/weapons/melee/shortsword.txt,9,common,melee,16,44,,,0,bluesteel,crit:2,232,/wiki/images/a/a8/Weapon_shortsword2.png,,,Warrior;Rogue
-5009,Adamantite Shortsword,Espada Curta de Adamantita,items/base/weapons/melee/shortsword.txt,13,rare,melee,35,54,,,0,adamantite,crit:4,1511,/wiki/images/a/a8/Weapon_shortsword2.png,,demon:30,Warrior;Rogue
-5010,Iron Longsword,Espada Longa de Ferro,items/base/weapons/melee/longsword.txt,1,common,melee,7,13,,,0,iron,crit:2,25,/wiki/images/9/96/Weapon_longsword.png,,,Warrior;Rogue
-5011,Steel Longsword,Espada Longa de Aço,items/base/weapons/melee/longsword.txt,4,common,melee,14,24,,,0,,crit:2,85,/wiki/images/f/f3/Weapon_longsword1.png,,,Warrior;Rogue
-5012,Silver Longsword,Espada Longa de Prata,items/base/weapons/melee/longsword.txt,6,common,melee,17,31,,,0,silver,crit:2,138,/wiki/images/e/ee/Weapon_longsword_white.png,,undead:25,Warrior;Rogue
-5013,Bluesteel Longsword,Espada Longa de Aço Azul,items/base/weapons/melee/longsword.txt,9,common,melee,23,45,,,0,bluesteel,crit:2,232,/wiki/images/0/01/Weapon_longsword2.png,,,Warrior;Rogue
-5014,Adamantite Longsword,Espada Longa de Adamantita,items/base/weapons/melee/longsword.txt,13,rare,melee,41,60,,,0,adamantite,crit:4,1511,/wiki/images/0/01/Weapon_longsword2.png,,demon:40,Warrior;Rogue
-5015,Iron Greatsword,Espadão de Ferro,items/base/weapons/melee/greatsword.txt,1,common,melee,7,21,,,1,iron,,25,/wiki/images/b/bb/Weapon_greatsword.png,,,Warrior
-5016,Steel Greatsword,Espadão de Aço,items/base/weapons/melee/greatsword.txt,4,common,melee,15,38,,,1,,,85,/wiki/images/b/bb/Weapon_greatsword.png,,,Warrior
-5017,Silver Greatsword,Espadão de Prata,items/base/weapons/melee/greatsword.txt,6,common,melee,18,48,,,1,silver,,138,/wiki/images/b/bb/Weapon_greatsword_white.png,,undead:25,Warrior
-5018,Bluesteel Greatsword,Espadão de Aço Azul,items/base/weapons/melee/greatsword.txt,9,common,melee,27,68,,,1,bluesteel,,232,/wiki/images/6/64/Weapon_greatsword2.png,,,Warrior
-5019,Adamantite Greatsword,Espadão de Adamantita,items/base/weapons/melee/greatsword.txt,13,rare,melee,52,89,,,1,adamantite,crit:2,1511,/wiki/images/7/72/Weapon_greatsw_bl.png,,demon:50,Warrior
-5020,Iron Axe,Machado de Ferro,items/base/weapons/melee/hand_axe.txt,1,common,melee,4,16,,,0,iron,crit:3,25,/wiki/images/7/7c/Axe3.png,,,Warrior;Rogue
-5021,Steel Axe,Machado de Aço,items/base/weapons/melee/hand_axe.txt,4,common,melee,6,32,,,0,,crit:3,85,/wiki/images/3/36/Axe1.png,,,Warrior;Rogue
-5022,Bluesteel Axe,Machado de Aço Azul,items/base/weapons/melee/hand_axe.txt,9,common,melee,13,53,,,0,bluesteel,crit:2,232,/wiki/images/f/fa/Axe2.png,,,Warrior;Rogue
-5023,Adamantite Axe,Machado de Adamantita,items/base/weapons/melee/hand_axe.txt,13,rare,melee,20,79,,,0,adamantite,crit:4,1511,/wiki/images/f/fa/Axe2.png,extrapolated,,Warrior;Rogue
-5024,Iron Greataxe,Machado de Guerra de Ferro,items/base/weapons/melee/battle_axe.txt,1,common,melee,6,23,,,1,iron,crit:2,25,/wiki/images/c/c3/Battleaxe3.png,,,Warrior
-5025,Steel Greataxe,Machado de Guerra de Aço,items/base/weapons/melee/battle_axe.txt,4,common,melee,9,46,,,1,,,85,/wiki/images/8/81/Battleaxe1.png,,,Warrior
-5026,Bluesteel Greataxe,Machado de Guerra de Aço Azul,items/base/weapons/melee/battle_axe.txt,9,common,melee,10,89,,,1,bluesteel,,232,/wiki/images/9/90/Battleaxe2.png,,,Warrior
-5027,Adamantite Greataxe,Machado de Guerra de Adamantita,items/base/weapons/melee/battle_axe.txt,13,rare,melee,15,132,,,1,adamantite,crit:2,1511,/wiki/images/9/90/Battleaxe2.png,extrapolated,,Warrior
-5028,Iron Mace,Maça de Ferro,items/base/weapons/melee/mace.txt,1,common,melee,8,11,,,0,iron,,25,/wiki/images/1/1e/Weapon_mace1.png,,,Warrior;Cleric
-5029,Steel Mace,Maça de Aço,items/base/weapons/melee/mace.txt,4,common,melee,15,21,,,0,,,85,/wiki/images/5/55/Weapon_mace2.png,,,Warrior;Cleric
-5030,Silver Mace,Maça de Prata,items/base/weapons/melee/mace.txt,6,common,melee,19,26,,,0,silver,,138,/wiki/images/d/d9/Weapon_mace_white.png,,undead:25,Warrior;Cleric
-5031,Bluesteel Mace,Maça de Aço Azul,items/base/weapons/melee/mace.txt,9,common,melee,26,39,,,0,bluesteel,,232,/wiki/images/8/89/Weapon_mace_blue.png,,,Warrior;Cleric
-5032,Adamantite Mace,Maça de Adamantita,items/base/weapons/melee/mace.txt,13,rare,melee,38,58,,,0,adamantite,crit:2,1511,/wiki/images/8/89/Weapon_mace_blue.png,extrapolated,,Warrior;Cleric
-5033,Iron Hammer,Martelo de Ferro,items/base/weapons/melee/war_hammer.txt,1,common,melee,8,10,,,0,iron,crit:2,25,/wiki/images/3/36/Hammer3.png,,,Warrior;Cleric
-5034,Steel Hammer,Martelo de Aço,items/base/weapons/melee/war_hammer.txt,4,common,melee,16,19,,,0,,crit:2,85,/wiki/images/7/79/Hammer1.png,,,Warrior;Cleric
-5035,Bluesteel Hammer,Martelo de Aço Azul,items/base/weapons/melee/war_hammer.txt,9,common,melee,26,36,,,0,bluesteel,crit:2,232,/wiki/images/b/b6/Hammer2.png,,,Warrior;Cleric
-5036,Adamantite Hammer,Martelo de Adamantita,items/base/weapons/melee/war_hammer.txt,13,rare,melee,39,54,,,0,adamantite,crit:4,1511,/wiki/images/b/b6/Hammer2.png,extrapolated,,Warrior;Cleric
-5037,Iron Maul,Marreta de Ferro,items/base/weapons/melee/maul.txt,1,common,melee,8,20,,,1,iron,,25,/wiki/images/9/98/Maul3.png,,,Warrior;Cleric
-5038,Steel Maul,Marreta de Aço,items/base/weapons/melee/maul.txt,4,common,melee,16,37,,,1,,,85,/wiki/images/4/41/Maul1.png,,,Warrior;Cleric
-5039,Bluesteel Maul,Marreta de Aço Azul,items/base/weapons/melee/maul.txt,9,common,melee,29,66,,,1,bluesteel,,232,/wiki/images/2/20/Maul2.png,,,Warrior;Cleric
-5040,Adamantite Maul,Marreta de Adamantita,items/base/weapons/melee/maul.txt,13,rare,melee,43,99,,,1,adamantite,crit:2,1511,/wiki/images/2/20/Maul2.png,extrapolated,,Warrior;Cleric
-5100,Goblin Gutter,Estripadora Goblin,items/base/weapons/melee/dagger.txt,2,common,melee,6,15,,,0,,crit:3,41,/wiki/images/9/96/Weapon_dagger4.png,,,Rogue
+5005,Iron Shortsword,Espada Curta de Ferro,items/base/weapons/melee/shortsword.txt,1,common,melee,4,13,,,0,iron,crit:2,25,/wiki/images/a/a3/Weapon_shortsword.png,,,Cangaceiro;Mateiro
+5006,Steel Shortsword,Espada Curta de Aço,items/base/weapons/melee/shortsword.txt,4,common,melee,10,23,,,0,,crit:2,85,/wiki/images/e/ea/Weapon_shortsword1.png,,,Cangaceiro;Mateiro
+5007,Silver Shortsword,Espada Curta de Prata,items/base/weapons/melee/shortsword.txt,6,common,melee,13,29,,,0,silver,crit:2,138,/wiki/images/5/58/Weapon_shortsword_white.png,,undead:25,Cangaceiro;Mateiro
+5008,Bluesteel Shortsword,Espada Curta de Aço Azul,items/base/weapons/melee/shortsword.txt,9,common,melee,16,44,,,0,bluesteel,crit:2,232,/wiki/images/a/a8/Weapon_shortsword2.png,,,Cangaceiro;Mateiro
+5009,Adamantite Shortsword,Espada Curta de Adamantita,items/base/weapons/melee/shortsword.txt,13,rare,melee,35,54,,,0,adamantite,crit:4,1511,/wiki/images/a/a8/Weapon_shortsword2.png,,demon:30,Cangaceiro;Mateiro
+5010,Iron Longsword,Espada Longa de Ferro,items/base/weapons/melee/longsword.txt,1,common,melee,7,13,,,0,iron,crit:2,25,/wiki/images/9/96/Weapon_longsword.png,,,Cangaceiro;Mateiro
+5011,Steel Longsword,Espada Longa de Aço,items/base/weapons/melee/longsword.txt,4,common,melee,14,24,,,0,,crit:2,85,/wiki/images/f/f3/Weapon_longsword1.png,,,Cangaceiro;Mateiro
+5012,Silver Longsword,Espada Longa de Prata,items/base/weapons/melee/longsword.txt,6,common,melee,17,31,,,0,silver,crit:2,138,/wiki/images/e/ee/Weapon_longsword_white.png,,undead:25,Cangaceiro;Mateiro
+5013,Bluesteel Longsword,Espada Longa de Aço Azul,items/base/weapons/melee/longsword.txt,9,common,melee,23,45,,,0,bluesteel,crit:2,232,/wiki/images/0/01/Weapon_longsword2.png,,,Cangaceiro;Mateiro
+5014,Adamantite Longsword,Espada Longa de Adamantita,items/base/weapons/melee/longsword.txt,13,rare,melee,41,60,,,0,adamantite,crit:4,1511,/wiki/images/0/01/Weapon_longsword2.png,,demon:40,Cangaceiro;Mateiro
+5015,Iron Greatsword,Espadão de Ferro,items/base/weapons/melee/greatsword.txt,1,common,melee,7,21,,,1,iron,,25,/wiki/images/b/bb/Weapon_greatsword.png,,,Cangaceiro
+5016,Steel Greatsword,Espadão de Aço,items/base/weapons/melee/greatsword.txt,4,common,melee,15,38,,,1,,,85,/wiki/images/b/bb/Weapon_greatsword.png,,,Cangaceiro
+5017,Silver Greatsword,Espadão de Prata,items/base/weapons/melee/greatsword.txt,6,common,melee,18,48,,,1,silver,,138,/wiki/images/b/bb/Weapon_greatsword_white.png,,undead:25,Cangaceiro
+5018,Bluesteel Greatsword,Espadão de Aço Azul,items/base/weapons/melee/greatsword.txt,9,common,melee,27,68,,,1,bluesteel,,232,/wiki/images/6/64/Weapon_greatsword2.png,,,Cangaceiro
+5019,Adamantite Greatsword,Espadão de Adamantita,items/base/weapons/melee/greatsword.txt,13,rare,melee,52,89,,,1,adamantite,crit:2,1511,/wiki/images/7/72/Weapon_greatsw_bl.png,,demon:50,Cangaceiro
+5020,Iron Axe,Machado de Ferro,items/base/weapons/melee/hand_axe.txt,1,common,melee,4,16,,,0,iron,crit:3,25,/wiki/images/7/7c/Axe3.png,,,Cangaceiro;Mateiro
+5021,Steel Axe,Machado de Aço,items/base/weapons/melee/hand_axe.txt,4,common,melee,6,32,,,0,,crit:3,85,/wiki/images/3/36/Axe1.png,,,Cangaceiro;Mateiro
+5022,Bluesteel Axe,Machado de Aço Azul,items/base/weapons/melee/hand_axe.txt,9,common,melee,13,53,,,0,bluesteel,crit:2,232,/wiki/images/f/fa/Axe2.png,,,Cangaceiro;Mateiro
+5023,Adamantite Axe,Machado de Adamantita,items/base/weapons/melee/hand_axe.txt,13,rare,melee,20,79,,,0,adamantite,crit:4,1511,/wiki/images/f/fa/Axe2.png,extrapolated,,Cangaceiro;Mateiro
+5024,Iron Greataxe,Machado de Guerra de Ferro,items/base/weapons/melee/battle_axe.txt,1,common,melee,6,23,,,1,iron,crit:2,25,/wiki/images/c/c3/Battleaxe3.png,,,Cangaceiro
+5025,Steel Greataxe,Machado de Guerra de Aço,items/base/weapons/melee/battle_axe.txt,4,common,melee,9,46,,,1,,,85,/wiki/images/8/81/Battleaxe1.png,,,Cangaceiro
+5026,Bluesteel Greataxe,Machado de Guerra de Aço Azul,items/base/weapons/melee/battle_axe.txt,9,common,melee,10,89,,,1,bluesteel,,232,/wiki/images/9/90/Battleaxe2.png,,,Cangaceiro
+5027,Adamantite Greataxe,Machado de Guerra de Adamantita,items/base/weapons/melee/battle_axe.txt,13,rare,melee,15,132,,,1,adamantite,crit:2,1511,/wiki/images/9/90/Battleaxe2.png,extrapolated,,Cangaceiro
+5028,Iron Mace,Maça de Ferro,items/base/weapons/melee/mace.txt,1,common,melee,8,11,,,0,iron,,25,/wiki/images/1/1e/Weapon_mace1.png,,,Cangaceiro;Benzedeiro
+5029,Steel Mace,Maça de Aço,items/base/weapons/melee/mace.txt,4,common,melee,15,21,,,0,,,85,/wiki/images/5/55/Weapon_mace2.png,,,Cangaceiro;Benzedeiro
+5030,Silver Mace,Maça de Prata,items/base/weapons/melee/mace.txt,6,common,melee,19,26,,,0,silver,,138,/wiki/images/d/d9/Weapon_mace_white.png,,undead:25,Cangaceiro;Benzedeiro
+5031,Bluesteel Mace,Maça de Aço Azul,items/base/weapons/melee/mace.txt,9,common,melee,26,39,,,0,bluesteel,,232,/wiki/images/8/89/Weapon_mace_blue.png,,,Cangaceiro;Benzedeiro
+5032,Adamantite Mace,Maça de Adamantita,items/base/weapons/melee/mace.txt,13,rare,melee,38,58,,,0,adamantite,crit:2,1511,/wiki/images/8/89/Weapon_mace_blue.png,extrapolated,,Cangaceiro;Benzedeiro
+5033,Iron Hammer,Martelo de Ferro,items/base/weapons/melee/war_hammer.txt,1,common,melee,8,10,,,0,iron,crit:2,25,/wiki/images/3/36/Hammer3.png,,,Cangaceiro;Benzedeiro
+5034,Steel Hammer,Martelo de Aço,items/base/weapons/melee/war_hammer.txt,4,common,melee,16,19,,,0,,crit:2,85,/wiki/images/7/79/Hammer1.png,,,Cangaceiro;Benzedeiro
+5035,Bluesteel Hammer,Martelo de Aço Azul,items/base/weapons/melee/war_hammer.txt,9,common,melee,26,36,,,0,bluesteel,crit:2,232,/wiki/images/b/b6/Hammer2.png,,,Cangaceiro;Benzedeiro
+5036,Adamantite Hammer,Martelo de Adamantita,items/base/weapons/melee/war_hammer.txt,13,rare,melee,39,54,,,0,adamantite,crit:4,1511,/wiki/images/b/b6/Hammer2.png,extrapolated,,Cangaceiro;Benzedeiro
+5037,Iron Maul,Marreta de Ferro,items/base/weapons/melee/maul.txt,1,common,melee,8,20,,,1,iron,,25,/wiki/images/9/98/Maul3.png,,,Cangaceiro;Benzedeiro
+5038,Steel Maul,Marreta de Aço,items/base/weapons/melee/maul.txt,4,common,melee,16,37,,,1,,,85,/wiki/images/4/41/Maul1.png,,,Cangaceiro;Benzedeiro
+5039,Bluesteel Maul,Marreta de Aço Azul,items/base/weapons/melee/maul.txt,9,common,melee,29,66,,,1,bluesteel,,232,/wiki/images/2/20/Maul2.png,,,Cangaceiro;Benzedeiro
+5040,Adamantite Maul,Marreta de Adamantita,items/base/weapons/melee/maul.txt,13,rare,melee,43,99,,,1,adamantite,crit:2,1511,/wiki/images/2/20/Maul2.png,extrapolated,,Cangaceiro;Benzedeiro
+5100,Goblin Gutter,Estripadora Goblin,items/base/weapons/melee/dagger.txt,2,common,melee,6,15,,,0,,crit:3,41,/wiki/images/9/96/Weapon_dagger4.png,,,Mateiro
 5101,Dagger of Ice,Adaga de Gelo,items/base/weapons/melee/dagger.txt,3,common,melee,6,19,,,0,,crit:3;dmg_ice_min:8;dmg_ice_max:13,62,/wiki/images/a/a6/Weapon_dagger_ice.png,,,
-5102,Dagger of Poison,Adaga Envenenada,items/base/weapons/melee/dagger.txt,3,common,melee,6,19,,,0,,crit:3;dmg_dark_min:8;dmg_dark_max:13,62,/wiki/images/8/89/Weapon_dagger_toxic.png,,,Warrior;Rogue;Cleric
+5102,Dagger of Poison,Adaga Envenenada,items/base/weapons/melee/dagger.txt,3,common,melee,6,19,,,0,,crit:3;dmg_dark_min:8;dmg_dark_max:13,62,/wiki/images/8/89/Weapon_dagger_toxic.png,,,Cangaceiro;Mateiro;Benzedeiro
 5103,Shock Dagger,Adaga de Choque,items/base/weapons/melee/dagger.txt,3,common,melee,6,19,,,0,,crit:3;dmg_lightning_min:8;dmg_lightning_max:13,62,/wiki/images/0/0e/Weapon_dagger_shock.png,,,
-5104,Hunter's Fang,Presa do Caçador,items/base/weapons/melee/dagger.txt,4,common,melee,9,21,,,0,,crit:2,85,/wiki/images/e/ea/Weapon_shortsword1.png,,beast:15,Warrior;Rogue;Cleric
-5105,Sharp Orc Knife,Faca Orc Afiada,items/base/weapons/melee/dagger.txt,4,common,melee,10,20,,,0,,crit:5,85,/wiki/images/1/14/Weapon_dagger3.png,,,Rogue
-5106,Shortsword of Frost,Espada Curta do Gelo,items/base/weapons/melee/shortsword.txt,5,common,melee,11,28,,,0,,crit:2;dmg_ice_min:7;dmg_ice_max:11,110,/wiki/images/9/9e/Weapon_shortsword_ice.png,,,Warrior;Rogue
-5107,Thief's Blade,Lâmina do Ladrão,items/base/weapons/melee/shortsword.txt,5,common,melee,14,25,,,0,,crit:3,110,/wiki/images/1/14/Weapon_dagger3.png,,,Rogue
-5108,Pirate Cutlass,Cutelo Pirata,items/base/weapons/melee/shortsword.txt,6,common,melee,15,29,,,0,,crit:8,138,/wiki/images/0/0e/Weapon_falchion.png,,,Warrior;Rogue
-5109,Sword of Flames,Espada das Chamas,items/base/weapons/melee/longsword.txt,6,uncommon,melee,18,37,,,0,,dmg_fire_min:8;dmg_fire_max:14,276,/wiki/images/7/76/Weapon_sword_long_flaming.png,,,Warrior;Rogue
-5110,Sword of Shock,Espada do Choque,items/base/weapons/melee/longsword.txt,6,common,melee,17,33,,,0,,crit:2;dmg_lightning_min:8;dmg_lightning_max:12,138,/wiki/images/3/3c/Weapon_longsword_shock.png,,,Warrior;Rogue
-5111,Greenskin Bane,Ruína dos Peles-verdes,items/base/weapons/melee/longsword.txt,7,common,melee,20,36,,,0,,,167,/wiki/images/d/de/Weapon_sword_long_magic2.png,,greenskin:30,Warrior;Rogue
-5112,Blazecleaver,Fende-Chamas,items/base/weapons/melee/hand_axe.txt,7,common,melee,8,46,,,0,,crit:3;dmg_fire_min:5;dmg_fire_max:8,167,/wiki/images/7/7c/Axe3.png,,,Warrior;Rogue
-5113,Lightning Axe,Machado Relâmpago,items/base/weapons/melee/hand_axe.txt,7,common,melee,8,46,,,0,,crit:3;dmg_lightning_min:5;dmg_lightning_max:8,167,/wiki/images/f/fa/Axe2.png,,,Warrior;Rogue
-5114,Heavy Scimitar,Cimitarra Pesada,items/base/weapons/melee/greatsword.txt,8,common,melee,26,61,,,1,,crit:3,199,/wiki/images/d/d8/Weapon_scimitar.png,,,Warrior
-5115,Bone Mace,Maça de Osso,items/base/weapons/melee/mace.txt,8,common,melee,25,34,,,0,,,199,/wiki/images/0/0d/Weapon_bone_mace.png,,,Warrior;Cleric
-5116,Hammer of Corrosion,Martelo da Corrosão,items/base/weapons/melee/war_hammer.txt,8,common,melee,26,31,,,0,,crit:2;dmg_dark_min:12;dmg_dark_max:21,199,/wiki/images/9/9a/Weapon_hammer_corrosion.png,,,Warrior;Cleric
-5117,Icy Greatsword,Espadão Gélido,items/base/weapons/melee/greatsword.txt,9,common,melee,26,69,,,1,,dmg_ice_min:13;dmg_ice_max:21,232,/wiki/images/7/7a/Weapon_greatsword_ice.png,,,Warrior
-5118,Icy Maul,Marreta Gélida,items/base/weapons/melee/maul.txt,9,common,melee,29,67,,,1,,dmg_ice_min:9;dmg_ice_max:14,232,/wiki/images/2/20/Maul2.png,,,Warrior;Cleric
-5119,Screaming Mace,Maça Uivante,items/base/weapons/melee/mace.txt,9,common,melee,28,36,,,0,,dmg_dark_min:10;dmg_dark_max:16;crit:3,232,/wiki/images/0/0c/Skull_Mace.png,,,Warrior;Cleric
-5120,Verdict,Veredito,items/base/weapons/melee/longsword.txt,9,uncommon,melee,27,48,,,0,,crit:2;dmg_fire_min:16;dmg_fire_max:27,463,/wiki/images/7/76/Weapon_sword_long_flaming.png,,demon:30;undead:55,Warrior;Rogue;Cleric
-5121,Lightning Greataxe,Machado de Guerra Relâmpago,items/base/weapons/melee/battle_axe.txt,10,common,melee,18,89,,,1,,dmg_lightning_min:14;dmg_lightning_max:24,266,/wiki/images/9/90/Battleaxe2.png,,,Warrior
-5122,Minotaur Axe,Machado do Minotauro,items/base/weapons/melee/battle_axe.txt,10,uncommon,melee,15,103,,,1,,,532,/wiki/images/8/81/Battleaxe1.png,,,Warrior
-5123,Bone Maul,Marreta de Osso,items/base/weapons/melee/maul.txt,10,common,melee,37,67,,,1,,,266,/wiki/images/5/54/Weapon_maul_bone.png,,,Warrior;Cleric
-5124,Magma Shortsword,Espada Curta de Magma,items/base/weapons/melee/shortsword.txt,10,uncommon,melee,20,52,,,0,,crit:2;dmg_fire_min:20;dmg_fire_max:33,532,/wiki/images/3/3d/Weapon_shortsword_fire.png,,,Warrior;Rogue
-5125,Magma Dagger,Adaga de Magma,items/base/weapons/melee/dagger.txt,10,uncommon,melee,18,47,,,0,,crit:3;dmg_fire_min:18;dmg_fire_max:30,532,/wiki/images/8/82/Weapon_Dagger_Fire.png,,,Warrior;Rogue
-5126,Magma Longsword,Espada Longa de Magma,items/base/weapons/melee/longsword.txt,11,common,melee,29,51,,,0,,crit:2;dmg_fire_min:17;dmg_fire_max:29,302,/wiki/images/7/76/Weapon_sword_long_flaming.png,,,Warrior;Rogue
-5127,Executioner's Axe,Machado do Carrasco,items/base/weapons/melee/battle_axe.txt,11,common,melee,14,102,,,1,,crit:6,302,/wiki/images/8/81/Battleaxe1.png,,,Warrior
-5128,Lightning Blade,Lâmina Relâmpago,items/base/weapons/melee/longsword.txt,12,uncommon,melee,33,61,,,0,,crit:2;dmg_lightning_min:17;dmg_lightning_max:28,678,/wiki/images/3/3c/Weapon_longsword_shock.png,,,Warrior;Rogue
-5129,Spirit Reaver,Ceifador de Espíritos,items/base/weapons/melee/hand_axe.txt,12,uncommon,melee,19,74,,,0,,crit:3;dmg_dark_min:15;dmg_dark_max:25,678,/wiki/images/e/e9/Wpn_axe_soul.png,,,Warrior;Rogue
-5130,Lifedrinker,Bebe-Vida,items/base/weapons/melee/battle_axe.txt,14,uncommon,melee,27,129,,,1,,dmg_dark_min:24;dmg_dark_max:41,835,/wiki/images/8/8c/Battleaxe4.png,,beast:30,Warrior
-5131,Short Bow,Arco Curto,items/base/weapons/ranged/shortbow.txt,1,common,ranged,4,16,,,0,,crit:2,25,/wiki/images/3/3c/Weapon_shortbow.png,,,Warrior;Rogue
-5132,Hunting Bow,Arco de Caça,items/base/weapons/ranged/shortbow.txt,3,common,ranged,8,24,,,0,,,62,/wiki/images/6/61/Weapon_bow.png,,,Warrior;Rogue
-5133,Oaken Bow,Arco de Carvalho,items/base/weapons/ranged/longbow.txt,5,common,ranged,13,35,,,0,,,110,/wiki/images/6/61/Weapon_bow.png,,,Warrior;Rogue
-5134,Silver Bow,Arco de Prata,items/base/weapons/ranged/longbow.txt,7,common,ranged,15,46,,,0,silver,,167,/wiki/images/3/3c/Weapon_shortbow.png,,undead:25,Warrior;Rogue
-5135,Frost Bow,Arco do Gelo,items/base/weapons/ranged/longbow.txt,8,common,ranged,17,51,,,0,,dmg_ice_min:10;dmg_ice_max:17,199,/wiki/images/c/cd/Weapon_bow_ice.png,,,Warrior;Rogue
-5136,Poisonous Longbow,Arco Longo Venenoso,items/base/weapons/ranged/longbow.txt,11,uncommon,ranged,32,65,,,0,,dmg_dark_min:19;dmg_dark_max:32;crit:3,604,/wiki/images/f/f6/Weapon_bow_toxic2.png,,,Rogue
-5137,Skeletal Bow,Arco Esquelético,items/base/weapons/ranged/greatbow.txt,12,common,ranged,31,72,,,0,,crit:2;dmg_dark_min:25;dmg_dark_max:41,339,/wiki/images/5/5d/Skeletal_Bow1.png,,,Warrior;Rogue
-5138,Oak Wand,Varinha de Carvalho,items/base/weapons/magic/wand.txt,1,common,ment,7,13,,,0,,crit:2,25,/wiki/images/7/7b/Wand1.png,,,Mage
-5139,Staff of Force,Cajado da Força,items/base/weapons/magic/staff.txt,3,common,ment,14,23,,,0,,,62,/wiki/images/7/70/Staff0.png,,,Mage
-5140,Elm Wand,Varinha de Olmo,items/base/weapons/magic/wand.txt,4,common,ment,13,25,,,0,,crit:2,85,/wiki/images/7/7b/Wand1.png,,,Mage
-5141,Caduceus of Scorching,Caduceu Escaldante,items/base/weapons/magic/staff.txt,6,common,ment,21,37,,,0,,mp:8,138,/wiki/images/4/4e/Staff3.png,,,Mage
-5142,Staff of Mighty Missiles,Cajado dos Mísseis,items/base/weapons/magic/staff.txt,7,common,ment,24,41,,,0,,,167,/wiki/images/b/bf/Staff1.png,,,Mage
-5143,Rod of Incineration,Bastão da Incineração,items/base/weapons/magic/rod.txt,8,common,ment,23,42,,,0,,crit:2;mp:16,199,/wiki/images/c/cd/Wand7.png,,,Mage
-5144,Staff of Storms,Cajado das Tempestades,items/base/weapons/magic/staff.txt,9,common,ment,24,54,,,0,,dmg_lightning_min:11;dmg_lightning_max:18,232,/wiki/images/b/bf/Staff1.png,,,Mage
-5145,Staff of the Arcanist,Cajado do Arcanista,items/base/weapons/magic/greatstaff.txt,11,uncommon,ment,42,73,,,1,,mp:24,604,/wiki/images/6/67/Wand11.png,,,Mage
-5146,Magma Greatstaff,Grande Cajado de Magma,items/base/weapons/magic/greatstaff.txt,14,uncommon,ment,49,91,,,1,,crit:2;mp:24,835,/wiki/images/5/5d/Greatstaff_red.png,,,Mage
-5500,Stiletto,Estilete,items/base/weapons/melee/dagger.txt,8,unique,melee,17,45,,,0,,crit:9;dmg_dark_min:17;dmg_dark_max:28,1590,/wiki/images/8/82/Wpn_dagger_stiletto.png,,,Rogue
-5501,Hammer of the Pale Abbot,Martelo do Abade Pálido,items/base/weapons/melee/war_hammer.txt,8,unique,melee,31,41,,,0,,crit:2;dmg_ice_min:9;dmg_ice_max:15,1590,/wiki/images/b/b9/Silver_Hammer.png,,demon:20;undead:45,Warrior;Rogue;Cleric
-5502,Frostlament,Lamento Gélido,items/base/weapons/melee/longsword.txt,9,unique,melee,28,57,,,0,,crit:2;dmg_ice_min:17;dmg_ice_max:28,1854,/wiki/images/6/60/Weapon_longsword_ice.png,,,Warrior;Rogue
-5503,Barbed Spite,Rancor Farpado,items/base/weapons/melee/greatsword.txt,10,unique,melee,37,92,,,1,,dmg_fire_min:15;dmg_fire_max:25;crit:3,2130,/wiki/images/b/bb/Weapon_greatsword.png,,,Warrior
-5504,Emberbite,Mordida de Brasa,items/base/weapons/melee/hand_axe.txt,10,unique,melee,18,73,,,0,,crit:3;dmg_fire_min:18;dmg_fire_max:30,2130,/wiki/images/f/ff/Weapon_axe_fire.png,,,Warrior;Rogue
-5505,Ironbound Fist,Punho Blindado,items/base/weapons/melee/mace.txt,10,unique,melee,39,49,,,0,,crit:6;dmg_dark_min:12;dmg_dark_max:20,2130,/wiki/images/0/0c/Skull_Mace.png,,,Warrior;Cleric
-5506,Hollow Sorrow,Pesar Oco,items/base/weapons/melee/war_hammer.txt,10,unique,melee,36,49,,,0,,crit:8;dmg_dark_min:15;dmg_dark_max:24,2130,/wiki/images/9/9a/Weapon_hammer_corrosion.png,,,Warrior;Rogue;Cleric
-5507,Mountainbreaker,Quebra-Montanhas,items/base/weapons/melee/maul.txt,10,unique,melee,40,89,,,1,,,2130,/wiki/images/f/f4/Maul.png,,,Warrior;Cleric
-5508,Hornbow,Arco de Chifre,items/base/weapons/ranged/greatbow.txt,10,unique,ranged,42,69,,,0,,,2130,/wiki/images/f/fd/Wpn_bow_comp.png,,,Warrior;Rogue
-5509,Heart of the Brood,Coração da Ninhada,items/base/weapons/melee/dagger.txt,12,unique,melee,29,57,,,0,,crit:3;dmg_ice_min:17;dmg_ice_max:29,2714,/wiki/images/a/a6/Weapon_dagger_ice.png,,demon:20,Rogue
-5510,Wildfire Edge,Fio do Incêndio,items/base/weapons/melee/shortsword.txt,12,unique,melee,27,68,,,0,,crit:8;dmg_fire_min:28;dmg_fire_max:47,2714,/wiki/images/8/82/Weapon_Dagger_Fire.png,,,Warrior;Rogue
-5511,Oathkeeper's Blade,Lâmina do Juramento,items/base/weapons/melee/longsword.txt,12,unique,melee,41,67,,,0,,crit:2;dmg_dark_min:22;dmg_dark_max:36,2714,/wiki/images/1/1c/Weapon_sword_long_magic.png,,beast:45,Warrior;Rogue
-5512,Skullcrusher,Esmaga-Crânios,items/base/weapons/melee/maul.txt,12,unique,melee,50,100,,,1,,dmg_lightning_min:26;dmg_lightning_max:44,2714,/wiki/images/8/8b/Wpn_maul_garack.png,,undead:25,Warrior;Cleric
-5513,Stag's Heirloom,Relíquia do Cervo,items/base/weapons/melee/longsword.txt,13,unique,melee,44,71,,,0,,crit:2;dmg_ice_min:30;dmg_ice_max:49,3021,/wiki/images/6/60/Weapon_longsword_ice.png,,,Warrior;Rogue
-5514,Rimeshot,Tiro de Geada,items/base/weapons/ranged/greatbow.txt,13,unique,ranged,49,89,,,0,,dmg_ice_min:19;dmg_ice_max:32,3021,/wiki/images/4/4d/Permafrost_Bow.png,,,Warrior;Rogue
-5515,Gravecaller Scepter,Cetro Chama-Túmulos,items/base/weapons/magic/wand.txt,13,unique,ment,34,81,,,0,,crit:3;dmg_dark_min:24;dmg_dark_max:41;mp:32,3021,/wiki/images/0/09/Staff5.png,,,Mage
-5516,Duskfang,Presa do Crepúsculo,items/base/weapons/melee/shortsword.txt,14,unique,melee,34,74,,,0,,crit:12;dmg_dark_min:24;dmg_dark_max:40,3339,/wiki/images/c/c8/Weapon_dagger_death.png,,,Warrior;Rogue
-5517,Hornking's Axe,Machado do Rei Chifrudo,items/base/weapons/melee/battle_axe.txt,14,unique,melee,25,153,,,1,,dmg_lightning_min:29;dmg_lightning_max:49;crit:3,3339,/wiki/images/8/8c/Battleaxe4.png,,,Warrior
-5518,Moonless,Sem-Lua,items/base/weapons/melee/mace.txt,14,unique,melee,53,63,,,0,,dmg_dark_min:22;dmg_dark_max:37;crit:9,3339,/wiki/images/8/82/Weapon_mace_death.png,,,Warrior;Cleric
-5519,Hellhook,Gancho Infernal,items/base/weapons/melee/greatsword.txt,15,unique,melee,63,119,,,1,,dmg_fire_min:34;dmg_fire_max:56;crit:6,3665,/wiki/images/b/bb/Weapon_greatsword.png,,,Warrior
-5520,Wand of the Archmage,Varinha do Arquimago,items/base/weapons/magic/wand.txt,15,unique,ment,45,85,,,0,,crit:4;mp:40,3665,/wiki/images/8/84/Wand5.png,,,Mage
-5521,Barrow King's Staff,Cajado do Rei do Túmulo,items/base/weapons/magic/greatstaff.txt,16,unique,ment,57,121,,,1,,crit:2;mp:40,4000,/wiki/images/b/ba/Greatstaff_death.png,,,Mage
+5104,Hunter's Fang,Presa do Caçador,items/base/weapons/melee/dagger.txt,4,common,melee,9,21,,,0,,crit:2,85,/wiki/images/e/ea/Weapon_shortsword1.png,,beast:15,Cangaceiro;Mateiro;Benzedeiro
+5105,Sharp Orc Knife,Faca Orc Afiada,items/base/weapons/melee/dagger.txt,4,common,melee,10,20,,,0,,crit:5,85,/wiki/images/1/14/Weapon_dagger3.png,,,Mateiro
+5106,Shortsword of Frost,Espada Curta do Gelo,items/base/weapons/melee/shortsword.txt,5,common,melee,11,28,,,0,,crit:2;dmg_ice_min:7;dmg_ice_max:11,110,/wiki/images/9/9e/Weapon_shortsword_ice.png,,,Cangaceiro;Mateiro
+5107,Thief's Blade,Lâmina do Ladrão,items/base/weapons/melee/shortsword.txt,5,common,melee,14,25,,,0,,crit:3,110,/wiki/images/1/14/Weapon_dagger3.png,,,Mateiro
+5108,Pirate Cutlass,Cutelo Pirata,items/base/weapons/melee/shortsword.txt,6,common,melee,15,29,,,0,,crit:8,138,/wiki/images/0/0e/Weapon_falchion.png,,,Cangaceiro;Mateiro
+5109,Sword of Flames,Espada das Chamas,items/base/weapons/melee/longsword.txt,6,uncommon,melee,18,37,,,0,,dmg_fire_min:8;dmg_fire_max:14,276,/wiki/images/7/76/Weapon_sword_long_flaming.png,,,Cangaceiro;Mateiro
+5110,Sword of Shock,Espada do Choque,items/base/weapons/melee/longsword.txt,6,common,melee,17,33,,,0,,crit:2;dmg_lightning_min:8;dmg_lightning_max:12,138,/wiki/images/3/3c/Weapon_longsword_shock.png,,,Cangaceiro;Mateiro
+5111,Greenskin Bane,Ruína dos Peles-verdes,items/base/weapons/melee/longsword.txt,7,common,melee,20,36,,,0,,,167,/wiki/images/d/de/Weapon_sword_long_magic2.png,,greenskin:30,Cangaceiro;Mateiro
+5112,Blazecleaver,Fende-Chamas,items/base/weapons/melee/hand_axe.txt,7,common,melee,8,46,,,0,,crit:3;dmg_fire_min:5;dmg_fire_max:8,167,/wiki/images/7/7c/Axe3.png,,,Cangaceiro;Mateiro
+5113,Lightning Axe,Machado Relâmpago,items/base/weapons/melee/hand_axe.txt,7,common,melee,8,46,,,0,,crit:3;dmg_lightning_min:5;dmg_lightning_max:8,167,/wiki/images/f/fa/Axe2.png,,,Cangaceiro;Mateiro
+5114,Heavy Scimitar,Cimitarra Pesada,items/base/weapons/melee/greatsword.txt,8,common,melee,26,61,,,1,,crit:3,199,/wiki/images/d/d8/Weapon_scimitar.png,,,Cangaceiro
+5115,Bone Mace,Maça de Osso,items/base/weapons/melee/mace.txt,8,common,melee,25,34,,,0,,,199,/wiki/images/0/0d/Weapon_bone_mace.png,,,Cangaceiro;Benzedeiro
+5116,Hammer of Corrosion,Martelo da Corrosão,items/base/weapons/melee/war_hammer.txt,8,common,melee,26,31,,,0,,crit:2;dmg_dark_min:12;dmg_dark_max:21,199,/wiki/images/9/9a/Weapon_hammer_corrosion.png,,,Cangaceiro;Benzedeiro
+5117,Icy Greatsword,Espadão Gélido,items/base/weapons/melee/greatsword.txt,9,common,melee,26,69,,,1,,dmg_ice_min:13;dmg_ice_max:21,232,/wiki/images/7/7a/Weapon_greatsword_ice.png,,,Cangaceiro
+5118,Icy Maul,Marreta Gélida,items/base/weapons/melee/maul.txt,9,common,melee,29,67,,,1,,dmg_ice_min:9;dmg_ice_max:14,232,/wiki/images/2/20/Maul2.png,,,Cangaceiro;Benzedeiro
+5119,Screaming Mace,Maça Uivante,items/base/weapons/melee/mace.txt,9,common,melee,28,36,,,0,,dmg_dark_min:10;dmg_dark_max:16;crit:3,232,/wiki/images/0/0c/Skull_Mace.png,,,Cangaceiro;Benzedeiro
+5120,Verdict,Veredito,items/base/weapons/melee/longsword.txt,9,uncommon,melee,27,48,,,0,,crit:2;dmg_fire_min:16;dmg_fire_max:27,463,/wiki/images/7/76/Weapon_sword_long_flaming.png,,demon:30;undead:55,Cangaceiro;Mateiro;Benzedeiro
+5121,Lightning Greataxe,Machado de Guerra Relâmpago,items/base/weapons/melee/battle_axe.txt,10,common,melee,18,89,,,1,,dmg_lightning_min:14;dmg_lightning_max:24,266,/wiki/images/9/90/Battleaxe2.png,,,Cangaceiro
+5122,Minotaur Axe,Machado do Minotauro,items/base/weapons/melee/battle_axe.txt,10,uncommon,melee,15,103,,,1,,,532,/wiki/images/8/81/Battleaxe1.png,,,Cangaceiro
+5123,Bone Maul,Marreta de Osso,items/base/weapons/melee/maul.txt,10,common,melee,37,67,,,1,,,266,/wiki/images/5/54/Weapon_maul_bone.png,,,Cangaceiro;Benzedeiro
+5124,Magma Shortsword,Espada Curta de Magma,items/base/weapons/melee/shortsword.txt,10,uncommon,melee,20,52,,,0,,crit:2;dmg_fire_min:20;dmg_fire_max:33,532,/wiki/images/3/3d/Weapon_shortsword_fire.png,,,Cangaceiro;Mateiro
+5125,Magma Dagger,Adaga de Magma,items/base/weapons/melee/dagger.txt,10,uncommon,melee,18,47,,,0,,crit:3;dmg_fire_min:18;dmg_fire_max:30,532,/wiki/images/8/82/Weapon_Dagger_Fire.png,,,Cangaceiro;Mateiro
+5126,Magma Longsword,Espada Longa de Magma,items/base/weapons/melee/longsword.txt,11,common,melee,29,51,,,0,,crit:2;dmg_fire_min:17;dmg_fire_max:29,302,/wiki/images/7/76/Weapon_sword_long_flaming.png,,,Cangaceiro;Mateiro
+5127,Executioner's Axe,Machado do Carrasco,items/base/weapons/melee/battle_axe.txt,11,common,melee,14,102,,,1,,crit:6,302,/wiki/images/8/81/Battleaxe1.png,,,Cangaceiro
+5128,Lightning Blade,Lâmina Relâmpago,items/base/weapons/melee/longsword.txt,12,uncommon,melee,33,61,,,0,,crit:2;dmg_lightning_min:17;dmg_lightning_max:28,678,/wiki/images/3/3c/Weapon_longsword_shock.png,,,Cangaceiro;Mateiro
+5129,Spirit Reaver,Ceifador de Espíritos,items/base/weapons/melee/hand_axe.txt,12,uncommon,melee,19,74,,,0,,crit:3;dmg_dark_min:15;dmg_dark_max:25,678,/wiki/images/e/e9/Wpn_axe_soul.png,,,Cangaceiro;Mateiro
+5130,Lifedrinker,Bebe-Vida,items/base/weapons/melee/battle_axe.txt,14,uncommon,melee,27,129,,,1,,dmg_dark_min:24;dmg_dark_max:41,835,/wiki/images/8/8c/Battleaxe4.png,,beast:30,Cangaceiro
+5131,Short Bow,Arco Curto,items/base/weapons/ranged/shortbow.txt,1,common,ranged,4,16,,,0,,crit:2,25,/wiki/images/3/3c/Weapon_shortbow.png,,,Cangaceiro;Mateiro
+5132,Hunting Bow,Arco de Caça,items/base/weapons/ranged/shortbow.txt,3,common,ranged,8,24,,,0,,,62,/wiki/images/6/61/Weapon_bow.png,,,Cangaceiro;Mateiro
+5133,Oaken Bow,Arco de Carvalho,items/base/weapons/ranged/longbow.txt,5,common,ranged,13,35,,,0,,,110,/wiki/images/6/61/Weapon_bow.png,,,Cangaceiro;Mateiro
+5134,Silver Bow,Arco de Prata,items/base/weapons/ranged/longbow.txt,7,common,ranged,15,46,,,0,silver,,167,/wiki/images/3/3c/Weapon_shortbow.png,,undead:25,Cangaceiro;Mateiro
+5135,Frost Bow,Arco do Gelo,items/base/weapons/ranged/longbow.txt,8,common,ranged,17,51,,,0,,dmg_ice_min:10;dmg_ice_max:17,199,/wiki/images/c/cd/Weapon_bow_ice.png,,,Cangaceiro;Mateiro
+5136,Poisonous Longbow,Arco Longo Venenoso,items/base/weapons/ranged/longbow.txt,11,uncommon,ranged,32,65,,,0,,dmg_dark_min:19;dmg_dark_max:32;crit:3,604,/wiki/images/f/f6/Weapon_bow_toxic2.png,,,Mateiro
+5137,Skeletal Bow,Arco Esquelético,items/base/weapons/ranged/greatbow.txt,12,common,ranged,31,72,,,0,,crit:2;dmg_dark_min:25;dmg_dark_max:41,339,/wiki/images/5/5d/Skeletal_Bow1.png,,,Cangaceiro;Mateiro
+5138,Oak Wand,Varinha de Carvalho,items/base/weapons/magic/wand.txt,1,common,ment,7,13,,,0,,crit:2,25,/wiki/images/7/7b/Wand1.png,,,Feiticeiro
+5139,Staff of Force,Cajado da Força,items/base/weapons/magic/staff.txt,3,common,ment,14,23,,,0,,,62,/wiki/images/7/70/Staff0.png,,,Feiticeiro
+5140,Elm Wand,Varinha de Olmo,items/base/weapons/magic/wand.txt,4,common,ment,13,25,,,0,,crit:2,85,/wiki/images/7/7b/Wand1.png,,,Feiticeiro
+5141,Caduceus of Scorching,Caduceu Escaldante,items/base/weapons/magic/staff.txt,6,common,ment,21,37,,,0,,mp:8,138,/wiki/images/4/4e/Staff3.png,,,Feiticeiro
+5142,Staff of Mighty Missiles,Cajado dos Mísseis,items/base/weapons/magic/staff.txt,7,common,ment,24,41,,,0,,,167,/wiki/images/b/bf/Staff1.png,,,Feiticeiro
+5143,Rod of Incineration,Bastão da Incineração,items/base/weapons/magic/rod.txt,8,common,ment,23,42,,,0,,crit:2;mp:16,199,/wiki/images/c/cd/Wand7.png,,,Feiticeiro
+5144,Staff of Storms,Cajado das Tempestades,items/base/weapons/magic/staff.txt,9,common,ment,24,54,,,0,,dmg_lightning_min:11;dmg_lightning_max:18,232,/wiki/images/b/bf/Staff1.png,,,Feiticeiro
+5145,Staff of the Arcanist,Cajado do Arcanista,items/base/weapons/magic/greatstaff.txt,11,uncommon,ment,42,73,,,1,,mp:24,604,/wiki/images/6/67/Wand11.png,,,Feiticeiro
+5146,Magma Greatstaff,Grande Cajado de Magma,items/base/weapons/magic/greatstaff.txt,14,uncommon,ment,49,91,,,1,,crit:2;mp:24,835,/wiki/images/5/5d/Greatstaff_red.png,,,Feiticeiro
+5500,Stiletto,Estilete,items/base/weapons/melee/dagger.txt,8,unique,melee,17,45,,,0,,crit:9;dmg_dark_min:17;dmg_dark_max:28,1590,/wiki/images/8/82/Wpn_dagger_stiletto.png,,,Mateiro
+5501,Hammer of the Pale Abbot,Martelo do Abade Pálido,items/base/weapons/melee/war_hammer.txt,8,unique,melee,31,41,,,0,,crit:2;dmg_ice_min:9;dmg_ice_max:15,1590,/wiki/images/b/b9/Silver_Hammer.png,,demon:20;undead:45,Cangaceiro;Mateiro;Benzedeiro
+5502,Frostlament,Lamento Gélido,items/base/weapons/melee/longsword.txt,9,unique,melee,28,57,,,0,,crit:2;dmg_ice_min:17;dmg_ice_max:28,1854,/wiki/images/6/60/Weapon_longsword_ice.png,,,Cangaceiro;Mateiro
+5503,Barbed Spite,Rancor Farpado,items/base/weapons/melee/greatsword.txt,10,unique,melee,37,92,,,1,,dmg_fire_min:15;dmg_fire_max:25;crit:3,2130,/wiki/images/b/bb/Weapon_greatsword.png,,,Cangaceiro
+5504,Emberbite,Mordida de Brasa,items/base/weapons/melee/hand_axe.txt,10,unique,melee,18,73,,,0,,crit:3;dmg_fire_min:18;dmg_fire_max:30,2130,/wiki/images/f/ff/Weapon_axe_fire.png,,,Cangaceiro;Mateiro
+5505,Ironbound Fist,Punho Blindado,items/base/weapons/melee/mace.txt,10,unique,melee,39,49,,,0,,crit:6;dmg_dark_min:12;dmg_dark_max:20,2130,/wiki/images/0/0c/Skull_Mace.png,,,Cangaceiro;Benzedeiro
+5506,Hollow Sorrow,Pesar Oco,items/base/weapons/melee/war_hammer.txt,10,unique,melee,36,49,,,0,,crit:8;dmg_dark_min:15;dmg_dark_max:24,2130,/wiki/images/9/9a/Weapon_hammer_corrosion.png,,,Cangaceiro;Mateiro;Benzedeiro
+5507,Mountainbreaker,Quebra-Montanhas,items/base/weapons/melee/maul.txt,10,unique,melee,40,89,,,1,,,2130,/wiki/images/f/f4/Maul.png,,,Cangaceiro;Benzedeiro
+5508,Hornbow,Arco de Chifre,items/base/weapons/ranged/greatbow.txt,10,unique,ranged,42,69,,,0,,,2130,/wiki/images/f/fd/Wpn_bow_comp.png,,,Cangaceiro;Mateiro
+5509,Heart of the Brood,Coração da Ninhada,items/base/weapons/melee/dagger.txt,12,unique,melee,29,57,,,0,,crit:3;dmg_ice_min:17;dmg_ice_max:29,2714,/wiki/images/a/a6/Weapon_dagger_ice.png,,demon:20,Mateiro
+5510,Wildfire Edge,Fio do Incêndio,items/base/weapons/melee/shortsword.txt,12,unique,melee,27,68,,,0,,crit:8;dmg_fire_min:28;dmg_fire_max:47,2714,/wiki/images/8/82/Weapon_Dagger_Fire.png,,,Cangaceiro;Mateiro
+5511,Oathkeeper's Blade,Lâmina do Juramento,items/base/weapons/melee/longsword.txt,12,unique,melee,41,67,,,0,,crit:2;dmg_dark_min:22;dmg_dark_max:36,2714,/wiki/images/1/1c/Weapon_sword_long_magic.png,,beast:45,Cangaceiro;Mateiro
+5512,Skullcrusher,Esmaga-Crânios,items/base/weapons/melee/maul.txt,12,unique,melee,50,100,,,1,,dmg_lightning_min:26;dmg_lightning_max:44,2714,/wiki/images/8/8b/Wpn_maul_garack.png,,undead:25,Cangaceiro;Benzedeiro
+5513,Stag's Heirloom,Relíquia do Cervo,items/base/weapons/melee/longsword.txt,13,unique,melee,44,71,,,0,,crit:2;dmg_ice_min:30;dmg_ice_max:49,3021,/wiki/images/6/60/Weapon_longsword_ice.png,,,Cangaceiro;Mateiro
+5514,Rimeshot,Tiro de Geada,items/base/weapons/ranged/greatbow.txt,13,unique,ranged,49,89,,,0,,dmg_ice_min:19;dmg_ice_max:32,3021,/wiki/images/4/4d/Permafrost_Bow.png,,,Cangaceiro;Mateiro
+5515,Gravecaller Scepter,Cetro Chama-Túmulos,items/base/weapons/magic/wand.txt,13,unique,ment,34,81,,,0,,crit:3;dmg_dark_min:24;dmg_dark_max:41;mp:32,3021,/wiki/images/0/09/Staff5.png,,,Feiticeiro
+5516,Duskfang,Presa do Crepúsculo,items/base/weapons/melee/shortsword.txt,14,unique,melee,34,74,,,0,,crit:12;dmg_dark_min:24;dmg_dark_max:40,3339,/wiki/images/c/c8/Weapon_dagger_death.png,,,Cangaceiro;Mateiro
+5517,Hornking's Axe,Machado do Rei Chifrudo,items/base/weapons/melee/battle_axe.txt,14,unique,melee,25,153,,,1,,dmg_lightning_min:29;dmg_lightning_max:49;crit:3,3339,/wiki/images/8/8c/Battleaxe4.png,,,Cangaceiro
+5518,Moonless,Sem-Lua,items/base/weapons/melee/mace.txt,14,unique,melee,53,63,,,0,,dmg_dark_min:22;dmg_dark_max:37;crit:9,3339,/wiki/images/8/82/Weapon_mace_death.png,,,Cangaceiro;Benzedeiro
+5519,Hellhook,Gancho Infernal,items/base/weapons/melee/greatsword.txt,15,unique,melee,63,119,,,1,,dmg_fire_min:34;dmg_fire_max:56;crit:6,3665,/wiki/images/b/bb/Weapon_greatsword.png,,,Cangaceiro
+5520,Wand of the Archmage,Varinha do Arquimago,items/base/weapons/magic/wand.txt,15,unique,ment,45,85,,,0,,crit:4;mp:40,3665,/wiki/images/8/84/Wand5.png,,,Feiticeiro
+5521,Barrow King's Staff,Cajado do Rei do Túmulo,items/base/weapons/magic/greatstaff.txt,16,unique,ment,57,121,,,1,,crit:2;mp:40,4000,/wiki/images/b/ba/Greatstaff_death.png,,,Feiticeiro
 5200,Leather Cap,Capuz de Couro,items/base/armor/leather/head.txt,1,common,,,,0,1,0,,hp:8,25,/wiki/images/8/87/Armor_leather_head1.png,,,
 5201,Leather Cuirass,Túnica de Couro,items/base/armor/leather/chest.txt,1,common,,,,1,2,0,,hp:12,25,/wiki/images/e/e7/Armor_leather_chest1.png,,,
 5202,Leather Bracers,Luvas de Couro,items/base/armor/leather/hands.txt,1,common,,,,0,1,0,,hp:8,25,/wiki/images/3/3b/Armor_leather_hands1.png,,,
 5203,Leather Leggings,Calças de Couro,items/base/armor/leather/legs.txt,1,common,,,,1,2,0,,hp:12,25,/wiki/images/4/45/Armor_leather_legs1.png,,,
 5204,Leather Boots,Botas de Couro,items/base/armor/leather/feet.txt,1,common,,,,1,2,0,,,25,/wiki/images/8/8e/Armor_leather_feet1.png,,,
-5205,Apprentice Hood,Capuz de Aprendiz,items/base/armor/mage/head.txt,1,common,,,,0,1,0,,mp:8,25,/wiki/images/6/6e/Armor_leather_head_green.png,,,Cleric;Mage
-5206,Apprentice Robes,Túnica de Aprendiz,items/base/armor/mage/chest.txt,1,common,,,,1,2,0,,hp:8;mp:16,25,/wiki/images/5/59/Robe1_brown.png,,,Cleric;Mage
-5207,Apprentice Gloves,Luvas de Aprendiz,items/base/armor/mage/hands.txt,1,common,,,,0,1,0,,hp:4;mp:8,25,/wiki/images/f/f5/Armor_leather_hands_green.png,,,Cleric;Mage
-5208,Apprentice Pants,Calças de Aprendiz,items/base/armor/mage/legs.txt,1,common,,,,0,1,0,,hp:8;mp:12,25,/wiki/images/8/89/Armor_leather_legs_green.png,,,Cleric;Mage
-5209,Apprentice Boots,Botas de Aprendiz,items/base/armor/mage/feet.txt,1,common,,,,0,1,0,,hp:4;mp:8,25,/wiki/images/d/d3/Armor_leather_feet_green.png,,,Cleric;Mage
-5210,Hardened Leather Cap,Capuz de Couro Endurecido,items/base/armor/leather/head.txt,4,common,,,,0,2,0,hardened,hp:16,85,/wiki/images/e/e1/Armor_leather_head2.png,,,Warrior;Rogue;Cleric
-5211,Hardened Leather Cuirass,Túnica de Couro Endurecido,items/base/armor/leather/chest.txt,4,common,,,,2,4,0,hardened,hp:20,85,/wiki/images/0/03/Armor_leather_chest2.png,,,Warrior;Rogue;Cleric
-5212,Hardened Leather Gauntlets,Luvas de Couro Endurecido,items/base/armor/leather/hands.txt,4,common,,,,2,2,0,hardened,hp:8,85,/wiki/images/4/4d/Armor_leather_hands2.png,,,Warrior;Rogue;Cleric
-5213,Hardened Leather Leggings,Calças de Couro Endurecido,items/base/armor/leather/legs.txt,4,common,,,,2,2,0,hardened,hp:28,85,/wiki/images/a/a2/Armor_leather_legs2.png,,,Warrior;Rogue;Cleric
+5205,Apprentice Hood,Capuz de Aprendiz,items/base/armor/mage/head.txt,1,common,,,,0,1,0,,mp:8,25,/wiki/images/6/6e/Armor_leather_head_green.png,,,Benzedeiro;Feiticeiro
+5206,Apprentice Robes,Túnica de Aprendiz,items/base/armor/mage/chest.txt,1,common,,,,1,2,0,,hp:8;mp:16,25,/wiki/images/5/59/Robe1_brown.png,,,Benzedeiro;Feiticeiro
+5207,Apprentice Gloves,Luvas de Aprendiz,items/base/armor/mage/hands.txt,1,common,,,,0,1,0,,hp:4;mp:8,25,/wiki/images/f/f5/Armor_leather_hands_green.png,,,Benzedeiro;Feiticeiro
+5208,Apprentice Pants,Calças de Aprendiz,items/base/armor/mage/legs.txt,1,common,,,,0,1,0,,hp:8;mp:12,25,/wiki/images/8/89/Armor_leather_legs_green.png,,,Benzedeiro;Feiticeiro
+5209,Apprentice Boots,Botas de Aprendiz,items/base/armor/mage/feet.txt,1,common,,,,0,1,0,,hp:4;mp:8,25,/wiki/images/d/d3/Armor_leather_feet_green.png,,,Benzedeiro;Feiticeiro
+5210,Hardened Leather Cap,Capuz de Couro Endurecido,items/base/armor/leather/head.txt,4,common,,,,0,2,0,hardened,hp:16,85,/wiki/images/e/e1/Armor_leather_head2.png,,,Cangaceiro;Mateiro;Benzedeiro
+5211,Hardened Leather Cuirass,Túnica de Couro Endurecido,items/base/armor/leather/chest.txt,4,common,,,,2,4,0,hardened,hp:20,85,/wiki/images/0/03/Armor_leather_chest2.png,,,Cangaceiro;Mateiro;Benzedeiro
+5212,Hardened Leather Gauntlets,Luvas de Couro Endurecido,items/base/armor/leather/hands.txt,4,common,,,,2,2,0,hardened,hp:8,85,/wiki/images/4/4d/Armor_leather_hands2.png,,,Cangaceiro;Mateiro;Benzedeiro
+5213,Hardened Leather Leggings,Calças de Couro Endurecido,items/base/armor/leather/legs.txt,4,common,,,,2,2,0,hardened,hp:28,85,/wiki/images/a/a2/Armor_leather_legs2.png,,,Cangaceiro;Mateiro;Benzedeiro
 5214,Hardened Leather Boots,Botas de Couro Endurecido,items/base/armor/leather/feet.txt,4,common,,,,2,2,0,hardened,hp:12,85,/wiki/images/c/cd/Armor_leather_feet2.png,,,
-5215,Journeyman Cap,Capuz de Viajante,items/base/armor/mage_alt1/head.txt,4,common,,,,0,2,0,,mp:16,85,/wiki/images/b/b0/Armor_leather_head_blue.png,,,Cleric;Mage
-5216,Journeyman Tunic,Túnica de Viajante,items/base/armor/mage_alt1/chest.txt,4,common,,,,2,2,0,,hp:20;mp:28,85,/wiki/images/5/56/Robe1_blue.png,,,Cleric;Mage
-5217,Journeyman Gauntlets,Luvas de Viajante,items/base/armor/mage_alt1/hands.txt,4,common,,,,0,2,0,,hp:8;mp:16,85,/wiki/images/1/12/Armor_blue_gloves.png,,,Cleric;Mage
-5218,Journeyman Pants,Calças de Viajante,items/base/armor/mage_alt1/legs.txt,4,common,,,,2,2,0,,hp:12;mp:16,85,/wiki/images/7/74/Armor_leather_legs_blue.png,,,Cleric;Mage
-5219,Journeyman Boots,Botas de Viajante,items/base/armor/mage_alt1/feet.txt,4,common,,,,2,2,0,,hp:4;mp:12,85,/wiki/images/a/a5/Armor_leather_feet_blue.png,,,Cleric;Mage
-5220,Chainmail Coif,Elmo de Cota de Malha,items/base/armor/chain/head.txt,5,common,,,,2,3,0,,hp:16,110,/wiki/images/8/8f/Armor_chain_head.png,,,Warrior;Cleric
-5221,Chainmail Shirt,Peitoral de Cota de Malha,items/base/armor/chain/chest.txt,5,common,,,,3,4,0,,hp:44,110,/wiki/images/d/d7/Armor_chain_chest.png,,,Warrior;Cleric
-5222,Chainmail Gauntlets,Luvas de Cota de Malha,items/base/armor/chain/hands.txt,5,common,,,,3,4,0,,hp:20,110,/wiki/images/1/13/Armor_chain_hands.png,,,Warrior;Cleric
-5223,Chainmail Leggings,Calças de Cota de Malha,items/base/armor/chain/legs.txt,5,common,,,,3,4,0,,hp:32,110,/wiki/images/6/66/Armor_chain_legs.png,,,Warrior;Cleric
-5224,Chainmail Boots,Botas de Cota de Malha,items/base/armor/chain/feet.txt,5,common,,,,3,4,0,,hp:20,110,/wiki/images/1/17/Armor_chain_feet.png,,,Warrior;Cleric
-5225,Forest Chain Coif,Elmo de Malha da Floresta,items/base/armor/chain/head.txt,6,common,,,,2,3,0,forest,hp:16,138,/wiki/images/b/b6/Armor_chain_head_g.png,,,Warrior;Rogue
-5226,Forest Chain Shirt,Peitoral de Malha da Floresta,items/base/armor/chain/chest.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/3/32/Armor_chain_chest_g.png,,,Warrior;Rogue
-5227,Forest Chain Gauntlets,Luvas de Malha da Floresta,items/base/armor/chain/hands.txt,6,common,,,,3,4,0,forest,hp:8,138,/wiki/images/2/25/Armor_chain_hands_g.png,,,Warrior;Rogue
-5228,Forest Chain Leggings,Calças de Malha da Floresta,items/base/armor/chain/legs.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/f/fa/Armor_chain_legs_g.png,,,Warrior;Rogue
-5229,Forest Chain Boots,Botas de Malha da Floresta,items/base/armor/chain/feet.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/7/75/Armor_chain_feet_g.png,,,Warrior;Rogue
-5230,Blessed Chain Coif,Elmo de Malha Abençoada,items/base/armor/chain/head.txt,7,common,,,,2,3,0,blessed,hp:16;mp:8;xp_gain:3,167,/wiki/images/f/fe/Armor_chain_head_b.png,,,Cleric
-5231,Blessed Chain Shirt,Peitoral de Malha Abençoada,items/base/armor/chain/chest.txt,7,common,,,,3,4,0,blessed,hp:24;mp:12,167,/wiki/images/d/d7/Armor_chain_chest_b.png,,,Cleric
-5232,Blessed Chain Gauntlets,Luvas de Malha Abençoada,items/base/armor/chain/hands.txt,7,common,,,,3,4,0,blessed,hp:8;mp:8,167,/wiki/images/7/71/Armor_chain_hands_b.png,,,Cleric
-5233,Blessed Chain Leggings,Calças de Malha Abençoada,items/base/armor/chain/legs.txt,7,common,,,,3,4,0,blessed,hp:24;mp:8,167,/wiki/images/3/32/Armor_chain_legs_b.png,,,Cleric
-5234,Blessed Chain Boots,Botas de Malha Abençoada,items/base/armor/chain/feet.txt,7,common,,,,3,4,0,blessed,hp:24;mp:4,167,/wiki/images/a/a9/Armor_chain_feet_b.png,,,Cleric
-5235,Conjurer Hood,Capuz de Conjurador,items/base/armor/mage_alt2/head.txt,7,common,,,,2,3,0,,hp:8;mp:20;item_find:5,167,/wiki/images/b/b0/Armor_leather_head_blue.png,,,Cleric;Mage
-5236,Conjurer Tunic,Túnica de Conjurador,items/base/armor/mage_alt2/chest.txt,7,uncommon,,,,3,4,0,,hp:20;mp:36;fire_resist:5;ice_resist:5,335,/wiki/images/5/56/Robe1_blue.png,,,Cleric;Mage
-5237,Conjurer Gloves,Luvas de Conjurador,items/base/armor/mage_alt2/hands.txt,7,common,,,,2,3,0,,hp:8;mp:20,167,/wiki/images/1/12/Armor_blue_gloves.png,,,Cleric;Mage
-5238,Conjurer Pantaloons,Calças de Conjurador,items/base/armor/mage_alt2/legs.txt,7,uncommon,,,,3,4,0,,hp:12;mp:20;lightning_resist:5,335,/wiki/images/7/74/Armor_leather_legs_blue.png,,,Cleric;Mage
-5239,Conjurer Boots,Botas de Conjurador,items/base/armor/mage_alt2/feet.txt,7,common,,,,2,3,0,,hp:16;mp:24,167,/wiki/images/a/a5/Armor_leather_feet_blue.png,,,Cleric;Mage
-5240,Assassin's Hood,Capuz do Assassino,items/base/armor/leather/head.txt,8,uncommon,,,,4,4,0,shadow,hp:24;dark_resist:5,398,/wiki/images/e/e1/Armor_leather_head2.png,,,Rogue
-5241,Assassin's Cuirass,Túnica do Assassino,items/base/armor/leather/chest.txt,8,uncommon,,,,6,6,0,shadow,hp:24;fire_resist:6;dark_resist:6,398,/wiki/images/0/03/Armor_leather_chest2.png,,,Rogue
-5242,Assassin's Gauntlets,Luvas do Assassino,items/base/armor/leather/hands.txt,8,uncommon,,,,4,4,0,shadow,hp:24;fire_resist:3;dark_resist:5;currency_find:10,398,/wiki/images/4/4d/Armor_leather_hands2.png,,,Rogue
-5243,Assassin's Leggings,Calças do Assassino,items/base/armor/leather/legs.txt,8,uncommon,,,,4,6,0,shadow,hp:24;ice_resist:6;dark_resist:6,398,/wiki/images/a/a2/Armor_leather_legs2.png,,,Rogue
-5244,Assassin's Boots,Botas do Assassino,items/base/armor/leather/feet.txt,8,common,,,,4,4,0,shadow,hp:20;ice_resist:5;dark_resist:5,199,/wiki/images/c/cd/Armor_leather_feet2.png,,,Rogue
-5245,Knight Helm,Elmo de Placas,items/base/armor/plate/head.txt,9,common,,,,4,5,0,,hp:16,232,/wiki/images/2/20/Armor_plate_head.png,,,Warrior
-5246,Platemail Vest,Peitoral de Placas,items/base/armor/plate/chest.txt,9,common,,,,5,6,0,,hp:60,232,/wiki/images/c/c8/Armor_plate_chest.png,,,Warrior
-5247,Platemail Gauntlets,Luvas de Placas,items/base/armor/plate/hands.txt,9,common,,,,4,5,0,,hp:32,232,/wiki/images/1/18/Armor_plate_hands.png,,,Warrior
-5248,Platemail Leggings,Calças de Placas,items/base/armor/plate/legs.txt,9,common,,,,5,6,0,,hp:52,232,/wiki/images/b/bf/Armor_plate_legs.png,,,Warrior
-5249,Platemail Boots,Botas de Placas,items/base/armor/plate/feet.txt,9,common,,,,5,6,0,,hp:20,232,/wiki/images/a/a5/Armor_plate_feet.png,,,Warrior
-5250,Legion Helm,Elmo da Legião,items/base/armor/plate/head.txt,11,common,,,,5,6,0,gold,hp:12;fire_resist:4;ice_resist:4,302,/wiki/images/e/ea/Armor_plate_head_yellow.png,,,Warrior
-5251,Legion Breastplate,Peitoral da Legião,items/base/armor/plate/chest.txt,11,common,,,,6,7,0,gold,hp:36;fire_resist:7;ice_resist:7,302,/wiki/images/4/43/Armor_plate_chest_yellow.png,,,Warrior
-5252,Legion Gauntlets,Luvas da Legião,items/base/armor/plate/hands.txt,11,uncommon,,,,5,6,0,gold,hp:16;fire_resist:4;ice_resist:4,604,/wiki/images/6/65/Armor_plate_hands_yellow.png,,,Warrior
-5253,Legion Leggings,Calças da Legião,items/base/armor/plate/legs.txt,11,uncommon,,,,6,7,0,gold,hp:28;fire_resist:5;ice_resist:5,604,/wiki/images/a/af/Armor_plate_legs_yellow.png,,,Warrior
-5254,Legion Boots,Botas da Legião,items/base/armor/plate/feet.txt,11,uncommon,,,,6,7,0,gold,hp:8;fire_resist:4;ice_resist:4,604,/wiki/images/4/45/Armor_plate_feet_yellow.png,,,Warrior
-5255,Primal Ice Chain Coif,Elmo de Gelo Primordial,items/base/armor/chain/head.txt,11,uncommon,,,,5,6,0,ice,hp:12;fire_resist:-10;ice_resist:6,604,/wiki/images/f/fe/Armor_chain_head_b.png,,,Warrior;Rogue;Cleric
-5256,Primal Ice Chain Shirt,Peitoral de Gelo Primordial,items/base/armor/chain/chest.txt,11,uncommon,,,,6,7,0,ice,hp:24;fire_resist:-12;ice_resist:12,604,/wiki/images/d/d7/Armor_chain_chest_b.png,,,Warrior;Rogue;Cleric
-5257,Primal Ice Chain Gauntlets,Luvas de Gelo Primordial,items/base/armor/chain/hands.txt,11,common,,,,5,6,0,ice,hp:16;fire_resist:-10;ice_resist:6,302,/wiki/images/7/71/Armor_chain_hands_b.png,,,Warrior;Rogue;Cleric
-5258,Primal Ice Chain Leggings,Calças de Gelo Primordial,items/base/armor/chain/legs.txt,11,uncommon,,,,5,6,0,ice,hp:24;fire_resist:-10;ice_resist:10,604,/wiki/images/3/32/Armor_chain_legs_b.png,,,Warrior;Rogue;Cleric
-5259,Primal Ice Chain Boots,Botas de Gelo Primordial,items/base/armor/chain/feet.txt,11,uncommon,,,,5,6,0,ice,hp:12;fire_resist:-10;ice_resist:6,604,/wiki/images/a/a9/Armor_chain_feet_b.png,,,Warrior;Rogue;Cleric
-5260,Blessed Platemail Helm,Elmo de Placas Abençoadas,items/base/armor/plate/head.txt,12,uncommon,,,,5,7,0,blessed,hp:20;mp:12;xp_gain:3,678,/wiki/images/3/37/Helmet_plate_blue.png,,,Cleric
-5261,Blessed Platemail Vest,Peitoral de Placas Abençoadas,items/base/armor/plate/chest.txt,12,uncommon,,,,7,7,0,blessed,hp:36;mp:16,678,/wiki/images/d/da/Armor_plate_chest_blue.png,,,Cleric
-5262,Blessed Platemail Gauntlets,Luvas de Placas Abençoadas,items/base/armor/plate/hands.txt,12,uncommon,,,,5,7,0,blessed,hp:32;mp:12,678,/wiki/images/d/dc/Armor_plate_hands_blue.png,,,Cleric
-5263,Blessed Platemail Leggings,Calças de Placas Abençoadas,items/base/armor/plate/legs.txt,12,uncommon,,,,6,6,0,blessed,hp:24;mp:16,678,/wiki/images/c/c6/Armor_plate_legs_blue.png,,,Cleric
-5264,Blessed Platemail Boots,Botas de Placas Abençoadas,items/base/armor/plate/feet.txt,12,uncommon,,,,5,7,0,blessed,hp:24;mp:8,678,/wiki/images/f/f3/Armor_plate_feet_blue.png,,,Cleric
-5265,Dreadiron Breastplate,Peitoral de Ferro Sombrio,items/base/armor/plate/chest.txt,14,uncommon,,,,8,9,0,crimson,hp:60;lightning_resist:16;fire_resist:4,835,/wiki/images/4/47/Armor_plate_chest_epic.png,,,Warrior
-5266,Dreadiron Gauntlets,Luvas de Ferro Sombrio,items/base/armor/plate/hands.txt,14,unique,,,,6,7,0,crimson,hp:36;lightning_resist:7;fire_resist:2,3339,/wiki/images/f/f6/Armor_plate_hands_purple.png,,,Warrior
-5267,Dreadiron Leggings,Calças de Ferro Sombrio,items/base/armor/plate/legs.txt,14,uncommon,,,,8,9,0,crimson,hp:52;lightning_resist:9;fire_resist:4,835,/wiki/images/4/4e/Armor_plate_legs_r.png,,,Warrior
-5268,Dreadiron Boots,Botas de Ferro Sombrio,items/base/armor/plate/feet.txt,14,unique,,,,7,8,0,crimson,hp:32;lightning_resist:5;fire_resist:5,3339,/wiki/images/9/90/Armor_plate_feet_r.png,,,Warrior
-5269,Ashen Helm,Elmo das Cinzas,items/base/armor/plate/head.txt,15,uncommon,,,,7,8,0,ashen,hp:36;mp:20;lightning_resist:10;fire_resist:10;xp_gain:3,916,/wiki/images/1/14/Armor_plate_head_black.png,,,Warrior;Cleric
-5270,Ashen Chestplate,Peitoral das Cinzas,items/base/armor/plate/chest.txt,15,unique,,,,9,10,0,ashen,hp:60;mp:36;fire_resist:20,3665,/wiki/images/6/61/Armor_plate_chest_black.png,,,Warrior;Cleric
-5271,Ashen Gauntlets,Luvas das Cinzas,items/base/armor/plate/hands.txt,15,uncommon,,,,6,7,0,ashen,hp:36;mp:24;lightning_resist:15;fire_resist:4,916,/wiki/images/b/be/Armor_plate_hands_black.png,,,Warrior;Cleric
-5272,Ashen Leggings,Calças das Cinzas,items/base/armor/plate/legs.txt,15,uncommon,,,,8,9,0,ashen,hp:52;mp:20;lightning_resist:11;fire_resist:4,916,/wiki/images/7/7d/Armor_plate_legs_black.png,,,Warrior;Cleric
-5273,Ashen Boots,Botas das Cinzas,items/base/armor/plate/feet.txt,15,uncommon,,,,7,8,0,ashen,hp:32;mp:16;lightning_resist:9;fire_resist:5;poise:10,916,/wiki/images/4/42/Armor_plate_feet_black.png,,,Warrior;Cleric
+5215,Journeyman Cap,Capuz de Viajante,items/base/armor/mage_alt1/head.txt,4,common,,,,0,2,0,,mp:16,85,/wiki/images/b/b0/Armor_leather_head_blue.png,,,Benzedeiro;Feiticeiro
+5216,Journeyman Tunic,Túnica de Viajante,items/base/armor/mage_alt1/chest.txt,4,common,,,,2,2,0,,hp:20;mp:28,85,/wiki/images/5/56/Robe1_blue.png,,,Benzedeiro;Feiticeiro
+5217,Journeyman Gauntlets,Luvas de Viajante,items/base/armor/mage_alt1/hands.txt,4,common,,,,0,2,0,,hp:8;mp:16,85,/wiki/images/1/12/Armor_blue_gloves.png,,,Benzedeiro;Feiticeiro
+5218,Journeyman Pants,Calças de Viajante,items/base/armor/mage_alt1/legs.txt,4,common,,,,2,2,0,,hp:12;mp:16,85,/wiki/images/7/74/Armor_leather_legs_blue.png,,,Benzedeiro;Feiticeiro
+5219,Journeyman Boots,Botas de Viajante,items/base/armor/mage_alt1/feet.txt,4,common,,,,2,2,0,,hp:4;mp:12,85,/wiki/images/a/a5/Armor_leather_feet_blue.png,,,Benzedeiro;Feiticeiro
+5220,Chainmail Coif,Elmo de Cota de Malha,items/base/armor/chain/head.txt,5,common,,,,2,3,0,,hp:16,110,/wiki/images/8/8f/Armor_chain_head.png,,,Cangaceiro;Benzedeiro
+5221,Chainmail Shirt,Peitoral de Cota de Malha,items/base/armor/chain/chest.txt,5,common,,,,3,4,0,,hp:44,110,/wiki/images/d/d7/Armor_chain_chest.png,,,Cangaceiro;Benzedeiro
+5222,Chainmail Gauntlets,Luvas de Cota de Malha,items/base/armor/chain/hands.txt,5,common,,,,3,4,0,,hp:20,110,/wiki/images/1/13/Armor_chain_hands.png,,,Cangaceiro;Benzedeiro
+5223,Chainmail Leggings,Calças de Cota de Malha,items/base/armor/chain/legs.txt,5,common,,,,3,4,0,,hp:32,110,/wiki/images/6/66/Armor_chain_legs.png,,,Cangaceiro;Benzedeiro
+5224,Chainmail Boots,Botas de Cota de Malha,items/base/armor/chain/feet.txt,5,common,,,,3,4,0,,hp:20,110,/wiki/images/1/17/Armor_chain_feet.png,,,Cangaceiro;Benzedeiro
+5225,Forest Chain Coif,Elmo de Malha da Floresta,items/base/armor/chain/head.txt,6,common,,,,2,3,0,forest,hp:16,138,/wiki/images/b/b6/Armor_chain_head_g.png,,,Cangaceiro;Mateiro
+5226,Forest Chain Shirt,Peitoral de Malha da Floresta,items/base/armor/chain/chest.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/3/32/Armor_chain_chest_g.png,,,Cangaceiro;Mateiro
+5227,Forest Chain Gauntlets,Luvas de Malha da Floresta,items/base/armor/chain/hands.txt,6,common,,,,3,4,0,forest,hp:8,138,/wiki/images/2/25/Armor_chain_hands_g.png,,,Cangaceiro;Mateiro
+5228,Forest Chain Leggings,Calças de Malha da Floresta,items/base/armor/chain/legs.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/f/fa/Armor_chain_legs_g.png,,,Cangaceiro;Mateiro
+5229,Forest Chain Boots,Botas de Malha da Floresta,items/base/armor/chain/feet.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/7/75/Armor_chain_feet_g.png,,,Cangaceiro;Mateiro
+5230,Blessed Chain Coif,Elmo de Malha Abençoada,items/base/armor/chain/head.txt,7,common,,,,2,3,0,blessed,hp:16;mp:8;xp_gain:3,167,/wiki/images/f/fe/Armor_chain_head_b.png,,,Benzedeiro
+5231,Blessed Chain Shirt,Peitoral de Malha Abençoada,items/base/armor/chain/chest.txt,7,common,,,,3,4,0,blessed,hp:24;mp:12,167,/wiki/images/d/d7/Armor_chain_chest_b.png,,,Benzedeiro
+5232,Blessed Chain Gauntlets,Luvas de Malha Abençoada,items/base/armor/chain/hands.txt,7,common,,,,3,4,0,blessed,hp:8;mp:8,167,/wiki/images/7/71/Armor_chain_hands_b.png,,,Benzedeiro
+5233,Blessed Chain Leggings,Calças de Malha Abençoada,items/base/armor/chain/legs.txt,7,common,,,,3,4,0,blessed,hp:24;mp:8,167,/wiki/images/3/32/Armor_chain_legs_b.png,,,Benzedeiro
+5234,Blessed Chain Boots,Botas de Malha Abençoada,items/base/armor/chain/feet.txt,7,common,,,,3,4,0,blessed,hp:24;mp:4,167,/wiki/images/a/a9/Armor_chain_feet_b.png,,,Benzedeiro
+5235,Conjurer Hood,Capuz de Conjurador,items/base/armor/mage_alt2/head.txt,7,common,,,,2,3,0,,hp:8;mp:20;item_find:5,167,/wiki/images/b/b0/Armor_leather_head_blue.png,,,Benzedeiro;Feiticeiro
+5236,Conjurer Tunic,Túnica de Conjurador,items/base/armor/mage_alt2/chest.txt,7,uncommon,,,,3,4,0,,hp:20;mp:36;fire_resist:5;ice_resist:5,335,/wiki/images/5/56/Robe1_blue.png,,,Benzedeiro;Feiticeiro
+5237,Conjurer Gloves,Luvas de Conjurador,items/base/armor/mage_alt2/hands.txt,7,common,,,,2,3,0,,hp:8;mp:20,167,/wiki/images/1/12/Armor_blue_gloves.png,,,Benzedeiro;Feiticeiro
+5238,Conjurer Pantaloons,Calças de Conjurador,items/base/armor/mage_alt2/legs.txt,7,uncommon,,,,3,4,0,,hp:12;mp:20;lightning_resist:5,335,/wiki/images/7/74/Armor_leather_legs_blue.png,,,Benzedeiro;Feiticeiro
+5239,Conjurer Boots,Botas de Conjurador,items/base/armor/mage_alt2/feet.txt,7,common,,,,2,3,0,,hp:16;mp:24,167,/wiki/images/a/a5/Armor_leather_feet_blue.png,,,Benzedeiro;Feiticeiro
+5240,Assassin's Hood,Capuz do Assassino,items/base/armor/leather/head.txt,8,uncommon,,,,4,4,0,shadow,hp:24;dark_resist:5,398,/wiki/images/e/e1/Armor_leather_head2.png,,,Mateiro
+5241,Assassin's Cuirass,Túnica do Assassino,items/base/armor/leather/chest.txt,8,uncommon,,,,6,6,0,shadow,hp:24;fire_resist:6;dark_resist:6,398,/wiki/images/0/03/Armor_leather_chest2.png,,,Mateiro
+5242,Assassin's Gauntlets,Luvas do Assassino,items/base/armor/leather/hands.txt,8,uncommon,,,,4,4,0,shadow,hp:24;fire_resist:3;dark_resist:5;currency_find:10,398,/wiki/images/4/4d/Armor_leather_hands2.png,,,Mateiro
+5243,Assassin's Leggings,Calças do Assassino,items/base/armor/leather/legs.txt,8,uncommon,,,,4,6,0,shadow,hp:24;ice_resist:6;dark_resist:6,398,/wiki/images/a/a2/Armor_leather_legs2.png,,,Mateiro
+5244,Assassin's Boots,Botas do Assassino,items/base/armor/leather/feet.txt,8,common,,,,4,4,0,shadow,hp:20;ice_resist:5;dark_resist:5,199,/wiki/images/c/cd/Armor_leather_feet2.png,,,Mateiro
+5245,Knight Helm,Elmo de Placas,items/base/armor/plate/head.txt,9,common,,,,4,5,0,,hp:16,232,/wiki/images/2/20/Armor_plate_head.png,,,Cangaceiro
+5246,Platemail Vest,Peitoral de Placas,items/base/armor/plate/chest.txt,9,common,,,,5,6,0,,hp:60,232,/wiki/images/c/c8/Armor_plate_chest.png,,,Cangaceiro
+5247,Platemail Gauntlets,Luvas de Placas,items/base/armor/plate/hands.txt,9,common,,,,4,5,0,,hp:32,232,/wiki/images/1/18/Armor_plate_hands.png,,,Cangaceiro
+5248,Platemail Leggings,Calças de Placas,items/base/armor/plate/legs.txt,9,common,,,,5,6,0,,hp:52,232,/wiki/images/b/bf/Armor_plate_legs.png,,,Cangaceiro
+5249,Platemail Boots,Botas de Placas,items/base/armor/plate/feet.txt,9,common,,,,5,6,0,,hp:20,232,/wiki/images/a/a5/Armor_plate_feet.png,,,Cangaceiro
+5250,Legion Helm,Elmo da Legião,items/base/armor/plate/head.txt,11,common,,,,5,6,0,gold,hp:12;fire_resist:4;ice_resist:4,302,/wiki/images/e/ea/Armor_plate_head_yellow.png,,,Cangaceiro
+5251,Legion Breastplate,Peitoral da Legião,items/base/armor/plate/chest.txt,11,common,,,,6,7,0,gold,hp:36;fire_resist:7;ice_resist:7,302,/wiki/images/4/43/Armor_plate_chest_yellow.png,,,Cangaceiro
+5252,Legion Gauntlets,Luvas da Legião,items/base/armor/plate/hands.txt,11,uncommon,,,,5,6,0,gold,hp:16;fire_resist:4;ice_resist:4,604,/wiki/images/6/65/Armor_plate_hands_yellow.png,,,Cangaceiro
+5253,Legion Leggings,Calças da Legião,items/base/armor/plate/legs.txt,11,uncommon,,,,6,7,0,gold,hp:28;fire_resist:5;ice_resist:5,604,/wiki/images/a/af/Armor_plate_legs_yellow.png,,,Cangaceiro
+5254,Legion Boots,Botas da Legião,items/base/armor/plate/feet.txt,11,uncommon,,,,6,7,0,gold,hp:8;fire_resist:4;ice_resist:4,604,/wiki/images/4/45/Armor_plate_feet_yellow.png,,,Cangaceiro
+5255,Primal Ice Chain Coif,Elmo de Gelo Primordial,items/base/armor/chain/head.txt,11,uncommon,,,,5,6,0,ice,hp:12;fire_resist:-10;ice_resist:6,604,/wiki/images/f/fe/Armor_chain_head_b.png,,,Cangaceiro;Mateiro;Benzedeiro
+5256,Primal Ice Chain Shirt,Peitoral de Gelo Primordial,items/base/armor/chain/chest.txt,11,uncommon,,,,6,7,0,ice,hp:24;fire_resist:-12;ice_resist:12,604,/wiki/images/d/d7/Armor_chain_chest_b.png,,,Cangaceiro;Mateiro;Benzedeiro
+5257,Primal Ice Chain Gauntlets,Luvas de Gelo Primordial,items/base/armor/chain/hands.txt,11,common,,,,5,6,0,ice,hp:16;fire_resist:-10;ice_resist:6,302,/wiki/images/7/71/Armor_chain_hands_b.png,,,Cangaceiro;Mateiro;Benzedeiro
+5258,Primal Ice Chain Leggings,Calças de Gelo Primordial,items/base/armor/chain/legs.txt,11,uncommon,,,,5,6,0,ice,hp:24;fire_resist:-10;ice_resist:10,604,/wiki/images/3/32/Armor_chain_legs_b.png,,,Cangaceiro;Mateiro;Benzedeiro
+5259,Primal Ice Chain Boots,Botas de Gelo Primordial,items/base/armor/chain/feet.txt,11,uncommon,,,,5,6,0,ice,hp:12;fire_resist:-10;ice_resist:6,604,/wiki/images/a/a9/Armor_chain_feet_b.png,,,Cangaceiro;Mateiro;Benzedeiro
+5260,Blessed Platemail Helm,Elmo de Placas Abençoadas,items/base/armor/plate/head.txt,12,uncommon,,,,5,7,0,blessed,hp:20;mp:12;xp_gain:3,678,/wiki/images/3/37/Helmet_plate_blue.png,,,Benzedeiro
+5261,Blessed Platemail Vest,Peitoral de Placas Abençoadas,items/base/armor/plate/chest.txt,12,uncommon,,,,7,7,0,blessed,hp:36;mp:16,678,/wiki/images/d/da/Armor_plate_chest_blue.png,,,Benzedeiro
+5262,Blessed Platemail Gauntlets,Luvas de Placas Abençoadas,items/base/armor/plate/hands.txt,12,uncommon,,,,5,7,0,blessed,hp:32;mp:12,678,/wiki/images/d/dc/Armor_plate_hands_blue.png,,,Benzedeiro
+5263,Blessed Platemail Leggings,Calças de Placas Abençoadas,items/base/armor/plate/legs.txt,12,uncommon,,,,6,6,0,blessed,hp:24;mp:16,678,/wiki/images/c/c6/Armor_plate_legs_blue.png,,,Benzedeiro
+5264,Blessed Platemail Boots,Botas de Placas Abençoadas,items/base/armor/plate/feet.txt,12,uncommon,,,,5,7,0,blessed,hp:24;mp:8,678,/wiki/images/f/f3/Armor_plate_feet_blue.png,,,Benzedeiro
+5265,Dreadiron Breastplate,Peitoral de Ferro Sombrio,items/base/armor/plate/chest.txt,14,uncommon,,,,8,9,0,crimson,hp:60;lightning_resist:16;fire_resist:4,835,/wiki/images/4/47/Armor_plate_chest_epic.png,,,Cangaceiro
+5266,Dreadiron Gauntlets,Luvas de Ferro Sombrio,items/base/armor/plate/hands.txt,14,unique,,,,6,7,0,crimson,hp:36;lightning_resist:7;fire_resist:2,3339,/wiki/images/f/f6/Armor_plate_hands_purple.png,,,Cangaceiro
+5267,Dreadiron Leggings,Calças de Ferro Sombrio,items/base/armor/plate/legs.txt,14,uncommon,,,,8,9,0,crimson,hp:52;lightning_resist:9;fire_resist:4,835,/wiki/images/4/4e/Armor_plate_legs_r.png,,,Cangaceiro
+5268,Dreadiron Boots,Botas de Ferro Sombrio,items/base/armor/plate/feet.txt,14,unique,,,,7,8,0,crimson,hp:32;lightning_resist:5;fire_resist:5,3339,/wiki/images/9/90/Armor_plate_feet_r.png,,,Cangaceiro
+5269,Ashen Helm,Elmo das Cinzas,items/base/armor/plate/head.txt,15,uncommon,,,,7,8,0,ashen,hp:36;mp:20;lightning_resist:10;fire_resist:10;xp_gain:3,916,/wiki/images/1/14/Armor_plate_head_black.png,,,Cangaceiro;Benzedeiro
+5270,Ashen Chestplate,Peitoral das Cinzas,items/base/armor/plate/chest.txt,15,unique,,,,9,10,0,ashen,hp:60;mp:36;fire_resist:20,3665,/wiki/images/6/61/Armor_plate_chest_black.png,,,Cangaceiro;Benzedeiro
+5271,Ashen Gauntlets,Luvas das Cinzas,items/base/armor/plate/hands.txt,15,uncommon,,,,6,7,0,ashen,hp:36;mp:24;lightning_resist:15;fire_resist:4,916,/wiki/images/b/be/Armor_plate_hands_black.png,,,Cangaceiro;Benzedeiro
+5272,Ashen Leggings,Calças das Cinzas,items/base/armor/plate/legs.txt,15,uncommon,,,,8,9,0,ashen,hp:52;mp:20;lightning_resist:11;fire_resist:4,916,/wiki/images/7/7d/Armor_plate_legs_black.png,,,Cangaceiro;Benzedeiro
+5273,Ashen Boots,Botas das Cinzas,items/base/armor/plate/feet.txt,15,uncommon,,,,7,8,0,ashen,hp:32;mp:16;lightning_resist:9;fire_resist:5;poise:10,916,/wiki/images/4/42/Armor_plate_feet_black.png,,,Cangaceiro;Benzedeiro
 5400,Buckler,Broquel,items/base/shields/wood.txt,1,common,,,,1,2,0,,hp:12,25,/wiki/images/7/73/Armor_buckler.png,,,
-5401,Iron Shield,Escudo de Ferro,items/base/shields/iron.txt,4,common,,,,2,3,0,,hp:20,85,/wiki/images/2/2a/Armor_shield_round.png,,,Warrior;Cleric
+5401,Iron Shield,Escudo de Ferro,items/base/shields/iron.txt,4,common,,,,2,3,0,,hp:20,85,/wiki/images/2/2a/Armor_shield_round.png,,,Cangaceiro;Benzedeiro
 5402,Charred Buckler,Broquel Chamuscado,items/base/shields/wood.txt,6,uncommon,,,,2,3,0,fire,hp:32;fire_resist:8,276,/wiki/images/4/4e/Armor_buckler_red.png,,,
-5403,Anointed Shield,Escudo Ungido,items/base/shields/kite.txt,7,common,,,,3,4,0,,hp:24;fire_resist:10,167,/wiki/images/6/6f/Armor_shield.png,,,Warrior;Cleric
+5403,Anointed Shield,Escudo Ungido,items/base/shields/kite.txt,7,common,,,,3,4,0,,hp:24;fire_resist:10,167,/wiki/images/6/6f/Armor_shield.png,,,Cangaceiro;Benzedeiro
 5404,Petrified Wood Buckler,Broquel de Madeira Petrificada,items/base/shields/wood.txt,9,uncommon,,,,3,4,0,ashen,hp:32;fire_resist:12;dark_resist:12,463,/wiki/images/7/73/Armor_buckler.png,,,
-5405,Hero's Shield,Escudo do Herói,items/base/shields/steel.txt,10,uncommon,,,,4,6,0,,hp:32,532,/wiki/images/6/6f/Armor_shield.png,,,Warrior;Cleric
+5405,Hero's Shield,Escudo do Herói,items/base/shields/steel.txt,10,uncommon,,,,4,6,0,,hp:32,532,/wiki/images/6/6f/Armor_shield.png,,,Cangaceiro;Benzedeiro
 5406,Lesser Ring of Flames,Anel Menor das Chamas,items/base/rings/gold_2.txt,2,common,,,,,,0,,fire_resist:10,41,/wiki/images/5/51/Ring2.png,,,
 5407,Lesser Ring of Ice,Anel Menor do Gelo,items/base/rings/silver_3.txt,2,common,,,,,,0,,ice_resist:10,41,/wiki/images/9/92/Ring3.png,,,
 5408,Lesser Ring of Learning,Anel Menor do Aprendizado,items/base/rings/silver_1.txt,2,common,,,,,,0,,hp:12;xp_gain:8,41,/wiki/images/1/11/Ring6.png,,,
@@ -203,14 +203,14 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5417,Greater Ring of Endurance,Anel Maior da Resistência,items/base/rings/gold_5.txt,11,uncommon,,,,,,0,,dark_resist:30;hp:60,604,/wiki/images/0/05/Ring5.png,,,
 5418,Blessed Necklace,Colar Abençoado,items/base/necklaces/silver_1.txt,3,common,,,,,,0,,hp:20;mp:12;dark_resist:15,62,/wiki/images/d/d8/Amulet1.png,,,
 5419,Purple Medallion,Medalhão Púrpura,items/base/necklaces/gold_1.txt,8,uncommon,,,,,,0,,mp:60;dark_resist:15;fire_resist:15,398,/wiki/images/d/d9/Purple_Medallion.png,,,
-5420,Sigil of the Academy,Sigilo da Academia,items/base/necklaces/gold_2.txt,10,uncommon,,,,,,0,,hp:20;mp:64;dark_resist:10;fire_resist:10;item_find:5,532,/wiki/images/4/4c/Medallion2.png,,,Cleric;Mage
-5421,Abyssal Pendant,Pingente Abissal,items/base/necklaces/silver_2.txt,12,uncommon,,,,,,0,,hp:80;mp:80;xp_gain:8;item_find:5,678,/wiki/images/0/0e/Necklace_depths.png,,,Cleric;Mage
+5420,Sigil of the Academy,Sigilo da Academia,items/base/necklaces/gold_2.txt,10,uncommon,,,,,,0,,hp:20;mp:64;dark_resist:10;fire_resist:10;item_find:5,532,/wiki/images/4/4c/Medallion2.png,,,Benzedeiro;Feiticeiro
+5421,Abyssal Pendant,Pingente Abissal,items/base/necklaces/silver_2.txt,12,uncommon,,,,,,0,,hp:80;mp:80;xp_gain:8;item_find:5,678,/wiki/images/0/0e/Necklace_depths.png,,,Benzedeiro;Feiticeiro
 5422,Belt of Might,Cinto do Poder,items/base/armor/belt.txt,2,common,,,,,,0,,physical:1,41,/wiki/images/9/9f/Belt1.png,,,
 5423,Belt of Agility,Cinto da Agilidade,items/base/armor/belt.txt,2,common,,,,,,0,,offense:1,41,/wiki/images/9/9f/Belt1.png,,,
-5424,Belt of Flowing Thought,Cinto do Pensamento Fluido,items/base/armor/belt.txt,2,common,,,,,,0,,mental:1,41,/wiki/images/9/9f/Belt1.png,,,Mage
+5424,Belt of Flowing Thought,Cinto do Pensamento Fluido,items/base/armor/belt.txt,2,common,,,,,,0,,mental:1,41,/wiki/images/9/9f/Belt1.png,,,Feiticeiro
 5425,Girdle of Might,Cinturão do Poder,items/base/armor/belt.txt,7,uncommon,,,,3,4,0,,hp:32;physical:2,335,/wiki/images/9/9f/Belt1.png,,,
 5426,Girdle of Agility,Cinturão da Agilidade,items/base/armor/belt.txt,7,uncommon,,,,3,4,0,,hp:32;offense:2,335,/wiki/images/9/9f/Belt1.png,,,
-5427,Girdle of Intellect,Cinturão do Intelecto,items/base/armor/belt.txt,7,common,,,,3,4,0,,hp:32;mental:2,167,/wiki/images/9/9f/Belt1.png,,,Mage
-5428,Girdle of the Warrior,Cinturão do Guerreiro,items/base/armor/belt.txt,12,uncommon,,,,,,0,,physical:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,
-5429,Girdle of the Rogue,Cinturão do Ladino,items/base/armor/belt.txt,12,uncommon,,,,,,0,,offense:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,
-5430,Girdle of Supreme Intellect,Cinturão do Intelecto Supremo,items/base/armor/belt.txt,12,uncommon,,,,,,0,,mental:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,Mage
+5427,Girdle of Intellect,Cinturão do Intelecto,items/base/armor/belt.txt,7,common,,,,3,4,0,,hp:32;mental:2,167,/wiki/images/9/9f/Belt1.png,,,Feiticeiro
+5428,Cangaceiro Belt,Cinturão de Cangaceiro,items/base/armor/belt.txt,12,uncommon,,,,,,0,,physical:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,
+5429,Mateiro Belt,Cinturão de Mateiro,items/base/armor/belt.txt,12,uncommon,,,,,,0,,offense:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,
+5430,Girdle of Supreme Intellect,Cinturão do Intelecto Supremo,items/base/armor/belt.txt,12,uncommon,,,,,,0,,mental:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,Feiticeiro

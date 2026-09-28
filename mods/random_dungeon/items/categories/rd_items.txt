@@ -76,7 +76,7 @@ price=25
 requires_level=1
 dmg=melee,4,13
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_shortsword_iron
 
 [item]
@@ -90,7 +90,7 @@ price=85
 requires_level=4
 dmg=melee,10,23
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5007
@@ -103,7 +103,7 @@ price=138
 requires_level=6
 dmg=melee,13,29
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 slayer=undead,25
 gfx=rd_shortsword_silver
 
@@ -118,7 +118,7 @@ price=232
 requires_level=9
 dmg=melee,16,44
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_shortsword_bluesteel
 
 [item]
@@ -132,7 +132,7 @@ price=1511
 requires_level=13
 dmg=melee,35,54
 bonus=crit,4
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 slayer=demon,30
 gfx=rd_shortsword_adamantite
 
@@ -147,7 +147,7 @@ price=25
 requires_level=1
 dmg=melee,7,13
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longsword_iron
 
 [item]
@@ -161,7 +161,7 @@ price=85
 requires_level=4
 dmg=melee,14,24
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5012
@@ -174,7 +174,7 @@ price=138
 requires_level=6
 dmg=melee,17,31
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 slayer=undead,25
 gfx=rd_longsword_silver
 
@@ -189,7 +189,7 @@ price=232
 requires_level=9
 dmg=melee,23,45
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longsword_bluesteel
 
 [item]
@@ -203,7 +203,7 @@ price=1511
 requires_level=13
 dmg=melee,41,60
 bonus=crit,4
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 slayer=demon,40
 gfx=rd_longsword_adamantite
 
@@ -219,7 +219,7 @@ requires_level=1
 dmg=melee,7,21
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_greatsword_iron
 
 [item]
@@ -234,7 +234,7 @@ requires_level=4
 dmg=melee,15,38
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5017
@@ -248,7 +248,7 @@ requires_level=6
 dmg=melee,18,48
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior
+requires_class=Cangaceiro
 slayer=undead,25
 gfx=rd_greatsword_silver
 
@@ -264,7 +264,7 @@ requires_level=9
 dmg=melee,27,68
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_greatsword_bluesteel
 
 [item]
@@ -280,7 +280,7 @@ dmg=melee,52,89
 disable_slots=off
 equip_flags=melee,two_handed
 bonus=crit,2
-requires_class=Warrior
+requires_class=Cangaceiro
 slayer=demon,50
 gfx=rd_greatsword_adamantite
 
@@ -295,7 +295,7 @@ price=25
 requires_level=1
 dmg=melee,4,16
 bonus=crit,3
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_hand_axe_iron
 
 [item]
@@ -309,7 +309,7 @@ price=85
 requires_level=4
 dmg=melee,6,32
 bonus=crit,3
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5022
@@ -322,7 +322,7 @@ price=232
 requires_level=9
 dmg=melee,13,53
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_hand_axe_bluesteel
 
 [item]
@@ -336,7 +336,7 @@ price=1511
 requires_level=13
 dmg=melee,20,79
 bonus=crit,4
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_hand_axe_adamantite
 
 [item]
@@ -352,7 +352,7 @@ dmg=melee,6,23
 disable_slots=off
 equip_flags=melee,two_handed
 bonus=crit,2
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_battle_axe_iron
 
 [item]
@@ -367,7 +367,7 @@ requires_level=4
 dmg=melee,9,46
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5026
@@ -381,7 +381,7 @@ requires_level=9
 dmg=melee,10,89
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_battle_axe_bluesteel
 
 [item]
@@ -397,7 +397,7 @@ dmg=melee,15,132
 disable_slots=off
 equip_flags=melee,two_handed
 bonus=crit,2
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_battle_axe_adamantite
 
 [item]
@@ -410,7 +410,7 @@ icon=4124
 price=25
 requires_level=1
 dmg=melee,8,11
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_mace_iron
 
 [item]
@@ -423,7 +423,7 @@ icon=4125
 price=85
 requires_level=4
 dmg=melee,15,21
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5030
@@ -435,7 +435,7 @@ icon=4126
 price=138
 requires_level=6
 dmg=melee,19,26
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 slayer=undead,25
 gfx=rd_mace_silver
 
@@ -449,7 +449,7 @@ icon=4127
 price=232
 requires_level=9
 dmg=melee,26,39
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_mace_bluesteel
 
 [item]
@@ -463,7 +463,7 @@ price=1511
 requires_level=13
 dmg=melee,38,58
 bonus=crit,2
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_mace_adamantite
 
 [item]
@@ -477,7 +477,7 @@ price=25
 requires_level=1
 dmg=melee,8,10
 bonus=crit,2
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_war_hammer_iron
 
 [item]
@@ -491,7 +491,7 @@ price=85
 requires_level=4
 dmg=melee,16,19
 bonus=crit,2
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5035
@@ -504,7 +504,7 @@ price=232
 requires_level=9
 dmg=melee,26,36
 bonus=crit,2
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_war_hammer_bluesteel
 
 [item]
@@ -518,7 +518,7 @@ price=1511
 requires_level=13
 dmg=melee,39,54
 bonus=crit,4
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_war_hammer_adamantite
 
 [item]
@@ -533,7 +533,7 @@ requires_level=1
 dmg=melee,8,20
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_maul_iron
 
 [item]
@@ -548,7 +548,7 @@ requires_level=4
 dmg=melee,16,37
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5039
@@ -562,7 +562,7 @@ requires_level=9
 dmg=melee,29,66
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_maul_bluesteel
 
 [item]
@@ -578,7 +578,7 @@ dmg=melee,43,99
 disable_slots=off
 equip_flags=melee,two_handed
 bonus=crit,2
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_maul_adamantite
 
 [item]
@@ -592,7 +592,7 @@ price=41
 requires_level=2
 dmg=melee,6,15
 bonus=crit,3
-requires_class=Rogue
+requires_class=Mateiro
 
 [item]
 id=5101
@@ -622,7 +622,7 @@ dmg=melee,6,19
 bonus=crit,3
 bonus=dmg_dark_min,8
 bonus=dmg_dark_max,13
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_dagger_venom
 
 [item]
@@ -651,7 +651,7 @@ price=85
 requires_level=4
 dmg=melee,9,21
 bonus=crit,2
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 slayer=beast,15
 
 [item]
@@ -665,7 +665,7 @@ price=85
 requires_level=4
 dmg=melee,10,20
 bonus=crit,5
-requires_class=Rogue
+requires_class=Mateiro
 
 [item]
 id=5106
@@ -680,7 +680,7 @@ dmg=melee,11,28
 bonus=crit,2
 bonus=dmg_ice_min,7
 bonus=dmg_ice_max,11
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_shortsword_ice
 
 [item]
@@ -694,7 +694,7 @@ price=110
 requires_level=5
 dmg=melee,14,25
 bonus=crit,3
-requires_class=Rogue
+requires_class=Mateiro
 
 [item]
 id=5108
@@ -707,7 +707,7 @@ price=138
 requires_level=6
 dmg=melee,15,29
 bonus=crit,8
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5109
@@ -721,7 +721,7 @@ requires_level=6
 dmg=melee,18,37
 bonus=dmg_fire_min,8
 bonus=dmg_fire_max,14
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longsword_fire
 
 [item]
@@ -737,7 +737,7 @@ dmg=melee,17,33
 bonus=crit,2
 bonus=dmg_lightning_min,8
 bonus=dmg_lightning_max,12
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longsword_gold
 
 [item]
@@ -750,7 +750,7 @@ icon=4148
 price=167
 requires_level=7
 dmg=melee,20,36
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 slayer=greenskin,30
 
 [item]
@@ -766,7 +766,7 @@ dmg=melee,8,46
 bonus=crit,3
 bonus=dmg_fire_min,5
 bonus=dmg_fire_max,8
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_hand_axe_fire
 
 [item]
@@ -782,7 +782,7 @@ dmg=melee,8,46
 bonus=crit,3
 bonus=dmg_lightning_min,5
 bonus=dmg_lightning_max,8
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_hand_axe_gold
 
 [item]
@@ -798,7 +798,7 @@ dmg=melee,26,61
 disable_slots=off
 equip_flags=melee,two_handed
 bonus=crit,3
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5115
@@ -810,7 +810,7 @@ icon=4152
 price=199
 requires_level=8
 dmg=melee,25,34
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5116
@@ -825,7 +825,7 @@ dmg=melee,26,31
 bonus=crit,2
 bonus=dmg_dark_min,12
 bonus=dmg_dark_max,21
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_war_hammer_venom
 
 [item]
@@ -842,7 +842,7 @@ disable_slots=off
 equip_flags=melee,two_handed
 bonus=dmg_ice_min,13
 bonus=dmg_ice_max,21
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_greatsword_ice
 
 [item]
@@ -859,7 +859,7 @@ disable_slots=off
 equip_flags=melee,two_handed
 bonus=dmg_ice_min,9
 bonus=dmg_ice_max,14
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_maul_ice
 
 [item]
@@ -875,7 +875,7 @@ dmg=melee,28,36
 bonus=dmg_dark_min,10
 bonus=dmg_dark_max,16
 bonus=crit,3
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_mace_venom
 
 [item]
@@ -891,7 +891,7 @@ dmg=melee,27,48
 bonus=crit,2
 bonus=dmg_fire_min,16
 bonus=dmg_fire_max,27
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 slayer=demon,30
 slayer=undead,55
 gfx=rd_longsword_fire
@@ -910,7 +910,7 @@ disable_slots=off
 equip_flags=melee,two_handed
 bonus=dmg_lightning_min,14
 bonus=dmg_lightning_max,24
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_battle_axe_gold
 
 [item]
@@ -925,7 +925,7 @@ requires_level=10
 dmg=melee,15,103
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5123
@@ -939,7 +939,7 @@ requires_level=10
 dmg=melee,37,67
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5124
@@ -954,7 +954,7 @@ dmg=melee,20,52
 bonus=crit,2
 bonus=dmg_fire_min,20
 bonus=dmg_fire_max,33
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_shortsword_fire
 
 [item]
@@ -970,7 +970,7 @@ dmg=melee,18,47
 bonus=crit,3
 bonus=dmg_fire_min,18
 bonus=dmg_fire_max,30
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_dagger_fire
 
 [item]
@@ -986,7 +986,7 @@ dmg=melee,29,51
 bonus=crit,2
 bonus=dmg_fire_min,17
 bonus=dmg_fire_max,29
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longsword_fire
 
 [item]
@@ -1002,7 +1002,7 @@ dmg=melee,14,102
 disable_slots=off
 equip_flags=melee,two_handed
 bonus=crit,6
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5128
@@ -1017,7 +1017,7 @@ dmg=melee,33,61
 bonus=crit,2
 bonus=dmg_lightning_min,17
 bonus=dmg_lightning_max,28
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longsword_gold
 
 [item]
@@ -1033,7 +1033,7 @@ dmg=melee,19,74
 bonus=crit,3
 bonus=dmg_dark_min,15
 bonus=dmg_dark_max,25
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_hand_axe_venom
 
 [item]
@@ -1050,7 +1050,7 @@ disable_slots=off
 equip_flags=melee,two_handed
 bonus=dmg_dark_min,24
 bonus=dmg_dark_max,41
-requires_class=Warrior
+requires_class=Cangaceiro
 slayer=beast,30
 gfx=rd_battle_axe_venom
 
@@ -1065,7 +1065,7 @@ price=25
 requires_level=1
 dmg=ranged,4,16
 bonus=crit,2
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5132
@@ -1077,7 +1077,7 @@ icon=4169
 price=62
 requires_level=3
 dmg=ranged,8,24
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5133
@@ -1089,7 +1089,7 @@ icon=4170
 price=110
 requires_level=5
 dmg=ranged,13,35
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 
 [item]
 id=5134
@@ -1101,7 +1101,7 @@ icon=4171
 price=167
 requires_level=7
 dmg=ranged,15,46
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 slayer=undead,25
 gfx=rd_longbow_silver
 
@@ -1117,7 +1117,7 @@ requires_level=8
 dmg=ranged,17,51
 bonus=dmg_ice_min,10
 bonus=dmg_ice_max,17
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longbow_ice
 
 [item]
@@ -1133,7 +1133,7 @@ dmg=ranged,32,65
 bonus=dmg_dark_min,19
 bonus=dmg_dark_max,32
 bonus=crit,3
-requires_class=Rogue
+requires_class=Mateiro
 gfx=rd_longbow_venom
 
 [item]
@@ -1149,7 +1149,7 @@ dmg=ranged,31,72
 bonus=crit,2
 bonus=dmg_dark_min,25
 bonus=dmg_dark_max,41
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_greatbow_venom
 
 [item]
@@ -1164,7 +1164,7 @@ requires_level=1
 dmg=ment,7,13
 equip_flags=mental,wand
 bonus=crit,2
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5139
@@ -1177,7 +1177,7 @@ price=62
 requires_level=3
 dmg=ment,14,23
 equip_flags=mental,staff
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5140
@@ -1191,7 +1191,7 @@ requires_level=4
 dmg=ment,13,25
 equip_flags=mental,wand
 bonus=crit,2
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5141
@@ -1205,7 +1205,7 @@ requires_level=6
 dmg=ment,21,37
 equip_flags=mental,staff
 bonus=mp,8
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5142
@@ -1218,7 +1218,7 @@ price=167
 requires_level=7
 dmg=ment,24,41
 equip_flags=mental,staff
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5143
@@ -1233,7 +1233,7 @@ dmg=ment,23,42
 equip_flags=mental,wand
 bonus=crit,2
 bonus=mp,16
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5144
@@ -1248,7 +1248,7 @@ dmg=ment,24,54
 equip_flags=mental,staff
 bonus=dmg_lightning_min,11
 bonus=dmg_lightning_max,18
-requires_class=Mage
+requires_class=Feiticeiro
 gfx=rd_staff_gold
 
 [item]
@@ -1264,7 +1264,7 @@ dmg=ment,42,73
 disable_slots=off
 equip_flags=mental,two_handed,staff
 bonus=mp,24
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5146
@@ -1280,7 +1280,7 @@ disable_slots=off
 equip_flags=mental,two_handed,staff
 bonus=crit,2
 bonus=mp,24
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5500
@@ -1295,7 +1295,7 @@ dmg=melee,17,45
 bonus=crit,9
 bonus=dmg_dark_min,17
 bonus=dmg_dark_max,28
-requires_class=Rogue
+requires_class=Mateiro
 gfx=rd_dagger_venom
 loot_drops_max=1
 
@@ -1312,7 +1312,7 @@ dmg=melee,31,41
 bonus=crit,2
 bonus=dmg_ice_min,9
 bonus=dmg_ice_max,15
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 slayer=demon,20
 slayer=undead,45
 gfx=rd_war_hammer_ice
@@ -1331,7 +1331,7 @@ dmg=melee,28,57
 bonus=crit,2
 bonus=dmg_ice_min,17
 bonus=dmg_ice_max,28
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longsword_ice
 loot_drops_max=1
 
@@ -1350,7 +1350,7 @@ equip_flags=melee,two_handed
 bonus=dmg_fire_min,15
 bonus=dmg_fire_max,25
 bonus=crit,3
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_greatsword_fire
 loot_drops_max=1
 
@@ -1367,7 +1367,7 @@ dmg=melee,18,73
 bonus=crit,3
 bonus=dmg_fire_min,18
 bonus=dmg_fire_max,30
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_hand_axe_fire
 loot_drops_max=1
 
@@ -1384,7 +1384,7 @@ dmg=melee,39,49
 bonus=crit,6
 bonus=dmg_dark_min,12
 bonus=dmg_dark_max,20
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_mace_venom
 loot_drops_max=1
 
@@ -1401,7 +1401,7 @@ dmg=melee,36,49
 bonus=crit,8
 bonus=dmg_dark_min,15
 bonus=dmg_dark_max,24
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_war_hammer_venom
 loot_drops_max=1
 
@@ -1417,7 +1417,7 @@ requires_level=10
 dmg=melee,40,89
 disable_slots=off
 equip_flags=melee,two_handed
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 loot_drops_max=1
 
 [item]
@@ -1430,7 +1430,7 @@ icon=4192
 price=2130
 requires_level=10
 dmg=ranged,42,69
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 loot_drops_max=1
 
 [item]
@@ -1446,7 +1446,7 @@ dmg=melee,29,57
 bonus=crit,3
 bonus=dmg_ice_min,17
 bonus=dmg_ice_max,29
-requires_class=Rogue
+requires_class=Mateiro
 slayer=demon,20
 gfx=rd_dagger_ice
 loot_drops_max=1
@@ -1464,7 +1464,7 @@ dmg=melee,27,68
 bonus=crit,8
 bonus=dmg_fire_min,28
 bonus=dmg_fire_max,47
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_shortsword_fire
 loot_drops_max=1
 
@@ -1481,7 +1481,7 @@ dmg=melee,41,67
 bonus=crit,2
 bonus=dmg_dark_min,22
 bonus=dmg_dark_max,36
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 slayer=beast,45
 gfx=rd_longsword_venom
 loot_drops_max=1
@@ -1500,7 +1500,7 @@ disable_slots=off
 equip_flags=melee,two_handed
 bonus=dmg_lightning_min,26
 bonus=dmg_lightning_max,44
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 slayer=undead,25
 gfx=rd_maul_gold
 loot_drops_max=1
@@ -1518,7 +1518,7 @@ dmg=melee,44,71
 bonus=crit,2
 bonus=dmg_ice_min,30
 bonus=dmg_ice_max,49
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_longsword_ice
 loot_drops_max=1
 
@@ -1534,7 +1534,7 @@ requires_level=13
 dmg=ranged,49,89
 bonus=dmg_ice_min,19
 bonus=dmg_ice_max,32
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_greatbow_ice
 loot_drops_max=1
 
@@ -1553,7 +1553,7 @@ bonus=crit,3
 bonus=dmg_dark_min,24
 bonus=dmg_dark_max,41
 bonus=mp,32
-requires_class=Mage
+requires_class=Feiticeiro
 gfx=rd_wand_venom
 loot_drops_max=1
 
@@ -1570,7 +1570,7 @@ dmg=melee,34,74
 bonus=crit,12
 bonus=dmg_dark_min,24
 bonus=dmg_dark_max,40
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_shortsword_venom
 loot_drops_max=1
 
@@ -1589,7 +1589,7 @@ equip_flags=melee,two_handed
 bonus=dmg_lightning_min,29
 bonus=dmg_lightning_max,49
 bonus=crit,3
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_battle_axe_gold
 loot_drops_max=1
 
@@ -1606,7 +1606,7 @@ dmg=melee,53,63
 bonus=dmg_dark_min,22
 bonus=dmg_dark_max,37
 bonus=crit,9
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_mace_venom
 loot_drops_max=1
 
@@ -1625,7 +1625,7 @@ equip_flags=melee,two_handed
 bonus=dmg_fire_min,34
 bonus=dmg_fire_max,56
 bonus=crit,6
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_greatsword_fire
 loot_drops_max=1
 
@@ -1642,7 +1642,7 @@ dmg=ment,45,85
 equip_flags=mental,wand
 bonus=crit,4
 bonus=mp,40
-requires_class=Mage
+requires_class=Feiticeiro
 loot_drops_max=1
 
 [item]
@@ -1659,7 +1659,7 @@ disable_slots=off
 equip_flags=mental,two_handed,staff
 bonus=crit,2
 bonus=mp,40
-requires_class=Mage
+requires_class=Feiticeiro
 loot_drops_max=1
 
 [item]
@@ -1732,7 +1732,7 @@ price=25
 requires_level=1
 abs=0,1
 bonus=mp,8
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5206
@@ -1746,7 +1746,7 @@ requires_level=1
 abs=1,2
 bonus=hp,8
 bonus=mp,16
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5207
@@ -1760,7 +1760,7 @@ requires_level=1
 abs=0,1
 bonus=hp,4
 bonus=mp,8
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5208
@@ -1774,7 +1774,7 @@ requires_level=1
 abs=0,1
 bonus=hp,8
 bonus=mp,12
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5209
@@ -1788,7 +1788,7 @@ requires_level=1
 abs=0,1
 bonus=hp,4
 bonus=mp,8
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5210
@@ -1801,7 +1801,7 @@ price=85
 requires_level=4
 abs=0,2
 bonus=hp,16
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_leather_hood_hardened
 
 [item]
@@ -1815,7 +1815,7 @@ price=85
 requires_level=4
 abs=2,4
 bonus=hp,20
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_leather_chest_hardened
 
 [item]
@@ -1829,7 +1829,7 @@ price=85
 requires_level=4
 abs=2,2
 bonus=hp,8
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_leather_gloves_hardened
 
 [item]
@@ -1843,7 +1843,7 @@ price=85
 requires_level=4
 abs=2,2
 bonus=hp,28
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_leather_pants_hardened
 
 [item]
@@ -1870,7 +1870,7 @@ price=85
 requires_level=4
 abs=0,2
 bonus=mp,16
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5216
@@ -1884,7 +1884,7 @@ requires_level=4
 abs=2,2
 bonus=hp,20
 bonus=mp,28
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5217
@@ -1898,7 +1898,7 @@ requires_level=4
 abs=0,2
 bonus=hp,8
 bonus=mp,16
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5218
@@ -1912,7 +1912,7 @@ requires_level=4
 abs=2,2
 bonus=hp,12
 bonus=mp,16
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5219
@@ -1926,7 +1926,7 @@ requires_level=4
 abs=2,2
 bonus=hp,4
 bonus=mp,12
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5220
@@ -1939,7 +1939,7 @@ price=110
 requires_level=5
 abs=2,3
 bonus=hp,16
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5221
@@ -1952,7 +1952,7 @@ price=110
 requires_level=5
 abs=3,4
 bonus=hp,44
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5222
@@ -1965,7 +1965,7 @@ price=110
 requires_level=5
 abs=3,4
 bonus=hp,20
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5223
@@ -1978,7 +1978,7 @@ price=110
 requires_level=5
 abs=3,4
 bonus=hp,32
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5224
@@ -1991,7 +1991,7 @@ price=110
 requires_level=5
 abs=3,4
 bonus=hp,20
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5225
@@ -2004,7 +2004,7 @@ price=138
 requires_level=6
 abs=2,3
 bonus=hp,16
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_chain_coif_forest
 
 [item]
@@ -2018,7 +2018,7 @@ price=138
 requires_level=6
 abs=3,4
 bonus=hp,24
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_chain_cuirass_forest
 
 [item]
@@ -2032,7 +2032,7 @@ price=138
 requires_level=6
 abs=3,4
 bonus=hp,8
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_chain_gloves_forest
 
 [item]
@@ -2046,7 +2046,7 @@ price=138
 requires_level=6
 abs=3,4
 bonus=hp,24
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_chain_greaves_forest
 
 [item]
@@ -2060,7 +2060,7 @@ price=138
 requires_level=6
 abs=3,4
 bonus=hp,24
-requires_class=Warrior,Rogue
+requires_class=Cangaceiro,Mateiro
 gfx=rd_chain_boots_forest
 
 [item]
@@ -2076,7 +2076,7 @@ abs=2,3
 bonus=hp,16
 bonus=mp,8
 bonus=xp_gain,3
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_chain_coif_blessed
 
 [item]
@@ -2091,7 +2091,7 @@ requires_level=7
 abs=3,4
 bonus=hp,24
 bonus=mp,12
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_chain_cuirass_blessed
 
 [item]
@@ -2106,7 +2106,7 @@ requires_level=7
 abs=3,4
 bonus=hp,8
 bonus=mp,8
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_chain_gloves_blessed
 
 [item]
@@ -2121,7 +2121,7 @@ requires_level=7
 abs=3,4
 bonus=hp,24
 bonus=mp,8
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_chain_greaves_blessed
 
 [item]
@@ -2136,7 +2136,7 @@ requires_level=7
 abs=3,4
 bonus=hp,24
 bonus=mp,4
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_chain_boots_blessed
 
 [item]
@@ -2152,7 +2152,7 @@ abs=2,3
 bonus=hp,8
 bonus=mp,20
 bonus=item_find,5
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5236
@@ -2168,7 +2168,7 @@ bonus=hp,20
 bonus=mp,36
 bonus=fire_resist,5
 bonus=ice_resist,5
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5237
@@ -2182,7 +2182,7 @@ requires_level=7
 abs=2,3
 bonus=hp,8
 bonus=mp,20
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5238
@@ -2197,7 +2197,7 @@ abs=3,4
 bonus=hp,12
 bonus=mp,20
 bonus=lightning_resist,5
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5239
@@ -2211,7 +2211,7 @@ requires_level=7
 abs=2,3
 bonus=hp,16
 bonus=mp,24
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5240
@@ -2225,7 +2225,7 @@ requires_level=8
 abs=4,4
 bonus=hp,24
 bonus=dark_resist,5
-requires_class=Rogue
+requires_class=Mateiro
 gfx=rd_leather_hood_shadow
 
 [item]
@@ -2241,7 +2241,7 @@ abs=6,6
 bonus=hp,24
 bonus=fire_resist,6
 bonus=dark_resist,6
-requires_class=Rogue
+requires_class=Mateiro
 gfx=rd_leather_chest_shadow
 
 [item]
@@ -2258,7 +2258,7 @@ bonus=hp,24
 bonus=fire_resist,3
 bonus=dark_resist,5
 bonus=currency_find,10
-requires_class=Rogue
+requires_class=Mateiro
 gfx=rd_leather_gloves_shadow
 
 [item]
@@ -2274,7 +2274,7 @@ abs=4,6
 bonus=hp,24
 bonus=ice_resist,6
 bonus=dark_resist,6
-requires_class=Rogue
+requires_class=Mateiro
 gfx=rd_leather_pants_shadow
 
 [item]
@@ -2290,7 +2290,7 @@ abs=4,4
 bonus=hp,20
 bonus=ice_resist,5
 bonus=dark_resist,5
-requires_class=Rogue
+requires_class=Mateiro
 gfx=rd_leather_boots_shadow
 
 [item]
@@ -2304,7 +2304,7 @@ price=232
 requires_level=9
 abs=4,5
 bonus=hp,16
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5246
@@ -2317,7 +2317,7 @@ price=232
 requires_level=9
 abs=5,6
 bonus=hp,60
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5247
@@ -2330,7 +2330,7 @@ price=232
 requires_level=9
 abs=4,5
 bonus=hp,32
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5248
@@ -2343,7 +2343,7 @@ price=232
 requires_level=9
 abs=5,6
 bonus=hp,52
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5249
@@ -2356,7 +2356,7 @@ price=232
 requires_level=9
 abs=5,6
 bonus=hp,20
-requires_class=Warrior
+requires_class=Cangaceiro
 
 [item]
 id=5250
@@ -2371,7 +2371,7 @@ abs=5,6
 bonus=hp,12
 bonus=fire_resist,4
 bonus=ice_resist,4
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_helm_gold
 
 [item]
@@ -2387,7 +2387,7 @@ abs=6,7
 bonus=hp,36
 bonus=fire_resist,7
 bonus=ice_resist,7
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_cuirass_gold
 
 [item]
@@ -2403,7 +2403,7 @@ abs=5,6
 bonus=hp,16
 bonus=fire_resist,4
 bonus=ice_resist,4
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_gauntlets_gold
 
 [item]
@@ -2419,7 +2419,7 @@ abs=6,7
 bonus=hp,28
 bonus=fire_resist,5
 bonus=ice_resist,5
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_greaves_gold
 
 [item]
@@ -2435,7 +2435,7 @@ abs=6,7
 bonus=hp,8
 bonus=fire_resist,4
 bonus=ice_resist,4
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_boots_gold
 
 [item]
@@ -2451,7 +2451,7 @@ abs=5,6
 bonus=hp,12
 bonus=fire_resist,-10
 bonus=ice_resist,6
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_chain_coif_ice
 
 [item]
@@ -2467,7 +2467,7 @@ abs=6,7
 bonus=hp,24
 bonus=fire_resist,-12
 bonus=ice_resist,12
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_chain_cuirass_ice
 
 [item]
@@ -2483,7 +2483,7 @@ abs=5,6
 bonus=hp,16
 bonus=fire_resist,-10
 bonus=ice_resist,6
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_chain_gloves_ice
 
 [item]
@@ -2499,7 +2499,7 @@ abs=5,6
 bonus=hp,24
 bonus=fire_resist,-10
 bonus=ice_resist,10
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_chain_greaves_ice
 
 [item]
@@ -2515,7 +2515,7 @@ abs=5,6
 bonus=hp,12
 bonus=fire_resist,-10
 bonus=ice_resist,6
-requires_class=Warrior,Rogue,Cleric
+requires_class=Cangaceiro,Mateiro,Benzedeiro
 gfx=rd_chain_boots_ice
 
 [item]
@@ -2531,7 +2531,7 @@ abs=5,7
 bonus=hp,20
 bonus=mp,12
 bonus=xp_gain,3
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_plate_helm_blessed
 
 [item]
@@ -2546,7 +2546,7 @@ requires_level=12
 abs=7,7
 bonus=hp,36
 bonus=mp,16
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_plate_cuirass_blessed
 
 [item]
@@ -2561,7 +2561,7 @@ requires_level=12
 abs=5,7
 bonus=hp,32
 bonus=mp,12
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_plate_gauntlets_blessed
 
 [item]
@@ -2576,7 +2576,7 @@ requires_level=12
 abs=6,6
 bonus=hp,24
 bonus=mp,16
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_plate_greaves_blessed
 
 [item]
@@ -2591,7 +2591,7 @@ requires_level=12
 abs=5,7
 bonus=hp,24
 bonus=mp,8
-requires_class=Cleric
+requires_class=Benzedeiro
 gfx=rd_plate_boots_blessed
 
 [item]
@@ -2607,7 +2607,7 @@ abs=8,9
 bonus=hp,60
 bonus=lightning_resist,16
 bonus=fire_resist,4
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_cuirass_crimson
 
 [item]
@@ -2623,7 +2623,7 @@ abs=6,7
 bonus=hp,36
 bonus=lightning_resist,7
 bonus=fire_resist,2
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_gauntlets_crimson
 loot_drops_max=1
 
@@ -2640,7 +2640,7 @@ abs=8,9
 bonus=hp,52
 bonus=lightning_resist,9
 bonus=fire_resist,4
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_greaves_crimson
 
 [item]
@@ -2656,7 +2656,7 @@ abs=7,8
 bonus=hp,32
 bonus=lightning_resist,5
 bonus=fire_resist,5
-requires_class=Warrior
+requires_class=Cangaceiro
 gfx=rd_plate_boots_crimson
 loot_drops_max=1
 
@@ -2675,7 +2675,7 @@ bonus=mp,20
 bonus=lightning_resist,10
 bonus=fire_resist,10
 bonus=xp_gain,3
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_plate_helm_ashen
 
 [item]
@@ -2691,7 +2691,7 @@ abs=9,10
 bonus=hp,60
 bonus=mp,36
 bonus=fire_resist,20
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_plate_cuirass_ashen
 loot_drops_max=1
 
@@ -2709,7 +2709,7 @@ bonus=hp,36
 bonus=mp,24
 bonus=lightning_resist,15
 bonus=fire_resist,4
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_plate_gauntlets_ashen
 
 [item]
@@ -2726,7 +2726,7 @@ bonus=hp,52
 bonus=mp,20
 bonus=lightning_resist,11
 bonus=fire_resist,4
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_plate_greaves_ashen
 
 [item]
@@ -2744,7 +2744,7 @@ bonus=mp,16
 bonus=lightning_resist,9
 bonus=fire_resist,5
 bonus=poise,10
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 gfx=rd_plate_boots_ashen
 
 [item]
@@ -2770,7 +2770,7 @@ price=85
 requires_level=4
 abs=2,3
 bonus=hp,20
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5402
@@ -2798,7 +2798,7 @@ requires_level=7
 abs=3,4
 bonus=hp,24
 bonus=fire_resist,10
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5404
@@ -2826,7 +2826,7 @@ price=532
 requires_level=10
 abs=4,6
 bonus=hp,32
-requires_class=Warrior,Cleric
+requires_class=Cangaceiro,Benzedeiro
 
 [item]
 id=5406
@@ -3008,7 +3008,7 @@ bonus=mp,64
 bonus=dark_resist,10
 bonus=fire_resist,10
 bonus=item_find,5
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5421
@@ -3023,7 +3023,7 @@ bonus=hp,80
 bonus=mp,80
 bonus=xp_gain,8
 bonus=item_find,5
-requires_class=Cleric,Mage
+requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5422
@@ -3057,7 +3057,7 @@ icon=4304
 price=41
 requires_level=2
 bonus=mental,1
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5425
@@ -3097,11 +3097,11 @@ requires_level=7
 abs=3,4
 bonus=hp,32
 bonus=mental,2
-requires_class=Mage
+requires_class=Feiticeiro
 
 [item]
 id=5428
-name=Girdle of the Warrior
+name=Cangaceiro Belt
 INCLUDE items/base/armor/belt.txt
 level=12
 quality=high
@@ -3113,7 +3113,7 @@ bonus=defense,1
 
 [item]
 id=5429
-name=Girdle of the Rogue
+name=Mateiro Belt
 INCLUDE items/base/armor/belt.txt
 level=12
 quality=high
@@ -3134,4 +3134,4 @@ price=678
 requires_level=12
 bonus=mental,3
 bonus=defense,1
-requires_class=Mage
+requires_class=Feiticeiro

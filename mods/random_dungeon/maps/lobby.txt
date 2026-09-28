@@ -69,7 +69,7 @@ data=
 252,243,240,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,248,251,241,
 250,243,249,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,0,0,0,0,0,242,254,253,
 253,248,254,0,0,0,115,126,0,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,251,253,248,
-253,242,241,0,0,0,0,117,0,0,0,116,0,0,0,0,0,116,0,0,0,0,0,124,0,0,0,240,254,240,
+253,242,241,0,0,0,0,117,0,0,0,116,0,0,0,113,0,116,0,0,0,0,0,124,0,0,0,240,254,240,
 240,243,241,0,0,0,0,0,0,0,0,120,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,249,240,242,
 240,251,249,0,0,0,0,0,0,0,125,0,112,0,0,0,0,0,0,0,0,0,0,113,0,0,0,240,242,240,
 243,249,248,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,240,240,
@@ -115,7 +115,7 @@ data=
 
 [event]
 type=event
-location=6,24,1,1
+location=11,18,3,3
 activate=on_trigger
 hotspot=location
 intermap=maps/run/start.txt
@@ -123,7 +123,7 @@ tooltip=Iniciar Horda
 
 [event]
 type=event
-location=15,20,1,1
+location=18,17,3,3
 activate=on_trigger
 hotspot=location
 book=rd:sanctuary
@@ -141,6 +141,21 @@ filename=npcs/rd_aurora_alquimista.txt
 
 [npc]
 type=npc
-location=10,17,1,1
+location=9,16,1,1
 filename=npcs/rd_torre_arcanista.txt
+
+[npc]
+type=npc
+location=16,13,1,1
+filename=npcs/rd_camp_fogueira.txt
+
+[npc]
+type=npc
+location=12,19,1,1
+filename=npcs/rd_camp_portal.txt
+
+[npc]
+type=npc
+location=19,18,1,1
+filename=npcs/rd_camp_altar.txt
 

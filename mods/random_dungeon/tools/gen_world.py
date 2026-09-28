@@ -465,11 +465,13 @@ def open_map(map_id, biome, size, density, title, music, events, seed, hero=None
            'background_color=0,0,0,255\nhero_pos=%d,%d\nmusic=music/%s.ogg\ntileset=tilesetdefs/rd_%s.txt\ntitle=%s\n\n'
            % (size, size, hero[0], hero[1], music, biome, title)]
     out += [layer('background', bg), layer('object', obj), layer('collision', colm)]
-    for x, y, target, tooltip in events:
+    for ev in events:
+        x, y, target, tooltip = ev[:4]
+        size = ev[4] if len(ev) > 4 else 1   # square area centred on x,y (around a prop that blocks its own tile)
         # "book:rd:sanctuary" opens a menu (GameStatePlay turns that book into the Sanctuary)
         action = ('book=%s' % target[5:]) if target.startswith('book:') else ('intermap=%s' % target)
-        out.append('[event]\ntype=event\nlocation=%d,%d,1,1\nactivate=on_trigger\nhotspot=location\n'
-                   '%s\ntooltip=%s\n\n' % (x, y, action, tooltip))
+        out.append('[event]\ntype=event\nlocation=%d,%d,%d,%d\nactivate=on_trigger\nhotspot=location\n'
+                   '%s\ntooltip=%s\n\n' % (x - size // 2, y - size // 2, size, size, action, tooltip))
     for x, y, npc in npcs:
         out.append('[npc]\ntype=npc\nlocation=%d,%d,1,1\nfilename=npcs/rd_%s.txt\n\n' % (x, y, npc))
     write(rel(map_id), ''.join(out))
@@ -506,11 +508,18 @@ def gen_mode_maps():
     # maps/run/ -- o HordeManager liga em qualquer mapa daquela pasta.
     # Em grupo, só o anfitrião leva todos pelo portal (GameStatePlay::checkTeleport).
     c = DEV // 2
-    camp_events = [(6, DEV - 6, 'maps/run/start.txt', 'Iniciar Horda'),
-                   (c, c + 5, 'book:rd:sanctuary', 'Santuário (bênçãos permanentes)')]
+    portal, altar, fire = (c - 3, c + 4), (c + 4, c + 3), (c + 1, c - 2)
+    camp_events = [(portal[0], portal[1], 'maps/run/start.txt', 'Iniciar Horda', 3),
+                   (altar[0], altar[1], 'book:rd:sanctuary', 'Santuário (bênçãos permanentes)', 3)]
     # (no world/training portals: the commercial build ships this same map)
+    # props: sprites from tools/gen_serpents.py (camp_*), placed as silent NPCs
+    for npc_id, name in (('camp_fogueira', 'Fogueira'), ('camp_portal', 'Portal da Horda'),
+                         ('camp_altar', 'Altar do Santuário')):
+        write(rel('npcs/rd_%s.txt' % npc_id), HEADER + 'name=%s\ntalker=false\n'
+              'direction=6\nanimations=animations/enemies/rd_%s.txt\n' % (name, npc_id))
     open_map(camp, 'meadow', DEV, 0, 'Acampamento', 'safe_room_theme', camp_events, 'lobby',
-             npcs=[(c - 4, c - 4, 'aurora_ferreiro'), (c + 4, c - 4, 'aurora_alquimista'), (c - 5, c + 2, 'torre_arcanista')])
+             npcs=[(c - 4, c - 4, 'aurora_ferreiro'), (c + 4, c - 4, 'aurora_alquimista'), (c - 6, c + 1, 'torre_arcanista'),
+                   (fire[0], fire[1], 'camp_fogueira'), (portal[0], portal[1], 'camp_portal'), (altar[0], altar[1], 'camp_altar')])
     open_map('maps/dev_room.txt', 'meadow', DEV, 0, 'Treinamento', 'safe_room_theme',
              [(DEV - 6, 6, exit_world, 'Mundo Aberto: Aurora'), (6, DEV - 6, camp, 'Acampamento')], 'dev',
              npcs=[(DEV // 2 - 4, DEV // 2 - 4, 'aurora_ferreiro'), (DEV // 2 + 4, DEV // 2 - 4, 'aurora_alquimista'),
