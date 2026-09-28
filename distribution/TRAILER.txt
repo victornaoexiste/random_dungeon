@@ -1,0 +1,26 @@
+RANDOM DUNGEON - MODO TRAILER (screenshots e GIFs para divulgar)
+
+Abrir:
+  Windows: RandomDungeon-trailer.bat
+  Linux:   ./jogar.sh --trailer
+
+No modo trailer o HUD e o cursor somem, o heroi nao morre, a horda e 4x
+maior e a tela nao treme. Entre numa Run e use:
+
+  F1  mostra / esconde o HUD
+  F2  screenshot (PNG em tamanho real)
+  F3  comeca / para de gravar quadros para GIF (15 por segundo, ate 20 s)
+  F4  trava / solta a camera onde ela esta
+
+Onde ficam:
+  Windows: %APPDATA%\RandomDungeon\userdata\trailer\
+  Linux:   ~/.local/share/flare/trailer/
+
+Transformar os quadros (pasta gif_NNN) em GIF e video:
+  python3 make_gif.py <pasta gif_NNN>   [--width 640] [--start N] [--end N]
+  (precisa de Python 3 + Pillow: pip install pillow; com ffmpeg instalado
+  tambem gera um .mp4 para TikTok/Reels/Shorts)
+  Sem Python: envie os quadros em ezgif.com/maker.
+
+Dicas: grave 4 a 8 segundos; comece a gravar quando a horda ja estiver
+grande; use F4 para travar a camera e deixar os inimigos chegarem.

@@ -120,6 +120,16 @@ def pack_data(out, edition):
     return files, total, skipped
 
 
+def copy_trailer_tools(out, windows):
+    """Trailer mode helpers: instructions, make_gif.py and a launcher."""
+    dist = os.path.dirname(HERE)
+    shutil.copy2(os.path.join(dist, 'TRAILER.txt'), os.path.join(out, 'TRAILER.txt'))
+    shutil.copy2(os.path.join(dist, 'make_gif.py'), os.path.join(out, 'make_gif.py'))
+    if windows:
+        with open(os.path.join(out, 'RandomDungeon-trailer.bat'), 'w', newline='\r\n') as f:
+            f.write('@echo off\nstart "" "%~dp0RandomDungeon.exe" --trailer\n')
+
+
 def copy_licenses(out):
     """Licenses and credits: engine GPL-3, Flare content CC-BY-SA 3.0, fonts OFL."""
     # licenses: engine GPL-3, Flare content CC-BY-SA 3.0, fonts OFL, credits
@@ -150,6 +160,7 @@ def main():
 
     files, total, skipped = pack_data(out, edition)
     copy_licenses(out)
+    copy_trailer_tools(out, True)
     with open(os.path.join(out, '.itch.toml'), 'w') as f:
         f.write('[[actions]]\nname = "play"\npath = "RandomDungeon.exe"\nplatform = "windows"\n')
 

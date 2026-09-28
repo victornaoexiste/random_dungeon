@@ -97,6 +97,7 @@ def main():
 
     files, total, skipped = pw.pack_data(out, edition)
     pw.copy_licenses(out)
+    pw.copy_trailer_tools(out, False)
     print('%s: %d data files (%.0f MB, %.0f MB of overridden assets left out), libs: %s' % (
         name, files, total / 1e6, skipped / 1e6, ', '.join(libs)))
 
