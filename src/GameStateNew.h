@@ -67,6 +67,7 @@ private:
 	std::string getClassTooltip(int index);
 	void setName(const std::string& default_name);
 	void setHeroOption(int dir);
+	void refreshClassNames();
 	void refreshWidgets();
 
 	std::vector<HeroOption> hero_options;

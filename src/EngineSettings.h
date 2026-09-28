@@ -172,6 +172,7 @@ public:
 			HeroClass();
 
 			std::string name;
+			std::string name_female; // shown instead of name for female heroes (Feiticeira...); empty = same
 			std::string description;
 			std::vector<std::string> aliases; // old names of this class, for saves made before a rename
 			int currency;
@@ -189,6 +190,8 @@ public:
 
 		void load();
 		HeroClass* getByName(const std::string& name);
+		// translated name to show for this class (name or alias), by the hero's body
+		std::string displayName(const std::string& name, bool female);
 
 		std::vector<HeroClass> list;
 	};

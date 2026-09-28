@@ -148,8 +148,8 @@ msgstr "Faca de Quibungo"
 msgid "Frost Machete"
 msgstr "Facão Gelado"
 
-msgid "Jagunço Machete"
-msgstr "Facão de Jagunço"
+msgid "Tocaia Machete"
+msgstr "Facão de Tocaia"
 
 msgid "Pirate Cutlass"
 msgstr "Cutelo Pirata"
@@ -454,20 +454,20 @@ msgstr "Calças de Encantador"
 msgid "Enchanter Boots"
 msgstr "Botas de Encantador"
 
-msgid "Jagunço Hood"
-msgstr "Capuz de Jagunço"
+msgid "Tocaia Hood"
+msgstr "Capuz de Tocaia"
 
-msgid "Jagunço Cuirass"
-msgstr "Túnica de Jagunço"
+msgid "Tocaia Cuirass"
+msgstr "Túnica de Tocaia"
 
-msgid "Jagunço Gauntlets"
-msgstr "Luvas de Jagunço"
+msgid "Tocaia Gauntlets"
+msgstr "Luvas de Tocaia"
 
-msgid "Jagunço Leggings"
-msgstr "Calças de Jagunço"
+msgid "Tocaia Leggings"
+msgstr "Calças de Tocaia"
 
-msgid "Jagunço Boots"
-msgstr "Botas de Jagunço"
+msgid "Tocaia Boots"
+msgstr "Botas de Tocaia"
 
 msgid "Knight Helm"
 msgstr "Elmo de Placas"
@@ -643,8 +643,8 @@ msgstr "Cinturão do Intelecto"
 msgid "Cangaceiro Belt"
 msgstr "Cinturão de Cangaceiro"
 
-msgid "Mateiro Belt"
-msgstr "Cinturão de Mateiro"
+msgid "Jagunço Belt"
+msgstr "Cinturão de Jagunço"
 
 msgid "Girdle of Supreme Intellect"
 msgstr "Cinturão do Intelecto Supremo"
@@ -868,8 +868,8 @@ msgstr "Conjunto de Placas"
 msgid "Volante Set"
 msgstr "Conjunto da Volante"
 
-msgid "Jagunço Set"
-msgstr "Conjunto de Jagunço"
+msgid "Tocaia Set"
+msgstr "Conjunto de Tocaia"
 
 msgid "Enchanter Set"
 msgstr "Conjunto de Encantador"
@@ -883,8 +883,8 @@ msgstr "Conjunto de Placas Benzidas"
 msgid "Cangaceiro"
 msgstr "Cangaceiro"
 
-msgid "Mateiro"
-msgstr "Mateiro"
+msgid "Jagunço"
+msgstr "Jagunço"
 
 msgid "Benzedeiro"
 msgstr "Benzedeiro"
@@ -892,11 +892,23 @@ msgstr "Benzedeiro"
 msgid "Feiticeiro"
 msgstr "Feiticeiro"
 
+msgid "Cangaceira"
+msgstr "Cangaceira"
+
+msgid "Jagunça"
+msgstr "Jagunça"
+
+msgid "Benzedeira"
+msgstr "Benzedeira"
+
+msgid "Feiticeira"
+msgstr "Feiticeira"
+
 msgid "Outlaws of the sertão: heavy blows, leather armor and pure grit. Primary attribute: Physical"
 msgstr "Fora-da-lei do sertão: golpes pesados, gibão de couro e muita coragem. Atributo principal: Físico"
 
-msgid "Backwoods hunters: they strike fast with knives and shoot from afar with bows. Primary attribute: Offense"
-msgstr "Caçadores do mato: golpeiam rápido com facas e atiram de longe com arcos. Atributo principal: Ataque"
+msgid "Hired guns of the sertão: they strike fast with the peixeira, shoot from afar and vanish into the brush. Primary attribute: Offense"
+msgstr "Pistoleiros do sertão: golpeiam rápido com a peixeira, atiram de longe e somem no mato. Atributo principal: Ataque"
 
 msgid "Folk healers who fight with club and shield and cure with prayers and blessings. Primary attributes: Mental and Physical"
 msgstr "Benzedeiros lutam com porrete e escudo e curam com rezas e bênçãos. Atributos principais: Mental e Físico"

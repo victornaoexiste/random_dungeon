@@ -463,7 +463,7 @@ void MenuDevKit::refreshLabels() {
 	label_meter[2]->setText(msg->get("DPS (last 5s)") + ": " + fmt(window / METER_SECONDS));
 	label_meter[3]->setText(msg->get("Biggest hit") + ": " + fmt(dmg_biggest));
 
-	label_class->setText(msg->get("Current class") + ": " + msg->get(pc->stats.character_class));
+	label_class->setText(msg->get("Current class") + ": " + pc->stats.getShortClass());
 
 	button_points->setLabel(std::string(msg->get("Infinite points")) + (infinite_points ? ": ON" : ": OFF"));
 	button_points->refresh();

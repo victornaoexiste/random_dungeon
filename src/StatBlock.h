@@ -113,6 +113,7 @@ public:
 	void setWanderArea(int r);
 	void loadHeroSFX();
 	std::string getShortClass();
+	bool isFemale() const;
 	std::string getLongClass();
 	void addXP(int amount); // TODO this should be unsigned long?
 	AIPower* getAIPower(int ai_type);

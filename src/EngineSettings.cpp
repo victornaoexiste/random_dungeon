@@ -653,6 +653,10 @@ void EngineSettings::HeroClasses::load() {
 				// @ATTR description|string|A description of this class.
 				current->description = infile.val;
 			}
+			else if (infile.key == "name_female") {
+				// @ATTR name_female|string|Name shown for female heroes of this class (e.g. Feiticeira for Feiticeiro).
+				current->name_female = infile.val;
+			}
 			else if (infile.key == "alias") {
 				// @ATTR alias|string|A former name of this class. Saves that still use it load as this class.
 				current->aliases.push_back(infile.val);
@@ -779,6 +783,13 @@ EngineSettings::HeroClasses::HeroClass* EngineSettings::HeroClasses::getByName(c
 	}
 
 	return NULL;
+}
+
+std::string EngineSettings::HeroClasses::displayName(const std::string& name, bool female) {
+	HeroClass *hc = getByName(name);
+	if (!hc)
+		return msg->get(name);
+	return msg->get(female && !hc->name_female.empty() ? hc->name_female : hc->name);
 }
 
 EngineSettings::DamageTypes::DamageType::DamageType()

@@ -84,7 +84,7 @@ bonus=5,hp,80
 
 [set]
 id=9
-name=Jagunço Set
+name=Tocaia Set
 items=5240,5241,5242,5243,5244
 color=255,215,120
 bonus=2,crit,3

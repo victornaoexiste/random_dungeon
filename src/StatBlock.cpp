@@ -1503,6 +1503,11 @@ void StatBlock::setWanderArea(int r) {
 	wander_area.w = wander_area.h = (r*2) + 1;
 }
 
+// female body art (female, female_dark...): class names switch to the female form
+bool StatBlock::isFemale() const {
+	return gfx_base.compare(0, 6, "female") == 0;
+}
+
 /**
  * Returns the short version of the class string
  * For the sake of consistency with previous versions,
@@ -1510,7 +1515,7 @@ void StatBlock::setWanderArea(int r) {
  */
 std::string StatBlock::getShortClass() {
 	if (character_subclass == "")
-		return msg->get(character_class);
+		return eset->hero_classes.displayName(character_class, isFemale());
 	else
 		return msg->get(character_subclass);
 }
@@ -1520,10 +1525,11 @@ std::string StatBlock::getShortClass() {
  * It contains both the base class and the generated subclass
  */
 std::string StatBlock::getLongClass() {
+	const std::string class_name = eset->hero_classes.displayName(character_class, isFemale());
 	if (character_subclass == "" || character_class == character_subclass)
-		return msg->get(character_class);
+		return class_name;
 	else
-		return msg->get(character_class) + " / " + msg->get(character_subclass);
+		return class_name + " / " + msg->get(character_subclass);
 }
 
 void StatBlock::addXP(int amount) {

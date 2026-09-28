@@ -76,7 +76,7 @@ price=25
 requires_level=1
 dmg=melee,4,13
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_shortsword_iron
 
 [item]
@@ -90,7 +90,7 @@ price=85
 requires_level=4
 dmg=melee,10,23
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 
 [item]
 id=5007
@@ -103,7 +103,7 @@ price=138
 requires_level=6
 dmg=melee,13,29
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 slayer=undead,25
 gfx=rd_shortsword_silver
 
@@ -118,7 +118,7 @@ price=232
 requires_level=9
 dmg=melee,16,44
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_shortsword_bluesteel
 
 [item]
@@ -132,7 +132,7 @@ price=1511
 requires_level=13
 dmg=melee,35,54
 bonus=crit,4
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 slayer=demon,30
 gfx=rd_shortsword_adamantite
 
@@ -147,7 +147,7 @@ price=25
 requires_level=1
 dmg=melee,7,13
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longsword_iron
 
 [item]
@@ -161,7 +161,7 @@ price=85
 requires_level=4
 dmg=melee,14,24
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 
 [item]
 id=5012
@@ -174,7 +174,7 @@ price=138
 requires_level=6
 dmg=melee,17,31
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 slayer=undead,25
 gfx=rd_longsword_silver
 
@@ -189,7 +189,7 @@ price=232
 requires_level=9
 dmg=melee,23,45
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longsword_bluesteel
 
 [item]
@@ -203,7 +203,7 @@ price=1511
 requires_level=13
 dmg=melee,41,60
 bonus=crit,4
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 slayer=demon,40
 gfx=rd_longsword_adamantite
 
@@ -295,7 +295,7 @@ price=25
 requires_level=1
 dmg=melee,4,16
 bonus=crit,3
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_hand_axe_iron
 
 [item]
@@ -309,7 +309,7 @@ price=85
 requires_level=4
 dmg=melee,6,32
 bonus=crit,3
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 
 [item]
 id=5022
@@ -322,7 +322,7 @@ price=232
 requires_level=9
 dmg=melee,13,53
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_hand_axe_bluesteel
 
 [item]
@@ -336,7 +336,7 @@ price=1511
 requires_level=13
 dmg=melee,20,79
 bonus=crit,4
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_hand_axe_adamantite
 
 [item]
@@ -592,7 +592,7 @@ price=41
 requires_level=2
 dmg=melee,6,15
 bonus=crit,3
-requires_class=Mateiro
+requires_class=Jagunço
 
 [item]
 id=5101
@@ -622,7 +622,7 @@ dmg=melee,6,19
 bonus=crit,3
 bonus=dmg_dark_min,8
 bonus=dmg_dark_max,13
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_dagger_venom
 
 [item]
@@ -651,7 +651,7 @@ price=85
 requires_level=4
 dmg=melee,9,21
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 slayer=beast,15
 
 [item]
@@ -665,7 +665,7 @@ price=85
 requires_level=4
 dmg=melee,10,20
 bonus=crit,5
-requires_class=Mateiro
+requires_class=Jagunço
 
 [item]
 id=5106
@@ -680,12 +680,12 @@ dmg=melee,11,28
 bonus=crit,2
 bonus=dmg_ice_min,7
 bonus=dmg_ice_max,11
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_shortsword_ice
 
 [item]
 id=5107
-name=Jagunço Machete
+name=Tocaia Machete
 INCLUDE items/base/weapons/melee/shortsword.txt
 level=5
 quality=normal
@@ -694,7 +694,7 @@ price=110
 requires_level=5
 dmg=melee,14,25
 bonus=crit,3
-requires_class=Mateiro
+requires_class=Jagunço
 
 [item]
 id=5108
@@ -707,7 +707,7 @@ price=138
 requires_level=6
 dmg=melee,15,29
 bonus=crit,8
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 
 [item]
 id=5109
@@ -721,7 +721,7 @@ requires_level=6
 dmg=melee,18,37
 bonus=dmg_fire_min,8
 bonus=dmg_fire_max,14
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longsword_fire
 
 [item]
@@ -737,7 +737,7 @@ dmg=melee,17,33
 bonus=crit,2
 bonus=dmg_lightning_min,8
 bonus=dmg_lightning_max,12
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longsword_gold
 
 [item]
@@ -750,7 +750,7 @@ icon=4148
 price=167
 requires_level=7
 dmg=melee,20,36
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 slayer=greenskin,30
 
 [item]
@@ -766,7 +766,7 @@ dmg=melee,8,46
 bonus=crit,3
 bonus=dmg_fire_min,5
 bonus=dmg_fire_max,8
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_hand_axe_fire
 
 [item]
@@ -782,7 +782,7 @@ dmg=melee,8,46
 bonus=crit,3
 bonus=dmg_lightning_min,5
 bonus=dmg_lightning_max,8
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_hand_axe_gold
 
 [item]
@@ -891,7 +891,7 @@ dmg=melee,27,48
 bonus=crit,2
 bonus=dmg_fire_min,16
 bonus=dmg_fire_max,27
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 slayer=demon,30
 slayer=undead,55
 gfx=rd_longsword_fire
@@ -954,7 +954,7 @@ dmg=melee,20,52
 bonus=crit,2
 bonus=dmg_fire_min,20
 bonus=dmg_fire_max,33
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_shortsword_fire
 
 [item]
@@ -970,7 +970,7 @@ dmg=melee,18,47
 bonus=crit,3
 bonus=dmg_fire_min,18
 bonus=dmg_fire_max,30
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_dagger_fire
 
 [item]
@@ -986,7 +986,7 @@ dmg=melee,29,51
 bonus=crit,2
 bonus=dmg_fire_min,17
 bonus=dmg_fire_max,29
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longsword_fire
 
 [item]
@@ -1017,7 +1017,7 @@ dmg=melee,33,61
 bonus=crit,2
 bonus=dmg_lightning_min,17
 bonus=dmg_lightning_max,28
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longsword_gold
 
 [item]
@@ -1033,7 +1033,7 @@ dmg=melee,19,74
 bonus=crit,3
 bonus=dmg_dark_min,15
 bonus=dmg_dark_max,25
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_hand_axe_venom
 
 [item]
@@ -1065,7 +1065,7 @@ price=25
 requires_level=1
 dmg=ranged,4,16
 bonus=crit,2
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 
 [item]
 id=5132
@@ -1077,7 +1077,7 @@ icon=4169
 price=62
 requires_level=3
 dmg=ranged,8,24
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 
 [item]
 id=5133
@@ -1089,7 +1089,7 @@ icon=4170
 price=110
 requires_level=5
 dmg=ranged,13,35
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 
 [item]
 id=5134
@@ -1101,7 +1101,7 @@ icon=4171
 price=167
 requires_level=7
 dmg=ranged,15,46
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 slayer=undead,25
 gfx=rd_longbow_silver
 
@@ -1117,7 +1117,7 @@ requires_level=8
 dmg=ranged,17,51
 bonus=dmg_ice_min,10
 bonus=dmg_ice_max,17
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longbow_ice
 
 [item]
@@ -1133,7 +1133,7 @@ dmg=ranged,32,65
 bonus=dmg_dark_min,19
 bonus=dmg_dark_max,32
 bonus=crit,3
-requires_class=Mateiro
+requires_class=Jagunço
 gfx=rd_longbow_venom
 
 [item]
@@ -1149,7 +1149,7 @@ dmg=ranged,31,72
 bonus=crit,2
 bonus=dmg_dark_min,25
 bonus=dmg_dark_max,41
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_greatbow_venom
 
 [item]
@@ -1295,7 +1295,7 @@ dmg=melee,17,45
 bonus=crit,9
 bonus=dmg_dark_min,17
 bonus=dmg_dark_max,28
-requires_class=Mateiro
+requires_class=Jagunço
 gfx=rd_dagger_venom
 loot_drops_max=1
 
@@ -1312,7 +1312,7 @@ dmg=melee,31,41
 bonus=crit,2
 bonus=dmg_ice_min,9
 bonus=dmg_ice_max,15
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 slayer=demon,20
 slayer=undead,45
 gfx=rd_war_hammer_ice
@@ -1331,7 +1331,7 @@ dmg=melee,28,57
 bonus=crit,2
 bonus=dmg_ice_min,17
 bonus=dmg_ice_max,28
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longsword_ice
 loot_drops_max=1
 
@@ -1367,7 +1367,7 @@ dmg=melee,18,73
 bonus=crit,3
 bonus=dmg_fire_min,18
 bonus=dmg_fire_max,30
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_hand_axe_fire
 loot_drops_max=1
 
@@ -1401,7 +1401,7 @@ dmg=melee,36,49
 bonus=crit,8
 bonus=dmg_dark_min,15
 bonus=dmg_dark_max,24
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_war_hammer_venom
 loot_drops_max=1
 
@@ -1430,7 +1430,7 @@ icon=4192
 price=2130
 requires_level=10
 dmg=ranged,42,69
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 loot_drops_max=1
 
 [item]
@@ -1446,7 +1446,7 @@ dmg=melee,29,57
 bonus=crit,3
 bonus=dmg_ice_min,17
 bonus=dmg_ice_max,29
-requires_class=Mateiro
+requires_class=Jagunço
 slayer=demon,20
 gfx=rd_dagger_ice
 loot_drops_max=1
@@ -1464,7 +1464,7 @@ dmg=melee,27,68
 bonus=crit,8
 bonus=dmg_fire_min,28
 bonus=dmg_fire_max,47
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_shortsword_fire
 loot_drops_max=1
 
@@ -1481,7 +1481,7 @@ dmg=melee,41,67
 bonus=crit,2
 bonus=dmg_dark_min,22
 bonus=dmg_dark_max,36
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 slayer=beast,45
 gfx=rd_longsword_venom
 loot_drops_max=1
@@ -1518,7 +1518,7 @@ dmg=melee,44,71
 bonus=crit,2
 bonus=dmg_ice_min,30
 bonus=dmg_ice_max,49
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_longsword_ice
 loot_drops_max=1
 
@@ -1534,7 +1534,7 @@ requires_level=13
 dmg=ranged,49,89
 bonus=dmg_ice_min,19
 bonus=dmg_ice_max,32
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_greatbow_ice
 loot_drops_max=1
 
@@ -1570,7 +1570,7 @@ dmg=melee,34,74
 bonus=crit,12
 bonus=dmg_dark_min,24
 bonus=dmg_dark_max,40
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_shortsword_venom
 loot_drops_max=1
 
@@ -1801,7 +1801,7 @@ price=85
 requires_level=4
 abs=0,2
 bonus=hp,16
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_leather_hood_hardened
 
 [item]
@@ -1815,7 +1815,7 @@ price=85
 requires_level=4
 abs=2,4
 bonus=hp,20
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_leather_chest_hardened
 
 [item]
@@ -1829,7 +1829,7 @@ price=85
 requires_level=4
 abs=2,2
 bonus=hp,8
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_leather_gloves_hardened
 
 [item]
@@ -1843,7 +1843,7 @@ price=85
 requires_level=4
 abs=2,2
 bonus=hp,28
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_leather_pants_hardened
 
 [item]
@@ -2004,7 +2004,7 @@ price=138
 requires_level=6
 abs=2,3
 bonus=hp,16
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_chain_coif_forest
 
 [item]
@@ -2018,7 +2018,7 @@ price=138
 requires_level=6
 abs=3,4
 bonus=hp,24
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_chain_cuirass_forest
 
 [item]
@@ -2032,7 +2032,7 @@ price=138
 requires_level=6
 abs=3,4
 bonus=hp,8
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_chain_gloves_forest
 
 [item]
@@ -2046,7 +2046,7 @@ price=138
 requires_level=6
 abs=3,4
 bonus=hp,24
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_chain_greaves_forest
 
 [item]
@@ -2060,7 +2060,7 @@ price=138
 requires_level=6
 abs=3,4
 bonus=hp,24
-requires_class=Cangaceiro,Mateiro
+requires_class=Cangaceiro,Jagunço
 gfx=rd_chain_boots_forest
 
 [item]
@@ -2215,7 +2215,7 @@ requires_class=Benzedeiro,Feiticeiro
 
 [item]
 id=5240
-name=Jagunço Hood
+name=Tocaia Hood
 INCLUDE items/base/armor/leather/head.txt
 level=8
 quality=high
@@ -2225,12 +2225,12 @@ requires_level=8
 abs=4,4
 bonus=hp,24
 bonus=dark_resist,5
-requires_class=Mateiro
+requires_class=Jagunço
 gfx=rd_leather_hood_shadow
 
 [item]
 id=5241
-name=Jagunço Cuirass
+name=Tocaia Cuirass
 INCLUDE items/base/armor/leather/chest.txt
 level=8
 quality=high
@@ -2241,12 +2241,12 @@ abs=6,6
 bonus=hp,24
 bonus=fire_resist,6
 bonus=dark_resist,6
-requires_class=Mateiro
+requires_class=Jagunço
 gfx=rd_leather_chest_shadow
 
 [item]
 id=5242
-name=Jagunço Gauntlets
+name=Tocaia Gauntlets
 INCLUDE items/base/armor/leather/hands.txt
 level=8
 quality=high
@@ -2258,12 +2258,12 @@ bonus=hp,24
 bonus=fire_resist,3
 bonus=dark_resist,5
 bonus=currency_find,10
-requires_class=Mateiro
+requires_class=Jagunço
 gfx=rd_leather_gloves_shadow
 
 [item]
 id=5243
-name=Jagunço Leggings
+name=Tocaia Leggings
 INCLUDE items/base/armor/leather/legs.txt
 level=8
 quality=high
@@ -2274,12 +2274,12 @@ abs=4,6
 bonus=hp,24
 bonus=ice_resist,6
 bonus=dark_resist,6
-requires_class=Mateiro
+requires_class=Jagunço
 gfx=rd_leather_pants_shadow
 
 [item]
 id=5244
-name=Jagunço Boots
+name=Tocaia Boots
 INCLUDE items/base/armor/leather/feet.txt
 level=8
 quality=normal
@@ -2290,7 +2290,7 @@ abs=4,4
 bonus=hp,20
 bonus=ice_resist,5
 bonus=dark_resist,5
-requires_class=Mateiro
+requires_class=Jagunço
 gfx=rd_leather_boots_shadow
 
 [item]
@@ -2451,7 +2451,7 @@ abs=5,6
 bonus=hp,12
 bonus=fire_resist,-10
 bonus=ice_resist,6
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_chain_coif_ice
 
 [item]
@@ -2467,7 +2467,7 @@ abs=6,7
 bonus=hp,24
 bonus=fire_resist,-12
 bonus=ice_resist,12
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_chain_cuirass_ice
 
 [item]
@@ -2483,7 +2483,7 @@ abs=5,6
 bonus=hp,16
 bonus=fire_resist,-10
 bonus=ice_resist,6
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_chain_gloves_ice
 
 [item]
@@ -2499,7 +2499,7 @@ abs=5,6
 bonus=hp,24
 bonus=fire_resist,-10
 bonus=ice_resist,10
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_chain_greaves_ice
 
 [item]
@@ -2515,7 +2515,7 @@ abs=5,6
 bonus=hp,12
 bonus=fire_resist,-10
 bonus=ice_resist,6
-requires_class=Cangaceiro,Mateiro,Benzedeiro
+requires_class=Cangaceiro,Jagunço,Benzedeiro
 gfx=rd_chain_boots_ice
 
 [item]
@@ -3113,7 +3113,7 @@ bonus=defense,1
 
 [item]
 id=5429
-name=Mateiro Belt
+name=Jagunço Belt
 INCLUDE items/base/armor/belt.txt
 level=12
 quality=high

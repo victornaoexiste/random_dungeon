@@ -460,6 +460,19 @@ void GameStateNew::setHeroOption(int dir) {
 
 	loadPortrait(hero_options[current_option].portrait);
 	setName(hero_options[current_option].name);
+	refreshClassNames();
+}
+
+// class names in the list follow the portrait's body (Feiticeiro / Feiticeira)
+void GameStateNew::refreshClassNames() {
+	if (hero_options.empty() || static_cast<size_t>(current_option) >= hero_options.size())
+		return;
+	const bool female = hero_options[current_option].base.compare(0, 6, "female") == 0;
+	for (unsigned i = 0; i < eset->hero_classes.list.size() && static_cast<int>(i) < class_list->getSize(); i++) {
+		const std::string label = eset->hero_classes.displayName(eset->hero_classes.list[i].name, female);
+		if (class_list->getValue(static_cast<int>(i)) != label)
+			class_list->set(i, label, show_class_tip ? "" : getClassTooltip(i));
+	}
 }
 
 void GameStateNew::logic() {
@@ -528,6 +541,7 @@ void GameStateNew::logic() {
 				current_option = opt;
 				loadPortrait(hero_options[current_option].portrait);
 				setName(hero_options[current_option].name);
+				refreshClassNames();
 			}
 			for (int k = 0; k < 3; ++k) {
 				int c = Parse::popFirstInt(spec);

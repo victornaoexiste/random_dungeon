@@ -303,7 +303,7 @@ SET_BONUSES = {
     'Chainmail': ('rd_chain', [(3, 'absorb_min', 1), (5, 'hp', 40)]),
     'Platemail': ('rd_plate', [(3, 'absorb_max', 2), (5, 'hp', 60)]),
     'Volante': ('rd_legion', [(2, 'poise', 10), (4, 'physical', 2), (5, 'hp', 80)]),
-    'Jagunço': ('rd_assassin', [(2, 'crit', 3), (4, 'offense', 2), (5, 'avoidance', 15)]),
+    'Tocaia': ('rd_assassin', [(2, 'crit', 3), (4, 'offense', 2), (5, 'avoidance', 15)]),
     'Enchanter': ('rd_conjurer', [(3, 'mp', 30), (5, 'mental', 2)]),
     'Ashen': ('rd_ashen', [(2, 'fire_resist', 10), (4, 'hp', 100)]),
     'Blessed Platemail': ('rd_blessed_plate', [(3, 'dark_resist', 15), (5, 'hp_regen', 10)]),
@@ -668,11 +668,12 @@ def gen_enemies(loot_grades):
 # ------------------------------------------------------------------ translations
 # strings that aren't in the CSVs (engine/classes.txt, powers/*.txt)
 EXTRA_PT = [
-    ('Cangaceiro', 'Cangaceiro'), ('Mateiro', 'Mateiro'), ('Benzedeiro', 'Benzedeiro'), ('Feiticeiro', 'Feiticeiro'),
+    ('Cangaceiro', 'Cangaceiro'), ('Jagunço', 'Jagunço'), ('Benzedeiro', 'Benzedeiro'), ('Feiticeiro', 'Feiticeiro'),
+    ('Cangaceira', 'Cangaceira'), ('Jagunça', 'Jagunça'), ('Benzedeira', 'Benzedeira'), ('Feiticeira', 'Feiticeira'),
     ('Outlaws of the sertão: heavy blows, leather armor and pure grit. Primary attribute: Physical',
      'Fora-da-lei do sertão: golpes pesados, gibão de couro e muita coragem. Atributo principal: Físico'),
-    ('Backwoods hunters: they strike fast with knives and shoot from afar with bows. Primary attribute: Offense',
-     'Caçadores do mato: golpeiam rápido com facas e atiram de longe com arcos. Atributo principal: Ataque'),
+    ('Hired guns of the sertão: they strike fast with the peixeira, shoot from afar and vanish into the brush. Primary attribute: Offense',
+     'Pistoleiros do sertão: golpeiam rápido com a peixeira, atiram de longe e somem no mato. Atributo principal: Ataque'),
     ('Folk healers who fight with club and shield and cure with prayers and blessings. Primary attributes: Mental and Physical',
      'Benzedeiros lutam com porrete e escudo e curam com rezas e bênçãos. Atributos principais: Mental e Físico'),
     ('Sorcerers who cast powerful spells from a distance. Primary attribute: Mental',
@@ -740,7 +741,7 @@ def gen_po(items, enemies):
     pairs = [(it['name'], it['name_pt']) for it in items if it['name_pt']]
     pairs += [(e['name'], e['name_pt']) for e in enemies if e['name_pt']]
     SET_PT = {'Leather': 'de Couro', 'Chainmail': 'de Cota de Malha', 'Platemail': 'de Placas', 'Volante': 'da Volante',
-              'Jagunço': 'de Jagunço', 'Enchanter': 'de Encantador', 'Ashen': 'das Cinzas', 'Blessed Platemail': 'de Placas Benzidas'}
+              'Tocaia': 'de Tocaia', 'Enchanter': 'de Encantador', 'Ashen': 'das Cinzas', 'Blessed Platemail': 'de Placas Benzidas'}
     pairs += [('%s Set' % g, 'Conjunto %s' % SET_PT.get(g, g)) for g in SET_BONUSES]
     pairs += EXTRA_PT + EXTRA_PT_SLAYER
     import gen_skills

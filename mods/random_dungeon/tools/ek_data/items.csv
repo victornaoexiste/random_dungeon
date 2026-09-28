@@ -4,25 +4,25 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5002,Silver Peixeira,Peixeira de Prata,items/base/weapons/melee/dagger.txt,6,common,melee,10,28,,,0,silver,crit:3,138,/wiki/images/9/95/Weapon_dagger_white.png,,undead:25,
 5003,Bluesteel Peixeira,Peixeira de Aço Azul,items/base/weapons/melee/dagger.txt,9,common,melee,12,42,,,0,bluesteel,crit:3,232,/wiki/images/2/2c/Weapon_dagger2.png,,,
 5004,Adamantite Peixeira,Peixeira de Adamantita,items/base/weapons/melee/dagger.txt,13,rare,melee,18,63,,,0,adamantite,crit:5,1511,/wiki/images/2/2c/Weapon_dagger2.png,extrapolated,,
-5005,Iron Machete,Facão de Ferro,items/base/weapons/melee/shortsword.txt,1,common,melee,4,13,,,0,iron,crit:2,25,/wiki/images/a/a3/Weapon_shortsword.png,,,Cangaceiro;Mateiro
-5006,Steel Machete,Facão de Aço,items/base/weapons/melee/shortsword.txt,4,common,melee,10,23,,,0,,crit:2,85,/wiki/images/e/ea/Weapon_shortsword1.png,,,Cangaceiro;Mateiro
-5007,Silver Machete,Facão de Prata,items/base/weapons/melee/shortsword.txt,6,common,melee,13,29,,,0,silver,crit:2,138,/wiki/images/5/58/Weapon_shortsword_white.png,,undead:25,Cangaceiro;Mateiro
-5008,Bluesteel Machete,Facão de Aço Azul,items/base/weapons/melee/shortsword.txt,9,common,melee,16,44,,,0,bluesteel,crit:2,232,/wiki/images/a/a8/Weapon_shortsword2.png,,,Cangaceiro;Mateiro
-5009,Adamantite Machete,Facão de Adamantita,items/base/weapons/melee/shortsword.txt,13,rare,melee,35,54,,,0,adamantite,crit:4,1511,/wiki/images/a/a8/Weapon_shortsword2.png,,demon:30,Cangaceiro;Mateiro
-5010,Iron Saber,Sabre de Ferro,items/base/weapons/melee/longsword.txt,1,common,melee,7,13,,,0,iron,crit:2,25,/wiki/images/9/96/Weapon_longsword.png,,,Cangaceiro;Mateiro
-5011,Steel Saber,Sabre de Aço,items/base/weapons/melee/longsword.txt,4,common,melee,14,24,,,0,,crit:2,85,/wiki/images/f/f3/Weapon_longsword1.png,,,Cangaceiro;Mateiro
-5012,Silver Saber,Sabre de Prata,items/base/weapons/melee/longsword.txt,6,common,melee,17,31,,,0,silver,crit:2,138,/wiki/images/e/ee/Weapon_longsword_white.png,,undead:25,Cangaceiro;Mateiro
-5013,Bluesteel Saber,Sabre de Aço Azul,items/base/weapons/melee/longsword.txt,9,common,melee,23,45,,,0,bluesteel,crit:2,232,/wiki/images/0/01/Weapon_longsword2.png,,,Cangaceiro;Mateiro
-5014,Adamantite Saber,Sabre de Adamantita,items/base/weapons/melee/longsword.txt,13,rare,melee,41,60,,,0,adamantite,crit:4,1511,/wiki/images/0/01/Weapon_longsword2.png,,demon:40,Cangaceiro;Mateiro
+5005,Iron Machete,Facão de Ferro,items/base/weapons/melee/shortsword.txt,1,common,melee,4,13,,,0,iron,crit:2,25,/wiki/images/a/a3/Weapon_shortsword.png,,,Cangaceiro;Jagunço
+5006,Steel Machete,Facão de Aço,items/base/weapons/melee/shortsword.txt,4,common,melee,10,23,,,0,,crit:2,85,/wiki/images/e/ea/Weapon_shortsword1.png,,,Cangaceiro;Jagunço
+5007,Silver Machete,Facão de Prata,items/base/weapons/melee/shortsword.txt,6,common,melee,13,29,,,0,silver,crit:2,138,/wiki/images/5/58/Weapon_shortsword_white.png,,undead:25,Cangaceiro;Jagunço
+5008,Bluesteel Machete,Facão de Aço Azul,items/base/weapons/melee/shortsword.txt,9,common,melee,16,44,,,0,bluesteel,crit:2,232,/wiki/images/a/a8/Weapon_shortsword2.png,,,Cangaceiro;Jagunço
+5009,Adamantite Machete,Facão de Adamantita,items/base/weapons/melee/shortsword.txt,13,rare,melee,35,54,,,0,adamantite,crit:4,1511,/wiki/images/a/a8/Weapon_shortsword2.png,,demon:30,Cangaceiro;Jagunço
+5010,Iron Saber,Sabre de Ferro,items/base/weapons/melee/longsword.txt,1,common,melee,7,13,,,0,iron,crit:2,25,/wiki/images/9/96/Weapon_longsword.png,,,Cangaceiro;Jagunço
+5011,Steel Saber,Sabre de Aço,items/base/weapons/melee/longsword.txt,4,common,melee,14,24,,,0,,crit:2,85,/wiki/images/f/f3/Weapon_longsword1.png,,,Cangaceiro;Jagunço
+5012,Silver Saber,Sabre de Prata,items/base/weapons/melee/longsword.txt,6,common,melee,17,31,,,0,silver,crit:2,138,/wiki/images/e/ee/Weapon_longsword_white.png,,undead:25,Cangaceiro;Jagunço
+5013,Bluesteel Saber,Sabre de Aço Azul,items/base/weapons/melee/longsword.txt,9,common,melee,23,45,,,0,bluesteel,crit:2,232,/wiki/images/0/01/Weapon_longsword2.png,,,Cangaceiro;Jagunço
+5014,Adamantite Saber,Sabre de Adamantita,items/base/weapons/melee/longsword.txt,13,rare,melee,41,60,,,0,adamantite,crit:4,1511,/wiki/images/0/01/Weapon_longsword2.png,,demon:40,Cangaceiro;Jagunço
 5015,Iron Greatsword,Espadão de Ferro,items/base/weapons/melee/greatsword.txt,1,common,melee,7,21,,,1,iron,,25,/wiki/images/b/bb/Weapon_greatsword.png,,,Cangaceiro
 5016,Steel Greatsword,Espadão de Aço,items/base/weapons/melee/greatsword.txt,4,common,melee,15,38,,,1,,,85,/wiki/images/b/bb/Weapon_greatsword.png,,,Cangaceiro
 5017,Silver Greatsword,Espadão de Prata,items/base/weapons/melee/greatsword.txt,6,common,melee,18,48,,,1,silver,,138,/wiki/images/b/bb/Weapon_greatsword_white.png,,undead:25,Cangaceiro
 5018,Bluesteel Greatsword,Espadão de Aço Azul,items/base/weapons/melee/greatsword.txt,9,common,melee,27,68,,,1,bluesteel,,232,/wiki/images/6/64/Weapon_greatsword2.png,,,Cangaceiro
 5019,Adamantite Greatsword,Espadão de Adamantita,items/base/weapons/melee/greatsword.txt,13,rare,melee,52,89,,,1,adamantite,crit:2,1511,/wiki/images/7/72/Weapon_greatsw_bl.png,,demon:50,Cangaceiro
-5020,Iron Hatchet,Machadinha de Ferro,items/base/weapons/melee/hand_axe.txt,1,common,melee,4,16,,,0,iron,crit:3,25,/wiki/images/7/7c/Axe3.png,,,Cangaceiro;Mateiro
-5021,Steel Hatchet,Machadinha de Aço,items/base/weapons/melee/hand_axe.txt,4,common,melee,6,32,,,0,,crit:3,85,/wiki/images/3/36/Axe1.png,,,Cangaceiro;Mateiro
-5022,Bluesteel Hatchet,Machadinha de Aço Azul,items/base/weapons/melee/hand_axe.txt,9,common,melee,13,53,,,0,bluesteel,crit:2,232,/wiki/images/f/fa/Axe2.png,,,Cangaceiro;Mateiro
-5023,Adamantite Hatchet,Machadinha de Adamantita,items/base/weapons/melee/hand_axe.txt,13,rare,melee,20,79,,,0,adamantite,crit:4,1511,/wiki/images/f/fa/Axe2.png,extrapolated,,Cangaceiro;Mateiro
+5020,Iron Hatchet,Machadinha de Ferro,items/base/weapons/melee/hand_axe.txt,1,common,melee,4,16,,,0,iron,crit:3,25,/wiki/images/7/7c/Axe3.png,,,Cangaceiro;Jagunço
+5021,Steel Hatchet,Machadinha de Aço,items/base/weapons/melee/hand_axe.txt,4,common,melee,6,32,,,0,,crit:3,85,/wiki/images/3/36/Axe1.png,,,Cangaceiro;Jagunço
+5022,Bluesteel Hatchet,Machadinha de Aço Azul,items/base/weapons/melee/hand_axe.txt,9,common,melee,13,53,,,0,bluesteel,crit:2,232,/wiki/images/f/fa/Axe2.png,,,Cangaceiro;Jagunço
+5023,Adamantite Hatchet,Machadinha de Adamantita,items/base/weapons/melee/hand_axe.txt,13,rare,melee,20,79,,,0,adamantite,crit:4,1511,/wiki/images/f/fa/Axe2.png,extrapolated,,Cangaceiro;Jagunço
 5024,Iron Woodcutter's Axe,Machado de Lenhador de Ferro,items/base/weapons/melee/battle_axe.txt,1,common,melee,6,23,,,1,iron,crit:2,25,/wiki/images/c/c3/Battleaxe3.png,,,Cangaceiro
 5025,Steel Woodcutter's Axe,Machado de Lenhador de Aço,items/base/weapons/melee/battle_axe.txt,4,common,melee,9,46,,,1,,,85,/wiki/images/8/81/Battleaxe1.png,,,Cangaceiro
 5026,Bluesteel Woodcutter's Axe,Machado de Lenhador de Aço Azul,items/base/weapons/melee/battle_axe.txt,9,common,melee,10,89,,,1,bluesteel,,232,/wiki/images/9/90/Battleaxe2.png,,,Cangaceiro
@@ -40,44 +40,44 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5038,Steel Maul,Marreta de Aço,items/base/weapons/melee/maul.txt,4,common,melee,16,37,,,1,,,85,/wiki/images/4/41/Maul1.png,,,Cangaceiro;Benzedeiro
 5039,Bluesteel Maul,Marreta de Aço Azul,items/base/weapons/melee/maul.txt,9,common,melee,29,66,,,1,bluesteel,,232,/wiki/images/2/20/Maul2.png,,,Cangaceiro;Benzedeiro
 5040,Adamantite Maul,Marreta de Adamantita,items/base/weapons/melee/maul.txt,13,rare,melee,43,99,,,1,adamantite,crit:2,1511,/wiki/images/2/20/Maul2.png,extrapolated,,Cangaceiro;Benzedeiro
-5100,Saci's Knife,Faca de Saci,items/base/weapons/melee/dagger.txt,2,common,melee,6,15,,,0,,crit:3,41,/wiki/images/9/96/Weapon_dagger4.png,,,Mateiro
+5100,Saci's Knife,Faca de Saci,items/base/weapons/melee/dagger.txt,2,common,melee,6,15,,,0,,crit:3,41,/wiki/images/9/96/Weapon_dagger4.png,,,Jagunço
 5101,Ice Peixeira,Peixeira de Gelo,items/base/weapons/melee/dagger.txt,3,common,melee,6,19,,,0,,crit:3;dmg_ice_min:8;dmg_ice_max:13,62,/wiki/images/a/a6/Weapon_dagger_ice.png,,,
-5102,Jararaca Peixeira,Peixeira de Jararaca,items/base/weapons/melee/dagger.txt,3,common,melee,6,19,,,0,,crit:3;dmg_dark_min:8;dmg_dark_max:13,62,/wiki/images/8/89/Weapon_dagger_toxic.png,,,Cangaceiro;Mateiro;Benzedeiro
+5102,Jararaca Peixeira,Peixeira de Jararaca,items/base/weapons/melee/dagger.txt,3,common,melee,6,19,,,0,,crit:3;dmg_dark_min:8;dmg_dark_max:13,62,/wiki/images/8/89/Weapon_dagger_toxic.png,,,Cangaceiro;Jagunço;Benzedeiro
 5103,Lightning Peixeira,Peixeira de Raio,items/base/weapons/melee/dagger.txt,3,common,melee,6,19,,,0,,crit:3;dmg_lightning_min:8;dmg_lightning_max:13,62,/wiki/images/0/0e/Weapon_dagger_shock.png,,,
-5104,Jaguar Fang,Presa de Onça,items/base/weapons/melee/dagger.txt,4,common,melee,9,21,,,0,,crit:2,85,/wiki/images/e/ea/Weapon_shortsword1.png,,beast:15,Cangaceiro;Mateiro;Benzedeiro
-5105,Quibungo Knife,Faca de Quibungo,items/base/weapons/melee/dagger.txt,4,common,melee,10,20,,,0,,crit:5,85,/wiki/images/1/14/Weapon_dagger3.png,,,Mateiro
-5106,Frost Machete,Facão Gelado,items/base/weapons/melee/shortsword.txt,5,common,melee,11,28,,,0,,crit:2;dmg_ice_min:7;dmg_ice_max:11,110,/wiki/images/9/9e/Weapon_shortsword_ice.png,,,Cangaceiro;Mateiro
-5107,Jagunço Machete,Facão de Jagunço,items/base/weapons/melee/shortsword.txt,5,common,melee,14,25,,,0,,crit:3,110,/wiki/images/1/14/Weapon_dagger3.png,,,Mateiro
-5108,Pirate Cutlass,Cutelo Pirata,items/base/weapons/melee/shortsword.txt,6,common,melee,15,29,,,0,,crit:8,138,/wiki/images/0/0e/Weapon_falchion.png,,,Cangaceiro;Mateiro
-5109,Boitatá Saber,Sabre do Boitatá,items/base/weapons/melee/longsword.txt,6,uncommon,melee,18,37,,,0,,dmg_fire_min:8;dmg_fire_max:14,276,/wiki/images/7/76/Weapon_sword_long_flaming.png,,,Cangaceiro;Mateiro
-5110,Thunder Saber,Sabre de Trovão,items/base/weapons/melee/longsword.txt,6,common,melee,17,33,,,0,,crit:2;dmg_lightning_min:8;dmg_lightning_max:12,138,/wiki/images/3/3c/Weapon_longsword_shock.png,,,Cangaceiro;Mateiro
-5111,Saci Bane,Ruína dos Sacis,items/base/weapons/melee/longsword.txt,7,common,melee,20,36,,,0,,,167,/wiki/images/d/de/Weapon_sword_long_magic2.png,,greenskin:30,Cangaceiro;Mateiro
-5112,Blazecleaver,Fende-Brasa,items/base/weapons/melee/hand_axe.txt,7,common,melee,8,46,,,0,,crit:3;dmg_fire_min:5;dmg_fire_max:8,167,/wiki/images/7/7c/Axe3.png,,,Cangaceiro;Mateiro
-5113,Lightning Hatchet,Machadinha de Raio,items/base/weapons/melee/hand_axe.txt,7,common,melee,8,46,,,0,,crit:3;dmg_lightning_min:5;dmg_lightning_max:8,167,/wiki/images/f/fa/Axe2.png,,,Cangaceiro;Mateiro
+5104,Jaguar Fang,Presa de Onça,items/base/weapons/melee/dagger.txt,4,common,melee,9,21,,,0,,crit:2,85,/wiki/images/e/ea/Weapon_shortsword1.png,,beast:15,Cangaceiro;Jagunço;Benzedeiro
+5105,Quibungo Knife,Faca de Quibungo,items/base/weapons/melee/dagger.txt,4,common,melee,10,20,,,0,,crit:5,85,/wiki/images/1/14/Weapon_dagger3.png,,,Jagunço
+5106,Frost Machete,Facão Gelado,items/base/weapons/melee/shortsword.txt,5,common,melee,11,28,,,0,,crit:2;dmg_ice_min:7;dmg_ice_max:11,110,/wiki/images/9/9e/Weapon_shortsword_ice.png,,,Cangaceiro;Jagunço
+5107,Tocaia Machete,Facão de Tocaia,items/base/weapons/melee/shortsword.txt,5,common,melee,14,25,,,0,,crit:3,110,/wiki/images/1/14/Weapon_dagger3.png,,,Jagunço
+5108,Pirate Cutlass,Cutelo Pirata,items/base/weapons/melee/shortsword.txt,6,common,melee,15,29,,,0,,crit:8,138,/wiki/images/0/0e/Weapon_falchion.png,,,Cangaceiro;Jagunço
+5109,Boitatá Saber,Sabre do Boitatá,items/base/weapons/melee/longsword.txt,6,uncommon,melee,18,37,,,0,,dmg_fire_min:8;dmg_fire_max:14,276,/wiki/images/7/76/Weapon_sword_long_flaming.png,,,Cangaceiro;Jagunço
+5110,Thunder Saber,Sabre de Trovão,items/base/weapons/melee/longsword.txt,6,common,melee,17,33,,,0,,crit:2;dmg_lightning_min:8;dmg_lightning_max:12,138,/wiki/images/3/3c/Weapon_longsword_shock.png,,,Cangaceiro;Jagunço
+5111,Saci Bane,Ruína dos Sacis,items/base/weapons/melee/longsword.txt,7,common,melee,20,36,,,0,,,167,/wiki/images/d/de/Weapon_sword_long_magic2.png,,greenskin:30,Cangaceiro;Jagunço
+5112,Blazecleaver,Fende-Brasa,items/base/weapons/melee/hand_axe.txt,7,common,melee,8,46,,,0,,crit:3;dmg_fire_min:5;dmg_fire_max:8,167,/wiki/images/7/7c/Axe3.png,,,Cangaceiro;Jagunço
+5113,Lightning Hatchet,Machadinha de Raio,items/base/weapons/melee/hand_axe.txt,7,common,melee,8,46,,,0,,crit:3;dmg_lightning_min:5;dmg_lightning_max:8,167,/wiki/images/f/fa/Axe2.png,,,Cangaceiro;Jagunço
 5114,Heavy Scimitar,Cimitarra Pesada,items/base/weapons/melee/greatsword.txt,8,common,melee,26,61,,,1,,crit:3,199,/wiki/images/d/d8/Weapon_scimitar.png,,,Cangaceiro
 5115,Bone Cudgel,Porrete de Osso,items/base/weapons/melee/mace.txt,8,common,melee,25,34,,,0,,,199,/wiki/images/0/0d/Weapon_bone_mace.png,,,Cangaceiro;Benzedeiro
 5116,Rust Hammer,Martelo da Ferrugem,items/base/weapons/melee/war_hammer.txt,8,common,melee,26,31,,,0,,crit:2;dmg_dark_min:12;dmg_dark_max:21,199,/wiki/images/9/9a/Weapon_hammer_corrosion.png,,,Cangaceiro;Benzedeiro
 5117,Icy Greatsword,Espadão Gélido,items/base/weapons/melee/greatsword.txt,9,common,melee,26,69,,,1,,dmg_ice_min:13;dmg_ice_max:21,232,/wiki/images/7/7a/Weapon_greatsword_ice.png,,,Cangaceiro
 5118,Icy Maul,Marreta Gélida,items/base/weapons/melee/maul.txt,9,common,melee,29,67,,,1,,dmg_ice_min:9;dmg_ice_max:14,232,/wiki/images/2/20/Maul2.png,,,Cangaceiro;Benzedeiro
 5119,Howling Cudgel,Porrete Uivante,items/base/weapons/melee/mace.txt,9,common,melee,28,36,,,0,,dmg_dark_min:10;dmg_dark_max:16;crit:3,232,/wiki/images/0/0c/Skull_Mace.png,,,Cangaceiro;Benzedeiro
-5120,Verdict,Sentença,items/base/weapons/melee/longsword.txt,9,uncommon,melee,27,48,,,0,,crit:2;dmg_fire_min:16;dmg_fire_max:27,463,/wiki/images/7/76/Weapon_sword_long_flaming.png,,demon:30;undead:55,Cangaceiro;Mateiro;Benzedeiro
+5120,Verdict,Sentença,items/base/weapons/melee/longsword.txt,9,uncommon,melee,27,48,,,0,,crit:2;dmg_fire_min:16;dmg_fire_max:27,463,/wiki/images/7/76/Weapon_sword_long_flaming.png,,demon:30;undead:55,Cangaceiro;Jagunço;Benzedeiro
 5121,Lightning Woodcutter Axe,Machado de Raio,items/base/weapons/melee/battle_axe.txt,10,common,melee,18,89,,,1,,dmg_lightning_min:14;dmg_lightning_max:24,266,/wiki/images/9/90/Battleaxe2.png,,,Cangaceiro
 5122,Lobisomem Axe,Machado de Lobisomem,items/base/weapons/melee/battle_axe.txt,10,uncommon,melee,15,103,,,1,,,532,/wiki/images/8/81/Battleaxe1.png,,,Cangaceiro
 5123,Bone Maul,Marreta de Osso,items/base/weapons/melee/maul.txt,10,common,melee,37,67,,,1,,,266,/wiki/images/5/54/Weapon_maul_bone.png,,,Cangaceiro;Benzedeiro
-5124,Magma Machete,Facão de Magma,items/base/weapons/melee/shortsword.txt,10,uncommon,melee,20,52,,,0,,crit:2;dmg_fire_min:20;dmg_fire_max:33,532,/wiki/images/3/3d/Weapon_shortsword_fire.png,,,Cangaceiro;Mateiro
-5125,Magma Peixeira,Peixeira de Magma,items/base/weapons/melee/dagger.txt,10,uncommon,melee,18,47,,,0,,crit:3;dmg_fire_min:18;dmg_fire_max:30,532,/wiki/images/8/82/Weapon_Dagger_Fire.png,,,Cangaceiro;Mateiro
-5126,Magma Saber,Sabre de Magma,items/base/weapons/melee/longsword.txt,11,common,melee,29,51,,,0,,crit:2;dmg_fire_min:17;dmg_fire_max:29,302,/wiki/images/7/76/Weapon_sword_long_flaming.png,,,Cangaceiro;Mateiro
+5124,Magma Machete,Facão de Magma,items/base/weapons/melee/shortsword.txt,10,uncommon,melee,20,52,,,0,,crit:2;dmg_fire_min:20;dmg_fire_max:33,532,/wiki/images/3/3d/Weapon_shortsword_fire.png,,,Cangaceiro;Jagunço
+5125,Magma Peixeira,Peixeira de Magma,items/base/weapons/melee/dagger.txt,10,uncommon,melee,18,47,,,0,,crit:3;dmg_fire_min:18;dmg_fire_max:30,532,/wiki/images/8/82/Weapon_Dagger_Fire.png,,,Cangaceiro;Jagunço
+5126,Magma Saber,Sabre de Magma,items/base/weapons/melee/longsword.txt,11,common,melee,29,51,,,0,,crit:2;dmg_fire_min:17;dmg_fire_max:29,302,/wiki/images/7/76/Weapon_sword_long_flaming.png,,,Cangaceiro;Jagunço
 5127,Executioner's Axe,Machado do Carrasco,items/base/weapons/melee/battle_axe.txt,11,common,melee,14,102,,,1,,crit:6,302,/wiki/images/8/81/Battleaxe1.png,,,Cangaceiro
-5128,Lightning Blade,Lâmina Relâmpago,items/base/weapons/melee/longsword.txt,12,uncommon,melee,33,61,,,0,,crit:2;dmg_lightning_min:17;dmg_lightning_max:28,678,/wiki/images/3/3c/Weapon_longsword_shock.png,,,Cangaceiro;Mateiro
-5129,Soul Reaper,Ceifa-Almas,items/base/weapons/melee/hand_axe.txt,12,uncommon,melee,19,74,,,0,,crit:3;dmg_dark_min:15;dmg_dark_max:25,678,/wiki/images/e/e9/Wpn_axe_soul.png,,,Cangaceiro;Mateiro
+5128,Lightning Blade,Lâmina Relâmpago,items/base/weapons/melee/longsword.txt,12,uncommon,melee,33,61,,,0,,crit:2;dmg_lightning_min:17;dmg_lightning_max:28,678,/wiki/images/3/3c/Weapon_longsword_shock.png,,,Cangaceiro;Jagunço
+5129,Soul Reaper,Ceifa-Almas,items/base/weapons/melee/hand_axe.txt,12,uncommon,melee,19,74,,,0,,crit:3;dmg_dark_min:15;dmg_dark_max:25,678,/wiki/images/e/e9/Wpn_axe_soul.png,,,Cangaceiro;Jagunço
 5130,Chupacabra,Chupa-Cabra,items/base/weapons/melee/battle_axe.txt,14,uncommon,melee,27,129,,,1,,dmg_dark_min:24;dmg_dark_max:41,835,/wiki/images/8/8c/Battleaxe4.png,,beast:30,Cangaceiro
-5131,Short Bow,Arco Curto,items/base/weapons/ranged/shortbow.txt,1,common,ranged,4,16,,,0,,crit:2,25,/wiki/images/3/3c/Weapon_shortbow.png,,,Cangaceiro;Mateiro
-5132,Hunter's Bow,Arco de Caçador,items/base/weapons/ranged/shortbow.txt,3,common,ranged,8,24,,,0,,,62,/wiki/images/6/61/Weapon_bow.png,,,Cangaceiro;Mateiro
-5133,Aroeira Bow,Arco de Aroeira,items/base/weapons/ranged/longbow.txt,5,common,ranged,13,35,,,0,,,110,/wiki/images/6/61/Weapon_bow.png,,,Cangaceiro;Mateiro
-5134,Silver Bow,Arco de Prata,items/base/weapons/ranged/longbow.txt,7,common,ranged,15,46,,,0,silver,,167,/wiki/images/3/3c/Weapon_shortbow.png,,undead:25,Cangaceiro;Mateiro
-5135,Frost Bow,Arco do Gelo,items/base/weapons/ranged/longbow.txt,8,common,ranged,17,51,,,0,,dmg_ice_min:10;dmg_ice_max:17,199,/wiki/images/c/cd/Weapon_bow_ice.png,,,Cangaceiro;Mateiro
-5136,Curare Longbow,Arco Longo de Curare,items/base/weapons/ranged/longbow.txt,11,uncommon,ranged,32,65,,,0,,dmg_dark_min:19;dmg_dark_max:32;crit:3,604,/wiki/images/f/f6/Weapon_bow_toxic2.png,,,Mateiro
-5137,Caveira Bow,Arco de Caveira,items/base/weapons/ranged/greatbow.txt,12,common,ranged,31,72,,,0,,crit:2;dmg_dark_min:25;dmg_dark_max:41,339,/wiki/images/5/5d/Skeletal_Bow1.png,,,Cangaceiro;Mateiro
+5131,Short Bow,Arco Curto,items/base/weapons/ranged/shortbow.txt,1,common,ranged,4,16,,,0,,crit:2,25,/wiki/images/3/3c/Weapon_shortbow.png,,,Cangaceiro;Jagunço
+5132,Hunter's Bow,Arco de Caçador,items/base/weapons/ranged/shortbow.txt,3,common,ranged,8,24,,,0,,,62,/wiki/images/6/61/Weapon_bow.png,,,Cangaceiro;Jagunço
+5133,Aroeira Bow,Arco de Aroeira,items/base/weapons/ranged/longbow.txt,5,common,ranged,13,35,,,0,,,110,/wiki/images/6/61/Weapon_bow.png,,,Cangaceiro;Jagunço
+5134,Silver Bow,Arco de Prata,items/base/weapons/ranged/longbow.txt,7,common,ranged,15,46,,,0,silver,,167,/wiki/images/3/3c/Weapon_shortbow.png,,undead:25,Cangaceiro;Jagunço
+5135,Frost Bow,Arco do Gelo,items/base/weapons/ranged/longbow.txt,8,common,ranged,17,51,,,0,,dmg_ice_min:10;dmg_ice_max:17,199,/wiki/images/c/cd/Weapon_bow_ice.png,,,Cangaceiro;Jagunço
+5136,Curare Longbow,Arco Longo de Curare,items/base/weapons/ranged/longbow.txt,11,uncommon,ranged,32,65,,,0,,dmg_dark_min:19;dmg_dark_max:32;crit:3,604,/wiki/images/f/f6/Weapon_bow_toxic2.png,,,Jagunço
+5137,Caveira Bow,Arco de Caveira,items/base/weapons/ranged/greatbow.txt,12,common,ranged,31,72,,,0,,crit:2;dmg_dark_min:25;dmg_dark_max:41,339,/wiki/images/5/5d/Skeletal_Bow1.png,,,Cangaceiro;Jagunço
 5138,Ipê Wand,Varinha de Ipê,items/base/weapons/magic/wand.txt,1,common,ment,7,13,,,0,,crit:2,25,/wiki/images/7/7b/Wand1.png,,,Feiticeiro
 5139,Staff of Force,Cajado da Força,items/base/weapons/magic/staff.txt,3,common,ment,14,23,,,0,,,62,/wiki/images/7/70/Staff0.png,,,Feiticeiro
 5140,Jacarandá Wand,Varinha de Jacarandá,items/base/weapons/magic/wand.txt,4,common,ment,13,25,,,0,,crit:2,85,/wiki/images/7/7b/Wand1.png,,,Feiticeiro
@@ -87,23 +87,23 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5144,Thunderstorm Staff,Cajado das Trovoadas,items/base/weapons/magic/staff.txt,9,common,ment,24,54,,,0,,dmg_lightning_min:11;dmg_lightning_max:18,232,/wiki/images/b/bf/Staff1.png,,,Feiticeiro
 5145,Sorcerer's Staff,Cajado do Feiticeiro,items/base/weapons/magic/greatstaff.txt,11,uncommon,ment,42,73,,,1,,mp:24,604,/wiki/images/6/67/Wand11.png,,,Feiticeiro
 5146,Magma Greatstaff,Grande Cajado de Magma,items/base/weapons/magic/greatstaff.txt,14,uncommon,ment,49,91,,,1,,crit:2;mp:24,835,/wiki/images/5/5d/Greatstaff_red.png,,,Feiticeiro
-5500,Lampião's Peixeira,Peixeira de Lampião,items/base/weapons/melee/dagger.txt,8,unique,melee,17,45,,,0,,crit:9;dmg_dark_min:17;dmg_dark_max:28,1590,/wiki/images/8/82/Wpn_dagger_stiletto.png,,,Mateiro
-5501,The Beato's Hammer,Martelo do Beato,items/base/weapons/melee/war_hammer.txt,8,unique,melee,31,41,,,0,,crit:2;dmg_ice_min:9;dmg_ice_max:15,1590,/wiki/images/b/b9/Silver_Hammer.png,,demon:20;undead:45,Cangaceiro;Mateiro;Benzedeiro
-5502,Minuano's Lament,Lamento do Minuano,items/base/weapons/melee/longsword.txt,9,unique,melee,28,57,,,0,,crit:2;dmg_ice_min:17;dmg_ice_max:28,1854,/wiki/images/6/60/Weapon_longsword_ice.png,,,Cangaceiro;Mateiro
+5500,Lampião's Peixeira,Peixeira de Lampião,items/base/weapons/melee/dagger.txt,8,unique,melee,17,45,,,0,,crit:9;dmg_dark_min:17;dmg_dark_max:28,1590,/wiki/images/8/82/Wpn_dagger_stiletto.png,,,Jagunço
+5501,The Beato's Hammer,Martelo do Beato,items/base/weapons/melee/war_hammer.txt,8,unique,melee,31,41,,,0,,crit:2;dmg_ice_min:9;dmg_ice_max:15,1590,/wiki/images/b/b9/Silver_Hammer.png,,demon:20;undead:45,Cangaceiro;Jagunço;Benzedeiro
+5502,Minuano's Lament,Lamento do Minuano,items/base/weapons/melee/longsword.txt,9,unique,melee,28,57,,,0,,crit:2;dmg_ice_min:17;dmg_ice_max:28,1854,/wiki/images/6/60/Weapon_longsword_ice.png,,,Cangaceiro;Jagunço
 5503,Mandacaru Thorn,Espinho de Mandacaru,items/base/weapons/melee/greatsword.txt,10,unique,melee,37,92,,,1,,dmg_fire_min:15;dmg_fire_max:25;crit:3,2130,/wiki/images/b/bb/Weapon_greatsword.png,,,Cangaceiro
-5504,Boitatá's Bite,Mordida do Boitatá,items/base/weapons/melee/hand_axe.txt,10,unique,melee,18,73,,,0,,crit:3;dmg_fire_min:18;dmg_fire_max:30,2130,/wiki/images/f/ff/Weapon_axe_fire.png,,,Cangaceiro;Mateiro
+5504,Boitatá's Bite,Mordida do Boitatá,items/base/weapons/melee/hand_axe.txt,10,unique,melee,18,73,,,0,,crit:3;dmg_fire_min:18;dmg_fire_max:30,2130,/wiki/images/f/ff/Weapon_axe_fire.png,,,Cangaceiro;Jagunço
 5505,Cowhand's Fist,Punho de Vaqueiro,items/base/weapons/melee/mace.txt,10,unique,melee,39,49,,,0,,crit:6;dmg_dark_min:12;dmg_dark_max:20,2130,/wiki/images/0/0c/Skull_Mace.png,,,Cangaceiro;Benzedeiro
-5506,Haunting Hammer,Martelo da Assombração,items/base/weapons/melee/war_hammer.txt,10,unique,melee,36,49,,,0,,crit:8;dmg_dark_min:15;dmg_dark_max:24,2130,/wiki/images/9/9a/Weapon_hammer_corrosion.png,,,Cangaceiro;Mateiro;Benzedeiro
+5506,Haunting Hammer,Martelo da Assombração,items/base/weapons/melee/war_hammer.txt,10,unique,melee,36,49,,,0,,crit:8;dmg_dark_min:15;dmg_dark_max:24,2130,/wiki/images/9/9a/Weapon_hammer_corrosion.png,,,Cangaceiro;Jagunço;Benzedeiro
 5507,Sierra Breaker,Quebra-Serra,items/base/weapons/melee/maul.txt,10,unique,melee,40,89,,,1,,,2130,/wiki/images/f/f4/Maul.png,,,Cangaceiro;Benzedeiro
-5508,Oxhorn Bow,Arco de Chifre de Boi,items/base/weapons/ranged/greatbow.txt,10,unique,ranged,42,69,,,0,,,2130,/wiki/images/f/fd/Wpn_bow_comp.png,,,Cangaceiro;Mateiro
-5509,Tanajura Stinger,Ferrão da Tanajura,items/base/weapons/melee/dagger.txt,12,unique,melee,29,57,,,0,,crit:3;dmg_ice_min:17;dmg_ice_max:29,2714,/wiki/images/a/a6/Weapon_dagger_ice.png,,demon:20,Mateiro
-5510,Wildfire Edge,Fio da Queimada,items/base/weapons/melee/shortsword.txt,12,unique,melee,27,68,,,0,,crit:8;dmg_fire_min:28;dmg_fire_max:47,2714,/wiki/images/8/82/Weapon_Dagger_Fire.png,,,Cangaceiro;Mateiro
-5511,Saber of the Vow,Sabre da Promessa,items/base/weapons/melee/longsword.txt,12,unique,melee,41,67,,,0,,crit:2;dmg_dark_min:22;dmg_dark_max:36,2714,/wiki/images/1/1c/Weapon_sword_long_magic.png,,beast:45,Cangaceiro;Mateiro
+5508,Oxhorn Bow,Arco de Chifre de Boi,items/base/weapons/ranged/greatbow.txt,10,unique,ranged,42,69,,,0,,,2130,/wiki/images/f/fd/Wpn_bow_comp.png,,,Cangaceiro;Jagunço
+5509,Tanajura Stinger,Ferrão da Tanajura,items/base/weapons/melee/dagger.txt,12,unique,melee,29,57,,,0,,crit:3;dmg_ice_min:17;dmg_ice_max:29,2714,/wiki/images/a/a6/Weapon_dagger_ice.png,,demon:20,Jagunço
+5510,Wildfire Edge,Fio da Queimada,items/base/weapons/melee/shortsword.txt,12,unique,melee,27,68,,,0,,crit:8;dmg_fire_min:28;dmg_fire_max:47,2714,/wiki/images/8/82/Weapon_Dagger_Fire.png,,,Cangaceiro;Jagunço
+5511,Saber of the Vow,Sabre da Promessa,items/base/weapons/melee/longsword.txt,12,unique,melee,41,67,,,0,,crit:2;dmg_dark_min:22;dmg_dark_max:36,2714,/wiki/images/1/1c/Weapon_sword_long_magic.png,,beast:45,Cangaceiro;Jagunço
 5512,Skullcrusher,Quebra-Caveira,items/base/weapons/melee/maul.txt,12,unique,melee,50,100,,,1,,dmg_lightning_min:26;dmg_lightning_max:44,2714,/wiki/images/8/8b/Wpn_maul_garack.png,,undead:25,Cangaceiro;Benzedeiro
-5513,Pampas Deer Heirloom,Herança do Veado-Campeiro,items/base/weapons/melee/longsword.txt,13,unique,melee,44,71,,,0,,crit:2;dmg_ice_min:30;dmg_ice_max:49,3021,/wiki/images/6/60/Weapon_longsword_ice.png,,,Cangaceiro;Mateiro
-5514,Rimeshot,Tiro de Geada,items/base/weapons/ranged/greatbow.txt,13,unique,ranged,49,89,,,0,,dmg_ice_min:19;dmg_ice_max:32,3021,/wiki/images/4/4d/Permafrost_Bow.png,,,Cangaceiro;Mateiro
+5513,Pampas Deer Heirloom,Herança do Veado-Campeiro,items/base/weapons/melee/longsword.txt,13,unique,melee,44,71,,,0,,crit:2;dmg_ice_min:30;dmg_ice_max:49,3021,/wiki/images/6/60/Weapon_longsword_ice.png,,,Cangaceiro;Jagunço
+5514,Rimeshot,Tiro de Geada,items/base/weapons/ranged/greatbow.txt,13,unique,ranged,49,89,,,0,,dmg_ice_min:19;dmg_ice_max:32,3021,/wiki/images/4/4d/Permafrost_Bow.png,,,Cangaceiro;Jagunço
 5515,Corpo-Seco Scepter,Cetro do Corpo-Seco,items/base/weapons/magic/wand.txt,13,unique,ment,34,81,,,0,,crit:3;dmg_dark_min:24;dmg_dark_max:41;mp:32,3021,/wiki/images/0/09/Staff5.png,,,Feiticeiro
-5516,Lobisomem Fang,Presa do Lobisomem,items/base/weapons/melee/shortsword.txt,14,unique,melee,34,74,,,0,,crit:12;dmg_dark_min:24;dmg_dark_max:40,3339,/wiki/images/c/c8/Weapon_dagger_death.png,,,Cangaceiro;Mateiro
+5516,Lobisomem Fang,Presa do Lobisomem,items/base/weapons/melee/shortsword.txt,14,unique,melee,34,74,,,0,,crit:12;dmg_dark_min:24;dmg_dark_max:40,3339,/wiki/images/c/c8/Weapon_dagger_death.png,,,Cangaceiro;Jagunço
 5517,Mapinguari's Axe,Machado do Mapinguari,items/base/weapons/melee/battle_axe.txt,14,unique,melee,25,153,,,1,,dmg_lightning_min:29;dmg_lightning_max:49;crit:3,3339,/wiki/images/8/8c/Battleaxe4.png,,,Cangaceiro
 5518,Moonless Night,Noite Sem Lua,items/base/weapons/melee/mace.txt,14,unique,melee,53,63,,,0,,dmg_dark_min:22;dmg_dark_max:37;crit:9,3339,/wiki/images/8/82/Weapon_mace_death.png,,,Cangaceiro;Benzedeiro
 5519,Devil's Hook,Anzol do Capeta,items/base/weapons/melee/greatsword.txt,15,unique,melee,63,119,,,1,,dmg_fire_min:34;dmg_fire_max:56;crit:6,3665,/wiki/images/b/bb/Weapon_greatsword.png,,,Cangaceiro
@@ -119,10 +119,10 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5207,Apprentice Gloves,Luvas de Aprendiz,items/base/armor/mage/hands.txt,1,common,,,,0,1,0,,hp:4;mp:8,25,/wiki/images/f/f5/Armor_leather_hands_green.png,,,Benzedeiro;Feiticeiro
 5208,Apprentice Pants,Calças de Aprendiz,items/base/armor/mage/legs.txt,1,common,,,,0,1,0,,hp:8;mp:12,25,/wiki/images/8/89/Armor_leather_legs_green.png,,,Benzedeiro;Feiticeiro
 5209,Apprentice Boots,Botas de Aprendiz,items/base/armor/mage/feet.txt,1,common,,,,0,1,0,,hp:4;mp:8,25,/wiki/images/d/d3/Armor_leather_feet_green.png,,,Benzedeiro;Feiticeiro
-5210,Tanned Leather Cap,Capuz de Couro Curtido,items/base/armor/leather/head.txt,4,common,,,,0,2,0,hardened,hp:16,85,/wiki/images/e/e1/Armor_leather_head2.png,,,Cangaceiro;Mateiro;Benzedeiro
-5211,Tanned Leather Cuirass,Túnica de Couro Curtido,items/base/armor/leather/chest.txt,4,common,,,,2,4,0,hardened,hp:20,85,/wiki/images/0/03/Armor_leather_chest2.png,,,Cangaceiro;Mateiro;Benzedeiro
-5212,Tanned Leather Gauntlets,Luvas de Couro Curtido,items/base/armor/leather/hands.txt,4,common,,,,2,2,0,hardened,hp:8,85,/wiki/images/4/4d/Armor_leather_hands2.png,,,Cangaceiro;Mateiro;Benzedeiro
-5213,Tanned Leather Leggings,Calças de Couro Curtido,items/base/armor/leather/legs.txt,4,common,,,,2,2,0,hardened,hp:28,85,/wiki/images/a/a2/Armor_leather_legs2.png,,,Cangaceiro;Mateiro;Benzedeiro
+5210,Tanned Leather Cap,Capuz de Couro Curtido,items/base/armor/leather/head.txt,4,common,,,,0,2,0,hardened,hp:16,85,/wiki/images/e/e1/Armor_leather_head2.png,,,Cangaceiro;Jagunço;Benzedeiro
+5211,Tanned Leather Cuirass,Túnica de Couro Curtido,items/base/armor/leather/chest.txt,4,common,,,,2,4,0,hardened,hp:20,85,/wiki/images/0/03/Armor_leather_chest2.png,,,Cangaceiro;Jagunço;Benzedeiro
+5212,Tanned Leather Gauntlets,Luvas de Couro Curtido,items/base/armor/leather/hands.txt,4,common,,,,2,2,0,hardened,hp:8,85,/wiki/images/4/4d/Armor_leather_hands2.png,,,Cangaceiro;Jagunço;Benzedeiro
+5213,Tanned Leather Leggings,Calças de Couro Curtido,items/base/armor/leather/legs.txt,4,common,,,,2,2,0,hardened,hp:28,85,/wiki/images/a/a2/Armor_leather_legs2.png,,,Cangaceiro;Jagunço;Benzedeiro
 5214,Tanned Leather Boots,Botas de Couro Curtido,items/base/armor/leather/feet.txt,4,common,,,,2,2,0,hardened,hp:12,85,/wiki/images/c/cd/Armor_leather_feet2.png,,,
 5215,Tropeiro Cap,Capuz de Tropeiro,items/base/armor/mage_alt1/head.txt,4,common,,,,0,2,0,,mp:16,85,/wiki/images/b/b0/Armor_leather_head_blue.png,,,Benzedeiro;Feiticeiro
 5216,Tropeiro Tunic,Túnica de Tropeiro,items/base/armor/mage_alt1/chest.txt,4,common,,,,2,2,0,,hp:20;mp:28,85,/wiki/images/5/56/Robe1_blue.png,,,Benzedeiro;Feiticeiro
@@ -134,11 +134,11 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5222,Chainmail Gauntlets,Luvas de Cota de Malha,items/base/armor/chain/hands.txt,5,common,,,,3,4,0,,hp:20,110,/wiki/images/1/13/Armor_chain_hands.png,,,Cangaceiro;Benzedeiro
 5223,Chainmail Leggings,Calças de Cota de Malha,items/base/armor/chain/legs.txt,5,common,,,,3,4,0,,hp:32,110,/wiki/images/6/66/Armor_chain_legs.png,,,Cangaceiro;Benzedeiro
 5224,Chainmail Boots,Botas de Cota de Malha,items/base/armor/chain/feet.txt,5,common,,,,3,4,0,,hp:20,110,/wiki/images/1/17/Armor_chain_feet.png,,,Cangaceiro;Benzedeiro
-5225,Jungle Chain Coif,Elmo de Malha da Mata,items/base/armor/chain/head.txt,6,common,,,,2,3,0,forest,hp:16,138,/wiki/images/b/b6/Armor_chain_head_g.png,,,Cangaceiro;Mateiro
-5226,Jungle Chain Shirt,Peitoral de Malha da Mata,items/base/armor/chain/chest.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/3/32/Armor_chain_chest_g.png,,,Cangaceiro;Mateiro
-5227,Jungle Chain Gauntlets,Luvas de Malha da Mata,items/base/armor/chain/hands.txt,6,common,,,,3,4,0,forest,hp:8,138,/wiki/images/2/25/Armor_chain_hands_g.png,,,Cangaceiro;Mateiro
-5228,Jungle Chain Leggings,Calças de Malha da Mata,items/base/armor/chain/legs.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/f/fa/Armor_chain_legs_g.png,,,Cangaceiro;Mateiro
-5229,Jungle Chain Boots,Botas de Malha da Mata,items/base/armor/chain/feet.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/7/75/Armor_chain_feet_g.png,,,Cangaceiro;Mateiro
+5225,Jungle Chain Coif,Elmo de Malha da Mata,items/base/armor/chain/head.txt,6,common,,,,2,3,0,forest,hp:16,138,/wiki/images/b/b6/Armor_chain_head_g.png,,,Cangaceiro;Jagunço
+5226,Jungle Chain Shirt,Peitoral de Malha da Mata,items/base/armor/chain/chest.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/3/32/Armor_chain_chest_g.png,,,Cangaceiro;Jagunço
+5227,Jungle Chain Gauntlets,Luvas de Malha da Mata,items/base/armor/chain/hands.txt,6,common,,,,3,4,0,forest,hp:8,138,/wiki/images/2/25/Armor_chain_hands_g.png,,,Cangaceiro;Jagunço
+5228,Jungle Chain Leggings,Calças de Malha da Mata,items/base/armor/chain/legs.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/f/fa/Armor_chain_legs_g.png,,,Cangaceiro;Jagunço
+5229,Jungle Chain Boots,Botas de Malha da Mata,items/base/armor/chain/feet.txt,6,common,,,,3,4,0,forest,hp:24,138,/wiki/images/7/75/Armor_chain_feet_g.png,,,Cangaceiro;Jagunço
 5230,Blessed Chain Coif,Elmo de Malha Benzida,items/base/armor/chain/head.txt,7,common,,,,2,3,0,blessed,hp:16;mp:8;xp_gain:3,167,/wiki/images/f/fe/Armor_chain_head_b.png,,,Benzedeiro
 5231,Blessed Chain Shirt,Peitoral de Malha Benzida,items/base/armor/chain/chest.txt,7,common,,,,3,4,0,blessed,hp:24;mp:12,167,/wiki/images/d/d7/Armor_chain_chest_b.png,,,Benzedeiro
 5232,Blessed Chain Gauntlets,Luvas de Malha Benzida,items/base/armor/chain/hands.txt,7,common,,,,3,4,0,blessed,hp:8;mp:8,167,/wiki/images/7/71/Armor_chain_hands_b.png,,,Benzedeiro
@@ -149,11 +149,11 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5237,Enchanter Gloves,Luvas de Encantador,items/base/armor/mage_alt2/hands.txt,7,common,,,,2,3,0,,hp:8;mp:20,167,/wiki/images/1/12/Armor_blue_gloves.png,,,Benzedeiro;Feiticeiro
 5238,Enchanter Pantaloons,Calças de Encantador,items/base/armor/mage_alt2/legs.txt,7,uncommon,,,,3,4,0,,hp:12;mp:20;lightning_resist:5,335,/wiki/images/7/74/Armor_leather_legs_blue.png,,,Benzedeiro;Feiticeiro
 5239,Enchanter Boots,Botas de Encantador,items/base/armor/mage_alt2/feet.txt,7,common,,,,2,3,0,,hp:16;mp:24,167,/wiki/images/a/a5/Armor_leather_feet_blue.png,,,Benzedeiro;Feiticeiro
-5240,Jagunço Hood,Capuz de Jagunço,items/base/armor/leather/head.txt,8,uncommon,,,,4,4,0,shadow,hp:24;dark_resist:5,398,/wiki/images/e/e1/Armor_leather_head2.png,,,Mateiro
-5241,Jagunço Cuirass,Túnica de Jagunço,items/base/armor/leather/chest.txt,8,uncommon,,,,6,6,0,shadow,hp:24;fire_resist:6;dark_resist:6,398,/wiki/images/0/03/Armor_leather_chest2.png,,,Mateiro
-5242,Jagunço Gauntlets,Luvas de Jagunço,items/base/armor/leather/hands.txt,8,uncommon,,,,4,4,0,shadow,hp:24;fire_resist:3;dark_resist:5;currency_find:10,398,/wiki/images/4/4d/Armor_leather_hands2.png,,,Mateiro
-5243,Jagunço Leggings,Calças de Jagunço,items/base/armor/leather/legs.txt,8,uncommon,,,,4,6,0,shadow,hp:24;ice_resist:6;dark_resist:6,398,/wiki/images/a/a2/Armor_leather_legs2.png,,,Mateiro
-5244,Jagunço Boots,Botas de Jagunço,items/base/armor/leather/feet.txt,8,common,,,,4,4,0,shadow,hp:20;ice_resist:5;dark_resist:5,199,/wiki/images/c/cd/Armor_leather_feet2.png,,,Mateiro
+5240,Tocaia Hood,Capuz de Tocaia,items/base/armor/leather/head.txt,8,uncommon,,,,4,4,0,shadow,hp:24;dark_resist:5,398,/wiki/images/e/e1/Armor_leather_head2.png,,,Jagunço
+5241,Tocaia Cuirass,Túnica de Tocaia,items/base/armor/leather/chest.txt,8,uncommon,,,,6,6,0,shadow,hp:24;fire_resist:6;dark_resist:6,398,/wiki/images/0/03/Armor_leather_chest2.png,,,Jagunço
+5242,Tocaia Gauntlets,Luvas de Tocaia,items/base/armor/leather/hands.txt,8,uncommon,,,,4,4,0,shadow,hp:24;fire_resist:3;dark_resist:5;currency_find:10,398,/wiki/images/4/4d/Armor_leather_hands2.png,,,Jagunço
+5243,Tocaia Leggings,Calças de Tocaia,items/base/armor/leather/legs.txt,8,uncommon,,,,4,6,0,shadow,hp:24;ice_resist:6;dark_resist:6,398,/wiki/images/a/a2/Armor_leather_legs2.png,,,Jagunço
+5244,Tocaia Boots,Botas de Tocaia,items/base/armor/leather/feet.txt,8,common,,,,4,4,0,shadow,hp:20;ice_resist:5;dark_resist:5,199,/wiki/images/c/cd/Armor_leather_feet2.png,,,Jagunço
 5245,Knight Helm,Elmo de Placas,items/base/armor/plate/head.txt,9,common,,,,4,5,0,,hp:16,232,/wiki/images/2/20/Armor_plate_head.png,,,Cangaceiro
 5246,Platemail Vest,Peitoral de Placas,items/base/armor/plate/chest.txt,9,common,,,,5,6,0,,hp:60,232,/wiki/images/c/c8/Armor_plate_chest.png,,,Cangaceiro
 5247,Platemail Gauntlets,Luvas de Placas,items/base/armor/plate/hands.txt,9,common,,,,4,5,0,,hp:32,232,/wiki/images/1/18/Armor_plate_hands.png,,,Cangaceiro
@@ -164,11 +164,11 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5252,Volante Gauntlets,Luvas da Volante,items/base/armor/plate/hands.txt,11,uncommon,,,,5,6,0,gold,hp:16;fire_resist:4;ice_resist:4,604,/wiki/images/6/65/Armor_plate_hands_yellow.png,,,Cangaceiro
 5253,Volante Leggings,Calças da Volante,items/base/armor/plate/legs.txt,11,uncommon,,,,6,7,0,gold,hp:28;fire_resist:5;ice_resist:5,604,/wiki/images/a/af/Armor_plate_legs_yellow.png,,,Cangaceiro
 5254,Volante Boots,Botas da Volante,items/base/armor/plate/feet.txt,11,uncommon,,,,6,7,0,gold,hp:8;fire_resist:4;ice_resist:4,604,/wiki/images/4/45/Armor_plate_feet_yellow.png,,,Cangaceiro
-5255,Minuano Chain Coif,Elmo de Malha Minuano,items/base/armor/chain/head.txt,11,uncommon,,,,5,6,0,ice,hp:12;fire_resist:-10;ice_resist:6,604,/wiki/images/f/fe/Armor_chain_head_b.png,,,Cangaceiro;Mateiro;Benzedeiro
-5256,Minuano Chain Shirt,Peitoral de Malha Minuano,items/base/armor/chain/chest.txt,11,uncommon,,,,6,7,0,ice,hp:24;fire_resist:-12;ice_resist:12,604,/wiki/images/d/d7/Armor_chain_chest_b.png,,,Cangaceiro;Mateiro;Benzedeiro
-5257,Minuano Chain Gauntlets,Luvas de Malha Minuano,items/base/armor/chain/hands.txt,11,common,,,,5,6,0,ice,hp:16;fire_resist:-10;ice_resist:6,302,/wiki/images/7/71/Armor_chain_hands_b.png,,,Cangaceiro;Mateiro;Benzedeiro
-5258,Minuano Chain Leggings,Calças de Malha Minuano,items/base/armor/chain/legs.txt,11,uncommon,,,,5,6,0,ice,hp:24;fire_resist:-10;ice_resist:10,604,/wiki/images/3/32/Armor_chain_legs_b.png,,,Cangaceiro;Mateiro;Benzedeiro
-5259,Minuano Chain Boots,Botas de Malha Minuano,items/base/armor/chain/feet.txt,11,uncommon,,,,5,6,0,ice,hp:12;fire_resist:-10;ice_resist:6,604,/wiki/images/a/a9/Armor_chain_feet_b.png,,,Cangaceiro;Mateiro;Benzedeiro
+5255,Minuano Chain Coif,Elmo de Malha Minuano,items/base/armor/chain/head.txt,11,uncommon,,,,5,6,0,ice,hp:12;fire_resist:-10;ice_resist:6,604,/wiki/images/f/fe/Armor_chain_head_b.png,,,Cangaceiro;Jagunço;Benzedeiro
+5256,Minuano Chain Shirt,Peitoral de Malha Minuano,items/base/armor/chain/chest.txt,11,uncommon,,,,6,7,0,ice,hp:24;fire_resist:-12;ice_resist:12,604,/wiki/images/d/d7/Armor_chain_chest_b.png,,,Cangaceiro;Jagunço;Benzedeiro
+5257,Minuano Chain Gauntlets,Luvas de Malha Minuano,items/base/armor/chain/hands.txt,11,common,,,,5,6,0,ice,hp:16;fire_resist:-10;ice_resist:6,302,/wiki/images/7/71/Armor_chain_hands_b.png,,,Cangaceiro;Jagunço;Benzedeiro
+5258,Minuano Chain Leggings,Calças de Malha Minuano,items/base/armor/chain/legs.txt,11,uncommon,,,,5,6,0,ice,hp:24;fire_resist:-10;ice_resist:10,604,/wiki/images/3/32/Armor_chain_legs_b.png,,,Cangaceiro;Jagunço;Benzedeiro
+5259,Minuano Chain Boots,Botas de Malha Minuano,items/base/armor/chain/feet.txt,11,uncommon,,,,5,6,0,ice,hp:12;fire_resist:-10;ice_resist:6,604,/wiki/images/a/a9/Armor_chain_feet_b.png,,,Cangaceiro;Jagunço;Benzedeiro
 5260,Blessed Platemail Helm,Elmo de Placas Benzidas,items/base/armor/plate/head.txt,12,uncommon,,,,5,7,0,blessed,hp:20;mp:12;xp_gain:3,678,/wiki/images/3/37/Helmet_plate_blue.png,,,Benzedeiro
 5261,Blessed Platemail Vest,Peitoral de Placas Benzidas,items/base/armor/plate/chest.txt,12,uncommon,,,,7,7,0,blessed,hp:36;mp:16,678,/wiki/images/d/da/Armor_plate_chest_blue.png,,,Benzedeiro
 5262,Blessed Platemail Gauntlets,Luvas de Placas Benzidas,items/base/armor/plate/hands.txt,12,uncommon,,,,5,7,0,blessed,hp:32;mp:12,678,/wiki/images/d/dc/Armor_plate_hands_blue.png,,,Benzedeiro
@@ -212,5 +212,5 @@ id,name,name_pt,base,level,band,dmg_type,dmg_min,dmg_max,abs_min,abs_max,two_han
 5426,Girdle of Agility,Cinturão da Agilidade,items/base/armor/belt.txt,7,uncommon,,,,3,4,0,,hp:32;offense:2,335,/wiki/images/9/9f/Belt1.png,,,
 5427,Girdle of Intellect,Cinturão do Intelecto,items/base/armor/belt.txt,7,common,,,,3,4,0,,hp:32;mental:2,167,/wiki/images/9/9f/Belt1.png,,,Feiticeiro
 5428,Cangaceiro Belt,Cinturão de Cangaceiro,items/base/armor/belt.txt,12,uncommon,,,,,,0,,physical:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,
-5429,Mateiro Belt,Cinturão de Mateiro,items/base/armor/belt.txt,12,uncommon,,,,,,0,,offense:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,
+5429,Jagunço Belt,Cinturão de Jagunço,items/base/armor/belt.txt,12,uncommon,,,,,,0,,offense:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,
 5430,Girdle of Supreme Intellect,Cinturão do Intelecto Supremo,items/base/armor/belt.txt,12,uncommon,,,,,,0,,mental:3;defense:1,678,/wiki/images/9/9f/Belt1.png,,,Feiticeiro
