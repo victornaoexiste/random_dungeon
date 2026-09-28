@@ -9,7 +9,7 @@ background_color=0,0,0,255
 hero_pos=40,40
 music=music/battle_theme.ogg
 tileset=tilesetdefs/rd_volcanic.txt
-title=Run Infinita
+title=Horda Infinita
 
 [layer]
 type=background
@@ -268,6 +268,6 @@ type=event
 location=44,44,1,1
 activate=on_trigger
 hotspot=location
-intermap=maps/world/aurora_a.txt,26,27
-tooltip=Abandonar a run (voltar pra Aurora)
+intermap=maps/lobby.txt
+tooltip=Abandonar a horda (voltar ao acampamento)
 

@@ -466,8 +466,10 @@ def open_map(map_id, biome, size, density, title, music, events, seed, hero=None
            % (size, size, hero[0], hero[1], music, biome, title)]
     out += [layer('background', bg), layer('object', obj), layer('collision', colm)]
     for x, y, target, tooltip in events:
+        # "book:rd:sanctuary" opens a menu (GameStatePlay turns that book into the Sanctuary)
+        action = ('book=%s' % target[5:]) if target.startswith('book:') else ('intermap=%s' % target)
         out.append('[event]\ntype=event\nlocation=%d,%d,1,1\nactivate=on_trigger\nhotspot=location\n'
-                   'intermap=%s\ntooltip=%s\n\n' % (x, y, target, tooltip))
+                   '%s\ntooltip=%s\n\n' % (x, y, action, tooltip))
     for x, y, npc in npcs:
         out.append('[npc]\ntype=npc\nlocation=%d,%d,1,1\nfilename=npcs/rd_%s.txt\n\n' % (x, y, npc))
     write(rel(map_id), ''.join(out))
@@ -483,11 +485,12 @@ def run_edition():
 
 def gen_mode_maps():
     exit_world = 'maps/world/aurora_a.txt,26,27'
-    # no open world in the run edition: arenas have no portal back to Aurora
-    arena_exit = [] if run_edition() else [(ARENA // 2 + 4, ARENA // 2 + 4, exit_world, 'Abandonar a run (voltar pra Aurora)')]
+    camp = 'maps/lobby.txt'
+    # leaving a horde early goes back to camp (in every edition)
+    arena_exit = [(ARENA // 2 + 4, ARENA // 2 + 4, camp, 'Abandonar a horda (voltar ao acampamento)')]
     for biome in RUN_BIOMES:
         open_map('maps/run/arena_%s.txt' % biome, biome, ARENA, BIOMES[biome]['density'] / 3,
-                 'Run Infinita', 'battle_theme', arena_exit, 'arena' + biome)
+                 'Horda Infinita', 'battle_theme', arena_exit, 'arena' + biome)
     # start.txt: several on_load teleports; the engine stops at the FIRST one
     # that passes its chance, so chances 1/n, 1/(n-1), ..., 1/1 give every
     # arena the same odds.
@@ -495,10 +498,21 @@ def gen_mode_maps():
     for i, biome in enumerate(RUN_BIOMES):
         ev.append('[event]\ntype=event\nlocation=0,0,1,1\nactivate=on_load\nchance_exec=%.2f\n'
                   'intermap=maps/run/arena_%s.txt\n' % (100.0 / (len(RUN_BIOMES) - i), biome))
-    write(rel('maps/run/start.txt'), HEADER + '# Sorteia a arena da run (uma por bioma).\n[header]\nwidth=1\nheight=1\nhero_pos=0,0\n\n'
+    write(rel('maps/run/start.txt'), HEADER + '# Sorteia a arena da horda (uma por bioma).\n[header]\nwidth=1\nheight=1\nhero_pos=0,0\n\n'
           + '\n'.join(ev))
-    open_map('maps/dev_room.txt', 'meadow', DEV, 0, 'Sala de Teste', 'safe_room_theme',
-             [(DEV - 6, 6, exit_world, 'Mundo Aberto: Aurora'), (6, DEV - 6, 'maps/run/start.txt', 'Run Infinita')], 'dev',
+    # Acampamento (lobby): todo mundo começa aqui, solo ou em grupo, e volta
+    # aqui quando a horda acaba. Monta a build (ferreiro, alquimista,
+    # arcanista, Santuário) e entra na horda pelo portal. Fica FORA de
+    # maps/run/ -- o HordeManager liga em qualquer mapa daquela pasta.
+    # Em grupo, só o anfitrião leva todos pelo portal (GameStatePlay::checkTeleport).
+    c = DEV // 2
+    camp_events = [(6, DEV - 6, 'maps/run/start.txt', 'Iniciar Horda'),
+                   (c, c + 5, 'book:rd:sanctuary', 'Santuário (bênçãos permanentes)')]
+    # (no world/training portals: the commercial build ships this same map)
+    open_map(camp, 'meadow', DEV, 0, 'Acampamento', 'safe_room_theme', camp_events, 'lobby',
+             npcs=[(c - 4, c - 4, 'aurora_ferreiro'), (c + 4, c - 4, 'aurora_alquimista'), (c - 5, c + 2, 'torre_arcanista')])
+    open_map('maps/dev_room.txt', 'meadow', DEV, 0, 'Treinamento', 'safe_room_theme',
+             [(DEV - 6, 6, exit_world, 'Mundo Aberto: Aurora'), (6, DEV - 6, camp, 'Acampamento')], 'dev',
              npcs=[(DEV // 2 - 4, DEV // 2 - 4, 'aurora_ferreiro'), (DEV // 2 + 4, DEV // 2 - 4, 'aurora_alquimista'),
                    (DEV // 2 - 4, DEV // 2 + 4, 'torre_arcanista')])
 

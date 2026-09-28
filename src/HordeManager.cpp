@@ -568,9 +568,9 @@ void HordeManager::endRun() {
 	pc->logMsg(msg->get("Run over") + ": " + summary.str(), Avatar::MSG_NORMAL);
 	Utils::logInfo("HordeManager: run over -- wave %d, %d kills, %ds, level %d%s", reached, kills, seconds, pc->stats.level, record ? " (record)" : "");
 
-	// run edition (see GameState::runEdition): there is no open world to go
-	// back to, "Continue" starts a fresh run
-	const std::string target = GameState::runEdition() ? std::string("maps/run/start.txt") : end_map;
+	// back to camp (engine/horde.txt end_map) to rework the build; the run
+	// edition used to restart the horde right away, with no camp to go to
+	const std::string target = end_map.empty() ? std::string("maps/lobby.txt") : end_map;
 	if (!target.empty()) {
 		mapr->respawn_map = target;
 		mapr->respawn_point.x = -1;

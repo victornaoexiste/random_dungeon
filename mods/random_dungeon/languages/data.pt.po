@@ -917,7 +917,7 @@ msgid "Restore 20% of maximum HP."
 msgstr "Restaura 20% do HP máximo."
 
 msgid "Dev Kit"
-msgstr "Kit Dev"
+msgstr "Ferramentas"
 
 msgid "Monsters"
 msgstr "Monstros"
@@ -1007,7 +1007,7 @@ msgid "Best"
 msgstr "Recorde"
 
 msgid "Run over"
-msgstr "Fim da run"
+msgstr "Fim da horda"
 
 msgid "Only the host can lead the party to another area."
 msgstr "Só o anfitrião pode levar o grupo para outra área."
@@ -1019,10 +1019,10 @@ msgid "Open World"
 msgstr "Mundo Aberto"
 
 msgid "Infinite Run"
-msgstr "Run Infinita"
+msgstr "Horda Infinita"
 
 msgid "Test Room"
-msgstr "Sala de Teste"
+msgstr "Treinamento"
 
 msgid "Skin"
 msgstr "Pele"
@@ -1109,7 +1109,7 @@ msgid "Second Chance"
 msgstr "Segunda Chance"
 
 msgid "Rise again once per run"
-msgstr "Levanta de novo 1x por Run"
+msgstr "Levanta de novo 1x por horda"
 
 msgid "Wave %d"
 msgstr "Onda %d"

@@ -33,8 +33,8 @@ tier=rd_boss,12,1
 
 # XP de cada abate na run (em cima do XP normal do inimigo)
 xp_multiplier=2.5
-# onde o heroi renasce quando morre (fim da run)
-end_map=maps/world/aurora_a.txt
+# onde o heroi renasce quando a horda acaba: o acampamento, pra ajustar a build
+end_map=maps/lobby.txt
 
 # Temas de onda (anunciados na tela): cada onda sorteia um.
 # theme=id,peso,onda_minima,mult_quantidade,mult_vida,mult_intervalo,mult_distancia,categoria,rotulo

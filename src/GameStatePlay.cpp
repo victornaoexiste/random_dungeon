@@ -210,7 +210,9 @@ void GameStatePlay::syncPartyMap() {
 }
 
 std::string GameStatePlay::modeStartMap() {
-	if (settings->game_mode == "run" || runEdition()) return "maps/run/start.txt";
+	// solo or in a group, everyone starts at camp (maps/lobby.txt) and enters
+	// the horde through its portal
+	if (settings->game_mode == "run" || runEdition()) return "maps/lobby.txt";
 	if (settings->game_mode == "test") return "maps/dev_room.txt";
 	return "";
 }
@@ -221,7 +223,7 @@ void GameStatePlay::applyModeToLoadedGame() {
 		// Open world: a character saved inside a run arena or the dev room
 		// goes back to the world's starting town instead.
 		const std::string& saved = mapr->teleport_mapname;
-		if (saved.compare(0, 9, "maps/run/") == 0 || saved == "maps/dev_room.txt")
+		if (saved.compare(0, 9, "maps/run/") == 0 || saved == "maps/dev_room.txt" || saved == "maps/lobby.txt")
 			target = "maps/world/aurora_a.txt";
 		else
 			return;
@@ -601,6 +603,11 @@ void GameStatePlay::checkLog() {
  */
 void GameStatePlay::checkBook() {
 	// Map events can open books
+	if (mapr->show_book == "rd:sanctuary") {
+		// camp shrine (maps/lobby.txt): the Sanctuary, not a book
+		sanctuary->open();
+		mapr->show_book = "";
+	}
 	if (!mapr->show_book.empty()) {
 		menu->book->setBookFilename(mapr->show_book);
 		mapr->show_book = "";
@@ -1010,6 +1017,19 @@ void GameStatePlay::logic() {
 			ss << getenv("RD_SHOWCASE_SHOT") << "/showcase_" << (frames - fps * 3) / (fps / 2) << ".png";
 			render_device->screenshot_request = ss.str();
 		}
+	}
+
+	// test hook: RD_CAMP_SHOT=<dir> -- screenshot the camp, then its Sanctuary shrine
+	if (getenv("RD_CAMP_SHOT") && mapr->getFilename() == "maps/lobby.txt") {
+		static int f = 0;
+		const int fps = settings->max_frames_per_sec;
+		++f;
+		if (f == fps * 3)
+			render_device->screenshot_request = std::string(getenv("RD_CAMP_SHOT")) + "/camp.png";
+		if (f == fps * 4)
+			mapr->show_book = "rd:sanctuary";
+		if (f == fps * 5)
+			render_device->screenshot_request = std::string(getenv("RD_CAMP_SHOT")) + "/camp_sanctuary.png";
 	}
 
 	// Infinite Run: level-up upgrade choice (pauses single-player while open)
