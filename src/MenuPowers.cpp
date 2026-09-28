@@ -40,6 +40,9 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MessageEngine.h"
 #include "PowerManager.h"
 #include "RenderDevice.h"
+
+#include <cstdio>
+#include <cstdlib>
 #include "Settings.h"
 #include "SharedGameResources.h"
 #include "SharedResources.h"
@@ -56,7 +59,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 
 MenuPowersCell::MenuPowersCell()
 	: id(0)
-	, requires_point(false)
+	, requires_point(0)
 	, requires_level(0)
 	, requires_primary(eset->primary_stats.list.size(), 0)
 	, requires_power()
@@ -127,6 +130,10 @@ MenuPowers::MenuPowers()
 	, upgrade_button_offset(eset->resolutions.icon_size, 0)
 	, tooltip_text_shield(msg->get("Magical Shield"))
 	, tooltip_text_heal(msg->get("Healing"))
+	, ek_mode(false)
+	, learn_button(NULL)
+	, selected_group(-1)
+	, label_detail_title(new WidgetLabel)
 	, newPowerNotification(false)
 {
 
@@ -168,15 +175,33 @@ MenuPowers::MenuPowers()
 			else if (infile.key == "tooltip_text_heal")
 				tooltip_text_heal = msg->get(infile.val);
 
+			// @ATTR detail_area|rectangle|EK-style skills sheet: area of the selected skill's detail panel. Enables rank pips and the Learn button.
+			else if (infile.key == "detail_area") {
+				detail_area = Parse::toRect(infile.val);
+				ek_mode = true;
+			}
+			// @ATTR learn_button|point|EK-style skills sheet: position of the Learn button.
+			else if (infile.key == "learn_button")
+				learn_pos = Parse::toPoint(infile.val);
+
 			else infile.error("MenuPowers: '%s' is not a valid key.", infile.key.c_str());
 		}
 		infile.close();
 	}
 
-	label_powers->setText(msg->get("Powers"));
+	label_powers->setText(ek_mode ? msg->get("Skills") : msg->get("Powers"));
 	label_powers->setColor(font->getColor(FontEngine::COLOR_MENU_NORMAL));
 
 	label_unspent->setColor(font->getColor(FontEngine::COLOR_MENU_BONUS));
+
+	if (ek_mode) {
+		learn_button = new WidgetButton(WidgetButton::DEFAULT_FILE);
+		learn_button->setLabel(msg->get("Learn"));
+		learn_button->setBasePos(learn_pos.x, learn_pos.y, Utils::ALIGN_TOPLEFT);
+		learn_button->refresh();
+		tablist.add(learn_button);
+		label_detail_title->setColor(font->getColor(FontEngine::COLOR_MENU_BONUS));
+	}
 
 	loadGraphics();
 
@@ -204,6 +229,10 @@ MenuPowers::~MenuPowers() {
 
 	delete label_powers;
 	delete label_unspent;
+	delete learn_button;
+	delete label_detail_title;
+	for (size_t i = 0; i < detail_lines.size(); ++i)
+		delete detail_lines[i];
 }
 
 void MenuPowers::align() {
@@ -214,6 +243,9 @@ void MenuPowers::align() {
 
 	closeButton->pos.x = window_area.x+close_pos.x;
 	closeButton->pos.y = window_area.y+close_pos.y;
+
+	if (learn_button)
+		learn_button->setPos(window_area.x, window_area.y);
 
 	if (tab_control) {
 		tab_control->setMainArea(window_area.x + tab_area.x, window_area.y + tab_area.y, tab_area.w);
@@ -434,8 +466,8 @@ void MenuPowers::loadPower(FileParser &infile) {
 	}
 
 	else if (infile.key == "requires_point") {
-		// @ATTR power.requires_point|bool|Power requires a power point to unlock.
-		cell_group.cells[0].requires_point = Parse::toBool(infile.val);
+		// @ATTR power.requires_point|bool, int|Power requires a power point to unlock; a number is how many points it costs.
+		cell_group.cells[0].requires_point = parsePointCost(infile.val);
 	}
 	else if (infile.key == "requires_primary") {
 		// @ATTR power.requires_primary|predefined_string, int : Primary stat name, Required value|Power requires this primary stat to be at least the specificed value.
@@ -558,8 +590,8 @@ void MenuPowers::loadUpgrade(FileParser &infile, std::vector<MenuPowersCell>& po
 		}
 	}
 	else if (infile.key == "requires_point") {
-		// @ATTR upgrade.requires_point|bool|Upgrade requires a power point to unlock.
-		cell.requires_point = Parse::toBool(infile.val);
+		// @ATTR upgrade.requires_point|bool, int|Upgrade requires a power point to unlock; a number is how many points it costs.
+		cell.requires_point = parsePointCost(infile.val);
 	}
 	else if (infile.key == "requires_level") {
 		// @ATTR upgrade.requires_level|int|Upgrade requires at least this level for the hero.
@@ -608,6 +640,15 @@ void MenuPowers::loadUpgrade(FileParser &infile, std::vector<MenuPowersCell>& po
 	}
 }
 
+/**
+ * requires_point value: true/false (1/0 point) or the number of points
+ */
+int MenuPowers::parsePointCost(const std::string& val) {
+	if (val == "true") return 1;
+	if (val == "false") return 0;
+	return std::max(0, Parse::toInt(val));
+}
+
 bool MenuPowers::checkRequirements(MenuPowersCell* pcell) {
 	if (!pcell)
 		return false;
@@ -635,7 +676,9 @@ bool MenuPowers::checkRequirements(MenuPowersCell* pcell) {
 
 	// NOTE if the player is dies, canUsePower() fails and causes passive powers to be locked
 	// so we can guard against this be checking player HP > 0
-	if (powers->isValid(pcell->id) && powers->powers[pcell->id]->passive && pc->stats.hp > 0) {
+	// (EK sheet: a learned passive stays learned; it just switches off while
+	// its equipment requirement isn't met, see setUnlockedPowers)
+	if (!ek_mode && powers->isValid(pcell->id) && powers->powers[pcell->id]->passive && pc->stats.hp > 0) {
 		if (!pc->stats.canUsePower(pcell->id, StatBlock::CAN_USE_PASSIVE))
 			return false;
 	}
@@ -701,7 +744,7 @@ bool MenuPowers::checkUpgrade(MenuPowersCell* pcell) {
 	if (!checkUnlocked(pcell))
 		return false;
 
-	if (!pcell->next || (pcell->next->requires_point && points_left < 1))
+	if (!pcell->next || (pcell->next->requires_point && points_left < pcell->next->requires_point))
 		return false;
 
 	if (!checkUnlock(pcell->next))
@@ -861,7 +904,8 @@ void MenuPowers::setUnlockedPowers() {
 			for (size_t j = 0; j < power_cell[i].cells.size(); ++j) {
 				MenuPowersCell* pcell = &power_cell[i].cells[j];
 
-				if (pcell != bonus_pcell || (pcell->passive_on && powers->powers[pcell->id]->passive && (!checkRequirements(current_pcell) || (!pcell->is_unlocked && !isBonusCell(pcell))))) {
+				const bool usable = !ek_mode || pc->stats.hp <= 0 || pc->stats.canUsePower(pcell->id, StatBlock::CAN_USE_PASSIVE);
+				if (pcell != bonus_pcell || (pcell->passive_on && powers->powers[pcell->id]->passive && (!usable || !checkRequirements(current_pcell) || (!pcell->is_unlocked && !isBonusCell(pcell))))) {
 					// passive power is activated, but does not meet requirements, so remove it
 					std::vector<PowerID>::iterator passive_it = std::find(pc->stats.powers_passive.begin(), pc->stats.powers_passive.end(), pcell->id);
 					if (passive_it != pc->stats.powers_passive.end()) {
@@ -877,7 +921,7 @@ void MenuPowers::setUnlockedPowers() {
 						menu->inv->applyEquipment();
 					}
 				}
-				else if (pcell == bonus_pcell && !pcell->passive_on && powers->powers[pcell->id]->passive && checkRequirements(current_pcell)) {
+				else if (pcell == bonus_pcell && !pcell->passive_on && powers->powers[pcell->id]->passive && usable && checkRequirements(current_pcell)) {
 					// passive power has not been activated, so activate it here
 					std::vector<PowerID>::iterator passive_it = std::find(pc->stats.powers_passive.begin(), pc->stats.powers_passive.end(), pcell->id);
 					if (passive_it == pc->stats.powers_passive.end()) {
@@ -920,8 +964,8 @@ int MenuPowers::getPointsUsed() {
 
 	for (size_t i = 0; i < pc->stats.powers_list.size(); ++i) {
 		MenuPowersCell* pcell = getCellByPowerIndex(pc->stats.powers_list[i]);
-		if (pcell && pcell->requires_point)
-			used++;
+		if (pcell)
+			used += pcell->requires_point;
 	}
 
 	return used;
@@ -1378,14 +1422,15 @@ void MenuPowers::createTooltip(TooltipData* tip_data, MenuPowersCell* pcell, Pow
 		// Draw unlock power Tooltip
 		if (pcell->requires_point && !(std::find(pc->stats.powers_list.begin(), pc->stats.powers_list.end(), pcell->id) != pc->stats.powers_list.end())) {
 			MenuPowersCell* unlock_cell = getCellByPowerIndex(pcell->id);
-			if (show_unlock_prompt && pcell->upgrade_level <= 1 && points_left > 0 && inpt->usingMouse() && checkUnlock(unlock_cell)) {
+			const std::string cost_text = pcell->requires_point == 1 ? msg->get("Requires 1 Skill Point") : msg->getv("Requires %d Skill Points", pcell->requires_point);
+			if (!ek_mode && show_unlock_prompt && pcell->upgrade_level <= 1 && points_left >= pcell->requires_point && inpt->usingMouse() && checkUnlock(unlock_cell)) {
 				tip_data->addColoredText(msg->get("Click to Unlock (uses 1 Skill Point)"), font->getColor(FontEngine::COLOR_MENU_BONUS));
 			}
 			else {
-				if (pcell->requires_point && points_left < 1)
-					tip_data->addColoredText(msg->get("Requires 1 Skill Point"), font->getColor(FontEngine::COLOR_MENU_PENALTY));
+				if (points_left < pcell->requires_point)
+					tip_data->addColoredText(cost_text, font->getColor(FontEngine::COLOR_MENU_PENALTY));
 				else
-					tip_data->addText(msg->get("Requires 1 Skill Point"));
+					tip_data->addText(cost_text);
 			}
 		}
 	}
@@ -1472,13 +1517,18 @@ void MenuPowers::renderPowers(int tab_num) {
 			slots[i]->render();
 		}
 
-		// upgrade buttons
-		if (power_cell[i].upgrade_button)
+		// upgrade buttons (EK sheet: rank pips + the Learn button instead)
+		if (ek_mode)
+			ekRenderPips(i);
+		else if (power_cell[i].upgrade_button)
 			power_cell[i].upgrade_button->render();
 	}
 }
 
 void MenuPowers::logic() {
+	if (ek_mode)
+		ekSelftest();
+
 	if (!visible && tab_control && default_power_tab > -1) {
 		tab_control->setActiveTab(static_cast<unsigned>(default_power_tab));
 		tablist.setNextTabList(&tablist_pow[default_power_tab]);
@@ -1522,7 +1572,7 @@ void MenuPowers::logic() {
 		}
 
 		// handle clicking of upgrade button
-		if (visible && pc->stats.hp > 0 && power_cell[i].upgrade_button != NULL) {
+		if (visible && !ek_mode && pc->stats.hp > 0 && power_cell[i].upgrade_button != NULL) {
 			if ((!tab_control || power_cell[i].tab == tab_control->getActiveTab()) && power_cell[i].upgrade_button->checkClick()) {
 				upgradePower(power_cell[i].getCurrent(), !UPGRADE_POWER_ALL_TABS);
 			}
@@ -1545,6 +1595,9 @@ void MenuPowers::logic() {
 		visible = false;
 		snd->play(sfx_close, snd->DEFAULT_CHANNEL, snd->NO_POS, !snd->LOOP);
 	}
+
+	if (ek_mode)
+		ekLogic();
 
 	if (tab_control) {
 		// make shure keyboard navigation leads us to correct tab
@@ -1623,6 +1676,9 @@ void MenuPowers::render() {
 
 	// close button
 	closeButton->render();
+
+	if (ek_mode)
+		ekRenderDetail();
 
 	// text overlay
 	label_powers->render();
@@ -1709,7 +1765,11 @@ MenuPowersClick MenuPowers::click(const Point& mouse) {
 			if (!pcell || !isCellVisible(pcell))
 				return result;
 
-			if (checkUnlock(pcell) && points_left > 0 && pcell->requires_point) {
+			if (ek_mode) {
+				// EK sheet: a click selects; learning is the Learn button's job
+				selected_group = static_cast<int>(i);
+			}
+			else if (checkUnlock(pcell) && pcell->requires_point && points_left >= pcell->requires_point) {
 				// unlock base power
 				result.unlock = pcell->id;
 			}
@@ -1904,3 +1964,281 @@ void MenuPowers::defocusTabLists() {
 	}
 }
 
+
+// ------------------------------------------------------------------ EK sheet
+
+/**
+ * Rank of a skill: 0 = not learned, else the level reached (1..cells)
+ */
+int MenuPowers::ekRank(size_t group) {
+	MenuPowersCell* pcell = power_cell[group].getCurrent();
+	if (!checkUnlocked(pcell))
+		return 0;
+	return static_cast<int>(power_cell[group].current_cell) + 1;
+}
+
+/**
+ * The cell the Learn button would unlock for this skill, or NULL
+ */
+MenuPowersCell* MenuPowers::ekLearnTarget(int group) {
+	if (group < 0 || static_cast<size_t>(group) >= power_cell.size() || pc->stats.hp <= 0)
+		return NULL;
+	MenuPowersCell* pcell = power_cell[group].getCurrent();
+	if (!isCellVisible(pcell))
+		return NULL;
+	if (!checkUnlocked(pcell))
+		return (checkUnlock(pcell) && points_left >= pcell->requires_point) ? pcell : NULL;
+	return checkUpgrade(pcell) ? pcell->next : NULL;
+}
+
+void MenuPowers::ekSelftest() {
+	// automated test hook: RD_SKILLS_CAST=1 casts every rank of every skill
+	// in this sheet (actives) once, a few frames apart, after ~9s in game;
+	// passives are switched on one by one. Logs each one (look for crashes
+	// and "SkillsCast").
+	if (getenv("RD_SKILLS_CAST") && pc && pc->stats.hp > 0) {
+		static int f = 0;
+		static size_t next = 0;
+		static std::vector<PowerID> all;
+		if (all.empty()) {
+			for (size_t i = 0; i < power_cell.size(); ++i)
+				for (size_t j = 0; j < power_cell[i].cells.size(); ++j)
+					all.push_back(power_cell[i].cells[j].id);
+		}
+		++f;
+		if (f > 540 && f % 6 == 0 && next < all.size()) {
+			PowerID id = all[next++];
+			const Power* p = powers->powers[id];
+			pc->stats.mp = pc->stats.get(Stats::MP_MAX);
+			FPoint target(pc->stats.pos.x + 2, pc->stats.pos.y + 1);
+			if (p->passive) {
+				pc->stats.powers_passive.push_back(id);
+				powers->activateSinglePassive(&pc->stats, id);
+				Utils::logInfo("SkillsCast: passive %d %s", id, p->name.c_str());
+			}
+			else {
+				bool ok = powers->activate(id, &pc->stats, pc->stats.pos, target);
+				Utils::logInfo("SkillsCast: %d %s -> %s", id, p->name.c_str(), ok ? "ok" : "not cast");
+			}
+			if (next == all.size())
+				Utils::logInfo("SkillsCast: done (%d)", static_cast<int>(all.size()));
+		}
+	}
+
+	// automated test hook: RD_SKILLS_SHOT=<dir> opens the sheet ~7s into the
+	// game, learns the first skill of each tab as far as the points go and
+	// saves one screenshot per tab
+	const char *shot_dir = getenv("RD_SKILLS_SHOT");
+	if (shot_dir && tab_control) {
+		static int f = 0;
+		++f;
+		const int tab = (f - 420) / 60;
+		if (f >= 420 && tab < static_cast<int>(tabs.size())) {
+			visible = true;
+			if ((f - 420) % 60 == 0) {
+				tab_control->setActiveTab(static_cast<unsigned>(tab));
+				selected_group = -1;
+			}
+			if ((f - 420) % 60 == 20 || (f - 420) % 60 == 25 || (f - 420) % 60 == 30) {
+				MenuPowersCell* target = ekLearnTarget(selected_group);
+				if (target) {
+					MenuPowersCell* pcell = power_cell[selected_group].getCurrent();
+					if (!checkUnlocked(pcell)) clickUnlock(pcell->id);
+					else upgradePower(pcell, UPGRADE_POWER_ALL_TABS);
+					Utils::logInfo("SkillsTest: learned %s", powers->powers[target->id]->name.c_str());
+				}
+			}
+			if ((f - 420) % 60 == 50)
+			{
+				char name[32];
+				snprintf(name, sizeof(name), "/skills_tab%d.png", tab);
+				render_device->screenshot_request = std::string(shot_dir) + name;
+			}
+		}
+	}
+
+}
+
+void MenuPowers::ekLogic() {
+	// keyboard / gamepad focus also selects
+	if (isTabListSelected()) {
+		int idx = getSelectedCellIndex();
+		if (idx >= 0 && static_cast<size_t>(idx) < power_cell.size())
+			selected_group = idx;
+	}
+
+	// keep the selection on the visible tab
+	int active_tab = tab_control ? tab_control->getActiveTab() : 0;
+	if (selected_group < 0 || static_cast<size_t>(selected_group) >= power_cell.size() || power_cell[selected_group].tab != active_tab) {
+		selected_group = -1;
+		for (size_t i = 0; i < power_cell.size(); ++i) {
+			if (power_cell[i].tab == active_tab && slots[i] && isCellVisible(power_cell[i].getCurrent())) {
+				selected_group = static_cast<int>(i);
+				break;
+			}
+		}
+	}
+
+	MenuPowersCell* target = ekLearnTarget(selected_group);
+	learn_button->enabled = (target != NULL);
+	if (learn_button->checkClick() && target) {
+		MenuPowersCell* pcell = power_cell[selected_group].getCurrent();
+		if (!checkUnlocked(pcell))
+			clickUnlock(pcell->id);
+		else
+			upgradePower(pcell, UPGRADE_POWER_ALL_TABS);
+		points_left = (pc->stats.level * pc->stats.power_points_per_level) - getPointsUsed();
+		if (menu->devkit && menu->devkit->infinite_points)
+			points_left += 999;
+	}
+}
+
+void MenuPowers::ekRenderPips(size_t group) {
+	if (!slots[group])
+		return;
+	const Rect& p = slots[group]->pos;
+	const int n = static_cast<int>(power_cell[group].cells.size());
+	const int rank = ekRank(group);
+	const bool learnable = ekLearnTarget(static_cast<int>(group)) != NULL;
+	const int PIP = 8, GAP = 4;
+	const int total = n * PIP + (n - 1) * GAP;
+	int x = p.x + (p.w - total) / 2;
+	const int y = p.y + p.h + 5;
+
+	const Color gold(232, 184, 72), dark(70, 44, 32), ready(120, 220, 110);
+	for (int k = 0; k < n; ++k, x += PIP + GAP) {
+		Color c = k < rank ? gold : (k == rank && learnable ? ready : dark);
+		render_device->drawRectangle(Point(x, y), Point(x + PIP - 1, y + PIP - 1), c);
+		if (k < rank) {
+			for (int yy = y + 1; yy < y + PIP - 1; ++yy)
+				render_device->drawLine(x + 1, yy, x + PIP - 2, yy, gold);
+		}
+	}
+
+	// selection frame
+	if (static_cast<int>(group) == selected_group) {
+		render_device->drawRectangle(Point(p.x - 3, p.y - 3), Point(p.x + p.w + 2, p.y + p.h + 2), gold);
+		render_device->drawRectangle(Point(p.x - 4, p.y - 4), Point(p.x + p.w + 3, p.y + p.h + 3), dark);
+	}
+}
+
+void MenuPowers::ekRenderDetail() {
+	if (learn_button)
+		learn_button->render();
+	if (selected_group < 0 || static_cast<size_t>(selected_group) >= power_cell.size())
+		return;
+
+	MenuPowersCellGroup& grp = power_cell[selected_group];
+	MenuPowersCell* cur = grp.getCurrent();
+	const int rank = ekRank(selected_group);
+	const int ranks = static_cast<int>(grp.cells.size());
+	MenuPowersCell* next = rank == 0 ? cur : cur->next;
+
+	std::vector<std::string> text;
+	std::vector<Color> color;
+	const Color normal = font->getColor(FontEngine::COLOR_MENU_NORMAL);
+	const Color flavor = font->getColor(FontEngine::COLOR_ITEM_FLAVOR);
+	const Color bonus = font->getColor(FontEngine::COLOR_MENU_BONUS);
+	const Color penalty = font->getColor(FontEngine::COLOR_MENU_PENALTY);
+
+	const Power* base = powers->powers[grp.cells[0].id];
+	text.push_back(msg->getv("Rank %d / %d", rank, ranks) + (base->passive ? "  -  " + msg->get("Passive") : ""));
+	color.push_back(bonus);
+
+	if (rank > 0) {
+		text.push_back(Utils::substituteVarsInString(powers->powers[cur->id]->description, pc));
+		color.push_back(flavor);
+	}
+	if (next) {
+		text.push_back(rank == 0 ? msg->get("First level:") : msg->get("Next Level:"));
+		color.push_back(normal);
+		text.push_back(Utils::substituteVarsInString(powers->powers[next->id]->description, pc));
+		color.push_back(flavor);
+
+		// cost and requirements of the next level
+		if (next->requires_point > 0) {
+			text.push_back(next->requires_point == 1 ? msg->get("Requires 1 Skill Point") : msg->getv("Requires %d Skill Points", next->requires_point));
+			color.push_back(points_left >= next->requires_point ? normal : penalty);
+		}
+		for (size_t i = 0; i < eset->primary_stats.list.size(); ++i) {
+			if (next->requires_primary[i] > 0) {
+				text.push_back(msg->getv("Requires %s %d", eset->primary_stats.list[i].name.c_str(), next->requires_primary[i]));
+				color.push_back(pc->stats.get_primary(i) >= next->requires_primary[i] ? normal : penalty);
+			}
+		}
+		if (next->requires_level > 0) {
+			text.push_back(msg->getv("Requires Level %d", next->requires_level));
+			color.push_back(pc->stats.level >= next->requires_level ? normal : penalty);
+		}
+		for (size_t j = 0; j < next->requires_power.size(); ++j) {
+			MenuPowersCell* req = getCellByPowerIndex(next->requires_power[j]);
+			if (!req)
+				continue;
+			std::string req_name = powers->powers[power_cell[req->group].cells[0].id]->name;
+			if (req->upgrade_level > 0)
+				req_name += " " + msg->getv("Rank %d / %d", req->upgrade_level, static_cast<int>(power_cell[req->group].cells.size()));
+			text.push_back(msg->getv("Requires Power: %s", req_name.c_str()));
+			color.push_back(checkUnlocked(req) ? normal : penalty);
+		}
+
+		const Power* np = powers->powers[next->id];
+		std::string use;
+		if (np->requires_mp > 0)
+			use += msg->getv("Costs %s MP", Utils::floatToString(np->requires_mp, 0).c_str());
+		if (np->cooldown > 0)
+			use += (use.empty() ? "" : "   ") + msg->get("Cooldown:") + " " + Utils::getDurationString(np->cooldown, 0);
+		if (!use.empty()) {
+			text.push_back(use);
+			color.push_back(normal);
+		}
+	}
+	else {
+		text.push_back(msg->get("Maximum rank"));
+		color.push_back(bonus);
+	}
+
+	// title
+	const int x = window_area.x + detail_area.x;
+	int y = window_area.y + detail_area.y;
+	label_detail_title->setText(base->name);
+	label_detail_title->setPos(x, y);
+	label_detail_title->render();
+	font->setFont("font_regular");
+	y += font->getLineHeight() + 6;
+
+	// body, wrapped to the panel width
+	font->setFont("font_small");
+	const int line_h = font->getLineHeight();
+	size_t used = 0;
+	for (size_t i = 0; i < text.size(); ++i) {
+		std::string rest = text[i];
+		while (!rest.empty() && y + line_h <= window_area.y + detail_area.y + detail_area.h) {
+			// take words while they fit
+			std::string line;
+			size_t pos = 0;
+			while (pos < rest.size()) {
+				size_t sp = rest.find(' ', pos);
+				if (sp == std::string::npos) sp = rest.size();
+				std::string cand = rest.substr(0, sp);
+				if (!line.empty() && font->calcSizeWrapped(cand, 100000).x > detail_area.w)
+					break;
+				line = cand;
+				pos = sp + 1;
+			}
+			rest = pos < rest.size() ? rest.substr(pos) : "";
+			if (line.empty())
+				break;
+			if (used == detail_lines.size()) {
+				detail_lines.push_back(new WidgetLabel);
+				detail_lines.back()->setFont("font_small");
+			}
+			WidgetLabel* l = detail_lines[used++];
+			l->setText(line);
+			l->setColor(color[i]);
+			l->setPos(x, y);
+			l->render();
+			y += line_h;
+		}
+		y += 3;
+	}
+}

@@ -1,4 +1,5 @@
 # Hero classes
+# Skills sheets: powers/trees/rd_<class>.txt (tools/gen_skills.py)
 # Starting clothes are Random Dungeon items (leather; apprentice robes for
 # the mage) so the whole kit matches the rest of the game.
 #
@@ -20,6 +21,7 @@
 
 [class]
 name=Warrior
+power_tree=powers/trees/rd_warrior.txt
 alias=Brute
 description=Warriors rely on physical strength, heavy armor and big weapons. Primary attribute: Physical
 equipment=5201,5203,5204,5202,5010,5400
@@ -33,6 +35,7 @@ default_power_tab=0
 
 [class]
 name=Rogue
+power_tree=powers/trees/rd_rogue.txt
 alias=Scout
 description=Rogues strike fast and silent with daggers, and shoot from afar with bows. Primary attribute: Offense
 equipment=5201,5203,5204,5202,5000
@@ -42,10 +45,11 @@ primary=offense,4
 primary=defense,1
 powers=5000
 actionbar=162,163,42,0,0,0,0,0,0,0,1,5000
-default_power_tab=1
+default_power_tab=0
 
 [class]
 name=Cleric
+power_tree=powers/trees/rd_cleric.txt
 description=Clerics fight with mace and shield and heal themselves with holy magic. Primary attributes: Mental and Physical
 equipment=5201,5203,5204,5202,5028,5400
 equipment_set=2,5201,5203,5204,5202
@@ -59,6 +63,7 @@ default_power_tab=0
 
 [class]
 name=Mage
+power_tree=powers/trees/rd_mage.txt
 alias=Adept
 description=Mages cast powerful spells from a distance. Primary attribute: Mental
 equipment=5206,5208,5209,5207,5138
@@ -68,4 +73,4 @@ primary=mental,4
 primary=defense,1
 powers=122
 actionbar=162,163,0,0,0,0,0,0,0,0,116,122
-default_power_tab=2
+default_power_tab=0

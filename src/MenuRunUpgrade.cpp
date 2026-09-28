@@ -3,6 +3,7 @@ Random Dungeon: run upgrades (see MenuRunUpgrade.h).
 */
 
 #include "MenuRunUpgrade.h"
+#include "MenuSanctuary.h"
 
 #include "EngineSettings.h"
 #include "FileParser.h"
@@ -28,6 +29,7 @@ namespace {
 
 MenuRunUpgrade::MenuRunUpgrade()
 	: Menu()
+	, sanctuary(NULL)
 	, pending(0)
 	, last_level(0)
 	, in_run(false)
@@ -186,6 +188,26 @@ void MenuRunUpgrade::applyTo(StatBlock *hero) {
 			else if (e.kind == "xp_gain") hero->run_bonus[Stats::XP_GAIN] += total;
 		}
 	}
+	// Sanctuary blessings (permanent, bought with souls): same kinds, plus
+	// gold / item find
+	if (sanctuary) {
+		const float dmg = 1.f + sanctuary->bonus("damage") / 100.f;
+		for (size_t t = 0; t < eset->damage_types.list.size(); ++t) {
+			hero->run_mult[Stats::COUNT + eset->damage_types.indexToMin(t)] *= dmg;
+			hero->run_mult[Stats::COUNT + eset->damage_types.indexToMax(t)] *= dmg;
+		}
+		hero->run_mult[Stats::HP_MAX] *= 1.f + sanctuary->bonus("hp") / 100.f;
+		hero->run_speed *= 1.f + sanctuary->bonus("speed") / 100.f;
+		hero->run_attack_speed *= 1.f + sanctuary->bonus("attack_speed") / 100.f;
+		hero->run_bonus[Stats::CRIT] += sanctuary->bonus("crit");
+		hero->run_bonus[Stats::ABS_MIN] += sanctuary->bonus("absorb");
+		hero->run_bonus[Stats::ABS_MAX] += sanctuary->bonus("absorb");
+		hero->run_bonus[Stats::HP_STEAL] += sanctuary->bonus("hp_steal");
+		hero->run_bonus[Stats::XP_GAIN] += sanctuary->bonus("xp_gain");
+		hero->run_bonus[Stats::CURRENCY_FIND] += sanctuary->bonus("gold");
+		hero->run_bonus[Stats::ITEM_FIND] += sanctuary->bonus("item_find");
+	}
+
 	// recompute current stats (keeps hp/mp, unlike recalc)
 	hero->applyEffects();
 	hero->refresh_stats = true;

@@ -163,6 +163,7 @@ public:
 		TRIGGER_JOINCOMBAT = 3,
 		TRIGGER_DEATH = 4,
 		TRIGGER_ACTIVE_POWER = 5,
+		TRIGGER_KILL = 6,
 	};
 
 	enum {
@@ -240,6 +241,7 @@ public:
 	bool remove_corpse;
 	bool post_hazards_skip_target;
 	bool can_trigger_passives;
+	float share_radius; // co-op: the hero's cast also reaches other players within this radius (NetManager::sendAllyPower)
 	bool passive_effects_persist;
 	bool spawn_requires_unlocked_power;
 
@@ -397,6 +399,8 @@ public:
 	std::vector<SoundID> sfx;
 
 	std::vector<ItemID> used_items;
+	// party skills the local hero cast this tick (id), for GameStatePlay to send
+	std::vector<PowerID> shared_casts;
 	std::vector<ItemID> used_equipped_items;
 };
 

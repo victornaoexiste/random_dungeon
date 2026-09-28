@@ -59,11 +59,13 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuHUDLog.h"
 #include "MenuInventory.h"
 #include "MenuLog.h"
+#include "MenuGameOver.h"
 #include "MenuManager.h"
 #include "NetManager.h"
 #include "FontEngine.h"
 #include "MenuMiniMap.h"
 #include "MenuRunUpgrade.h"
+#include "MenuSanctuary.h"
 #include "MenuPowers.h"
 #include "MenuRegionTitle.h"
 #include "MenuStash.h"
@@ -98,8 +100,19 @@ GameStatePlay::GameStatePlay()
 	, net_hit_src(NULL)
 	, horde(new HordeManager())
 	, run_upgrade(new MenuRunUpgrade())
+	, sanctuary(new MenuSanctuary())
+	, second_chance_used(false)
 	, net_follow_teleport(false)
 {
+	revive_timer = 0;
+	banner_ticks = 0;
+	hurt_last_hp = -1;
+	hurt_flash = 0;
+	hurt_overlay = NULL;
+	banner_label = new WidgetLabel();
+	banner_label->setFont("font_region_title");
+	banner_label->setJustify(FontEngine::JUSTIFY_CENTER);
+	banner_label->setColor(Color(232, 184, 72, 255));
 	net_send_frames = 0;
 	second_timer.setDuration(settings->max_frames_per_sec);
 
@@ -135,6 +148,7 @@ GameStatePlay::GameStatePlay()
 void GameStatePlay::refreshWidgets() {
 	menu->alignAll();
 	run_upgrade->align();
+	sanctuary->align();
 }
 
 /**
@@ -972,7 +986,23 @@ void GameStatePlay::logic() {
 	}
 
 	// Infinite Run: level-up upgrade choice (pauses single-player while open)
+	run_upgrade->sanctuary = sanctuary;
+	horde->sanctuary = sanctuary;
 	run_upgrade->update(horde->isRunMap(mapr->getFilename()), &pc->stats);
+	// test hook (see MenuSanctuary::logic): open the Sanctuary from Game Over
+	if (getenv("RD_SANCTUARY_SHOT") && menu->game_over->visible && menu->game_over->show_sanctuary && !sanctuary->visible) {
+		static int wait = 0;
+		if (++wait == 40)
+			render_device->screenshot_request = std::string(getenv("RD_SANCTUARY_SHOT")) + "/game_over.png";
+		if (wait == 60)
+			menu->game_over->sanctuary_clicked = true;
+	}
+	if (menu->game_over->sanctuary_clicked) {
+		menu->game_over->sanctuary_clicked = false;
+		sanctuary->open();
+	}
+	sanctuary->logic();
+	menu->game_over->blocked = sanctuary->visible;
 
 	if (!isPaused()) {
 		if (!second_timer.isEnd())
@@ -1003,7 +1033,7 @@ void GameStatePlay::logic() {
 			// interpolate between samples (NetManager.h Step 7)
 			if (++net_send_frames >= std::max(1, settings->max_frames_per_sec / NetManager::NET_SEND_HZ)) {
 				net_send_frames = 0;
-				netmgr->sendPosition(pc->stats.pos.x, pc->stats.pos.y, pc->stats.hp, static_cast<float>(pc->stats.get(Stats::HP_MAX)), pc->stats.alive);
+				netmgr->sendPosition(pc->stats.pos.x, pc->stats.pos.y, pc->stats.hp, static_cast<float>(pc->stats.get(Stats::HP_MAX)), pc->stats.alive, netmgr->isServer() && horde->isActive() ? horde->getWave() + 1 : 0, horde->getThemeIndex(), horde->getFamilyIndex());
 			}
 			if (netmgr->isServer())
 				netmgr->setLocalInfo(pc->stats.name, mapr->title);
@@ -1015,12 +1045,14 @@ void GameStatePlay::logic() {
 			syncOwnAction();
 			syncRemoteEntities();
 			syncRemotePowerVisuals();
+			applyAllyPowers();
 			syncRemoteEnemies();
 			applyEnemyHitReports();
 			applyPlayerHits();
 			snapshotEnemyHpBeforeCombat();
 		}
 		updateNetTargets();
+		coopLogic();
 
 		// Horde mode is host/single-player only; a net client mirrors the host's enemies.
 		if (!netmgr || !netmgr->isClient()) {
@@ -1562,6 +1594,9 @@ void GameStatePlay::syncRemoteEnemies() {
 		}
 
 		if (!alive) {
+			// the party's kills, for the run summary (see HordeManager::clientLogic)
+			if (counted_dead.insert(net_id).second)
+				horde->noteKill();
 			if (e->stats.cur_state != StatBlock::ENTITY_DEAD && e->stats.cur_state != StatBlock::ENTITY_CRITDEAD) {
 				e->stats.cur_state = StatBlock::ENTITY_DEAD;
 				e->setAnimation("die");
@@ -1945,6 +1980,9 @@ void GameStatePlay::render() {
 	render_device->endWorldFilter();
 
 	renderRemotePlayerBars();
+	renderCoop();
+	renderWaveBanner();
+	renderHurtFlash();
 
 	// mouseover tooltips
 	loot->renderTooltips(mapr->cam.pos);
@@ -1961,6 +1999,7 @@ void GameStatePlay::render() {
 	menu->region_title->setTitle(mapr->title);
 	menu->render();
 	run_upgrade->render();
+	sanctuary->render();
 
 	// render combat text last - this should make it obvious you're being
 	// attacked, even if you have menus open
@@ -1973,6 +2012,8 @@ void GameStatePlay::render() {
 
 bool GameStatePlay::isPaused() {
 	if (run_upgrade && run_upgrade->visible && !(netmgr && netmgr->isActive()))
+		return true;
+	if (sanctuary && sanctuary->visible && !(netmgr && netmgr->isActive()))
 		return true;
 	// the world keeps running in multiplayer: pausing the host would freeze
 	// everyone (and time them out)
@@ -2034,7 +2075,10 @@ bool GameStatePlay::checkPrimaryStat(const std::string& first, const std::string
 GameStatePlay::~GameStatePlay() {
 	delete net_hit_src;
 	delete horde;
+	delete banner_label;
+	delete hurt_overlay;
 	delete run_upgrade;
+	delete sanctuary;
 	curs->setLowHP(false);
 
 	// Leaving gameplay (Save & Exit, death, starting a different character...)
@@ -2093,3 +2137,256 @@ GameStatePlay::~GameStatePlay() {
 	xp_scaling = NULL;
 }
 
+
+namespace {
+	const float REVIVE_RANGE = 1.75f;   // tiles
+	const float REVIVE_SECONDS = 3.0f;
+	const float REVIVE_HP = 0.4f;       // fraction of max hp
+}
+
+/**
+ * Co-op Infinite Run (see HordeManager::coop_hold): a hero who falls while
+ * an ally is still standing lies there waiting instead of getting the Game
+ * Over screen; an ally who stays next to them for REVIVE_SECONDS brings
+ * them back. Every machine decides for its own hero from the positions it
+ * already receives, so this needs no messages of its own. The run ends
+ * when the whole party is down.
+ */
+void GameStatePlay::coopLogic() {
+	if (!netmgr || !netmgr->isActive())
+		powers->shared_casts.clear();
+
+	bool coop = netmgr && netmgr->isActive() && horde->isRunMap(mapr->getFilename()) &&
+		(netmgr->isServer() || netmgr->getHostMap() == mapr->getFilename());
+
+	int players = 1, allies_alive = 0;
+	if (coop) {
+		for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it) {
+			players++;
+			if (it->second.stats->alive)
+				allies_alive++;
+		}
+	}
+	// test hooks: RD_COOP_GOD keeps this hero alive; RD_COOP_DIE=<s> drops it
+	// <s> seconds into the run; RD_COOP_SHOT=<dir> screenshots the downed /
+	// reviving moments
+	if (getenv("RD_COOP_GOD"))
+		pc->stats.hp = pc->stats.get(Stats::HP_MAX);
+	if (getenv("RD_COOP_DIE") && horde->isRunMap(mapr->getFilename())) {
+		static int frames = 0;
+		if (++frames == atoi(getenv("RD_COOP_DIE")) * static_cast<int>(settings->max_frames_per_sec)) {
+			Utils::logInfo("Coop test: dropping the hero at %.1f,%.1f", static_cast<double>(pc->stats.pos.x), static_cast<double>(pc->stats.pos.y));
+			for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it)
+				Utils::logInfo("Coop test: ally %u at %.1f,%.1f alive=%d", it->first, static_cast<double>(it->second.stats->pos.x), static_cast<double>(it->second.stats->pos.y), it->second.stats->alive ? 1 : 0);
+			pc->stats.takeDamage(pc->stats.hp + 1, false, Power::SOURCE_TYPE_ENEMY);
+		}
+	}
+	if (coop && getenv("RD_COOP_CAST")) {
+		static int frames = 0;
+		if (++frames == 25 * static_cast<int>(settings->max_frames_per_sec)) {
+			PowerID id = static_cast<PowerID>(atoi(getenv("RD_COOP_CAST")));
+			pc->stats.mp = pc->stats.get(Stats::MP_MAX);
+			Utils::logInfo("Coop test: casting %d -> %d", static_cast<int>(id), powers->activate(id, &pc->stats, pc->stats.pos, pc->stats.pos) ? 1 : 0);
+		}
+	}
+	if (getenv("RD_COOP_SHOT")) {
+		static int shot = 0;
+		const bool reviving_other = !revive_help.empty() && revive_help.begin()->second > 1.5f;
+		if ((shot == 0 && revive_timer > 1.5f) || (shot <= 1 && reviving_other)) {
+			render_device->screenshot_request = std::string(getenv("RD_COOP_SHOT")) + (reviving_other ? "/coop_reviving.png" : "/coop_downed.png");
+			shot = reviving_other ? 2 : 1;
+		}
+	}
+
+	// Sanctuary blessing "second chance": once per run, get back up alone
+	if (second_chance_map != mapr->getFilename()) {
+		second_chance_map = mapr->getFilename();
+		second_chance_used = false;
+	}
+	const bool chance_ready = !second_chance_used && horde->isRunMap(mapr->getFilename()) && sanctuary->bonus("second_chance") > 0;
+	if (chance_ready && pc->stats.corpse &&
+		(pc->stats.cur_state == StatBlock::ENTITY_DEAD || pc->stats.cur_state == StatBlock::ENTITY_CRITDEAD))
+	{
+		second_chance_used = true;
+		reviveHero(false);
+		pc->stats.hp = pc->stats.get(Stats::HP_MAX) * 0.5f;
+		Utils::logInfo("Sanctuary: second chance used");
+		pc->logMsg(msg->get("Second chance! You rise again."), Avatar::MSG_UNIQUE);
+	}
+
+	pc->hold_game_over = (coop && allies_alive > 0) || chance_ready;
+	pc->no_death_penalty = horde->isRunMap(mapr->getFilename());
+	horde->coop_hold = pc->hold_game_over;
+	horde->setPlayers(players);
+	if (netmgr && netmgr->isClient())
+		horde->clientLogic(netmgr->getHostWave() > 0 ? netmgr->getHostWave() - 1 : 0, netmgr->getHostTheme(), netmgr->getHostFamily());
+
+	const float dt = 1.0f / static_cast<float>(std::max(1, static_cast<int>(settings->max_frames_per_sec)));
+	const bool downed = coop && pc->stats.corpse &&
+		(pc->stats.cur_state == StatBlock::ENTITY_DEAD || pc->stats.cur_state == StatBlock::ENTITY_CRITDEAD);
+
+	// being revived
+	if (!downed) {
+		revive_timer = 0;
+	}
+	else {
+		bool helped = false;
+		for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it) {
+			if (it->second.stats->alive && Utils::calcDist(it->second.stats->pos, pc->stats.pos) <= REVIVE_RANGE)
+				helped = true;
+		}
+		revive_timer = helped ? revive_timer + dt : std::max(0.0f, revive_timer - dt * 0.5f);
+		if (revive_timer >= REVIVE_SECONDS)
+			reviveHero();
+	}
+
+	// reviving others (only drawn here; each hero revives itself)
+	for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it) {
+		float& t = revive_help[it->first];
+		if (coop && !it->second.stats->alive && pc->stats.alive && Utils::calcDist(it->second.stats->pos, pc->stats.pos) <= REVIVE_RANGE)
+			t = std::min(REVIVE_SECONDS, t + dt);
+		else
+			t = 0;
+	}
+}
+
+void GameStatePlay::reviveHero(bool by_ally) {
+	revive_timer = 0;
+	pc->stats.hp = std::max(1.0f, pc->stats.get(Stats::HP_MAX) * REVIVE_HP);
+	pc->stats.alive = true;
+	pc->stats.corpse = false;
+	pc->stats.cur_state = StatBlock::ENTITY_STANCE;
+	pc->stats.death_penalty = false;
+	menu->game_over->visible = false;
+	menu->pow->resetToBasePowers();
+	menu->pow->setUnlockedPowers();
+	powers->activatePassives(&pc->stats);
+	pc->stats.refresh_stats = true;
+	if (by_ally) {
+		pc->logMsg(msg->get("An ally brought you back!"), Avatar::MSG_UNIQUE);
+		Utils::logInfo("Coop: revived by an ally");
+	}
+}
+
+/**
+ * Co-op overlays: "you fell" with the revive progress, and a progress bar
+ * over a fallen ally we're standing next to.
+ */
+void GameStatePlay::renderCoop() {
+	const Color gold(232, 184, 72, 255), dark(40, 16, 16, 255), fillc(120, 220, 110, 255);
+	const int BAR_W = 120, BAR_H = 8;
+
+	if (pc->hold_game_over && pc->stats.corpse) {
+		font->setFont("font_regular");
+		int cx = settings->view_w / 2, cy = settings->view_h - 190;
+		font->renderShadowed(msg->get("You fell! Stay close to an ally to be revived."), cx, cy, FontEngine::JUSTIFY_CENTER, NULL, 0, gold);
+		int x = cx - BAR_W / 2, y = cy + font->getLineHeight() + 6;
+		int fill = static_cast<int>(static_cast<float>(BAR_W - 2) * std::min(1.0f, revive_timer / REVIVE_SECONDS));
+		render_device->drawRectangle(Point(x, y), Point(x + BAR_W - 1, y + BAR_H - 1), dark);
+		for (int row = 1; row < BAR_H - 1; ++row)
+			if (fill > 0) render_device->drawLine(x + 1, y + row, x + fill, y + row, fillc);
+	}
+
+	for (std::map<uint32_t, RemotePlayerVisual>::iterator it = remote_players.begin(); it != remote_players.end(); ++it) {
+		float t = revive_help[it->first];
+		if (t <= 0)
+			continue;
+		Point p = Utils::mapToScreen(it->second.stats->pos.x, it->second.stats->pos.y, mapr->cam.pos.x, mapr->cam.pos.y);
+		int x = p.x - BAR_W / 4, y = p.y - 70;
+		int w = BAR_W / 2;
+		int fill = static_cast<int>(static_cast<float>(w - 2) * std::min(1.0f, t / REVIVE_SECONDS));
+		font->setFont("font_small");
+		font->renderShadowed(msg->get("Reviving..."), p.x, y - font->getLineHeight() - 2, FontEngine::JUSTIFY_CENTER, NULL, 0, gold);
+		render_device->drawRectangle(Point(x, y), Point(x + w - 1, y + BAR_H - 1), dark);
+		for (int row = 1; row < BAR_H - 1; ++row)
+			if (fill > 0) render_device->drawLine(x + 1, y + row, x + fill, y + row, fillc);
+	}
+}
+
+/**
+ * Co-op party skills (Power::share_radius): send the ones our hero cast,
+ * and take the effects of allies' casts when our hero is within reach.
+ */
+void GameStatePlay::applyAllyPowers() {
+	std::vector<PowerID> mine;
+	mine.swap(powers->shared_casts);
+	for (size_t i = 0; i < mine.size(); ++i)
+		netmgr->sendAllyPower(static_cast<uint32_t>(mine[i]), pc->stats.pos.x, pc->stats.pos.y, powers->powers[mine[i]]->share_radius);
+
+	std::vector<PowerVisualPacket> theirs = netmgr->drainAllyPowers();
+	for (size_t i = 0; i < theirs.size(); ++i) {
+		PowerID id = static_cast<PowerID>(theirs[i].power_id);
+		if (!powers->isValid(id) || !pc->stats.alive)
+			continue;
+		if (Utils::calcDist(pc->stats.pos, FPoint(theirs[i].origin_x, theirs[i].origin_y)) > theirs[i].target_x)
+			continue;
+		powers->effect(&pc->stats, &pc->stats, id, Power::SOURCE_TYPE_HERO);
+		pc->stats.refresh_stats = true;
+		std::map<uint32_t, RemotePlayerVisual>::iterator who = remote_players.find(theirs[i].player_id);
+		std::string name = (who != remote_players.end() && !who->second.appearance.name.empty()) ? who->second.appearance.name : msg->get("An ally");
+		pc->logMsg(msg->getv("%s: %s on you", name.c_str(), powers->powers[id]->name.c_str()), Avatar::MSG_NORMAL);
+		Utils::logInfo("Coop: got %s from player %u", powers->powers[id]->name.c_str(), static_cast<unsigned>(theirs[i].player_id));
+	}
+}
+
+void GameStatePlay::renderWaveBanner() {
+	if (!horde->isActive()) {
+		banner_text.clear();
+		return;
+	}
+	// clients learn the wave a moment after arriving: skip "Wave 1" until then
+	if (netmgr && netmgr->isClient() && netmgr->getHostWave() == 0)
+		return;
+	std::string text = horde->bannerText();
+	if (text != banner_text) {
+		banner_text = text;
+		banner_ticks = 3 * settings->max_frames_per_sec;
+		banner_label->setText(text);
+		// test hook: RD_BANNER_SHOT=<dir> screenshots every banner
+		if (getenv("RD_BANNER_SHOT")) {
+			static int n = 0;
+			char name[48];
+			snprintf(name, sizeof(name), "/banner_%02d.png", ++n);
+			render_device->screenshot_request = std::string(getenv("RD_BANNER_SHOT")) + name;
+		}
+	}
+	if (banner_ticks <= 0)
+		return;
+	banner_ticks--;
+	const int fade = settings->max_frames_per_sec / 2;
+	int alpha = banner_ticks < fade ? 255 * banner_ticks / std::max(1, fade) : 255;
+	banner_label->setAlpha(static_cast<uint8_t>(alpha));
+	banner_label->setPos(settings->view_w / 2, settings->view_h / 4);
+	banner_label->render();
+}
+
+/**
+ * A red flash over the screen when the hero loses more than 12% of their
+ * health in one frame -- heavy hits should feel heavy.
+ */
+void GameStatePlay::renderHurtFlash() {
+	const float hp = pc->stats.hp;
+	const float hp_max = pc->stats.get(Stats::HP_MAX);
+	if (hurt_last_hp >= 0 && hp_max > 0 && hurt_last_hp - hp > hp_max * 0.12f && pc->stats.alive)
+		hurt_flash = settings->max_frames_per_sec / 3;
+	hurt_last_hp = hp;
+	if (hurt_flash <= 0)
+		return;
+
+	if (!hurt_overlay || hurt_overlay_size.x != settings->view_w || hurt_overlay_size.y != settings->view_h) {
+		delete hurt_overlay;
+		hurt_overlay = NULL;
+		Image *img = render_device->createImage(settings->view_w, settings->view_h);
+		if (!img)
+			return;
+		img->fillWithColor(Color(150, 10, 8, 255));
+		hurt_overlay = img->createSprite();
+		img->unref();
+		hurt_overlay_size = Point(settings->view_w, settings->view_h);
+	}
+	const int full = std::max(1, static_cast<int>(settings->max_frames_per_sec) / 3);
+	hurt_overlay->alpha_mod = static_cast<uint8_t>(90 * hurt_flash / full);
+	hurt_overlay->setDest(0, 0);
+	render_device->render(hurt_overlay);
+	hurt_flash--;
+}

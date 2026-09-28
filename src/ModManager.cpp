@@ -176,39 +176,45 @@ void ModManager::loadModList() {
 		std::string place1 = Filesystem::convertSlashes(settings->path_conf + "mods.txt");
 		std::string place2 = Filesystem::convertSlashes(settings->path_data + "mods/mods.txt");
 
-		infile.open(place1.c_str(), std::ios::in);
+		// the user's list first; if it names no usable mod (e.g. it was saved
+		// by a run that couldn't find the game data), the game's own list
+		const std::string places[2] = { place1, place2 };
+		bool found_listed = false;
+		for (int p = 0; p < 2 && !found_listed; ++p) {
+			infile.open(places[p].c_str(), std::ios::in);
+			if (!infile.is_open()) {
+				infile.clear();
+				continue;
+			}
+			loaded_defaults = true;
 
-		if (!infile.is_open()) {
+			while (infile.good()) {
+				line = Parse::getLine(infile);
+
+				if (Parse::skipLine(line))
+					continue;
+
+				// add the mod if it exists in the mods folder
+				if (line != FALLBACK_MOD) {
+					if (find(mod_dirs.begin(), mod_dirs.end(), line) != mod_dirs.end()) {
+						mod_list.push_back(loadMod(line));
+						found_any_mod = true;
+						found_listed = true;
+					}
+					else {
+						Utils::logError("ModManager: Mod \"%s\" not found, skipping", line.c_str());
+					}
+				}
+			}
+			infile.close();
 			infile.clear();
-			infile.open(place2.c_str(), std::ios::in);
 		}
-		if (!infile.is_open()) {
+		if (!found_listed)
+			loaded_defaults = false; // don't save an empty list
+		if (!loaded_defaults) {
 			Utils::logError("ModManager: Error during loadModList() -- couldn't open mods.txt, to be located at:");
 			Utils::logError("%s\n%s\n", place1.c_str(), place2.c_str());
 		}
-		else {
-			loaded_defaults = true;
-		}
-
-		while (infile.good()) {
-			line = Parse::getLine(infile);
-
-			if (Parse::skipLine(line))
-				continue;
-
-			// add the mod if it exists in the mods folder
-			if (line != FALLBACK_MOD) {
-				if (find(mod_dirs.begin(), mod_dirs.end(), line) != mod_dirs.end()) {
-					mod_list.push_back(loadMod(line));
-					found_any_mod = true;
-				}
-				else {
-					Utils::logError("ModManager: Mod \"%s\" not found, skipping", line.c_str());
-				}
-			}
-		}
-		infile.close();
-		infile.clear();
 	}
 	else {
 		for (size_t i = 0; i < cmd_line_mods->size(); ++i) {
@@ -234,6 +240,7 @@ void ModManager::loadModList() {
 				  Try placing the mods folder in one of these locations.");
 	}
 
+	// (never save a list with no mods: it would stick and hide the game's)
 	if (loaded_defaults) {
 		saveMods();
 	}

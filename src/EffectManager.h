@@ -199,6 +199,7 @@ public:
 	bool triggered_joincombat;
 	bool triggered_death;
 	bool triggered_active_power;
+	bool triggered_kill; // the entity just killed an enemy (passive_trigger=on_kill)
 
 	bool refresh_stats;
 

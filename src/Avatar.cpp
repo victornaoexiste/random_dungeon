@@ -76,6 +76,8 @@ Avatar::Avatar()
 	, act_target()
 	, drag_walking(false)
 	, respawn(false)
+	, hold_game_over(false)
+	, no_death_penalty(false)
 	, close_menus(false)
 	, allow_movement(true)
 	, cursor_enemy(NULL)
@@ -885,7 +887,7 @@ void Avatar::logic() {
 					}
 					else {
 						// raise the death penalty flag.  This is handled in MenuInventory
-						stats.death_penalty = true;
+						stats.death_penalty = !no_death_penalty;
 					}
 
 					// if the player is attacking, we need to block further input
@@ -895,6 +897,11 @@ void Avatar::logic() {
 
 				if (!stats.corpse && (activeAnimation->getTimesPlayed() >= 1 || activeAnimation->getName() != "die")) {
 					stats.corpse = true;
+					if (!hold_game_over)
+						menu->game_over->visible = true;
+				}
+				// the last ally fell while we were waiting to be revived
+				else if (stats.corpse && !hold_game_over && !menu->game_over->visible && !mapr->teleportation) {
 					menu->game_over->visible = true;
 				}
 

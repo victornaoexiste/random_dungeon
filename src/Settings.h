@@ -182,6 +182,7 @@ public:
 
 	bool touchscreen;
 	bool world_filter; // see RenderDevice::beginWorldFilter
+	int world_pixel_scale; // world filter: screen pixels per world pixel (2-4)
 	bool mouse_scaled; // mouse position is automatically scaled to view_w * view_h resolution
 
 	bool show_hud;

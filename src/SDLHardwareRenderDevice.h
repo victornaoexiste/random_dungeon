@@ -117,6 +117,7 @@ private:
 	SDL_Texture *vignette_tex;
 	int world_w, world_h;
 	bool world_filter_on;
+	float world_inv; // 1 / world pixel scale (see beginWorldFilter)
 	SDL_Surface* titlebar_icon;
 	char* title;
 	Color background_color;

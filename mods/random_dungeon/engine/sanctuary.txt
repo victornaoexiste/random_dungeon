@@ -1,0 +1,79 @@
+# Santuario (MenuSanctuary no motor): bencaos permanentes compradas com as
+# almas ganhas ao fim de cada Run Infinita. Valem so dentro da Run.
+# cost=base,passo  -> custo do proximo nivel = base + passo * nivel atual
+# effect=tipo,valor por nivel: damage/hp/speed/attack_speed (%), crit, absorb,
+# hp_steal, xp_gain, gold, item_find (fixos), second_chance (1 = um reviver por Run)
+
+[blessing]
+id=vigor
+name=Vigor
+description=+4% max health
+icon=64
+max_rank=10
+cost=10,6
+effect=hp,4
+
+[blessing]
+id=might
+name=Might
+description=+3% damage
+icon=40
+max_rank=10
+cost=12,7
+effect=damage,3
+
+[blessing]
+id=swiftness
+name=Swiftness
+description=+2% move and attack speed
+icon=9
+max_rank=5
+cost=15,10
+effect=speed,2
+effect=attack_speed,2
+
+[blessing]
+id=precision
+name=Precision
+description=+1% critical chance
+icon=6
+max_rank=5
+cost=15,10
+effect=crit,1
+
+[blessing]
+id=guard
+name=Guard
+description=+1 absorb
+icon=15
+max_rank=5
+cost=15,12
+effect=absorb,1
+
+[blessing]
+id=fortune
+name=Fortune
+description=+10% gold, +5% item find
+icon=88
+max_rank=5
+cost=8,6
+effect=gold,10
+effect=item_find,5
+
+[blessing]
+id=wisdom
+name=Wisdom
+description=+8% experience
+icon=43
+max_rank=5
+cost=10,8
+effect=xp_gain,8
+
+[blessing]
+id=second_chance
+name=Second Chance
+description=Rise again once per run
+icon=11
+max_rank=1
+cost=120,0
+effect=second_chance,1

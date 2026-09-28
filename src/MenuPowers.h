@@ -56,7 +56,7 @@ public:
 	MenuPowersCell();
 
 	PowerID id;
-	bool requires_point;
+	int requires_point; // skill points this level costs (0 = free); "true" in files = 1
 
 	int requires_level;
 	std::vector<int> requires_primary;
@@ -161,6 +161,24 @@ private:
 
 	std::string tooltip_text_shield;
 	std::string tooltip_text_heal;
+
+	// EK-style skills sheet (menus/powers.txt "detail_area"): icons show
+	// rank pips, clicking selects, and a detail panel with a single Learn
+	// button replaces the per-icon upgrade buttons
+	static int parsePointCost(const std::string& val);
+	void ekLogic();
+	void ekSelftest();
+	void ekRenderPips(size_t group);
+	void ekRenderDetail();
+	MenuPowersCell* ekLearnTarget(int group);
+	int ekRank(size_t group);
+	bool ek_mode;
+	Rect detail_area;
+	Point learn_pos;
+	WidgetButton *learn_button;
+	int selected_group;
+	WidgetLabel *label_detail_title;
+	std::vector<WidgetLabel*> detail_lines;
 
 public:
 	enum {

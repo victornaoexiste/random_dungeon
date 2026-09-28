@@ -18,6 +18,7 @@ multiplayer doesn't, each player picks their own upgrades.
 #include "Menu.h"
 #include "Utils.h"
 
+class MenuSanctuary;
 class StatBlock;
 class WidgetButton;
 class WidgetLabel;
@@ -37,6 +38,9 @@ public:
 	// ranks picked this run, e.g. for a summary
 	int getRank(size_t upgrade) const;
 	size_t count() const { return defs.size(); }
+
+	// permanent blessings added to every run (may be NULL)
+	MenuSanctuary *sanctuary;
 
 private:
 	class Effect {

@@ -28,6 +28,7 @@ class MenuGameOver : public Menu {
 protected:
 	WidgetButton *button_continue;
 	WidgetButton *button_exit;
+	WidgetButton *button_sanctuary; // Random Dungeon: only after an Infinite Run (show_sanctuary)
 	WidgetLabel label;
 	WidgetLabel label_info[2]; // optional extra lines (Random Dungeon: run summary)
 
@@ -45,6 +46,9 @@ public:
 
 	bool continue_clicked;
 	bool exit_clicked;
+	bool sanctuary_clicked;
+	bool show_sanctuary;
+	bool blocked; // another screen (the Sanctuary) is on top
 };
 
 #endif

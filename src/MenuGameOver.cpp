@@ -31,8 +31,12 @@ MenuGameOver::MenuGameOver()
 	: Menu()
 	, button_continue(new WidgetButton(WidgetButton::DEFAULT_FILE))
 	, button_exit(new WidgetButton(WidgetButton::DEFAULT_FILE))
+	, button_sanctuary(new WidgetButton(WidgetButton::DEFAULT_FILE))
 	, continue_clicked(false)
 	, exit_clicked(false)
+	, sanctuary_clicked(false)
+	, show_sanctuary(false)
+	, blocked(false)
 {
 	// default layout
 	window_area = Rect(0,0,192,100);
@@ -58,6 +62,11 @@ MenuGameOver::MenuGameOver()
 				Point pos = Parse::toPoint(infile.val);
 				button_continue->setBasePos(pos.x, pos.y, Utils::ALIGN_TOPLEFT);
 			}
+			else if (infile.key == "button_sanctuary") {
+				// @ATTR button_sanctuary|point|Position of the "Sanctuary" button (Random Dungeon, after a run).
+				Point pos = Parse::toPoint(infile.val);
+				button_sanctuary->setBasePos(pos.x, pos.y, Utils::ALIGN_TOPLEFT);
+			}
 			else if (infile.key == "button_exit") {
 				// @ATTR button_exit|point|Position of the "Exit" button.
 				Point pos = Parse::toPoint(infile.val);
@@ -82,8 +91,10 @@ MenuGameOver::MenuGameOver()
 	else
 		button_exit->setLabel(msg->get("Exit"));
 
+	button_sanctuary->setLabel(msg->get("Sanctuary"));
 	tablist.add(button_continue);
 	tablist.add(button_exit);
+	tablist.add(button_sanctuary);
 
 	if (!background)
 		setBackground("images/menus/game_over.png");
@@ -98,6 +109,7 @@ void MenuGameOver::align() {
 
 	button_continue->setPos(window_area.x, window_area.y);
 	button_exit->setPos(window_area.x, window_area.y);
+	button_sanctuary->setPos(window_area.x, window_area.y);
 	label.setPos(window_area.x, window_area.y);
 	for (int i = 0; i < 2; ++i)
 		label_info[i].setPos(window_area.x, window_area.y);
@@ -109,7 +121,7 @@ void MenuGameOver::setInfo(const std::string& line1, const std::string& line2) {
 }
 
 void MenuGameOver::logic() {
-	if (!visible)
+	if (!visible || blocked)
 		return;
 
 	tablist.logic();
@@ -120,12 +132,17 @@ void MenuGameOver::logic() {
 	else if (button_exit->checkClick()) {
 		exit_clicked = true;
 	}
+	else if (show_sanctuary && button_sanctuary->checkClick()) {
+		sanctuary_clicked = true;
+	}
 }
 
 void MenuGameOver::close() {
 	visible = false;
 	continue_clicked = false;
 	exit_clicked = false;
+	sanctuary_clicked = false;
+	show_sanctuary = false;
 	tablist.defocus();
 	setInfo("", "");
 }
@@ -148,10 +165,13 @@ void MenuGameOver::render() {
 
 	button_continue->render();
 	button_exit->render();
+	if (show_sanctuary)
+		button_sanctuary->render();
 }
 
 MenuGameOver::~MenuGameOver() {
 	delete button_continue;
 	delete button_exit;
+	delete button_sanctuary;
 }
 

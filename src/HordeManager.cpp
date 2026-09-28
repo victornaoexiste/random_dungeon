@@ -1,6 +1,7 @@
 #include "Avatar.h"
 #include "MenuGameOver.h"
 #include "MenuManager.h"
+#include "MenuSanctuary.h"
 #include "MessageEngine.h"
 #include "SaveLoad.h"
 #include "UtilsFileSystem.h"
@@ -23,12 +24,15 @@
 #include "UtilsParsing.h"
 
 #include <cmath>
+#include <set>
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
 
 HordeManager::HordeManager()
-	: config_loaded(false)
+	: coop_hold(false)
+	, sanctuary(NULL)
+	, config_loaded(false)
 	, active(false)
 	, start_delay(5)
 	, interval(8)
@@ -44,10 +48,15 @@ HordeManager::HordeManager()
 	, xp_multiplier(1)
 	, kills(0)
 	, run_over(false)
+	, players(1)
 	, ticks(0)
 	, next_spawn_tick(0)
 	, wave(0)
 {
+	boss_every = 5;
+	theme_index = 0;
+	family_index = 0;
+	theme_wave = -1;
 }
 
 bool HordeManager::isRunMap(const std::string& map) {
@@ -81,6 +90,28 @@ void HordeManager::loadConfig() {
 		else if (infile.key == "dmg_growth") dmg_growth = Parse::toFloat(infile.val);
 		else if (infile.key == "xp_multiplier") xp_multiplier = Parse::toFloat(infile.val);
 		else if (infile.key == "end_map") end_map = infile.val;
+		else if (infile.key == "boss_every") boss_every = std::max(0, Parse::toInt(infile.val));
+		else if (infile.key == "theme") {
+			// theme=id,weight,min_wave,count_mult,hp_mult,interval_mult,dist_mult,category,label
+			Theme t;
+			t.id = Parse::popFirstString(infile.val);
+			t.weight = std::max(0, Parse::popFirstInt(infile.val));
+			t.min_wave = Parse::popFirstInt(infile.val);
+			t.count_mult = Parse::toFloat(Parse::popFirstString(infile.val), 1);
+			t.hp_mult = Parse::toFloat(Parse::popFirstString(infile.val), 1);
+			t.interval_mult = Parse::toFloat(Parse::popFirstString(infile.val), 1);
+			t.dist_mult = Parse::toFloat(Parse::popFirstString(infile.val), 1);
+			t.category = Parse::popFirstString(infile.val);
+			t.label = Parse::popFirstString(infile.val);
+			themes.push_back(t);
+		}
+		else if (infile.key == "family") {
+			// family=category,Name
+			Family f;
+			f.category = Parse::popFirstString(infile.val);
+			f.name = Parse::popFirstString(infile.val);
+			families.push_back(f);
+		}
 		else if (infile.key == "tier") {
 			// tier=category,min_wave,weight
 			Tier t;
@@ -115,20 +146,42 @@ const HordeManager::Tier* HordeManager::pickTier() const {
 	return NULL;
 }
 
-bool HordeManager::spawnOne(const FPoint& near_pos) {
-	const Tier* tier = pickTier();
-	if (!tier)
-		return false;
-
-	std::vector<Enemy_Level> pool = enemyg->getEnemiesInCategory(tier->category);
+bool HordeManager::spawnOne(const FPoint& near_pos, const std::string& only_category, float extra_hp, int extra_levels) {
+	std::vector<Enemy_Level> pool;
+	if (!only_category.empty()) {
+		// a theme's category (a family, the elites...), limited to enemies whose
+		// tier is already unlocked
+		std::set<std::string> unlocked;
+		for (size_t i = 0; i < tiers.size(); ++i) {
+			if (tiers[i].min_wave > wave)
+				continue;
+			std::vector<Enemy_Level> t = enemyg->getEnemiesInCategory(tiers[i].category);
+			for (size_t j = 0; j < t.size(); ++j)
+				unlocked.insert(t[j].type);
+		}
+		std::vector<Enemy_Level> all = enemyg->getEnemiesInCategory(only_category);
+		for (size_t j = 0; j < all.size(); ++j) {
+			if (unlocked.count(all[j].type))
+				pool.push_back(all[j]);
+		}
+	}
+	if (pool.empty()) {
+		const Tier* tier = pickTier();
+		if (!tier)
+			return false;
+		pool = enemyg->getEnemiesInCategory(tier->category);
+	}
 	if (pool.empty())
 		return false;
+
+	const Theme* theme = (theme_index >= 0 && static_cast<size_t>(theme_index) < themes.size()) ? &themes[theme_index] : NULL;
+	const float dist_mult = theme ? theme->dist_mult : 1.0f;
 
 	FPoint pos;
 	bool found = false;
 	for (int attempt = 0; attempt < 12 && !found; ++attempt) {
 		float angle = Math::randBetweenF(0, 2.0f * static_cast<float>(M_PI));
-		float dist = Math::randBetweenF(spawn_dist_min, spawn_dist_max);
+		float dist = Math::randBetweenF(spawn_dist_min, spawn_dist_max) * dist_mult;
 		pos.x = near_pos.x + std::cos(angle) * dist;
 		pos.y = near_pos.y + std::sin(angle) * dist;
 		found = mapr->collider.isValidPosition(pos.x, pos.y, MapCollision::MOVE_NORMAL, MapCollision::COLLIDE_TYPE_ALL_ENTITIES);
@@ -142,7 +195,14 @@ bool HordeManager::spawnOne(const FPoint& near_pos) {
 	StatBlock& s = e->stats;
 	s.pos = pos;
 	s.direction = static_cast<unsigned char>(Math::randBetween(0, 7));
-	s.level = 1 + wave;
+	s.level = 1 + wave + extra_levels;
+
+	// co-op: tougher enemies for a bigger party (+35% hp per extra player);
+	// themes and bosses scale hp too
+	float hp_scale = extra_hp * (theme ? theme->hp_mult : 1.0f);
+	if (players > 1)
+		hp_scale *= 1.0f + 0.35f * static_cast<float>(players - 1);
+	s.starting[Stats::HP_MAX] *= hp_scale;
 
 	// Grow hp and damage per wave through the engine's own per-level stat
 	// mechanism (base = starting + (level-1) * per_level, see StatBlock::recalc).
@@ -176,7 +236,14 @@ void HordeManager::spawnGroup() {
 			alive++;
 	}
 
+	const Theme* theme = (theme_index >= 0 && static_cast<size_t>(theme_index) < themes.size()) ? &themes[theme_index] : NULL;
 	int want = base_count + static_cast<int>(count_per_wave * static_cast<float>(wave));
+	// co-op: bigger packs for a bigger party (+60% per extra player)
+	want = static_cast<int>(static_cast<float>(want) * (1.0f + 0.6f * static_cast<float>(players - 1)) * (theme ? theme->count_mult : 1.0f) + 0.5f);
+	want = std::max(1, want);
+	std::string category = theme ? theme->category : "";
+	if (theme && theme->id == "family" && static_cast<size_t>(family_index) < families.size())
+		category = families[family_index].category;
 	want = std::min(want, max_alive - alive);
 
 	std::vector<FPoint> targets;
@@ -192,8 +259,8 @@ void HordeManager::spawnGroup() {
 	// One group per spawn tick: all enemies share an anchor player so they
 	// arrive as a pack instead of an even ring.
 	FPoint anchor = targets[static_cast<size_t>(Math::randBetween(0, static_cast<int>(targets.size()) - 1))];
-	for (int i = 0; i < want; ++i)
-		spawnOne(anchor);
+	for (int i = 0; i < want && i < max_alive - alive; ++i)
+		spawnOne(anchor, category);
 }
 
 std::vector<Entity*> HordeManager::logic() {
@@ -202,17 +269,8 @@ std::vector<Entity*> HordeManager::logic() {
 	if (!config_loaded)
 		loadConfig();
 
-	if (last_map != mapr->getFilename()) {
-		last_map = mapr->getFilename();
-		// the map change already deleted every old entity (EntityManager::handleNewMap)
-		spawned.clear();
-		dead_ticks.clear();
-		ticks = 0;
-		wave = 0;
-		kills = 0;
-		run_over = false;
-		next_spawn_tick = static_cast<int>(start_delay * static_cast<float>(settings->max_frames_per_sec));
-	}
+	if (last_map != mapr->getFilename())
+		resetForMap();
 
 	// map= may name one map, or a folder ending in '/' (e.g. maps/run/) so the
 	// horde runs on any arena in it -- the run start map picks one at random.
@@ -257,11 +315,7 @@ std::vector<Entity*> HordeManager::logic() {
 		}
 	}
 
-	// the hero died: the run is over (summary on the Game Over screen, respawn at end_map)
-	if (!run_over && pc && (pc->stats.cur_state == StatBlock::ENTITY_DEAD || pc->stats.cur_state == StatBlock::ENTITY_CRITDEAD)) {
-		run_over = true;
-		endRun();
-	}
+	checkRunOver();
 	if (run_over) {
 		// automated test hook (see MenuDevKit.h): capture the Game Over summary once
 		static bool shot = false;
@@ -276,12 +330,147 @@ std::vector<Entity*> HordeManager::logic() {
 		return removed;
 	}
 
+	if (wave != theme_wave) {
+		theme_wave = wave;
+		chooseTheme();
+		if (isBossWave(wave))
+			spawnBoss();
+	}
+
 	if (ticks >= next_spawn_tick) {
 		spawnGroup();
-		next_spawn_tick = ticks + std::max(1, static_cast<int>(interval * fps));
+		const float im = (static_cast<size_t>(theme_index) < themes.size()) ? themes[theme_index].interval_mult : 1.0f;
+		next_spawn_tick = ticks + std::max(1, static_cast<int>(interval * im * fps));
 	}
 
 	return removed;
+}
+
+bool HordeManager::isBossWave(int w) const {
+	return boss_every > 0 && (w + 1) % boss_every == 0;
+}
+
+/**
+ * Picks this wave's theme (weighted, by min_wave). Boss waves use the
+ * "boss" theme; wave 1 is always the first theme (normal).
+ */
+void HordeManager::chooseTheme() {
+	theme_index = 0;
+	if (themes.empty())
+		return;
+	if (isBossWave(wave)) {
+		for (size_t i = 0; i < themes.size(); ++i)
+			if (themes[i].id == "boss") theme_index = static_cast<int>(i);
+		return;
+	}
+	if (wave == 0)
+		return;
+	int total = 0;
+	for (size_t i = 0; i < themes.size(); ++i)
+		if (themes[i].id != "boss" && themes[i].min_wave <= wave) total += themes[i].weight;
+	if (total > 0) {
+		int roll = Math::randBetween(0, total - 1);
+		for (size_t i = 0; i < themes.size(); ++i) {
+			if (themes[i].id == "boss" || themes[i].min_wave > wave)
+				continue;
+			if (roll < themes[i].weight) {
+				theme_index = static_cast<int>(i);
+				break;
+			}
+			roll -= themes[i].weight;
+		}
+	}
+	if (themes[theme_index].id == "family" && !families.empty())
+		family_index = Math::randBetween(0, static_cast<int>(families.size()) - 1);
+	Utils::logInfo("HordeManager: wave %d theme '%s' %s", wave + 1, themes[theme_index].id.c_str(),
+		themes[theme_index].id == "family" && !families.empty() ? families[family_index].category.c_str() : "");
+}
+
+/**
+ * Boss waves: one big enemy (a real boss once they're unlocked, an elite
+ * before that) with extra hp and levels, next to a random player.
+ */
+void HordeManager::spawnBoss() {
+	std::vector<FPoint> targets;
+	if (pc && pc->stats.alive)
+		targets.push_back(pc->stats.pos);
+	for (size_t i = 0; i < entitym->net_targets.size(); ++i)
+		if (entitym->net_targets[i].stats->alive)
+			targets.push_back(entitym->net_targets[i].stats->pos);
+	if (targets.empty())
+		return;
+	FPoint anchor = targets[static_cast<size_t>(Math::randBetween(0, static_cast<int>(targets.size()) - 1))];
+
+	std::string cat = "rd_elite";
+	for (size_t i = 0; i < tiers.size(); ++i)
+		if (tiers[i].category == "rd_boss" && tiers[i].min_wave <= wave) cat = "rd_boss";
+
+	// spawnOne() draws from the tiers: offer only the boss category for this one
+	std::vector<Tier> saved = tiers;
+	Tier only;
+	only.category = cat;
+	only.min_wave = 0;
+	only.weight = 1;
+	tiers.clear();
+	tiers.push_back(only);
+	size_t before = entitym->entities.size();
+	spawnOne(anchor, "", cat == "rd_boss" ? 2.0f : 4.0f, 2);
+	tiers = saved;
+	if (entitym->entities.size() > before)
+		Utils::logInfo("HordeManager: boss wave %d: %s", wave + 1, entitym->entities.back()->stats.name.c_str());
+}
+
+std::string HordeManager::bannerText() const {
+	std::string s = msg->getv("Wave %d", wave + 1);
+	if (static_cast<size_t>(theme_index) < themes.size()) {
+		const Theme& t = themes[theme_index];
+		if (t.id == "family" && static_cast<size_t>(family_index) < families.size())
+			s += " - " + msg->get(families[family_index].name) + "!";
+		else if (!t.label.empty())
+			s += " - " + msg->get(t.label);
+	}
+	return s;
+}
+
+void HordeManager::resetForMap() {
+	last_map = mapr->getFilename();
+	// the map change already deleted every old entity (EntityManager::handleNewMap)
+	spawned.clear();
+	dead_ticks.clear();
+	ticks = 0;
+	wave = 0;
+	kills = 0;
+	run_over = false;
+	next_spawn_tick = static_cast<int>(start_delay * static_cast<float>(settings->max_frames_per_sec));
+	theme_index = 0;
+	family_index = 0;
+	theme_wave = -1;
+}
+
+/**
+ * The hero died: the run is over (summary on the Game Over screen, respawn
+ * at end_map) -- unless an ally can still revive them (coop_hold).
+ */
+void HordeManager::checkRunOver() {
+	if (!run_over && !coop_hold && pc && (pc->stats.cur_state == StatBlock::ENTITY_DEAD || pc->stats.cur_state == StatBlock::ENTITY_CRITDEAD)) {
+		run_over = true;
+		endRun();
+	}
+}
+
+void HordeManager::clientLogic(int host_wave, int host_theme, int host_family) {
+	if (!config_loaded)
+		loadConfig();
+	if (last_map != mapr->getFilename())
+		resetForMap();
+	active = isRunMap(mapr->getFilename());
+	if (!active)
+		return;
+	ticks++;
+	wave = std::max(wave, host_wave);
+	theme_index = host_theme;
+	family_index = host_family;
+	checkRunOver();
 }
 
 /**
@@ -324,6 +513,13 @@ void HordeManager::endRun() {
 		best << msg->get("New record!");
 	else
 		best << msg->get("Best") << ": " << msg->get("Wave") << " " << best_wave << ", " << best_kills << " " << msg->get("kills");
+
+	// Sanctuary: souls for this run, spent on permanent blessings
+	if (sanctuary) {
+		int gained = sanctuary->awardSouls(reached, kills);
+		best << "  |  " << msg->getv("+%d souls (%d)", gained, sanctuary->getSouls());
+		menu->game_over->show_sanctuary = true;
+	}
 
 	menu->game_over->setInfo(summary.str(), best.str());
 	pc->logMsg(msg->get("Run over") + ": " + summary.str(), Avatar::MSG_NORMAL);

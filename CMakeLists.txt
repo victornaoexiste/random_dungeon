@@ -194,6 +194,7 @@ Set (FLARE_SOURCES
 	./src/MenuNumPicker.cpp
 	./src/MenuPowers.cpp
 	./src/MenuRunUpgrade.cpp
+	./src/MenuSanctuary.cpp
 	./src/MenuRegionTitle.cpp
 	./src/MenuStash.cpp
 	./src/MenuStatBar.cpp

@@ -34,5 +34,6 @@ stat=dark_resist,33
 stat=fire_resist,-8
 stat=ice_resist,-8
 stat=lightning_resist,-13
+stat=holy_resist,-50
 loot=loot/rd_drop_normal.txt
 loot_count=1,1

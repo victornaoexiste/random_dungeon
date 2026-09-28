@@ -542,7 +542,24 @@ bool Entity::takeHit(Hazard &h) {
 	bool was_debuffed = stats.effects.isDebuffed();
 
 	// apply damage
+	const bool was_alive = stats.hp > 0;
 	stats.takeDamage(dmg, crit, h.source_type);
+
+	// the attacker's on_kill passives (Random Dungeon skills)
+	if (was_alive && stats.hp <= 0 && h.src_stats && h.src_stats != &stats)
+		h.src_stats->effects.triggered_kill = true;
+
+	// kills by the hero shake the screen a little; elites and bosses a lot
+	if (was_alive && stats.hp <= 0 && !stats.hero && h.source_type == Power::SOURCE_TYPE_HERO) {
+		bool big = false;
+		for (size_t i = 0; i < stats.categories.size(); ++i)
+			big |= (stats.categories[i] == "rd_elite" || stats.categories[i] == "rd_boss");
+		int frames = big ? settings->max_frames_per_sec : settings->max_frames_per_sec / 8;
+		if (mapr->cam.shake_timer.getCurrent() < static_cast<unsigned>(frames))
+			mapr->cam.shake_timer.setDuration(static_cast<unsigned>(frames));
+		if (big)
+			inpt->joystickRumble(InputState::JOYSTICK_RUMBLE_STRENGTH, InputState::JOYSTICK_RUMBLE_STRENGTH, 700);
+	}
 
 	// after effects
 	if (dmg > 0 || h.power->ignore_zero_damage) {

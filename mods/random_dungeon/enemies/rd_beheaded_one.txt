@@ -31,5 +31,6 @@ xp=7
 xp_scaling=enemies/xp_scaling/il.txt
 animations=animations/enemies/zombie_dark.txt
 stat=dark_resist,75
+stat=holy_resist,-50
 loot=loot/rd_drop_normal.txt
 loot_count=1,1

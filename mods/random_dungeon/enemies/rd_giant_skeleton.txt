@@ -34,6 +34,7 @@ xp=28
 xp_scaling=enemies/xp_scaling/il.txt
 animations=animations/enemies/rd/rd_giant_skeleton.txt
 stat=dark_resist,75
+stat=holy_resist,-50
 defeat_status=rd_boss_down_rd_giant_skeleton
 loot=loot/rd_drop_boss.txt
 loot_count=3,5

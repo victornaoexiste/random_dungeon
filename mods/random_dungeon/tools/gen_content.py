@@ -236,6 +236,14 @@ def gen_items(offline):
             out.append('abs=%s,%s\n' % (it['abs_min'], it['abs_max']))
         if it['two_handed'] == '1':
             out.append('disable_slots=off\n')
+        # extra equip flags for the skills (tools/gen_skills.py): two-handed
+        # weapons, staves and wands can be required by passive skills
+        kind = it['base'].split('/')[-1][:-4]
+        extra = (['two_handed'] if it['two_handed'] == '1' else []) + \
+                (['staff'] if kind in ('staff', 'greatstaff') else []) + (['wand'] if kind in ('wand', 'rod') else [])
+        if extra:
+            flags = [f for f in base.get('equip_flags', '').split(',') if f]
+            out.append('equip_flags=%s\n' % ','.join(flags + [f for f in extra if f not in flags]))
         for k, v in bonuses(it['bonuses']):
             out.append('bonus=%s,%s\n' % (k, v))
         if it.get('classes'):
@@ -280,7 +288,8 @@ def gen_items(offline):
     write(rel('engine/icons.txt'), HEADER +
           'icon_set=0,images/icons/icons.png\nicon_set=256,images/icons/icons_empyrean.png\n'
           'icon_set=512,images/icons/icons_crafting.png\nicon_set=1024,images/icons/icons_overlay.png\n'
-          'icon_set=%d,images/icons/icons_rd.png\n' % ICON_FIRST_ID)
+          'icon_set=%d,images/icons/icons_rd.png\n' % ICON_FIRST_ID +
+          'icon_set=6144,images/icons/icons_skills.png\n')   # tools/gen_skills.py
 
     gen_sets(items)
     print('items: %d (icons: %d from EK, %d fallback to tinted Flare art), %d tinted equipment layers'
@@ -504,6 +513,9 @@ def gen_enemies(loot_grades):
             if part:
                 k, v = part.split(':')
                 out.append('stat=%s,%s\n' % (k, v))
+        # holy damage (tools/gen_skills.py): undead and demons are weak to it
+        if FAMILY_TYPE.get(e['family']) in ('undead', 'demon'):
+            out.append('stat=holy_resist,-50\n')
         if grade == 'boss' or any(r['boss'] == e['id'] for r in REGIONS):
             # world bosses stay dead until the hero visits a town (see gen_world.py)
             out.append('defeat_status=rd_boss_down_%s\n' % e['id'])
@@ -541,6 +553,22 @@ EXTRA_PT = [
     ('Open World', 'Mundo Aberto'), ('Infinite Run', 'Run Infinita'), ('Test Room', 'Sala de Teste'),
     ('Skin', 'Pele'), ('Hair', 'Cabelo'), ('Clothes', 'Roupa'), ('Original', 'Original'),
     ('Play', 'Jogar'),
+    ('You fell! Stay close to an ally to be revived.', 'Você caiu! Fique perto de um aliado para ser revivido.'),
+    ('Reviving...', 'Revivendo...'),
+    ('Sanctuary', 'Santuário'), ('Souls: %d', 'Almas: %d'), ('Buy (%d)', 'Comprar (%d)'), ('Close', 'Fechar'),
+    ('+%d souls (%d)', '+%d almas (%d)'), ('Second chance! You rise again.', 'Segunda chance! Você se levanta de novo.'),
+    ('Vigor', 'Vigor'), ('+4% max health', '+4% de vida máxima'),
+    ('Might', 'Poder'), ('+3% damage', '+3% de dano'),
+    ('Swiftness', 'Ligeireza'), ('+2% move and attack speed', '+2% de velocidade e ataque'),
+    ('Precision', 'Precisão'), ('+1% critical chance', '+1% de chance de crítico'),
+    ('Guard', 'Guarda'), ('+1 absorb', '+1 de absorção'),
+    ('Fortune', 'Fortuna'), ('+10% gold, +5% item find', '+10% de ouro, +5% de itens'),
+    ('Wisdom', 'Sabedoria'), ('+8% experience', '+8% de experiência'),
+    ('Second Chance', 'Segunda Chance'), ('Rise again once per run', 'Levanta de novo 1x por Run'),
+    ('Wave %d', 'Onda %d'), ('Swarm!', 'Enxame!'), ('Ambush!', 'Emboscada!'), ('Elite hunters!', 'Caçadores de elite!'),
+    ('Boss!', 'Chefe!'), ('Skeletons', 'Esqueletos'), ('Zombies', 'Zumbis'), ('Ghosts', 'Fantasmas'), ('Goblins', 'Goblins'),
+    ('Orcs', 'Orcs'), ('Minotaurs', 'Minotauros'), ('Demons', 'Demônios'), ('Spiders', 'Aranhas'), ('Crawlers', 'Rastejadores'),
+    ('Hobgoblins', 'Hobgoblins'), ('An ally', 'Um aliado'), ('%s: %s on you', '%s: %s em você'), ('An ally brought you back!', 'Um aliado trouxe você de volta!'),
     ('Credits', 'Créditos'),
     ('Level up! Choose an upgrade', 'Subiu de nível! Escolha uma melhoria'), ('Choose', 'Escolher'), ('Rank %d / %d', 'Nível %d / %d'),
     ('Sharp Blade', 'Lâmina Afiada'), ('+10% damage', '+10% de dano'),
@@ -566,6 +594,8 @@ def gen_po(items, enemies):
     pairs += [(e['name'], e['name_pt']) for e in enemies if e['name_pt']]
     pairs += [('%s Set' % g, 'Conjunto %s' % g) for g in SET_BONUSES]
     pairs += EXTRA_PT + EXTRA_PT_SLAYER
+    import gen_skills
+    pairs += gen_skills.translations()
     seen, body = set(), []
     for en, pt in pairs:
         if en in seen:

@@ -34,5 +34,6 @@ xp_scaling=enemies/xp_scaling/il.txt
 animations=animations/enemies/rd/rd_ice_demon.txt
 stat=fire_resist,-17
 stat=ice_resist,67
+stat=holy_resist,-50
 loot=loot/rd_drop_normal.txt
 loot_count=1,1

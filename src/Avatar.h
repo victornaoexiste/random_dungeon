@@ -158,6 +158,11 @@ public:
 	bool drag_walking;
 	bool newLevelNotification;
 	bool respawn;
+	// co-op Infinite Run: a fallen hero waits for an ally instead of the
+	// Game Over screen while hold_game_over is set (see GameStatePlay::coopLogic)
+	bool hold_game_over;
+	// Infinite Run: dying ends the run, it doesn't cost gold
+	bool no_death_penalty;
 	bool close_menus;
 	bool allow_movement;
 	std::vector<Timer*> power_cooldown_timers;

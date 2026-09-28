@@ -799,6 +799,23 @@ def panel_tabbed(name, tab_area):
     frame_group(d, x - 8, y + 44, x + w + 8, y + h + 8)
     save(im, 'images/menus/%s.png' % name)
 
+def panel_powers():
+    """Skills sheet, EK style (MenuPowers detail_area): tabs, a 5x5 icon
+    grid with rank pips, then the selected skill's details and Learn."""
+    im, d = side_panel(43)
+    frame_group(d, 56, 104, 584, 548)      # icon grid (random_dungeon gen_skills GRID_*)
+    frame_group(d, 56, 578, 584, 764)      # detail panel
+    save(im, 'images/menus/powers.png')
+    write_layout('menus/powers.txt', '\n'.join([
+        'pos=0,-35,640,832', 'align=right',
+        'soundfx_open=soundfx/inventory/inventory_page.ogg',
+        'soundfx_close=soundfx/inventory/inventory_book.ogg',
+        'label_title=320,24,center,center', 'close=571,5',
+        'tab_area=64,60,512,672',
+        'unspent_points=320,563,center,center',
+        'detail_area=72,586,496,174',
+        'learn_button=128,774']))
+
 def panel_storage():
     im, d = side_panel(45)
     frame_group(d, 56, 104, 584, 760)
@@ -869,11 +886,22 @@ def run_card():
     hline(d, 20, 129, 70, G0)
     save(im, 'images/menus/run_card.png')
     save(button_sheet(100, 18), 'images/menus/run_button.png')   # 200x36 per state
+    # Sanctuary blessing card (MenuSanctuary): 280x200, icon well at the top
+    im = panel(140, 100, seed=81)
+    d = ImageDraw.Draw(im)
+    inset(d, 53, 5, 86, 38, K1)       # icon well (64px icon at y=12)
+    hline(d, 20, 119, 64, G0)
+    save(im, 'images/menus/sanctuary_card.png')
+    # Game Over (a run's summary + the Sanctuary button)
+    write_layout('menus/game_over.txt', '\n'.join([
+        'pos=0,-192,768,300', 'align=center', 'background=images/menus/modal_window.png',
+        'label_title=384,23,center,center', 'button_continue=192,126', 'button_exit=192,174',
+        'button_sanctuary=192,222']))
 
 def panels():
     run_card()
     panel_character()
-    panel_tabbed('powers', (64, 60, 512, 672))
+    panel_powers()
     panel_tabbed('log', (64, 60, 482, 672))
     panel_storage()
     panel_inventory()

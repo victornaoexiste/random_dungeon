@@ -341,6 +341,7 @@ EffectManager::EffectManager()
 	, triggered_joincombat(false)
 	, triggered_death(false)
 	, triggered_active_power(false)
+	, triggered_kill(false)
 	, refresh_stats(false)
 {
 	clearStatus();
@@ -709,7 +710,7 @@ void EffectManager::clearEffects() {
 	clearStatus();
 
 	// clear triggers
-	triggered_others = triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = triggered_death = triggered_active_power = false;
+	triggered_others = triggered_block = triggered_hit = triggered_halfdeath = triggered_joincombat = triggered_death = triggered_active_power = triggered_kill = false;
 }
 
 void EffectManager::clearNegativeEffects(int type) {

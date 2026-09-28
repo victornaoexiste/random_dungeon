@@ -1,0 +1,76 @@
+id,name,name_pt,tab,classes,ranks,cost,cooldown,mana,requires,requires_level,ek_name,ek_effect
+zealots_might,Zealot's Might,Força do Zelote,class,cleric,3,1/2/3,20/20/20,2/4/7,,,Arbenos' Might,"You do +3/+5/+8 damage, and +4 fire damage, for 12/14/16 seconds."
+runed_edge,Runed Edge,Lâmina Rúnica,advanced,mage,4,2/2/2/2,,,physical:13,5,Arcane Blade,Weapon elemental damage improved0/x1.5/x2/x2.5.
+spell_thrift,Spell Thrift,Economia Arcana,advanced,mage,3,2/2/2,,,skill:deep_well:2;defense:13,8,Arcanist,Reduces mana cost by 1/2/3.
+keen_arrows,Keen Arrows,Flechas Afiadas,class,rogue,3,1/2/3,,,,,Archery,"Gain +1/+2/+3 arrow damage, and an extra +1 for each 5/4/3 levels. 3%/5%/7% stun chance."
+killing_flow,Killing Flow,Fluxo Assassino,advanced,rogue,3,1/2/3,,,skill:gut_strike:3,8,Assassinate,"10%/20%/35% chance of Stab immediate cooldown, 30%/50%/75% if the Stab killed the enemy"
+shield_slam,Shield Slam,Pancada de Escudo,class,warrior,3,1/1/2,16/14/12,,,,Bash,Enemy pushed back 2/3/4 meters and stunned 1/2/3 seconds (+1 second if you use a shield)
+war_hymn,War Hymn,Hino de Guerra,advanced,cleric,3,1/2/3,12/12/12,6/9/12,skill:warding_faith:2;mental:21,8,Battle Prayer,"Gain +3/5/8 armor, +2/3/5 damage and +0/10/25 to all resistances"
+blood_frenzy,Blood Frenzy,Frenesi Sangrento,advanced,warrior,3,1/2/3,30/30/30,,defense:17;skill:berserk_blood:3,5,Battle Rage,"Gain +2/3/4 Str, +3/4/5 Armor, and immunity to mental effects for 6/8/9 secs."
+beast_friend,Beast Friend,Amigo das Feras,general,all,3,1/2/2,1080/540/360,,,,Beast Master,"Gain +2/+3/+4 dmg vs Beasts, Summon Bear"
+thrill_of_the_kill,Thrill of the Kill,Êxtase da Matança,advanced,"warrior,rogue,cleric",3,1/2/3,,,mental:13,5,Bloodlust,"After killing an enemy, +3/4/6 Damage and +2/3/4 Armor for 6 seconds."
+hardened_body,Hardened Body,Corpo Calejado,advanced,"warrior,rogue,cleric,mage",3,1/2/3,,,defense:17,5,Body Development,Each point of Endurance/Strength/Endurance grants you 1.5/1/2hp/level
+bull_rush,Bull Rush,Investida Taurina,class,warrior,4,1/1/2/3,12/11/10/9,,,,Charge,Charge does +60%/+90%/+125%/+160% damage.
+wide_swing,Wide Swing,Golpe Amplo,class,warrior,3,1/2/3,,,,,Cleave,"You hit one enemy normally, and one/two/three extra enemies for 50%/60%/75% damage"
+immolate,Immolate,Imolação,advanced,mage,3,2/2/3,15/15/15,25/35/45,,5,Combustion,"Deals 15-30/20-40/28-56 Fire damage, enemy loses -3/-6/-10 Armor, -20/-40/-60 to Resistances"
+templar,Templar,Templário,class,cleric,3,1/2/3,,,,,Crusader,"Your hits have a 2%/4%/5% stun chance. Against undead, +2/+4/+6 Damage."
+plague_mist,Plague Mist,Névoa da Peste,advanced,mage,3,2/2/2,12/12/12,20/25/30,,5,Death Cloud,"Deals 10-20/14-28/18-36 toxic damage, enemy is slowed and suffers -30/-50/-80 Death resistance"
+grave_ward,Grave Ward,Proteção Tumular,advanced,"warrior,rogue,cleric,mage",3,1/1/1,,,defense:9,5,Death Ward,Gain +12/24/36 to resist death.
+unmake,Unmake,Desfazer,advanced,mage,3,1/2/3,20/20/20,25/50/70,mental:21,8,Disintegrate,"Disintegrate does +50/75/100 damage on your next attack, +0/1/2 per level."
+duelist,Duelist,Duelista,advanced,"warrior,cleric",3,1/2/3,,,mental:9,8,Duel,"Damage increments by +1/+2/+2 per hit, up to a maximum of +4/+6/+10"
+delver,Delver,Explorador,general,all,3,1/1/1,,,,,Dungeoneering,Gain a +10%/+18%/+25% bonus to find traps and secret doors.
+stone_caller,Stone Caller,Chamado da Pedra,advanced,mage,3,2/2/3,30/30/30,40/60/80,skill:call_wisp:2;mental:17,8,Earth Mastery,Summon a level 8/11/15 Earth Elemental/Earth Elemental/Iron Golem.
+slip_away,Slip Away,Esquiva Sombria,class,rogue,3,1/2/3,30/25/20,,,,Evasion,50%/70%/90% chance to dodge any attacks during 5 seconds.
+blast_snares,Blast Snares,Armadilhas Explosivas,advanced,rogue,3,1/2/3,,,skill:snare_craft:3,5,Explosive Traps,Explosion deals 12-24/18-36/24-48 fire damage.
+second_wind,Second Wind,Segundo Fôlego,general,all,2,3/3,,,,,Extra Recovery,Gain +1/+2 recovery/day
+flame_caller,Flame Caller,Chamado da Chama,advanced,mage,3,2/2/2,10/10/10,25/35/45,skill:call_wisp:2;mental:13,8,Fire Mastery,Summon a level 7/10/13 Fire Elemental.
+ember_ward,Ember Ward,Proteção Ígnea,advanced,"warrior,rogue,cleric,mage",3,1/1/1,,,defense:9,8,Fire Ward,Gain +12/24/36 to resist fire.
+ember_orb,Ember Orb,Orbe de Brasa,class,mage,4,1/2/2/2,5/5/5/5,4/8/16/32,,,Fireball,You deal 9-18/15-30/28-56/42-84 fire damage.
+pyre_of_faith,Pyre of Faith,Pira da Fé,advanced,cleric,3,1/2/3,30/30/30,15/25/35,skill:cleansing_flame:3,8,Flames of Faith,"Each second, flames heal allies for 5/8/10hp and burn enemies for 8/15/21 Spirit damage"
+blade_dance,Blade Dance,Dança das Lâminas,advanced,"warrior,rogue",3,1/2/3,20/20/20,,offense:25,5,Flurry,Attack speed increased by 25/50/75% for 6 seconds.
+berserk_blood,Berserk Blood,Sangue Berserker,class,warrior,3,1/2/2,,,,,Fury,"When you have less than 30%/35%/35% HP, deal +30%/+50%/+65% damage."
+pilgrims_step,Pilgrim's Step,Passo do Peregrino,advanced,"cleric,mage",2,1/1,20/20,20/20,,5,Gate,Recall to the closest town/an already visited town of your choice.
+silver_tongue,Silver Tongue,Língua de Prata,general,all,3,1/1/1,,,,,Gossip,Gain a +5%/+10%/+15% bonus to learn rumors.
+spirit_hound,Spirit Hound,Cão Espiritual,advanced,cleric,3,2/2/2,120/90/60,15/20/35,mental:13,5,Guardian Wolf,Summon a level 7/10/13 Dire/White/Spirit Wolf for 3/5/5 min.
+mend_flesh,Mend Flesh,Sarar a Carne,class,cleric,3,1/2/3,10/8/5,6/12/18,,,Heal Wounds,Heals a total of 30/75/125 HP
+crushing_blows,Crushing Blows,Golpes Esmagadores,advanced,"warrior,rogue,cleric",3,1/2/3,,,physical:17,8,Heavyhand,Gain +1/+3/+5 extra damage per attack
+hallowed_aegis,Hallowed Aegis,Égide Sagrada,class,cleric,4,1/2/2/2,15/15/15/15,5/5/6/6,,,Holy Shield,"Gain +4/+6/+8/+10 armor and +25/+40/+60/+80 resistance vs Death, for 12 seconds"
+frost_caller,Frost Caller,Chamado do Gelo,advanced,mage,3,1/2/3,20/20/20,25/35/45,skill:call_wisp:2;mental:13,8,Ice Mastery,Summon a level 7/10/13 Ice Elemental.
+frost_squall,Frost Squall,Rajada Gélida,class,mage,4,1/2/2/2,3/3/3/3,4/7/12/24,,,Ice Storm,You deal 8-16/12-24/18-36/32-64 cold damage.
+frost_ward,Frost Ward,Proteção Gélida,advanced,"warrior,rogue,cleric,mage",3,1/1/1,,,defense:9,8,Ice Ward,Gain +12/24/36 to resist cold.
+veteran_stance,Veteran Stance,Postura Veterana,advanced,warrior,2,2/3,,,mental:13;skill:bulwark:3,5,Infantry Training,"Negate 35%/50% of critical hits received, halve stun duration/immune to stun, halve paralysis time"
+last_rite,Last Rite,Último Rito,class,cleric,3,1/1/1,,,,,Intervention,You are healed for 2/4/8 HP for each mana point you had left
+heel_strike,Heel Strike,Chute Brutal,class,rogue,3,1/1/2,9/8/7,,,,Kick,Enemy pushed back 2/3/4 meters and slowed for 3/4/5 seconds
+call_wisp,Call Wisp,Invocar Fagulha,class,mage,2,2/2,30/30,12/20,,,Lesser Summoning,Summon a Level 2-3/4-6 Lesser Sparkling.
+storm_lance,Storm Lance,Lança da Tempestade,class,mage,4,1/2/2/2,5/5/5/5,5/9/18/24,,,Lightning Bolt,"You deal 10-15/15-20/20-28/36-44 damage, +0/1/2/2 per level. 20/25/30/40% stun chance."
+arcane_mantle,Arcane Mantle,Manto Arcano,class,mage,4,1/2/2/2,5/5/5/5,3/5/9/16,,,Mage Armor,"Gain +6/9/14/21 armor and +0/15/20/30 to fire, cold and shock resistance. Wears off after 3/4/5/6 hits."
+arc_repulse,Arc Repulse,Repulsão Arcana,advanced,mage,3,1/2/3,,,skill:arcane_mantle:3,8,Mage Barrier,Enemies are pushed back 1.0/1.5/2.0m and receive 12/25/40 shock damage. Stun chance 0/10/30%.
+blood_casting,Blood Casting,Magia de Sangue,advanced,"warrior,rogue",3,1/1/1,,,mental:13,5,Magical Training,"You can use scrolls and wands with mana cost, spending 10/6/4hp per mana point."
+deep_well,Deep Well,Poço Profundo,class,mage,3,1/2/3,,,,,Mana Surge,"Increase your mana pool by 3/6/9, and +1/2/3 per level."
+brutal_criticals,Brutal Criticals,Críticos Brutais,advanced,"warrior,rogue,cleric,mage",3,1/2/3,,,physical:13,5,Massive Criticals,"Criticals do up to 200%/250%/300% of max weapon damage, 10%/25%/50% chance to kill weaker enemies."
+warding_faith,Warding Faith,Fé Protetora,class,cleric,3,1/1/2,,,,,Nivaria's Barrier,"Gain +1/+2/+3 armor, an extra +1/+2/+3 vs undead attacks."
+venomcraft,Venomcraft,Arte do Veneno,advanced,rogue,3,1/2/3,,,mental:5;defense:9,8,Poison Master,"Increase poison effect by 0%/25%/50%, and duration by 50%/75%/100%. Add +10/+20/+30 to Toxic Resistance"
+deadeye,Deadeye,Olho Mortal,advanced,"warrior,rogue,mage",3,1/2/3,,,mental:5;offense:5,5,Precision Shots,Increase weapon's base critical chance by 50%/100%/150%
+keen_strikes,Keen Strikes,Golpes Precisos,advanced,"warrior,rogue,cleric",3,1/2/3,,,mental:5;offense:5,5,Precision Strikes,Increase weapon's base critical chance by 50%/100%/150%
+quickdraw,Quickdraw,Saque Rápido,advanced,"warrior,rogue",3,1/2/3,20/20/20,,offense:17,5,Rapid Fire,Attack speed increased by 40%/70%/100% for 6 seconds
+iron_will,Iron Will,Vontade de Ferro,class,warrior,3,1/2/3,35/35/35,,,,Resilience,Gain +5/+9/+14 armor for 6/8/10 seconds.
+soul_harvest,Soul Harvest,Colheita de Almas,advanced,cleric,2,2/3,,,mental:9,8,Retribution,You recover 1/2 mana points per undead/outsider destroyed.
+cleansing_flame,Cleansing Flame,Chama Purificadora,class,cleric,3,1/2/2,8/6/3,3/6/9,,,Sacred Fire,"Flames deal 12/24/48 damage, and additional +8/+12/+20 damage to undead."
+bulwark,Bulwark,Baluarte,class,warrior,3,1/1/1,,,,,Shield Expert,"When wielding a shield, +1/+2/+3 armor, an extra +2/+3/+4 vs projectiles."
+storm_ward,Storm Ward,Proteção Elétrica,advanced,"warrior,rogue,cleric,mage",3,1/1/1,,,defense:9,8,Shock Ward,Gain +12/24/36 to resist shock.
+smoke_veil,Smoke Veil,Véu de Fumaça,advanced,rogue,3,2/2/2,,,skill:fade:3,8,Smoke Bomb,"Basic smoke bomb, use stealth in front of enemies; Bomb has 0%/35%/50% chance to stun close enemies for 0/3/5 seconds"
+backstab,Backstab,Golpe Traiçoeiro,class,rogue,3,1/2/3,,,,,Sneak Attack,"When flanking an enemy, deal +50%/+70%/+100% damage and stun for 0/1/1 second(0/15%/25% chance)"
+soul_ward,Soul Ward,Proteção da Alma,advanced,"warrior,rogue,cleric,mage",3,1/1/1,,,mental:9,5,Spiritual Ward,Gain +10/20/30 to Spirit resistance.
+dash,Dash,Disparada,class,rogue,3,1/1/1,30/25/20,,,,Sprint,You can sprint for 4/5/6 seconds.
+gut_strike,Gut Strike,Estocada,class,rogue,4,1/2/3/3,14/12/10/9,,,,Stab,Your next attack deals extra damage: 6 + lvl/10 + lvl/10+(lvl*1.5)/10+(lvl*2)
+staff_adept,Staff Adept,Mestre do Cajado,class,mage,4,1/2/2/3,,,,,Staff Mastery,Your attacks have a 25/30/35/40% chance of slowing enemies. Add 0.5/1.0/1.5/2.0x INT to damage (rounding down).
+fade,Fade,Sumir nas Sombras,class,rogue,3,1/2/3,25/25/25,,,,Stealth,Stealth lasts 8/10/12 seconds with added effects of none/lower chance of being heard/50% chance to open doors/locks unnoticed.
+binder,Binder,Invocador Mestre,advanced,"cleric,mage",3,1/1/2,,,mental:13,5,Summoner,The creatures you summon gain +1/2/3 levels.
+seers_sight,Seer's Sight,Visão do Vidente,class,cleric,2,1/1,30/30,3/5,,,Thelume's Wisdom,75%/95% chance of detecting hidden items in a 10m/20m radius. You'll also know about undiscovered doors in the area.
+venom_ward,Venom Ward,Proteção Tóxica,advanced,"warrior,rogue,cleric,mage",3,1/1/1,,,defense:9,5,Toxic Ward,Gain +12/24/36 to resist toxic.
+snare_craft,Snare Craft,Armadilheiro,class,rogue,3,1/2/3,15/15/15,,,,Trap Master,"Set trap (15/20/30 seconds duration, level 1-3/4-6/6-10). +10%/+20%/+30% bonus to disarm traps and locks."
+banish_dead,Banish Dead,Banir Mortos,advanced,cleric,3,1/2/3,20/20/20,4/5/6,skill:templar:2,8,Turn Undead,Paralyze for 3/4/5 seconds all the undead enemies in a 2/4/6 meter radius.
+heavy_arms,Heavy Arms,Armas Pesadas,class,warrior,3,1/2/3,,,,,Two Handed Expert,"With 2-handed weapons, your STR multiplier to damage increases from x1.5 to x1.5/x2/x2.5, and add +5%/+5%/+10% stun chance."
+leeching_edge,Leeching Edge,Lâmina Sanguessuga,advanced,mage,3,2/3/4,,,physical:13,5,Vampiric Blade,"Weapon death damage improved 0/x1.5/x2. Each killed enemy will heal you for 5hp/5hp/10hp and, if it's a spellcaster or outsider, 0/+3/+5 mana."
+wand_adept,Wand Adept,Mestre da Varinha,class,mage,4,1/2/2/3,,,,,Wand Mastery,Your wand attacks gain +1/3/5/8 damage and generate a pushback of 1/1.4/1.7/2m.
+blade_storm,Blade Storm,Tempestade de Lâminas,class,warrior,4,1/2/3/3,12/11/10/9,,,,Whirlwind,"Whirlwind deals 50%/75%/100%/120% extra damage, 0%/3%/5%/7% stun chance."

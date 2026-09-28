@@ -1021,6 +1021,132 @@ msgstr "Original"
 msgid "Play"
 msgstr "Jogar"
 
+msgid "You fell! Stay close to an ally to be revived."
+msgstr "Você caiu! Fique perto de um aliado para ser revivido."
+
+msgid "Reviving..."
+msgstr "Revivendo..."
+
+msgid "Sanctuary"
+msgstr "Santuário"
+
+msgid "Souls: %d"
+msgstr "Almas: %d"
+
+msgid "Buy (%d)"
+msgstr "Comprar (%d)"
+
+msgid "Close"
+msgstr "Fechar"
+
+msgid "+%d souls (%d)"
+msgstr "+%d almas (%d)"
+
+msgid "Second chance! You rise again."
+msgstr "Segunda chance! Você se levanta de novo."
+
+msgid "Vigor"
+msgstr "Vigor"
+
+msgid "+4% max health"
+msgstr "+4% de vida máxima"
+
+msgid "Might"
+msgstr "Poder"
+
+msgid "+3% damage"
+msgstr "+3% de dano"
+
+msgid "Swiftness"
+msgstr "Ligeireza"
+
+msgid "+2% move and attack speed"
+msgstr "+2% de velocidade e ataque"
+
+msgid "Precision"
+msgstr "Precisão"
+
+msgid "+1% critical chance"
+msgstr "+1% de chance de crítico"
+
+msgid "Guard"
+msgstr "Guarda"
+
+msgid "+1 absorb"
+msgstr "+1 de absorção"
+
+msgid "Fortune"
+msgstr "Fortuna"
+
+msgid "+10% gold, +5% item find"
+msgstr "+10% de ouro, +5% de itens"
+
+msgid "Wisdom"
+msgstr "Sabedoria"
+
+msgid "+8% experience"
+msgstr "+8% de experiência"
+
+msgid "Second Chance"
+msgstr "Segunda Chance"
+
+msgid "Rise again once per run"
+msgstr "Levanta de novo 1x por Run"
+
+msgid "Wave %d"
+msgstr "Onda %d"
+
+msgid "Swarm!"
+msgstr "Enxame!"
+
+msgid "Ambush!"
+msgstr "Emboscada!"
+
+msgid "Elite hunters!"
+msgstr "Caçadores de elite!"
+
+msgid "Boss!"
+msgstr "Chefe!"
+
+msgid "Skeletons"
+msgstr "Esqueletos"
+
+msgid "Zombies"
+msgstr "Zumbis"
+
+msgid "Ghosts"
+msgstr "Fantasmas"
+
+msgid "Goblins"
+msgstr "Goblins"
+
+msgid "Orcs"
+msgstr "Orcs"
+
+msgid "Minotaurs"
+msgstr "Minotauros"
+
+msgid "Demons"
+msgstr "Demônios"
+
+msgid "Spiders"
+msgstr "Aranhas"
+
+msgid "Crawlers"
+msgstr "Rastejadores"
+
+msgid "Hobgoblins"
+msgstr "Hobgoblins"
+
+msgid "An ally"
+msgstr "Um aliado"
+
+msgid "%s: %s on you"
+msgstr "%s: %s em você"
+
+msgid "An ally brought you back!"
+msgstr "Um aliado trouxe você de volta!"
+
 msgid "Credits"
 msgstr "Créditos"
 
@@ -1104,3 +1230,933 @@ msgstr "Peles-verdes"
 
 msgid "Beast"
 msgstr "Feras"
+
+msgid "Skills"
+msgstr "Habilidades"
+
+msgid "General"
+msgstr "Gerais"
+
+msgid "Advanced"
+msgstr "Avançadas"
+
+msgid "Learn"
+msgstr "Aprender"
+
+msgid "First level:"
+msgstr "Primeiro nível:"
+
+msgid "Maximum rank"
+msgstr "Nível máximo"
+
+msgid "Requires %d Skill Points"
+msgstr "Requer %d pontos de habilidade"
+
+msgid "Duelist"
+msgstr "Duelista"
+
+msgid "Poison Damage"
+msgstr "Dano de Veneno"
+
+msgid "Poison"
+msgstr "Veneno"
+
+msgid "Holy Damage"
+msgstr "Dano Sagrado"
+
+msgid "Holy"
+msgstr "Sagrado"
+
+msgid "Adds poison damage to non-elemental attacks."
+msgstr "Adiciona dano de veneno aos ataques não elementais."
+
+msgid "Adds holy damage to non-elemental attacks. Undead are weak to it."
+msgstr "Adiciona dano sagrado aos ataques não elementais. Mortos-vivos são fracos a ele."
+
+msgid "Zealot's Might"
+msgstr "Força do Zelote"
+
+msgid "+6 damage and +8 fire damage for 12s."
+msgstr "+6 de dano e +8 de dano de fogo por 12s."
+
+msgid "+10 damage and +8 fire damage for 14s."
+msgstr "+10 de dano e +8 de dano de fogo por 14s."
+
+msgid "+16 damage and +8 fire damage for 16s."
+msgstr "+16 de dano e +8 de dano de fogo por 16s."
+
+msgid "Runed Edge"
+msgstr "Lâmina Rúnica"
+
+msgid "Your fire, ice and lightning damage from gear is increased by 25%."
+msgstr "Seu dano de fogo, gelo e raio vindo de equipamentos aumenta 25%."
+
+msgid "Your fire, ice and lightning damage from gear is increased by 50%."
+msgstr "Seu dano de fogo, gelo e raio vindo de equipamentos aumenta 50%."
+
+msgid "Your fire, ice and lightning damage from gear is increased by 100%."
+msgstr "Seu dano de fogo, gelo e raio vindo de equipamentos aumenta 100%."
+
+msgid "Your fire, ice and lightning damage from gear is increased by 150%."
+msgstr "Seu dano de fogo, gelo e raio vindo de equipamentos aumenta 150%."
+
+msgid "Spell Thrift"
+msgstr "Economia Arcana"
+
+msgid "Mana flows back faster (+10 mana regeneration)."
+msgstr "A mana volta mais rápido (+10 de regeneração de mana)."
+
+msgid "Mana flows back faster (+20 mana regeneration)."
+msgstr "A mana volta mais rápido (+20 de regeneração de mana)."
+
+msgid "Mana flows back faster (+30 mana regeneration)."
+msgstr "A mana volta mais rápido (+30 de regeneração de mana)."
+
+msgid "Keen Arrows"
+msgstr "Flechas Afiadas"
+
+msgid "Arrows deal +2 damage and hit more often."
+msgstr "Flechas causam +2 de dano e acertam mais."
+
+msgid "Arrows deal +4 damage and hit more often."
+msgstr "Flechas causam +4 de dano e acertam mais."
+
+msgid "Arrows deal +6 damage and hit more often."
+msgstr "Flechas causam +6 de dano e acertam mais."
+
+msgid "Killing Flow"
+msgstr "Fluxo Assassino"
+
+msgid "After a kill, attack 25% faster for 3s."
+msgstr "Depois de matar, ataca 25% mais rápido por 3s."
+
+msgid "After a kill, attack 40% faster for 3s."
+msgstr "Depois de matar, ataca 40% mais rápido por 3s."
+
+msgid "After a kill, attack 60% faster for 3s."
+msgstr "Depois de matar, ataca 60% mais rápido por 3s."
+
+msgid "Shield Slam"
+msgstr "Pancada de Escudo"
+
+msgid "Slam into the enemy: knocks it back and stuns it for 1s."
+msgstr "Golpeia o inimigo: empurra e atordoa por 1s."
+
+msgid "Slam into the enemy: knocks it back and stuns it for 2s."
+msgstr "Golpeia o inimigo: empurra e atordoa por 2s."
+
+msgid "Slam into the enemy: knocks it back and stuns it for 3s."
+msgstr "Golpeia o inimigo: empurra e atordoa por 3s."
+
+msgid "War Hymn"
+msgstr "Hino de Guerra"
+
+msgid "You and allies nearby: +2 absorb, +4 damage for 12s."
+msgstr "Você e aliados próximos: +2 de absorção, +4 de dano por 12s."
+
+msgid "You and allies nearby: +3 absorb, +6 damage, +10% to all resistances for 12s."
+msgstr "Você e aliados próximos: +3 de absorção, +6 de dano, +10% em todas as resistências por 12s."
+
+msgid "You and allies nearby: +4 absorb, +10 damage, +25% to all resistances for 12s."
+msgstr "Você e aliados próximos: +4 de absorção, +10 de dano, +25% em todas as resistências por 12s."
+
+msgid "Blood Frenzy"
+msgstr "Frenesi Sangrento"
+
+msgid "+8 physical, +2 absorb and immunity to crowd control for 6s."
+msgstr "+8 de físico, +2 de absorção e imunidade a controle por 6s."
+
+msgid "+12 physical, +3 absorb and immunity to crowd control for 8s."
+msgstr "+12 de físico, +3 de absorção e imunidade a controle por 8s."
+
+msgid "+16 physical, +4 absorb and immunity to crowd control for 9s."
+msgstr "+16 de físico, +4 de absorção e imunidade a controle por 9s."
+
+msgid "Beast Friend"
+msgstr "Amigo das Feras"
+
+msgid "Call a wild beast to fight for you."
+msgstr "Chama uma fera selvagem para lutar por você."
+
+msgid "Thrill of the Kill"
+msgstr "Êxtase da Matança"
+
+msgid "After a kill: +6 damage and +1 absorb for 6s."
+msgstr "Depois de matar: +6 de dano e +1 de absorção por 6s."
+
+msgid "After a kill: +8 damage and +2 absorb for 6s."
+msgstr "Depois de matar: +8 de dano e +2 de absorção por 6s."
+
+msgid "After a kill: +12 damage and +3 absorb for 6s."
+msgstr "Depois de matar: +12 de dano e +3 de absorção por 6s."
+
+msgid "Hardened Body"
+msgstr "Corpo Calejado"
+
+msgid "+5% maximum health."
+msgstr "+5% de vida máxima."
+
+msgid "+10% maximum health."
+msgstr "+10% de vida máxima."
+
+msgid "+15% maximum health."
+msgstr "+15% de vida máxima."
+
+msgid "Bull Rush"
+msgstr "Investida Taurina"
+
+msgid "Charge forward and hit for +60% damage, briefly stunning."
+msgstr "Avança e golpeia com +60% de dano, atordoando por um instante."
+
+msgid "Charge forward and hit for +90% damage, briefly stunning."
+msgstr "Avança e golpeia com +90% de dano, atordoando por um instante."
+
+msgid "Charge forward and hit for +125% damage, briefly stunning."
+msgstr "Avança e golpeia com +125% de dano, atordoando por um instante."
+
+msgid "Charge forward and hit for +160% damage, briefly stunning."
+msgstr "Avança e golpeia com +160% de dano, atordoando por um instante."
+
+msgid "Wide Swing"
+msgstr "Golpe Amplo"
+
+msgid "Your attacks also sweep up to 1 nearby enemies for 50% damage."
+msgstr "Seus ataques também atingem até 1 inimigos próximos com 50% do dano."
+
+msgid "Your attacks also sweep up to 2 nearby enemies for 60% damage."
+msgstr "Seus ataques também atingem até 2 inimigos próximos com 60% do dano."
+
+msgid "Your attacks also sweep up to 3 nearby enemies for 75% damage."
+msgstr "Seus ataques também atingem até 3 inimigos próximos com 75% do dano."
+
+msgid "Immolate"
+msgstr "Imolação"
+
+msgid "30-60 fire damage; the target loses 2 absorb and 20% resistances for 8s."
+msgstr "30-60 de dano de fogo; o alvo perde 2 de absorção e 20% de resistências por 8s."
+
+msgid "40-80 fire damage; the target loses 3 absorb and 40% resistances for 8s."
+msgstr "40-80 de dano de fogo; o alvo perde 3 de absorção e 40% de resistências por 8s."
+
+msgid "56-112 fire damage; the target loses 5 absorb and 60% resistances for 8s."
+msgstr "56-112 de dano de fogo; o alvo perde 5 de absorção e 60% de resistências por 8s."
+
+msgid "Templar"
+msgstr "Templário"
+
+msgid "Your attacks burn with +2 holy damage (undead take more)."
+msgstr "Seus ataques queimam com +2 de dano sagrado (mortos-vivos sofrem mais)."
+
+msgid "Your attacks burn with +4 holy damage (undead take more)."
+msgstr "Seus ataques queimam com +4 de dano sagrado (mortos-vivos sofrem mais)."
+
+msgid "Your attacks burn with +6 holy damage (undead take more)."
+msgstr "Seus ataques queimam com +6 de dano sagrado (mortos-vivos sofrem mais)."
+
+msgid "Plague Mist"
+msgstr "Névoa da Peste"
+
+msgid "A toxic cloud: 20-40 poison damage, slows and lowers shadow resistance by 30%."
+msgstr "Uma nuvem tóxica: 20-40 de dano de veneno, deixa lento e reduz a resistência a sombra em 30%."
+
+msgid "A toxic cloud: 28-56 poison damage, slows and lowers shadow resistance by 50%."
+msgstr "Uma nuvem tóxica: 28-56 de dano de veneno, deixa lento e reduz a resistência a sombra em 50%."
+
+msgid "A toxic cloud: 36-72 poison damage, slows and lowers shadow resistance by 80%."
+msgstr "Uma nuvem tóxica: 36-72 de dano de veneno, deixa lento e reduz a resistência a sombra em 80%."
+
+msgid "Grave Ward"
+msgstr "Proteção Tumular"
+
+msgid "+12% shadow resistance."
+msgstr "+12% de resistência a sombra."
+
+msgid "+24% shadow resistance."
+msgstr "+24% de resistência a sombra."
+
+msgid "+36% shadow resistance."
+msgstr "+36% de resistência a sombra."
+
+msgid "Unmake"
+msgstr "Desfazer"
+
+msgid "A ray of pure force: 100-125 damage."
+msgstr "Um raio de força pura: 100-125 de dano."
+
+msgid "A ray of pure force: 150-187 damage."
+msgstr "Um raio de força pura: 150-187 de dano."
+
+msgid "A ray of pure force: 200-250 damage."
+msgstr "Um raio de força pura: 200-250 de dano."
+
+msgid "Each attack adds +2 damage for 4s, stacking up to +8."
+msgstr "Cada ataque soma +2 de dano por 4s, acumulando até +8."
+
+msgid "Each attack adds +4 damage for 4s, stacking up to +12."
+msgstr "Cada ataque soma +4 de dano por 4s, acumulando até +12."
+
+msgid "Each attack adds +4 damage for 4s, stacking up to +20."
+msgstr "Cada ataque soma +4 de dano por 4s, acumulando até +20."
+
+msgid "Delver"
+msgstr "Explorador"
+
+msgid "+10% item find."
+msgstr "+10% de chance de encontrar itens."
+
+msgid "+18% item find."
+msgstr "+18% de chance de encontrar itens."
+
+msgid "+25% item find."
+msgstr "+25% de chance de encontrar itens."
+
+msgid "Stone Caller"
+msgstr "Chamado da Pedra"
+
+msgid "Call a stone guardian that soaks up blows."
+msgstr "Invoca um guardião de pedra que aguenta os golpes."
+
+msgid "Slip Away"
+msgstr "Esquiva Sombria"
+
+msgid "Dodge most attacks: +50 avoidance for 5s."
+msgstr "Esquiva da maioria dos ataques: +50 de esquiva por 5s."
+
+msgid "Dodge most attacks: +70 avoidance for 5s."
+msgstr "Esquiva da maioria dos ataques: +70 de esquiva por 5s."
+
+msgid "Dodge most attacks: +90 avoidance for 5s."
+msgstr "Esquiva da maioria dos ataques: +90 de esquiva por 5s."
+
+msgid "Blast Snares"
+msgstr "Armadilhas Explosivas"
+
+msgid "Set an explosive trap: 24-48 fire damage to everyone near it."
+msgstr "Arma uma armadilha explosiva: 24-48 de dano de fogo em todos por perto."
+
+msgid "Set an explosive trap: 36-72 fire damage to everyone near it."
+msgstr "Arma uma armadilha explosiva: 36-72 de dano de fogo em todos por perto."
+
+msgid "Set an explosive trap: 48-96 fire damage to everyone near it."
+msgstr "Arma uma armadilha explosiva: 48-96 de dano de fogo em todos por perto."
+
+msgid "Second Wind"
+msgstr "Segundo Fôlego"
+
+msgid "You recover health faster (+30 health regeneration)."
+msgstr "Recupera a vida mais rápido (+30 de regeneração de vida)."
+
+msgid "You recover health faster (+60 health regeneration)."
+msgstr "Recupera a vida mais rápido (+60 de regeneração de vida)."
+
+msgid "Flame Caller"
+msgstr "Chamado da Chama"
+
+msgid "Call a fire elemental."
+msgstr "Invoca um elemental de fogo."
+
+msgid "Ember Ward"
+msgstr "Proteção Ígnea"
+
+msgid "+12% fire resistance."
+msgstr "+12% de resistência a fogo."
+
+msgid "+24% fire resistance."
+msgstr "+24% de resistência a fogo."
+
+msgid "+36% fire resistance."
+msgstr "+36% de resistência a fogo."
+
+msgid "Ember Orb"
+msgstr "Orbe de Brasa"
+
+msgid "Hurl a ball of fire: 18-36 fire damage."
+msgstr "Arremessa uma bola de fogo: 18-36 de dano de fogo."
+
+msgid "Hurl a ball of fire: 30-60 fire damage."
+msgstr "Arremessa uma bola de fogo: 30-60 de dano de fogo."
+
+msgid "Hurl a ball of fire: 56-112 fire damage."
+msgstr "Arremessa uma bola de fogo: 56-112 de dano de fogo."
+
+msgid "Hurl a ball of fire: 84-168 fire damage."
+msgstr "Arremessa uma bola de fogo: 84-168 de dano de fogo."
+
+msgid "Pyre of Faith"
+msgstr "Pira da Fé"
+
+msgid "A holy pyre: 48 holy damage around you; you and allies nearby heal 20 HP per second for 5s."
+msgstr "Uma pira sagrada: 48 de dano sagrado ao redor; você e aliados próximos curam 20 de vida por segundo por 5s."
+
+msgid "A holy pyre: 90 holy damage around you; you and allies nearby heal 32 HP per second for 5s."
+msgstr "Uma pira sagrada: 90 de dano sagrado ao redor; você e aliados próximos curam 32 de vida por segundo por 5s."
+
+msgid "A holy pyre: 126 holy damage around you; you and allies nearby heal 40 HP per second for 5s."
+msgstr "Uma pira sagrada: 126 de dano sagrado ao redor; você e aliados próximos curam 40 de vida por segundo por 5s."
+
+msgid "Blade Dance"
+msgstr "Dança das Lâminas"
+
+msgid "Attack 25% faster for 6s."
+msgstr "Ataca 25% mais rápido por 6s."
+
+msgid "Attack 50% faster for 6s."
+msgstr "Ataca 50% mais rápido por 6s."
+
+msgid "Attack 75% faster for 6s."
+msgstr "Ataca 75% mais rápido por 6s."
+
+msgid "Berserk Blood"
+msgstr "Sangue Berserker"
+
+msgid "Below half health, deal +30% damage for 8s."
+msgstr "Com menos da metade da vida, causa +30% de dano por 8s."
+
+msgid "Below half health, deal +50% damage for 8s."
+msgstr "Com menos da metade da vida, causa +50% de dano por 8s."
+
+msgid "Below half health, deal +65% damage for 8s."
+msgstr "Com menos da metade da vida, causa +65% de dano por 8s."
+
+msgid "Pilgrim's Step"
+msgstr "Passo do Peregrino"
+
+msgid "Step through space to where you aim (up to 6 tiles)."
+msgstr "Atravessa o espaço até onde você mira (até 6 metros)."
+
+msgid "Step through space to where you aim (up to 9 tiles)."
+msgstr "Atravessa o espaço até onde você mira (até 9 metros)."
+
+msgid "Silver Tongue"
+msgstr "Língua de Prata"
+
+msgid "+10% gold found."
+msgstr "+10% de ouro encontrado."
+
+msgid "+20% gold found."
+msgstr "+20% de ouro encontrado."
+
+msgid "+30% gold found."
+msgstr "+30% de ouro encontrado."
+
+msgid "Spirit Hound"
+msgstr "Cão Espiritual"
+
+msgid "Call a spirit hound to guard you."
+msgstr "Invoca um cão espiritual para protegê-lo."
+
+msgid "Mend Flesh"
+msgstr "Sarar a Carne"
+
+msgid "Heal 120 HP, you and allies nearby."
+msgstr "Cura 120 de vida em você e nos aliados próximos."
+
+msgid "Heal 300 HP, you and allies nearby."
+msgstr "Cura 300 de vida em você e nos aliados próximos."
+
+msgid "Heal 500 HP, you and allies nearby."
+msgstr "Cura 500 de vida em você e nos aliados próximos."
+
+msgid "Crushing Blows"
+msgstr "Golpes Esmagadores"
+
+msgid "+2 melee damage on every hit."
+msgstr "+2 de dano corpo a corpo em cada golpe."
+
+msgid "+6 melee damage on every hit."
+msgstr "+6 de dano corpo a corpo em cada golpe."
+
+msgid "+10 melee damage on every hit."
+msgstr "+10 de dano corpo a corpo em cada golpe."
+
+msgid "Hallowed Aegis"
+msgstr "Égide Sagrada"
+
+msgid "+2 absorb and +25% shadow resistance for 12s."
+msgstr "+2 de absorção e +25% de resistência a sombra por 12s."
+
+msgid "+3 absorb and +40% shadow resistance for 12s."
+msgstr "+3 de absorção e +40% de resistência a sombra por 12s."
+
+msgid "+4 absorb and +60% shadow resistance for 12s."
+msgstr "+4 de absorção e +60% de resistência a sombra por 12s."
+
+msgid "+5 absorb and +80% shadow resistance for 12s."
+msgstr "+5 de absorção e +80% de resistência a sombra por 12s."
+
+msgid "Frost Caller"
+msgstr "Chamado do Gelo"
+
+msgid "Call an ice elemental."
+msgstr "Invoca um elemental de gelo."
+
+msgid "Frost Squall"
+msgstr "Rajada Gélida"
+
+msgid "An icy squall where you aim: 16-32 ice damage and slow."
+msgstr "Uma rajada gélida onde você mira: 16-32 de dano de gelo e lentidão."
+
+msgid "An icy squall where you aim: 24-48 ice damage and slow."
+msgstr "Uma rajada gélida onde você mira: 24-48 de dano de gelo e lentidão."
+
+msgid "An icy squall where you aim: 36-72 ice damage and slow."
+msgstr "Uma rajada gélida onde você mira: 36-72 de dano de gelo e lentidão."
+
+msgid "An icy squall where you aim: 64-128 ice damage and slow."
+msgstr "Uma rajada gélida onde você mira: 64-128 de dano de gelo e lentidão."
+
+msgid "Frost Ward"
+msgstr "Proteção Gélida"
+
+msgid "+12% ice resistance."
+msgstr "+12% de resistência a gelo."
+
+msgid "+24% ice resistance."
+msgstr "+24% de resistência a gelo."
+
+msgid "+36% ice resistance."
+msgstr "+36% de resistência a gelo."
+
+msgid "Veteran Stance"
+msgstr "Postura Veterana"
+
+msgid "Shrug off blows: +35 poise and +1 absorb."
+msgstr "Aguenta golpes: +35 de firmeza e +1 de absorção."
+
+msgid "Shrug off blows: +50 poise and +2 absorb."
+msgstr "Aguenta golpes: +50 de firmeza e +2 de absorção."
+
+msgid "Last Rite"
+msgstr "Último Rito"
+
+msgid "When your health falls below half, recover 15% of it (once per minute)."
+msgstr "Quando a vida cai abaixo da metade, recupera 15% dela (uma vez por minuto)."
+
+msgid "When your health falls below half, recover 25% of it (once per minute)."
+msgstr "Quando a vida cai abaixo da metade, recupera 25% dela (uma vez por minuto)."
+
+msgid "When your health falls below half, recover 40% of it (once per minute)."
+msgstr "Quando a vida cai abaixo da metade, recupera 40% dela (uma vez por minuto)."
+
+msgid "Heel Strike"
+msgstr "Chute Brutal"
+
+msgid "Kick the enemy away and slow it for 3s."
+msgstr "Chuta o inimigo para longe e o deixa lento por 3s."
+
+msgid "Kick the enemy away and slow it for 4s."
+msgstr "Chuta o inimigo para longe e o deixa lento por 4s."
+
+msgid "Kick the enemy away and slow it for 5s."
+msgstr "Chuta o inimigo para longe e o deixa lento por 5s."
+
+msgid "Call Wisp"
+msgstr "Invocar Fagulha"
+
+msgid "Call a fiery wisp to fight at your side."
+msgstr "Invoca uma fagulha de fogo para lutar ao seu lado."
+
+msgid "Storm Lance"
+msgstr "Lança da Tempestade"
+
+msgid "A bolt of lightning: 20-30 lightning damage, 20% stun chance."
+msgstr "Um raio: 20-30 de dano elétrico, 20% de chance de atordoar."
+
+msgid "A bolt of lightning: 30-40 lightning damage, 25% stun chance."
+msgstr "Um raio: 30-40 de dano elétrico, 25% de chance de atordoar."
+
+msgid "A bolt of lightning: 40-56 lightning damage, 30% stun chance."
+msgstr "Um raio: 40-56 de dano elétrico, 30% de chance de atordoar."
+
+msgid "A bolt of lightning: 72-88 lightning damage, 40% stun chance."
+msgstr "Um raio: 72-88 de dano elétrico, 40% de chance de atordoar."
+
+msgid "Arcane Mantle"
+msgstr "Manto Arcano"
+
+msgid "+3 absorb for 20s."
+msgstr "+3 de absorção por 20s."
+
+msgid "+5 absorb and +15% fire, ice and lightning resistance for 20s."
+msgstr "+5 de absorção e +15% de resistência a fogo, gelo e raio por 20s."
+
+msgid "+7 absorb and +20% fire, ice and lightning resistance for 20s."
+msgstr "+7 de absorção e +20% de resistência a fogo, gelo e raio por 20s."
+
+msgid "+10 absorb and +30% fire, ice and lightning resistance for 20s."
+msgstr "+10 de absorção e +30% de resistência a fogo, gelo e raio por 20s."
+
+msgid "Arc Repulse"
+msgstr "Repulsão Arcana"
+
+msgid "Push everyone around you away with 24 lightning damage."
+msgstr "Empurra todos ao redor com 24 de dano elétrico."
+
+msgid "Push everyone around you away with 50 lightning damage (10% stun)."
+msgstr "Empurra todos ao redor com 50 de dano elétrico (10% de atordoar)."
+
+msgid "Push everyone around you away with 80 lightning damage (30% stun)."
+msgstr "Empurra todos ao redor com 80 de dano elétrico (30% de atordoar)."
+
+msgid "Blood Casting"
+msgstr "Magia de Sangue"
+
+msgid "Drink your enemies' blood: 2% of damage heals you."
+msgstr "Bebe o sangue dos inimigos: 2% do dano causado cura você."
+
+msgid "Drink your enemies' blood: 3% of damage heals you."
+msgstr "Bebe o sangue dos inimigos: 3% do dano causado cura você."
+
+msgid "Drink your enemies' blood: 4% of damage heals you."
+msgstr "Bebe o sangue dos inimigos: 4% do dano causado cura você."
+
+msgid "Deep Well"
+msgstr "Poço Profundo"
+
+msgid "+20 max mana, faster mana regeneration."
+msgstr "+20 de mana máxima, regeneração de mana mais rápida."
+
+msgid "+40 max mana, faster mana regeneration."
+msgstr "+40 de mana máxima, regeneração de mana mais rápida."
+
+msgid "+60 max mana, faster mana regeneration."
+msgstr "+60 de mana máxima, regeneração de mana mais rápida."
+
+msgid "Brutal Criticals"
+msgstr "Críticos Brutais"
+
+msgid "+3% critical chance; criticals hit very hard."
+msgstr "+3% de chance de crítico; críticos batem muito forte."
+
+msgid "+6% critical chance; criticals hit very hard."
+msgstr "+6% de chance de crítico; críticos batem muito forte."
+
+msgid "+10% critical chance; criticals hit very hard."
+msgstr "+10% de chance de crítico; críticos batem muito forte."
+
+msgid "Warding Faith"
+msgstr "Fé Protetora"
+
+msgid "+1 absorb, +5% shadow resistance."
+msgstr "+1 de absorção, +5% de resistência a sombra."
+
+msgid "+2 absorb, +10% shadow resistance."
+msgstr "+2 de absorção, +10% de resistência a sombra."
+
+msgid "+3 absorb, +15% shadow resistance."
+msgstr "+3 de absorção, +15% de resistência a sombra."
+
+msgid "Venomcraft"
+msgstr "Arte do Veneno"
+
+msgid "+2 poison damage, +10% poison resistance."
+msgstr "+2 de dano de veneno, +10% de resistência a veneno."
+
+msgid "+4 poison damage, +20% poison resistance."
+msgstr "+4 de dano de veneno, +20% de resistência a veneno."
+
+msgid "+6 poison damage, +30% poison resistance."
+msgstr "+6 de dano de veneno, +30% de resistência a veneno."
+
+msgid "Deadeye"
+msgstr "Olho Mortal"
+
+msgid "+3% critical chance."
+msgstr "+3% de chance de crítico."
+
+msgid "+6% critical chance."
+msgstr "+6% de chance de crítico."
+
+msgid "+9% critical chance."
+msgstr "+9% de chance de crítico."
+
+msgid "Keen Strikes"
+msgstr "Golpes Precisos"
+
+msgid "Quickdraw"
+msgstr "Saque Rápido"
+
+msgid "Attack 40% faster for 6s."
+msgstr "Ataca 40% mais rápido por 6s."
+
+msgid "Attack 70% faster for 6s."
+msgstr "Ataca 70% mais rápido por 6s."
+
+msgid "Attack 100% faster for 6s."
+msgstr "Ataca 100% mais rápido por 6s."
+
+msgid "Iron Will"
+msgstr "Vontade de Ferro"
+
+msgid "Gain +3 absorb and resist staggering for 6s."
+msgstr "Ganha +3 de absorção e resiste a atordoamentos por 6s."
+
+msgid "Gain +5 absorb and resist staggering for 8s."
+msgstr "Ganha +5 de absorção e resiste a atordoamentos por 8s."
+
+msgid "Gain +7 absorb and resist staggering for 10s."
+msgstr "Ganha +7 de absorção e resiste a atordoamentos por 10s."
+
+msgid "Soul Harvest"
+msgstr "Colheita de Almas"
+
+msgid "Each kill restores 3% of your mana."
+msgstr "Cada abate restaura 3% da sua mana."
+
+msgid "Each kill restores 6% of your mana."
+msgstr "Cada abate restaura 6% da sua mana."
+
+msgid "Cleansing Flame"
+msgstr "Chama Purificadora"
+
+msgid "Holy flames hit for 24-32 holy damage (undead take more)."
+msgstr "Chamas sagradas causam 24-32 de dano sagrado (mortos-vivos sofrem mais)."
+
+msgid "Holy flames hit for 48-64 holy damage (undead take more)."
+msgstr "Chamas sagradas causam 48-64 de dano sagrado (mortos-vivos sofrem mais)."
+
+msgid "Holy flames hit for 96-128 holy damage (undead take more)."
+msgstr "Chamas sagradas causam 96-128 de dano sagrado (mortos-vivos sofrem mais)."
+
+msgid "Bulwark"
+msgstr "Baluarte"
+
+msgid "With a shield: +1 absorb and +3 avoidance."
+msgstr "Com escudo: +1 de absorção e +3 de esquiva."
+
+msgid "With a shield: +2 absorb and +6 avoidance."
+msgstr "Com escudo: +2 de absorção e +6 de esquiva."
+
+msgid "With a shield: +3 absorb and +9 avoidance."
+msgstr "Com escudo: +3 de absorção e +9 de esquiva."
+
+msgid "Storm Ward"
+msgstr "Proteção Elétrica"
+
+msgid "+12% lightning resistance."
+msgstr "+12% de resistência a raio."
+
+msgid "+24% lightning resistance."
+msgstr "+24% de resistência a raio."
+
+msgid "+36% lightning resistance."
+msgstr "+36% de resistência a raio."
+
+msgid "Smoke Veil"
+msgstr "Véu de Fumaça"
+
+msgid "Throw a smoke bomb and vanish."
+msgstr "Joga uma bomba de fumaça e some."
+
+msgid "Throw a smoke bomb and vanish (35% chance to stun those nearby)."
+msgstr "Joga uma bomba de fumaça e some (35% de chance de atordoar quem estiver perto)."
+
+msgid "Throw a smoke bomb and vanish (50% chance to stun those nearby)."
+msgstr "Joga uma bomba de fumaça e some (50% de chance de atordoar quem estiver perto)."
+
+msgid "Backstab"
+msgstr "Golpe Traiçoeiro"
+
+msgid "Strike weak spots: +6% critical chance."
+msgstr "Ataca pontos fracos: +6% de chance de crítico."
+
+msgid "Strike weak spots: +10% critical chance."
+msgstr "Ataca pontos fracos: +10% de chance de crítico."
+
+msgid "Strike weak spots: +15% critical chance."
+msgstr "Ataca pontos fracos: +15% de chance de crítico."
+
+msgid "Soul Ward"
+msgstr "Proteção da Alma"
+
+msgid "+10% holy resistance."
+msgstr "+10% de resistência a sagrado."
+
+msgid "+20% holy resistance."
+msgstr "+20% de resistência a sagrado."
+
+msgid "+30% holy resistance."
+msgstr "+30% de resistência a sagrado."
+
+msgid "Dash"
+msgstr "Disparada"
+
+msgid "Sprint at +60% speed for 4s."
+msgstr "Corre com +60% de velocidade por 4s."
+
+msgid "Sprint at +60% speed for 5s."
+msgstr "Corre com +60% de velocidade por 5s."
+
+msgid "Sprint at +60% speed for 6s."
+msgstr "Corre com +60% de velocidade por 6s."
+
+msgid "Gut Strike"
+msgstr "Estocada"
+
+msgid "A precise stab for +100% damage."
+msgstr "Uma estocada precisa com +100% de dano."
+
+msgid "A precise stab for +150% damage."
+msgstr "Uma estocada precisa com +150% de dano."
+
+msgid "A precise stab for +200% damage."
+msgstr "Uma estocada precisa com +200% de dano."
+
+msgid "A precise stab for +250% damage."
+msgstr "Uma estocada precisa com +250% de dano."
+
+msgid "Staff Adept"
+msgstr "Mestre do Cajado"
+
+msgid "With a staff: +4 magic damage."
+msgstr "Com cajado: +4 de dano mágico."
+
+msgid "With a staff: +8 magic damage."
+msgstr "Com cajado: +8 de dano mágico."
+
+msgid "With a staff: +12 magic damage."
+msgstr "Com cajado: +12 de dano mágico."
+
+msgid "With a staff: +16 magic damage."
+msgstr "Com cajado: +16 de dano mágico."
+
+msgid "Fade"
+msgstr "Sumir nas Sombras"
+
+msgid "Vanish into the shadows for 8s: enemies notice you much later."
+msgstr "Some nas sombras por 8s: os inimigos demoram muito mais a notar você."
+
+msgid "Vanish into the shadows for 10s: enemies notice you much later."
+msgstr "Some nas sombras por 10s: os inimigos demoram muito mais a notar você."
+
+msgid "Vanish into the shadows for 12s: enemies notice you much later."
+msgstr "Some nas sombras por 12s: os inimigos demoram muito mais a notar você."
+
+msgid "Binder"
+msgstr "Invocador Mestre"
+
+msgid "+4 mental: your summons come out stronger."
+msgstr "+4 de mental: suas invocações ficam mais fortes."
+
+msgid "+8 mental: your summons come out stronger."
+msgstr "+8 de mental: suas invocações ficam mais fortes."
+
+msgid "+12 mental: your summons come out stronger."
+msgstr "+12 de mental: suas invocações ficam mais fortes."
+
+msgid "Seer's Sight"
+msgstr "Visão do Vidente"
+
+msgid "+15% item find."
+msgstr "+15% de chance de encontrar itens."
+
+msgid "+30% item find."
+msgstr "+30% de chance de encontrar itens."
+
+msgid "Venom Ward"
+msgstr "Proteção Tóxica"
+
+msgid "+12% poison resistance."
+msgstr "+12% de resistência a veneno."
+
+msgid "+24% poison resistance."
+msgstr "+24% de resistência a veneno."
+
+msgid "+36% poison resistance."
+msgstr "+36% de resistência a veneno."
+
+msgid "Snare Craft"
+msgstr "Armadilheiro"
+
+msgid "Set a trap that lasts 15s, hurts and holds the first enemy in place."
+msgstr "Arma uma armadilha que dura 15s, fere e prende o primeiro inimigo."
+
+msgid "Set a trap that lasts 20s, hurts and holds the first enemy in place."
+msgstr "Arma uma armadilha que dura 20s, fere e prende o primeiro inimigo."
+
+msgid "Set a trap that lasts 30s, hurts and holds the first enemy in place."
+msgstr "Arma uma armadilha que dura 30s, fere e prende o primeiro inimigo."
+
+msgid "Banish Dead"
+msgstr "Banir Mortos"
+
+msgid "A holy word paralyzes every enemy within 2 tiles for 2s."
+msgstr "Uma palavra sagrada paralisa os inimigos a até 2 metros por 2s."
+
+msgid "A holy word paralyzes every enemy within 4 tiles for 3s."
+msgstr "Uma palavra sagrada paralisa os inimigos a até 4 metros por 3s."
+
+msgid "A holy word paralyzes every enemy within 6 tiles for 4s."
+msgstr "Uma palavra sagrada paralisa os inimigos a até 6 metros por 4s."
+
+msgid "Heavy Arms"
+msgstr "Armas Pesadas"
+
+msgid "With a two-handed weapon: +15% melee damage."
+msgstr "Com arma de duas mãos: +15% de dano corpo a corpo."
+
+msgid "With a two-handed weapon: +30% melee damage."
+msgstr "Com arma de duas mãos: +30% de dano corpo a corpo."
+
+msgid "With a two-handed weapon: +50% melee damage."
+msgstr "Com arma de duas mãos: +50% de dano corpo a corpo."
+
+msgid "Leeching Edge"
+msgstr "Lâmina Sanguessuga"
+
+msgid "+2 shadow damage and 2% of damage heals you."
+msgstr "+2 de dano de sombra e 2% do dano cura você."
+
+msgid "+4 shadow damage and 3% of damage heals you."
+msgstr "+4 de dano de sombra e 3% do dano cura você."
+
+msgid "+6 shadow damage and 4% of damage heals you."
+msgstr "+6 de dano de sombra e 4% do dano cura você."
+
+msgid "Wand Adept"
+msgstr "Mestre da Varinha"
+
+msgid "With a wand: +2 magic damage."
+msgstr "Com varinha: +2 de dano mágico."
+
+msgid "With a wand: +6 magic damage."
+msgstr "Com varinha: +6 de dano mágico."
+
+msgid "With a wand: +10 magic damage."
+msgstr "Com varinha: +10 de dano mágico."
+
+msgid "With a wand: +16 magic damage."
+msgstr "Com varinha: +16 de dano mágico."
+
+msgid "Blade Storm"
+msgstr "Tempestade de Lâminas"
+
+msgid "Spin and hit everyone around you for +50% damage."
+msgstr "Gira e atinge todos ao redor com +50% de dano."
+
+msgid "Spin and hit everyone around you for +75% damage (3% stun chance)."
+msgstr "Gira e atinge todos ao redor com +75% de dano (3% de chance de atordoar)."
+
+msgid "Spin and hit everyone around you for +100% damage (5% stun chance)."
+msgstr "Gira e atinge todos ao redor com +100% de dano (5% de chance de atordoar)."
+
+msgid "Spin and hit everyone around you for +120% damage (7% stun chance)."
+msgstr "Gira e atinge todos ao redor com +120% de dano (7% de chance de atordoar)."
+
+msgid "Your Fiery Wisp"
+msgstr "Sua Fagulha"
+
+msgid "Your Wild Beast"
+msgstr "Sua Fera"
+
+msgid "Your Stone Guardian"
+msgstr "Seu Guardião de Pedra"
+
+msgid "Your Fire Elemental"
+msgstr "Seu Elemental de Fogo"
+
+msgid "Your Ice Elemental"
+msgstr "Seu Elemental de Gelo"
+
+msgid "Your Spirit Hound"
+msgstr "Seu Cão Espiritual"

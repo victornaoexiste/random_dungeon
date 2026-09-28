@@ -135,8 +135,9 @@ void CombatText::addString(const std::string& message, const FPoint& location, i
 	c.label->setPos(static_cast<int>(c.pos.x), static_cast<int>(c.pos.y));
 	c.label->setJustify(FontEngine::JUSTIFY_CENTER);
 	c.label->setVAlign(LabelInfo::VALIGN_BOTTOM);
-	c.label->setFont(font_id);
-	c.label->setText(c.text);
+	// Random Dungeon: criticals stand out (bigger, with a "!")
+	c.label->setFont(displaytype == MSG_CRIT ? std::string("font_title") : font_id);
+	c.label->setText(displaytype == MSG_CRIT ? c.text + "!" : c.text);
 	c.label->setColor(msg_color[c.displaytype]);
 	combat_text.push_back(c);
 }
@@ -150,7 +151,7 @@ void CombatText::addFloat(float num, const FPoint& location, int displaytype) {
 		if (it->is_number && it->displaytype == displaytype && it->lifespan == duration && it->pos.x == location.x && it->pos.y == location.y) {
 			it->number_value += num;
 			it->text = Utils::floatToString(it->number_value, eset->number_format.combat_text);
-			it->label->setText(it->text);
+			it->label->setText(displaytype == MSG_CRIT ? it->text + "!" : it->text);
 			return;
 		}
 	}

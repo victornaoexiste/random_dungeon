@@ -277,6 +277,7 @@ SDLHardwareRenderDevice::SDLHardwareRenderDevice()
 	, world_w(0)
 	, world_h(0)
 	, world_filter_on(false)
+	, world_inv(0.5f)
 	, titlebar_icon(NULL)
 	, title(NULL)
 	, background_color(0,0,0,255)
@@ -467,8 +468,8 @@ int SDLHardwareRenderDevice::render(Renderable& r, Rect& dest) {
 	SDL_SetTextureAlphaMod(surface, r.alpha_mod);
 
 	if (world_filter_on) {
-		// world filter: half-resolution target (see beginWorldFilter)
-		SDL_FRect half = { static_cast<float>(_dest.x) * 0.5f, static_cast<float>(_dest.y) * 0.5f, static_cast<float>(_dest.w) * 0.5f, static_cast<float>(_dest.h) * 0.5f };
+		// world filter: low-resolution target (see beginWorldFilter)
+		SDL_FRect half = { static_cast<float>(_dest.x) * world_inv, static_cast<float>(_dest.y) * world_inv, static_cast<float>(_dest.w) * world_inv, static_cast<float>(_dest.h) * world_inv };
 		return SDL_RenderCopyF(renderer, surface, &src, &half);
 	}
 	return SDL_RenderCopy(renderer, surface, &src, &_dest);
@@ -507,7 +508,7 @@ int SDLHardwareRenderDevice::render(Sprite *r) {
 	SDL_SetTextureAlphaMod(surface, r->alpha_mod);
 
 	if (world_filter_on) {
-		SDL_FRect half = { static_cast<float>(dest.x) * 0.5f, static_cast<float>(dest.y) * 0.5f, static_cast<float>(dest.w) * 0.5f, static_cast<float>(dest.h) * 0.5f };
+		SDL_FRect half = { static_cast<float>(dest.x) * world_inv, static_cast<float>(dest.y) * world_inv, static_cast<float>(dest.w) * world_inv, static_cast<float>(dest.h) * world_inv };
 		return SDL_RenderCopyF(renderer, surface, &src, &half);
 	}
 	return SDL_RenderCopy(renderer, static_cast<SDLHardwareImage *>(r->getGraphics())->surface, &src, &dest);
@@ -584,8 +585,10 @@ void SDLHardwareRenderDevice::beginWorldFilter() {
 	if (!settings->world_filter || !texture || world_filter_on)
 		return;
 
-	const int w = std::max(1, settings->view_w / 2);
-	const int h = std::max(1, settings->view_h / 2);
+	const int scale = std::max(2, std::min(4, settings->world_pixel_scale));
+	world_inv = 1.f / static_cast<float>(scale);
+	const int w = std::max(1, (settings->view_w + scale - 1) / scale);
+	const int h = std::max(1, (settings->view_h + scale - 1) / scale);
 	if (!world_tex || w != world_w || h != world_h) {
 		if (world_tex) SDL_DestroyTexture(world_tex);
 		world_tex = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_TARGET, w, h);
@@ -601,7 +604,7 @@ void SDLHardwareRenderDevice::beginWorldFilter() {
 	SDL_SetRenderTarget(renderer, world_tex);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
-	// (draw calls halve their own coordinates: SDL resets the render scale
+	// (draw calls scale their own coordinates by world_inv: SDL resets the render scale
 	// whenever the target changes, which the engine does all the time)
 	world_filter_on = true;
 }
@@ -616,7 +619,10 @@ void SDLHardwareRenderDevice::endWorldFilter() {
 
 	// warm grade: pull blue/green down a little (multiply)
 	SDL_SetTextureColorMod(world_tex, 236, 210, 192);
-	SDL_RenderCopy(renderer, world_tex, NULL, NULL);
+	// whole pixels: the target is rounded up, so it may overhang the screen
+	const int scale = static_cast<int>(1.f / world_inv + 0.5f);
+	SDL_Rect full = { 0, 0, world_w * scale, world_h * scale };
+	SDL_RenderCopy(renderer, world_tex, NULL, &full);
 
 	// lift the shadows toward blood red
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);

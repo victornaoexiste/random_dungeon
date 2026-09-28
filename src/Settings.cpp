@@ -76,7 +76,7 @@ Settings::Settings()
 	, soft_reset(false)
 	, safe_video(false)
 {
-	config.resize(56);
+	config.resize(57);
 	setConfigDefault(0,  "fullscreen",          &typeid(fullscreen),          "1",             &fullscreen,          "Fullscreen mode | 0 = disable, 1 = enable");
 	setConfigDefault(1,  "resolution_w",        &typeid(screen_w),            "640",           &screen_w,            "Window size");
 	setConfigDefault(2,  "resolution_h",        &typeid(screen_h),            "480",           &screen_h,            "");
@@ -134,6 +134,7 @@ Settings::Settings()
 	// the two one-time setup flags must stay last (see loadDefaults)
 	setConfigDefault(54, "setup_language",      &typeid(setup_language),      "0",             &setup_language,      "(First-time-launch setup) Language | 0 = show dialog, 1 = no dialog");
 	setConfigDefault(55, "setup_mousemove",     &typeid(setup_mousemove),     "0",             &setup_mousemove,     "(First-time-launch setup) Mouse movement | 0 = show dialog, 1 = no dialog");
+	setConfigDefault(56, "world_pixel_scale",   &typeid(world_pixel_scale),   "3",             &world_pixel_scale,   "Random Dungeon look: size of one world pixel in screen pixels when world_filter is on | 2 to 4");
 }
 
 void Settings::setConfigDefault(size_t index, const std::string& name, const std::type_info *type, const std::string& default_val, void *storage, const std::string& comment) {

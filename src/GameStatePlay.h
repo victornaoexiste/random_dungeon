@@ -40,6 +40,7 @@ class Entity;
 class GameSlotPreview;
 class HordeManager;
 class MenuRunUpgrade;
+class MenuSanctuary;
 class MenuManager;
 class QuestLog;
 class StatBlock;
@@ -146,7 +147,30 @@ private:
 	StatBlock *net_hit_src;
 	HordeManager *horde;
 	MenuRunUpgrade *run_upgrade;
+	MenuSanctuary *sanctuary;
+	bool second_chance_used; // Sanctuary blessing: one self-revive per run
+	std::string second_chance_map;
 	void updateNetTargets();
+	// co-op Infinite Run: party scaling, fallen heroes revived by allies
+	// standing next to them, run over only when everyone is down
+	void coopLogic();
+	void applyAllyPowers();
+	void renderCoop();
+	// "Wave 7 - Skeletons!" banner (HordeManager::bannerText)
+	void renderWaveBanner();
+	std::string banner_text;
+	int banner_ticks;
+	WidgetLabel *banner_label;
+	// red flash when the hero takes a heavy hit (renderHurtFlash)
+	void renderHurtFlash();
+	float hurt_last_hp;
+	int hurt_flash;
+	Sprite *hurt_overlay;
+	Point hurt_overlay_size;
+	void reviveHero(bool by_ally = true);
+	float revive_timer;                    // seconds an ally has been reviving us
+	std::map<uint32_t, float> revive_help; // seconds we've been reviving each fallen ally
+	std::set<uint32_t> counted_dead;       // client: proxies already counted as kills
 	void forwardNetPlayerHits();
 	void selftestPvpAttack();
 	void selftestUiShots();

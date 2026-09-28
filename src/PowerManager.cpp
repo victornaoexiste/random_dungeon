@@ -103,6 +103,7 @@ Power::Power()
 	, remove_corpse(false)
 	, post_hazards_skip_target(false)
 	, can_trigger_passives(false)
+	, share_radius(0)
 	, passive_effects_persist(false)
 	, spawn_requires_unlocked_power(true)
 
@@ -446,13 +447,14 @@ void PowerManager::loadPowers() {
 			power->passive = Parse::toBool(infile.val);
 		}
 		else if (infile.key == "passive_trigger") {
-			// @ATTR power.passive_trigger|["on_block", "on_hit", "on_halfdeath", "on_joincombat", "on_death", "on_active_power"]|This will only activate a passive power under a certain condition.
+			// @ATTR power.passive_trigger|["on_block", "on_hit", "on_halfdeath", "on_joincombat", "on_death", "on_active_power", "on_kill"]|This will only activate a passive power under a certain condition.
 			if (infile.val == "on_block") power->passive_trigger = Power::TRIGGER_BLOCK;
 			else if (infile.val == "on_hit") power->passive_trigger = Power::TRIGGER_HIT;
 			else if (infile.val == "on_halfdeath") power->passive_trigger = Power::TRIGGER_HALFDEATH;
 			else if (infile.val == "on_joincombat") power->passive_trigger = Power::TRIGGER_JOINCOMBAT;
 			else if (infile.val == "on_death") power->passive_trigger = Power::TRIGGER_DEATH;
 			else if (infile.val == "on_active_power") power->passive_trigger = Power::TRIGGER_ACTIVE_POWER;
+			else if (infile.val == "on_kill") power->passive_trigger = Power::TRIGGER_KILL;
 			else infile.error("PowerManager: Unknown passive trigger '%s'", infile.val.c_str());
 		}
 		else if (infile.key == "meta_power") {
@@ -1210,6 +1212,10 @@ void PowerManager::loadPowers() {
 		else if (infile.key == "post_hazards_skip_target") {
 			// @ATTR power.post_hazards_skip_target|bool|When this power's hazard hits a target, this property determines if hazards spawned by post_power can hit the same target.
 			power->post_hazards_skip_target = Parse::toBool(infile.val);
+		}
+		else if (infile.key == "share_radius") {
+			// @ATTR power.share_radius|float|Co-op: when the hero casts this, other players within this radius (tiles) get its effects too.
+			power->share_radius = Parse::toFloat(infile.val);
 		}
 		else if (infile.key == "can_trigger_passives") {
 			// @ATTR power.can_trigger_passives|bool|If true, this power can trigger passive powers that have passive_trigger=on_active_power.
@@ -2056,6 +2062,9 @@ bool PowerManager::activate(PowerID power_index, StatBlock *src_stats, const FPo
 	if (power->type == Power::TYPE_BLOCK)
 		return block(power_index, src_stats);
 
+	if (src_stats->hero && power->share_radius > 0 && !power->passive)
+		shared_casts.push_back(power_index);
+
 	if (power->script_trigger == Power::SCRIPT_TRIGGER_CAST) {
 		eventm->executeScript(power->script, origin.x, origin.y);
 	}
@@ -2175,6 +2184,7 @@ void PowerManager::activatePassives(StatBlock *src_stats) {
 	// the block trigger is handled in the Avatar class
 	src_stats->effects.triggered_hit = false;
 	src_stats->effects.triggered_death = false;
+	src_stats->effects.triggered_kill = false;
 
 	activatePassivePostPowers(src_stats);
 
@@ -2230,6 +2240,9 @@ bool PowerManager::activatePassiveByTrigger(PowerID power_id, StatBlock *src_sta
 			return false;
 		}
 		else if (trigger == Power::TRIGGER_ACTIVE_POWER && !src_stats->effects.triggered_active_power) {
+			return false;
+		}
+		else if (trigger == Power::TRIGGER_KILL && !src_stats->effects.triggered_kill) {
 			return false;
 		}
 

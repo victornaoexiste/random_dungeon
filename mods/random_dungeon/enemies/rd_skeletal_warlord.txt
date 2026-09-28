@@ -35,5 +35,6 @@ xp_scaling=enemies/xp_scaling/il.txt
 animations=animations/enemies/skeleton_knight_boss.txt
 stat=dark_resist,60
 stat=ice_resist,23
+stat=holy_resist,-50
 loot=loot/rd_drop_elite.txt
 loot_count=1,2

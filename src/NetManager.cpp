@@ -531,6 +531,21 @@ void NetManager::pollGame() {
 						relayPowerVisual(owner_id, pkt);
 					}
 				}
+				else if (isMsg(event.packet, MSG_ALLY_POWER, sizeof(PowerVisualPacket))) {
+					PowerVisualPacket pkt;
+					memcpy(&pkt, event.packet->data + 1, sizeof(PowerVisualPacket));
+					uint32_t owner_id = (role == ROLE_SERVER) ? event.peer->connectID : pkt.player_id;
+					pkt.player_id = owner_id;
+					pending_ally_powers.push_back(pkt);
+					if (role == ROLE_SERVER) {
+						PowerVisualPacket relay = pkt;
+						for (std::map<uint32_t, ENetPeer*>::iterator it = server_peers.begin(); it != server_peers.end(); ++it) {
+							if (it->first == owner_id)
+								continue;
+							enet_peer_send(it->second, 2, makePacket(MSG_ALLY_POWER, &relay, sizeof(relay), ENET_PACKET_FLAG_RELIABLE));
+						}
+					}
+				}
 				else if (isMsg(event.packet, MSG_ENEMY_SPAWN, sizeof(EnemySpawnPacket))) {
 					// Host -> client only; a client never sends this.
 					if (role == ROLE_CLIENT) {
@@ -661,7 +676,7 @@ void NetManager::pollGame() {
 	}
 }
 
-void NetManager::sendPosition(float x, float y, float hp, float hp_max, bool alive) {
+void NetManager::sendPosition(float x, float y, float hp, float hp_max, bool alive, int wave, int theme, int family) {
 	if (!host)
 		return;
 
@@ -673,6 +688,9 @@ void NetManager::sendPosition(float x, float y, float hp, float hp_max, bool ali
 	pkt.hp = hp;
 	pkt.hp_max = hp_max;
 	pkt.alive = alive ? 1 : 0;
+	pkt.wave = static_cast<uint8_t>(std::max(0, std::min(255, wave)));
+	pkt.theme = static_cast<uint8_t>(std::max(0, std::min(255, theme)));
+	pkt.family = static_cast<uint8_t>(std::max(0, std::min(255, family)));
 
 	// UNSEQUENCED (see the relay comment above for why plain unreliable is
 	// the wrong choice once more than one sender shares a channel).
@@ -791,6 +809,27 @@ void NetManager::relayPowerVisual(uint32_t sender_id, const PowerVisualPacket& p
 		ENetPacket *out = makePacket(MSG_POWER_VISUAL, &relay, sizeof(relay), ENET_PACKET_FLAG_RELIABLE);
 		enet_peer_send(it->second, 2, out);
 	}
+}
+
+void NetManager::sendAllyPower(uint32_t power_id, float x, float y, float radius) {
+	if (!host)
+		return;
+	PowerVisualPacket pkt;
+	pkt.player_id = 0;
+	pkt.power_id = power_id;
+	pkt.origin_x = x;
+	pkt.origin_y = y;
+	pkt.target_x = radius;
+	if (role == ROLE_SERVER)
+		enet_host_broadcast(host, 2, makePacket(MSG_ALLY_POWER, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE));
+	else if (role == ROLE_CLIENT && server_peer)
+		enet_peer_send(server_peer, 2, makePacket(MSG_ALLY_POWER, &pkt, sizeof(pkt), ENET_PACKET_FLAG_RELIABLE));
+}
+
+std::vector<PowerVisualPacket> NetManager::drainAllyPowers() {
+	std::vector<PowerVisualPacket> out;
+	out.swap(pending_ally_powers);
+	return out;
 }
 
 std::vector<PowerVisualPacket> NetManager::drainPowerVisualEvents() {
@@ -1060,4 +1099,19 @@ bool NetManager::takeMapChange(std::string& map, float& x, float& y) {
 	x = host_map_packet.x;
 	y = host_map_packet.y;
 	return true;
+}
+
+int NetManager::getHostWave() const {
+	std::map<uint32_t, NetPos>::const_iterator it = remote_positions.find(0);
+	return it != remote_positions.end() ? it->second.wave : 0;
+}
+
+int NetManager::getHostTheme() const {
+	std::map<uint32_t, NetPos>::const_iterator it = remote_positions.find(0);
+	return it != remote_positions.end() ? it->second.theme : 0;
+}
+
+int NetManager::getHostFamily() const {
+	std::map<uint32_t, NetPos>::const_iterator it = remote_positions.find(0);
+	return it != remote_positions.end() ? it->second.family : 0;
 }

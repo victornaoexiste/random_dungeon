@@ -3,12 +3,12 @@
 map=maps/run/
 
 # tempo (segundos)
-start_delay=3
+start_delay=2
 interval=5
-wave_length=30
+wave_length=25
 
 # quantos inimigos por grupo: base_count + count_per_wave * onda
-base_count=3
+base_count=4
 count_per_wave=1.5
 max_alive=70
 
@@ -35,3 +35,26 @@ tier=rd_boss,12,1
 xp_multiplier=2.5
 # onde o heroi renasce quando morre (fim da run)
 end_map=maps/world/aurora_a.txt
+
+# Temas de onda (anunciados na tela): cada onda sorteia um.
+# theme=id,peso,onda_minima,mult_quantidade,mult_vida,mult_intervalo,mult_distancia,categoria,rotulo
+# (a primeira linha e a onda 1; "family" usa uma familia abaixo; "boss" e a onda de chefe)
+theme=normal,6,0,1,1,1,1,,
+theme=swarm,2,2,2.2,0.45,0.8,1,,Swarm!
+theme=family,4,1,1.1,1,1,1,,
+theme=ambush,2,3,0.9,1,0.6,0.55,,Ambush!
+theme=elite,1,5,0.35,1.2,1.4,1,rd_elite,Elite hunters!
+theme=boss,0,0,0.6,1,1.2,1,,Boss!
+# a cada N ondas, uma onda de chefe (um inimigo grande + escolta)
+boss_every=5
+# familias para as ondas tematicas: categoria,Nome
+family=rd_skeletons,Skeletons
+family=rd_zombies,Zombies
+family=rd_ghosts,Ghosts
+family=rd_goblins,Goblins
+family=rd_orcs,Orcs
+family=rd_minotaurs,Minotaurs
+family=rd_demons,Demons
+family=rd_spiders,Spiders
+family=rd_crawlers,Crawlers
+family=rd_hobgoblins,Hobgoblins

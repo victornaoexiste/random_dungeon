@@ -36,5 +36,6 @@ animations=animations/enemies/rd/rd_fallen_dragoon.txt
 stat=dark_resist,60
 stat=fire_resist,75
 stat=ice_resist,-33
+stat=holy_resist,-50
 loot=loot/rd_drop_normal.txt
 loot_count=1,1

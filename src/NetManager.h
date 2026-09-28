@@ -118,15 +118,14 @@ enum NetMsgType {
 	MSG_ENEMY_DESPAWN = 7,
 	MSG_ENEMY_HIT = 8,
 	MSG_MAP = 9,
-	MSG_PLAYER_HIT = 10
+	MSG_PLAYER_HIT = 10,
+	MSG_ALLY_POWER = 11 // PowerVisualPacket: origin = caster, target_x = radius (co-op heals/buffs)
 };
 
 // Per-tick player state. Also carries hp so others can draw a health bar and
 // know who's dead (enemy AI and PvP skip dead players).
 struct TickPacket {
-	TickPacket() : player_id(0), tick(0), x(0), y(0), hp(0), hp_max(0), alive(1) {
-		memset(pad, 0, sizeof(pad));
-	}
+	TickPacket() : player_id(0), tick(0), x(0), y(0), hp(0), hp_max(0), alive(1), wave(0), theme(0), family(0) {}
 	uint32_t player_id; // 0 = host's own hero; otherwise the sender's connectID
 	uint32_t tick;
 	float x;
@@ -134,17 +133,22 @@ struct TickPacket {
 	float hp;
 	float hp_max;
 	uint8_t alive;
-	uint8_t pad[3];
+	uint8_t wave;   // host only: current Infinite Run wave, 1-based (clients show it and end the run with it)
+	uint8_t theme;  // host only: that wave's theme / family index (HordeManager)
+	uint8_t family;
 };
 
 struct NetPos {
-	NetPos() : x(0), y(0), hp(0), hp_max(0), alive(true) {}
-	NetPos(const TickPacket& pkt) : x(pkt.x), y(pkt.y), hp(pkt.hp), hp_max(pkt.hp_max), alive(pkt.alive != 0) {}
+	NetPos() : x(0), y(0), hp(0), hp_max(0), alive(true), wave(0), theme(0), family(0) {}
+	NetPos(const TickPacket& pkt) : x(pkt.x), y(pkt.y), hp(pkt.hp), hp_max(pkt.hp_max), alive(pkt.alive != 0), wave(pkt.wave), theme(pkt.theme), family(pkt.family) {}
 	float x;
 	float y;
 	float hp;
 	float hp_max;
 	bool alive;
+	int wave;
+	int theme;
+	int family;
 };
 
 // Fixed-size on the wire so it can be memcpy'd like TickPacket. Resent
@@ -335,7 +339,7 @@ struct RemoteEnemyState {
 
 class NetManager {
 public:
-	static const uint32_t PROTOCOL_VERSION = 8; // 8: hero colours in AppearancePacket
+	static const uint32_t PROTOCOL_VERSION = 9; // 9: co-op revive + host wave in TickPacket
 	static const uint16_t DISCOVERY_PORT = 4651;
 	static const int NET_SEND_HZ = 20;
 	static const uint32_t INTERP_DELAY_MS = 100;
@@ -400,7 +404,11 @@ public:
 	// Sends our own hero's position to the peer(s). Server broadcasts to
 	// all connected clients (tagged player_id=0); client sends to the
 	// server, which re-tags it with that client's player_id before relaying.
-	void sendPosition(float x, float y, float hp, float hp_max, bool alive);
+	void sendPosition(float x, float y, float hp, float hp_max, bool alive, int wave = 0, int theme = 0, int family = 0);
+	// Infinite Run wave (1-based, 0 = unknown), theme and family the host reports (clients)
+	int getHostWave() const;
+	int getHostTheme() const;
+	int getHostFamily() const;
 	// Interpolated position of a remote player / networked enemy, drawn
 	// INTERP_DELAY_MS in the past (see Step 7). False if we have no sample.
 	bool samplePlayerPos(uint32_t player_id, float& x, float& y) const;
@@ -433,6 +441,11 @@ public:
 	// PowerVisualPacket). Same relay/tagging/queue rules as sendAction().
 	void sendPowerVisual(uint32_t power_id, float origin_x, float origin_y, float target_x, float target_y);
 	std::vector<PowerVisualPacket> drainPowerVisualEvents();
+	// Co-op: "I cast this party skill here, it reaches allies within
+	// radius" (heals, war songs...). Every receiver applies it to its own
+	// hero if in range (see GameStatePlay::applyAllyPowers).
+	void sendAllyPower(uint32_t power_id, float x, float y, float radius);
+	std::vector<PowerVisualPacket> drainAllyPowers();
 
 	// Host only. Registers a new networked enemy (once, reliable) and
 	// caches it so a peer connecting later still gets it.
@@ -516,6 +529,7 @@ private:
 
 	std::vector<std::pair<uint32_t, std::string> > pending_actions;
 	std::vector<PowerVisualPacket> pending_power_visuals;
+	std::vector<PowerVisualPacket> pending_ally_powers;
 
 	void relayPowerVisual(uint32_t sender_id, const PowerVisualPacket& pkt);
 
