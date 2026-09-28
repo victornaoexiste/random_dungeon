@@ -79,24 +79,8 @@ def copy_dlls(exe, dest):
     return sorted(seen)
 
 
-def main():
-    edition = 'run'
-    if '--edition' in sys.argv:
-        edition = sys.argv[sys.argv.index('--edition') + 1]
-    exe = os.path.join(BUILD, 'flare.exe')
-    if not os.path.exists(exe):
-        sys.exit('build-win/flare.exe not found; build it first (see the top of this file)')
-
-    name = 'RandomDungeon-%s-win64' % edition
-    out = os.path.join(ENGINE, 'dist', name)
-    if os.path.isdir(out):
-        shutil.rmtree(out)
-    os.makedirs(out)
-
-    shutil.copy2(exe, os.path.join(out, 'RandomDungeon.exe'))
-    subprocess.call(['x86_64-w64-mingw32-strip', os.path.join(out, 'RandomDungeon.exe')])
-    dlls = copy_dlls(exe, out)
-
+def pack_data(out, edition):
+    """Copies the game mods into out/mods (also used by distribution/linux)."""
     def rel_files(mod):
         root = os.path.realpath(os.path.join(ENGINE, 'mods', mod))
         for dp, dn, fn in os.walk(root, followlinks=True):
@@ -133,12 +117,39 @@ def main():
     with open(os.path.join(out, 'mods', 'random_dungeon', 'engine', 'edition.txt'), 'w') as f:
         f.write('# run = commercial edition (Infinite Run only); full = everything\nedition=%s\n' % edition)
 
+    return files, total, skipped
+
+
+def copy_licenses(out):
+    """Licenses and credits: engine GPL-3, Flare content CC-BY-SA 3.0, fonts OFL."""
     # licenses: engine GPL-3, Flare content CC-BY-SA 3.0, fonts OFL, credits
     shutil.copy2(os.path.join(ENGINE, 'COPYING'), os.path.join(out, 'LICENSE-engine-GPL3.txt'))
     shutil.copy2(os.path.join(GAME, 'LICENSE.txt'), os.path.join(out, 'LICENSE-content-CC-BY-SA-3.0.txt'))
     shutil.copy2(os.path.join(HERE, 'CREDITS.txt'), os.path.join(out, 'CREDITS.txt'))
     shutil.copy2(os.path.join(GAME, 'CREDITS.txt'), os.path.join(out, 'CREDITS-flare-game.txt'))
     shutil.copy2(os.path.join(ENGINE, 'CREDITS.engine.txt'), os.path.join(out, 'CREDITS-flare-engine.txt'))
+
+
+def main():
+    edition = 'run'
+    if '--edition' in sys.argv:
+        edition = sys.argv[sys.argv.index('--edition') + 1]
+    exe = os.path.join(BUILD, 'flare.exe')
+    if not os.path.exists(exe):
+        sys.exit('build-win/flare.exe not found; build it first (see the top of this file)')
+
+    name = 'RandomDungeon-%s-win64' % edition
+    out = os.path.join(ENGINE, 'dist', name)
+    if os.path.isdir(out):
+        shutil.rmtree(out)
+    os.makedirs(out)
+
+    shutil.copy2(exe, os.path.join(out, 'RandomDungeon.exe'))
+    subprocess.call(['x86_64-w64-mingw32-strip', os.path.join(out, 'RandomDungeon.exe')])
+    dlls = copy_dlls(exe, out)
+
+    files, total, skipped = pack_data(out, edition)
+    copy_licenses(out)
     with open(os.path.join(out, '.itch.toml'), 'w') as f:
         f.write('[[actions]]\nname = "play"\npath = "RandomDungeon.exe"\nplatform = "windows"\n')
 
