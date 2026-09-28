@@ -75,10 +75,30 @@ SPECIES = {
                             2: dict(pattern='none', base=(190, 190, 200), dark=(120, 120, 130), belly=(205, 205, 215), sheen=True),
                             3: dict(pattern='none', base=(32, 24, 20), dark=(20, 15, 12), belly=(44, 34, 28))},
                  durations={'run': 450, 'swing': 650, 'cast': 700, 'shoot': 700}),
+    # Saci-Pererê (chefe): uma perna, gorro vermelho, cachimbo, redemoinho
+    'saci': dict(mode='biped', kind='saci', L=100, r=10, r_tail=3, head=1.0,
+                 base=(78, 50, 36), dark=(52, 33, 24), belly=(96, 64, 46), eyes=None,
+                 pattern='none', period=10, canvas=(260, 300), edge=1.4,
+                 materials={1: dict(pattern='none', base=(205, 32, 30), dark=(140, 20, 20), belly=(215, 60, 50)),
+                            2: dict(pattern='none', base=(196, 188, 160), dark=(140, 130, 110), belly=(170, 160, 135)),
+                            3: dict(pattern='none', base=(118, 76, 42), dark=(80, 50, 28), belly=(130, 90, 55)),
+                            4: dict(pattern='flat', base=(255, 236, 150), dark=(255, 236, 150), belly=(255, 236, 150)),
+                            5: dict(pattern='flat', base=(205, 205, 200), dark=(205, 205, 200), belly=(205, 205, 200)),
+                            6: dict(pattern='none', base=(176, 146, 104), dark=(130, 104, 72), belly=(190, 162, 120))},
+                 durations={'swing': 500, 'cast': 700, 'shoot': 700}),
+    # Curupira (chefe): guardião da mata, cabelo de fogo e pés virados para trás
+    'curupira': dict(mode='biped', kind='curupira', L=100, r=10, r_tail=3, head=1.0,
+                     base=(104, 96, 62), dark=(70, 64, 40), belly=(120, 110, 74), eyes=None,
+                     pattern='none', period=10, canvas=(260, 330), edge=1.4, glow=(255, 120, 30),
+                     materials={1: dict(pattern='fire', base=(255, 120, 25), dark=(200, 40, 10), belly=(255, 225, 110)),
+                                2: dict(pattern='none', base=(66, 128, 44), dark=(34, 76, 26), belly=(88, 150, 58)),
+                                3: dict(pattern='none', base=(104, 72, 44), dark=(70, 48, 30), belly=(120, 86, 54)),
+                                4: dict(pattern='flat', base=(170, 255, 120), dark=(170, 255, 120), belly=(170, 255, 120))},
+                     durations={'swing': 550, 'cast': 700, 'shoot': 700}),
 }
 
 # tamanho na tela: os chefes precisam ser bem maiores que o herói
-SCALE = {'sucuri': 1.2, 'boitata': 1.5, 'cobra_grande': 1.5, 'minhocao': 1.6, 'mula': 1.6}
+SCALE = {'sucuri': 1.2, 'boitata': 1.5, 'cobra_grande': 1.5, 'minhocao': 1.6, 'mula': 1.6, 'saci': 1.5, 'curupira': 1.55}
 for _n, _k in SCALE.items():
     _sp = SPECIES[_n]
     for _key in ('L', 'r', 'r_tail', 'period'):
@@ -440,6 +460,242 @@ def quad_pose(sp, anim, f, n):
     return pose
 
 
+def biped_pose(sp, anim, f, n):
+    """Saci-Pererê (uma perna, gorro vermelho, cachimbo, redemoinho) e Curupira
+    (cabelo de fogo, pés virados para trás, saia de folhas, porrete).
+    Pontos: (s, a, b, z, material, raio); a = para frente, b = para o lado."""
+    u = sp['r']
+    kind = sp['kind']
+    saci = kind == 'saci'
+    t = f / n
+    pose = dict(mouth=0.0, flash=0.0, dark=0.0, clip=None, eyes=False, dust=0.0)
+    lift = 0.0            # pulo (Saci)
+    crouch = 0.0          # agachar antes/depois do pulo
+    lean = 0.0            # tronco para frente (+) / trás (-), graus
+    fall = 0.0            # morte: 0..1 caindo de costas
+    spin = 0.0            # giro no próprio eixo (redemoinho), graus
+    swirl = 0.0           # redemoinho / folhas em volta, 0..1
+    fire_k = 1.0          # tamanho do cabelo de fogo
+    legs = {'l': (0.0, 0.0), 'r': (0.0, 0.0)}      # (pé para frente, altura do pé)
+    arms = {'l': (0.0, 0.0), 'r': (0.0, 0.0)}      # (mão para frente, mão para cima), em u
+    kick = 0.0
+    club = 0.0            # porrete: 0 baixo, 1 erguido, -1 golpe
+    if anim in ('stance', 'block'):
+        if saci:
+            lift = 0.25 * u * abs(math.sin(math.pi * t * 2))
+            crouch = 0.3 * (1 - abs(math.sin(math.pi * t * 2)))
+        arms['l'] = (0.2, 0.15 * math.sin(2 * math.pi * t))
+        arms['r'] = (0.2, -0.15 * math.sin(2 * math.pi * t))
+    elif anim == 'run':
+        if saci:
+            ph = math.sin(2 * math.pi * t)
+            lift = 1.1 * u * max(0.0, ph)
+            crouch = 0.6 * max(0.0, -ph)
+            lean = 12
+            arms['l'] = (0.5 + 0.4 * ph, 0.6 * max(0.0, ph))
+            arms['r'] = (0.5 + 0.4 * ph, 0.6 * max(0.0, ph))
+        else:
+            ph = 2 * math.pi * t
+            legs['l'] = (1.1 * u * math.sin(ph), 0.6 * u * max(0.0, math.cos(ph)))
+            legs['r'] = (1.1 * u * math.sin(ph + math.pi), 0.6 * u * max(0.0, math.cos(ph + math.pi)))
+            arms['l'] = (-0.8 * math.sin(ph), 0.0)
+            arms['r'] = (-0.8 * math.sin(ph + math.pi), 0.0)
+            lift = 0.15 * u * abs(math.cos(ph))
+            lean = 10
+    elif anim == 'swing':
+        if saci:   # coice com a única perna
+            kick = [-0.8, -0.3, 1.0, 0.3][f]
+            lift = [0.3, 0.9, 0.7, 0.2][f] * u
+            lean = [-10, -15, -20, 0][f]
+            arms['l'] = ([-0.5, -0.6, 0.9, 0.3][f], 0.4)
+            arms['r'] = ([-0.5, -0.6, 0.9, 0.3][f], 0.4)
+        else:      # porrete de cima para baixo
+            club = [1.0, 1.2, -1.0, -0.4][f]
+            lean = [-10, -14, 20, 8][f]
+            legs['l'] = (0.8 * u, 0.0)
+            legs['r'] = (-0.6 * u, 0.0)
+        pose['dust'] = 1.0 if f == 2 else 0.0
+    elif anim in ('cast', 'shoot'):
+        swirl = [0.4, 0.8, 1.0, 0.9][f]
+        if saci:
+            spin = f * 90.0
+            lift = [0.2, 0.6, 1.0, 0.8][f] * u
+            arms['l'] = (0.0, 1.2); arms['r'] = (0.0, 1.2)
+        else:
+            fire_k = [1.3, 1.8, 2.3, 2.0][f]
+            arms['l'] = (0.4, 2.0); arms['r'] = (0.4, 2.0)
+            club = 1.3
+            lean = -8
+    elif anim == 'hit':
+        lean = -18
+        pose['flash'] = [0.55, 0.25][f]
+    elif anim in ('die', 'critdie'):
+        p = f / (n - 1)
+        fall = smooth(p * 1.2)
+        pose['dark'] = 0.45 * p
+        fire_k = max(0.0, 1 - 1.3 * p)
+        swirl = (1 - p) * 0.6 if saci else 0.0
+        arms['l'] = (0.3, 1.0 * p); arms['r'] = (0.3, 1.0 * p)
+        if anim == 'critdie':
+            pose['flash'] = max(0.0, 0.5 - p * 2)
+    elif anim == 'spawn':
+        p = f / (n - 1)
+        swirl = 1.0 - 0.6 * p
+        pose['clip'] = 0.0
+        pose['sink'] = (1 - p) * 8.5 * u
+        pose['dust'] = 1 - p
+
+    pts = []
+    sc = [0.0]
+    ang_spin = math.radians(spin)
+    ang_lean = math.radians(lean)
+
+    def xf(a, b, z, pitched=True):
+        # inclinação do tronco em volta do quadril, giro, queda de costas nos pés
+        if pitched:
+            pz = hip_z
+            da, dz = a, z - pz
+            a, z = da * math.cos(ang_lean) + dz * math.sin(ang_lean), pz - da * math.sin(ang_lean) + dz * math.cos(ang_lean)
+        if spin:
+            a, b = a * math.cos(ang_spin) - b * math.sin(ang_spin), a * math.sin(ang_spin) + b * math.cos(ang_spin)
+        if fall:
+            fa = math.radians(-82 * fall)
+            a, z = a * math.cos(fa) - z * math.sin(fa), a * math.sin(fa) + z * math.cos(fa)
+            z = max(z, 0.35 * u)
+        return a, b, z + lift
+
+    def add(a, b, z, mat, rad, pitched=True):
+        a, b, z = xf(a, b, z, pitched)
+        sc[0] += 1
+        pts.append((sc[0], a, b, z, mat, rad))
+
+    def seg(p0, p1, r0, r1, mat, pitched=True):
+        p0, p1 = np.array(p0, float), np.array(p1, float)
+        L = np.linalg.norm(p1 - p0)
+        k = max(2, int(L / (min(r0, r1) * 0.55)) + 1)
+        for i in range(k):
+            w = i / (k - 1)
+            q = p0 + (p1 - p0) * w
+            add(q[0], q[1], q[2], mat, r0 + (r1 - r0) * w, pitched)
+
+    def joint(p0, p1, length, bend_dir):
+        """cotovelo/joelho: ponto do meio empurrado para bend_dir (vetor unitário)"""
+        p0, p1 = np.array(p0, float), np.array(p1, float)
+        d = np.linalg.norm(p1 - p0)
+        h = math.sqrt(max(0.0, (length / 2) ** 2 - (d / 2) ** 2))
+        return (p0 + p1) / 2 + np.array(bend_dir) * h
+
+    leg_len = 3.0 * u
+    hip_z = (3.3 - 0.9 * crouch) * u
+    # ---- pernas
+    if saci:
+        foot = np.array([kick * 1.6 * u, 0.0, 0.35 * u + max(0.0, kick) * 1.2 * u])
+        hip = np.array([0.0, 0.0, hip_z])
+        knee = joint(hip, foot, leg_len, (1, 0, 0) if kick >= 0 else (0.7, 0, 0.3))
+        seg(hip, knee, 0.5 * u, 0.36 * u, 0, pitched=False)
+        seg(knee, foot, 0.36 * u, 0.3 * u, 0, pitched=False)
+        seg(foot, foot + np.array([0.55 * u, 0, -0.05 * u]), 0.36 * u, 0.3 * u, 0, pitched=False)
+    else:
+        for side, sgn in (('l', 1), ('r', -1)):
+            da, fh = legs[side]
+            if fall:
+                da, fh = 0.4 * u, 0.0
+            hip = np.array([0.0, sgn * 0.55 * u, hip_z])
+            ankle = np.array([da, sgn * 0.6 * u, 0.4 * u + fh])
+            knee = joint(hip, ankle, leg_len, (1, 0, 0))
+            seg(hip, knee, 0.46 * u, 0.36 * u, 0, pitched=False)
+            seg(knee, ankle, 0.36 * u, 0.28 * u, 0, pitched=False)
+            # pés virados para trás: o pé aponta para -a
+            seg(ankle, ankle + np.array([-0.75 * u, 0, -0.12 * u]), 0.34 * u, 0.3 * u, 0, pitched=False)
+            for toe in (-0.18, 0.0, 0.18):
+                add(ankle[0] - 0.95 * u, ankle[1] + toe * u, ankle[2] - 0.15 * u, 0, 0.14 * u, pitched=False)
+    # ---- quadril, roupa, tronco
+    if saci:
+        add(0.0, 0.0, hip_z + 0.2 * u, 2, 0.95 * u)                  # calção
+        add(0.0, 0.35 * u, hip_z + 0.1 * u, 2, 0.6 * u)
+        add(0.0, -0.35 * u, hip_z + 0.1 * u, 2, 0.6 * u)
+    else:
+        add(0.0, 0.0, hip_z + 0.2 * u, 0, 0.9 * u)
+        # saia de folhas
+        for k in range(12):
+            ang = k * 2 * math.pi / 12
+            for w in (0.0, 1.0):
+                add(math.cos(ang) * (0.85 + 0.25 * w) * u, math.sin(ang) * (0.85 + 0.25 * w) * u,
+                    hip_z + (0.15 - 0.75 * w) * u, 2, (0.34 - 0.08 * w) * u)
+    seg((0, 0, hip_z + 0.5 * u), (0.05 * u, 0, hip_z + 1.7 * u), 0.9 * u, 1.0 * u, 0)
+    chest = np.array([0.08 * u, 0.0, hip_z + 1.75 * u])
+    # ---- braços
+    for side, sgn in (('l', 1), ('r', -1)):
+        fa, up = arms[side]
+        sh = chest + np.array([0.0, sgn * 1.05 * u, 0.2 * u])
+        hand = sh + np.array([fa * u + 0.2 * u, sgn * 0.35 * u, -2.2 * u + up * 1.9 * u])
+        if not saci and side == 'r' and club:
+            if club > 0:
+                hand = sh + np.array([-0.2 * u, sgn * 0.3 * u, 1.4 * u * club])
+            else:
+                hand = sh + np.array([1.9 * u, sgn * 0.2 * u, -0.4 * u])
+        elbow = joint(sh, hand, 2.4 * u, (-0.6, sgn * 0.5, -0.3))
+        seg(sh, elbow, 0.36 * u, 0.3 * u, 0)
+        seg(elbow, hand, 0.3 * u, 0.26 * u, 0)
+        add(hand[0], hand[1], hand[2], 0, 0.34 * u)
+        if not saci and side == 'r':
+            # porrete de galho, na direção do antebraço
+            dirv = hand - elbow
+            dirv /= (np.linalg.norm(dirv) + 1e-9)
+            seg(hand - dirv * 0.3 * u, hand + dirv * 2.6 * u, 0.2 * u, 0.42 * u, 3)
+    # ---- cabeça
+    head = chest + np.array([0.1 * u, 0.0, 1.55 * u])
+    add(chest[0], 0.0, chest[2] + 0.55 * u, 0, 0.45 * u)          # pescoço
+    add(head[0], head[1], head[2], 0, 1.12 * u)
+    for sgn in (1, -1):                                            # olhos brilhando
+        add(head[0] + 0.95 * u, sgn * 0.38 * u, head[2] + 0.12 * u, 4, 0.2 * u)
+    if saci:
+        # gorro vermelho: cone mole que cai para trás
+        base = head + np.array([-0.1 * u, 0, 0.75 * u])
+        for i in range(12):
+            w = i / 11
+            flop = math.sin(2 * math.pi * t) * 0.15 * u * w
+            q = base + np.array([-1.5 * u * w * w - 0.2 * u * w, flop, 1.3 * u * w - 1.0 * u * w * w * w])
+            add(q[0], q[1], q[2], 1, (0.95 - 0.8 * w) * u)
+        add(base[0] - 1.9 * u, 0.0, base[2] + 0.1 * u, 1, 0.22 * u)  # pompom
+        # cachimbo
+        m = head + np.array([0.95 * u, -0.2 * u, -0.45 * u])
+        seg(m, m + np.array([0.7 * u, -0.15 * u, -0.1 * u]), 0.1 * u, 0.1 * u, 3)
+        bowl = m + np.array([0.85 * u, -0.15 * u, 0.05 * u])
+        add(bowl[0], bowl[1], bowl[2], 3, 0.22 * u)
+        if fall < 0.5:
+            for i in range(4):   # fumaça
+                w = ((t * 2 + i / 4) % 1.0)
+                add(bowl[0] + 0.3 * u + 0.2 * u * w, bowl[1] - 0.4 * u + 0.3 * u * math.sin(6 * w + i),
+                    bowl[2] + (0.9 + 2.4 * w) * u, 5, (0.12 + 0.24 * w) * u)
+    else:
+        # cabelo de fogo: labaredas saindo do alto e de trás da cabeça
+        if fire_k > 0.05:
+            for k in range(7):
+                ang = -math.pi * 0.9 + k * (math.pi * 1.8 / 6)
+                root = head + np.array([-0.35 * u + 0.3 * u * math.cos(ang) * 0.3, 0.8 * u * math.sin(ang), 0.75 * u])
+                L = (1.3 + 0.5 * math.sin(2 * math.pi * (t * 2 + k * 0.29))) * u * fire_k
+                for i in range(6):
+                    w = i / 5
+                    wob = 0.3 * u * w * math.sin(2 * math.pi * (t * 3 + k * 0.4 + w))
+                    add(root[0] - 0.6 * L * w, root[1] + wob, root[2] + L * w, 1, (0.46 - 0.34 * w) * u)
+    # ---- redemoinho (Saci) / folhas girando (Curupira)
+    if swirl > 0.05:
+        N = 26
+        for k in range(N):
+            w = k / (N - 1)
+            ang = k * 0.85 + t * 2 * math.pi * 1.5
+            rad = (1.4 + 1.6 * w) * u * (0.7 + 0.3 * swirl)
+            z = w * 8.0 * u * swirl
+            mat, rr = (6, (0.28 + 0.2 * w) * u) if saci else (2, 0.3 * u)
+            sc[0] += 1
+            pts.append((sc[0], math.cos(ang) * rad, math.sin(ang) * rad, z + 0.2 * u, mat, rr))
+    if pose.get('sink'):
+        pts = [tuple(p[:3]) + (p[3] - pose['sink'],) + tuple(p[4:]) for p in pts]
+    pose['pts'] = pts
+    return pose
+
+
 # ------------------------------------------------------------------ rendering
 def pattern_mask(sp, S, NX, NY):
     """True where the darker color goes."""
@@ -466,6 +722,8 @@ def colorize(sp, S, NX, NY, NZ, diff, rng):
         col = dark[None, None, :] * (1 - heat[..., None]) + base[None, None, :] * heat[..., None]
         col[(diff > 0.55) & (NZ > 0.55)] = belly
         return col
+    if sp['pattern'] == 'flat':   # brilho próprio (olhos), sem sombra
+        return np.broadcast_to(base, (H, W, 3)).copy()
     col = np.broadcast_to(base, (H, W, 3)).copy()
     col[pattern_mask(sp, S, NX, NY)] = dark
     bm = NY > 0.5
@@ -573,7 +831,7 @@ def render(sp, pose, d, rng):
     if pose.get('holes') or pose.get('dust'):
         im = draw_ground_fx(sp, pose, im, to_screen, rng)
     # boca e olhos em cima do corpo
-    if head_info and sp['mode'] != 'quad':
+    if head_info and sp['mode'] in ('snake', 'burrow'):
         im = draw_face(sp, pose, im, to_screen, fwd, side)
     if sp.get('glow') and fire_px.any():
         a = Image.fromarray((fire_px * 255).astype(np.uint8), 'L').filter(ImageFilter.GaussianBlur(sp['r'] * 0.7))
@@ -737,7 +995,7 @@ def crop(im, origin):
 
 def generate(name, sp):
     rng = np.random.default_rng(abs(hash(name)) % (2 ** 32))
-    pose_fn = {'burrow': burrow_pose, 'quad': quad_pose}.get(sp['mode'], snake_pose)
+    pose_fn = {'burrow': burrow_pose, 'quad': quad_pose, 'biped': biped_pose}.get(sp['mode'], snake_pose)
     frames = []  # (anim, index, dir, image, offset)
     for anim, n, _, _, _ in ANIMS:
         for f in range(n):
@@ -796,7 +1054,7 @@ def preview(names):
     for name in names:
         sp = SPECIES[name]
         rng = np.random.default_rng(1)
-        pose_fn = {'burrow': burrow_pose, 'quad': quad_pose}.get(sp['mode'], snake_pose)
+        pose_fn = {'burrow': burrow_pose, 'quad': quad_pose, 'biped': biped_pose}.get(sp['mode'], snake_pose)
         tiles = []
         for anim, f, n, d in [('stance', 0, 4, 6), ('stance', 0, 4, 3), ('run', 2, 8, 7), ('run', 5, 8, 4),
                               ('swing', 0, 4, 5), ('swing', 2, 4, 5), ('cast', 2, 4, 6), ('die', 5, 6, 6),

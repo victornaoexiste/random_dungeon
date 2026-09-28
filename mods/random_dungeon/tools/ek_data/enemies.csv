@@ -7,7 +7,7 @@ rd_goblin_sergeant,Bossy Saci,Saci Mandão,4,Sacis,il_goblin,fantasycore:goblin_
 rd_goblin_beastlord,Hunter Saci,Saci Caçador,6,Sacis,il_goblin,fantasycore:goblin_elite,shadow,normal,0.74,1.07,fire_resist:8
 rd_goblin_firedancer,Firecracker Saci,Saci Fogueteiro,6,Sacis,il_goblin_runner,fantasycore:goblin_runner,fire,normal,1.09,0.60,fire_resist:40
 rd_goblin_firelord,Fire Whirlwind Saci,Saci Redemoinho de Fogo,8,Sacis,il_goblin,fantasycore:goblin_elite,fire,elite,1.80,1.20,fire_resist:67
-rd_goblin_king,Saci-Pererê,Saci-Pererê,10,Sacis,il_goblin,fantasycore:goblin_elite,blood,boss,4.00,1.50,fire_resist:17
+rd_goblin_king,Saci-Pererê,Saci-Pererê,10,Sacis,il_goblin,random_dungeon:rd_saci,,boss,4.00,1.50,fire_resist:17
 rd_imp,Little Devil,Capetinha,6,Devils,il_goblin_runner,fantasycore:goblin_runner,blood,normal,0.70,0.92,fire_resist:67;ice_resist:-17
 rd_orc_grunt,Young Quibungo,Quibungo Novato,2,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,orc,normal,0.83,1.42,dark_resist:13
 rd_orc_warrior,Quibungo,Quibungo,4,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,,normal,0.83,1.06,dark_resist:13
@@ -20,7 +20,7 @@ rd_orc_king,Bicho-Papão,Bicho-Papão,11,Quibungos,il_hobgoblin,empyrean_campaig
 rd_hobgoblin,Caipora,Caipora,8,Caiporas,il_hobgoblin,empyrean_campaign:hobgoblin,,normal,0.77,0.99,ice_resist:13;lightning_resist:7
 rd_ice_shaman,Caipora Witch,Caipora Feiticeira,10,Caiporas,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,ice,normal,0.70,0.66,dark_resist:7;fire_resist:7;ice_resist:27;lightning_resist:7
 rd_dragon_priest,Elder Caipora,Caipora Anciã,14,Caiporas,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,crimson,normal,1.29,0.60,dark_resist:7;fire_resist:67;ice_resist:67;lightning_resist:7
-rd_ice_warlord,Curupira,Curupira,15,Caiporas,il_hobgoblin,empyrean_campaign:hobgoblin,blood,boss,2.42,1.24,dark_resist:17;fire_resist:8;ice_resist:40;lightning_resist:17
+rd_ice_warlord,Curupira,Curupira,15,Caiporas,il_hobgoblin,random_dungeon:rd_curupira,,boss,2.42,1.24,dark_resist:17;fire_resist:8;ice_resist:40;lightning_resist:17
 rd_demon,Capeta,Capeta,10,Devils,il_hobgoblin,empyrean_campaign:hobgoblin,blood,normal,1.05,1.15,fire_resist:67;ice_resist:-17
 rd_ice_demon,Coisa-Ruim,Coisa-Ruim,11,Devils,il_hobgoblin,empyrean_campaign:hobgoblin,frost,normal,0.82,0.80,fire_resist:-17;ice_resist:67
 rd_skeleton,Caveira,Caveira,4,Caveiras,il_skeleton_knight,fantasycore:skeleton_weak,,normal,0.83,1.06,dark_resist:60
