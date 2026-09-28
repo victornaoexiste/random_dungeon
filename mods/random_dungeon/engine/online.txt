@@ -1,0 +1,6 @@
+# Servidor de salas (server/rd_relay.py). "Criar partida" / "Jogar com amigos"
+# registram uma sala nele e mostram um código de 5 letras; os amigos digitam
+# o código em Multiplayer. Sem relay (ou fora do ar), rede local e IP direto
+# continuam funcionando.
+# relay=endereço:porta   (porta padrão 4650/udp)
+relay=

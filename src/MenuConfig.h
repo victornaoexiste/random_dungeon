@@ -119,9 +119,10 @@ public:
 
 	enum {
 		EXIT_OPTION_CONTINUE = 0,
-		EXIT_OPTION_SAVE = 1,
-		EXIT_OPTION_EXIT = 2,
-		EXIT_OPTION_TIME_PLAYED = 3,
+		EXIT_OPTION_ONLINE = 1,
+		EXIT_OPTION_SAVE = 2,
+		EXIT_OPTION_EXIT = 3,
+		EXIT_OPTION_TIME_PLAYED = 4,
 	};
 
 	explicit MenuConfig(bool _is_game_state);
@@ -223,6 +224,9 @@ public:
 	WidgetButton               * pause_continue_btn;
 	WidgetLabel                * pause_exit_lb;
 	WidgetButton               * pause_exit_btn;
+	WidgetLabel                * pause_online_lb;
+	WidgetButton               * pause_online_btn;
+	std::string                  online_button_text;
 	WidgetLabel                * pause_save_lb;
 	WidgetButton               * pause_save_btn;
 	WidgetLabel                * pause_time_lb;
@@ -363,6 +367,9 @@ public:
 	bool clicked_pause_continue;
 	bool clicked_pause_exit;
 	bool clicked_pause_save;
+	bool clicked_pause_online;
+	// pause menu: "Play with friends" row (label = room status, button text)
+	void setOnlineStatus(const std::string& status, const std::string& button, bool is_enabled);
 	bool show_frame_background;
 };
 

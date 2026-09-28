@@ -720,6 +720,12 @@ EXTRA_PT = [
     ('Scholar', 'Estudioso'), ('+15% XP gained', '+15% de XP ganho'),
     ('The host closed the game. You are now playing alone.', 'O anfitrião fechou o jogo. Agora você está jogando sozinho.'),
     ('Connection to the host was lost. You are now playing alone.', 'A conexão com o anfitrião caiu. Agora você está jogando sozinho.'),
+    ('Play with friends', 'Jogar com amigos'), ('Close to friends', 'Fechar para amigos'), ('Solo game', 'Partida solo'),
+    ("In a friend's game", 'Na partida de um amigo'), ('Room code: %s', 'Código da sala: %s'), ('Room: %s', 'Sala: %s'),
+    ('Online room unavailable (LAN only)', 'Sala online indisponível (só rede local)'), ('Opening room...', 'Abrindo sala...'),
+    ('Open on LAN', 'Aberta na rede local'), ('Your game is solo again.', 'Sua partida voltou a ser solo.'),
+    ('Could not open the game to friends.', 'Não foi possível abrir a partida para amigos.'),
+    ('Room open! Friends join with the code %s', 'Sala aberta! Seus amigos entram com o código %s'),
     ('Dagger Strike', 'Golpe de Adaga'), ('A quick stab with your dagger.', 'Uma estocada rápida com sua adaga.'),
 ]
 

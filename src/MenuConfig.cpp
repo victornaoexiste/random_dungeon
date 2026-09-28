@@ -131,6 +131,8 @@ MenuConfig::MenuConfig (bool _is_game_state)
 	, pause_continue_btn(new WidgetButton(WidgetButton::DEFAULT_FILE))
 	, pause_exit_lb(new WidgetLabel())
 	, pause_exit_btn(new WidgetButton(WidgetButton::DEFAULT_FILE))
+	, pause_online_lb(new WidgetLabel())
+	, pause_online_btn(new WidgetButton(WidgetButton::DEFAULT_FILE))
 	, pause_save_lb(new WidgetLabel())
 	, pause_save_btn(new WidgetButton(WidgetButton::DEFAULT_FILE))
 	, pause_time_lb(new WidgetLabel())
@@ -255,6 +257,7 @@ MenuConfig::MenuConfig (bool _is_game_state)
 	, clicked_pause_continue(false)
 	, clicked_pause_exit(false)
 	, clicked_pause_save(false)
+	, clicked_pause_online(false)
 	, show_frame_background(false)
 {
 	input_confirm->setTitle(msg->get("Assign:"));
@@ -279,6 +282,7 @@ MenuConfig::MenuConfig (bool _is_game_state)
 	pause_continue_btn->setLabel(msg->get("Continue"));
 	setPauseExitText(MenuConfig::ENABLE_SAVE_GAME);
 	pause_save_btn->setLabel(msg->get("Save Game"));
+	pause_online_btn->setLabel(msg->get("Play with friends"));
 	setPauseSaveEnabled(MenuConfig::ENABLE_SAVE_GAME);
 	pause_time_text->setText(Utils::getTimeString(0));
 	pause_time_text->setJustify(FontEngine::JUSTIFY_RIGHT);
@@ -459,7 +463,7 @@ void MenuConfig::init() {
 	readConfig();
 
 	cfg_tabs.resize(TAB_COUNT - 1);
-	cfg_tabs[EXIT_TAB].options.resize(4);
+	cfg_tabs[EXIT_TAB].options.resize(5);
 	cfg_tabs[VIDEO_TAB].options.resize(Platform::Video::COUNT);
 	cfg_tabs[AUDIO_TAB].options.resize(Platform::Audio::COUNT);
 	cfg_tabs[GAME_TAB].options.resize(Platform::Game::COUNT);
@@ -468,6 +472,7 @@ void MenuConfig::init() {
 	cfg_tabs[KEYBINDS_TAB].options.resize(inpt->KEY_COUNT_USER);
 
 	cfg_tabs[EXIT_TAB].setOptionWidgets(EXIT_OPTION_CONTINUE, pause_continue_lb, pause_continue_btn, msg->get("Paused"));
+	cfg_tabs[EXIT_TAB].setOptionWidgets(EXIT_OPTION_ONLINE, pause_online_lb, pause_online_btn, msg->get("Solo game"));
 	cfg_tabs[EXIT_TAB].setOptionWidgets(EXIT_OPTION_SAVE, pause_save_lb, pause_save_btn, "");
 	cfg_tabs[EXIT_TAB].setOptionWidgets(EXIT_OPTION_EXIT, pause_exit_lb, pause_exit_btn, "");
 	cfg_tabs[EXIT_TAB].setOptionWidgets(EXIT_OPTION_TIME_PLAYED, pause_time_lb, pause_time_text, msg->get("Time Played"));
@@ -1299,11 +1304,25 @@ void MenuConfig::logicExit() {
 	if (cfg_tabs[EXIT_TAB].options[EXIT_OPTION_CONTINUE].enabled && pause_continue_btn->checkClickAt(mouse.x, mouse.y)) {
 		clicked_pause_continue = true;
 	}
+	else if (cfg_tabs[EXIT_TAB].options[EXIT_OPTION_ONLINE].enabled && pause_online_btn->enabled && pause_online_btn->checkClickAt(mouse.x, mouse.y)) {
+		clicked_pause_online = true;
+	}
 	else if (cfg_tabs[EXIT_TAB].options[EXIT_OPTION_SAVE].enabled && pause_save_btn->checkClickAt(mouse.x, mouse.y)) {
 		clicked_pause_save = true;
 	}
 	else if (cfg_tabs[EXIT_TAB].options[EXIT_OPTION_EXIT].enabled && pause_exit_btn->checkClickAt(mouse.x, mouse.y)) {
 		clicked_pause_exit = true;
+	}
+}
+
+void MenuConfig::setOnlineStatus(const std::string& status, const std::string& button, bool is_enabled) {
+	if (pause_online_lb->getText() != status)
+		pause_online_lb->setText(status);
+	if (online_button_text != button || pause_online_btn->enabled != is_enabled) {
+		online_button_text = button;
+		pause_online_btn->setLabel(button);
+		pause_online_btn->enabled = is_enabled;
+		pause_online_btn->refresh();
 	}
 }
 

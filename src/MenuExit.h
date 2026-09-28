@@ -49,6 +49,9 @@ public:
 	void handleCancel();
 
 	bool reload_music;
+	// "Play with friends" clicked (GameStatePlay::onlineLogic opens the room)
+	bool online_clicked;
+	void setOnlineStatus(const std::string& status, const std::string& button, bool is_enabled);
 };
 
 #endif

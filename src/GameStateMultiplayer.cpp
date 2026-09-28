@@ -75,18 +75,18 @@ GameStateMultiplayer::GameStateMultiplayer()
 	label_title->setJustify(FontEngine::JUSTIFY_CENTER);
 	label_title->setColor(normal);
 
-	label_host->setText(msg->get("Hospedar uma partida (porta 4650)"));
+	label_host->setText(msg->get("Criar uma partida para jogar com amigos"));
 	label_host->setJustify(FontEngine::JUSTIFY_CENTER);
 	label_host->setColor(normal);
 
-	label_join->setText(msg->get("Entrar em uma partida (IP ou IP:porta)"));
+	label_join->setText(msg->get("Entrar: código da sala (ou IP na rede local)"));
 	label_join->setJustify(FontEngine::JUSTIFY_CENTER);
 	label_join->setColor(normal);
 
 	label_status->setJustify(FontEngine::JUSTIFY_CENTER);
 	setStatus("", false);
 
-	button_host->setLabel(msg->get("Hospedar (porta 4650)"));
+	button_host->setLabel(msg->get("Criar partida"));
 	button_host->setBasePos(0, HOST_BTN_Y, Utils::ALIGN_CENTER);
 	button_host->refresh();
 
@@ -94,7 +94,7 @@ GameStateMultiplayer::GameStateMultiplayer()
 	refreshPvpLabel();
 
 	input_ip->max_length = 40;
-	input_ip->setText("127.0.0.1:4650");
+	input_ip->setText("");
 	input_ip->setBasePos(0, INPUT_Y, Utils::ALIGN_CENTER);
 
 	button_search->setLabel(msg->get("Buscar na rede"));
@@ -179,8 +179,12 @@ void GameStateMultiplayer::startAsHost() {
 	if (!netmgr)
 		netmgr = new NetManager();
 
-	if (netmgr->startServer(HOST_PORT)) {
+	// the LAN port if free, else any port (the online room doesn't need it)
+	if (netmgr->startServer(HOST_PORT) || netmgr->startServer(0)) {
 		netmgr->setPvp(settings->net_pvp);
+		// online room through the relay: the code shows up in the game (and
+		// in the pause menu); without a relay, LAN/IP still work
+		netmgr->openRoom();
 		proceedToNewGame();
 	}
 	else {
@@ -210,16 +214,20 @@ bool GameStateMultiplayer::parseTarget(const std::string& target, std::string& h
 	}
 
 	if (host_str.empty()) {
-		setStatus(msg->get("Digite o IP do host"), true);
+		setStatus(msg->get("Digite o código da sala ou o IP do host"), true);
 		return false;
 	}
 	return true;
 }
 
 void GameStateMultiplayer::startAsClient() {
+	std::string target = input_ip->getText();
+	while (!target.empty() && target[0] == ' ') target.erase(0, 1);
+	while (!target.empty() && target[target.size() - 1] == ' ') target.erase(target.size() - 1);
+	const bool by_code = NetManager::looksLikeRoomCode(target);
 	std::string host_str;
 	uint16_t port = HOST_PORT;
-	if (!parseTarget(input_ip->getText(), host_str, port))
+	if (!by_code && !parseTarget(target, host_str, port))
 		return;
 
 	if (netmgr && netmgr->isActive())
@@ -233,11 +241,25 @@ void GameStateMultiplayer::startAsClient() {
 	render();
 	render_device->commitFrame();
 
-	if (netmgr->connectToServer(host_str, port, 5000)) {
+	const bool ok = by_code ? netmgr->connectWithCode(target, 6000) : netmgr->connectToServer(host_str, port, 5000);
+	const std::string err = netmgr->getLastError();
+	if (ok) {
 		proceedToNewGame();
 	}
-	else if (netmgr->getLastError() == "version") {
+	else if (err == "version") {
 		setStatus(msg->get("O host usa outra versão do jogo"), true);
+	}
+	else if (err == "nocode") {
+		setStatus(msg->get("Sala não encontrada: confira o código"), true);
+	}
+	else if (err == "full") {
+		setStatus(msg->get("A sala está cheia"), true);
+	}
+	else if (err == "relay" || err == "norelay" || err == "resolve") {
+		setStatus(by_code ? msg->get("Servidor de salas fora do ar (tente pela rede local)") : msg->get("Endereço não encontrado"), true);
+	}
+	else if (by_code) {
+		setStatus(msg->get("A sala existe, mas o host não respondeu"), true);
 	}
 	else {
 		setStatus(msg->get("Não foi possível conectar"), true);

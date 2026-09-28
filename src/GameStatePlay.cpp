@@ -42,6 +42,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameState.h"
 #include "GameStateCutscene.h"
 #include "GameStatePlay.h"
+#include "GameStateMultiplayer.h"
 #include "GameStateTitle.h"
 #include "Hazard.h"
 #include "HazardManager.h"
@@ -113,6 +114,9 @@ GameStatePlay::GameStatePlay()
 	trailer_cam_lock = false;
 	trailer_rec_frame = -1;
 	trailer_frames = 0;
+	room_label = new WidgetLabel();
+	room_label->setJustify(FontEngine::JUSTIFY_RIGHT);
+	room_label->setColor(Color(232, 184, 72, 255));
 	banner_label = new WidgetLabel();
 	banner_label->setFont("font_region_title");
 	banner_label->setJustify(FontEngine::JUSTIFY_CENTER);
@@ -970,6 +974,7 @@ void GameStatePlay::logic() {
 	checkCutscene();
 
 	selftestUiShots();
+	onlineLogic();
 
 	// check menus first (top layer gets mouse click priority)
 	menu->logic();
@@ -2001,6 +2006,7 @@ void GameStatePlay::render() {
 	renderRemotePlayerBars();
 	renderCoop();
 	renderWaveBanner();
+	renderRoomCode();
 	renderHurtFlash();
 
 	// mouseover tooltips
@@ -2101,6 +2107,7 @@ GameStatePlay::~GameStatePlay() {
 	delete net_hit_src;
 	delete horde;
 	delete banner_label;
+	delete room_label;
 	delete hurt_overlay;
 	delete run_upgrade;
 	delete sanctuary;
@@ -2352,6 +2359,84 @@ void GameStatePlay::applyAllyPowers() {
 		pc->logMsg(msg->getv("%s: %s on you", name.c_str(), powers->powers[id]->name.c_str()), Avatar::MSG_NORMAL);
 		Utils::logInfo("Coop: got %s from player %u", powers->powers[id]->name.c_str(), static_cast<unsigned>(theirs[i].player_id));
 	}
+}
+
+/**
+ * Pause menu "Play with friends": a solo game becomes the host of an online
+ * room (friends type the code in Multiplayer) and of the LAN (search / IP).
+ * The same button closes it again; friends get "the host left" and go on solo.
+ */
+void GameStatePlay::onlineLogic() {
+	MenuExit *ex = menu->exit;
+	// test hook: RD_OPEN_ROOM=<seconds> clicks "Play with friends" by itself
+	if (getenv("RD_OPEN_ROOM") && !(netmgr && netmgr->isActive())) {
+		static int frames = 0;
+		if (++frames == atoi(getenv("RD_OPEN_ROOM")) * settings->max_frames_per_sec)
+			ex->online_clicked = true;
+	}
+	if (ex->online_clicked) {
+		ex->online_clicked = false;
+		if (netmgr && netmgr->isServer()) {
+			netmgr->shutdown();
+			room_announced.clear();
+			pc->logMsg(msg->get("Your game is solo again."), Avatar::MSG_NORMAL);
+		}
+		else if (!netmgr || !netmgr->isActive()) {
+			if (!netmgr)
+				netmgr = new NetManager();
+			// LAN port if free (another copy may hold it), else any port:
+			// the online room doesn't care which
+			if (netmgr->startServer(GameStateMultiplayer::HOST_PORT) || netmgr->startServer(0)) {
+				netmgr->setPvp(settings->net_pvp);
+				announced_enemy_ids.clear();
+				sent_own_appearance = false;
+				netmgr->sendMapChange(mapr->getFilename(), pc->stats.pos.x, pc->stats.pos.y);
+				netmgr->openRoom();
+				room_announced.clear();
+			}
+			else {
+				pc->logMsg(msg->get("Could not open the game to friends."), Avatar::MSG_NORMAL);
+			}
+		}
+	}
+
+	std::string status, button = msg->get("Play with friends");
+	bool enabled = true;
+	if (!netmgr || !netmgr->isActive()) {
+		status = msg->get("Solo game");
+	}
+	else if (netmgr->isClient()) {
+		status = msg->get("In a friend's game");
+		enabled = false;
+	}
+	else {
+		button = msg->get("Close to friends");
+		if (!netmgr->getRoomCode().empty())
+			status = msg->getv("Room code: %s", netmgr->getRoomCode().c_str());
+		else if (!netmgr->getRoomError().empty())
+			status = msg->get("Online room unavailable (LAN only)");
+		else if (netmgr->isRoomRequested())
+			status = msg->get("Opening room...");
+		else
+			status = msg->get("Open on LAN");
+	}
+	ex->setOnlineStatus(status, button, enabled);
+
+	if (netmgr && netmgr->isServer() && !netmgr->getRoomCode().empty() && netmgr->getRoomCode() != room_announced) {
+		room_announced = netmgr->getRoomCode();
+		pc->logMsg(msg->getv("Room open! Friends join with the code %s", room_announced.c_str()), Avatar::MSG_UNIQUE);
+	}
+}
+
+// while hosting an online room, its code stays in a corner of the screen
+void GameStatePlay::renderRoomCode() {
+	if (!netmgr || !netmgr->isServer() || netmgr->getRoomCode().empty() || settings->trailer_clean)
+		return;
+	std::string text = msg->getv("Room: %s", netmgr->getRoomCode().c_str());
+	if (room_label->getText() != text)
+		room_label->setText(text);
+	room_label->setPos(settings->view_w - 12, settings->view_h - 28);
+	room_label->render();
 }
 
 void GameStatePlay::renderWaveBanner() {

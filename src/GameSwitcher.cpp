@@ -46,6 +46,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "GameSwitcher.h"
 #include "InputState.h"
 #include "MessageEngine.h"
+#include "NetManager.h"
 #include "RenderDevice.h"
 #include "Settings.h"
 #include "SharedResources.h"
@@ -206,6 +207,13 @@ void GameSwitcher::logic() {
 	tooltipm->clear();
 
 	selftestStateShots();
+
+	// Multiplayer outside the game itself (title, character creation,
+	// loading...): keep servicing the connection, so a host that opened a
+	// room answers friends and the relay right away, and nobody times out
+	// while someone is still picking a character.
+	if (netmgr && netmgr->isActive() && !dynamic_cast<GameStatePlay*>(currentState))
+		netmgr->pollGame();
 
 	// test hook: RD_AUTO_NEW="slot,class,option,skin,hair,cloth,mode" creates a
 	// brand new character without clicking (see GameStateNew::logic)

@@ -112,12 +112,42 @@ def pack_data(out, edition):
                 files += 1
                 total += os.path.getsize(src)
 
+    missing = verify_images(out)
+    if missing:
+        sys.exit('ERROR: %d images used by animations are missing from the package, e.g.:\n  %s\n'
+                 '(darkfantasy_sprites: python3 mods/darkfantasy_sprites/tools/grade.py; biome tilesets: '
+                 'python3 mods/random_dungeon/tools/gen_world.py --tilesets)' % (len(missing), '\n  '.join(missing[:10])))
+
     with open(os.path.join(out, 'mods', 'mods.txt'), 'w') as f:
         f.write('## Random Dungeon\n' + '\n'.join(m for m in MODS if m != 'default') + '\n')
     with open(os.path.join(out, 'mods', 'random_dungeon', 'engine', 'edition.txt'), 'w') as f:
         f.write('# run = commercial edition (Infinite Run only); full = everything\nedition=%s\n' % edition)
 
     return files, total, skipped
+
+
+def verify_images(out):
+    """Every image= an animation or tileset asks for must exist in some packed
+    mod -- otherwise heroes/enemies silently vanish in the game (this is how a
+    package once shipped without darkfantasy_sprites' images)."""
+    mods_dir = os.path.join(out, 'mods')
+    def exists(rel):
+        return any(os.path.exists(os.path.join(mods_dir, m, rel)) for m in MODS)
+    missing = set()
+    for mod in MODS:
+        for sub in ('animations', 'tilesetdefs'):
+            root = os.path.join(mods_dir, mod, sub)
+            for dp, dn, fn in os.walk(root):
+                for f in fn:
+                    if not f.endswith('.txt'):
+                        continue
+                    for line in open(os.path.join(dp, f), encoding='utf8', errors='replace'):
+                        line = line.strip()
+                        if line.startswith('img=') or line.startswith('image='):
+                            rel = line.split('=', 1)[1].split(',')[0].strip()
+                            if rel.endswith('.png') and not exists(rel):
+                                missing.add('%s (%s)' % (rel, os.path.relpath(os.path.join(dp, f), mods_dir)))
+    return sorted(missing)
 
 
 def copy_trailer_tools(out, windows):

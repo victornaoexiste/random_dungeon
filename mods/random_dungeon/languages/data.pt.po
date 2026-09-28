@@ -1237,6 +1237,42 @@ msgstr "O anfitrião fechou o jogo. Agora você está jogando sozinho."
 msgid "Connection to the host was lost. You are now playing alone."
 msgstr "A conexão com o anfitrião caiu. Agora você está jogando sozinho."
 
+msgid "Play with friends"
+msgstr "Jogar com amigos"
+
+msgid "Close to friends"
+msgstr "Fechar para amigos"
+
+msgid "Solo game"
+msgstr "Partida solo"
+
+msgid "In a friend's game"
+msgstr "Na partida de um amigo"
+
+msgid "Room code: %s"
+msgstr "Código da sala: %s"
+
+msgid "Room: %s"
+msgstr "Sala: %s"
+
+msgid "Online room unavailable (LAN only)"
+msgstr "Sala online indisponível (só rede local)"
+
+msgid "Opening room..."
+msgstr "Abrindo sala..."
+
+msgid "Open on LAN"
+msgstr "Aberta na rede local"
+
+msgid "Your game is solo again."
+msgstr "Sua partida voltou a ser solo."
+
+msgid "Could not open the game to friends."
+msgstr "Não foi possível abrir a partida para amigos."
+
+msgid "Room open! Friends join with the code %s"
+msgstr "Sala aberta! Seus amigos entram com o código %s"
+
 msgid "Dagger Strike"
 msgstr "Golpe de Adaga"
 

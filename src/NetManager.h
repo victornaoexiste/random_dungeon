@@ -339,7 +339,7 @@ struct RemoteEnemyState {
 
 class NetManager {
 public:
-	static const uint32_t PROTOCOL_VERSION = 9; // 9: co-op revive + host wave in TickPacket
+	static const uint32_t PROTOCOL_VERSION = 10; // 10: folklore bosses (horde boss=), relay rooms
 	static const uint16_t DISCOVERY_PORT = 4651;
 	static const int NET_SEND_HZ = 20;
 	static const uint32_t INTERP_DELAY_MS = 100;
@@ -361,6 +361,19 @@ public:
 
 	bool startServer(uint16_t port);
 	bool connectToServer(const std::string& host_str, uint16_t port, uint32_t timeout_ms);
+
+	// Online rooms through the relay server (server/rd_relay.py; address in
+	// engine/online.txt, relay=host:port). Nobody needs an open port: host and
+	// friends only talk out to the relay, which forwards the ENet datagrams.
+	// Host: openRoom() after startServer(); the code arrives a moment later.
+	bool openRoom();
+	void closeRoom();
+	bool isRoomRequested() const { return room_requested; }
+	const std::string& getRoomCode() const { return room_code; }
+	const std::string& getRoomError() const { return room_error; }
+	// Client: join a room by its code (blocking, like connectToServer).
+	bool connectWithCode(const std::string& code, uint32_t timeout_ms);
+	static bool looksLikeRoomCode(const std::string& text);
 	// Why the last connectToServer() failed or the connection dropped, for
 	// the UI ("" = no known reason).
 	const std::string& getLastError() const {
@@ -515,6 +528,22 @@ private:
 	static bool isMsg(const ENetPacket *packet, uint8_t type, size_t len);
 	ENetHost *host;
 	ENetPeer *server_peer;
+
+	// relay rooms (see openRoom)
+	static NetManager *relay_owner;
+	static int ENET_CALLBACK interceptRelay(ENetHost *h, ENetEvent *event);
+	void handleRelayMessage(const std::string& text, const ENetAddress& from);
+	bool resolveRelay();
+	void sendRelay(const ENetAddress& to, const std::string& text);
+	void pollRelay();
+	bool connectAddress(const ENetAddress& address, const std::string& label, uint32_t timeout_ms);
+	ENetAddress relay_addr;
+	bool room_requested;
+	std::string room_code;
+	std::string room_error;
+	uint32_t room_last_send;
+	uint32_t room_request_start;
+	std::string join_reply;
 
 	// Server only: connectID -> peer, so we can relay to "everyone but the sender".
 	std::map<uint32_t, ENetPeer*> server_peers;

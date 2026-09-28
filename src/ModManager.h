@@ -57,6 +57,7 @@ public:
 class ModManager {
 private:
 	void loadModList();
+	void readModListFile(const std::string& path, std::vector<std::string>& out);
 	void setPaths();
 
 	std::map<std::string,std::string> loc_cache;

@@ -157,6 +157,17 @@ ModManager::ModManager(const std::vector<std::string> *_cmd_line_mods)
  * One mod folder name per line
  * Later mods override previous mods
  */
+void ModManager::readModListFile(const std::string& path, std::vector<std::string>& out) {
+	std::ifstream infile(path.c_str(), std::ios::in);
+	if (!infile.is_open())
+		return;
+	while (infile.good()) {
+		std::string line = Parse::getLine(infile);
+		if (!Parse::skipLine(line) && line != FALLBACK_MOD)
+			out.push_back(line);
+	}
+}
+
 void ModManager::loadModList() {
 	bool found_any_mod = false;
 	bool loaded_defaults = false;
@@ -177,10 +188,24 @@ void ModManager::loadModList() {
 		std::string place2 = Filesystem::convertSlashes(settings->path_data + "mods/mods.txt");
 
 		// the user's list first; if it names no usable mod (e.g. it was saved
-		// by a run that couldn't find the game data), the game's own list
+		// by a run that couldn't find the game data), the game's own list.
+		// A user list that misses a mod the game's list requires (e.g. saved
+		// by an older version, before darkfantasy_sprites existed) is stale:
+		// using it loses every sprite that mod provides, so skip it.
+		std::vector<std::string> game_list, user_list;
+		readModListFile(place2, game_list);
+		readModListFile(place1, user_list);
+		bool user_complete = !user_list.empty();
+		for (size_t i = 0; i < game_list.size() && user_complete; ++i) {
+			if (find(mod_dirs.begin(), mod_dirs.end(), game_list[i]) != mod_dirs.end() &&
+			    find(user_list.begin(), user_list.end(), game_list[i]) == user_list.end()) {
+				Utils::logInfo("ModManager: %s lacks mod '%s', using the game's own list", place1.c_str(), game_list[i].c_str());
+				user_complete = false;
+			}
+		}
 		const std::string places[2] = { place1, place2 };
 		bool found_listed = false;
-		for (int p = 0; p < 2 && !found_listed; ++p) {
+		for (int p = user_complete ? 0 : 1; p < 2 && !found_listed; ++p) {
 			infile.open(places[p].c_str(), std::ios::in);
 			if (!infile.is_open()) {
 				infile.clear();

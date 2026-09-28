@@ -1,6 +1,8 @@
 #include "NetManager.h"
 
+#include "FileParser.h"
 #include "Utils.h"
+#include "UtilsParsing.h"
 
 #include <algorithm>
 #include <cstdio>
@@ -153,6 +155,11 @@ NetManager::NetManager()
 	, has_host_map(false)
 	, map_change_pending(false)
 {
+	room_requested = false;
+	room_last_send = 0;
+	room_request_start = 0;
+	relay_addr.host = 0;
+	relay_addr.port = 0;
 }
 
 NetManager::~NetManager() {
@@ -216,15 +223,29 @@ bool NetManager::connectToServer(const std::string& host_str, uint16_t port, uin
 	ENetAddress address;
 	if (enet_address_set_host(&address, host_str.c_str()) != 0) {
 		Utils::logError("NetManager: could not resolve host '%s'", host_str.c_str());
+		last_error = "resolve";
+		enet_host_destroy(host);
+		host = NULL;
+		enet_deinitialize();
 		return false;
 	}
 	address.port = port;
 
+	char label[128];
+	snprintf(label, sizeof(label), "%s:%u", host_str.c_str(), static_cast<unsigned>(port));
+	return connectAddress(address, label, timeout_ms);
+}
+
+bool NetManager::connectAddress(const ENetAddress& address, const std::string& label, uint32_t timeout_ms) {
+	const char *host_label = label.c_str();
 	last_error.clear();
 	lost_connection = false;
 	server_peer = enet_host_connect(host, &address, 6, PROTOCOL_VERSION);
 	if (!server_peer) {
 		Utils::logError("NetManager: no available peers for connection attempt");
+		enet_host_destroy(host);
+		host = NULL;
+		enet_deinitialize();
 		return false;
 	}
 
@@ -240,7 +261,7 @@ bool NetManager::connectToServer(const std::string& host_str, uint16_t port, uin
 				continue;
 			if (event.type == ENET_EVENT_TYPE_DISCONNECT) {
 				last_error = (event.data == DISCONNECT_VERSION) ? "version" : "refused";
-				Utils::logError("NetManager: %s:%u refused the connection (%s)", host_str.c_str(), static_cast<unsigned>(port), last_error.c_str());
+				Utils::logError("NetManager: %s refused the connection (%s)", host_label, last_error.c_str());
 				for (size_t i = 0; i < early_events.size(); ++i)
 					enet_packet_destroy(early_events[i].packet);
 				early_events.clear();
@@ -255,7 +276,7 @@ bool NetManager::connectToServer(const std::string& host_str, uint16_t port, uin
 		}
 		setPeerTimeouts(server_peer);
 		role = ROLE_CLIENT;
-		Utils::logInfo("NetManager: connected to %s:%u (protocol %u)", host_str.c_str(), static_cast<unsigned>(port), static_cast<unsigned>(PROTOCOL_VERSION));
+		Utils::logInfo("NetManager: connected to %s (protocol %u)", host_label, static_cast<unsigned>(PROTOCOL_VERSION));
 		return true;
 	}
 
@@ -265,11 +286,14 @@ bool NetManager::connectToServer(const std::string& host_str, uint16_t port, uin
 	host = NULL;
 	enet_deinitialize();
 	last_error = "timeout";
-	Utils::logError("NetManager: connection to %s:%u failed/timed out", host_str.c_str(), static_cast<unsigned>(port));
+	Utils::logError("NetManager: connection to %s failed/timed out", host_label);
 	return false;
 }
 
 void NetManager::shutdown() {
+	closeRoom();
+	if (relay_owner == this)
+		relay_owner = NULL;
 	if (server_peer) {
 		enet_peer_disconnect_now(server_peer, DISCONNECT_NORMAL);
 		server_peer = NULL;
@@ -394,8 +418,10 @@ void NetManager::pollGame() {
 	if (!host)
 		return;
 
-	if (role == ROLE_SERVER)
+	if (role == ROLE_SERVER) {
 		pollDiscovery();
+		pollRelay();
+	}
 
 	ENetEvent event;
 	while (host) {
@@ -1114,4 +1140,207 @@ int NetManager::getHostTheme() const {
 int NetManager::getHostFamily() const {
 	std::map<uint32_t, NetPos>::const_iterator it = remote_positions.find(0);
 	return it != remote_positions.end() ? it->second.family : 0;
+}
+
+
+// ------------------------------------------------------------------ relay rooms
+
+NetManager *NetManager::relay_owner = NULL;
+
+static const char RELAY_MAGIC[] = "RDRL";
+
+bool NetManager::looksLikeRoomCode(const std::string& text) {
+	if (text.size() != 5)
+		return false;
+	for (size_t i = 0; i < text.size(); ++i) {
+		char c = text[i];
+		if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')))
+			return false;
+	}
+	return true;
+}
+
+/**
+ * engine/online.txt: relay=host:port (default port 4650). Resolved again on
+ * each use, so a relay behind a changing DNS name keeps working.
+ */
+bool NetManager::resolveRelay() {
+	std::string relay;
+	FileParser infile;
+	if (infile.open("engine/online.txt", FileParser::MOD_FILE, FileParser::ERROR_NONE)) {
+		while (infile.next()) {
+			if (infile.key == "relay")
+				relay = infile.val;
+		}
+		infile.close();
+	}
+	if (relay.empty()) {
+		room_error = "norelay";
+		Utils::logError("NetManager: no relay configured (engine/online.txt relay=host:port)");
+		return false;
+	}
+	uint16_t port = 4650;
+	std::string name = relay;
+	size_t colon = relay.rfind(':');
+	if (colon != std::string::npos) {
+		name = relay.substr(0, colon);
+		port = static_cast<uint16_t>(Parse::toInt(relay.substr(colon + 1), 4650));
+	}
+	if (enet_address_set_host(&relay_addr, name.c_str()) != 0) {
+		room_error = "resolve";
+		Utils::logError("NetManager: could not resolve relay '%s'", name.c_str());
+		return false;
+	}
+	relay_addr.port = port;
+	return true;
+}
+
+void NetManager::sendRelay(const ENetAddress& to, const std::string& text) {
+	if (!host)
+		return;
+	std::string msg = std::string(RELAY_MAGIC) + " " + text;
+	ENetBuffer buf;
+	buf.data = const_cast<char*>(msg.c_str());
+	buf.dataLength = msg.size();
+	enet_socket_send(host->socket, &to, &buf, 1);
+}
+
+// Raw relay messages share the ENet socket; this pulls them out before ENet
+// tries to parse them as its own protocol.
+int ENET_CALLBACK NetManager::interceptRelay(ENetHost *h, ENetEvent *event) {
+	(void)event;
+	if (!relay_owner || h->receivedDataLength < 4 || memcmp(h->receivedData, RELAY_MAGIC, 4) != 0)
+		return 0;
+	std::string text(reinterpret_cast<const char*>(h->receivedData), h->receivedDataLength);
+	relay_owner->handleRelayMessage(text, h->receivedAddress);
+	return 1;
+}
+
+void NetManager::handleRelayMessage(const std::string& text, const ENetAddress& from) {
+	// "RDRL CODE ABCDE" / "RDRL PEER 51234" / "RDRL OK" / "RDRL ERR why"
+	std::string rest = text.substr(4);
+	std::string cmd = Parse::popFirstString(rest, ' ');
+	if (cmd.empty())
+		cmd = Parse::popFirstString(rest, ' ');
+	if (role == ROLE_SERVER) {
+		if (cmd == "CODE") {
+			std::string code = Parse::popFirstString(rest, ' ');
+			if (code != room_code)
+				Utils::logInfo("NetManager: room open, code %s", code.c_str());
+			room_code = code;
+			room_error.clear();
+		}
+		else if (cmd == "PEER") {
+			// a friend is coming in through this relay port: open our NAT towards it
+			ENetAddress to = from;
+			to.port = static_cast<uint16_t>(Parse::toInt(Parse::popFirstString(rest, ' ')));
+			for (int i = 0; i < 3; ++i)
+				sendRelay(to, "PUNCH");
+			Utils::logInfo("NetManager: relay peer on port %u", static_cast<unsigned>(to.port));
+		}
+		else if (cmd == "ERR") {
+			room_error = Parse::popFirstString(rest, ' ');
+			Utils::logError("NetManager: relay refused the room (%s)", room_error.c_str());
+		}
+	}
+	else {
+		join_reply = cmd == "ERR" ? "ERR " + Parse::popFirstString(rest, ' ') : cmd;
+	}
+}
+
+bool NetManager::openRoom() {
+	if (role != ROLE_SERVER || !host)
+		return false;
+	room_error.clear();
+	if (!resolveRelay())
+		return false;
+	relay_owner = this;
+	host->intercept = interceptRelay;
+	room_requested = true;
+	room_code.clear();
+	room_last_send = 0;
+	room_request_start = enet_time_get();
+	pollRelay();
+	return true;
+}
+
+void NetManager::closeRoom() {
+	if (room_requested && host)
+		sendRelay(relay_addr, "CLOSE");
+	room_requested = false;
+	room_code.clear();
+}
+
+// Host: (re)register the room -- quickly until the code arrives, then every
+// 10 s as a keepalive (the relay drops rooms silent for 45 s).
+void NetManager::pollRelay() {
+	if (!room_requested || !host)
+		return;
+	const uint32_t now = enet_time_get();
+	const uint32_t every = room_code.empty() ? 1000 : 10000;
+	if (room_last_send == 0 || now - room_last_send >= every) {
+		room_last_send = now ? now : 1;
+		char text[64];
+		snprintf(text, sizeof(text), "HOST %u %s", static_cast<unsigned>(PROTOCOL_VERSION), room_code.c_str());
+		sendRelay(relay_addr, text);
+	}
+	if (room_code.empty() && room_error.empty() && now - room_request_start > 8000)
+		room_error = "timeout";
+}
+
+bool NetManager::connectWithCode(const std::string& code_in, uint32_t timeout_ms) {
+	std::string code = code_in;
+	for (size_t i = 0; i < code.size(); ++i)
+		code[i] = static_cast<char>(toupper(code[i]));
+
+	if (enet_initialize() != 0) {
+		Utils::logError("NetManager: could not initialize ENet");
+		return false;
+	}
+	host = enet_host_create(NULL, 1, 6, 0, 0);
+	if (!host) {
+		Utils::logError("NetManager: could not create ENet client host");
+		enet_deinitialize();
+		return false;
+	}
+	if (!resolveRelay()) {
+		last_error = room_error;
+		enet_host_destroy(host);
+		host = NULL;
+		enet_deinitialize();
+		return false;
+	}
+	relay_owner = this;
+	host->intercept = interceptRelay;
+	join_reply.clear();
+
+	// ask the relay to put us in that room; resend in case a datagram is lost
+	char text[64];
+	snprintf(text, sizeof(text), "JOIN %u %s", static_cast<unsigned>(PROTOCOL_VERSION), code.c_str());
+	const uint32_t start = enet_time_get();
+	uint32_t last_send = 0;
+	ENetEvent event;
+	while (join_reply.empty() && enet_time_get() - start < timeout_ms) {
+		if (last_send == 0 || enet_time_get() - last_send > 400) {
+			sendRelay(relay_addr, text);
+			last_send = enet_time_get();
+			if (last_send == 0) last_send = 1;
+		}
+		enet_host_service(host, &event, 50);
+	}
+	if (join_reply != "OK") {
+		if (join_reply.empty()) last_error = "relay";
+		else if (join_reply == "ERR nocode") last_error = "nocode";
+		else if (join_reply == "ERR version") last_error = "version";
+		else if (join_reply == "ERR full") last_error = "full";
+		else last_error = "refused";
+		Utils::logError("NetManager: relay join %s failed (%s)", code.c_str(), last_error.c_str());
+		relay_owner = NULL;
+		enet_host_destroy(host);
+		host = NULL;
+		enet_deinitialize();
+		return false;
+	}
+	Utils::logInfo("NetManager: relay accepted us into room %s", code.c_str());
+	return connectAddress(relay_addr, "room " + code, timeout_ms);
 }

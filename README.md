@@ -36,24 +36,28 @@ Novo jogo cai na **Arena** (mapa aberto, 100x100). A cada 8 s uma horda aparece 
 
 ## Multiplayer
 
-Um jogador **hospeda**, os outros **conectam** pelo IP dele. A porta padrão é **4650/UDP**.
+Três jeitos de jogar junto, todos no mesmo jogo:
+
+1. **Pelo código da sala (internet)**: *Multiplayer > Criar partida*, ou no meio
+   de uma partida solo: *Esc > Jogar com amigos*. Aparece um código de 5 letras
+   (canto da tela e menu de pausa). Os amigos vão em *Multiplayer*, digitam o
+   código e *Entrar*. Ninguém precisa abrir porta: tudo passa pelo servidor de
+   salas (`server/`, endereço em `mods/random_dungeon/engine/online.txt`).
+2. **Rede local**: o host faz o mesmo; o amigo usa *Buscar na rede*.
+3. **IP direto** (avançado): digite `IP` ou `IP:porta` no lugar do código
+   (precisa da porta **4650/UDP** aberta no host).
+
+O host pode estar no menu, criando personagem ou já jogando: o amigo conecta
+e segue o host para o mapa dele. *Fechar para amigos* volta a partida a solo.
+
+Linha de comando / testes:
 
 ```bash
-# jogador 1 (host): abre o jogo e ja hospeda
-scripts/host.sh
-
-# jogador 2 (mesma maquina, para testar)
-scripts/join.sh 127.0.0.1
-
-# jogador 2 (outra maquina na LAN)
-scripts/join.sh 192.168.0.10
+scripts/host.sh                       # hospeda na porta 4650
+scripts/join.sh 192.168.0.10          # entra por IP
+./build/flare --data-path=. --net-join=ABCDE   # entra por código
+python3 server/rd_relay.py --port 4650         # relay local para testar
 ```
-
-Regras importantes:
-- **O host precisa estar dentro do jogo** (personagem criado, mapa carregado) *antes* de o cliente conectar; senão o cliente dá timeout em ~5 s.
-- Liberar a porta no firewall do host. Fedora: `sudo firewall-cmd --add-port=4650/udp`. Ubuntu: `sudo ufw allow 4650/udp`.
-- Testando na mesma máquina: se aparecer o aviso de "instância já rodando", clique em **Continue**.
-- Também dá pra hospedar/conectar pelo botão **Multiplayer** da tela inicial (sem scripts).
 
 Logs de rede: `~/.config/flare/flare_log_host.txt` e `flare_log_client.txt`.
 

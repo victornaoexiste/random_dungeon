@@ -161,6 +161,11 @@ private:
 	std::string banner_text;
 	int banner_ticks;
 	WidgetLabel *banner_label;
+	// "Play with friends" (pause menu): turns this game into a hosted one
+	void onlineLogic();
+	void renderRoomCode();
+	WidgetLabel *room_label;
+	std::string room_announced;
 	// red flash when the hero takes a heavy hit (renderHurtFlash)
 	void renderHurtFlash();
 	// trailer / screenshot mode (--trailer, see trailerLogic)

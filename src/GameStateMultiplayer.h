@@ -38,8 +38,9 @@ class WidgetInput;
 class WidgetLabel;
 
 class GameStateMultiplayer : public GameState {
-private:
+public:
 	static const int HOST_PORT = 4650;
+private:
 
 	Sprite *panel;
 	WidgetLabel *label_title;

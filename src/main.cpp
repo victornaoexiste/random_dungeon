@@ -467,7 +467,8 @@ int main(int argc, char *argv[]) {
 --net-server[=PORT]      Runs a headless network transport smoke test as a server (default port 4650).\n\
 --net-client=HOST[:PORT] Runs a headless network transport smoke test as a client, connecting to HOST:PORT.\n\
 --net-host[=PORT]        Plays normally, also hosting a game server (default port 4650).\n\
---net-join=HOST[:PORT]   Plays normally, connecting to a host's game server at HOST:PORT.\n\
+--net-join=HOST[:PORT]   Plays normally, connecting to a host's game server at HOST:PORT\n\
+                         (or a 5-letter online room code, through the relay).\n\
 --net-pvp                With --net-host: players can hurt each other.\n\
 --net-discover           Lists the games hosted on the LAN (log + stdout) and quits.");
 			done = true;
@@ -542,6 +543,9 @@ soft_reset:
 				uint16_t port = static_cast<uint16_t>(atoi(settings->net_host_port.c_str()));
 				if (netmgr->startServer(port))
 					netmgr->setPvp(settings->net_pvp);
+			}
+			else if (NetManager::looksLikeRoomCode(settings->net_join_target)) {
+				netmgr->connectWithCode(settings->net_join_target, 6000);
 			}
 			else {
 				std::string host = settings->net_join_target;

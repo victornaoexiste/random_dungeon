@@ -37,6 +37,7 @@ MenuExit::MenuExit()
 	, menu_config(new MenuConfig(!MenuConfig::IS_GAME_STATE))
 	, exitClicked(false)
 	, reload_music(false)
+	, online_clicked(false)
 {
 	menu_config->setHero(pc);
 	align();
@@ -66,6 +67,10 @@ void MenuExit::logic() {
 		menu_config->clicked_pause_exit = false;
 	}
 
+	else if (menu_config->clicked_pause_online) {
+		menu_config->clicked_pause_online = false;
+		online_clicked = true;
+	}
 	else if (menu_config->clicked_pause_save) {
 		visible = false;
 		menu_config->clicked_pause_save = false;
@@ -82,6 +87,10 @@ void MenuExit::render() {
 
 		menu_config->render();
 	}
+}
+
+void MenuExit::setOnlineStatus(const std::string& status, const std::string& button, bool is_enabled) {
+	menu_config->setOnlineStatus(status, button, is_enabled);
 }
 
 void MenuExit::disableSave() {

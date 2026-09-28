@@ -1,0 +1,16 @@
+[Unit]
+Description=Random Dungeon relay (salas por codigo)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/rd-relay/rd_relay.py --port 4650
+Restart=always
+RestartSec=3
+DynamicUser=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
