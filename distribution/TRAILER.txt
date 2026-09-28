@@ -1,7 +1,7 @@
 RANDOM DUNGEON - MODO TRAILER (screenshots e GIFs para divulgar)
 
 Abrir:
-  Windows: RandomDungeon-trailer.bat
+  Windows: Encantados-trailer.bat
   Linux:   ./jogar.sh --trailer
 
 No modo trailer o HUD e o cursor somem, o heroi nao morre, a horda e 4x

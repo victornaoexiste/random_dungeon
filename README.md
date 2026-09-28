@@ -1,8 +1,8 @@
-# Random Dungeon
+# Encantados
 
-Roguelite de masmorras e hordas, **online** (LAN / servidor), isométrico, feito sobre o motor [Flare](https://github.com/flareteam/flare-engine) (C++/SDL2), com camada de rede própria (ENet, host autoritativo).
+Roguelite co-op de hordas do **folclore brasileiro**, isométrico, **online** (código de sala, rede local ou IP), feito sobre o motor [Flare](https://github.com/flareteam/flare-engine) (C++/SDL2), com camada de rede própria (ENet, host autoritativo). Antes se chamava *Random Dungeon* (o repositório, a pasta do mod `random_dungeon` e a pasta de saves continuam com esse nome).
 
-> Status: protótipo. O que existe hoje: masmorra procedural, 3 classes (Brute, Rogue, Adept), multiplayer com posição/aparência/ataques/inimigos compartilhados, inimigos que perseguem e ferem todos os jogadores, e modo hordas em mapa aberto (primeira versão, ainda sem balanceamento nem HUD de onda).
+> Hoje: acampamento (lobby) → Horda Infinita com ondas temáticas e um chefe do folclore a cada 5 ondas (Saci-Pererê, Curupira, Minhocão, Mula sem Cabeça, Boitatá, Cuca, Mapinguari, Cobra Grande...); 4 classes (Cangaceiro, Mateiro, Benzedeiro, Feiticeiro), 75 habilidades, itens e conjuntos; Santuário com bênçãos permanentes; co-op com revive.
 
 ## Como rodar (Linux / WSL)
 

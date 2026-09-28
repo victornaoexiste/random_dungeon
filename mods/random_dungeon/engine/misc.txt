@@ -3,7 +3,7 @@
 # perde currency_id, fogofwar, aim_assist etc.
 APPEND
 
-window_title=Random Dungeon
+window_title=Encantados
 # pasta dos saves (~/.local/share/flare/saves/random_dungeon); antes caia em
 # "default" porque o override antigo apagava o save_prefix da campanha
 save_prefix=random_dungeon

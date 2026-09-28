@@ -941,7 +941,7 @@ def gold_text(text, size, fontfile=None):
     return im
 
 def logo():
-    t = gold_text('Random Dungeon', 48)
+    t = gold_text('Encantados', 48)
     W = t.width + 20; H = t.height + 22
     im = new(W, H)
     im.alpha_composite(t, ((W - t.width) // 2, 0))

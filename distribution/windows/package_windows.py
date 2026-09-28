@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Packs the Windows build of Random Dungeon into a folder + zip for itch.io.
+Packs the Windows build of Encantados into a folder + zip for itch.io.
 
   mingw64-cmake -S . -B build-win -DCMAKE_BUILD_TYPE=Release \\
       -DENET_INCLUDE_DIR=$HOME/win-deps/include -DENET_LIBRARY=$HOME/win-deps/lib/libenet.a
   make -C build-win -j8
   python3 distribution/windows/package_windows.py [--edition run|full] [--no-zip]
 
-Output: dist/RandomDungeon-<edition>-win64/ and the .zip next to it.
+Output: dist/Encantados-<edition>-win64/ and the .zip next to it.
 
-The folder has RandomDungeon.exe, the MinGW/SDL DLLs it needs (found by
+The folder has Encantados.exe, the MinGW/SDL DLLs it needs (found by
 walking the import tables), the game mods, mods/mods.txt, the licenses and
 CREDITS.txt, and itch's .itch.toml launch manifest. Saves go to
 %APPDATA%\\RandomDungeon (see PlatformWin32.cpp).
@@ -119,7 +119,7 @@ def pack_data(out, edition):
                  'python3 mods/random_dungeon/tools/gen_world.py --tilesets)' % (len(missing), '\n  '.join(missing[:10])))
 
     with open(os.path.join(out, 'mods', 'mods.txt'), 'w') as f:
-        f.write('## Random Dungeon\n' + '\n'.join(m for m in MODS if m != 'default') + '\n')
+        f.write('## Encantados\n' + '\n'.join(m for m in MODS if m != 'default') + '\n')
     with open(os.path.join(out, 'mods', 'random_dungeon', 'engine', 'edition.txt'), 'w') as f:
         f.write('# run = commercial edition (Infinite Run only); full = everything\nedition=%s\n' % edition)
 
@@ -156,8 +156,8 @@ def copy_trailer_tools(out, windows):
     shutil.copy2(os.path.join(dist, 'TRAILER.txt'), os.path.join(out, 'TRAILER.txt'))
     shutil.copy2(os.path.join(dist, 'make_gif.py'), os.path.join(out, 'make_gif.py'))
     if windows:
-        with open(os.path.join(out, 'RandomDungeon-trailer.bat'), 'w', newline='\r\n') as f:
-            f.write('@echo off\nstart "" "%~dp0RandomDungeon.exe" --trailer\n')
+        with open(os.path.join(out, 'Encantados-trailer.bat'), 'w', newline='\r\n') as f:
+            f.write('@echo off\nstart "" "%~dp0Encantados.exe" --trailer\n')
 
 
 def copy_licenses(out):
@@ -178,14 +178,14 @@ def main():
     if not os.path.exists(exe):
         sys.exit('build-win/flare.exe not found; build it first (see the top of this file)')
 
-    name = 'RandomDungeon-%s-win64' % edition
+    name = 'Encantados-%s-win64' % edition
     out = os.path.join(ENGINE, 'dist', name)
     if os.path.isdir(out):
         shutil.rmtree(out)
     os.makedirs(out)
 
-    shutil.copy2(exe, os.path.join(out, 'RandomDungeon.exe'))
-    subprocess.call(['x86_64-w64-mingw32-strip', os.path.join(out, 'RandomDungeon.exe')])
+    shutil.copy2(exe, os.path.join(out, 'Encantados.exe'))
+    subprocess.call(['x86_64-w64-mingw32-strip', os.path.join(out, 'Encantados.exe')])
     dlls = copy_dlls(exe, out)
 
     files, total, skipped = pack_data(out, edition)
@@ -193,7 +193,7 @@ def main():
     copy_trailer_tools(out, True)
     shutil.copy2(os.path.join(HERE, 'Liberar-firewall.bat'), os.path.join(out, 'Liberar-firewall.bat'))
     with open(os.path.join(out, '.itch.toml'), 'w') as f:
-        f.write('[[actions]]\nname = "play"\npath = "RandomDungeon.exe"\nplatform = "windows"\n')
+        f.write('[[actions]]\nname = "play"\npath = "Encantados.exe"\nplatform = "windows"\n')
 
     print('%s: %d data files (%.0f MB, %.0f MB of overridden assets left out), DLLs: %s' % (name, files, total / 1e6, skipped / 1e6, ', '.join(dlls)))
 

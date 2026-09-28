@@ -30,13 +30,13 @@ BEGIN
     BEGIN
         BLOCK "040904E4"
         BEGIN
-            VALUE "Comments", "Random Dungeon - built on the Flare engine\0"
-            VALUE "FileDescription", "Random Dungeon\0"
+            VALUE "Comments", "Encantados - built on the Flare engine\0"
+            VALUE "FileDescription", "Encantados\0"
             VALUE "FileVersion", "1, 0, 0\0"
             VALUE "InternalName", "RandomDungeon\0"
             VALUE "LegalCopyright", "RedByte; Flare engine by Clint Bellanger and Contributors (GPL-3)\0"
             VALUE "OriginalFilename", "RandomDungeon.exe\0"
-            VALUE "ProductName", "Random Dungeon\0"
+            VALUE "ProductName", "Encantados\0"
             VALUE "ProductVersion", "1, 15, 0\0"
         END
     END

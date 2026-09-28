@@ -125,7 +125,7 @@ void GameState::renderSignature() {
 		label->setJustify(FontEngine::JUSTIFY_RIGHT);
 		label->setVAlign(LabelInfo::VALIGN_BOTTOM);
 		label->setColor(font->getColor(FontEngine::COLOR_MENU_NORMAL));
-		label->setText("Random Dungeon " + (version.empty() ? std::string("") : "v" + version + "  ") + "- RedByte");
+		label->setText("Encantados " + (version.empty() ? std::string("") : "v" + version + "  ") + "- RedByte");
 	}
 	label->setPos(settings->view_w - 12, settings->view_h - 8);
 	label->render();

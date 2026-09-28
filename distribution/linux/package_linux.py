@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Packs the Linux build of Random Dungeon into a folder + .tar.gz.
+Packs the Linux build of Encantados into a folder + .tar.gz.
 
   cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release && make -C build-release -j8
   python3 distribution/linux/package_linux.py [--edition run|full] [--no-tar]
 
-Output: dist/RandomDungeon-<edition>-linux64/ and the .tar.gz next to it.
+Output: dist/Encantados-<edition>-linux64/ and the .tar.gz next to it.
 
 Bundles the SDL/ENet libraries next to the game (lib/, found through
 jogar.sh's LD_LIBRARY_PATH), so other distros don't need them installed;
@@ -67,10 +67,10 @@ def bundle_libs(binary, dest):
 
 
 RUN_SH = '''#!/bin/sh
-# Random Dungeon -- run from anywhere
+# Encantados -- run from anywhere
 DIR="$(cd "$(dirname "$0")" && pwd)"
 export LD_LIBRARY_PATH="$DIR/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-exec "$DIR/RandomDungeon" --data-path="$DIR/" "$@"
+exec "$DIR/Encantados" --data-path="$DIR/" "$@"
 '''
 
 
@@ -82,14 +82,14 @@ def main():
     if not os.path.exists(exe):
         sys.exit('build-release/flare not found; build it first (see the top of this file)')
 
-    name = 'RandomDungeon-%s-linux64' % edition
+    name = 'Encantados-%s-linux64' % edition
     out = os.path.join(ENGINE, 'dist', name)
     if os.path.isdir(out):
         shutil.rmtree(out)
     os.makedirs(out)
 
-    shutil.copy2(exe, os.path.join(out, 'RandomDungeon'))
-    subprocess.call(['strip', os.path.join(out, 'RandomDungeon')])
+    shutil.copy2(exe, os.path.join(out, 'Encantados'))
+    subprocess.call(['strip', os.path.join(out, 'Encantados')])
     libs = bundle_libs(exe, os.path.join(out, 'lib'))
     with open(os.path.join(out, 'jogar.sh'), 'w') as f:
         f.write(RUN_SH)

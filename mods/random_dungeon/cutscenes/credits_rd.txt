@@ -2,7 +2,7 @@
 image=images/menus/df_logo.png
 separator=16
 
-text=Random Dungeon
+text=Encantados
 text=by RedByte
 separator=32
 
