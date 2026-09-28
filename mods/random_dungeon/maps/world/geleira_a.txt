@@ -235,55 +235,55 @@ spawn_level=fixed,10
 [enemy]
 type=enemy
 location=8,41,3,3
-category=rd_ice_shaman
+category=rd_ice_demon
 number=1,2
 spawn_level=fixed,10
 
 [enemy]
 type=enemy
 location=8,31,3,3
-category=rd_skeletal_champion
-number=1,2
-spawn_level=fixed,11
+category=rd_ice_warlord
+number=2,3
+spawn_level=fixed,13
 
 [enemy]
 type=enemy
 location=34,22,3,3
-category=rd_ice_demon
+category=rd_hobgoblin
 number=2,3
-spawn_level=fixed,12
+spawn_level=fixed,10
 
 [enemy]
 type=enemy
 location=16,30,3,3
-category=rd_hobgoblin
+category=rd_ice_warlord
 number=2,4
-spawn_level=fixed,10
+spawn_level=fixed,13
 
 [enemy]
 type=enemy
 location=36,41,3,3
-category=rd_ice_demon
+category=rd_ice_warlord
 number=2,3
-spawn_level=fixed,12
+spawn_level=fixed,13
 
 [enemy]
 type=enemy
 location=32,33,3,3
-category=rd_hobgoblin
-number=1,2
-spawn_level=fixed,10
+category=rd_ice_demon
+number=2,4
+spawn_level=fixed,12
 
 [enemy]
 type=enemy
 location=25,13,3,3
-category=rd_hobgoblin
+category=rd_skeletal_champion
 number=2,4
 spawn_level=fixed,10
 
 [enemy]
 type=enemy
 location=16,14,3,3
-category=rd_ice_drake
+category=rd_hobgoblin
 number=2,4
 spawn_level=fixed,10

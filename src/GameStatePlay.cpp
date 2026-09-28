@@ -989,6 +989,20 @@ void GameStatePlay::logic() {
 				static_cast<double>(pc->stats.run_speed), static_cast<double>(pc->stats.run_attack_speed));
 	}
 
+	// test hook: RD_SHOWCASE="rd_mula,rd_boitata" puts those enemies around the
+	// hero ~3s into a run; RD_SHOWCASE_SHOT=<dir> takes 4 screenshots after it
+	if (getenv("RD_SHOWCASE") && horde->isRunMap(mapr->getFilename())) {
+		static int frames = 0;
+		const int fps = settings->max_frames_per_sec;
+		if (++frames == fps * 3)
+			horde->showcase(pc->stats.pos, getenv("RD_SHOWCASE"));
+		if (getenv("RD_SHOWCASE_SHOT") && frames > fps * 3 && (frames - fps * 3) % (fps / 2) == 0 && frames <= fps * 5) {
+			std::stringstream ss;
+			ss << getenv("RD_SHOWCASE_SHOT") << "/showcase_" << (frames - fps * 3) / (fps / 2) << ".png";
+			render_device->screenshot_request = ss.str();
+		}
+	}
+
 	// Infinite Run: level-up upgrade choice (pauses single-player while open)
 	run_upgrade->sanctuary = sanctuary;
 	horde->sanctuary = sanctuary;

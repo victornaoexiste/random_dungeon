@@ -1,0 +1,12 @@
+# Serpentes do folclore (sprites em tools/gen_serpents.py). Sons emprestados do antlion.
+INCLUDE enemies/base/beacon.txt
+
+sfx_attack=swing,soundfx/enemies/antlion_phys.ogg
+sfx_attack=shoot,soundfx/enemies/antlion_ment.ogg
+sfx_attack=cast,soundfx/enemies/antlion_ment.ogg
+sfx_hit=soundfx/enemies/antlion_hit.ogg
+sfx_die=soundfx/enemies/antlion_die.ogg
+sfx_critdie=soundfx/enemies/antlion_critdie.ogg
+
+melee_range=0.9
+threat_range=9.0

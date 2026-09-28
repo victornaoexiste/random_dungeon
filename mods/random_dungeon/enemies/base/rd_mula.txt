@@ -1,0 +1,12 @@
+# Mula sem Cabeça (sprite em tools/gen_serpents.py). Sons emprestados do minotauro.
+INCLUDE enemies/base/beacon.txt
+
+sfx_attack=swing,soundfx/enemies/minotaur_phys.ogg
+sfx_attack=shoot,soundfx/enemies/wyvern_ment.ogg
+sfx_attack=cast,soundfx/enemies/wyvern_ment.ogg
+sfx_hit=soundfx/enemies/minotaur_hit.ogg
+sfx_die=soundfx/enemies/minotaur_die.ogg
+sfx_critdie=soundfx/enemies/minotaur_critdie.ogg
+
+melee_range=2.0
+threat_range=10.0

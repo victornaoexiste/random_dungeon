@@ -1,64 +1,70 @@
 id,name,name_pt,ek_level,family,template,animation,tint,grade,hp_mult,dmg_mult,resists
-rd_goblin,Goblin,Goblin,2,Goblins,il_goblin,fantasycore:goblin,,normal,0.82,1.18,fire_resist:3
-rd_goblin_warrior,Goblin Warrior,Goblin Guerreiro,3,Goblins,il_goblin,fantasycore:goblin,rust,normal,0.76,1.05,fire_resist:8
-rd_goblin_spearman,Goblin Spearman,Goblin Lanceiro,3,Goblins,il_goblin_runner,fantasycore:goblin_runner,,normal,0.60,0.83,fire_resist:3
-rd_goblin_guardian,Goblin Shieldbearer,Goblin Escudeiro,4,Goblins,il_goblin,fantasycore:goblin_elite,,normal,0.79,1.21,fire_resist:8
-rd_goblin_sergeant,Goblin Captain,Capitão Goblin,4,Goblins,il_goblin,fantasycore:goblin_elite,gold,normal,0.87,1.04,fire_resist:8
-rd_goblin_beastlord,Goblin Houndmaster,Goblin Mestre dos Cães,6,Goblins,il_goblin,fantasycore:goblin_elite,shadow,normal,0.74,1.07,fire_resist:8
-rd_goblin_firedancer,Goblin Pyromaniac,Goblin Piromaníaco,6,Goblins,il_goblin_runner,fantasycore:goblin_runner,fire,normal,1.09,0.60,fire_resist:40
-rd_goblin_firelord,Goblin Flamecaller,Goblin Invocador das Chamas,8,Goblins,il_goblin,fantasycore:goblin_elite,fire,elite,1.80,1.20,fire_resist:67
-rd_goblin_king,Goblin Warboss,Chefe de Guerra Goblin,10,Goblins,il_goblin,fantasycore:goblin_elite,royal,boss,4.00,1.50,fire_resist:17
-rd_imp,Imp,Diabrete,6,Demons,il_goblin_runner,fantasycore:goblin_runner,blood,normal,0.70,0.92,fire_resist:67;ice_resist:-17
-rd_orc_grunt,Orc Recruit,Orc Recruta,2,Orcs,il_hobgoblin,empyrean_campaign:hobgoblin,orc,normal,0.83,1.42,dark_resist:13
-rd_orc_warrior,Orc Warrior,Orc Guerreiro,4,Orcs,il_hobgoblin,empyrean_campaign:hobgoblin,,normal,0.83,1.06,dark_resist:13
-rd_orc_archer,Orc Archer,Orc Arqueiro,6,Orcs,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,orc,normal,0.60,0.93,dark_resist:30
-rd_orc_elite,Orc Veteran,Orc Veterano,7,Orcs,il_hobgoblin,empyrean_campaign:hobgoblin,rust,normal,0.76,0.77,dark_resist:33
-rd_orc_shooter,Orc Crossbowman,Orc Besteiro,8,Orcs,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,shadow,normal,0.60,1.15,dark_resist:53
-rd_orc_trooper,Orc Raider,Orc Saqueador,10,Orcs,il_hobgoblin,empyrean_campaign:hobgoblin,steel,normal,0.89,0.82,dark_resist:53
-rd_orc_commander,Orc Captain,Capitão Orc,11,Orcs,il_hobgoblin,empyrean_campaign:hobgoblin,blood,elite,2.31,1.20,dark_resist:50;fire_resist:8;ice_resist:7
-rd_orc_king,Orc Overlord,Senhor dos Orcs,11,Orcs,il_hobgoblin,empyrean_campaign:hobgoblin,royal,boss,4.00,1.50,dark_resist:50;fire_resist:8;ice_resist:7
-rd_hobgoblin,Hobgoblin,Hobgoblin,8,Hobgoblins,il_hobgoblin,empyrean_campaign:hobgoblin,,normal,0.77,0.99,ice_resist:13;lightning_resist:7
-rd_ice_shaman,Frost Hexer,Bruxo da Geada,10,Hobgoblins,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,ice,normal,0.70,0.66,dark_resist:7;fire_resist:7;ice_resist:27;lightning_resist:7
-rd_dragon_priest,Wyrm Cultist,Cultista do Dragão,14,Hobgoblins,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,crimson,normal,1.29,0.60,dark_resist:7;fire_resist:67;ice_resist:67;lightning_resist:7
-rd_ice_warlord,Frost Tyrant,Tirano da Geada,15,Hobgoblins,il_hobgoblin,empyrean_campaign:hobgoblin,ice,elite,2.42,1.24,dark_resist:17;fire_resist:8;ice_resist:40;lightning_resist:17
-rd_demon,Demon,Demônio,10,Demons,il_hobgoblin,empyrean_campaign:hobgoblin,blood,normal,1.05,1.15,fire_resist:67;ice_resist:-17
-rd_ice_demon,Frost Fiend,Demônio da Geada,11,Demons,il_hobgoblin,empyrean_campaign:hobgoblin,frost,normal,0.82,0.80,fire_resist:-17;ice_resist:67
-rd_skeleton,Skeleton,Esqueleto,4,Skeletons,il_skeleton_knight,fantasycore:skeleton_weak,,normal,0.83,1.06,dark_resist:60
-rd_skeletal_warrior,Skeletal Warrior,Esqueleto Guerreiro,7,Skeletons,il_skeleton_knight,fantasycore:skeleton,,normal,0.76,0.84,dark_resist:60
-rd_skeletal_archer,Skeletal Archer,Esqueleto Arqueiro,7,Skeletons,il_skeleton_archer,fantasycore:skeleton_archer,,normal,0.60,1.13,dark_resist:60
-rd_skeletal_evoker,Bone Conjurer,Conjurador de Ossos,8,Skeletons,il_skeleton_mage_ice,fantasycore:skeleton_mage,arcane,normal,0.68,0.89,dark_resist:60
-rd_skeletal_champion,Bone Champion,Campeão de Ossos,10,Skeletons,il_skeleton_knight,fantasycore:skeleton,blessed,normal,1.30,0.93,dark_resist:60
-rd_skeletal_warlord,Bone Warlord,Senhor dos Ossos,12,Skeletons,il_skeleton_knight,empyrean_campaign:skeleton_knight_boss,,elite,2.25,1.20,dark_resist:60;ice_resist:23
-rd_fallen_dragoon,Cursed Lancer,Lanceiro Amaldiçoado,13,Skeletons,il_skeleton_knight,fantasycore:skeleton,dusk,normal,1.19,0.74,dark_resist:60;fire_resist:75;ice_resist:-33
-rd_fallen_hero,Forsaken Knight,Cavaleiro Renegado,14,Skeletons,il_skeleton_knight,fantasycore:skeleton,gold,normal,1.51,0.95,dark_resist:60
-rd_giant_skeleton,Colossal Skeleton,Esqueleto Colossal,16,Skeletons,il_skeleton_knight,empyrean_campaign:skeleton_knight_boss,bone,boss,4.00,1.50,dark_resist:75
-rd_ghoul,Ghoul,Carniçal,6,Zombies,il_zombie,fantasycore:zombie,ghoul,normal,0.78,1.18,dark_resist:50;fire_resist:-17
-rd_mummy,Mummy,Múmia,6,Zombies,il_zombie,fantasycore:zombie,mummy,normal,0.78,1.18,dark_resist:50;fire_resist:-17
-rd_beheaded_one,Headless Wretch,Desgraçado sem Cabeça,9,Zombies,il_zombie,empyrean_campaign:zombie_dark,,normal,0.73,0.72,dark_resist:75
-rd_ancient_mummy,Ancient Mummy,Múmia Anciã,9,Zombies,il_zombie,fantasycore:zombie,ancient,normal,1.29,0.94,dark_resist:75;fire_resist:-7;ice_resist:13;lightning_resist:13
-rd_ghost,Ghost,Fantasma,5,Ghosts,il_zombie,fantasycore:zombie,ghost,normal,0.60,0.92,dark_resist:33;fire_resist:-8;ice_resist:-8;lightning_resist:-13
-rd_librarian,Haunted Scribe,Escriba Assombrado,8,Ghosts,il_zombie,fantasycore:zombie,spectral,normal,0.77,0.75,dark_resist:33;fire_resist:-7;ice_resist:-7;lightning_resist:-10
-rd_blood_wraith,Crimson Wraith,Espectro Carmesim,14,Ghosts,il_zombie,empyrean_campaign:zombie_dark,wraith,normal,0.94,1.06,dark_resist:67;fire_resist:-20;ice_resist:-20;lightning_resist:-27
-rd_death_knight,Death Knight,Cavaleiro da Morte,14,Ghosts,il_skeleton_knight,fantasycore:skeleton,deathknight,elite,1.80,1.20,dark_resist:33;fire_resist:-17;ice_resist:-17;lightning_resist:-27
-rd_mirmek_hatchling,Sand Crawler Larva,Larva Rastejadora,2,Crawlers,il_antlion_hatchling,fantasycore:antlion_small,,normal,0.96,1.57,dark_resist:-13
-rd_mirmek,Sand Crawler,Rastejador das Areias,4,Crawlers,il_antlion,fantasycore:antlion,,normal,0.83,1.00,dark_resist:-13
-rd_fire_mirmek,Ember Crawler,Rastejador de Brasa,6,Crawlers,il_antlion_fire,fantasycore:fire_ant,,normal,0.78,1.08,dark_resist:-13;fire_resist:10;ice_resist:-10
-rd_mirmek_queen,Crawler Matriarch,Matriarca Rastejadora,10,Crawlers,il_antlion,empyrean_campaign:antlion_armored,royal,boss,4.00,1.50,dark_resist:-13
-rd_inori_spider,Dune Spider,Aranha das Dunas,3,Spiders,il_antlion_hatchling,fantasycore:antlion_small,sand,normal,0.88,1.91,lightning_resist:-10
-rd_giant_spider,Giant Spider,Aranha Gigante,6,Spiders,il_antlion_hatchling,fantasycore:antlion_small,shadow,normal,0.83,1.29,dark_resist:33;lightning_resist:-10
-rd_bloodcrawler,Blood Spider,Aranha Sanguínea,6,Spiders,il_antlion_hatchling,fantasycore:antlion_small,blood,normal,0.63,1.21,lightning_resist:-23
-rd_monstruous_spider,Venom Weaver,Tecelã Venenosa,9,Spiders,il_antlion,fantasycore:antlion,venom,normal,0.85,1.21,dark_resist:75;lightning_resist:-10
-rd_minotaur,Minotaur,Minotauro,8,Minotaurs,minotaur,fantasycore:minotaur,,normal,1.07,0.91,dark_resist:23;ice_resist:23
-rd_minotaur_raider,Minotaur Raider,Minotauro Saqueador,9,Minotaurs,minotaur,fantasycore:minotaur,rust,normal,1.10,0.81,dark_resist:23;ice_resist:23
-rd_minotaur_oracle,Minotaur Seer,Vidente Minotauro,12,Minotaurs,minotaur_caster,fantasycore:minotaur,arcane,normal,1.20,0.62,dark_resist:23;ice_resist:23
-rd_minotaur_lord,Minotaur Chieftain,Chefe Minotauro,11,Minotaurs,minotaur,fantasycore:minotaur,gold,normal,1.41,0.89,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
-rd_minotaur_warlord,Minotaur Warchief,Cacique Minotauro,13,Minotaurs,minotaur,fantasycore:minotaur,blood,elite,2.46,1.20,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
-rd_minotaur_royal_guard,Minotaur Sentinel,Sentinela Minotauro,14,Minotaurs,minotaur,fantasycore:minotaur,steel,normal,1.46,0.89,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
-rd_ashen_minotaur,Cinderhorn,Chifre-de-Brasa,16,Minotaurs,minotaur,fantasycore:minotaur,ashen,normal,1.64,0.91,dark_resist:23;fire_resist:10;ice_resist:23;lightning_resist:7
-rd_ashen_oracle,Cinder Seer,Vidente das Brasas,16,Minotaurs,minotaur_caster,fantasycore:minotaur,ashen,normal,1.44,0.68,dark_resist:23;fire_resist:10;ice_resist:23
-rd_ashen_warlord,Cinderhorn Tyrant,Tirano Chifre-de-Brasa,18,Minotaurs,minotaur,fantasycore:minotaur,ashen,boss,4.00,1.50,dark_resist:33;fire_resist:13;ice_resist:33;lightning_resist:7
-rd_abyss_demon,Pit Fiend,Demônio do Poço,14,Demons,minotaur,fantasycore:minotaur,infernal,elite,1.80,1.78,fire_resist:75;ice_resist:-17
-rd_fire_drake,Fire Drake,Draco de Fogo,10,Drakes,il_wyvern_fire,fantasycore:wyvern_fire,,normal,1.30,1.15,fire_resist:75;ice_resist:-8
-rd_ice_drake,Ice Drake,Draco de Gelo,10,Drakes,il_wyvern_ice,fantasycore:wyvern_water,,normal,1.30,1.15,fire_resist:-8;ice_resist:75
-rd_green_dragon,Green Dragon,Dragão Verde,16,Dragons,il_wyvern,fantasycore:wyvern,venom,boss,4.00,1.80,dark_resist:75;fire_resist:17;ice_resist:17;lightning_resist:17
-rd_red_dragon,Red Dragon,Dragão Vermelho,18,Dragons,il_wyvern_fire,fantasycore:wyvern_fire,blood,boss,4.00,1.79,fire_resist:75;ice_resist:-10;lightning_resist:33
+rd_goblin,Saci,Saci,2,Sacis,il_goblin,fantasycore:goblin,,normal,0.82,1.18,fire_resist:3
+rd_goblin_warrior,Brawler Saci,Saci Brigão,3,Sacis,il_goblin,fantasycore:goblin,rust,normal,0.76,1.05,fire_resist:8
+rd_goblin_spearman,Quick Saci,Saci Ligeiro,3,Sacis,il_goblin_runner,fantasycore:goblin_runner,,normal,0.60,0.83,fire_resist:3
+rd_goblin_guardian,Thick-Skinned Saci,Saci Casca-Grossa,4,Sacis,il_goblin,fantasycore:goblin_elite,,normal,0.79,1.21,fire_resist:8
+rd_goblin_sergeant,Bossy Saci,Saci Mandão,4,Sacis,il_goblin,fantasycore:goblin_elite,gold,normal,0.87,1.04,fire_resist:8
+rd_goblin_beastlord,Hunter Saci,Saci Caçador,6,Sacis,il_goblin,fantasycore:goblin_elite,shadow,normal,0.74,1.07,fire_resist:8
+rd_goblin_firedancer,Firecracker Saci,Saci Fogueteiro,6,Sacis,il_goblin_runner,fantasycore:goblin_runner,fire,normal,1.09,0.60,fire_resist:40
+rd_goblin_firelord,Fire Whirlwind Saci,Saci Redemoinho de Fogo,8,Sacis,il_goblin,fantasycore:goblin_elite,fire,elite,1.80,1.20,fire_resist:67
+rd_goblin_king,Saci-Pererê,Saci-Pererê,10,Sacis,il_goblin,fantasycore:goblin_elite,blood,boss,4.00,1.50,fire_resist:17
+rd_imp,Little Devil,Capetinha,6,Devils,il_goblin_runner,fantasycore:goblin_runner,blood,normal,0.70,0.92,fire_resist:67;ice_resist:-17
+rd_orc_grunt,Young Quibungo,Quibungo Novato,2,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,orc,normal,0.83,1.42,dark_resist:13
+rd_orc_warrior,Quibungo,Quibungo,4,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,,normal,0.83,1.06,dark_resist:13
+rd_orc_archer,Quibungo Archer,Quibungo Flecheiro,6,Quibungos,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,orc,normal,0.60,0.93,dark_resist:30
+rd_orc_elite,Old Quibungo,Quibungo Velho,7,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,rust,normal,0.76,0.77,dark_resist:33
+rd_orc_shooter,Quibungo Crossbowman,Quibungo Besteiro,8,Quibungos,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,shadow,normal,0.60,1.15,dark_resist:53
+rd_orc_trooper,Quibungo Raider,Quibungo Saqueador,10,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,steel,normal,0.89,0.82,dark_resist:53
+rd_orc_commander,Quibungo Chief,Quibungo Chefe,11,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,blood,elite,2.31,1.20,dark_resist:50;fire_resist:8;ice_resist:7
+rd_orc_king,Bicho-Papão,Bicho-Papão,11,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,shadow,boss,4.00,1.50,dark_resist:50;fire_resist:8;ice_resist:7
+rd_hobgoblin,Caipora,Caipora,8,Caiporas,il_hobgoblin,empyrean_campaign:hobgoblin,,normal,0.77,0.99,ice_resist:13;lightning_resist:7
+rd_ice_shaman,Caipora Witch,Caipora Feiticeira,10,Caiporas,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,ice,normal,0.70,0.66,dark_resist:7;fire_resist:7;ice_resist:27;lightning_resist:7
+rd_dragon_priest,Elder Caipora,Caipora Anciã,14,Caiporas,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,crimson,normal,1.29,0.60,dark_resist:7;fire_resist:67;ice_resist:67;lightning_resist:7
+rd_ice_warlord,Curupira,Curupira,15,Caiporas,il_hobgoblin,empyrean_campaign:hobgoblin,blood,boss,2.42,1.24,dark_resist:17;fire_resist:8;ice_resist:40;lightning_resist:17
+rd_demon,Capeta,Capeta,10,Devils,il_hobgoblin,empyrean_campaign:hobgoblin,blood,normal,1.05,1.15,fire_resist:67;ice_resist:-17
+rd_ice_demon,Coisa-Ruim,Coisa-Ruim,11,Devils,il_hobgoblin,empyrean_campaign:hobgoblin,frost,normal,0.82,0.80,fire_resist:-17;ice_resist:67
+rd_skeleton,Caveira,Caveira,4,Caveiras,il_skeleton_knight,fantasycore:skeleton_weak,,normal,0.83,1.06,dark_resist:60
+rd_skeletal_warrior,Caveira Warrior,Caveira Guerreira,7,Caveiras,il_skeleton_knight,fantasycore:skeleton,,normal,0.76,0.84,dark_resist:60
+rd_skeletal_archer,Caveira Archer,Caveira Flecheira,7,Caveiras,il_skeleton_archer,fantasycore:skeleton_archer,,normal,0.60,1.13,dark_resist:60
+rd_skeletal_evoker,Caveira Sorcerer,Caveira Feiticeira,8,Caveiras,il_skeleton_mage_ice,fantasycore:skeleton_mage,arcane,normal,0.68,0.89,dark_resist:60
+rd_skeletal_champion,Brave Caveira,Caveira Valente,10,Caveiras,il_skeleton_knight,fantasycore:skeleton,blessed,normal,1.30,0.93,dark_resist:60
+rd_skeletal_warlord,Lord of Caveiras,Senhor das Caveiras,12,Caveiras,il_skeleton_knight,empyrean_campaign:skeleton_knight_boss,,elite,2.25,1.20,dark_resist:60;ice_resist:23
+rd_fallen_dragoon,Wandering Lancer,Lanceiro Penado,13,Caveiras,il_skeleton_knight,fantasycore:skeleton,dusk,normal,1.19,0.74,dark_resist:60;fire_resist:75;ice_resist:-33
+rd_fallen_hero,Wandering Knight,Cavaleiro Penado,14,Caveiras,il_skeleton_knight,fantasycore:skeleton,gold,normal,1.51,0.95,dark_resist:60
+rd_giant_skeleton,Corpo-Seco,Corpo-Seco,16,Caveiras,il_skeleton_knight,empyrean_campaign:skeleton_knight_boss,bone,boss,4.00,1.50,dark_resist:75
+rd_ghoul,Papa-Figo,Papa-Figo,6,Dead,il_zombie,fantasycore:zombie,ghoul,normal,0.78,1.18,dark_resist:50;fire_resist:-17
+rd_mummy,Dried Corpse,Defunto Seco,6,Dead,il_zombie,fantasycore:zombie,mummy,normal,0.78,1.18,dark_resist:50;fire_resist:-17
+rd_beheaded_one,Headless Corpse,Defunto sem Cabeça,9,Dead,il_zombie,empyrean_campaign:zombie_dark,,normal,0.73,0.72,dark_resist:75
+rd_ancient_mummy,Old Corpse,Defunto Antigo,9,Dead,il_zombie,fantasycore:zombie,ancient,normal,1.29,0.94,dark_resist:75;fire_resist:-7;ice_resist:13;lightning_resist:13
+rd_ghost,Alma Penada,Alma Penada,5,Visagens,il_zombie,fantasycore:zombie,ghost,normal,0.60,0.92,dark_resist:33;fire_resist:-8;ice_resist:-8;lightning_resist:-13
+rd_librarian,Visagem,Visagem,8,Visagens,il_zombie,fantasycore:zombie,spectral,normal,0.77,0.75,dark_resist:33;fire_resist:-7;ice_resist:-7;lightning_resist:-10
+rd_blood_wraith,Pisadeira,Pisadeira,14,Visagens,il_zombie,empyrean_campaign:zombie_dark,wraith,normal,0.94,1.06,dark_resist:67;fire_resist:-20;ice_resist:-20;lightning_resist:-27
+rd_death_knight,Haunted Cangaceiro,Cangaceiro Assombrado,14,Visagens,il_skeleton_knight,fantasycore:skeleton,deathknight,elite,1.80,1.20,dark_resist:33;fire_resist:-17;ice_resist:-17;lightning_resist:-27
+rd_mirmek_hatchling,Tanajura Larva,Larva de Tanajura,2,Tanajuras,il_antlion_hatchling,fantasycore:antlion_small,,normal,0.96,1.57,dark_resist:-13
+rd_mirmek,Giant Saúva,Saúva Gigante,4,Tanajuras,il_antlion,fantasycore:antlion,,normal,0.83,1.00,dark_resist:-13
+rd_fire_mirmek,Fire Ant,Formiga-de-Fogo,6,Tanajuras,il_antlion_fire,fantasycore:fire_ant,,normal,0.78,1.08,dark_resist:-13;fire_resist:10;ice_resist:-10
+rd_mirmek_queen,Tanajura Queen,Tanajura Rainha,10,Tanajuras,il_antlion,empyrean_campaign:antlion_armored,royal,boss,4.00,1.50,dark_resist:-13
+rd_inori_spider,Brown Recluse,Aranha-Marrom,3,Spiders,il_antlion_hatchling,fantasycore:antlion_small,sand,normal,0.88,1.91,lightning_resist:-10
+rd_giant_spider,Caranguejeira,Caranguejeira,6,Spiders,il_antlion_hatchling,fantasycore:antlion_small,shadow,normal,0.83,1.29,dark_resist:33;lightning_resist:-10
+rd_bloodcrawler,Armadeira,Armadeira,6,Spiders,il_antlion_hatchling,fantasycore:antlion_small,blood,normal,0.63,1.21,lightning_resist:-23
+rd_monstruous_spider,Black Widow,Viúva-Negra,9,Spiders,il_antlion,fantasycore:antlion,venom,normal,0.85,1.21,dark_resist:75;lightning_resist:-10
+rd_minotaur,Lobisomem,Lobisomem,8,Lobisomens,minotaur,fantasycore:minotaur,,normal,1.07,0.91,dark_resist:23;ice_resist:23
+rd_minotaur_raider,Raider Lobisomem,Lobisomem Saqueador,9,Lobisomens,minotaur,fantasycore:minotaur,rust,normal,1.10,0.81,dark_resist:23;ice_resist:23
+rd_minotaur_oracle,Howler Lobisomem,Lobisomem Uivador,12,Lobisomens,minotaur_caster,fantasycore:minotaur,arcane,normal,1.20,0.62,dark_resist:23;ice_resist:23
+rd_minotaur_lord,Old Lobisomem,Lobisomem Velho,11,Lobisomens,minotaur,fantasycore:minotaur,gold,normal,1.41,0.89,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
+rd_minotaur_warlord,Full Moon Lobisomem,Lobisomem da Lua Cheia,13,Lobisomens,minotaur,fantasycore:minotaur,shadow,boss,2.46,1.20,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
+rd_minotaur_royal_guard,Sentinel Lobisomem,Lobisomem Sentinela,14,Lobisomens,minotaur,fantasycore:minotaur,steel,normal,1.46,0.89,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
+rd_ashen_minotaur,Grey Lobisomem,Lobisomem Cinzento,16,Lobisomens,minotaur,fantasycore:minotaur,ashen,normal,1.64,0.91,dark_resist:23;fire_resist:10;ice_resist:23;lightning_resist:7
+rd_ashen_oracle,Grey Howler,Uivador Cinzento,16,Lobisomens,minotaur_caster,fantasycore:minotaur,ashen,normal,1.44,0.68,dark_resist:23;fire_resist:10;ice_resist:23
+rd_ashen_warlord,Mapinguari,Mapinguari,18,Lobisomens,minotaur,fantasycore:minotaur,rust,boss,4.00,1.50,dark_resist:33;fire_resist:13;ice_resist:33;lightning_resist:7
+rd_abyss_demon,Tinhoso,Tinhoso,14,Devils,minotaur,fantasycore:minotaur,infernal,elite,1.80,1.78,fire_resist:75;ice_resist:-17
+rd_fire_drake,Fire Caiman,Jacaré de Fogo,10,Caimans,il_wyvern_fire,fantasycore:wyvern_fire,,normal,1.30,1.15,fire_resist:75;ice_resist:-8
+rd_ice_drake,Swamp Caiman,Jacaré do Brejo,10,Caimans,il_wyvern_ice,fantasycore:wyvern_water,,normal,1.30,1.15,fire_resist:-8;ice_resist:75
+rd_green_dragon,Cuca,Cuca,16,Caimans,il_wyvern,fantasycore:wyvern,venom,boss,4.00,1.80,dark_resist:75;fire_resist:17;ice_resist:17;lightning_resist:17
+rd_red_dragon,Fire Cuca,Cuca de Fogo,18,Caimans,il_wyvern_fire,fantasycore:wyvern_fire,blood,boss,4.00,1.79,fire_resist:75;ice_resist:-10;lightning_resist:33
+rd_jararaca,Jararaca,Jararaca,3,Snakes,serpent,random_dungeon:rd_jararaca,,normal,0.7,1.1,poison_resist:50
+rd_sucuri,Sucuri,Sucuri,9,Snakes,serpent_big,random_dungeon:rd_sucuri,,elite,1.3,1.1,
+rd_minhocao,Minhocão,Minhocão,12,Snakes,serpent_burrow,random_dungeon:rd_minhocao,,boss,1.0,1.0,fire_resist:20
+rd_boitata,Boitatá,Boitatá,14,Snakes,serpent_fire,random_dungeon:rd_boitata,,boss,1.0,1.0,fire_resist:80;ice_resist:-40
+rd_cobra_grande,Cobra Grande,Cobra Grande,18,Snakes,serpent_giant,random_dungeon:rd_cobra_grande,,boss,1.0,1.0,ice_resist:20
+rd_mula,Headless Mule,Mula sem Cabeça,13,Devils,mula,random_dungeon:rd_mula,,boss,1.0,1.0,fire_resist:80

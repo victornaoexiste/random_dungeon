@@ -48,6 +48,9 @@ public:
 	// net client: no horde here, but keep the run's clock/wave (from the
 	// host) and end the run the same way
 	void clientLogic(int host_wave, int host_theme, int host_family);
+	// test hook (RD_SHOWCASE): puts these enemy ids ("rd_mula,rd_boitata") in
+	// a ring around a point, for screenshots of new creatures
+	void showcase(const FPoint& at, std::string ids);
 
 	// Wave themes (engine/horde.txt theme= / family= / boss_every=): each
 	// wave gets one, announced on screen (see bannerText)
@@ -78,11 +81,18 @@ private:
 		std::string category; // e.g. rd_skeletons
 		std::string name;     // e.g. Skeletons (translated)
 	};
+	struct Boss {
+		std::string category; // enemy id/category, e.g. rd_goblin_king
+		std::string name;     // e.g. Saci-Pererê (translated)
+	};
 	void chooseTheme();
 	void spawnBoss();
 	bool isBossWave(int w) const;
+	// boss= list in order, one per boss wave, then it loops; -1 = none
+	int bossIndex(int w) const;
 	std::vector<Theme> themes;
 	std::vector<Family> families;
+	std::vector<Boss> bosses;
 	int boss_every;
 	int theme_index;
 	int family_index;

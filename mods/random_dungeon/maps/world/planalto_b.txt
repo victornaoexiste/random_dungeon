@@ -207,36 +207,36 @@ tooltip=Encosta Fumegante
 type=enemy
 location=12,15,3,3
 category=rd_ashen_oracle
-number=2,3
+number=2,4
 spawn_level=fixed,16
 
 [enemy]
 type=enemy
 location=16,33,3,3
+category=rd_minotaur_oracle
+number=2,3
+spawn_level=fixed,13
+
+[enemy]
+type=enemy
+location=35,16,3,3
 category=rd_ashen_minotaur
 number=1,2
 spawn_level=fixed,15
 
 [enemy]
 type=enemy
-location=35,16,3,3
-category=rd_minotaur_lord
-number=1,2
-spawn_level=fixed,13
-
-[enemy]
-type=enemy
 location=6,31,3,3
-category=rd_minotaur_lord
-number=1,2
+category=rd_minotaur_warlord
+number=2,3
 spawn_level=fixed,13
 
 [enemy]
 type=enemy
 location=31,31,3,3
-category=rd_minotaur_royal_guard
-number=1,2
-spawn_level=fixed,14
+category=rd_ashen_minotaur
+number=2,4
+spawn_level=fixed,15
 
 [enemy]
 type=enemy
@@ -250,20 +250,20 @@ requires_not_status=rd_boss_down_rd_ashen_warlord
 [enemy]
 type=enemy
 location=41,36,3,3
-category=rd_minotaur_warlord
+category=rd_ashen_oracle
 number=2,3
-spawn_level=fixed,14
+spawn_level=fixed,15
 
 [enemy]
 type=enemy
 location=32,7,3,3
-category=rd_minotaur_oracle
+category=rd_minotaur_lord
 number=1,2
 spawn_level=fixed,13
 
 [enemy]
 type=enemy
 location=20,16,3,3
-category=rd_minotaur_lord
-number=1,2
+category=rd_minotaur_oracle
+number=2,4
 spawn_level=fixed,13

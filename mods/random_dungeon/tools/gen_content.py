@@ -359,6 +359,145 @@ def gen_loot(items):
 
 # ------------------------------------------------------------------ enemies
 CUSTOM_TEMPLATES = {
+    # ---- folclore (sprites de tools/gen_serpents.py)
+    'serpent': """INCLUDE enemies/base/rd_serpent.txt
+stat=hp,22
+speed=5.5
+turn_delay=200ms
+power=melee,164,10
+stat=accuracy,85
+stat=avoidance,10
+stat=poise,5
+stat=dmg_melee_min,5
+stat=dmg_melee_max,10
+cooldown=1200ms
+stat_per_level=hp,12
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_melee_min,15
+stat_per_level=dmg_melee_max,15
+""",
+    'serpent_big': """INCLUDE enemies/base/rd_serpent.txt
+stat=hp,90
+speed=3.6
+turn_delay=200ms
+power=melee,164,10
+stat=accuracy,85
+stat=avoidance,10
+stat=poise,30
+stat=dmg_melee_min,14
+stat=dmg_melee_max,22
+cooldown=1600ms
+stat_per_level=hp,40
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_melee_min,18
+stat_per_level=dmg_melee_max,18
+stat=absorb_min,3
+stat=absorb_max,6
+melee_range=1.5
+""",
+    # Minhocão: lento, golpe enorme que alcança longe
+    'serpent_burrow': """INCLUDE enemies/base/rd_serpent.txt
+stat=hp,260
+speed=3.0
+turn_delay=200ms
+power=melee,164,10
+stat=accuracy,85
+stat=avoidance,10
+stat=poise,30
+stat=dmg_melee_min,25
+stat=dmg_melee_max,40
+cooldown=2000ms
+stat_per_level=hp,110
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_melee_min,25
+stat_per_level=dmg_melee_max,25
+stat=absorb_min,6
+stat=absorb_max,12
+melee_range=3.0
+threat_range=12.0
+""",
+    # Boitatá: cospe fogo (173 = bola de fogo do wyvern)
+    'serpent_fire': """INCLUDE enemies/base/rd_serpent.txt
+stat=hp,220
+speed=4.5
+turn_delay=200ms
+power=melee,164,10
+stat=accuracy,85
+stat=avoidance,10
+stat=poise,30
+stat=dmg_melee_min,18
+stat=dmg_melee_max,28
+cooldown=1600ms
+stat_per_level=hp,100
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_melee_min,22
+stat_per_level=dmg_melee_max,22
+power=ranged,173,45
+stat=dmg_ment_min,30
+stat=dmg_ment_max,40
+stat_per_level=dmg_ment_min,20
+stat_per_level=dmg_ment_max,20
+chance_pursue=5
+melee_range=2.0
+threat_range=12.0
+""",
+    # Cobra Grande: chefe final, muito vida e alcance
+    'serpent_giant': """INCLUDE enemies/base/rd_serpent.txt
+stat=hp,380
+speed=3.4
+turn_delay=200ms
+power=melee,164,10
+stat=accuracy,85
+stat=avoidance,10
+stat=poise,30
+stat=dmg_melee_min,30
+stat=dmg_melee_max,45
+cooldown=2000ms
+stat_per_level=hp,150
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_melee_min,28
+stat_per_level=dmg_melee_max,28
+stat=absorb_min,8
+stat=absorb_max,15
+melee_range=3.2
+threat_range=12.0
+""",
+    # Mula sem Cabeça: rápida, coice pesado e labaredas
+    'mula': """INCLUDE enemies/base/rd_mula.txt
+stat=hp,240
+speed=6.5
+turn_delay=200ms
+power=melee,164,10
+stat=accuracy,85
+stat=avoidance,10
+stat=poise,30
+stat=dmg_melee_min,22
+stat=dmg_melee_max,34
+cooldown=1500ms
+stat_per_level=hp,105
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_melee_min,24
+stat_per_level=dmg_melee_max,24
+power=ranged,173,20
+stat=dmg_ment_min,25
+stat=dmg_ment_max,35
+stat_per_level=dmg_ment_min,20
+stat_per_level=dmg_ment_max,20
+stat=absorb_min,4
+stat=absorb_max,10
+""",
     'minotaur': """INCLUDE enemies/base/minotaur.txt
 stat=hp,80
 speed=4
@@ -443,9 +582,9 @@ def scale_line(line, hp_mult, dmg_mult):
     return '%s=%s,%d' % (m.group(1), m.group(2), max(1, int(round(int(m.group(3)) * mult))))
 
 
-FAMILY_TYPE = {'Skeletons': 'undead', 'Zombies': 'undead', 'Ghosts': 'undead', 'Demons': 'demon',
-               'Goblins': 'greenskin', 'Orcs': 'greenskin', 'Hobgoblins': 'greenskin',
-               'Crawlers': 'beast', 'Spiders': 'beast', 'Drakes': 'beast', 'Dragons': 'beast', 'Minotaurs': 'beast'}
+FAMILY_TYPE = {'Caveiras': 'undead', 'Dead': 'undead', 'Visagens': 'undead', 'Devils': 'demon',
+               'Sacis': 'greenskin', 'Quibungos': 'greenskin', 'Caiporas': 'greenskin',
+               'Tanajuras': 'beast', 'Spiders': 'beast', 'Caimans': 'beast', 'Lobisomens': 'beast', 'Snakes': 'beast'}
 # damage-type names shown in item tooltips ("+25% damage vs Undead")
 EXTRA_PT_SLAYER = [('+%d%% damage vs %s', '+%d%% de dano contra %s'), ('Undead', 'Mortos-vivos'), ('Demon', 'Demônios'),
                    ('Greenskin', 'Peles-verdes'), ('Beast', 'Feras')]
@@ -566,9 +705,9 @@ EXTRA_PT = [
     ('Wisdom', 'Sabedoria'), ('+8% experience', '+8% de experiência'),
     ('Second Chance', 'Segunda Chance'), ('Rise again once per run', 'Levanta de novo 1x por Run'),
     ('Wave %d', 'Onda %d'), ('Swarm!', 'Enxame!'), ('Ambush!', 'Emboscada!'), ('Elite hunters!', 'Caçadores de elite!'),
-    ('Boss!', 'Chefe!'), ('Skeletons', 'Esqueletos'), ('Zombies', 'Zumbis'), ('Ghosts', 'Fantasmas'), ('Goblins', 'Goblins'),
-    ('Orcs', 'Orcs'), ('Minotaurs', 'Minotauros'), ('Demons', 'Demônios'), ('Spiders', 'Aranhas'), ('Crawlers', 'Rastejadores'),
-    ('Hobgoblins', 'Hobgoblins'), ('An ally', 'Um aliado'), ('%s: %s on you', '%s: %s em você'), ('An ally brought you back!', 'Um aliado trouxe você de volta!'),
+    ('Boss!', 'Chefe!'), ('Caveiras', 'Caveiras'), ('Dead', 'Defuntos'), ('Visagens', 'Visagens'), ('Sacis', 'Sacis'),
+    ('Quibungos', 'Quibungos'), ('Lobisomens', 'Lobisomens'), ('Devils', 'Capetas'), ('Spiders', 'Aranhas'), ('Tanajuras', 'Tanajuras'),
+    ('Caiporas', 'Caiporas'), ('Snakes', 'Cobras'), ('Caimans', 'Jacarés'), ('An ally', 'Um aliado'), ('%s: %s on you', '%s: %s em você'), ('An ally brought you back!', 'Um aliado trouxe você de volta!'),
     ('Credits', 'Créditos'),
     ('Level up! Choose an upgrade', 'Subiu de nível! Escolha uma melhoria'), ('Choose', 'Escolher'), ('Rank %d / %d', 'Nível %d / %d'),
     ('Sharp Blade', 'Lâmina Afiada'), ('+10% damage', '+10% de dano'),

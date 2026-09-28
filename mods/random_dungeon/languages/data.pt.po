@@ -649,194 +649,212 @@ msgstr "Cinturão do Ladino"
 msgid "Girdle of Supreme Intellect"
 msgstr "Cinturão do Intelecto Supremo"
 
-msgid "Goblin"
-msgstr "Goblin"
+msgid "Saci"
+msgstr "Saci"
 
-msgid "Goblin Warrior"
-msgstr "Goblin Guerreiro"
+msgid "Brawler Saci"
+msgstr "Saci Brigão"
 
-msgid "Goblin Spearman"
-msgstr "Goblin Lanceiro"
+msgid "Quick Saci"
+msgstr "Saci Ligeiro"
 
-msgid "Goblin Shieldbearer"
-msgstr "Goblin Escudeiro"
+msgid "Thick-Skinned Saci"
+msgstr "Saci Casca-Grossa"
 
-msgid "Goblin Captain"
-msgstr "Capitão Goblin"
+msgid "Bossy Saci"
+msgstr "Saci Mandão"
 
-msgid "Goblin Houndmaster"
-msgstr "Goblin Mestre dos Cães"
+msgid "Hunter Saci"
+msgstr "Saci Caçador"
 
-msgid "Goblin Pyromaniac"
-msgstr "Goblin Piromaníaco"
+msgid "Firecracker Saci"
+msgstr "Saci Fogueteiro"
 
-msgid "Goblin Flamecaller"
-msgstr "Goblin Invocador das Chamas"
+msgid "Fire Whirlwind Saci"
+msgstr "Saci Redemoinho de Fogo"
 
-msgid "Goblin Warboss"
-msgstr "Chefe de Guerra Goblin"
+msgid "Saci-Pererê"
+msgstr "Saci-Pererê"
 
-msgid "Imp"
-msgstr "Diabrete"
+msgid "Little Devil"
+msgstr "Capetinha"
 
-msgid "Orc Recruit"
-msgstr "Orc Recruta"
+msgid "Young Quibungo"
+msgstr "Quibungo Novato"
 
-msgid "Orc Warrior"
-msgstr "Orc Guerreiro"
+msgid "Quibungo"
+msgstr "Quibungo"
 
-msgid "Orc Archer"
-msgstr "Orc Arqueiro"
+msgid "Quibungo Archer"
+msgstr "Quibungo Flecheiro"
 
-msgid "Orc Veteran"
-msgstr "Orc Veterano"
+msgid "Old Quibungo"
+msgstr "Quibungo Velho"
 
-msgid "Orc Crossbowman"
-msgstr "Orc Besteiro"
+msgid "Quibungo Crossbowman"
+msgstr "Quibungo Besteiro"
 
-msgid "Orc Raider"
-msgstr "Orc Saqueador"
+msgid "Quibungo Raider"
+msgstr "Quibungo Saqueador"
 
-msgid "Orc Captain"
-msgstr "Capitão Orc"
+msgid "Quibungo Chief"
+msgstr "Quibungo Chefe"
 
-msgid "Orc Overlord"
-msgstr "Senhor dos Orcs"
+msgid "Bicho-Papão"
+msgstr "Bicho-Papão"
 
-msgid "Hobgoblin"
-msgstr "Hobgoblin"
+msgid "Caipora"
+msgstr "Caipora"
 
-msgid "Frost Hexer"
-msgstr "Bruxo da Geada"
+msgid "Caipora Witch"
+msgstr "Caipora Feiticeira"
 
-msgid "Wyrm Cultist"
-msgstr "Cultista do Dragão"
+msgid "Elder Caipora"
+msgstr "Caipora Anciã"
 
-msgid "Frost Tyrant"
-msgstr "Tirano da Geada"
+msgid "Curupira"
+msgstr "Curupira"
 
-msgid "Demon"
-msgstr "Demônio"
+msgid "Capeta"
+msgstr "Capeta"
 
-msgid "Frost Fiend"
-msgstr "Demônio da Geada"
+msgid "Coisa-Ruim"
+msgstr "Coisa-Ruim"
 
-msgid "Skeleton"
-msgstr "Esqueleto"
+msgid "Caveira"
+msgstr "Caveira"
 
-msgid "Skeletal Warrior"
-msgstr "Esqueleto Guerreiro"
+msgid "Caveira Warrior"
+msgstr "Caveira Guerreira"
 
-msgid "Skeletal Archer"
-msgstr "Esqueleto Arqueiro"
+msgid "Caveira Archer"
+msgstr "Caveira Flecheira"
 
-msgid "Bone Conjurer"
-msgstr "Conjurador de Ossos"
+msgid "Caveira Sorcerer"
+msgstr "Caveira Feiticeira"
 
-msgid "Bone Champion"
-msgstr "Campeão de Ossos"
+msgid "Brave Caveira"
+msgstr "Caveira Valente"
 
-msgid "Bone Warlord"
-msgstr "Senhor dos Ossos"
+msgid "Lord of Caveiras"
+msgstr "Senhor das Caveiras"
 
-msgid "Cursed Lancer"
-msgstr "Lanceiro Amaldiçoado"
+msgid "Wandering Lancer"
+msgstr "Lanceiro Penado"
 
-msgid "Forsaken Knight"
-msgstr "Cavaleiro Renegado"
+msgid "Wandering Knight"
+msgstr "Cavaleiro Penado"
 
-msgid "Colossal Skeleton"
-msgstr "Esqueleto Colossal"
+msgid "Corpo-Seco"
+msgstr "Corpo-Seco"
 
-msgid "Ghoul"
-msgstr "Carniçal"
+msgid "Papa-Figo"
+msgstr "Papa-Figo"
 
-msgid "Mummy"
-msgstr "Múmia"
+msgid "Dried Corpse"
+msgstr "Defunto Seco"
 
-msgid "Headless Wretch"
-msgstr "Desgraçado sem Cabeça"
+msgid "Headless Corpse"
+msgstr "Defunto sem Cabeça"
 
-msgid "Ancient Mummy"
-msgstr "Múmia Anciã"
+msgid "Old Corpse"
+msgstr "Defunto Antigo"
 
-msgid "Ghost"
-msgstr "Fantasma"
+msgid "Alma Penada"
+msgstr "Alma Penada"
 
-msgid "Haunted Scribe"
-msgstr "Escriba Assombrado"
+msgid "Visagem"
+msgstr "Visagem"
 
-msgid "Crimson Wraith"
-msgstr "Espectro Carmesim"
+msgid "Pisadeira"
+msgstr "Pisadeira"
 
-msgid "Death Knight"
-msgstr "Cavaleiro da Morte"
+msgid "Haunted Cangaceiro"
+msgstr "Cangaceiro Assombrado"
 
-msgid "Sand Crawler Larva"
-msgstr "Larva Rastejadora"
+msgid "Tanajura Larva"
+msgstr "Larva de Tanajura"
 
-msgid "Sand Crawler"
-msgstr "Rastejador das Areias"
+msgid "Giant Saúva"
+msgstr "Saúva Gigante"
 
-msgid "Ember Crawler"
-msgstr "Rastejador de Brasa"
+msgid "Fire Ant"
+msgstr "Formiga-de-Fogo"
 
-msgid "Crawler Matriarch"
-msgstr "Matriarca Rastejadora"
+msgid "Tanajura Queen"
+msgstr "Tanajura Rainha"
 
-msgid "Dune Spider"
-msgstr "Aranha das Dunas"
+msgid "Brown Recluse"
+msgstr "Aranha-Marrom"
 
-msgid "Giant Spider"
-msgstr "Aranha Gigante"
+msgid "Caranguejeira"
+msgstr "Caranguejeira"
 
-msgid "Blood Spider"
-msgstr "Aranha Sanguínea"
+msgid "Armadeira"
+msgstr "Armadeira"
 
-msgid "Venom Weaver"
-msgstr "Tecelã Venenosa"
+msgid "Black Widow"
+msgstr "Viúva-Negra"
 
-msgid "Minotaur"
-msgstr "Minotauro"
+msgid "Lobisomem"
+msgstr "Lobisomem"
 
-msgid "Minotaur Raider"
-msgstr "Minotauro Saqueador"
+msgid "Raider Lobisomem"
+msgstr "Lobisomem Saqueador"
 
-msgid "Minotaur Seer"
-msgstr "Vidente Minotauro"
+msgid "Howler Lobisomem"
+msgstr "Lobisomem Uivador"
 
-msgid "Minotaur Chieftain"
-msgstr "Chefe Minotauro"
+msgid "Old Lobisomem"
+msgstr "Lobisomem Velho"
 
-msgid "Minotaur Warchief"
-msgstr "Cacique Minotauro"
+msgid "Full Moon Lobisomem"
+msgstr "Lobisomem da Lua Cheia"
 
-msgid "Minotaur Sentinel"
-msgstr "Sentinela Minotauro"
+msgid "Sentinel Lobisomem"
+msgstr "Lobisomem Sentinela"
 
-msgid "Cinderhorn"
-msgstr "Chifre-de-Brasa"
+msgid "Grey Lobisomem"
+msgstr "Lobisomem Cinzento"
 
-msgid "Cinder Seer"
-msgstr "Vidente das Brasas"
+msgid "Grey Howler"
+msgstr "Uivador Cinzento"
 
-msgid "Cinderhorn Tyrant"
-msgstr "Tirano Chifre-de-Brasa"
+msgid "Mapinguari"
+msgstr "Mapinguari"
 
-msgid "Pit Fiend"
-msgstr "Demônio do Poço"
+msgid "Tinhoso"
+msgstr "Tinhoso"
 
-msgid "Fire Drake"
-msgstr "Draco de Fogo"
+msgid "Fire Caiman"
+msgstr "Jacaré de Fogo"
 
-msgid "Ice Drake"
-msgstr "Draco de Gelo"
+msgid "Swamp Caiman"
+msgstr "Jacaré do Brejo"
 
-msgid "Green Dragon"
-msgstr "Dragão Verde"
+msgid "Cuca"
+msgstr "Cuca"
 
-msgid "Red Dragon"
-msgstr "Dragão Vermelho"
+msgid "Fire Cuca"
+msgstr "Cuca de Fogo"
+
+msgid "Jararaca"
+msgstr "Jararaca"
+
+msgid "Sucuri"
+msgstr "Sucuri"
+
+msgid "Minhocão"
+msgstr "Minhocão"
+
+msgid "Boitatá"
+msgstr "Boitatá"
+
+msgid "Cobra Grande"
+msgstr "Cobra Grande"
+
+msgid "Headless Mule"
+msgstr "Mula sem Cabeça"
 
 msgid "Leather Set"
 msgstr "Conjunto Leather"
@@ -1108,35 +1126,41 @@ msgstr "Caçadores de elite!"
 msgid "Boss!"
 msgstr "Chefe!"
 
-msgid "Skeletons"
-msgstr "Esqueletos"
+msgid "Caveiras"
+msgstr "Caveiras"
 
-msgid "Zombies"
-msgstr "Zumbis"
+msgid "Dead"
+msgstr "Defuntos"
 
-msgid "Ghosts"
-msgstr "Fantasmas"
+msgid "Visagens"
+msgstr "Visagens"
 
-msgid "Goblins"
-msgstr "Goblins"
+msgid "Sacis"
+msgstr "Sacis"
 
-msgid "Orcs"
-msgstr "Orcs"
+msgid "Quibungos"
+msgstr "Quibungos"
 
-msgid "Minotaurs"
-msgstr "Minotauros"
+msgid "Lobisomens"
+msgstr "Lobisomens"
 
-msgid "Demons"
-msgstr "Demônios"
+msgid "Devils"
+msgstr "Capetas"
 
 msgid "Spiders"
 msgstr "Aranhas"
 
-msgid "Crawlers"
-msgstr "Rastejadores"
+msgid "Tanajuras"
+msgstr "Tanajuras"
 
-msgid "Hobgoblins"
-msgstr "Hobgoblins"
+msgid "Caiporas"
+msgstr "Caiporas"
+
+msgid "Snakes"
+msgstr "Cobras"
+
+msgid "Caimans"
+msgstr "Jacarés"
 
 msgid "An ally"
 msgstr "Um aliado"
@@ -1224,6 +1248,9 @@ msgstr "+%d%% de dano contra %s"
 
 msgid "Undead"
 msgstr "Mortos-vivos"
+
+msgid "Demon"
+msgstr "Demônios"
 
 msgid "Greenskin"
 msgstr "Peles-verdes"

@@ -113,6 +113,13 @@ void HordeManager::loadConfig() {
 			f.name = Parse::popFirstString(infile.val);
 			families.push_back(f);
 		}
+		else if (infile.key == "boss") {
+			// boss=category,Name  (in order: 1st boss wave, 2nd boss wave...)
+			Boss b;
+			b.category = Parse::popFirstString(infile.val);
+			b.name = Parse::popFirstString(infile.val);
+			bosses.push_back(b);
+		}
 		else if (infile.key == "tier") {
 			// tier=category,min_wave,weight
 			Tier t;
@@ -228,6 +235,24 @@ bool HordeManager::spawnOne(const FPoint& near_pos, const std::string& only_cate
 	mapr->collider.block(pos.x, pos.y, !MapCollision::IS_ALLY);
 	spawned.insert(e);
 	return true;
+}
+
+void HordeManager::showcase(const FPoint& at, std::string ids) {
+	std::vector<std::string> list;
+	for (std::string id = Parse::popFirstString(ids); !id.empty(); id = Parse::popFirstString(ids))
+		list.push_back(id);
+	for (size_t i = 0; i < list.size(); ++i) {
+		Entity *e = entitym->getEntityPrototype("enemies/" + list[i] + ".txt");
+		float angle = 2.0f * static_cast<float>(M_PI) * static_cast<float>(i) / static_cast<float>(list.size()) + 0.4f;
+		e->stats.pos.x = at.x + std::cos(angle) * 3.5f;
+		e->stats.pos.y = at.y + std::sin(angle) * 3.5f;
+		e->stats.direction = Utils::calcDirection(e->stats.pos.x, e->stats.pos.y, at.x, at.y);
+		e->stats.recalc();
+		e->stats.net_id = entitym->next_net_id++;
+		entitym->entities.push_back(e);
+		spawned.insert(e);
+		Utils::logInfo("HordeManager: showcase %s", list[i].c_str());
+	}
 }
 
 void HordeManager::spawnGroup() {
@@ -352,6 +377,12 @@ bool HordeManager::isBossWave(int w) const {
 	return boss_every > 0 && (w + 1) % boss_every == 0;
 }
 
+int HordeManager::bossIndex(int w) const {
+	if (bosses.empty() || !isBossWave(w))
+		return -1;
+	return ((w + 1) / boss_every - 1) % static_cast<int>(bosses.size());
+}
+
 /**
  * Picks this wave's theme (weighted, by min_wave). Boss waves use the
  * "boss" theme; wave 1 is always the first theme (normal).
@@ -406,6 +437,13 @@ void HordeManager::spawnBoss() {
 	std::string cat = "rd_elite";
 	for (size_t i = 0; i < tiers.size(); ++i)
 		if (tiers[i].category == "rd_boss" && tiers[i].min_wave <= wave) cat = "rd_boss";
+	// scheduled boss (horde.txt boss=): each lap of the list comes back stronger
+	int extra_levels = 2;
+	const int bi = bossIndex(wave);
+	if (bi >= 0) {
+		cat = bosses[bi].category;
+		extra_levels += 3 * (((wave + 1) / boss_every - 1) / static_cast<int>(bosses.size()));
+	}
 
 	// spawnOne() draws from the tiers: offer only the boss category for this one
 	std::vector<Tier> saved = tiers;
@@ -416,7 +454,7 @@ void HordeManager::spawnBoss() {
 	tiers.clear();
 	tiers.push_back(only);
 	size_t before = entitym->entities.size();
-	spawnOne(anchor, "", cat == "rd_boss" ? 2.0f : 4.0f, 2);
+	spawnOne(anchor, "", cat == "rd_elite" ? 4.0f : 2.0f, extra_levels);
 	tiers = saved;
 	if (entitym->entities.size() > before)
 		Utils::logInfo("HordeManager: boss wave %d: %s", wave + 1, entitym->entities.back()->stats.name.c_str());
@@ -426,8 +464,11 @@ std::string HordeManager::bannerText() const {
 	std::string s = msg->getv("Wave %d", wave + 1);
 	if (static_cast<size_t>(theme_index) < themes.size()) {
 		const Theme& t = themes[theme_index];
+		const int bi = bossIndex(wave);
 		if (t.id == "family" && static_cast<size_t>(family_index) < families.size())
 			s += " - " + msg->get(families[family_index].name) + "!";
+		else if (t.id == "boss" && bi >= 0)
+			s += " - " + msg->get(bosses[bi].name) + "!";
 		else if (!t.label.empty())
 			s += " - " + msg->get(t.label);
 	}

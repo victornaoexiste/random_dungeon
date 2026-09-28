@@ -197,6 +197,6 @@ spawn_level=fixed,15
 type=enemy
 # guardian of the way out
 location=10,8,8,3
-category=rd_regelite_planalto
+category=rd_reg_planalto
 number=1
 spawn_level=fixed,16
