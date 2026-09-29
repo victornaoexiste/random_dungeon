@@ -101,3 +101,29 @@ Testar o .exe sem Windows: `cd dist/Encantados-run-win64 && wine Encantados.exe`
 | `--net-join=IP` / `lan` / `CODIGO` | entra numa partida |
 | `RD_BANNER_SHOT=pasta` | print de cada aviso de onda |
 | `RD_CAMP_SHOT=pasta` | prints do acampamento e Santuário |
+
+## 9. Plano pra fazer dinheiro (escrito em 2026-09-29)
+
+O jogo **já está vendável**: pacotes Windows/Linux prontos em `dist/`, página e imagens em
+`../marketing/`. O que falta é colocar à venda e trazer gente. Nessa ordem:
+
+1. **Hoje: publicar no itch.io** (seção 6). Preço US$ 2,99 com "pagar mais se quiser" ligado.
+   Não espere o servidor de salas: dá pra vender como "co-op na mesma rede / Tailscale".
+2. **Todo dia, 1 vídeo curto** (TikTok, Reels, Shorts) de 15-30 s: um chefe do folclore
+   aparecendo (Mula sem Cabeça, Minhocão, Saci). Legenda com o link do itch.
+   Gravar: `./build/flare --data-path=. --trailer` (F3 grava GIF) ou OBS.
+   Gancho: "fiz um jogo de sobreviver hordas com o folclore brasileiro, dá pra jogar com amigo".
+3. **Postar uma vez em cada**: r/brasil, r/gamesEcultura, r/IndieGaming, r/roguelites,
+   TabNews, grupos de Discord de gamedev BR. Texto pronto em `../marketing/posts.md`.
+4. **Apoio recorrente**: página no apoia.se ou Catarse ("ajude o jogo do folclore a crescer").
+   Link na página do itch e no menu do jogo.
+5. **Steam só depois** que o itch mostrar interesse (taxa US$ 100 + precisa de wishlists).
+6. **Mandar pra criadores de conteúdo** que jogam indie BR: chave grátis do itch
+   (Dashboard > Distribute > Download keys).
+
+Sendo realista: jogo indie leva meses pra render algo que pague contas. Enquanto isso, o
+**Vereda** (sistema escolar, já no ar) pode ser vendido pra escolas pequenas por mensalidade,
+e freela de Django/Python paga mais rápido. Use o jogo como portfólio também.
+
+Pendente de UI: Victor mandou uma imagem de referência (skills, itens, opções, retrato abre
+inventário) que não chegou. Retrato → inventário já funciona (`src/MenuHUD.*`).
