@@ -102,6 +102,8 @@ public:
 	void update(MapCollision *collider, Rect *bounds);
 
 	bool clicked_config;
+	// Random Dungeon: the horde HUD has no minimap (true while horde mode is active)
+	bool hidden_by_hud;
 };
 
 

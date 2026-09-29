@@ -1,0 +1,10 @@
+# Random Dungeon: alvo atual no canto superior direito
+pos=-12,12,260,72
+align=topright
+background=images/menus/hud/target_box.png
+bar_pos=32,36,196,27
+bar_fill_offset=0,0
+bar_fill_size=196,27
+text_pos=130,8,center,top
+
+bar_gfx=images/menus/bar_enemy_hp.png

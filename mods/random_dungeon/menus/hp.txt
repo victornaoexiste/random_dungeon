@@ -1,0 +1,10 @@
+# Random Dungeon: barra de vida ao lado do retrato (menus/hud.txt)
+pos=146,20,336,24
+bar_pos=0,0,336,24
+bar_fill_size=314,18
+bar_fill_offset=11,3
+align=topleft
+orientation=0
+
+bar_gfx=images/menus/hud/bar_hp.png
+bar_gfx_background=images/menus/hud/bar_hp_background.png

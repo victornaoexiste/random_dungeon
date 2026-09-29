@@ -42,6 +42,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuExit.h"
 #include "MenuGameOver.h"
 #include "MenuInventory.h"
+#include "MenuHUD.h"
 #include "MenuManager.h"
 #include "MessageEngine.h"
 #include "MenuMiniMap.h"
@@ -463,7 +464,7 @@ void Avatar::set_direction() {
 void Avatar::logic() {
 	bool restrict_power_use = false;
 	if (settings->mouse_move) {
-		if(inpt->pressing[mm_key] && !inpt->pressing[Input::SHIFT] && !menu->act->isWithinSlots(inpt->mouse) && !menu->act->isWithinMenus(inpt->mouse)) {
+		if(inpt->pressing[mm_key] && !inpt->pressing[Input::SHIFT] && !menu->act->isWithinSlots(inpt->mouse) && !menu->act->isWithinMenus(inpt->mouse) && !menu->hud->isWithin(inpt->mouse)) {
 			restrict_power_use = true;
 		}
 	}

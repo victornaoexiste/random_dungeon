@@ -31,6 +31,9 @@ MenuTouchControls::MenuTouchControls()
 	, main2_center(0,0)
 	, main2_align(Utils::ALIGN_BOTTOMRIGHT)
 	, prev_touch_scale(settings->touch_scale)
+	, joystick(NULL)
+	, joystick_knob(NULL)
+	, joystick_size(0)
 {
 	visible = true;
 	align();
@@ -64,8 +67,37 @@ void MenuTouchControls::align() {
 	radius_padding = static_cast<int>(settings->view_h / 20 * settings->touch_scale);
 
 	alignInput(move_center, move_center_base, move_radius, move_align);
+
+	loadJoystick();
 	alignInput(main1_center, main1_center_base, main1_radius, main1_align);
 	alignInput(main2_center, main2_center_base, main2_radius, main2_align);
+}
+
+void MenuTouchControls::loadJoystick() {
+	int size = (move_radius - radius_padding) * 2;
+	if (size <= 0 || size == joystick_size)
+		return;
+	joystick_size = size;
+
+	delete joystick;
+	delete joystick_knob;
+	joystick = joystick_knob = NULL;
+
+	const std::string files[2] = {"images/menus/hud/joystick.png", "images/menus/hud/joystick_knob.png"};
+	const int sizes[2] = {size, size * 3 / 8};
+	Sprite** out[2] = {&joystick, &joystick_knob};
+	for (int i = 0; i < 2; ++i) {
+		Image *graphics = render_device->loadImage(files[i], RenderDevice::ERROR_NONE);
+		if (!graphics)
+			continue;
+		graphics->ref(); // resize() releases the source image
+		Image *resized = graphics->resize(sizes[i], sizes[i]);
+		if (resized) {
+			*out[i] = resized->createSprite();
+			resized->unref();
+		}
+		graphics->unref();
+	}
 }
 
 void MenuTouchControls::logic() {
@@ -125,6 +157,24 @@ void MenuTouchControls::render() {
 	Color color_normal(255,255,255,255);
 	Color color_deadzone(127,127,127,255);
 
+	if (joystick) {
+		// the attack/skill buttons are actionbar slots, so only the joystick is drawn
+		joystick->setDest(move_center.x - joystick_size / 2, move_center.y - joystick_size / 2);
+		render_device->render(joystick);
+
+		if (joystick_knob) {
+			Point knob = move_center;
+			FPoint mv_center(static_cast<float>(move_center.x), static_cast<float>(move_center.y));
+			FPoint mouse(static_cast<float>(inpt->mouse.x), static_cast<float>(inpt->mouse.y));
+			if (inpt->pressing[Input::MAIN1] && Utils::isWithinRadius(mv_center, static_cast<float>(move_radius), mouse))
+				knob = inpt->mouse;
+			int k = joystick_knob->getGraphicsWidth();
+			joystick_knob->setDest(knob.x - k / 2, knob.y - k / 2);
+			render_device->render(joystick_knob);
+		}
+		return;
+	}
+
 	renderInput(move_center, move_radius - radius_padding, color_normal);
 	if (move_deadzone > 0) {
 		renderInput(move_center, move_deadzone, color_deadzone);
@@ -134,5 +184,7 @@ void MenuTouchControls::render() {
 }
 
 MenuTouchControls::~MenuTouchControls() {
+	delete joystick;
+	delete joystick_knob;
 }
 

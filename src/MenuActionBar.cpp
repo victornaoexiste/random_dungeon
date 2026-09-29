@@ -67,7 +67,9 @@ MenuActionBar::MenuActionBar()
 	, updated(false)
 	, twostep_slot(-1)
 	, touch_slot(NULL)
-	, enable_gamepad_nav(true) {
+	, enable_gamepad_nav(true)
+	, show_trim(true)
+	, sprite_frame_main1(NULL) {
 
 	menu_labels.resize(MENU_COUNT);
 
@@ -81,6 +83,8 @@ MenuActionBar::MenuActionBar()
 		menus[i]->setHotkey(Input::CHARACTER + i);
 		menus[i]->show_colorblind_highlight = true;
 		menus[i]->enabled = false;
+		menu_screen_aligned[i] = false;
+		sprite_menu_gfx[i] = NULL;
 
 		// NOTE: This prevents these buttons from being clickable unless they get defined in the config file.
 		// However, it doesn't prevent them from being added to the tablist, so they can still be activated there despite being invisible
@@ -114,7 +118,7 @@ MenuActionBar::MenuActionBar()
 					int y = Parse::popFirstInt(infile.val);
 					std::string val = Parse::popFirstString(infile.val);
 					bool is_locked = (val.empty() ? false : Parse::toBool(val));
-					addSlot(index-1, x, y, is_locked);
+					addSlot(index-1, x, y, is_locked, Parse::popFirstString(infile.val));
 				}
 			}
 			// @ATTR slot_M1|point, bool : Position, Locked|Position for the primary action slot. If the slot is locked, its Power can't be changed by the player.
@@ -123,7 +127,7 @@ MenuActionBar::MenuActionBar()
 				int y = Parse::popFirstInt(infile.val);
 				std::string val = Parse::popFirstString(infile.val);
 				bool is_locked = (val.empty() ? false : Parse::toBool(val));
-				addSlot(10, x, y, is_locked);
+				addSlot(10, x, y, is_locked, Parse::popFirstString(infile.val));
 			}
 			// @ATTR slot_M2|point, bool : Position Locked|Position for the secondary action slot. If the slot is locked, its Power can't be changed by the player.
 			else if (infile.key == "slot_M2") {
@@ -131,35 +135,35 @@ MenuActionBar::MenuActionBar()
 				int y = Parse::popFirstInt(infile.val);
 				std::string val = Parse::popFirstString(infile.val);
 				bool is_locked = (val.empty() ? false : Parse::toBool(val));
-				addSlot(11, x, y, is_locked);
+				addSlot(11, x, y, is_locked, Parse::popFirstString(infile.val));
 			}
 
 			// @ATTR char_menu|point|Position for the Character menu button.
 			else if (infile.key == "char_menu") {
 				int x = Parse::popFirstInt(infile.val);
 				int y = Parse::popFirstInt(infile.val);
-				menus[MENU_CHARACTER]->setBasePos(x, y, Utils::ALIGN_TOPLEFT);
+				setMenuPos(MENU_CHARACTER, x, y, Parse::popFirstString(infile.val));
 				menus[MENU_CHARACTER]->pos.w = menus[MENU_CHARACTER]->pos.h = eset->resolutions.icon_size;
 			}
 			// @ATTR inv_menu|point|Position for the Inventory menu button.
 			else if (infile.key == "inv_menu") {
 				int x = Parse::popFirstInt(infile.val);
 				int y = Parse::popFirstInt(infile.val);
-				menus[MENU_INVENTORY]->setBasePos(x, y, Utils::ALIGN_TOPLEFT);
+				setMenuPos(MENU_INVENTORY, x, y, Parse::popFirstString(infile.val));
 				menus[MENU_INVENTORY]->pos.w = menus[MENU_INVENTORY]->pos.h = eset->resolutions.icon_size;
 			}
 			// @ATTR powers_menu|point|Position for the Powers menu button.
 			else if (infile.key == "powers_menu") {
 				int x = Parse::popFirstInt(infile.val);
 				int y = Parse::popFirstInt(infile.val);
-				menus[MENU_POWERS]->setBasePos(x, y, Utils::ALIGN_TOPLEFT);
+				setMenuPos(MENU_POWERS, x, y, Parse::popFirstString(infile.val));
 				menus[MENU_POWERS]->pos.w = menus[MENU_POWERS]->pos.h = eset->resolutions.icon_size;
 			}
 			// @ATTR log_menu|point|Position for the Log menu button.
 			else if (infile.key == "log_menu") {
 				int x = Parse::popFirstInt(infile.val);
 				int y = Parse::popFirstInt(infile.val);
-				menus[MENU_LOG]->setBasePos(x, y, Utils::ALIGN_TOPLEFT);
+				setMenuPos(MENU_LOG, x, y, Parse::popFirstString(infile.val));
 				menus[MENU_LOG]->pos.w = menus[MENU_LOG]->pos.h = eset->resolutions.icon_size;
 			}
 			// @ATTR tooltip_length|["short", "long_menu", "long_all"]|The length of power descriptions in tooltips. 'short' will display only the power name. 'long_menu' (the default setting) will display full tooltips, but only for powers that are in the Powers menu. 'long_all' will display full tooltips for all powers.
@@ -176,6 +180,39 @@ MenuActionBar::MenuActionBar()
 			// @ATTR powers_overlap_slots|bool|When true, the power icon is drawn on top of the empty slot graphic for any given slot. If false, the empty slot graphic will only be drawn if there's not a power in the slot. The default value is false.
 			else if (infile.key == "powers_overlap_slots") {
 				powers_overlap_slots = Parse::toBool(infile.val);
+			}
+			// @ATTR trim|bool|Random Dungeon: when false, the actionbar_trim.png background is not drawn (slots are placed freely on screen). Defaults to true.
+			else if (infile.key == "trim") {
+				show_trim = Parse::toBool(infile.val);
+			}
+			// @ATTR frame_M1|filename|Random Dungeon: image drawn centered behind the primary action slot (big attack button).
+			else if (infile.key == "frame_M1") {
+				Image *graphics = render_device->loadImage(infile.val, RenderDevice::ERROR_NORMAL);
+				if (graphics) {
+					delete sprite_frame_main1;
+	for (unsigned i=0; i<MENU_COUNT; i++)
+		delete sprite_menu_gfx[i];
+					sprite_frame_main1 = graphics->createSprite();
+					graphics->unref();
+				}
+			}
+			// @ATTR menu_gfx|["character", "inventory", "powers", "log"], filename : Menu, Image|Random Dungeon: icon drawn under a menu button (the default icons are part of the trim).
+			else if (infile.key == "menu_gfx") {
+				std::string which = Parse::popFirstString(infile.val);
+				unsigned index = MENU_COUNT;
+				if (which == "character") index = MENU_CHARACTER;
+				else if (which == "inventory") index = MENU_INVENTORY;
+				else if (which == "powers") index = MENU_POWERS;
+				else if (which == "log") index = MENU_LOG;
+				Image *graphics = (index < MENU_COUNT) ? render_device->loadImage(Parse::popFirstString(infile.val), RenderDevice::ERROR_NORMAL) : NULL;
+				if (graphics) {
+					delete sprite_menu_gfx[index];
+					sprite_menu_gfx[index] = graphics->createSprite();
+					graphics->unref();
+				}
+				else if (index >= MENU_COUNT) {
+					infile.error("MenuActionBar: '%s' is not a valid menu for menu_gfx.", which.c_str());
+				}
 			}
 			// @ATTR enable_gamepad_nav|bool|When true, the actionbar can be interacted with via the next/prev/activate menu bindings. Defaults to true.
 			else if (infile.key == "enable_gamepad_nav") {
@@ -211,14 +248,18 @@ MenuActionBar::MenuActionBar()
 	menu_act = this;
 }
 
-void MenuActionBar::addSlot(unsigned index, int x, int y, bool is_locked) {
+void MenuActionBar::addSlot(unsigned index, int x, int y, bool is_locked, const std::string& align_str) {
 	if (index >= slots.size()) {
 		labels.resize(index+1);
 		slots.resize(index+1, NULL);
+		slot_screen_aligned.resize(index+1, false);
 	}
 
+	// Random Dungeon: an optional alignment places the slot relative to the screen instead of the actionbar
+	slot_screen_aligned[index] = !align_str.empty();
+
 	slots[index] = new WidgetSlot(WidgetSlot::NO_ICON, WidgetSlot::HIGHLIGHT_NORMAL);
-	slots[index]->setBasePos(x, y, Utils::ALIGN_TOPLEFT);
+	slots[index]->setBasePos(x, y, align_str.empty() ? Utils::ALIGN_TOPLEFT : Parse::toAlignment(align_str));
 	slots[index]->pos.w = slots[index]->pos.h = eset->resolutions.icon_size;
 	slots[index]->continuous = true;
 
@@ -233,16 +274,28 @@ void MenuActionBar::addSlot(unsigned index, int x, int y, bool is_locked) {
 	tablist.add(slots[index]);
 }
 
+void MenuActionBar::setMenuPos(unsigned index, int x, int y, const std::string& align_str) {
+	menu_screen_aligned[index] = !align_str.empty();
+	menus[index]->setBasePos(x, y, align_str.empty() ? Utils::ALIGN_TOPLEFT : Parse::toAlignment(align_str));
+	menus[index]->pos.w = menus[index]->pos.h = eset->resolutions.icon_size;
+}
+
 void MenuActionBar::align() {
 	Menu::align();
 
 	for (unsigned i = 0; i < slots_count; i++) {
 		if (slots[i]) {
-			slots[i]->setPos(window_area.x, window_area.y);
+			if (slot_screen_aligned[i])
+				slots[i]->setPos(0, 0);
+			else
+				slots[i]->setPos(window_area.x, window_area.y);
 		}
 	}
 	for (unsigned i=0; i<MENU_COUNT; i++) {
-		menus[i]->setPos(window_area.x, window_area.y);
+		if (menu_screen_aligned[i])
+			menus[i]->setPos(0, 0);
+		else
+			menus[i]->setPos(window_area.x, window_area.y);
 	}
 
 	// set keybinding labels
@@ -263,7 +316,6 @@ void MenuActionBar::align() {
 		}
 	}
 	for (unsigned i=0; i<menu_labels.size(); i++) {
-		menus[i]->setPos(window_area.x, window_area.y);
 		menu_labels[i] = msg->getv("Hotkey: %s", inpt->getBindingString(i + Input::CHARACTER).c_str());
 	}
 }
@@ -306,7 +358,7 @@ void MenuActionBar::clear(bool skip_items) {
 void MenuActionBar::loadGraphics() {
 	Image *graphics;
 
-	if (!background)
+	if (!background && show_trim)
 		setBackground("images/menus/actionbar_trim.png");
 
 	Rect icon_clip;
@@ -446,6 +498,12 @@ void MenuActionBar::render() {
 
 	Menu::render();
 
+	if (sprite_frame_main1 && SLOT_MAIN1 < slots.size() && slots[SLOT_MAIN1]) {
+		const Rect& p = slots[SLOT_MAIN1]->pos;
+		sprite_frame_main1->setDest(p.x + p.w/2 - sprite_frame_main1->getGraphicsWidth()/2, p.y + p.h/2 - sprite_frame_main1->getGraphicsHeight()/2);
+		render_device->render(sprite_frame_main1);
+	}
+
 	// draw hotkeyed icons
 	for (unsigned i = 0; i < slots_count; i++) {
 		if (!slots[i]) continue;
@@ -465,6 +523,10 @@ void MenuActionBar::render() {
 	// render primary menu buttons
 	for (unsigned i=0; i<MENU_COUNT; i++) {
 		if (menus[i]->enabled) {
+			if (sprite_menu_gfx[i]) {
+				sprite_menu_gfx[i]->setDest(menus[i]->pos.x, menus[i]->pos.y);
+				render_device->render(sprite_menu_gfx[i]);
+			}
 			menus[i]->highlight = (requires_attention[i] && menus[i]->enabled && !menus[i]->in_focus);
 			menus[i]->render();
 		}
@@ -974,6 +1036,7 @@ MenuActionBar::~MenuActionBar() {
 
 	menu_act = NULL;
 	delete sprite_emptyslot;
+	delete sprite_frame_main1;
 
 	labels.clear();
 	menu_labels.clear();

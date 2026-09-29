@@ -22,6 +22,8 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Menu.h"
 #include "Utils.h"
 
+class Sprite;
+
 class MenuTouchControls : public Menu {
 private:
 	void alignInput(Point& center, const Point& center_base, const int radius, const int _align);
@@ -46,6 +48,12 @@ private:
 	int radius_padding;
 
 	float prev_touch_scale;
+
+	// Random Dungeon: joystick art (images/menus/hud/joystick*.png), resized to the move radius
+	void loadJoystick();
+	Sprite *joystick;
+	Sprite *joystick_knob;
+	int joystick_size;
 public:
 	MenuTouchControls();
 	~MenuTouchControls();

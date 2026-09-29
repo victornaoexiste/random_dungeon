@@ -45,7 +45,8 @@ class MenuActionBar : public Menu {
 private:
 	static const bool IS_EQUIPPED = true;
 
-	void addSlot(unsigned index, int x, int y, bool is_locked);
+	void addSlot(unsigned index, int x, int y, bool is_locked, const std::string& align_str);
+	void setMenuPos(unsigned index, int x, int y, const std::string& align_str);
 	void setItemCount(unsigned index, int count, bool is_equipped);
 
 	Sprite *sprite_emptyslot;
@@ -133,6 +134,13 @@ public:
 	WidgetSlot* touch_slot;
 
 	bool enable_gamepad_nav;
+
+	// Random Dungeon: slots/menu buttons placed relative to the screen (see addSlot), optional trim and attack frame
+	std::vector<bool> slot_screen_aligned;
+	bool menu_screen_aligned[MENU_COUNT];
+	bool show_trim;
+	Sprite *sprite_frame_main1;
+	Sprite *sprite_menu_gfx[MENU_COUNT];
 };
 
 #endif

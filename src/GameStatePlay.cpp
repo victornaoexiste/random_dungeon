@@ -46,6 +46,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "Hazard.h"
 #include "HazardManager.h"
 #include "HordeManager.h"
+#include "MenuHUD.h"
 #include "InputState.h"
 #include "LootManager.h"
 #include "MapRenderer.h"
@@ -926,6 +927,11 @@ void GameStatePlay::logic() {
 				pc->stats.target_nearest_corpse = NULL;
 			}
 		}
+		else {
+			horde->logic(false);
+		}
+		menu->hud->setHorde(horde->isActive(), horde->getWave(), horde->getSeconds());
+		menu->mini->hidden_by_hud = horde->isActive();
 
 		// transfer hero data to enemies, for AI use
 		if (pc->stats.get(Stats::STEALTH) > 100) entitym->hero_stealth = 100;

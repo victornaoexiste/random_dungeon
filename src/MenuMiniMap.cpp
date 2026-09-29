@@ -73,6 +73,7 @@ MenuMiniMap::MenuMiniMap()
 	, base_zoom(1)
 	, lock_zoom_change(false)
 	, clicked_config(false)
+	, hidden_by_hud(false)
 
 {
 	// Load config settings
@@ -211,7 +212,7 @@ void MenuMiniMap::logic() {
 			settings->minimap_mode = Settings::MINIMAP_NORMAL;
 	}
 
-	if (settings->minimap_mode == Settings::MINIMAP_HIDDEN)
+	if (settings->minimap_mode == Settings::MINIMAP_HIDDEN || hidden_by_hud)
 		return;
 
 	if (inpt->usingMouse()) {
@@ -243,7 +244,7 @@ void MenuMiniMap::render() {
 }
 
 void MenuMiniMap::render(const FPoint& hero_pos) {
-	if (!settings->show_hud || settings->minimap_mode == Settings::MINIMAP_HIDDEN)
+	if (!settings->show_hud || settings->minimap_mode == Settings::MINIMAP_HIDDEN || hidden_by_hud)
 		return;
 
 	Menu::render();

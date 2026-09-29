@@ -1,0 +1,4 @@
+# Random Dungeon: buffs/debuffs em coluna embaixo do retrato
+pos=12,172,0,0
+align=topleft
+vertical=true

@@ -41,6 +41,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "MenuInventory.h"
 #include "MenuLog.h"
 #include "MenuManager.h"
+#include "MenuHUD.h"
 #include "MenuMiniMap.h"
 #include "MenuNumPicker.h"
 #include "MenuPowers.h"
@@ -93,6 +94,7 @@ MenuManager::MenuManager()
 	, xp(NULL)
 	, resource_statbars()
 	, mini(NULL)
+	, hud(NULL)
 	, num_picker(NULL)
 	, enemy(NULL)
 	, vendor(NULL)
@@ -120,6 +122,7 @@ MenuManager::MenuManager()
 	talker = new MenuTalker();
 	exit = new MenuExit();
 	mini = new MenuMiniMap();
+	hud = new MenuHUD();
 	chr = new MenuCharacter();
 	inv = new MenuInventory();
 	pow = new MenuPowers();
@@ -147,6 +150,7 @@ MenuManager::MenuManager()
 	menus.push_back(act);
 	menus.push_back(enemy);
 	menus.push_back(mini);
+	menus.push_back(hud);
 	menus.push_back(region_title);
 	menus.push_back(chr);
 	menus.push_back(inv);
@@ -635,6 +639,9 @@ void MenuManager::logic() {
 	if (!exit->visible && !is_within_menus)
 		mini->logic();
 
+	if (!exit->visible && !game_over->visible && !is_within_menus)
+		hud->logic();
+
 	book->logic();
 	effects->logic();
 
@@ -763,8 +770,9 @@ void MenuManager::logic() {
 			}
 		}
 	}
-	if (mini->clicked_config) {
+	if (mini->clicked_config || hud->clicked_config) {
 		mini->clicked_config = false;
+		hud->clicked_config = false;
 		showExitMenu();
 	}
 
@@ -793,6 +801,12 @@ void MenuManager::logic() {
 
 			// check if mouse-clicking a menu button
 			act->checkMenu(clicking_character, clicking_inventory, clicking_powers, clicking_log);
+
+			// Random Dungeon: clicar no retrato do HUD abre o inventario
+			if (hud->clicked_portrait) {
+				hud->clicked_portrait = false;
+				clicking_inventory = true;
+			}
 
 			// inventory menu toggle
 			if (inv->enabled && ((inpt->pressing[Input::INVENTORY] && !key_lock && !mouse_dragging && !keyboard_dragging) || clicking_inventory)) {
@@ -2057,6 +2071,7 @@ MenuManager::~MenuManager() {
 	delete mp;
 	delete xp;
 	delete mini;
+	delete hud;
 	delete inv;
 	delete pow;
 	delete chr;

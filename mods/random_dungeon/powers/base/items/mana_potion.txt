@@ -1,0 +1,13 @@
+# Random Dungeon: sobrescreve empyrean_campaign/powers/base/items/mana_potion.txt
+# Recupera 40% da mana maxima em 1s (era 25%). So pode usar se a mana nao estiver cheia.
+type=fixed
+icon=65
+name=Mana Potion
+description=Restore 40% of maximum MP
+new_state=instant
+soundfx=soundfx/powers/potion.ogg
+requires_item=3
+cooldown=2s
+buff=true
+post_effect=mp_restore,40,1s
+requires_hpmp_state=all,ignore,0,not_percent,100

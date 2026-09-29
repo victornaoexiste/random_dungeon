@@ -1,0 +1,13 @@
+# Random Dungeon: sobrescreve empyrean_campaign/powers/base/items/health_potion.txt
+# Cura 40% da vida maxima em 1s (era 25%). So pode usar se a vida nao estiver cheia.
+type=fixed
+icon=64
+name=Health Potion
+description=Restore 40% of maximum HP
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=2
+cooldown=2s
+buff=true
+post_effect=hp_restore,40,1s
+requires_hpmp_state=all,not_percent,100,ignore,0

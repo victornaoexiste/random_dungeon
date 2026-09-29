@@ -1,0 +1,31 @@
+# Random Dungeon: action bar sem a moldura, cada slot posicionado na tela.
+# slot=indice,x,y,travado,alinhamento  (o alinhamento e extensao do Random Dungeon)
+#   1-4  itens/pocoes, embaixo a direita do centro
+#   M1   ataque principal, botao grande no canto inferior direito
+#   M2,5,6 habilidades, coluna acima do ataque
+# Botoes de menu: poderes e personagem embaixo a esquerda do centro. O inventario abre
+# pelo retrato (menus/hud.txt) e a configuracao tem botao proprio no HUD.
+
+pos=0,0,0,0
+align=topleft
+trim=false
+powers_overlap_slots=true
+frame_M1=images/menus/hud/attack_frame.png
+
+slot=1,60,-16,false,bottom
+slot=2,132,-16,false,bottom
+slot=3,204,-16,false,bottom
+slot=4,276,-16,false,bottom
+
+slot_M1=-40,-40,false,bottomright
+slot_M2=-40,-150,false,bottomright
+slot=5,-40,-226,false,bottomright
+slot=6,-40,-302,false,bottomright
+
+powers_menu=-276,-16,bottom
+char_menu=-204,-16,bottom
+
+tooltip_length=long_all
+
+menu_gfx=powers,images/menus/hud/menu_powers.png
+menu_gfx=character,images/menus/hud/menu_character.png

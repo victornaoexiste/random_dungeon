@@ -1,0 +1,14 @@
+# HUD do Random Dungeon (src/MenuHUD.cpp). Coordenadas na resolucao virtual (altura 960).
+# Layout estilo mobile: retrato no canto superior esquerdo (clicar abre o inventario),
+# onda/tempo no topo, alvo no canto superior direito, acoes embaixo e na direita.
+
+# retrato: x,y,tamanho,alinhamento -- a moldura tem 124x124 e o retrato entra no offset 6,6
+portrait=12,12,112,topleft
+portrait_frame=images/menus/hud/portrait_frame.png,6,6
+level_badge=images/menus/hud/level_badge.png,-6,-6
+
+# onda + tempo (so aparece no modo hordas)
+horde_box=images/menus/hud/horde_box.png,0,12,top
+
+# botao de configuracao, junto dos botoes de menu (actionbar.txt)
+button_config=images/menus/hud/button_config.png,-132,-16,bottom

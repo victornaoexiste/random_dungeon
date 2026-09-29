@@ -41,6 +41,7 @@ class MenuGameOver;
 class MenuHUDLog;
 class MenuInventory;
 class MenuLog;
+class MenuHUD;
 class MenuMiniMap;
 class MenuNumPicker;
 class MenuPowers;
@@ -174,6 +175,7 @@ public:
 	MenuStatBar *xp;
 	std::vector<MenuStatBar*> resource_statbars;
 	MenuMiniMap *mini;
+	MenuHUD *hud;
 	MenuNumPicker *num_picker;
 	MenuEnemy *enemy;
 	MenuVendor *vendor;

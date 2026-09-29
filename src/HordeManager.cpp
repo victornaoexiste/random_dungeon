@@ -175,7 +175,11 @@ void HordeManager::spawnGroup() {
 	Utils::logInfo("HordeManager: wave %d spawned %d/%d enemies (alive before: %d, players: %u)", wave, spawned_now, want, alive, static_cast<unsigned>(targets.size()));
 }
 
-std::vector<Entity*> HordeManager::logic() {
+float HordeManager::getSeconds() const {
+	return static_cast<float>(ticks) / static_cast<float>(settings->max_frames_per_sec);
+}
+
+std::vector<Entity*> HordeManager::logic(bool authoritative) {
 	std::vector<Entity*> removed;
 
 	if (!config_loaded)
@@ -198,6 +202,10 @@ std::vector<Entity*> HordeManager::logic() {
 	const float fps = static_cast<float>(settings->max_frames_per_sec);
 	ticks++;
 	wave = static_cast<int>(static_cast<float>(ticks) / (wave_length * fps));
+
+	// a net client only keeps the clock (wave/time on the HUD); the host spawns
+	if (!authoritative)
+		return removed;
 
 	// Corpse cleanup, so a long session doesn't keep every kill in memory forever.
 	const int corpse_ticks = static_cast<int>(corpse_seconds * fps);

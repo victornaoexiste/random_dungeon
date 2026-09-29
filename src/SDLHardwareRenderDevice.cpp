@@ -565,6 +565,22 @@ void SDLHardwareRenderDevice::blankScreen() {
 void SDLHardwareRenderDevice::commitFrame() {
 	SDL_SetRenderTarget(renderer, NULL);
 	SDL_RenderCopy(renderer, texture, NULL, NULL);
+
+	// dev: FLARE_DEV_SCREENSHOT=arquivo.png salva um print no frame FLARE_DEV_SCREENSHOT_FRAME (padrao 600)
+	static const char* shot_path = getenv("FLARE_DEV_SCREENSHOT");
+	static long shot_frame = getenv("FLARE_DEV_SCREENSHOT_FRAME") ? atol(getenv("FLARE_DEV_SCREENSHOT_FRAME")) : 600;
+	static long frame_count = 0;
+	if (shot_path && ++frame_count == shot_frame) {
+		int w, h;
+		SDL_GetRendererOutputSize(renderer, &w, &h);
+		SDL_Surface* shot = SDL_CreateRGBSurfaceWithFormat(0, w, h, 32, SDL_PIXELFORMAT_ARGB8888);
+		if (shot) {
+			SDL_RenderReadPixels(renderer, NULL, SDL_PIXELFORMAT_ARGB8888, shot->pixels, shot->pitch);
+			IMG_SavePNG(shot, shot_path);
+			SDL_FreeSurface(shot);
+		}
+	}
+
 	SDL_RenderPresent(renderer);
 	inpt->window_resized = false;
 

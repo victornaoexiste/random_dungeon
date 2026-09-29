@@ -1,0 +1,11 @@
+# Random Dungeon: barra de XP fina embaixo do retrato
+pos=12,140,124,10
+bar_pos=0,0,124,10
+bar_fill_size=118,4
+bar_fill_offset=3,3
+align=topleft
+orientation=0
+text_pos=62,14,center,top
+
+bar_gfx=images/menus/hud/bar_xp.png
+bar_gfx_background=images/menus/hud/bar_xp_background.png

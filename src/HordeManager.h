@@ -22,7 +22,8 @@ public:
 
 	// Spawns/cleans up for this tick. Returns corpses deleted this tick, so the
 	// caller can drop dangling pointers to them (compare addresses only).
-	std::vector<Entity*> logic();
+	// authoritative=false (net client): only advances the wave clock, spawns nothing
+	std::vector<Entity*> logic(bool authoritative = true);
 
 	bool isActive() const {
 		return active;
@@ -30,6 +31,7 @@ public:
 	int getWave() const {
 		return wave;
 	}
+	float getSeconds() const;
 
 private:
 	struct Tier {
