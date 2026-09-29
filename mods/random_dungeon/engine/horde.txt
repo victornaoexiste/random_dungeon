@@ -45,8 +45,8 @@ theme=family,4,1,1.1,1,1,1,,
 theme=ambush,2,3,0.9,1,0.6,0.55,,Ambush!
 theme=elite,1,5,0.35,1.2,1.4,1,rd_elite,Elite hunters!
 theme=boss,0,0,0.6,1,1.2,1,,Boss!
-# a cada N ondas, uma onda de chefe (um inimigo grande + escolta)
-boss_every=5
+# a cada N ondas, uma onda de chefe (um inimigo grande + escolta); 1 = um chefe do folclore em toda onda
+boss_every=1
 # familias para as ondas tematicas: categoria,Nome
 family=rd_sacis,Sacis
 family=rd_caveiras,Caveiras

@@ -563,6 +563,57 @@ stat_per_level=dmg_ranged_max,15
 stat_per_level=dmg_ment_min,15
 stat_per_level=dmg_ment_max,15
 """,
+    # Cuca: não chega perto; lança feitiços de longe e foge se o herói encosta
+    'cuca': """INCLUDE enemies/base/rd_cuca.txt
+stat=hp,240
+speed=3.6
+turn_delay=200ms
+chance_pursue=20
+chance_flee=60
+flee_range=4
+flee_duration=1500ms
+flee_cooldown=2s
+power=ranged,7000,60
+power=ranged,7001,20
+power=melee,7000,60
+stat=accuracy,85
+stat=avoidance,10
+stat=poise,15
+stat=absorb_min,5
+stat=absorb_max,15
+stat=dmg_ment_min,30
+stat=dmg_ment_max,42
+stat_per_level=hp,120
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_ment_min,24
+stat_per_level=dmg_ment_max,24
+cooldown=1400ms
+""",
+    # Bicho-Papão: não ataca; persegue sem parar e a aura de medo machuca pouco e deixa lento
+    'papao': """INCLUDE enemies/base/rd_papao.txt
+stat=hp,260
+speed=3.0
+turn_delay=300ms
+chance_pursue=100
+melee_range=2.5
+power=melee,7002,100
+stat=accuracy,75
+stat=avoidance,15
+stat=poise,40
+stat=absorb_min,6
+stat=absorb_max,12
+stat=dmg_ment_min,20
+stat=dmg_ment_max,26
+stat_per_level=hp,110
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_ment_min,16
+stat_per_level=dmg_ment_max,16
+cooldown=1s
+""",
 }
 DROP_KEYS = ('name', 'level', 'categories', 'rarity', 'xp', 'xp_scaling', 'loot', 'loot_count', 'animations')
 TIERS = [(3, 'rd_t1'), (6, 'rd_t2'), (9, 'rd_t3'), (12, 'rd_t4'), (15, 'rd_t5'), (99, 'rd_t6')]

@@ -78,15 +78,15 @@ SPECIES = {
                             3: dict(pattern='none', base=(32, 24, 20), dark=(20, 15, 12), belly=(44, 34, 28))},
                  durations={'run': 450, 'swing': 650, 'cast': 700, 'shoot': 700}),
     # Saci-Pererê (chefe): uma perna, gorro vermelho, cachimbo, redemoinho
-    'saci': dict(mode='biped', kind='saci', L=100, r=10, r_tail=3, head=1.0,
-                 base=(78, 50, 36), dark=(52, 33, 24), belly=(96, 64, 46), eyes=None,
-                 pattern='none', period=10, canvas=(260, 300), edge=1.4,
-                 materials={1: dict(pattern='none', base=(205, 32, 30), dark=(140, 20, 20), belly=(215, 60, 50)),
-                            2: dict(pattern='none', base=(196, 188, 160), dark=(140, 130, 110), belly=(170, 160, 135)),
-                            3: dict(pattern='none', base=(118, 76, 42), dark=(80, 50, 28), belly=(130, 90, 55)),
-                            4: dict(pattern='flat', base=(255, 236, 150), dark=(255, 236, 150), belly=(255, 236, 150)),
-                            5: dict(pattern='flat', base=(205, 205, 200), dark=(205, 205, 200), belly=(205, 205, 200)),
-                            6: dict(pattern='none', base=(176, 146, 104), dark=(130, 104, 72), belly=(190, 162, 120))},
+    'saci': dict(mode='beast', kind='saci', L=100, r=10, r_tail=3, head=1.0, hunch=6, hip=3.6, arm=3.0, spread=1.2,
+                 base=(70, 44, 34), dark=(50, 30, 24), belly=(92, 60, 46), eyes=None,
+                 pattern='none', period=10, canvas=(360, 440), edge=1.4,
+                 materials={1: dict(pattern='none', base=(184, 30, 30), dark=(120, 18, 18), belly=(210, 56, 50)),
+                            2: dict(pattern='none', base=(226, 218, 196), dark=(170, 160, 140), belly=(236, 230, 212)),
+                            3: dict(pattern='rings', period=6, base=(224, 226, 232), dark=(160, 164, 176), belly=(240, 242, 246)),
+                            4: dict(pattern='flat', base=(255, 255, 240), dark=(255, 255, 240), belly=(255, 255, 240)),
+                            5: dict(pattern='none', base=(30, 10, 10), dark=(20, 6, 6), belly=(40, 14, 14)),
+                            8: dict(pattern='none', base=(110, 74, 40), dark=(76, 50, 26), belly=(130, 90, 55))},
                  durations={'swing': 500, 'cast': 700, 'shoot': 700}),
     # Curupira (chefe): guardião da mata, cabelo de fogo e pés virados para trás
     'curupira': dict(mode='biped', kind='curupira', L=100, r=10, r_tail=3, head=1.0,
@@ -107,6 +107,15 @@ SPECIES = {
                                  4: dict(pattern='flat', base=(255, 206, 60), dark=(255, 206, 60), belly=(255, 206, 60)),
                                  5: dict(pattern='none', base=(60, 16, 20), dark=(30, 8, 10), belly=(70, 20, 24))},
                       durations={'swing': 450, 'cast': 700, 'shoot': 700}),
+    'lobisomem_lua': dict(mode='beast', kind='lobisomem', L=100, r=10, r_tail=3, head=1.0, hunch=22, hip=3.3, arm=3.0, bulk=1.15,
+                          base=(58, 56, 66), dark=(40, 38, 46), belly=(96, 94, 108), eyes=None,
+                          pattern='fur', period=10, canvas=(320, 350), edge=1.4,
+                          materials={1: dict(pattern='none', base=(120, 118, 132), dark=(80, 78, 90), belly=(150, 148, 160)),
+                                     2: dict(pattern='none', base=(236, 232, 220), dark=(180, 176, 164), belly=(246, 242, 232)),
+                                     3: dict(pattern='none', base=(60, 40, 36), dark=(40, 26, 22), belly=(76, 52, 46)),
+                                     4: dict(pattern='flat', base=(190, 230, 255), dark=(190, 230, 255), belly=(190, 230, 255)),
+                                     5: dict(pattern='none', base=(60, 16, 20), dark=(30, 8, 10), belly=(70, 20, 24))},
+                          durations={'swing': 500, 'cast': 800, 'shoot': 800}),
     # Mapinguari (chefe): gigante peludo da Amazônia, um olho só, boca na barriga, pés virados
     'mapinguari': dict(mode='beast', kind='mapinguari', L=100, r=10, r_tail=3, head=1.0, hunch=10, hip=3.2, arm=3.2, bulk=1.35,
                        base=(110, 62, 40), dark=(84, 46, 30), belly=(130, 80, 54), eyes=None,
@@ -117,13 +126,16 @@ SPECIES = {
                                   5: dict(pattern='none', base=(40, 6, 10), dark=(24, 4, 6), belly=(50, 10, 14))},
                        durations={'swing': 650, 'cast': 800, 'shoot': 800}),
     # Cuca (chefe): bruxa com cabeça de jacaré e cabelo loiro, vestido roxo, feitiço verde
-    'cuca': dict(mode='beast', kind='cuca', L=100, r=10, r_tail=3, head=1.0, hunch=14, hip=3.2, arm=2.8,
-                 base=(78, 108, 56), dark=(44, 66, 32), belly=(150, 160, 96), eyes=None,
-                 pattern='spots', period=9, canvas=(320, 360), edge=1.4, glow=(120, 255, 110),
-                 materials={1: dict(pattern='none', base=(236, 196, 84), dark=(180, 140, 50), belly=(250, 220, 120)),
+    'cuca': dict(mode='beast', kind='cuca', L=100, r=10, r_tail=3, head=1.0, hunch=24, hip=3.2, arm=2.8,
+                 base=(52, 110, 70), dark=(34, 78, 50), belly=(120, 150, 90), eyes=None,
+                 pattern='spots', period=9, canvas=(360, 420), edge=1.4, glow=(120, 255, 110),
+                 materials={1: dict(pattern='none', base=(150, 142, 172), dark=(100, 94, 124), belly=(176, 170, 196)),
+                            7: dict(pattern='none', base=(150, 168, 84), dark=(110, 124, 60), belly=(176, 190, 110)),
+                            8: dict(pattern='none', base=(96, 62, 38), dark=(64, 40, 24), belly=(116, 78, 50)),
+                            9: dict(pattern='none', base=(214, 196, 150), dark=(170, 150, 110), belly=(230, 216, 176)),
                             2: dict(pattern='none', base=(236, 230, 206), dark=(180, 170, 150), belly=(245, 240, 220)),
-                            3: dict(pattern='none', base=(92, 46, 104), dark=(56, 26, 64), belly=(116, 64, 130)),
-                            4: dict(pattern='flat', base=(255, 214, 40), dark=(255, 214, 40), belly=(255, 214, 40)),
+                            3: dict(pattern='none', base=(104, 64, 40), dark=(70, 42, 26), belly=(124, 80, 52)),
+                            4: dict(pattern='flat', base=(236, 140, 50), dark=(236, 140, 50), belly=(236, 140, 50)),
                             5: dict(pattern='none', base=(70, 14, 20), dark=(40, 8, 12), belly=(80, 20, 26)),
                             6: dict(pattern='fire', base=(170, 255, 120), dark=(30, 150, 40), belly=(230, 255, 200))},
                  durations={'swing': 550, 'cast': 800, 'shoot': 800}),
@@ -151,7 +163,7 @@ SPECIES = {
 }
 
 # tamanho na tela: os chefes precisam ser bem maiores que o herói
-SCALE = {'lobisomem': 1.3, 'mapinguari': 1.6, 'cuca': 1.6, 'papao': 1.6, 'sucuri': 1.2, 'boitata': 1.5, 'cobra_grande': 1.5, 'minhocao': 1.6, 'mula': 1.6, 'saci': 1.5, 'curupira': 1.55,
+SCALE = {'lobisomem': 1.3, 'lobisomem_lua': 1.9, 'mapinguari': 2.1, 'cuca': 2.0, 'papao': 2.0, 'sucuri': 1.2, 'boitata': 1.8, 'cobra_grande': 1.9, 'minhocao': 1.9, 'mula': 2.0, 'saci': 1.9, 'curupira': 1.95,
          'camp_fogueira': 1.7, 'camp_portal': 1.7, 'camp_altar': 2.0}
 for _n, _k in SCALE.items():
     _sp = SPECIES[_n]
@@ -813,9 +825,11 @@ def beast_pose(sp, anim, f, n):
         pose['sink'] = (1 - p) * 10.0 * u
         pose['dust'] = 1 - p
         arms['l'] = arms['r'] = (0.6, 1.5 * (1 - p))
-    if kind == 'papao':
-        legs = {'l': (0.0, 0.0), 'r': (0.0, 0.0)}   # flutua dentro da capa
+    if kind in ('papao', 'saci'):
+        legs = {'l': (0.0, 0.0), 'r': (0.0, 0.0)}   # flutua (capa / redemoinho)
         lift += 0.35 * u * (1 + math.sin(2 * math.pi * t))
+    if kind == 'saci' and anim in ('stance', 'block', 'run'):
+        arms['l'] = (0.5, 0.9 + 0.15 * breath); arms['r'] = (0.5, 0.9 - 0.15 * breath)
 
     pts = []
     sc = [0.0]
@@ -855,7 +869,7 @@ def beast_pose(sp, anim, f, n):
     bulk = sp.get('bulk', 1.0)
     leg_len = hip_z * 0.95
     # ---- pernas
-    if kind != 'papao':
+    if kind not in ('papao', 'saci'):
         for side, sgn in (('l', 1), ('r', -1)):
             da, fh = legs[side]
             if fall:
@@ -875,19 +889,46 @@ def beast_pose(sp, anim, f, n):
             for toe in (-0.25, 0.0, 0.25):
                 add(paw[0] + back * 0.35 * u, paw[1] + toe * u, paw[2] - 0.05 * u, 2, 0.12 * u, pitched=False)
     # ---- quadril e roupa
-    add(0.0, 0.0, hip_z + 0.2 * u, 0 if kind in ('lobisomem', 'mapinguari') else 3, 1.1 * u * bulk)
+    if kind == 'saci':
+        spin_t = t * 2 * math.pi * 2
+        arms_n = 4
+        for j in range(22):   # funil de vento: largo em cima, fino embaixo, faixas em espiral
+            w = j / 21
+            z = hip_z - (hip_z - lift) * w + 0.1 * u
+            rad = (1.25 - 0.85 * w) * u * bulk
+            for a_ in range(arms_n):
+                for k in range(5):
+                    ang = spin_t + a_ * 2 * math.pi / arms_n + w * 5.0 + k * 0.22
+                    sc[0] += 1
+                    pts.append((sc[0], math.cos(ang) * rad, math.sin(ang) * rad, z + lift - lift * w, 3,
+                                (0.36 - 0.14 * w) * u))
+        for k in range(6):    # fiapos de vento soltos
+            ang = spin_t * 0.7 + k * 1.05
+            for i in range(7):
+                w = i / 6
+                rr = (1.4 + 0.9 * w) * u
+                sc[0] += 1
+                pts.append((sc[0], math.cos(ang + w * 1.6) * rr, math.sin(ang + w * 1.6) * rr,
+                            lift + (0.4 + 1.6 * (k % 3) / 2 + 0.4 * w) * u, 3, (0.16 - 0.08 * w) * u))
+        for k in range(16):   # faixa vermelha na cintura
+            ang = k * 2 * math.pi / 16
+            add(math.cos(ang) * 1.05 * u * bulk, math.sin(ang) * 1.05 * u * bulk, hip_z + 0.25 * u, 1, 0.42 * u)
+        for i in range(5):    # ponta da faixa caindo de lado
+            w = i / 4
+            add(-0.3 * u - 0.3 * u * w, 1.0 * u + 0.25 * u * w, hip_z - 0.9 * u * w, 1, (0.3 - 0.12 * w) * u)
+    add(0.0, 0.0, hip_z + 0.2 * u, 0 if kind in ('lobisomem', 'mapinguari', 'saci') else 3, 1.1 * u * bulk)
     if kind == 'lobisomem':   # calça rasgada
         for sgn in (1, -1):
             add(0.1 * u, sgn * 0.7 * u, hip_z - 0.3 * u, 3, 0.66 * u)
             for k in range(3):
                 add(0.1 * u + (k - 1) * 0.35 * u, sgn * 0.75 * u, hip_z - 1.0 * u - 0.25 * u * (k % 2), 3, 0.42 * u)
     if kind in ('cuca', 'papao'):   # vestido / capa até o chão
-        top, bot = hip_z + 1.2 * u, (1.5 if kind == 'cuca' else 1.1) * u
+        top, bot = hip_z + (0.7 if kind == 'cuca' else 1.2) * u, (1.5 if kind == 'cuca' else 1.1) * u
         rows = 13
         for j in range(rows):
             w = j / (rows - 1)
             z = top + (bot - top) * w
-            rad_ring = (0.75 + (0.75 if kind == 'cuca' else 0.95) * w) * u * bulk
+            rad_ring = (0.75 + (0.35 if kind == 'cuca' else 0.95) * w) * u * bulk
             nring = 12 + 2 * j
             for k in range(nring):
                 ang = k * 2 * math.pi / nring
@@ -895,7 +936,7 @@ def beast_pose(sp, anim, f, n):
                 flut += 0.22 * u * w * max(0.0, math.sin(ang * 7 + 0.6))      # dobras do pano
                 add(math.cos(ang) * (rad_ring + flut) - 0.2 * u * w, math.sin(ang) * (rad_ring + flut),
                     z - (0.25 * u * (1 + math.sin(ang * 5 + j)) * w if kind == 'papao' else 0.0), 3,
-                    (0.62 + 0.12 * w) * u * bulk)
+                    (0.62 + 0.12 * w) * u * bulk, pitched=kind == 'papao')
         # barra rasgada: tiras pontudas penduradas
         ntat = 16
         for k in range(ntat):
@@ -913,7 +954,7 @@ def beast_pose(sp, anim, f, n):
                 q = np.array([0.95 * u, off * u, top - 0.9 * u - 0.2 * u * k])
                 add(q[0], q[1], q[2], 2, 0.2 * u)
     # ---- tronco (peito largo, barriga)
-    body_m = 3 if kind == 'papao' else 0
+    body_m = {'papao': 3, 'cuca': 7}.get(kind, 0)
     seg((0, 0, hip_z + 0.5 * u), (0.1 * u, 0, hip_z + 2.0 * u), 1.05 * u * bulk, 1.3 * u * bulk, body_m)
     chest = np.array([0.15 * u, 0.0, hip_z + 2.2 * u * (1 if kind != 'mapinguari' else 1.05)])
     for sgn in (1, -1):
@@ -925,6 +966,12 @@ def beast_pose(sp, anim, f, n):
             base = chest + np.array([-0.4 * u + 0.4 * u * math.cos(ang) * 0.2, rr * math.sin(ang), 0.55 * u + 0.2 * u * math.cos(ang)])
             tuft = np.array([-0.55 * u, 0.25 * u * math.sin(ang), 0.55 * u])
             seg(base, base + tuft, 0.42 * u, 0.12 * u, 0)
+    if kind == 'saci':   # peitoral, abdômen, ombros
+        for sgn in (1, -1):
+            add(chest[0] + 0.7 * u, sgn * 0.55 * u, chest[2] - 0.2 * u, 0, 0.66 * u)
+            add(chest[0] - 0.1 * u, sgn * 1.4 * u, chest[2] + 0.35 * u, 0, 0.7 * u)
+            for k in range(3):
+                add(1.0 * u * bulk, sgn * 0.3 * u, hip_z + (0.75 + 0.4 * k) * u, 0, 0.32 * u)
     if kind == 'mapinguari':   # boca na barriga, com dentes
         mz = hip_z + 1.15 * u
         mo = 0.35 + 0.65 * jaw
@@ -943,12 +990,24 @@ def beast_pose(sp, anim, f, n):
     for side, sgn in (('l', 1), ('r', -1)):
         fa_, up = arms[side]
         sh = chest + np.array([0.0, sgn * 1.45 * u * bulk, 0.3 * u])
-        hand = sh + np.array([fa_ * u + 0.3 * u, sgn * 0.4 * u, -arm_len * 0.85 + up * 1.9 * u])
+        hand = sh + np.array([fa_ * u + 0.3 * u, sgn * (0.4 + sp.get('spread', 0.0)) * u, -arm_len * 0.85 + up * 1.9 * u])
         elbow = joint(sh, hand, arm_len, (-0.6, sgn * 0.5, -0.3))
         am = 3 if kind == 'papao' else 0
         seg(sh, elbow, 0.55 * u * bulk, 0.42 * u * bulk, am)
         seg(elbow, hand, 0.42 * u * bulk, 0.33 * u * bulk, am if kind != 'papao' else 0)
-        add(hand[0], hand[1], hand[2], 0 if kind != 'cuca' else 0, 0.42 * u * bulk)
+        add(hand[0], hand[1], hand[2], 0, 0.42 * u * bulk)
+        if kind == 'saci':   # bíceps
+            mid = (sh + elbow) / 2
+            add(mid[0] + 0.2 * u, mid[1], mid[2], 0, 0.55 * u * bulk)
+        if kind == 'cuca' and side == 'l':   # cajado torto com nó na ponta
+            top_ = hand + np.array([0.3 * u, 0.0, 2.6 * u])
+            seg(hand + np.array([-0.2 * u, 0, -3.4 * u]), hand, 0.22 * u, 0.24 * u, 8)
+            seg(hand, top_, 0.24 * u, 0.2 * u, 8)
+            seg(top_, top_ + np.array([0.7 * u, 0, 0.5 * u]), 0.2 * u, 0.16 * u, 8)
+            seg(top_ + np.array([0.7 * u, 0, 0.5 * u]), top_ + np.array([1.0 * u, 0, -0.1 * u]), 0.16 * u, 0.1 * u, 8)
+            add(top_[0], top_[1], top_[2] + 0.1 * u, 8, 0.36 * u)
+            for k in range(3):   # penas / amuletos pendurados
+                add(top_[0] + (0.2 + 0.3 * k) * u, top_[1] + 0.2 * u, top_[2] - (0.4 + 0.25 * k) * u, 2, 0.14 * u)
         dirv = hand - elbow
         dirv /= (np.linalg.norm(dirv) + 1e-9)
         for c in (-0.28, 0.0, 0.28):
@@ -1080,7 +1139,17 @@ def beast_pose(sp, anim, f, n):
                 hadd(H + [(0.9 + 0.45 * k) * u, sgn * 0.2 * u, 0.42 * u - 0.05 * k * u], 0, 0.14 * u)
             hadd(H + [2.55 * u, sgn * 0.12 * u, 0.15 * u], 5, 0.08 * u)            # narinas
         hadd(H + [1.2 * u, 0, -0.35 * u - 0.5 * jo * u], 5, 0.3 * u)
-        # cabelo loiro comprido, caindo pelas costas
+        hseg(H + [0.3 * u, 0, -0.7 * u], H + [1.6 * u, 0, -0.6 * u - jo * u], 0.4 * u, 0.2 * u, 9)   # papo claro
+        for sgn in (1, -1):
+            hadd(H + [0.68 * u, sgn * 0.6 * u, 0.55 * u], 5, 0.09 * u)          # pupila
+        # coque grisalho no alto da cabeça, preso de qualquer jeito
+        for k, (da, db, dz, rr) in enumerate([(-0.5, 0, 1.2, 0.75), (-0.9, 0.35, 1.35, 0.55), (-0.2, -0.35, 1.45, 0.5), (-0.6, 0, 1.75, 0.5)]):
+            hadd(H + [da * u, db * u, dz * u], 1, rr * u)
+        for k in range(5):   # fios soltos arrepiados
+            ang = k * 1.3
+            root = H + np.array([-0.6 * u, 0.4 * u * math.sin(ang), 1.6 * u])
+            hseg(root, root + np.array([-0.4 * u * math.cos(ang), 0.8 * u * math.sin(ang), 0.7 * u]), 0.08 * u, 0.05 * u, 1)
+        # cabelo comprido, caindo pelas costas
         for k in range(13):
             ang = -math.pi * 0.85 + k * (math.pi * 1.7 / 12)
             root = H + np.array([-0.2 * u, 0.8 * u * math.sin(ang), 0.75 * u + 0.15 * u * math.cos(ang)])
@@ -1091,6 +1160,32 @@ def beast_pose(sp, anim, f, n):
                 frizz = 0.5 * u * w * math.sin(k * 2.3)
                 hadd(root + np.array([-0.4 * u - 1.1 * u * w, 0.5 * u * math.sin(ang) * w + sway + frizz, 0.4 * u * w - ln * u * w * w]),
                      1, (0.3 - 0.22 * w) * u)
+    elif kind == 'saci':
+        H = neck + np.array([0.35 * u, 0, 0.35 * u])
+        hadd(neck, 0, 0.6 * u)
+        hadd(H, 0, 1.0 * u)
+        hadd(H + [0.55 * u, 0, -0.45 * u], 0, 0.6 * u)                         # queixo
+        for sgn in (1, -1):
+            hadd(H + [0.85 * u, sgn * 0.36 * u, 0.15 * u], 4, 0.17 * u)          # olhos brancos acesos
+            hadd(H + [0.8 * u, sgn * 0.36 * u, 0.33 * u], 0, 0.17 * u)           # sobrancelha franzida
+        hadd(H + [1.0 * u, 0, -0.3 * u], 5, 0.14 * u)
+        # gorro vermelho comprido que se enrola na ponta
+        base = H + np.array([-0.1 * u, 0, 0.55 * u])
+        for i in range(22):   # gorro mole: sobe, dobra para trás e a ponta enrola como chama
+            w = i / 21
+            flop = math.sin(2 * math.pi * t + w * 2) * 0.3 * u * w
+            curl = max(0.0, w - 0.55) / 0.45
+            q = base + np.array([-0.6 * u * w - 1.6 * u * w * w + 0.9 * u * curl * curl,
+                                 flop, 1.9 * u * w - 0.2 * u * w * w - 1.3 * u * curl * curl])
+            hadd(q, 1, (0.85 - 0.72 * w) * u)
+        # cachimbo e fumaça
+        m = H + np.array([1.0 * u, -0.25 * u, -0.45 * u])
+        hseg(m, m + np.array([0.7 * u, -0.15 * u, -0.1 * u]), 0.1 * u, 0.1 * u, 8)
+        bowl = m + np.array([0.85 * u, -0.15 * u, 0.05 * u])
+        hadd(bowl, 8, 0.22 * u)
+        for i in range(5):
+            w = ((t * 2 + i / 5) % 1.0)
+            hadd(bowl + np.array([0.3 * u + 0.2 * u * w, -0.4 * u + 0.3 * u * math.sin(6 * w + i), (0.9 + 2.6 * w) * u]), 3, (0.08 + 0.14 * w) * u)
     elif kind == 'papao':
         H = neck + np.array([0.35 * u, 0, 0.15 * u])
         hadd(H, 3, 1.35 * u)                                                  # capuz

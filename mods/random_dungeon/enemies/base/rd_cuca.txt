@@ -1,0 +1,12 @@
+# Cuca: bruxa jacaré que ataca de longe (sprite em tools/gen_serpents.py). Sons do wyvern (chiado de réptil).
+INCLUDE enemies/base/beacon.txt
+
+sfx_attack=swing,soundfx/enemies/wyvern_phys.ogg
+sfx_attack=shoot,soundfx/enemies/wyvern_ment.ogg
+sfx_attack=cast,soundfx/enemies/wyvern_ment.ogg
+sfx_hit=soundfx/enemies/wyvern_hit.ogg
+sfx_die=soundfx/enemies/wyvern_die.ogg
+sfx_critdie=soundfx/enemies/wyvern_die.ogg
+
+melee_range=1.2
+threat_range=11.0
