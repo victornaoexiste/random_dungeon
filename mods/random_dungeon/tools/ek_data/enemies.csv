@@ -16,7 +16,7 @@ rd_orc_elite,Old Quibungo,Quibungo Velho,7,Quibungos,il_hobgoblin,empyrean_campa
 rd_orc_shooter,Quibungo Crossbowman,Quibungo Besteiro,8,Quibungos,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,shadow,normal,0.60,1.15,dark_resist:53
 rd_orc_trooper,Quibungo Raider,Quibungo Saqueador,10,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,steel,normal,0.89,0.82,dark_resist:53
 rd_orc_commander,Quibungo Chief,Quibungo Chefe,11,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,blood,elite,2.31,1.20,dark_resist:50;fire_resist:8;ice_resist:7
-rd_orc_king,Bicho-Papão,Bicho-Papão,11,Quibungos,il_hobgoblin,empyrean_campaign:hobgoblin,shadow,boss,4.00,1.50,dark_resist:50;fire_resist:8;ice_resist:7
+rd_orc_king,Bicho-Papão,Bicho-Papão,11,Quibungos,il_hobgoblin,random_dungeon:rd_papao,,boss,4.00,1.50,dark_resist:50;fire_resist:8;ice_resist:7
 rd_hobgoblin,Caipora,Caipora,8,Caiporas,il_hobgoblin,empyrean_campaign:hobgoblin,,normal,0.77,0.99,ice_resist:13;lightning_resist:7
 rd_ice_shaman,Caipora Witch,Caipora Feiticeira,10,Caiporas,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,ice,normal,0.70,0.66,dark_resist:7;fire_resist:7;ice_resist:27;lightning_resist:7
 rd_dragon_priest,Elder Caipora,Caipora Anciã,14,Caiporas,il_hobgoblin_archer,empyrean_campaign:hobgoblin_archer,crimson,normal,1.29,0.60,dark_resist:7;fire_resist:67;ice_resist:67;lightning_resist:7
@@ -48,19 +48,19 @@ rd_inori_spider,Brown Recluse,Aranha-Marrom,3,Spiders,il_antlion_hatchling,fanta
 rd_giant_spider,Caranguejeira,Caranguejeira,6,Spiders,il_antlion_hatchling,fantasycore:antlion_small,shadow,normal,0.83,1.29,dark_resist:33;lightning_resist:-10
 rd_bloodcrawler,Armadeira,Armadeira,6,Spiders,il_antlion_hatchling,fantasycore:antlion_small,blood,normal,0.63,1.21,lightning_resist:-23
 rd_monstruous_spider,Black Widow,Viúva-Negra,9,Spiders,il_antlion,fantasycore:antlion,venom,normal,0.85,1.21,dark_resist:75;lightning_resist:-10
-rd_minotaur,Lobisomem,Lobisomem,8,Lobisomens,minotaur,fantasycore:minotaur,,normal,1.07,0.91,dark_resist:23;ice_resist:23
-rd_minotaur_raider,Raider Lobisomem,Lobisomem Saqueador,9,Lobisomens,minotaur,fantasycore:minotaur,rust,normal,1.10,0.81,dark_resist:23;ice_resist:23
-rd_minotaur_oracle,Howler Lobisomem,Lobisomem Uivador,12,Lobisomens,minotaur_caster,fantasycore:minotaur,arcane,normal,1.20,0.62,dark_resist:23;ice_resist:23
-rd_minotaur_lord,Old Lobisomem,Lobisomem Velho,11,Lobisomens,minotaur,fantasycore:minotaur,gold,normal,1.41,0.89,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
-rd_minotaur_warlord,Full Moon Lobisomem,Lobisomem da Lua Cheia,13,Lobisomens,minotaur,fantasycore:minotaur,shadow,boss,2.46,1.20,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
-rd_minotaur_royal_guard,Sentinel Lobisomem,Lobisomem Sentinela,14,Lobisomens,minotaur,fantasycore:minotaur,steel,normal,1.46,0.89,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
-rd_ashen_minotaur,Grey Lobisomem,Lobisomem Cinzento,16,Lobisomens,minotaur,fantasycore:minotaur,ashen,normal,1.64,0.91,dark_resist:23;fire_resist:10;ice_resist:23;lightning_resist:7
-rd_ashen_oracle,Grey Howler,Uivador Cinzento,16,Lobisomens,minotaur_caster,fantasycore:minotaur,ashen,normal,1.44,0.68,dark_resist:23;fire_resist:10;ice_resist:23
-rd_ashen_warlord,Mapinguari,Mapinguari,18,Lobisomens,minotaur,fantasycore:minotaur,rust,boss,4.00,1.50,dark_resist:33;fire_resist:13;ice_resist:33;lightning_resist:7
+rd_minotaur,Lobisomem,Lobisomem,8,Lobisomens,minotaur,random_dungeon:rd_lobisomem,,normal,1.07,0.91,dark_resist:23;ice_resist:23
+rd_minotaur_raider,Raider Lobisomem,Lobisomem Saqueador,9,Lobisomens,minotaur,random_dungeon:rd_lobisomem,rust,normal,1.10,0.81,dark_resist:23;ice_resist:23
+rd_minotaur_oracle,Howler Lobisomem,Lobisomem Uivador,12,Lobisomens,minotaur_caster,random_dungeon:rd_lobisomem,arcane,normal,1.20,0.62,dark_resist:23;ice_resist:23
+rd_minotaur_lord,Old Lobisomem,Lobisomem Velho,11,Lobisomens,minotaur,random_dungeon:rd_lobisomem,gold,normal,1.41,0.89,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
+rd_minotaur_warlord,Full Moon Lobisomem,Lobisomem da Lua Cheia,13,Lobisomens,minotaur,random_dungeon:rd_lobisomem,shadow,boss,2.46,1.20,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
+rd_minotaur_royal_guard,Sentinel Lobisomem,Lobisomem Sentinela,14,Lobisomens,minotaur,random_dungeon:rd_lobisomem,steel,normal,1.46,0.89,dark_resist:23;fire_resist:7;ice_resist:23;lightning_resist:7
+rd_ashen_minotaur,Grey Lobisomem,Lobisomem Cinzento,16,Lobisomens,minotaur,random_dungeon:rd_lobisomem,ashen,normal,1.64,0.91,dark_resist:23;fire_resist:10;ice_resist:23;lightning_resist:7
+rd_ashen_oracle,Grey Howler,Uivador Cinzento,16,Lobisomens,minotaur_caster,random_dungeon:rd_lobisomem,ashen,normal,1.44,0.68,dark_resist:23;fire_resist:10;ice_resist:23
+rd_ashen_warlord,Mapinguari,Mapinguari,18,Lobisomens,minotaur,random_dungeon:rd_mapinguari,,boss,4.00,1.50,dark_resist:33;fire_resist:13;ice_resist:33;lightning_resist:7
 rd_abyss_demon,Tinhoso,Tinhoso,14,Devils,minotaur,fantasycore:minotaur,infernal,elite,1.80,1.78,fire_resist:75;ice_resist:-17
 rd_fire_drake,Fire Caiman,Jacaré de Fogo,10,Caimans,il_wyvern_fire,fantasycore:wyvern_fire,,normal,1.30,1.15,fire_resist:75;ice_resist:-8
 rd_ice_drake,Swamp Caiman,Jacaré do Brejo,10,Caimans,il_wyvern_ice,fantasycore:wyvern_water,,normal,1.30,1.15,fire_resist:-8;ice_resist:75
-rd_green_dragon,Cuca,Cuca,16,Caimans,il_wyvern,fantasycore:wyvern,venom,boss,4.00,1.80,dark_resist:75;fire_resist:17;ice_resist:17;lightning_resist:17
+rd_green_dragon,Cuca,Cuca,16,Caimans,il_wyvern,random_dungeon:rd_cuca,,boss,4.00,1.80,dark_resist:75;fire_resist:17;ice_resist:17;lightning_resist:17
 rd_red_dragon,Fire Cuca,Cuca de Fogo,18,Caimans,il_wyvern_fire,fantasycore:wyvern_fire,blood,boss,4.00,1.79,fire_resist:75;ice_resist:-10;lightning_resist:33
 rd_jararaca,Jararaca,Jararaca,3,Snakes,serpent,random_dungeon:rd_jararaca,,normal,0.7,1.1,poison_resist:50
 rd_sucuri,Sucuri,Sucuri,9,Snakes,serpent_big,random_dungeon:rd_sucuri,,elite,1.3,1.1,
